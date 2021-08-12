@@ -1,4 +1,4 @@
-package jp.co.altive.flutter_app_templete
+package jp.co.altive.fat
 
 import io.flutter.embedding.android.FlutterActivity
 
