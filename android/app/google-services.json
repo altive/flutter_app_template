@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1007652573613",
+    "project_id": "altive-fat",
+    "storage_bucket": "altive-fat.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1007652573613:android:7d7115fc2a21631fbb1124",
+        "android_client_info": {
+          "package_name": "jp.co.altive.fat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1007652573613-m90964utetd6985lqujfs0div2ee8cj2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_C_cr46GSb7oTlp9mXoVbTntzYqiWfaQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1007652573613-m90964utetd6985lqujfs0div2ee8cj2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
