@@ -22,6 +22,9 @@ PODS:
   - Firebase/Performance (8.3.0):
     - Firebase/CoreOnly
     - FirebasePerformance (~> 8.3.0)
+  - Firebase/RemoteConfig (8.3.0):
+    - Firebase/CoreOnly
+    - FirebaseRemoteConfig (~> 8.3.0)
   - Firebase/Storage (8.3.0):
     - Firebase/CoreOnly
     - FirebaseStorage (~> 8.3.0)
@@ -42,6 +45,10 @@ PODS:
     - Flutter
   - firebase_performance (0.7.0-7):
     - Firebase/Performance (= 8.3.0)
+    - firebase_core
+    - Flutter
+  - firebase_remote_config (0.10.0-3):
+    - Firebase/RemoteConfig (= 8.3.0)
     - firebase_core
     - Flutter
   - firebase_storage (10.0.1):
@@ -110,7 +117,7 @@ PODS:
     - GoogleUtilities/ISASwizzler (~> 7.4)
     - GoogleUtilities/MethodSwizzler (~> 7.4)
     - Protobuf (~> 3.15)
-  - FirebaseRemoteConfig (8.5.0):
+  - FirebaseRemoteConfig (8.3.0):
     - FirebaseABTesting (~> 8.0)
     - FirebaseCore (~> 8.0)
     - FirebaseInstallations (~> 8.0)
@@ -175,6 +182,7 @@ DEPENDENCIES:
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - firebase_crashlytics (from `.symlinks/plugins/firebase_crashlytics/ios`)
   - firebase_performance (from `.symlinks/plugins/firebase_performance/ios`)
+  - firebase_remote_config (from `.symlinks/plugins/firebase_remote_config/ios`)
   - firebase_storage (from `.symlinks/plugins/firebase_storage/ios`)
   - FirebaseFirestore (from `https://github.com/invertase/firestore-ios-sdk-frameworks.git`, tag `8.3.0`)
   - Flutter (from `Flutter`)
@@ -214,6 +222,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/firebase_crashlytics/ios"
   firebase_performance:
     :path: ".symlinks/plugins/firebase_performance/ios"
+  firebase_remote_config:
+    :path: ".symlinks/plugins/firebase_remote_config/ios"
   firebase_storage:
     :path: ".symlinks/plugins/firebase_storage/ios"
   FirebaseFirestore:
@@ -237,6 +247,7 @@ SPEC CHECKSUMS:
   firebase_core: 72374607c8c6f5a0adc0559e5c5bf57deda975e3
   firebase_crashlytics: f5c47b951fb9b494f2bc4212c8aa8de3ed8417cf
   firebase_performance: 944513d1813153800893023fb1b23cf536bc9be7
+  firebase_remote_config: d6a613ccdc8d2e211f235e7f4f4735d5f2713285
   firebase_storage: 0569941c22a1362f682ebef93755d8916601d22f
   FirebaseABTesting: f7cb3fbed1c5bd3e733a79d9955447be3f3b06a5
   FirebaseAnalytics: 456f2c51599870a15ded4548d1f1f7b2cabf65a7
@@ -247,7 +258,7 @@ SPEC CHECKSUMS:
   FirebaseFirestore: 190fe35f122c058493884e066acc233283519150
   FirebaseInstallations: f2bc590b291d25fb40a9a05b8281c02a881b5117
   FirebasePerformance: 3861ee8f7b2ee35fe09a54939d1db1cf24b395bc
-  FirebaseRemoteConfig: 693c1f150408e9a727daf4d8c55c7f9c29ef9ad5
+  FirebaseRemoteConfig: 648648205dc7fd546880aeafc737bc19a2543d31
   FirebaseStorage: ff380720c204593d98c3e5482e62ccfbb522f0c5
   Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
   GoogleAppMeasurement: de70802583dedceb0bca18172b345307e8f410b8

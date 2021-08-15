@@ -295,6 +295,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.7.0+7"
+  firebase_remote_config:
+    dependency: "direct main"
+    description:
+      name: firebase_remote_config
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.10.0+3"
+  firebase_remote_config_platform_interface:
+    dependency: transitive
+    description:
+      name: firebase_remote_config_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.3.0+3"
   firebase_storage:
     dependency: "direct main"
     description:
