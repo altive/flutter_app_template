@@ -19,10 +19,12 @@ dependencies:
   shared_preferences: ^2.0.6
 
 dev_dependencies:
+  build_runner: ^2.1.1
   flutter_lints: ^1.0.4
   flutter_test:
     sdk: flutter
   freezed: ^0.14.2
+  json_serializable: ^4.1.4
 
 flutter:
   uses-material-design: true
