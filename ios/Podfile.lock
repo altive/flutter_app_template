@@ -1,4 +1,8 @@
 PODS:
+  - cloud_firestore (2.4.0):
+    - Firebase/Firestore (= 8.3.0)
+    - firebase_core
+    - Flutter
   - Firebase/Analytics (8.3.0):
     - Firebase/Core
   - Firebase/Auth (8.3.0):
@@ -9,6 +13,9 @@ PODS:
     - FirebaseAnalytics (~> 8.3.0)
   - Firebase/CoreOnly (8.3.0):
     - FirebaseCore (= 8.3.0)
+  - Firebase/Firestore (8.3.0):
+    - Firebase/CoreOnly
+    - FirebaseFirestore (~> 8.3.0)
   - firebase_analytics (8.2.0):
     - Firebase/Analytics (= 8.3.0)
     - firebase_core
@@ -113,6 +120,7 @@ PODS:
     - Flutter
 
 DEPENDENCIES:
+  - cloud_firestore (from `.symlinks/plugins/cloud_firestore/ios`)
   - firebase_analytics (from `.symlinks/plugins/firebase_analytics/ios`)
   - firebase_auth (from `.symlinks/plugins/firebase_auth/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
@@ -136,6 +144,8 @@ SPEC REPOS:
     - PromisesObjC
 
 EXTERNAL SOURCES:
+  cloud_firestore:
+    :path: ".symlinks/plugins/cloud_firestore/ios"
   firebase_analytics:
     :path: ".symlinks/plugins/firebase_analytics/ios"
   firebase_auth:
@@ -156,6 +166,7 @@ CHECKOUT OPTIONS:
     :tag: 8.3.0
 
 SPEC CHECKSUMS:
+  cloud_firestore: d6c77e2b33f00576fed2b070fec1be58d7e5f276
   Firebase: 817b9171d0d51dccc458b94a5e8edff6b1dd323d
   firebase_analytics: 25a03006c041a3be10bbd8e7313f87f59b9857bf
   firebase_auth: 3b08d67bda60758347d15584fd0a7a4cf5f6496f
