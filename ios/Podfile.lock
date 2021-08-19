@@ -19,6 +19,9 @@ PODS:
   - Firebase/Firestore (8.3.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (~> 8.3.0)
+  - Firebase/Messaging (8.3.0):
+    - Firebase/CoreOnly
+    - FirebaseMessaging (~> 8.3.0)
   - Firebase/Performance (8.3.0):
     - Firebase/CoreOnly
     - FirebasePerformance (~> 8.3.0)
@@ -41,6 +44,10 @@ PODS:
     - Flutter
   - firebase_crashlytics (2.1.1):
     - Firebase/Crashlytics (= 8.3.0)
+    - firebase_core
+    - Flutter
+  - firebase_messaging (10.0.4):
+    - Firebase/Messaging (= 8.3.0)
     - firebase_core
     - Flutter
   - firebase_performance (0.7.0-7):
@@ -108,6 +115,13 @@ PODS:
     - GoogleUtilities/Environment (~> 7.4)
     - GoogleUtilities/UserDefaults (~> 7.4)
     - PromisesObjC (< 3.0, >= 1.2)
+  - FirebaseMessaging (8.3.0):
+    - FirebaseCore (~> 8.0)
+    - FirebaseInstallations (~> 8.0)
+    - GoogleUtilities/AppDelegateSwizzler (~> 7.4)
+    - GoogleUtilities/Environment (~> 7.4)
+    - GoogleUtilities/Reachability (~> 7.4)
+    - GoogleUtilities/UserDefaults (~> 7.4)
   - FirebasePerformance (8.3.0):
     - FirebaseCore (~> 8.0)
     - FirebaseInstallations (~> 8.0)
@@ -177,10 +191,12 @@ PODS:
 
 DEPENDENCIES:
   - cloud_firestore (from `.symlinks/plugins/cloud_firestore/ios`)
+  - Firebase/Messaging
   - firebase_analytics (from `.symlinks/plugins/firebase_analytics/ios`)
   - firebase_auth (from `.symlinks/plugins/firebase_auth/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
   - firebase_crashlytics (from `.symlinks/plugins/firebase_crashlytics/ios`)
+  - firebase_messaging (from `.symlinks/plugins/firebase_messaging/ios`)
   - firebase_performance (from `.symlinks/plugins/firebase_performance/ios`)
   - firebase_remote_config (from `.symlinks/plugins/firebase_remote_config/ios`)
   - firebase_storage (from `.symlinks/plugins/firebase_storage/ios`)
@@ -198,6 +214,7 @@ SPEC REPOS:
     - FirebaseCoreDiagnostics
     - FirebaseCrashlytics
     - FirebaseInstallations
+    - FirebaseMessaging
     - FirebasePerformance
     - FirebaseRemoteConfig
     - FirebaseStorage
@@ -220,6 +237,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/firebase_core/ios"
   firebase_crashlytics:
     :path: ".symlinks/plugins/firebase_crashlytics/ios"
+  firebase_messaging:
+    :path: ".symlinks/plugins/firebase_messaging/ios"
   firebase_performance:
     :path: ".symlinks/plugins/firebase_performance/ios"
   firebase_remote_config:
@@ -246,6 +265,7 @@ SPEC CHECKSUMS:
   firebase_auth: 3b08d67bda60758347d15584fd0a7a4cf5f6496f
   firebase_core: 72374607c8c6f5a0adc0559e5c5bf57deda975e3
   firebase_crashlytics: f5c47b951fb9b494f2bc4212c8aa8de3ed8417cf
+  firebase_messaging: 55c5b8184efd330b9d1f1765b55c4ae57e015c5e
   firebase_performance: 944513d1813153800893023fb1b23cf536bc9be7
   firebase_remote_config: d6a613ccdc8d2e211f235e7f4f4735d5f2713285
   firebase_storage: 0569941c22a1362f682ebef93755d8916601d22f
@@ -257,6 +277,7 @@ SPEC CHECKSUMS:
   FirebaseCrashlytics: 3d83f2e8a47f476f47c82ff4536b169df6781271
   FirebaseFirestore: 190fe35f122c058493884e066acc233283519150
   FirebaseInstallations: f2bc590b291d25fb40a9a05b8281c02a881b5117
+  FirebaseMessaging: 42252b79b860482021483748669ec32e22196462
   FirebasePerformance: 3861ee8f7b2ee35fe09a54939d1db1cf24b395bc
   FirebaseRemoteConfig: 648648205dc7fd546880aeafc737bc19a2543d31
   FirebaseStorage: ff380720c204593d98c3e5482e62ccfbb522f0c5
@@ -270,6 +291,6 @@ SPEC CHECKSUMS:
   Protobuf: 7327d4444215b5f18e560a97f879ff5503c4581c
   shared_preferences: af6bfa751691cdc24be3045c43ec037377ada40d
 
-PODFILE CHECKSUM: 28ae1454771f448ef0121786e7bce8a9dee33190
+PODFILE CHECKSUM: db1fc3bdfec02bc147892341ffc987b1cb84b29d
 
 COCOAPODS: 1.10.2

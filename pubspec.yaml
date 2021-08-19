@@ -12,6 +12,7 @@ dependencies:
   firebase_auth: ^3.0.1
   firebase_core: ^1.4.0
   firebase_crashlytics: ^2.1.1
+  firebase_messaging: ^10.0.4
   firebase_performance: ^0.7.0+7
   firebase_remote_config: ^0.10.0+3
   firebase_storage: ^10.0.1

@@ -32,6 +32,7 @@
   <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-analytics.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-auth.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-messaging.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.6.1/firebase-storage.js"></script>
   <script>
     var firebaseConfig = {
@@ -46,6 +47,14 @@
     };
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
+  </script>
+  <!-- Cloud Messaging -->
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("/firebase-messaging-sw.js");
+      });
+    }
   </script>
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
