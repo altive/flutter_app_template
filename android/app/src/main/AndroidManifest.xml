@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="jp.co.altive.fat">
    <application
-        android:label="flutter_app_templete"
+        android:label="flutter_app_template"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"

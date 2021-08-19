@@ -5,12 +5,12 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "flutter_app_templete",
+            "name": "flutter_app_template",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "flutter_app_templete (profile mode)",
+            "name": "flutter_app_template (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
