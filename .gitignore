@@ -75,6 +75,7 @@ unlinked_spec.ds
 **/android/.settings
 **/android/.project
 **/android/service-account.json
+**/android/app/google-services.json
 *.jks
 *.keystore
 
