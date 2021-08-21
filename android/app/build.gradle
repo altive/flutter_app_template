@@ -57,7 +57,6 @@ android {
     }
 
     defaultConfig {
-        applicationId "jp.co.altive.fat"
         if (dartEnvironmentVariables.FLAVOR != 'prod') {
             applicationIdSuffix "." + dartEnvironmentVariables.FLAVOR
         }
@@ -66,7 +65,7 @@ android {
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         multiDexEnabled true // For Firebase.
-        resValue "string", "app_name", "Flutter App Template" + 
+        resValue "string", "app_name", "FlutterAT" + 
             (dartEnvironmentVariables.FLAVOR == 'prod' ? '' : " (${dartEnvironmentVariables.FLAVOR})")
     }
 
