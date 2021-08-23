@@ -28,7 +28,7 @@ jobs:
         run: make analyze
 
       - name: Format lib files
-        run: make format-dry-run
+        run: make format-dry-exit-if-changed
 
       - name: Run unit tests
         run: make unit-test
