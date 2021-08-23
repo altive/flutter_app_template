@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "502626918852",
+    "project_id": "flutter-app-template-stg",
+    "storage_bucket": "flutter-app-template-stg.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:502626918852:android:f7e395467b0e3e5bdfc491",
+        "android_client_info": {
+          "package_name": "jp.co.altive.fat.stg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "502626918852-tmmj3bcm7vmb4ndtjsrgf5nvduufkiqm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVr6vUwFGl-ylsKQWahGWEomYygqal8WY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "502626918852-tmmj3bcm7vmb4ndtjsrgf5nvduufkiqm.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "502626918852-9h1ius8m1asenmeu9a770orn23jsmbh1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "jp.co.altive.fat.stg"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

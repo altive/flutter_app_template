@@ -21,6 +21,28 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
+// Dart-Defines.
+def dartEnvironmentVariables = [:];
+if (project.hasProperty('dart-defines')) {
+    dartEnvironmentVariables = dartEnvironmentVariables + project.property('dart-defines')
+        .split(',')
+        .collectEntries { entry ->
+            def pair = new String(entry.decodeBase64(), 'UTF-8').split('=')
+            [(pair.first()): pair.last()]
+        }
+}
+
+task selectGoogleServicesJson(type: Copy) {
+    from "src/${dartEnvironmentVariables.FLAVOR}/google-services.json"
+    into './'
+}
+
+tasks.whenTaskAdded { task ->
+    if (task.name == 'processDebugGoogleServices' || task.name == 'processReleaseGoogleServices') {
+        task.dependsOn selectGoogleServicesJson
+    }
+}
+
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
@@ -33,12 +55,16 @@ android {
     }
 
     defaultConfig {
-        applicationId "jp.co.altive.fat"
+        if (dartEnvironmentVariables.FLAVOR != 'prod') {
+            applicationIdSuffix ".${dartEnvironmentVariables.FLAVOR}"
+        }
         minSdkVersion 16
         targetSdkVersion 30
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         multiDexEnabled true // For Firebase.
+        resValue "string", "app_name", "FlutterAT" + 
+            (dartEnvironmentVariables.FLAVOR == 'prod' ? '' : ".${dartEnvironmentVariables.FLAVOR}")
     }
 
     buildTypes {
