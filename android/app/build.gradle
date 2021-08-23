@@ -21,10 +21,8 @@ if (flutterVersionName == null) {
     flutterVersionName = '1.0'
 }
 
-// Dart-Define Default values.
-def dartEnvironmentVariables = [
-    FLAVOR: null
-];
+// Dart-Defines.
+def dartEnvironmentVariables = [:];
 if (project.hasProperty('dart-defines')) {
     dartEnvironmentVariables = dartEnvironmentVariables + project.property('dart-defines')
         .split(',')
@@ -58,7 +56,7 @@ android {
 
     defaultConfig {
         if (dartEnvironmentVariables.FLAVOR != 'prod') {
-            applicationIdSuffix "." + dartEnvironmentVariables.FLAVOR
+            applicationIdSuffix ".${dartEnvironmentVariables.FLAVOR}"
         }
         minSdkVersion 16
         targetSdkVersion 30
@@ -66,7 +64,7 @@ android {
         versionName flutterVersionName
         multiDexEnabled true // For Firebase.
         resValue "string", "app_name", "FlutterAT" + 
-            (dartEnvironmentVariables.FLAVOR == 'prod' ? '' : " (${dartEnvironmentVariables.FLAVOR})")
+            (dartEnvironmentVariables.FLAVOR == 'prod' ? '' : ".${dartEnvironmentVariables.FLAVOR}")
     }
 
     buildTypes {
