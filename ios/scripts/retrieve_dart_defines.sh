@@ -19,9 +19,12 @@ do
     if [ $(echo $item | grep 'FLAVOR') ] ; then
         # XCConfigファイルに書き込み
         echo $item >> $OUTPUT_FILE
+        # FLAVORの値
+        value=${item#*=}
+        # AppIcon用Suffix
+        echo ICON_SUFFIX=-${value} >> $OUTPUT_FILE
         # Production環境以外の場合にBundle IDのSuffixを設定する
         if [ $(echo $item | grep -v 'prod') ] ; then
-            value=${item#*=}
             echo FLAVOR_SUFFIX=.${value} >> $OUTPUT_FILE
         fi
     fi

@@ -42,3 +42,7 @@ build-runner-watch:
 .PHONY: unit-test
 unit-test:
 	fvm flutter test --coverage
+
+.PHONY: generate-icons
+generate-icons:
+	fvm flutter pub run flutter_launcher_icons:main
