@@ -76,6 +76,7 @@ unlinked_spec.ds
 **/android/.project
 **/android/service-account.json
 **/android/app/google-services.json
+**/android/app/src/main/res/mipmap*/
 *.jks
 *.keystore
 
