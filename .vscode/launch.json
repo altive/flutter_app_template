@@ -29,6 +29,33 @@
             ]
         },
         {
+            "name": "Run dev release",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--release",
+                "--dart-define=FLAVOR=dev"
+            ]
+        },
+        {
+            "name": "Run stg release",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--release",
+                "--dart-define=FLAVOR=stg"
+            ]
+        },
+        {
+            "name": "Run prod release",
+            "request": "launch",
+            "type": "dart",
+            "args": [
+                "--release",
+                "--dart-define=FLAVOR=prod"
+            ]
+        },
+        {
             "name": "Run dev (profile mode)",
             "request": "launch",
             "type": "dart",
