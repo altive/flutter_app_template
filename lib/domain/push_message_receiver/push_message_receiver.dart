@@ -1,8 +1,11 @@
+import 'package:flutter/material.dart';
+
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../commons/providers/firebase_messaging_provider.dart';
 import '../../commons/providers/firestore_provider.dart';
+import '../../commons/providers/navigator_key_provider.dart';
 
 final pushMessageReceiverProvider = Provider<PushMessageReceiver>((ref) {
   return PushMessageReceiver(ref.read);
@@ -30,8 +33,14 @@ class PushMessageReceiver {
 
   /// Foreground messages.
   Future<void> handleMessage(RemoteMessage message) async {
-    if (message.notification != null) {
-      // Has notification.
+    final notification = message.notification;
+    if (notification != null) {
+      ScaffoldMessenger.of(_read(navigatorKeyProvider).currentContext!)
+          .showSnackBar(
+        SnackBar(
+          content: Text('${notification.title ?? ''} ${notification.body}'),
+        ),
+      );
     }
   }
 

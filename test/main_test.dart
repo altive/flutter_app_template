@@ -1,5 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('', (tester) async {});
+  testWidgets('', (tester) async {
+    expect(true, true);
+  });
 }
