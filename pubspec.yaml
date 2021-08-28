@@ -26,17 +26,22 @@ dependencies:
 
 dev_dependencies:
   build_runner: ^2.1.1
+  dart_code_metrics: ^4.1.0
   flutter_launcher_icons: ^0.9.2
   flutter_lints: ^1.0.4
   flutter_test:
     sdk: flutter
   freezed: ^0.14.2
+  import_sorter: ^4.6.0
   json_serializable: ^4.1.4
 
 flutter_icons:
   android: true
   ios: true
     
+import_sorter:
+  comments: false
+
 flutter:
   uses-material-design: true
 
