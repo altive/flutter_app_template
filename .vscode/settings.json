@@ -1,0 +1,32 @@
+{
+	// Causes the debug view to automatically appear when a breakpoint is hit. This
+	// setting is global and not configurable per-language.
+	"debug.openDebug": "openOnDebugBreak",
+
+	"[dart]": {
+		// Auto fortmat. with (like `;` and `}`).
+		"editor.formatOnSave": true,
+		"editor.formatOnType": true,
+		"editor.rulers": [
+			80
+		],
+		"editor.selectionHighlight": false,
+		"editor.suggest.snippetsPreventQuickSuggestions": false,
+		"editor.suggestSelection": "first",
+		"editor.tabCompletion": "onlySnippets",
+		"editor.wordBasedSuggestions": false
+	},
+	"dart.debugExternalLibraries": false,
+	"dart.debugSdkLibraries": false,
+	"editor.minimap.enabled": false,
+	"editor.renderWhitespace": "all",
+	"editor.renderControlCharacters": true,
+	"dart.showSkippedTests": true,
+	"git.autofetch": true,
+	"explorer.confirmDragAndDrop": false,
+	"remoteHub.search.download.enabled": true,
+	"workbench.colorTheme": "Default Dark+",
+	"git.enableSmartCommit": true,
+	// for fvm
+	"dart.flutterSdkPath": ".fvm/flutter_sdk"
+}
