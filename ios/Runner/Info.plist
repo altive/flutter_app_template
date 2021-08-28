@@ -11,9 +11,9 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>FAT$(FLAVOR_SUFFIX)</string>
+	<string>FAT$(APP_ID_SUFFIX)</string>
 	<key>CFBundleDisplayName</key>
-	<string>FlutterAT$(FLAVOR_SUFFIX)</string>
+	<string>FlutterAT$(APP_ID_SUFFIX)</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
