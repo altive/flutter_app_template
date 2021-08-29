@@ -3,15 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:routemaster/routemaster.dart';
 
-import 'app_info_page/app_info_page.dart';
-import 'home_page/home_page.dart';
-import 'not_found_page/not_found_page.dart';
-import 'settings_page/settings_page.dart';
-import 'tab_scaffold_page/tab_scaffold_page.dart';
+import '../app_info_page/app_info_page.dart';
+import '../home_page/home_page.dart';
+import '../not_found_page/not_found_page.dart';
+import '../settings_page/settings_page.dart';
+import '../tab_scaffold_page/tab_scaffold_page.dart';
+import 'general_route_observer.dart';
 
 final routemasterProvider = Provider(
   (ref) => RoutemasterDelegate(
-    observers: [RouteObserver()],
+    observers: [GeneralRouteObserver()],
     routesBuilder: (_) => routes,
   ),
 );
@@ -30,11 +31,3 @@ final routes = RouteMap(
     '/settings': (route) => const MaterialPage<void>(child: SettingsPage()),
   },
 );
-
-class RouteObserver extends RoutemasterObserver {
-  @override
-  void didChangeRoute(RouteData routeData, Page<Object?> page) {
-    super.didChangeRoute(routeData, page);
-    debugPrint(page.name);
-  }
-}

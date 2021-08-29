@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:routemaster/routemaster.dart';
 
-import 'route.dart';
+import 'route/route.dart';
 
 class App extends ConsumerWidget {
   const App({Key? key}) : super(key: key);
