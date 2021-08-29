@@ -5,6 +5,7 @@ import 'package:routemaster/routemaster.dart';
 
 import 'app_info_page/app_info_page.dart';
 import 'home_page/home_page.dart';
+import 'not_found_page/not_found_page.dart';
 import 'settings_page/settings_page.dart';
 import 'tab_scaffold_page/tab_scaffold_page.dart';
 
@@ -16,6 +17,9 @@ final routemasterProvider = Provider(
 );
 
 final routes = RouteMap(
+  onUnknownRoute: (path) {
+    return MaterialPage<void>(child: NotFoundPage(path));
+  },
   routes: {
     '/': (route) => const CupertinoTabPage(
           child: TabScaffoldPage(),

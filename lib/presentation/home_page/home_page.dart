@@ -19,6 +19,10 @@ class HomePage extends StatelessWidget {
               onTap: () => Routemaster.of(context).push('app-info'),
               title: const Text('App Info'),
             ),
+            ListTile(
+              onTap: () => Routemaster.of(context).push('hello-world'),
+              title: const Text('To 404'),
+            ),
           ],
         ),
       ),
