@@ -22,6 +22,7 @@ dependencies:
   freezed_annotation: ^0.14.2
   hooks_riverpod: ^1.0.0-dev.6
   package_info_plus: ^1.0.5
+  routemaster: ^0.9.5
   shared_preferences: ^2.0.6
 
 dev_dependencies:
