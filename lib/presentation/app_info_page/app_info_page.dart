@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:routemaster/routemaster.dart';
 
 import '../../commons/providers/flavor_provider.dart';
 import '../../commons/providers/package_info_provider.dart';
@@ -16,7 +18,7 @@ class AppInfoPage extends HookConsumerWidget {
     final packageInfo = ref.watch(packageInfoProvider);
     return Scaffold(
       appBar: AppBar(
-        title: const Text('設定'),
+        title: Text(Routemaster.of(context).currentRoute.fullPath),
       ),
       body: SafeArea(
         child: Padding(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:routemaster/routemaster.dart';
 
 class HomePage extends StatelessWidget {
@@ -8,7 +9,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home'),
+        title: Text(Routemaster.of(context).currentRoute.fullPath),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
