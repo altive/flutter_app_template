@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:gap/gap.dart';
 import 'package:routemaster/routemaster.dart';
 
 class NotFoundPage extends StatelessWidget {
@@ -20,9 +21,9 @@ class NotFoundPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text('Sorry...'),
-            const SizedBox(height: 32),
+            const Gap(32),
             Text(_path, style: Theme.of(context).textTheme.headline6),
-            const SizedBox(height: 32),
+            const Gap(32),
             const Text('is not found.'),
             Center(
               child: ElevatedButton(

@@ -20,7 +20,7 @@ class TabScaffoldPage extends StatelessWidget {
             BottomNavigationBarItem(
               icon: Icon(tab.iconData),
               label: tab.label,
-            )
+            ),
         ],
       ),
     );

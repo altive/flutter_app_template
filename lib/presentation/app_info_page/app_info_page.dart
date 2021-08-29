@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:routemaster/routemaster.dart';
 
@@ -31,13 +32,13 @@ class AppInfoPage extends HookConsumerWidget {
               const Text('Developed by Ryunosuke Muramatsu.'),
               const Divider(height: 56),
               Center(child: Text('App Info', style: textTheme.headline2)),
-              const SizedBox(height: 16),
+              const Gap(16),
               Text('Flavor', style: textTheme.headline3),
               Text(flavor.value),
-              const SizedBox(height: 32),
+              const Gap(32),
               Text('App name', style: textTheme.headline4),
               Text(packageInfo.appName),
-              const SizedBox(height: 32),
+              const Gap(32),
               Text('Package name', style: textTheme.headline4),
               Text(packageInfo.packageName),
               const Divider(height: 56),
