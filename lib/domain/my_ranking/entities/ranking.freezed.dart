@@ -1,0 +1,330 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+
+part of 'ranking.dart';
+
+// **************************************************************************
+// FreezedGenerator
+// **************************************************************************
+
+T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
+Ranking _$RankingFromJson(Map<String, dynamic> json) {
+  return _Ranking.fromJson(json);
+}
+
+/// @nodoc
+class _$RankingTearOff {
+  const _$RankingTearOff();
+
+  _Ranking call(
+      {@TimestampConverter() required DateTime createdAt,
+      @TimestampConverter() required DateTime updatedAt,
+      String title = '',
+      String comment = '',
+      String? imageUrl,
+      String? thumbnailUrl}) {
+    return _Ranking(
+      createdAt: createdAt,
+      updatedAt: updatedAt,
+      title: title,
+      comment: comment,
+      imageUrl: imageUrl,
+      thumbnailUrl: thumbnailUrl,
+    );
+  }
+
+  Ranking fromJson(Map<String, Object> json) {
+    return Ranking.fromJson(json);
+  }
+}
+
+/// @nodoc
+const $Ranking = _$RankingTearOff();
+
+/// @nodoc
+mixin _$Ranking {
+  @TimestampConverter()
+  DateTime get createdAt => throw _privateConstructorUsedError;
+  @TimestampConverter()
+  DateTime get updatedAt => throw _privateConstructorUsedError;
+
+  /// ランキングタイトル
+  String get title => throw _privateConstructorUsedError;
+
+  /// ランキングに対するコメント
+  String get comment => throw _privateConstructorUsedError;
+
+  /// ランキングの画像
+  String? get imageUrl => throw _privateConstructorUsedError;
+
+  /// ランキングのサムネイル画像
+  String? get thumbnailUrl => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $RankingCopyWith<Ranking> get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $RankingCopyWith<$Res> {
+  factory $RankingCopyWith(Ranking value, $Res Function(Ranking) then) =
+      _$RankingCopyWithImpl<$Res>;
+  $Res call(
+      {@TimestampConverter() DateTime createdAt,
+      @TimestampConverter() DateTime updatedAt,
+      String title,
+      String comment,
+      String? imageUrl,
+      String? thumbnailUrl});
+}
+
+/// @nodoc
+class _$RankingCopyWithImpl<$Res> implements $RankingCopyWith<$Res> {
+  _$RankingCopyWithImpl(this._value, this._then);
+
+  final Ranking _value;
+  // ignore: unused_field
+  final $Res Function(Ranking) _then;
+
+  @override
+  $Res call({
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
+    Object? title = freezed,
+    Object? comment = freezed,
+    Object? imageUrl = freezed,
+    Object? thumbnailUrl = freezed,
+  }) {
+    return _then(_value.copyWith(
+      createdAt: createdAt == freezed
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      updatedAt: updatedAt == freezed
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      comment: comment == freezed
+          ? _value.comment
+          : comment // ignore: cast_nullable_to_non_nullable
+              as String,
+      imageUrl: imageUrl == freezed
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      thumbnailUrl: thumbnailUrl == freezed
+          ? _value.thumbnailUrl
+          : thumbnailUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$RankingCopyWith<$Res> implements $RankingCopyWith<$Res> {
+  factory _$RankingCopyWith(_Ranking value, $Res Function(_Ranking) then) =
+      __$RankingCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {@TimestampConverter() DateTime createdAt,
+      @TimestampConverter() DateTime updatedAt,
+      String title,
+      String comment,
+      String? imageUrl,
+      String? thumbnailUrl});
+}
+
+/// @nodoc
+class __$RankingCopyWithImpl<$Res> extends _$RankingCopyWithImpl<$Res>
+    implements _$RankingCopyWith<$Res> {
+  __$RankingCopyWithImpl(_Ranking _value, $Res Function(_Ranking) _then)
+      : super(_value, (v) => _then(v as _Ranking));
+
+  @override
+  _Ranking get _value => super._value as _Ranking;
+
+  @override
+  $Res call({
+    Object? createdAt = freezed,
+    Object? updatedAt = freezed,
+    Object? title = freezed,
+    Object? comment = freezed,
+    Object? imageUrl = freezed,
+    Object? thumbnailUrl = freezed,
+  }) {
+    return _then(_Ranking(
+      createdAt: createdAt == freezed
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      updatedAt: updatedAt == freezed
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      title: title == freezed
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      comment: comment == freezed
+          ? _value.comment
+          : comment // ignore: cast_nullable_to_non_nullable
+              as String,
+      imageUrl: imageUrl == freezed
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+      thumbnailUrl: thumbnailUrl == freezed
+          ? _value.thumbnailUrl
+          : thumbnailUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_Ranking with DiagnosticableTreeMixin implements _Ranking {
+  const _$_Ranking(
+      {@TimestampConverter() required this.createdAt,
+      @TimestampConverter() required this.updatedAt,
+      this.title = '',
+      this.comment = '',
+      this.imageUrl,
+      this.thumbnailUrl});
+
+  factory _$_Ranking.fromJson(Map<String, dynamic> json) =>
+      _$_$_RankingFromJson(json);
+
+  @override
+  @TimestampConverter()
+  final DateTime createdAt;
+  @override
+  @TimestampConverter()
+  final DateTime updatedAt;
+  @JsonKey(defaultValue: '')
+  @override
+
+  /// ランキングタイトル
+  final String title;
+  @JsonKey(defaultValue: '')
+  @override
+
+  /// ランキングに対するコメント
+  final String comment;
+  @override
+
+  /// ランキングの画像
+  final String? imageUrl;
+  @override
+
+  /// ランキングのサムネイル画像
+  final String? thumbnailUrl;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'Ranking(createdAt: $createdAt, updatedAt: $updatedAt, title: $title, comment: $comment, imageUrl: $imageUrl, thumbnailUrl: $thumbnailUrl)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'Ranking'))
+      ..add(DiagnosticsProperty('createdAt', createdAt))
+      ..add(DiagnosticsProperty('updatedAt', updatedAt))
+      ..add(DiagnosticsProperty('title', title))
+      ..add(DiagnosticsProperty('comment', comment))
+      ..add(DiagnosticsProperty('imageUrl', imageUrl))
+      ..add(DiagnosticsProperty('thumbnailUrl', thumbnailUrl));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other is _Ranking &&
+            (identical(other.createdAt, createdAt) ||
+                const DeepCollectionEquality()
+                    .equals(other.createdAt, createdAt)) &&
+            (identical(other.updatedAt, updatedAt) ||
+                const DeepCollectionEquality()
+                    .equals(other.updatedAt, updatedAt)) &&
+            (identical(other.title, title) ||
+                const DeepCollectionEquality().equals(other.title, title)) &&
+            (identical(other.comment, comment) ||
+                const DeepCollectionEquality()
+                    .equals(other.comment, comment)) &&
+            (identical(other.imageUrl, imageUrl) ||
+                const DeepCollectionEquality()
+                    .equals(other.imageUrl, imageUrl)) &&
+            (identical(other.thumbnailUrl, thumbnailUrl) ||
+                const DeepCollectionEquality()
+                    .equals(other.thumbnailUrl, thumbnailUrl)));
+  }
+
+  @override
+  int get hashCode =>
+      runtimeType.hashCode ^
+      const DeepCollectionEquality().hash(createdAt) ^
+      const DeepCollectionEquality().hash(updatedAt) ^
+      const DeepCollectionEquality().hash(title) ^
+      const DeepCollectionEquality().hash(comment) ^
+      const DeepCollectionEquality().hash(imageUrl) ^
+      const DeepCollectionEquality().hash(thumbnailUrl);
+
+  @JsonKey(ignore: true)
+  @override
+  _$RankingCopyWith<_Ranking> get copyWith =>
+      __$RankingCopyWithImpl<_Ranking>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$_$_RankingToJson(this);
+  }
+}
+
+abstract class _Ranking implements Ranking {
+  const factory _Ranking(
+      {@TimestampConverter() required DateTime createdAt,
+      @TimestampConverter() required DateTime updatedAt,
+      String title,
+      String comment,
+      String? imageUrl,
+      String? thumbnailUrl}) = _$_Ranking;
+
+  factory _Ranking.fromJson(Map<String, dynamic> json) = _$_Ranking.fromJson;
+
+  @override
+  @TimestampConverter()
+  DateTime get createdAt => throw _privateConstructorUsedError;
+  @override
+  @TimestampConverter()
+  DateTime get updatedAt => throw _privateConstructorUsedError;
+  @override
+
+  /// ランキングタイトル
+  String get title => throw _privateConstructorUsedError;
+  @override
+
+  /// ランキングに対するコメント
+  String get comment => throw _privateConstructorUsedError;
+  @override
+
+  /// ランキングの画像
+  String? get imageUrl => throw _privateConstructorUsedError;
+  @override
+
+  /// ランキングのサムネイル画像
+  String? get thumbnailUrl => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$RankingCopyWith<_Ranking> get copyWith =>
+      throw _privateConstructorUsedError;
+}
