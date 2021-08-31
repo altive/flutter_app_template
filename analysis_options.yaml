@@ -9,8 +9,10 @@ analyzer:
   errors:
     missing_required_param: warning
     missing_return: warning
-  plugins:
-    - dart_code_metrics
+  exclude:
+    - lib/**/*.g.dart
+    - lib/**/*.freezed.dart
+    - lib/generated_plugin_registrant.dart
 linter:
   rules: # https://dart-lang.github.io/linter/lints/
     - always_declare_return_types
@@ -86,24 +88,3 @@ linter:
     - use_setters_to_change_properties
     - use_string_buffers
     - use_to_and_as_if_applicable
-
-dart_code_metrics:
-  anti-patterns:
-    - long-method
-    - long-parameter-list
-  metrics:
-    cyclomatic-complexity: 20
-    maximum-nesting-level: 5
-    number-of-parameters: 4
-    source-lines-of-code: 50
-  metrics-exclude:
-    - test/**
-    - lib/**/*.g.dart
-    - lib/**/*.freezed.dart
-    - lib/generated_plugin_registrant.dart
-  rules:
-    - no-boolean-literal-compare
-    - no-empty-block
-    - prefer-trailing-comma
-    - prefer-conditional-expressions
-    - no-equal-then-else
