@@ -21,8 +21,8 @@ class _$RankingTearOff {
   const _$RankingTearOff();
 
   _Ranking call(
-      {@TimestampConverter() required DateTime createdAt,
-      @TimestampConverter() required DateTime updatedAt,
+      {@TimestampConverterOrNull() DateTime? createdAt,
+      @TimestampConverterOrNull() DateTime? updatedAt,
       String title = '',
       String comment = '',
       String? imageUrl,
@@ -47,10 +47,10 @@ const $Ranking = _$RankingTearOff();
 
 /// @nodoc
 mixin _$Ranking {
-  @TimestampConverter()
-  DateTime get createdAt => throw _privateConstructorUsedError;
-  @TimestampConverter()
-  DateTime get updatedAt => throw _privateConstructorUsedError;
+  @TimestampConverterOrNull()
+  DateTime? get createdAt => throw _privateConstructorUsedError;
+  @TimestampConverterOrNull()
+  DateTime? get updatedAt => throw _privateConstructorUsedError;
 
   /// ランキングタイトル
   String get title => throw _privateConstructorUsedError;
@@ -74,8 +74,8 @@ abstract class $RankingCopyWith<$Res> {
   factory $RankingCopyWith(Ranking value, $Res Function(Ranking) then) =
       _$RankingCopyWithImpl<$Res>;
   $Res call(
-      {@TimestampConverter() DateTime createdAt,
-      @TimestampConverter() DateTime updatedAt,
+      {@TimestampConverterOrNull() DateTime? createdAt,
+      @TimestampConverterOrNull() DateTime? updatedAt,
       String title,
       String comment,
       String? imageUrl,
@@ -103,11 +103,11 @@ class _$RankingCopyWithImpl<$Res> implements $RankingCopyWith<$Res> {
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       updatedAt: updatedAt == freezed
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -134,8 +134,8 @@ abstract class _$RankingCopyWith<$Res> implements $RankingCopyWith<$Res> {
       __$RankingCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@TimestampConverter() DateTime createdAt,
-      @TimestampConverter() DateTime updatedAt,
+      {@TimestampConverterOrNull() DateTime? createdAt,
+      @TimestampConverterOrNull() DateTime? updatedAt,
       String title,
       String comment,
       String? imageUrl,
@@ -164,11 +164,11 @@ class __$RankingCopyWithImpl<$Res> extends _$RankingCopyWithImpl<$Res>
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       updatedAt: updatedAt == freezed
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -193,8 +193,8 @@ class __$RankingCopyWithImpl<$Res> extends _$RankingCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Ranking with DiagnosticableTreeMixin implements _Ranking {
   const _$_Ranking(
-      {@TimestampConverter() required this.createdAt,
-      @TimestampConverter() required this.updatedAt,
+      {@TimestampConverterOrNull() this.createdAt,
+      @TimestampConverterOrNull() this.updatedAt,
       this.title = '',
       this.comment = '',
       this.imageUrl,
@@ -204,11 +204,11 @@ class _$_Ranking with DiagnosticableTreeMixin implements _Ranking {
       _$_$_RankingFromJson(json);
 
   @override
-  @TimestampConverter()
-  final DateTime createdAt;
+  @TimestampConverterOrNull()
+  final DateTime? createdAt;
   @override
-  @TimestampConverter()
-  final DateTime updatedAt;
+  @TimestampConverterOrNull()
+  final DateTime? updatedAt;
   @JsonKey(defaultValue: '')
   @override
 
@@ -292,8 +292,8 @@ class _$_Ranking with DiagnosticableTreeMixin implements _Ranking {
 
 abstract class _Ranking implements Ranking {
   const factory _Ranking(
-      {@TimestampConverter() required DateTime createdAt,
-      @TimestampConverter() required DateTime updatedAt,
+      {@TimestampConverterOrNull() DateTime? createdAt,
+      @TimestampConverterOrNull() DateTime? updatedAt,
       String title,
       String comment,
       String? imageUrl,
@@ -302,11 +302,11 @@ abstract class _Ranking implements Ranking {
   factory _Ranking.fromJson(Map<String, dynamic> json) = _$_Ranking.fromJson;
 
   @override
-  @TimestampConverter()
-  DateTime get createdAt => throw _privateConstructorUsedError;
+  @TimestampConverterOrNull()
+  DateTime? get createdAt => throw _privateConstructorUsedError;
   @override
-  @TimestampConverter()
-  DateTime get updatedAt => throw _privateConstructorUsedError;
+  @TimestampConverterOrNull()
+  DateTime? get updatedAt => throw _privateConstructorUsedError;
   @override
 
   /// ランキングタイトル
