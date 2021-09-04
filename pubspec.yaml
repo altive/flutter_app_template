@@ -26,6 +26,7 @@ dependencies:
   package_info_plus: ^1.0.5
   routemaster: ^0.9.5
   shared_preferences: ^2.0.6
+  version: ^2.0.0
 
 dev_dependencies:
   build_runner: ^2.1.1
