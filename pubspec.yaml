@@ -9,6 +9,7 @@ environment:
 dependencies:
   cached_network_image: ^3.1.0
   cloud_firestore: ^2.4.0
+  cupertino_icons: ^1.0.3
   firebase_analytics: ^8.2.0
   firebase_auth: ^3.0.1
   firebase_core: ^1.4.0
