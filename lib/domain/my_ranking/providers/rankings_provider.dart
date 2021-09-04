@@ -2,13 +2,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../entities/ranking.dart';
-import '../repositories/ranking_repository.dart';
+import '../references/ranking_reference.dart';
 
-/// ランキングコレクションを提供する
+/// Provide the Stream of all documents.
 final rankingsProvider =
     Provider<AsyncValue<List<QueryDocumentSnapshot<Ranking>>>>((ref) {
-  final repository = ref.watch(rankingRepositoryProvider);
-  repository.allStream().listen((e) async {
+  rankingsRef.snapshots().listen((e) async {
     ref.state = AsyncValue.data(e.docs);
   });
   return const AsyncValue.loading();

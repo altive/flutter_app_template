@@ -1,5 +1,6 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../commons/json_converter/timestamp_converter.dart';
@@ -12,13 +13,14 @@ class RankingField {
   static const comment = 'comment';
   static const imageUrl = 'image_url';
   static const thumbnailUrl = 'thumbnail_url';
+  static const pinned = 'pinned';
 }
 
 @freezed
 class Ranking with _$Ranking {
   const factory Ranking({
-    @TimestampConverterOrNull() DateTime? createdAt,
-    @TimestampConverterOrNull() DateTime? updatedAt,
+    @TimestampOrNullConverter() DateTime? createdAt,
+    @TimestampOrNullConverter() DateTime? updatedAt,
 
     /// ランキングタイトル
     @Default('') String title,
@@ -31,6 +33,9 @@ class Ranking with _$Ranking {
 
     /// ランキングのサムネイル画像
     String? thumbnailUrl,
+
+    /// 固定したいランキングなら `true`
+    @Default(false) bool pinned,
   }) = _Ranking;
 
   factory Ranking.fromJson(Map<String, Object?> json) =>

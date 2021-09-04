@@ -1,5 +1,6 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:routemaster/routemaster.dart';
@@ -8,7 +9,7 @@ import '../../domain/my_ranking/entities/ranking_member.dart';
 import '../../domain/my_ranking/providers/ranking_members_provider.dart';
 
 /// Cardの角丸具合
-const _cardRadius = 16.0;
+const _kCardRadius = 16.0;
 
 /// 1つのランキングを表示する詳細画面
 class RankingDetailPage extends StatelessWidget {
@@ -111,7 +112,7 @@ class _MemberCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const radius = Radius.circular(_cardRadius);
+    const radius = Radius.circular(_kCardRadius);
     final shape = RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(
         top: isFirst ? radius : Radius.zero,
@@ -195,7 +196,7 @@ class _LoadingView extends HookWidget {
           (index) {
             final isFirst = index == 0;
             final isLast = index == _length - 1;
-            const radius = Radius.circular(_cardRadius);
+            const radius = Radius.circular(_kCardRadius);
             final shape = RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(
                 top: isFirst ? radius : Radius.zero,

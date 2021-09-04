@@ -13,28 +13,49 @@ final rankingRepositoryProvider = Provider<RankingRepository>((ref) {
 class RankingRepository {
   const RankingRepository();
 
+  /// Get the Stream of all documents.
   Stream<QuerySnapshot<Ranking>> allStream() {
     final stream = rankingsRef.snapshots();
     return stream;
   }
 
-  Future<void> add(Ranking data) async {
-    await rankingsRef.add(data);
+  /// Create a new document with an auto-generated ID.
+  Future<void> add(Ranking ranking) async {
+    await rankingsRef.add(ranking);
   }
 
+  /// Overwrite a document with the specified ID.
+  Future<void> overwrite({
+    required String rankingId,
+    required Ranking ranking,
+  }) async {
+    await rankingRef(rankingId: rankingId).set(ranking);
+  }
+
+  /// Compose to a document with the specified ID.
+  Future<void> merge({
+    required String rankingId,
+    required Ranking ranking,
+  }) async {
+    await rankingRef(rankingId: rankingId)
+        .set(ranking, SetOptions(merge: true));
+  }
+
+  /// Delete a document with the specified ID.
   Future<void> delete({required String rankingId}) async {
     await rankingRef(rankingId: rankingId).delete();
   }
 
+  /// Update the Field of the document with the specified ID.
   Future<void> update({
     required String rankingId,
     String? title,
-    String? commet,
+    String? comment,
     String? imageUrl,
   }) async {
     await rankingRef(rankingId: rankingId).update({
       if (title != null) RankingField.title: title,
-      if (commet != null) RankingField.comment: commet,
+      if (comment != null) RankingField.comment: comment,
       if (imageUrl != null) RankingField.imageUrl: imageUrl,
     }.suppelementTimestamp());
   }

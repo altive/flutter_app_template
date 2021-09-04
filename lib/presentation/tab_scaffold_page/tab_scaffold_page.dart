@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'package:routemaster/routemaster.dart';
 
+import '../../commons/widgets/unfocus_on_tap.dart';
 import 'top_level_tab.dart';
 
 class TabScaffoldPage extends StatelessWidget {
@@ -11,17 +12,19 @@ class TabScaffoldPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final tabState = CupertinoTabPage.of(context);
-    return CupertinoTabScaffold(
-      controller: tabState.controller,
-      tabBuilder: tabState.tabBuilder,
-      tabBar: CupertinoTabBar(
-        items: [
-          for (final tab in TopLevelTab.values)
-            BottomNavigationBarItem(
-              icon: Icon(tab.iconData),
-              label: tab.label,
-            ),
-        ],
+    return UnfocusOnTap(
+      child: CupertinoTabScaffold(
+        controller: tabState.controller,
+        tabBuilder: tabState.tabBuilder,
+        tabBar: CupertinoTabBar(
+          items: [
+            for (final tab in TopLevelTab.values)
+              BottomNavigationBarItem(
+                icon: Icon(tab.iconData),
+                label: tab.label,
+              ),
+          ],
+        ),
       ),
     );
   }

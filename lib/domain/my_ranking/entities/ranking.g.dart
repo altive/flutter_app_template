@@ -8,23 +8,25 @@ part of 'ranking.dart';
 
 _$_Ranking _$_$_RankingFromJson(Map<String, dynamic> json) {
   return _$_Ranking(
-    createdAt: const TimestampConverterOrNull()
+    createdAt: const TimestampOrNullConverter()
         .fromJson(json['created_at'] as Timestamp?),
-    updatedAt: const TimestampConverterOrNull()
+    updatedAt: const TimestampOrNullConverter()
         .fromJson(json['updated_at'] as Timestamp?),
     title: json['title'] as String? ?? '',
     comment: json['comment'] as String? ?? '',
     imageUrl: json['image_url'] as String?,
     thumbnailUrl: json['thumbnail_url'] as String?,
+    pinned: json['pinned'] as bool? ?? false,
   );
 }
 
 Map<String, dynamic> _$_$_RankingToJson(_$_Ranking instance) =>
     <String, dynamic>{
-      'created_at': const TimestampConverterOrNull().toJson(instance.createdAt),
-      'updated_at': const TimestampConverterOrNull().toJson(instance.updatedAt),
+      'created_at': const TimestampOrNullConverter().toJson(instance.createdAt),
+      'updated_at': const TimestampOrNullConverter().toJson(instance.updatedAt),
       'title': instance.title,
       'comment': instance.comment,
       'image_url': instance.imageUrl,
       'thumbnail_url': instance.thumbnailUrl,
+      'pinned': instance.pinned,
     };

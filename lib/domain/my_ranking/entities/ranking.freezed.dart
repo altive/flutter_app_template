@@ -21,12 +21,13 @@ class _$RankingTearOff {
   const _$RankingTearOff();
 
   _Ranking call(
-      {@TimestampConverterOrNull() DateTime? createdAt,
-      @TimestampConverterOrNull() DateTime? updatedAt,
+      {@TimestampOrNullConverter() DateTime? createdAt,
+      @TimestampOrNullConverter() DateTime? updatedAt,
       String title = '',
       String comment = '',
       String? imageUrl,
-      String? thumbnailUrl}) {
+      String? thumbnailUrl,
+      bool pinned = false}) {
     return _Ranking(
       createdAt: createdAt,
       updatedAt: updatedAt,
@@ -34,6 +35,7 @@ class _$RankingTearOff {
       comment: comment,
       imageUrl: imageUrl,
       thumbnailUrl: thumbnailUrl,
+      pinned: pinned,
     );
   }
 
@@ -47,9 +49,9 @@ const $Ranking = _$RankingTearOff();
 
 /// @nodoc
 mixin _$Ranking {
-  @TimestampConverterOrNull()
+  @TimestampOrNullConverter()
   DateTime? get createdAt => throw _privateConstructorUsedError;
-  @TimestampConverterOrNull()
+  @TimestampOrNullConverter()
   DateTime? get updatedAt => throw _privateConstructorUsedError;
 
   /// ランキングタイトル
@@ -64,6 +66,9 @@ mixin _$Ranking {
   /// ランキングのサムネイル画像
   String? get thumbnailUrl => throw _privateConstructorUsedError;
 
+  /// 固定したいランキングなら `true`
+  bool get pinned => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $RankingCopyWith<Ranking> get copyWith => throw _privateConstructorUsedError;
@@ -74,12 +79,13 @@ abstract class $RankingCopyWith<$Res> {
   factory $RankingCopyWith(Ranking value, $Res Function(Ranking) then) =
       _$RankingCopyWithImpl<$Res>;
   $Res call(
-      {@TimestampConverterOrNull() DateTime? createdAt,
-      @TimestampConverterOrNull() DateTime? updatedAt,
+      {@TimestampOrNullConverter() DateTime? createdAt,
+      @TimestampOrNullConverter() DateTime? updatedAt,
       String title,
       String comment,
       String? imageUrl,
-      String? thumbnailUrl});
+      String? thumbnailUrl,
+      bool pinned});
 }
 
 /// @nodoc
@@ -98,6 +104,7 @@ class _$RankingCopyWithImpl<$Res> implements $RankingCopyWith<$Res> {
     Object? comment = freezed,
     Object? imageUrl = freezed,
     Object? thumbnailUrl = freezed,
+    Object? pinned = freezed,
   }) {
     return _then(_value.copyWith(
       createdAt: createdAt == freezed
@@ -124,6 +131,10 @@ class _$RankingCopyWithImpl<$Res> implements $RankingCopyWith<$Res> {
           ? _value.thumbnailUrl
           : thumbnailUrl // ignore: cast_nullable_to_non_nullable
               as String?,
+      pinned: pinned == freezed
+          ? _value.pinned
+          : pinned // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -134,12 +145,13 @@ abstract class _$RankingCopyWith<$Res> implements $RankingCopyWith<$Res> {
       __$RankingCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@TimestampConverterOrNull() DateTime? createdAt,
-      @TimestampConverterOrNull() DateTime? updatedAt,
+      {@TimestampOrNullConverter() DateTime? createdAt,
+      @TimestampOrNullConverter() DateTime? updatedAt,
       String title,
       String comment,
       String? imageUrl,
-      String? thumbnailUrl});
+      String? thumbnailUrl,
+      bool pinned});
 }
 
 /// @nodoc
@@ -159,6 +171,7 @@ class __$RankingCopyWithImpl<$Res> extends _$RankingCopyWithImpl<$Res>
     Object? comment = freezed,
     Object? imageUrl = freezed,
     Object? thumbnailUrl = freezed,
+    Object? pinned = freezed,
   }) {
     return _then(_Ranking(
       createdAt: createdAt == freezed
@@ -185,6 +198,10 @@ class __$RankingCopyWithImpl<$Res> extends _$RankingCopyWithImpl<$Res>
           ? _value.thumbnailUrl
           : thumbnailUrl // ignore: cast_nullable_to_non_nullable
               as String?,
+      pinned: pinned == freezed
+          ? _value.pinned
+          : pinned // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -193,21 +210,22 @@ class __$RankingCopyWithImpl<$Res> extends _$RankingCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Ranking with DiagnosticableTreeMixin implements _Ranking {
   const _$_Ranking(
-      {@TimestampConverterOrNull() this.createdAt,
-      @TimestampConverterOrNull() this.updatedAt,
+      {@TimestampOrNullConverter() this.createdAt,
+      @TimestampOrNullConverter() this.updatedAt,
       this.title = '',
       this.comment = '',
       this.imageUrl,
-      this.thumbnailUrl});
+      this.thumbnailUrl,
+      this.pinned = false});
 
   factory _$_Ranking.fromJson(Map<String, dynamic> json) =>
       _$_$_RankingFromJson(json);
 
   @override
-  @TimestampConverterOrNull()
+  @TimestampOrNullConverter()
   final DateTime? createdAt;
   @override
-  @TimestampConverterOrNull()
+  @TimestampOrNullConverter()
   final DateTime? updatedAt;
   @JsonKey(defaultValue: '')
   @override
@@ -227,10 +245,15 @@ class _$_Ranking with DiagnosticableTreeMixin implements _Ranking {
 
   /// ランキングのサムネイル画像
   final String? thumbnailUrl;
+  @JsonKey(defaultValue: false)
+  @override
+
+  /// 固定したいランキングなら `true`
+  final bool pinned;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Ranking(createdAt: $createdAt, updatedAt: $updatedAt, title: $title, comment: $comment, imageUrl: $imageUrl, thumbnailUrl: $thumbnailUrl)';
+    return 'Ranking(createdAt: $createdAt, updatedAt: $updatedAt, title: $title, comment: $comment, imageUrl: $imageUrl, thumbnailUrl: $thumbnailUrl, pinned: $pinned)';
   }
 
   @override
@@ -243,7 +266,8 @@ class _$_Ranking with DiagnosticableTreeMixin implements _Ranking {
       ..add(DiagnosticsProperty('title', title))
       ..add(DiagnosticsProperty('comment', comment))
       ..add(DiagnosticsProperty('imageUrl', imageUrl))
-      ..add(DiagnosticsProperty('thumbnailUrl', thumbnailUrl));
+      ..add(DiagnosticsProperty('thumbnailUrl', thumbnailUrl))
+      ..add(DiagnosticsProperty('pinned', pinned));
   }
 
   @override
@@ -266,7 +290,9 @@ class _$_Ranking with DiagnosticableTreeMixin implements _Ranking {
                     .equals(other.imageUrl, imageUrl)) &&
             (identical(other.thumbnailUrl, thumbnailUrl) ||
                 const DeepCollectionEquality()
-                    .equals(other.thumbnailUrl, thumbnailUrl)));
+                    .equals(other.thumbnailUrl, thumbnailUrl)) &&
+            (identical(other.pinned, pinned) ||
+                const DeepCollectionEquality().equals(other.pinned, pinned)));
   }
 
   @override
@@ -277,7 +303,8 @@ class _$_Ranking with DiagnosticableTreeMixin implements _Ranking {
       const DeepCollectionEquality().hash(title) ^
       const DeepCollectionEquality().hash(comment) ^
       const DeepCollectionEquality().hash(imageUrl) ^
-      const DeepCollectionEquality().hash(thumbnailUrl);
+      const DeepCollectionEquality().hash(thumbnailUrl) ^
+      const DeepCollectionEquality().hash(pinned);
 
   @JsonKey(ignore: true)
   @override
@@ -292,20 +319,21 @@ class _$_Ranking with DiagnosticableTreeMixin implements _Ranking {
 
 abstract class _Ranking implements Ranking {
   const factory _Ranking(
-      {@TimestampConverterOrNull() DateTime? createdAt,
-      @TimestampConverterOrNull() DateTime? updatedAt,
+      {@TimestampOrNullConverter() DateTime? createdAt,
+      @TimestampOrNullConverter() DateTime? updatedAt,
       String title,
       String comment,
       String? imageUrl,
-      String? thumbnailUrl}) = _$_Ranking;
+      String? thumbnailUrl,
+      bool pinned}) = _$_Ranking;
 
   factory _Ranking.fromJson(Map<String, dynamic> json) = _$_Ranking.fromJson;
 
   @override
-  @TimestampConverterOrNull()
+  @TimestampOrNullConverter()
   DateTime? get createdAt => throw _privateConstructorUsedError;
   @override
-  @TimestampConverterOrNull()
+  @TimestampOrNullConverter()
   DateTime? get updatedAt => throw _privateConstructorUsedError;
   @override
 
@@ -323,6 +351,10 @@ abstract class _Ranking implements Ranking {
 
   /// ランキングのサムネイル画像
   String? get thumbnailUrl => throw _privateConstructorUsedError;
+  @override
+
+  /// 固定したいランキングなら `true`
+  bool get pinned => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$RankingCopyWith<_Ranking> get copyWith =>

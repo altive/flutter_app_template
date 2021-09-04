@@ -1,15 +1,19 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:routemaster/routemaster.dart';
 
+import '../../commons/widgets/dismissible_background.dart';
 import '../../domain/my_ranking/entities/ranking.dart';
 import '../../domain/my_ranking/providers/rankings_provider.dart';
+import '../../usecases/create_ranking_from_title.dart';
 import '../ranking_detail_page/ranking_detail_page.dart';
 
 /// Cardの角丸具合
-const _cardRadius = 16.0;
+const _kCardRadius = 16.0;
 
 /// 複数ランキングを表示するリストページ
 class RankingListPage extends StatelessWidget {
@@ -52,17 +56,19 @@ class _Body extends ConsumerWidget {
                 key: const Key(''),
                 margin: const EdgeInsets.symmetric(vertical: 16),
                 child: ListTile(
-                  // TODO(riscait): 新規ランキング追加
-                  onTap: () => debugPrint,
                   leading: CircleAvatar(
                     backgroundColor: Theme.of(context).colorScheme.primary,
                     child: const Icon(Icons.add),
                   ),
-                  title: const Text(
-                    'Add New Ranking',
-                    textAlign: TextAlign.center,
+                  title: TextField(
+                    onSubmitted: (value) =>
+                        ref.read(createRankingFromTitle)(value),
+                    decoration: const InputDecoration(
+                      filled: false,
+                      contentPadding: EdgeInsets.zero,
+                      hintText: '何のランキングを追加しますか？',
+                    ),
                   ),
-                  trailing: const Icon(null),
                 ),
               );
             }
@@ -93,7 +99,27 @@ class _RankingCard extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    const radius = Radius.circular(_cardRadius);
+    void onDismissed(DismissDirection direction) {
+      if (direction == DismissDirection.endToStart) {
+        rankingDoc.reference.delete();
+      }
+    }
+
+    Future<bool?> confirmDismiss(DismissDirection direction) async {
+      if (direction == DismissDirection.endToStart) {
+        debugPrint('Delete!!');
+        return true;
+      }
+      if (direction == DismissDirection.startToEnd) {
+        debugPrint('Pinned!!');
+        final oldRanking = rankingDoc.data();
+        final newRanking = oldRanking.copyWith(pinned: !oldRanking.pinned);
+        await rankingDoc.reference.set(newRanking);
+        return false;
+      }
+    }
+
+    const radius = Radius.circular(_kCardRadius);
     final shape = RoundedRectangleBorder(
       borderRadius: BorderRadius.vertical(
         top: isFirst ? radius : Radius.zero,
@@ -101,32 +127,70 @@ class _RankingCard extends ConsumerWidget {
       ),
     );
     final ranking = rankingDoc.data();
+
     return Card(
       margin: isFirst ? const EdgeInsets.only(top: 16) : EdgeInsets.zero,
       shape: shape,
-      child: ListTile(
-        onTap: () {
-          Routemaster.of(context)
-              .push('${RankingDetailPage.routeName}/${rankingDoc.id}');
-        },
-        dense: true,
-        shape: isLast
-            ? null
-            : Border(
-                bottom: BorderSide(
-                  color: Theme.of(context).scaffoldBackgroundColor,
-                ),
-              ),
-        contentPadding: const EdgeInsets.symmetric(
-          vertical: 4,
-          horizontal: 16,
-        ),
-        leading: const CircleAvatar(radius: 20),
-        trailing: const Icon(Icons.chevron_right),
-        title: Text(
-          ranking.title,
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
+      clipBehavior: isFirst || isLast ? Clip.antiAlias : null,
+      child: IconTheme(
+        data: const IconThemeData(color: Colors.white),
+        child: Dismissible(
+          key: Key(rankingDoc.id),
+          direction: DismissDirection.horizontal,
+          onDismissed: onDismissed,
+          confirmDismiss: confirmDismiss,
+          background: DismissibleBackground(
+            backgroundColor: Colors.orange,
+            alignment: Alignment.centerLeft,
+            child: Icon(
+              ranking.pinned
+                  ? CupertinoIcons.pin_slash_fill
+                  : CupertinoIcons.pin_fill,
+            ),
+          ),
+          secondaryBackground: const DismissibleBackground(
+            child: Icon(Icons.delete_forever),
+          ),
+          child: ListTile(
+            onTap: () {
+              Routemaster.of(context)
+                  .push('${RankingDetailPage.routeName}/${rankingDoc.id}');
+            },
+            dense: true,
+            shape: isLast
+                ? null
+                : Border(
+                    bottom: BorderSide(
+                      color: Theme.of(context).scaffoldBackgroundColor,
+                    ),
+                  ),
+            contentPadding: const EdgeInsets.fromLTRB(8, 4, 16, 4),
+            leading: Wrap(
+              crossAxisAlignment: WrapCrossAlignment.center,
+              children: [
+                if (ranking.pinned)
+                  const Icon(
+                    CupertinoIcons.pin_fill,
+                    size: 20,
+                    color: Colors.orange,
+                  )
+                else
+                  Icon(
+                    CupertinoIcons.pin_fill,
+                    size: 20,
+                    color: Colors.grey[300],
+                  ),
+                const SizedBox(width: 6),
+                const CircleAvatar(radius: 20),
+              ],
+            ),
+            trailing: const Icon(Icons.chevron_right),
+            title: Text(
+              ranking.title,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
         ),
       ),
     );
@@ -166,7 +230,7 @@ class _LoadingView extends HookWidget {
           (index) {
             final isFirst = index == 0;
             final isLast = index == _length - 1;
-            const radius = Radius.circular(_cardRadius);
+            const radius = Radius.circular(_kCardRadius);
             final shape = RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(
                 top: isFirst ? radius : Radius.zero,

@@ -23,6 +23,7 @@ class App extends ConsumerWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16),
           ),
+          clipBehavior: Clip.antiAlias,
         ),
         inputDecorationTheme: InputDecorationTheme(
           filled: true,
