@@ -13,12 +13,6 @@ final rankingRepositoryProvider = Provider<RankingRepository>((ref) {
 class RankingRepository {
   const RankingRepository();
 
-  /// Get the Stream of all documents.
-  Stream<QuerySnapshot<Ranking>> allStream() {
-    final stream = rankingsRef.snapshots();
-    return stream;
-  }
-
   /// Create a new document with an auto-generated ID.
   Future<void> add(Ranking ranking) async {
     await rankingsRef.add(ranking);

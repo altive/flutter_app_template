@@ -1,18 +1,17 @@
-import 'package:flutter/material.dart';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:routemaster/routemaster.dart';
 
 import '../../domain/my_ranking/entities/ranking_member.dart';
+import '../../domain/my_ranking/providers/my_ranking_fetcher.dart';
 import '../../domain/my_ranking/providers/ranking_members_provider.dart';
 
 /// Cardの角丸具合
 const _kCardRadius = 16.0;
 
 /// 1つのランキングを表示する詳細画面
-class RankingDetailPage extends StatelessWidget {
+class RankingDetailPage extends ConsumerWidget {
   const RankingDetailPage({
     Key? key,
     required this.rankingId,
@@ -23,11 +22,10 @@ class RankingDetailPage extends StatelessWidget {
   final String rankingId;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final ranking = ref.watch(myRankingFetcher(rankingId)).data?.value.data();
     return Scaffold(
-      appBar: AppBar(
-        title: Text(Routemaster.of(context).currentRoute.fullPath),
-      ),
+      appBar: AppBar(title: Text(ranking?.title ?? '...')),
       body: _Body(rankingId: rankingId),
     );
   }
