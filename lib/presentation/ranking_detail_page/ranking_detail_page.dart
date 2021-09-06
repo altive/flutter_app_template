@@ -4,8 +4,9 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../domain/my_ranking/entities/ranking_member.dart';
-import '../../domain/my_ranking/providers/my_ranking_fetcher.dart';
-import '../../domain/my_ranking/providers/ranking_members_provider.dart';
+import '../../domain/my_ranking/providers/my_ranking_members_fetcher.dart';
+import '../../domain/my_ranking/providers/my_ranking_provider.dart';
+import '../../usecases/add_renking_member_from_title.dart';
 
 /// Cardの角丸具合
 const _kCardRadius = 16.0;
@@ -23,10 +24,50 @@ class RankingDetailPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final ranking = ref.watch(myRankingFetcher(rankingId)).data?.value.data();
+    final ranking = ref.watch(myRankingProvider(rankingId)).data?.value.data();
     return Scaffold(
       appBar: AppBar(title: Text(ranking?.title ?? '...')),
       body: _Body(rankingId: rankingId),
+      persistentFooterButtons: [_AddButton(rankingId: rankingId)],
+    );
+  }
+}
+
+// タイトルをその場で入力して新規ランキングを追加するためのボタン。
+class _AddButton extends HookConsumerWidget {
+  const _AddButton({
+    Key? key,
+    required this.rankingId,
+  }) : super(key: key);
+
+  final String rankingId;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final titleTextEditingController = useTextEditingController();
+    return Card(
+      margin: const EdgeInsets.symmetric(horizontal: 8),
+      child: ListTile(
+        leading: const CircleAvatar(
+          child: Icon(Icons.add),
+        ),
+        title: TextField(
+          controller: titleTextEditingController,
+          onSubmitted: (value) {
+            titleTextEditingController.clear();
+            ref.read(addRankingMemberFromTitle)(
+              value,
+              order: 1,
+              rankingId: rankingId,
+            );
+          },
+          decoration: const InputDecoration(
+            filled: false,
+            contentPadding: EdgeInsets.zero,
+            hintText: 'ランキングに項目を追加しましょう',
+          ),
+        ),
+      ),
     );
   }
 }
@@ -46,48 +87,46 @@ class _Body extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return ref.watch(rankingMembersProvider(rankingId)).when(
+    return ref.watch(myRankingMembersFetcher(rankingId)).when(
           loading: () => const _LoadingView(),
           error: (error, stk) => ErrorWidget(error),
           data: (memberDocs) {
             final length = memberDocs.length;
-            return ReorderableListView.builder(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              header: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8),
-                child: Text(
-                  'List',
-                  style: Theme.of(context).textTheme.headline6,
+            return Stack(
+              children: [
+                Align(
+                  alignment: AlignmentDirectional.topEnd,
+                  child: ListView.builder(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    itemCount: length,
+                    itemBuilder: (_, index) {
+                      return IconButton(
+                        onPressed: () => print('object'),
+                        alignment: AlignmentDirectional.centerEnd,
+                        icon: const Icon(Icons.add_circle),
+                      );
+                    },
+                  ),
                 ),
-              ),
-              itemCount: length + 1,
-              itemBuilder: (_, index) {
-                if (length <= index) {
-                  return Card(
-                    key: const Key(''),
-                    margin: const EdgeInsets.symmetric(vertical: 16),
-                    child: ListTile(
-                      onTap: () => debugPrint,
-                      leading: CircleAvatar(
-                        backgroundColor: Theme.of(context).colorScheme.primary,
-                        child: const Icon(Icons.add),
-                      ),
-                      title:
-                          const Text('Add Item', textAlign: TextAlign.center),
-                      trailing: const Icon(null),
-                    ),
-                  );
-                }
-                final memberDoc = memberDocs[index];
-                return _MemberCard(
-                  memberDoc,
-                  ranking: index + 1,
-                  isFirst: index == 0,
-                  isLast: index == length - 1,
-                  key: Key(memberDoc.id),
-                );
-              },
-              onReorder: _onReorder,
+                SizedBox(
+                  width: MediaQuery.of(context).size.width - 80,
+                  child: ReorderableListView.builder(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 16, horizontal: 16),
+                    itemCount: length,
+                    itemBuilder: (_, index) {
+                      final memberDoc = memberDocs[index];
+                      return _MemberCard(
+                        memberDoc,
+                        key: Key(memberDoc.id),
+                        isFirst: index == 0,
+                        isLast: index == length - 1,
+                      );
+                    },
+                    onReorder: _onReorder,
+                  ),
+                ),
+              ],
             );
           },
         );
@@ -97,14 +136,12 @@ class _Body extends ConsumerWidget {
 class _MemberCard extends StatelessWidget {
   const _MemberCard(
     this.memberDoc, {
-    required this.ranking,
     required this.isFirst,
     required this.isLast,
     Key? key,
   }) : super(key: key);
 
   final QueryDocumentSnapshot<RankingMember> memberDoc;
-  final int ranking;
   final bool isFirst;
   final bool isLast;
 
@@ -140,7 +177,7 @@ class _MemberCard extends StatelessWidget {
         trailing: const Icon(Icons.drag_handle),
         title: Text.rich(
           TextSpan(
-            text: '$ranking',
+            text: '${member.order}位',
             style: Theme.of(context).textTheme.bodyText2!.copyWith(
                   fontWeight: FontWeight.bold,
                   color: Theme.of(context).colorScheme.primary,

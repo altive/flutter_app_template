@@ -8,7 +8,7 @@ import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:routemaster/routemaster.dart';
 
-import '../../domain/my_ranking/providers/ranking_members_provider.dart';
+import '../../domain/my_ranking/providers/my_ranking_member_provider.dart';
 
 /// Cardの角丸具合
 const _cardRadius = 16.0;
@@ -66,13 +66,13 @@ class _Body extends ConsumerWidget {
       return const _RankingForm();
     }
     // 既存編集
-    return ref.watch(rankingMembersProvider(rankingId)).when(
-          loading: () => const _LoadingView(),
-          error: (error, stk) => ErrorWidget(error),
-          data: (memberDocs) {
-            return const _RankingForm();
-          },
-        );
+    // return ref.watch(rankingMembersProvider(rankingId)).when(
+    //       loading: () => const _LoadingView(),
+    //       error: (error, stk) => ErrorWidget(error),
+    //       data: (memberDocs) {
+    return const _RankingForm();
+    //       },
+    //     );
   }
 }
 

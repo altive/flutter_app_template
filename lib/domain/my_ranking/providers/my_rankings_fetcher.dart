@@ -7,6 +7,8 @@ import '../../../commons/json_converter/timestamp_supplementer.dart';
 import '../entities/ranking.dart';
 import '../references/ranking_reference.dart';
 
+// Provide multiple documents.
+
 final myRankingsFetcher = StateNotifierProvider<MyRankingsFetcher,
     AsyncValue<List<QueryDocumentSnapshot<Ranking>>>>((ref) {
   return MyRankingsFetcher();
