@@ -44,7 +44,7 @@ class RankingMemberRepository {
     String? imageUrl,
   }) async {
     await rankingMemberRef(rankingId: rankingId, memberId: memberId).update({
-      if (ranking != null) RankingMemberField.ranking: ranking,
+      if (ranking != null) RankingMemberField.order: ranking,
       if (title != null) RankingMemberField.title: title,
       if (commet != null) RankingMemberField.comment: commet,
       if (imageUrl != null) RankingMemberField.imageUrl: imageUrl,

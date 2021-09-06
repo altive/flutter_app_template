@@ -9,7 +9,7 @@ part 'ranking_member.freezed.dart';
 part 'ranking_member.g.dart';
 
 class RankingMemberField {
-  static const ranking = 'ranking';
+  static const order = 'order';
   static const title = 'title';
   static const comment = 'comment';
   static const imageUrl = 'image_url';
@@ -23,7 +23,7 @@ class RankingMember with _$RankingMember {
     @TimestampConverter() required DateTime updatedAt,
 
     /// 順位
-    required int ranking,
+    required int order,
 
     /// 項目名
     @Default('') String title,

@@ -12,7 +12,7 @@ _$_RankingMember _$_$_RankingMemberFromJson(Map<String, dynamic> json) {
         const TimestampConverter().fromJson(json['created_at'] as Timestamp),
     updatedAt:
         const TimestampConverter().fromJson(json['updated_at'] as Timestamp),
-    ranking: json['ranking'] as int,
+    order: json['order'] as int,
     title: json['title'] as String? ?? '',
     comment: json['comment'] as String? ?? '',
     imageUrl: json['image_url'] as String?,
@@ -24,7 +24,7 @@ Map<String, dynamic> _$_$_RankingMemberToJson(_$_RankingMember instance) =>
     <String, dynamic>{
       'created_at': const TimestampConverter().toJson(instance.createdAt),
       'updated_at': const TimestampConverter().toJson(instance.updatedAt),
-      'ranking': instance.ranking,
+      'order': instance.order,
       'title': instance.title,
       'comment': instance.comment,
       'image_url': instance.imageUrl,

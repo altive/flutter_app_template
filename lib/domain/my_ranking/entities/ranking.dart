@@ -9,6 +9,7 @@ part 'ranking.freezed.dart';
 part 'ranking.g.dart';
 
 class RankingField {
+  static const userId = 'user_id';
   static const title = 'title';
   static const comment = 'comment';
   static const imageUrl = 'image_url';
@@ -21,6 +22,9 @@ class Ranking with _$Ranking {
   const factory Ranking({
     @TimestampOrNullConverter() DateTime? createdAt,
     @TimestampOrNullConverter() DateTime? updatedAt,
+
+    /// 作成者であるユーザーのID
+    required String id,
 
     /// ランキングタイトル
     @Default('') String title,

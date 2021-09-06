@@ -23,7 +23,7 @@ class _$RankingMemberTearOff {
   _RankingMember call(
       {@TimestampConverter() required DateTime createdAt,
       @TimestampConverter() required DateTime updatedAt,
-      required int ranking,
+      required int order,
       String title = '',
       String comment = '',
       String? imageUrl,
@@ -31,7 +31,7 @@ class _$RankingMemberTearOff {
     return _RankingMember(
       createdAt: createdAt,
       updatedAt: updatedAt,
-      ranking: ranking,
+      order: order,
       title: title,
       comment: comment,
       imageUrl: imageUrl,
@@ -55,7 +55,7 @@ mixin _$RankingMember {
   DateTime get updatedAt => throw _privateConstructorUsedError;
 
   /// 順位
-  int get ranking => throw _privateConstructorUsedError;
+  int get order => throw _privateConstructorUsedError;
 
   /// 項目名
   String get title => throw _privateConstructorUsedError;
@@ -83,7 +83,7 @@ abstract class $RankingMemberCopyWith<$Res> {
   $Res call(
       {@TimestampConverter() DateTime createdAt,
       @TimestampConverter() DateTime updatedAt,
-      int ranking,
+      int order,
       String title,
       String comment,
       String? imageUrl,
@@ -103,7 +103,7 @@ class _$RankingMemberCopyWithImpl<$Res>
   $Res call({
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
-    Object? ranking = freezed,
+    Object? order = freezed,
     Object? title = freezed,
     Object? comment = freezed,
     Object? imageUrl = freezed,
@@ -118,9 +118,9 @@ class _$RankingMemberCopyWithImpl<$Res>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      ranking: ranking == freezed
-          ? _value.ranking
-          : ranking // ignore: cast_nullable_to_non_nullable
+      order: order == freezed
+          ? _value.order
+          : order // ignore: cast_nullable_to_non_nullable
               as int,
       title: title == freezed
           ? _value.title
@@ -152,7 +152,7 @@ abstract class _$RankingMemberCopyWith<$Res>
   $Res call(
       {@TimestampConverter() DateTime createdAt,
       @TimestampConverter() DateTime updatedAt,
-      int ranking,
+      int order,
       String title,
       String comment,
       String? imageUrl,
@@ -174,7 +174,7 @@ class __$RankingMemberCopyWithImpl<$Res>
   $Res call({
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
-    Object? ranking = freezed,
+    Object? order = freezed,
     Object? title = freezed,
     Object? comment = freezed,
     Object? imageUrl = freezed,
@@ -189,9 +189,9 @@ class __$RankingMemberCopyWithImpl<$Res>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      ranking: ranking == freezed
-          ? _value.ranking
-          : ranking // ignore: cast_nullable_to_non_nullable
+      order: order == freezed
+          ? _value.order
+          : order // ignore: cast_nullable_to_non_nullable
               as int,
       title: title == freezed
           ? _value.title
@@ -219,7 +219,7 @@ class _$_RankingMember with DiagnosticableTreeMixin implements _RankingMember {
   const _$_RankingMember(
       {@TimestampConverter() required this.createdAt,
       @TimestampConverter() required this.updatedAt,
-      required this.ranking,
+      required this.order,
       this.title = '',
       this.comment = '',
       this.imageUrl,
@@ -237,7 +237,7 @@ class _$_RankingMember with DiagnosticableTreeMixin implements _RankingMember {
   @override
 
   /// 順位
-  final int ranking;
+  final int order;
   @JsonKey(defaultValue: '')
   @override
 
@@ -259,7 +259,7 @@ class _$_RankingMember with DiagnosticableTreeMixin implements _RankingMember {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'RankingMember(createdAt: $createdAt, updatedAt: $updatedAt, ranking: $ranking, title: $title, comment: $comment, imageUrl: $imageUrl, thumbnailUrl: $thumbnailUrl)';
+    return 'RankingMember(createdAt: $createdAt, updatedAt: $updatedAt, order: $order, title: $title, comment: $comment, imageUrl: $imageUrl, thumbnailUrl: $thumbnailUrl)';
   }
 
   @override
@@ -269,7 +269,7 @@ class _$_RankingMember with DiagnosticableTreeMixin implements _RankingMember {
       ..add(DiagnosticsProperty('type', 'RankingMember'))
       ..add(DiagnosticsProperty('createdAt', createdAt))
       ..add(DiagnosticsProperty('updatedAt', updatedAt))
-      ..add(DiagnosticsProperty('ranking', ranking))
+      ..add(DiagnosticsProperty('order', order))
       ..add(DiagnosticsProperty('title', title))
       ..add(DiagnosticsProperty('comment', comment))
       ..add(DiagnosticsProperty('imageUrl', imageUrl))
@@ -286,9 +286,8 @@ class _$_RankingMember with DiagnosticableTreeMixin implements _RankingMember {
             (identical(other.updatedAt, updatedAt) ||
                 const DeepCollectionEquality()
                     .equals(other.updatedAt, updatedAt)) &&
-            (identical(other.ranking, ranking) ||
-                const DeepCollectionEquality()
-                    .equals(other.ranking, ranking)) &&
+            (identical(other.order, order) ||
+                const DeepCollectionEquality().equals(other.order, order)) &&
             (identical(other.title, title) ||
                 const DeepCollectionEquality().equals(other.title, title)) &&
             (identical(other.comment, comment) ||
@@ -307,7 +306,7 @@ class _$_RankingMember with DiagnosticableTreeMixin implements _RankingMember {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(createdAt) ^
       const DeepCollectionEquality().hash(updatedAt) ^
-      const DeepCollectionEquality().hash(ranking) ^
+      const DeepCollectionEquality().hash(order) ^
       const DeepCollectionEquality().hash(title) ^
       const DeepCollectionEquality().hash(comment) ^
       const DeepCollectionEquality().hash(imageUrl) ^
@@ -328,7 +327,7 @@ abstract class _RankingMember implements RankingMember {
   const factory _RankingMember(
       {@TimestampConverter() required DateTime createdAt,
       @TimestampConverter() required DateTime updatedAt,
-      required int ranking,
+      required int order,
       String title,
       String comment,
       String? imageUrl,
@@ -346,7 +345,7 @@ abstract class _RankingMember implements RankingMember {
   @override
 
   /// 順位
-  int get ranking => throw _privateConstructorUsedError;
+  int get order => throw _privateConstructorUsedError;
   @override
 
   /// 項目名
