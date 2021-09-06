@@ -3,19 +3,20 @@ import 'package:flutter/material.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:routemaster/routemaster.dart';
 
 import '../../commons/widgets/dismissible_background.dart';
 import '../../domain/my_ranking/entities/ranking.dart';
-import '../../domain/my_ranking/providers/rankings_provider.dart';
+import '../../domain/my_ranking/providers/my_rankings_fetcher.dart';
 import '../../usecases/create_ranking_from_title.dart';
 import '../ranking_detail_page/ranking_detail_page.dart';
 
 /// Cardの角丸具合
 const _kCardRadius = 16.0;
 
-/// 複数ランキングを表示するリストページ
+/// 複数ランキングを表示するリストページ。
 class RankingListPage extends StatelessWidget {
   const RankingListPage({Key? key}) : super(key: key);
 
@@ -23,15 +24,48 @@ class RankingListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final router = Routemaster.of(context);
     return Scaffold(
-      appBar: AppBar(
-        title: Text(Routemaster.of(context).currentRoute.fullPath),
-      ),
+      appBar: AppBar(title: Text(router.currentRoute.fullPath)),
       body: const _Body(),
+      persistentFooterButtons: const [_AddButton()],
     );
   }
 }
 
+// タイトルをその場で入力して新規ランキングを追加するためのボタン。
+class _AddButton extends HookConsumerWidget {
+  const _AddButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final titleTextEditingController = useTextEditingController();
+    return Card(
+      margin: const EdgeInsets.symmetric(horizontal: 8),
+      child: ListTile(
+        leading: const CircleAvatar(
+          child: Icon(Icons.add),
+        ),
+        title: TextField(
+          controller: titleTextEditingController,
+          onSubmitted: (value) {
+            titleTextEditingController.clear();
+            ref.read(createRankingFromTitle)(value);
+          },
+          decoration: const InputDecoration(
+            filled: false,
+            contentPadding: EdgeInsets.zero,
+            hintText: '何のランキングを追加しますか？',
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// ランキングを表示するコンテンツエリア。
 class _Body extends ConsumerWidget {
   const _Body({
     Key? key,
@@ -39,52 +73,44 @@ class _Body extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final asyncValue = ref.watch(rankingsProvider);
+    final asyncValue = ref.watch(myRankingsFetcher);
 
     return asyncValue.when(
       loading: () => const _LoadingView(),
       error: (error, stk) => ErrorWidget(error),
-      data: (rankingDocs) {
-        final length = rankingDocs.length;
-        return ListView.builder(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          itemCount: length + 1,
-          itemBuilder: (_, index) {
-            if (length <= index) {
-              // 追加促しボタン
-              return Card(
-                key: const Key(''),
-                margin: const EdgeInsets.symmetric(vertical: 16),
-                child: ListTile(
-                  leading: CircleAvatar(
-                    backgroundColor: Theme.of(context).colorScheme.primary,
-                    child: const Icon(Icons.add),
-                  ),
-                  title: TextField(
-                    onSubmitted: (value) =>
-                        ref.read(createRankingFromTitle)(value),
-                    decoration: const InputDecoration(
-                      filled: false,
-                      contentPadding: EdgeInsets.zero,
-                      hintText: '何のランキングを追加しますか？',
-                    ),
-                  ),
-                ),
-              );
+      data: (snapshots) {
+        if (snapshots.isEmpty) {
+          return const _EmptyView();
+        }
+        final length = snapshots.length;
+        final lastDoc = snapshots.last;
+        return NotificationListener<ScrollEndNotification>(
+          onNotification: (notification) {
+            if (notification.metrics.extentAfter == 0) {
+              ref.read(myRankingsFetcher.notifier).next(lastDoc);
+              return true;
             }
-            final rankingDoc = rankingDocs[index];
-            return _RankingCard(
-              rankingDoc,
-              isFirst: index == 0,
-              isLast: index == length - 1,
-            );
+            return false;
           },
+          child: ListView.builder(
+            padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+            itemCount: length,
+            itemBuilder: (_, index) {
+              final rankingDoc = snapshots[index];
+              return _RankingCard(
+                rankingDoc,
+                isFirst: index == 0,
+                isLast: index == length - 1,
+              );
+            },
+          ),
         );
       },
     );
   }
 }
 
+/// 1つのランキングを表示するためのカード。
 class _RankingCard extends ConsumerWidget {
   const _RankingCard(
     this.rankingDoc, {
@@ -114,7 +140,8 @@ class _RankingCard extends ConsumerWidget {
         debugPrint('Pinned!!');
         final oldRanking = rankingDoc.data();
         final newRanking = oldRanking.copyWith(pinned: !oldRanking.pinned);
-        await rankingDoc.reference.set(newRanking);
+        // awaitを使うと、アニメーションとの兼ね合いでAssertionErrorが発生するため
+        rankingDoc.reference.set(newRanking); // ignore: unawaited_futures
         return false;
       }
     }
@@ -129,7 +156,7 @@ class _RankingCard extends ConsumerWidget {
     final ranking = rankingDoc.data();
 
     return Card(
-      margin: isFirst ? const EdgeInsets.only(top: 16) : EdgeInsets.zero,
+      margin: EdgeInsets.zero,
       shape: shape,
       clipBehavior: isFirst || isLast ? Clip.antiAlias : null,
       child: IconTheme(
@@ -176,12 +203,15 @@ class _RankingCard extends ConsumerWidget {
                   )
                 else
                   Icon(
-                    CupertinoIcons.pin_fill,
+                    CupertinoIcons.pin,
                     size: 20,
-                    color: Colors.grey[300],
+                    color: Colors.grey[200],
                   ),
                 const SizedBox(width: 6),
-                const CircleAvatar(radius: 20),
+                const CircleAvatar(
+                  radius: 20,
+                  child: Text('R'),
+                ),
               ],
             ),
             trailing: const Icon(Icons.chevron_right),
@@ -197,6 +227,31 @@ class _RankingCard extends ConsumerWidget {
   }
 }
 
+/// ランキングが1つも登録されていない時の表示。
+class _EmptyView extends StatelessWidget {
+  const _EmptyView({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(
+          'ランキングを追加しましょう',
+          textAlign: TextAlign.center,
+          style: Theme.of(context).textTheme.headline6,
+        ),
+        const Gap(16),
+        const Icon(Icons.arrow_drop_down_circle_outlined),
+      ],
+    );
+  }
+}
+
+/// 読み込み中に表示するスケルトン表示。
 class _LoadingView extends HookWidget {
   const _LoadingView({
     Key? key,
