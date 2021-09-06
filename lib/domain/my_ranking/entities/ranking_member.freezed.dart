@@ -21,10 +21,10 @@ class _$RankingMemberTearOff {
   const _$RankingMemberTearOff();
 
   _RankingMember call(
-      {@TimestampConverter() required DateTime createdAt,
-      @TimestampConverter() required DateTime updatedAt,
+      {@TimestampOrNullConverter() DateTime? createdAt,
+      @TimestampOrNullConverter() DateTime? updatedAt,
       required int order,
-      String title = '',
+      required String title,
       String comment = '',
       String? imageUrl,
       String? thumbnailUrl}) {
@@ -49,10 +49,10 @@ const $RankingMember = _$RankingMemberTearOff();
 
 /// @nodoc
 mixin _$RankingMember {
-  @TimestampConverter()
-  DateTime get createdAt => throw _privateConstructorUsedError;
-  @TimestampConverter()
-  DateTime get updatedAt => throw _privateConstructorUsedError;
+  @TimestampOrNullConverter()
+  DateTime? get createdAt => throw _privateConstructorUsedError;
+  @TimestampOrNullConverter()
+  DateTime? get updatedAt => throw _privateConstructorUsedError;
 
   /// 順位
   int get order => throw _privateConstructorUsedError;
@@ -81,8 +81,8 @@ abstract class $RankingMemberCopyWith<$Res> {
           RankingMember value, $Res Function(RankingMember) then) =
       _$RankingMemberCopyWithImpl<$Res>;
   $Res call(
-      {@TimestampConverter() DateTime createdAt,
-      @TimestampConverter() DateTime updatedAt,
+      {@TimestampOrNullConverter() DateTime? createdAt,
+      @TimestampOrNullConverter() DateTime? updatedAt,
       int order,
       String title,
       String comment,
@@ -113,11 +113,11 @@ class _$RankingMemberCopyWithImpl<$Res>
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       updatedAt: updatedAt == freezed
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       order: order == freezed
           ? _value.order
           : order // ignore: cast_nullable_to_non_nullable
@@ -150,8 +150,8 @@ abstract class _$RankingMemberCopyWith<$Res>
       __$RankingMemberCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@TimestampConverter() DateTime createdAt,
-      @TimestampConverter() DateTime updatedAt,
+      {@TimestampOrNullConverter() DateTime? createdAt,
+      @TimestampOrNullConverter() DateTime? updatedAt,
       int order,
       String title,
       String comment,
@@ -184,11 +184,11 @@ class __$RankingMemberCopyWithImpl<$Res>
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       updatedAt: updatedAt == freezed
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       order: order == freezed
           ? _value.order
           : order // ignore: cast_nullable_to_non_nullable
@@ -217,10 +217,10 @@ class __$RankingMemberCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_RankingMember with DiagnosticableTreeMixin implements _RankingMember {
   const _$_RankingMember(
-      {@TimestampConverter() required this.createdAt,
-      @TimestampConverter() required this.updatedAt,
+      {@TimestampOrNullConverter() this.createdAt,
+      @TimestampOrNullConverter() this.updatedAt,
       required this.order,
-      this.title = '',
+      required this.title,
       this.comment = '',
       this.imageUrl,
       this.thumbnailUrl});
@@ -229,16 +229,15 @@ class _$_RankingMember with DiagnosticableTreeMixin implements _RankingMember {
       _$_$_RankingMemberFromJson(json);
 
   @override
-  @TimestampConverter()
-  final DateTime createdAt;
+  @TimestampOrNullConverter()
+  final DateTime? createdAt;
   @override
-  @TimestampConverter()
-  final DateTime updatedAt;
+  @TimestampOrNullConverter()
+  final DateTime? updatedAt;
   @override
 
   /// 順位
   final int order;
-  @JsonKey(defaultValue: '')
   @override
 
   /// 項目名
@@ -325,10 +324,10 @@ class _$_RankingMember with DiagnosticableTreeMixin implements _RankingMember {
 
 abstract class _RankingMember implements RankingMember {
   const factory _RankingMember(
-      {@TimestampConverter() required DateTime createdAt,
-      @TimestampConverter() required DateTime updatedAt,
+      {@TimestampOrNullConverter() DateTime? createdAt,
+      @TimestampOrNullConverter() DateTime? updatedAt,
       required int order,
-      String title,
+      required String title,
       String comment,
       String? imageUrl,
       String? thumbnailUrl}) = _$_RankingMember;
@@ -337,11 +336,11 @@ abstract class _RankingMember implements RankingMember {
       _$_RankingMember.fromJson;
 
   @override
-  @TimestampConverter()
-  DateTime get createdAt => throw _privateConstructorUsedError;
+  @TimestampOrNullConverter()
+  DateTime? get createdAt => throw _privateConstructorUsedError;
   @override
-  @TimestampConverter()
-  DateTime get updatedAt => throw _privateConstructorUsedError;
+  @TimestampOrNullConverter()
+  DateTime? get updatedAt => throw _privateConstructorUsedError;
   @override
 
   /// 順位

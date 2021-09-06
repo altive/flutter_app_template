@@ -8,12 +8,12 @@ part of 'ranking_member.dart';
 
 _$_RankingMember _$_$_RankingMemberFromJson(Map<String, dynamic> json) {
   return _$_RankingMember(
-    createdAt:
-        const TimestampConverter().fromJson(json['created_at'] as Timestamp),
-    updatedAt:
-        const TimestampConverter().fromJson(json['updated_at'] as Timestamp),
+    createdAt: const TimestampOrNullConverter()
+        .fromJson(json['created_at'] as Timestamp?),
+    updatedAt: const TimestampOrNullConverter()
+        .fromJson(json['updated_at'] as Timestamp?),
     order: json['order'] as int,
-    title: json['title'] as String? ?? '',
+    title: json['title'] as String,
     comment: json['comment'] as String? ?? '',
     imageUrl: json['image_url'] as String?,
     thumbnailUrl: json['thumbnail_url'] as String?,
@@ -22,8 +22,8 @@ _$_RankingMember _$_$_RankingMemberFromJson(Map<String, dynamic> json) {
 
 Map<String, dynamic> _$_$_RankingMemberToJson(_$_RankingMember instance) =>
     <String, dynamic>{
-      'created_at': const TimestampConverter().toJson(instance.createdAt),
-      'updated_at': const TimestampConverter().toJson(instance.updatedAt),
+      'created_at': const TimestampOrNullConverter().toJson(instance.createdAt),
+      'updated_at': const TimestampOrNullConverter().toJson(instance.updatedAt),
       'order': instance.order,
       'title': instance.title,
       'comment': instance.comment,

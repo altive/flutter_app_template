@@ -19,14 +19,14 @@ class RankingMemberField {
 @freezed
 class RankingMember with _$RankingMember {
   const factory RankingMember({
-    @TimestampConverter() required DateTime createdAt,
-    @TimestampConverter() required DateTime updatedAt,
+    @TimestampOrNullConverter() DateTime? createdAt,
+    @TimestampOrNullConverter() DateTime? updatedAt,
 
     /// 順位
     required int order,
 
     /// 項目名
-    @Default('') String title,
+    required String title,
 
     /// 項目に対するコメント
     @Default('') String comment,
