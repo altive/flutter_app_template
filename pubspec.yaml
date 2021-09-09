@@ -24,6 +24,7 @@ dependencies:
   freezed_annotation: ^0.14.2
   gap: ^2.0.0
   hooks_riverpod: ^1.0.0-dev.6
+  linked_scroll_controller: ^0.2.0
   package_info_plus: ^1.0.5
   routemaster: ^0.9.5
   shared_preferences: ^2.0.6

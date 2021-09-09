@@ -1,6 +1,5 @@
-import 'package:flutter/material.dart';
-
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../commons/providers/firebase_messaging_provider.dart';

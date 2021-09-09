@@ -1,12 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:linked_scroll_controller/linked_scroll_controller.dart';
 
 import '../../domain/my_ranking/entities/ranking_member.dart';
 import '../../domain/my_ranking/providers/my_ranking_members_fetcher.dart';
 import '../../domain/my_ranking/providers/my_ranking_provider.dart';
-import '../../usecases/add_renking_member_from_title.dart';
+import '../ranking_edit_page/ranking_edit_page.dart';
 
 /// Cardの角丸具合
 const _kCardRadius = 16.0;
@@ -28,65 +30,91 @@ class RankingDetailPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(title: Text(ranking?.title ?? '...')),
       body: _Body(rankingId: rankingId),
-      persistentFooterButtons: [_AddButton(rankingId: rankingId)],
     );
   }
 }
 
-// タイトルをその場で入力して新規ランキングを追加するためのボタン。
-class _AddButton extends HookConsumerWidget {
-  const _AddButton({
+class _Body extends HookConsumerWidget {
+  _Body({
     Key? key,
     required this.rankingId,
   }) : super(key: key);
 
   final String rankingId;
 
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final titleTextEditingController = useTextEditingController();
-    return Card(
-      margin: const EdgeInsets.symmetric(horizontal: 8),
-      child: ListTile(
-        leading: const CircleAvatar(
-          child: Icon(Icons.add),
-        ),
-        title: TextField(
-          controller: titleTextEditingController,
-          onSubmitted: (value) {
-            titleTextEditingController.clear();
-            ref.read(addRankingMemberFromTitle)(
-              value,
-              order: 1,
-              rankingId: rankingId,
-            );
-          },
-          decoration: const InputDecoration(
-            filled: false,
-            contentPadding: EdgeInsets.zero,
-            hintText: 'ランキングに項目を追加しましょう',
-          ),
-        ),
-      ),
-    );
+  static const addIconSize = 32.0;
+  static const addIconPadding = 8.0;
+
+  final LinkedScrollControllerGroup _scrollControllerGroup =
+      LinkedScrollControllerGroup();
+  late final ScrollController mainScrollController =
+      _scrollControllerGroup.addAndGet();
+  late final ScrollController subScrollController =
+      _scrollControllerGroup.addAndGet();
+
+  void _onReorder({
+    required int oldIndex,
+    required int newIndex,
+    required List<QueryDocumentSnapshot<RankingMember>> memberDocs,
+  }) {
+    // 移動したメンバーのドキュメント
+    final movedMemberDoc = memberDocs[oldIndex];
+    // 移動距離
+    final diff = (newIndex - oldIndex).abs();
+    if (oldIndex < newIndex) {
+      // 下に移動（降格）
+      // Indexは0始まり・順位は1始まりだが、newIndexの方が大きい場合はマイナス1する必要があるため差し引き0
+      final newOrder = newIndex;
+      // 移動したドキュメントの順位を更新する
+      movedMemberDoc.reference.set(
+        movedMemberDoc.data().copyWith(
+              order: newOrder,
+            ),
+      );
+      // 付随して変更しなければならないメンバードキュメントたち
+      final extraTargets = memberDocs.skip(oldIndex).take(diff).toList();
+      for (var i = 0; i < extraTargets.length; i++) {
+        final target = extraTargets[i];
+        // 1つずつ昇格させる
+        target.reference.set(
+          target.data().copyWith(
+                order: target.data().order - 1,
+              ),
+        );
+      }
+    } else {
+      // 上に移動（昇格）
+      final newOrder = newIndex + 1; // Indexは0始まり・順位は1始まりのため
+      // 移動したドキュメントの順位を更新する
+      movedMemberDoc.reference.set(
+        movedMemberDoc.data().copyWith(
+              order: newOrder,
+            ),
+      );
+      // 付随して変更しなければならないメンバードキュメントたち
+      final extraTargets = memberDocs.skip(oldIndex).take(diff).toList();
+      for (var i = 0; i < extraTargets.length; i++) {
+        final target = extraTargets[i];
+        // 1つずつ昇格させる
+        target.reference.set(
+          target.data().copyWith(
+                order: target.data().order - 1,
+              ),
+        );
+      }
+    }
   }
-}
-
-class _Body extends ConsumerWidget {
-  const _Body({
-    Key? key,
-    required this.rankingId,
-  }) : super(key: key);
-
-  final String rankingId;
-
-  void _onReorder(
-    int oldIndex,
-    int newIndex,
-  ) {}
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    useEffect(() {
+      return () {
+        mainScrollController.dispose();
+        subScrollController.dispose();
+        debugPrint('ScrollControllers disposed.');
+      };
+    }, const []);
+
     return ref.watch(myRankingMembersFetcher(rankingId)).when(
           loading: () => const _LoadingView(),
           error: (error, stk) => ErrorWidget(error),
@@ -97,33 +125,63 @@ class _Body extends ConsumerWidget {
                 Align(
                   alignment: AlignmentDirectional.topEnd,
                   child: ListView.builder(
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    controller: subScrollController,
+                    padding: const EdgeInsets.only(
+                      top: 45,
+                      right: addIconPadding,
+                      bottom: 60,
+                    ),
                     itemCount: length,
                     itemBuilder: (_, index) {
-                      return IconButton(
-                        onPressed: () => print('object'),
-                        alignment: AlignmentDirectional.centerEnd,
-                        icon: const Icon(Icons.add_circle),
+                      return ConstrainedBox(
+                        constraints: const BoxConstraints(minHeight: 58),
+                        child: IconButton(
+                          onPressed: () {
+                            showModalBottomSheet<void>(
+                              context: context,
+                              backgroundColor: Colors.transparent,
+                              builder: (context) {
+                                return const _AddMemberModalBottomSheet();
+                              },
+                            );
+                          },
+                          iconSize: addIconSize,
+                          alignment: AlignmentDirectional.centerEnd,
+                          icon: const Icon(Icons.add_circle),
+                        ),
                       );
                     },
                   ),
                 ),
                 SizedBox(
-                  width: MediaQuery.of(context).size.width - 80,
+                  width: MediaQuery.of(context).size.width -
+                      (addIconSize + addIconPadding * 2),
                   child: ReorderableListView.builder(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 16, horizontal: 16),
+                    scrollController: mainScrollController,
+                    padding: const EdgeInsets.only(
+                      left: 16,
+                      right: 16,
+                      bottom: 88, // 多めに取らないと下部が途切れる
+                    ),
+                    header: const SizedBox(height: 16),
                     itemCount: length,
                     itemBuilder: (_, index) {
                       final memberDoc = memberDocs[index];
-                      return _MemberCard(
-                        memberDoc,
+                      return ConstrainedBox(
                         key: Key(memberDoc.id),
-                        isFirst: index == 0,
-                        isLast: index == length - 1,
+                        constraints: const BoxConstraints(minHeight: 58),
+                        child: _MemberCard(
+                          memberDoc,
+                          isFirst: index == 0,
+                          isLast: index == length - 1,
+                        ),
                       );
                     },
-                    onReorder: _onReorder,
+                    onReorder: (oldIndex, newIndex) => _onReorder(
+                      oldIndex: oldIndex,
+                      newIndex: newIndex,
+                      memberDocs: memberDocs,
+                    ),
                   ),
                 ),
               ],
@@ -259,6 +317,116 @@ class _LoadingView extends HookWidget {
             );
           },
         ),
+      ),
+    );
+  }
+}
+
+class _AddMemberModalBottomSheet extends StatelessWidget {
+  const _AddMemberModalBottomSheet({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+      ),
+      child: Stack(
+        children: [
+          SingleChildScrollView(
+            padding: const EdgeInsets.symmetric(vertical: 16),
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(16, 8, 40, 16),
+                  child: Text(
+                    '〇〇ランキングの1位に追加',
+                    style: Theme.of(context).textTheme.headline6,
+                  ),
+                ),
+                Row(
+                  children: [
+                    const ImageButton(),
+                    const Gap(16),
+                    Expanded(
+                      child: TextFormField(
+                        decoration: const InputDecoration(
+                          labelText: '名前',
+                          // hintText: '2021年買って良かったもの',
+                        ),
+                        validator: (value) => null,
+                        maxLines: 2,
+                      ),
+                    ),
+                  ],
+                ),
+                const Gap(16),
+                TextFormField(
+                  maxLines: 50,
+                  minLines: 2,
+                  decoration: const InputDecoration(
+                    labelText: '説明',
+                    hintText: 'なぜこの順位に入れたのかや詳しい評価などを書き残しておくと便利です。',
+                  ),
+                ),
+                const Gap(16),
+                ElevatedButton(
+                  onPressed: () {},
+                  child: const Text('Add'),
+                ),
+              ],
+            ),
+          ),
+          Align(
+            alignment: AlignmentDirectional.topEnd,
+            child: IconButton(
+              onPressed: Navigator.of(context).pop,
+              iconSize: 32,
+              icon: const Icon(Icons.cancel),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _AddMemberModal extends StatelessWidget {
+  const _AddMemberModal({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Row(
+            children: [
+              const ImageButton(),
+              const Gap(16),
+              Expanded(
+                child: TextFormField(
+                  decoration: const InputDecoration(
+                    labelText: '名前',
+                    // hintText: '2021年買って良かったもの',
+                  ),
+                  validator: (value) => null,
+                  maxLines: 2,
+                ),
+              ),
+            ],
+          ),
+          const Gap(16),
+          TextFormField(
+            maxLines: 50,
+            minLines: 2,
+            decoration: const InputDecoration(
+              labelText: '説明',
+              hintText: 'なぜこの順位に入れたのかや詳しい評価などを書き残しておくと便利です。',
+            ),
+          ),
+        ],
       ),
     );
   }
