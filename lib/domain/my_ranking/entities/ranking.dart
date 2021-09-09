@@ -1,5 +1,6 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../commons/json_converter/timestamp_converter.dart';
@@ -37,8 +38,11 @@ class Ranking with _$Ranking {
     /// ランキングのサムネイル画像
     String? thumbnailUrl,
 
-    /// 固定したいランキングなら `true`
+    /// 優先して表示させたいランキングなら `true`
     @Default(false) bool pinned,
+
+    /// ランキングメンバーの順序
+    @Default(<String>[]) List<String> orders,
   }) = _Ranking;
 
   factory Ranking.fromJson(Map<String, Object?> json) =>

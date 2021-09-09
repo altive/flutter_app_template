@@ -1,5 +1,6 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../../../commons/json_converter/timestamp_converter.dart';
@@ -20,9 +21,6 @@ class RankingMember with _$RankingMember {
   const factory RankingMember({
     @TimestampOrNullConverter() DateTime? createdAt,
     @TimestampOrNullConverter() DateTime? updatedAt,
-
-    /// 順位
-    required int order,
 
     /// 項目名
     required String title,

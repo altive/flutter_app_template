@@ -28,7 +28,8 @@ class _$RankingTearOff {
       String comment = '',
       String? imageUrl,
       String? thumbnailUrl,
-      bool pinned = false}) {
+      bool pinned = false,
+      List<String> orders = const <String>[]}) {
     return _Ranking(
       createdAt: createdAt,
       updatedAt: updatedAt,
@@ -38,6 +39,7 @@ class _$RankingTearOff {
       imageUrl: imageUrl,
       thumbnailUrl: thumbnailUrl,
       pinned: pinned,
+      orders: orders,
     );
   }
 
@@ -71,8 +73,11 @@ mixin _$Ranking {
   /// ランキングのサムネイル画像
   String? get thumbnailUrl => throw _privateConstructorUsedError;
 
-  /// 固定したいランキングなら `true`
+  /// 優先して表示させたいランキングなら `true`
   bool get pinned => throw _privateConstructorUsedError;
+
+  /// ランキングメンバーの順序
+  List<String> get orders => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -91,7 +96,8 @@ abstract class $RankingCopyWith<$Res> {
       String comment,
       String? imageUrl,
       String? thumbnailUrl,
-      bool pinned});
+      bool pinned,
+      List<String> orders});
 }
 
 /// @nodoc
@@ -112,6 +118,7 @@ class _$RankingCopyWithImpl<$Res> implements $RankingCopyWith<$Res> {
     Object? imageUrl = freezed,
     Object? thumbnailUrl = freezed,
     Object? pinned = freezed,
+    Object? orders = freezed,
   }) {
     return _then(_value.copyWith(
       createdAt: createdAt == freezed
@@ -146,6 +153,10 @@ class _$RankingCopyWithImpl<$Res> implements $RankingCopyWith<$Res> {
           ? _value.pinned
           : pinned // ignore: cast_nullable_to_non_nullable
               as bool,
+      orders: orders == freezed
+          ? _value.orders
+          : orders // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
@@ -163,7 +174,8 @@ abstract class _$RankingCopyWith<$Res> implements $RankingCopyWith<$Res> {
       String comment,
       String? imageUrl,
       String? thumbnailUrl,
-      bool pinned});
+      bool pinned,
+      List<String> orders});
 }
 
 /// @nodoc
@@ -185,6 +197,7 @@ class __$RankingCopyWithImpl<$Res> extends _$RankingCopyWithImpl<$Res>
     Object? imageUrl = freezed,
     Object? thumbnailUrl = freezed,
     Object? pinned = freezed,
+    Object? orders = freezed,
   }) {
     return _then(_Ranking(
       createdAt: createdAt == freezed
@@ -219,6 +232,10 @@ class __$RankingCopyWithImpl<$Res> extends _$RankingCopyWithImpl<$Res>
           ? _value.pinned
           : pinned // ignore: cast_nullable_to_non_nullable
               as bool,
+      orders: orders == freezed
+          ? _value.orders
+          : orders // ignore: cast_nullable_to_non_nullable
+              as List<String>,
     ));
   }
 }
@@ -234,7 +251,8 @@ class _$_Ranking with DiagnosticableTreeMixin implements _Ranking {
       this.comment = '',
       this.imageUrl,
       this.thumbnailUrl,
-      this.pinned = false});
+      this.pinned = false,
+      this.orders = const <String>[]});
 
   factory _$_Ranking.fromJson(Map<String, dynamic> json) =>
       _$_$_RankingFromJson(json);
@@ -270,12 +288,17 @@ class _$_Ranking with DiagnosticableTreeMixin implements _Ranking {
   @JsonKey(defaultValue: false)
   @override
 
-  /// 固定したいランキングなら `true`
+  /// 優先して表示させたいランキングなら `true`
   final bool pinned;
+  @JsonKey(defaultValue: const <String>[])
+  @override
+
+  /// ランキングメンバーの順序
+  final List<String> orders;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Ranking(createdAt: $createdAt, updatedAt: $updatedAt, userId: $userId, title: $title, comment: $comment, imageUrl: $imageUrl, thumbnailUrl: $thumbnailUrl, pinned: $pinned)';
+    return 'Ranking(createdAt: $createdAt, updatedAt: $updatedAt, userId: $userId, title: $title, comment: $comment, imageUrl: $imageUrl, thumbnailUrl: $thumbnailUrl, pinned: $pinned, orders: $orders)';
   }
 
   @override
@@ -290,7 +313,8 @@ class _$_Ranking with DiagnosticableTreeMixin implements _Ranking {
       ..add(DiagnosticsProperty('comment', comment))
       ..add(DiagnosticsProperty('imageUrl', imageUrl))
       ..add(DiagnosticsProperty('thumbnailUrl', thumbnailUrl))
-      ..add(DiagnosticsProperty('pinned', pinned));
+      ..add(DiagnosticsProperty('pinned', pinned))
+      ..add(DiagnosticsProperty('orders', orders));
   }
 
   @override
@@ -317,7 +341,9 @@ class _$_Ranking with DiagnosticableTreeMixin implements _Ranking {
                 const DeepCollectionEquality()
                     .equals(other.thumbnailUrl, thumbnailUrl)) &&
             (identical(other.pinned, pinned) ||
-                const DeepCollectionEquality().equals(other.pinned, pinned)));
+                const DeepCollectionEquality().equals(other.pinned, pinned)) &&
+            (identical(other.orders, orders) ||
+                const DeepCollectionEquality().equals(other.orders, orders)));
   }
 
   @override
@@ -330,7 +356,8 @@ class _$_Ranking with DiagnosticableTreeMixin implements _Ranking {
       const DeepCollectionEquality().hash(comment) ^
       const DeepCollectionEquality().hash(imageUrl) ^
       const DeepCollectionEquality().hash(thumbnailUrl) ^
-      const DeepCollectionEquality().hash(pinned);
+      const DeepCollectionEquality().hash(pinned) ^
+      const DeepCollectionEquality().hash(orders);
 
   @JsonKey(ignore: true)
   @override
@@ -352,7 +379,8 @@ abstract class _Ranking implements Ranking {
       String comment,
       String? imageUrl,
       String? thumbnailUrl,
-      bool pinned}) = _$_Ranking;
+      bool pinned,
+      List<String> orders}) = _$_Ranking;
 
   factory _Ranking.fromJson(Map<String, dynamic> json) = _$_Ranking.fromJson;
 
@@ -384,8 +412,12 @@ abstract class _Ranking implements Ranking {
   String? get thumbnailUrl => throw _privateConstructorUsedError;
   @override
 
-  /// 固定したいランキングなら `true`
+  /// 優先して表示させたいランキングなら `true`
   bool get pinned => throw _privateConstructorUsedError;
+  @override
+
+  /// ランキングメンバーの順序
+  List<String> get orders => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$RankingCopyWith<_Ranking> get copyWith =>

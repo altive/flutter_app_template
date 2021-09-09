@@ -6,6 +6,7 @@ import '../domain/my_ranking/repositories/ranking_member_repository.dart';
 final addRankingMemberFromTitle =
     Provider((ref) => AddRankingMemberFromTitle(ref.read));
 
+/// Create new ranking member document by title.
 class AddRankingMemberFromTitle {
   const AddRankingMemberFromTitle(this._read);
 
@@ -13,16 +14,12 @@ class AddRankingMemberFromTitle {
 
   void call(
     String title, {
-    required int order,
     required String rankingId,
   }) {
     if (title.isEmpty) {
       return;
     }
-    final member = RankingMember(
-      order: order,
-      title: title,
-    );
+    final member = RankingMember(title: title);
     _read(rankingMemberRepositoryProvider).add(
       member,
       rankingId: rankingId,

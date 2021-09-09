@@ -1,13 +1,16 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:linked_scroll_controller/linked_scroll_controller.dart';
 
+import '../../domain/my_ranking/entities/ranking.dart';
 import '../../domain/my_ranking/entities/ranking_member.dart';
 import '../../domain/my_ranking/providers/my_ranking_members_fetcher.dart';
 import '../../domain/my_ranking/providers/my_ranking_provider.dart';
+import '../../usecases/update_ranking_rank.dart';
 import '../ranking_edit_page/ranking_edit_page.dart';
 
 /// Cardの角丸具合
@@ -28,110 +31,100 @@ class RankingDetailPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final ranking = ref.watch(myRankingProvider(rankingId)).data?.value.data();
     return Scaffold(
-      appBar: AppBar(title: Text(ranking?.title ?? '...')),
-      body: _Body(rankingId: rankingId),
+      appBar: AppBar(
+        title: Text(ranking?.title ?? '...'),
+      ),
+      body: _Body(
+        rankingId: rankingId,
+        ranking: ranking,
+      ),
     );
   }
 }
 
-class _Body extends HookConsumerWidget {
-  _Body({
+class _Body extends ConsumerStatefulWidget {
+  const _Body({
     Key? key,
     required this.rankingId,
+    required this.ranking,
   }) : super(key: key);
 
+  final Ranking? ranking;
   final String rankingId;
 
+  @override
+  __BodyState createState() => __BodyState();
+}
+
+class __BodyState extends ConsumerState<_Body> {
   static const addIconSize = 32.0;
   static const addIconPadding = 8.0;
 
-  final LinkedScrollControllerGroup _scrollControllerGroup =
-      LinkedScrollControllerGroup();
-  late final ScrollController mainScrollController =
-      _scrollControllerGroup.addAndGet();
-  late final ScrollController subScrollController =
-      _scrollControllerGroup.addAndGet();
+  /// 複数のScrollableViewのスクロールを同期させるためのGroup
+  late LinkedScrollControllerGroup _scrollControllerGroup;
+  late ScrollController _mainScrollController;
+  late ScrollController _subScrollController;
 
-  void _onReorder({
-    required int oldIndex,
-    required int newIndex,
-    required List<QueryDocumentSnapshot<RankingMember>> memberDocs,
-  }) {
-    // 移動したメンバーのドキュメント
-    final movedMemberDoc = memberDocs[oldIndex];
-    // 移動距離
-    final diff = (newIndex - oldIndex).abs();
-    if (oldIndex < newIndex) {
-      // 下に移動（降格）
-      // Indexは0始まり・順位は1始まりだが、newIndexの方が大きい場合はマイナス1する必要があるため差し引き0
-      final newOrder = newIndex;
-      // 移動したドキュメントの順位を更新する
-      movedMemberDoc.reference.set(
-        movedMemberDoc.data().copyWith(
-              order: newOrder,
-            ),
-      );
-      // 付随して変更しなければならないメンバードキュメントたち
-      final extraTargets = memberDocs.skip(oldIndex).take(diff).toList();
-      for (var i = 0; i < extraTargets.length; i++) {
-        final target = extraTargets[i];
-        // 1つずつ昇格させる
-        target.reference.set(
-          target.data().copyWith(
-                order: target.data().order - 1,
-              ),
-        );
-      }
-    } else {
-      // 上に移動（昇格）
-      final newOrder = newIndex + 1; // Indexは0始まり・順位は1始まりのため
-      // 移動したドキュメントの順位を更新する
-      movedMemberDoc.reference.set(
-        movedMemberDoc.data().copyWith(
-              order: newOrder,
-            ),
-      );
-      // 付随して変更しなければならないメンバードキュメントたち
-      final extraTargets = memberDocs.skip(oldIndex).take(diff).toList();
-      for (var i = 0; i < extraTargets.length; i++) {
-        final target = extraTargets[i];
-        // 1つずつ昇格させる
-        target.reference.set(
-          target.data().copyWith(
-                order: target.data().order - 1,
-              ),
-        );
-      }
-    }
+  List<QueryDocumentSnapshot<RankingMember>> _memberDocs = [];
+
+  @override
+  void initState() {
+    _scrollControllerGroup = LinkedScrollControllerGroup();
+    _mainScrollController = _scrollControllerGroup.addAndGet();
+    _subScrollController = _scrollControllerGroup.addAndGet();
+    super.initState();
   }
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    useEffect(() {
-      return () {
-        mainScrollController.dispose();
-        subScrollController.dispose();
-        debugPrint('ScrollControllers disposed.');
-      };
-    }, const []);
+  void dispose() {
+    _mainScrollController.dispose();
+    _subScrollController.dispose();
+    super.dispose();
+  }
 
-    return ref.watch(myRankingMembersFetcher(rankingId)).when(
+  /// ドラッグで並び替えされた時の処理
+  /// 新しい順序をランキングに反映させる
+  void _onReorder(
+    int oldIndex,
+    int newIndex,
+  ) {
+    // 先にローカルデータを編集（
+    // 新しい順番
+    final newOrder = oldIndex < newIndex ? newIndex - 1 : newIndex;
+    final removedDoc = _memberDocs.removeAt(oldIndex);
+    _memberDocs.insert(newOrder, removedDoc);
+
+    // データ側を更新
+    ref.read(updateRankingRank)(
+      rankingId: widget.rankingId,
+      oldIndex: oldIndex,
+      newIndex: newIndex,
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    if (widget.ranking == null) {
+      return const _LoadingView();
+    }
+    return ref.watch(myOrderedRankingMembersProvider(widget.rankingId)).when(
           loading: () => const _LoadingView(),
           error: (error, stk) => ErrorWidget(error),
-          data: (memberDocs) {
-            final length = memberDocs.length;
+          data: (data) {
+            _memberDocs = data;
+            final rankingLength = _memberDocs.length;
             return Stack(
               children: [
                 Align(
                   alignment: AlignmentDirectional.topEnd,
                   child: ListView.builder(
-                    controller: subScrollController,
+                    controller: _subScrollController,
                     padding: const EdgeInsets.only(
                       top: 45,
                       right: addIconPadding,
                       bottom: 60,
                     ),
-                    itemCount: length,
+                    itemCount: rankingLength,
                     itemBuilder: (_, index) {
                       return ConstrainedBox(
                         constraints: const BoxConstraints(minHeight: 58),
@@ -157,31 +150,28 @@ class _Body extends HookConsumerWidget {
                   width: MediaQuery.of(context).size.width -
                       (addIconSize + addIconPadding * 2),
                   child: ReorderableListView.builder(
-                    scrollController: mainScrollController,
+                    scrollController: _mainScrollController,
                     padding: const EdgeInsets.only(
                       left: 16,
                       right: 16,
                       bottom: 88, // 多めに取らないと下部が途切れる
                     ),
                     header: const SizedBox(height: 16),
-                    itemCount: length,
+                    itemCount: rankingLength,
                     itemBuilder: (_, index) {
-                      final memberDoc = memberDocs[index];
+                      final memberDoc = _memberDocs[index];
                       return ConstrainedBox(
                         key: Key(memberDoc.id),
                         constraints: const BoxConstraints(minHeight: 58),
                         child: _MemberCard(
                           memberDoc,
+                          rank: index + 1,
                           isFirst: index == 0,
-                          isLast: index == length - 1,
+                          isLast: index == rankingLength - 1,
                         ),
                       );
                     },
-                    onReorder: (oldIndex, newIndex) => _onReorder(
-                      oldIndex: oldIndex,
-                      newIndex: newIndex,
-                      memberDocs: memberDocs,
-                    ),
+                    onReorder: _onReorder,
                   ),
                 ),
               ],
@@ -194,12 +184,14 @@ class _Body extends HookConsumerWidget {
 class _MemberCard extends StatelessWidget {
   const _MemberCard(
     this.memberDoc, {
+    required this.rank,
     required this.isFirst,
     required this.isLast,
     Key? key,
   }) : super(key: key);
 
   final QueryDocumentSnapshot<RankingMember> memberDoc;
+  final int rank;
   final bool isFirst;
   final bool isLast;
 
@@ -235,7 +227,7 @@ class _MemberCard extends StatelessWidget {
         trailing: const Icon(Icons.drag_handle),
         title: Text.rich(
           TextSpan(
-            text: '${member.order}位',
+            text: '$rank位',
             style: Theme.of(context).textTheme.bodyText2!.copyWith(
                   fontWeight: FontWeight.bold,
                   color: Theme.of(context).colorScheme.primary,
