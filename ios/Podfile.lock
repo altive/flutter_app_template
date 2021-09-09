@@ -300,7 +300,7 @@ SPEC CHECKSUMS:
   FirebasePerformance: 3861ee8f7b2ee35fe09a54939d1db1cf24b395bc
   FirebaseRemoteConfig: 648648205dc7fd546880aeafc737bc19a2543d31
   FirebaseStorage: ff380720c204593d98c3e5482e62ccfbb522f0c5
-  Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
+  Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   GoogleAppMeasurement: de70802583dedceb0bca18172b345307e8f410b8
   GoogleDataTransport: 85fd18ff3019bb85d3f2c551d04c481dedf71fc9
