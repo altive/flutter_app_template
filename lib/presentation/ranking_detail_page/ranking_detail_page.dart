@@ -6,6 +6,7 @@ import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:linked_scroll_controller/linked_scroll_controller.dart';
 
+import '../../commons/widgets/dismissible_background.dart';
 import '../../domain/my_ranking/entities/ranking.dart';
 import '../../domain/my_ranking/entities/ranking_member.dart';
 import '../../domain/my_ranking/providers/my_ranking_members_fetcher.dart';
@@ -206,42 +207,58 @@ class _MemberCard extends StatelessWidget {
     );
 
     final member = memberDoc.data();
+
+    void onDismissed(DismissDirection direction) {
+      if (direction == DismissDirection.endToStart) {
+        memberDoc.reference.delete();
+      }
+    }
+
     return Card(
       margin: EdgeInsets.zero,
       shape: shape,
-      child: ListTile(
-        dense: true,
-        shape: isLast
-            ? null
-            : Border(
-                bottom: BorderSide(
-                  color: Theme.of(context).scaffoldBackgroundColor,
-                ),
-              ),
-        contentPadding: const EdgeInsets.symmetric(
-          vertical: 4,
-          horizontal: 16,
+      child: Dismissible(
+        key: Key(memberDoc.id),
+        direction: DismissDirection.endToStart,
+        onDismissed: onDismissed,
+        background: const SizedBox(),
+        secondaryBackground: const DismissibleBackground(
+          child: Icon(Icons.delete_forever, color: Colors.white),
         ),
-        onTap: () => debugPrint('OnTap!'),
-        leading: const CircleAvatar(radius: 20),
-        trailing: const Icon(Icons.drag_handle),
-        title: Text.rich(
-          TextSpan(
-            text: '$rank位',
-            style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                  fontWeight: FontWeight.bold,
-                  color: Theme.of(context).colorScheme.primary,
+        child: ListTile(
+          dense: true,
+          shape: isLast
+              ? null
+              : Border(
+                  bottom: BorderSide(
+                    color: Theme.of(context).scaffoldBackgroundColor,
+                  ),
                 ),
-            children: [
-              const WidgetSpan(child: SizedBox(width: 16)),
-              TextSpan(
-                text: member.title,
-                style: Theme.of(context).textTheme.bodyText2,
-              )
-            ],
+          contentPadding: const EdgeInsets.symmetric(
+            vertical: 4,
+            horizontal: 16,
           ),
-          maxLines: 1,
-          overflow: TextOverflow.ellipsis,
+          onTap: () => debugPrint('OnTap!'),
+          leading: const CircleAvatar(radius: 20),
+          trailing: const Icon(Icons.drag_handle),
+          title: Text.rich(
+            TextSpan(
+              text: '$rank位',
+              style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
+              children: [
+                const WidgetSpan(child: SizedBox(width: 16)),
+                TextSpan(
+                  text: member.title,
+                  style: Theme.of(context).textTheme.bodyText2,
+                )
+              ],
+            ),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
         ),
       ),
     );

@@ -163,7 +163,6 @@ class _RankingCard extends ConsumerWidget {
         data: const IconThemeData(color: Colors.white),
         child: Dismissible(
           key: Key(rankingDoc.id),
-          direction: DismissDirection.horizontal,
           onDismissed: onDismissed,
           confirmDismiss: confirmDismiss,
           background: DismissibleBackground(
