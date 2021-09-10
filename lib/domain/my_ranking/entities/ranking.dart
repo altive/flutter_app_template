@@ -40,9 +40,6 @@ class Ranking with _$Ranking {
 
     /// 優先して表示させたいランキングなら `true`
     @Default(false) bool pinned,
-
-    /// ランキングメンバーの順序
-    @Default(<String>[]) List<String> orders,
   }) = _Ranking;
 
   factory Ranking.fromJson(Map<String, Object?> json) =>

@@ -22,11 +22,14 @@ class RankingMember with _$RankingMember {
     @TimestampOrNullConverter() DateTime? createdAt,
     @TimestampOrNullConverter() DateTime? updatedAt,
 
+    /// 順番
+    required double order,
+
     /// 項目名
     required String title,
 
     /// 項目に対するコメント
-    @Default('') String comment,
+    @Default('') String description,
 
     /// 項目の画像
     String? imageUrl,

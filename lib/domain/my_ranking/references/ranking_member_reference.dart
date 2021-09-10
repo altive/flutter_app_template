@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+import '../../../commons/json_converter/timestamp_supplementer.dart';
 import '../entities/ranking_member.dart';
 import 'ranking_reference.dart';
 
@@ -11,7 +12,7 @@ CollectionReference<RankingMember> rankingMembersRef({
 }) {
   return rankingsRef.doc(rankingId).collection(_cPath).withConverter(
         fromFirestore: (doc, _) => RankingMember.fromJson(doc.data()!),
-        toFirestore: (entity, _) => entity.toJson(),
+        toFirestore: (entity, _) => entity.toJson().suppelementTimestamp(),
       );
 }
 
@@ -25,6 +26,6 @@ DocumentReference<RankingMember> rankingMemberRef({
       .doc(memberId)
       .withConverter(
         fromFirestore: (doc, _) => RankingMember.fromJson(doc.data()!),
-        toFirestore: (entity, _) => entity.toJson(),
+        toFirestore: (entity, _) => entity.toJson().suppelementTimestamp(),
       );
 }

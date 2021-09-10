@@ -18,9 +18,6 @@ _$_Ranking _$_$_RankingFromJson(Map<String, dynamic> json) {
     imageUrl: json['image_url'] as String?,
     thumbnailUrl: json['thumbnail_url'] as String?,
     pinned: json['pinned'] as bool? ?? false,
-    orders:
-        (json['orders'] as List<dynamic>?)?.map((e) => e as String).toList() ??
-            [],
   );
 }
 
@@ -34,5 +31,4 @@ Map<String, dynamic> _$_$_RankingToJson(_$_Ranking instance) =>
       'image_url': instance.imageUrl,
       'thumbnail_url': instance.thumbnailUrl,
       'pinned': instance.pinned,
-      'orders': instance.orders,
     };
