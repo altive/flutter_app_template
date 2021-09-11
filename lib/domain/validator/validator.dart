@@ -1,13 +1,11 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final validatorProvider = Provider<Validator>((ref) {
-  return Validator(ref.read);
+  return const Validator();
 });
 
 class Validator {
-  Validator(this._read);
-
-  final Reader _read;
+  const Validator();
 
   String? isNotEmpty(String? value) {
     if (value?.isEmpty ?? true) {

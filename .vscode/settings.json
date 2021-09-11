@@ -16,7 +16,6 @@
 		"editor.tabCompletion": "onlySnippets",
 		"editor.wordBasedSuggestions": false
 	},
-	"dart.debugExternalLibraries": false,
 	"dart.debugSdkLibraries": false,
 	"editor.minimap.enabled": false,
 	"editor.renderWhitespace": "all",
@@ -24,7 +23,6 @@
 	"dart.showSkippedTests": true,
 	"git.autofetch": true,
 	"explorer.confirmDragAndDrop": false,
-	"remoteHub.search.download.enabled": true,
 	"workbench.colorTheme": "Default Dark+",
 	"git.enableSmartCommit": true,
 	// for fvm

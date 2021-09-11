@@ -1,9 +1,8 @@
 import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter_test/flutter_test.dart';
-
 import 'package:flutter_app_template/commons/json_converter/timestamp_converter.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   final random = Random();

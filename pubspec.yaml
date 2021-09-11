@@ -40,15 +40,11 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   freezed: ^0.14.2
-  import_sorter: ^4.6.0
   json_serializable: ^4.1.4
 
 flutter_icons:
   android: true
   ios: true
-    
-import_sorter:
-  comments: false
 
 flutter:
   uses-material-design: true

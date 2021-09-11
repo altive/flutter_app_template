@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter_app_template/domain/my_ranking/references/ranking_member_reference.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:sort_key_generator/sort_key_generator.dart';
 

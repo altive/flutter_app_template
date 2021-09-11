@@ -1,19 +1,14 @@
-import 'package:flutter/material.dart';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter_app_template/presentation/ranking_detail_page/member_list_view.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:linked_scroll_controller/linked_scroll_controller.dart';
 
-import '../../commons/widgets/dismissible_background.dart';
 import '../../domain/my_ranking/entities/ranking.dart';
 import '../../domain/my_ranking/entities/ranking_member.dart';
 import '../../domain/my_ranking/providers/my_ranking_members_fetcher.dart';
 import '../../domain/my_ranking/providers/my_ranking_provider.dart';
-import '../../usecases/update_ranking_member_order.dart';
-import '../ranking_edit_page/ranking_edit_page.dart';
+import 'member_list_view.dart';
 import 'plus_buttons_view.dart';
 
 /// 1つのランキングを表示する詳細画面

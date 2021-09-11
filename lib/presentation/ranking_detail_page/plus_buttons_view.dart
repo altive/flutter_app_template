@@ -92,8 +92,6 @@ class _AddMemberModalBottomSheet extends HookConsumerWidget {
     final descriptionController = useTextEditingController();
 
     void onAddButtonPressed() {
-      final previous = memberDocs[targetIndex].data().order;
-      final next = memberDocs[targetIndex + 1].data().order;
       ref.read(addRankingMember)(
         rankingId: rankingId,
         title: titleController.text,

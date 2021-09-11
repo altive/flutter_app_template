@@ -31,11 +31,6 @@ format:
 format-dry-exit-if-changed:
 	fvm flutter format --dry-run --set-exit-if-changed lib/
 
-.PHONY: adjust 
-adjust:
-	fvm flutter format lib/
-	fvm flutter pub run import_sorter:main lib
-
 .PHONY: build-runner
 build-runner:
 	fvm flutter pub pub run build_runner build --delete-conflicting-outputs
