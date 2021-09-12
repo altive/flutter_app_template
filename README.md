@@ -32,7 +32,7 @@ dev, stg, prod
   - main.dart
 
 ## Reference list
-
+[Internationalization User Guild](https://docs.google.com/document/d/10e0saTfAv32OZLRmONy866vnaw0I2jwL8zukykpgWBc/)
 [PresentationDomainSeparation](https://martinfowler.com/bliki/PresentationDomainSeparation.html)
 [Flutter Architecture Blueprints](https://github.com/wasabeef/flutter-architecture-blueprints)
 

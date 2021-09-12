@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:routemaster/routemaster.dart';
 
 import '../ranking_list_page/ranking_list_page.dart';
@@ -12,6 +11,7 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    debugPrint('Locale: ${Localizations.localeOf(context)}');
     return Scaffold(
       appBar: AppBar(
         title: Text(Routemaster.of(context).currentRoute.fullPath),

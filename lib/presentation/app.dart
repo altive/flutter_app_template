@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:routemaster/routemaster.dart';
 
@@ -23,12 +24,14 @@ class App extends ConsumerWidget {
 
     if (isSignedIn) {
       return MaterialApp.router(
-        title: 'Flutter App Template',
+        onGenerateTitle: (context) => AppLocalizations.of(context)!.title,
         routerDelegate: ref.watch(routemasterProvider),
         routeInformationParser: const RoutemasterParser(),
         theme: lightTheme,
         darkTheme: darkTheme,
         themeMode: ref.watch(themeNotifierProvider),
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
       );
     }
 

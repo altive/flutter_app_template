@@ -1,0 +1,5 @@
+{
+    "@@locale": "ja",
+    "title": "Flutter App Template",
+    "hello": "こんにちは、{userName}！"
+}
