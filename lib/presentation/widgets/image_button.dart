@@ -19,7 +19,7 @@ class ImageButton extends StatelessWidget {
       width: 80,
       height: 80,
       decoration: BoxDecoration(
-        color: Colors.grey[350],
+        color: Theme.of(context).inputDecorationTheme.fillColor,
         borderRadius: BorderRadius.circular(8),
       ),
       child: () {
@@ -29,9 +29,9 @@ class ImageButton extends StatelessWidget {
         if (imageFile != null) {
           return Image.file(imageFile!);
         }
-        return const Icon(
+        return Icon(
           Icons.camera_alt,
-          color: Colors.white,
+          color: Theme.of(context).hintColor,
         );
       }(),
     );

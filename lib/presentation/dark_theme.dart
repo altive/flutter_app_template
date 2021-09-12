@@ -4,9 +4,12 @@ const _primaryColor = Colors.amber;
 
 ThemeData get darkTheme {
   return ThemeData.dark().copyWith(
-    colorScheme: const ColorScheme.light(
+    colorScheme: ColorScheme.dark(
       primary: _primaryColor,
       primaryVariant: Colors.amber,
+      secondary: Colors.brown,
+      surface: Colors.grey[850]!,
+      background: Colors.black,
     ),
     primaryColor: _primaryColor,
     cardTheme: CardTheme(
