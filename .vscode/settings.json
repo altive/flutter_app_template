@@ -1,30 +1,59 @@
+// Dart Recommended Settings: https://dartcode.org/docs/recommended-settings/
 {
-	// Causes the debug view to automatically appear when a breakpoint is hit. This
-	// setting is global and not configurable per-language.
+	// ONLY GLOBAL: Breakpointに到達した時、デバッグビューが自動的に表示される。
 	"debug.openDebug": "openOnDebugBreak",
-
-	"[dart]": {
-		// Auto fortmat. with (like `;` and `}`).
-		"editor.formatOnSave": true,
-		"editor.formatOnType": true,
-		"editor.rulers": [
-			80
-		],
-		"editor.selectionHighlight": false,
-		"editor.suggest.snippetsPreventQuickSuggestions": false,
-		"editor.suggestSelection": "first",
-		"editor.tabCompletion": "onlySnippets",
-		"editor.wordBasedSuggestions": false
-	},
-	"dart.debugSdkLibraries": false,
-	"editor.minimap.enabled": false,
+	// 保存時に自動でフォーマットを実行するなら`true`.
+	"editor.formatOnSave": true,
+	// 入力した行を自動でフォーマットを実行するなら`true`.
+	"editor.formatOnType": true,
+	// 垂直ルーラーを表示する文字数の位置。複数指定可
+	"editor.rulers": [
+		80
+	],
+	// ホワイトスペース文字の表示。
 	"editor.renderWhitespace": "all",
+	// 制御文字を表示するなら`true`.
 	"editor.renderControlCharacters": true,
-	"dart.showSkippedTests": true,
+	// ミニマップを表示するなら`true`。Default: true.
+	"editor.minimap.enabled": false,
+	// ブラケットをペアごとに色付けするなら`true`.
+	"editor.bracketPairColorization.enabled": true,
+	// Dartの時のみ適用する設定群
+	"[dart]": {
+		// 選択された変数への正確な参照のみをハイライトするDartの機能を妨げないために`false`.
+		"editor.selectionHighlight": false,
+		// 「スニペットモード」でも通常通り補完機能を効かせるために`false`.
+		"editor.suggest.snippetsPreventQuickSuggestions": false,
+		// `first`: コード補完時に、最近使用された項目ではなく最上位の項目を提案する。
+		// `recentlyUsedByPrefix`: 直前のテキストに基づいて最新使用された項目をフィルタリングする。
+		"editor.suggestSelection": "recentlyUsedByPrefix",
+		// 補完リストが表示されていなくても、<TAB>を押すことで`for`などのスニペットを補完できる。
+		"editor.tabCompletion": "onlySnippets",
+		// コメントや文字列の編集時にコード補完が単語を示唆することある挙動を無効化する。
+		"editor.wordBasedSuggestions": false,
+		// ファイル保存時に実行されるコードアクション
+		"editor.codeActionsOnSave": [
+			// インポートを整理する。
+			"source.organizeImports",
+			// 足りないインポートを追加する。
+			"source.addMissingImports",
+			// Dart fix を実行する。
+			"source.fixAll",
+		],
+	},
+	// 使用するFlutter SDKのパスを指定。
+	"dart.flutterSdkPath": ".fvm/flutter_sdk",
+	// PREVIEW: VS Codeのテストランナーを使用するなら`true`.
+	"dart.previewVsCodeTestRunner": true,
+	// Dart SDKライブラリをデバッグ可能としてマークし、デバッグ中のステップインを可能にするなら`true`。
+	"dart.debugSdkLibraries": false,
+	// スキップしたテストをテストツリーに表示させるなら`true`.
+	"dart.showSkippedTests": false,
+	// 現在のGitリポジトリのデフォルトリモートからコミットを自動で取得するなら`true`.
+	// `all` に設定すると、全てのリモートから取得する。
 	"git.autofetch": true,
+	// エクスプローラでファイルやフォルダをドラッグ＆ドロップした時に確認を求めるなら`true`.
 	"explorer.confirmDragAndDrop": false,
-	"workbench.colorTheme": "Default Dark+",
-	"git.enableSmartCommit": true,
-	// for fvm
-	"dart.flutterSdkPath": ".fvm/flutter_sdk"
+	// ファイル保存時に自動で dart-import を実行してインポートを整理する。
+	"dartImport.fixOnSave": true,
 }
