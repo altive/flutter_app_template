@@ -8,6 +8,7 @@ import '../domain/theme_selector/theme_selector.dart';
 import 'dark_theme.dart';
 import 'light_theme.dart';
 import 'route/route.dart';
+import 'splash_page.dart';
 
 class App extends ConsumerWidget {
   const App({Key? key}) : super(key: key);
@@ -17,7 +18,7 @@ class App extends ConsumerWidget {
     final isSignedIn = ref.watch(isSignedInProvider).data?.value;
 
     if (isSignedIn == null) {
-      return const _SplashView();
+      return const SplashPage();
     }
 
     if (isSignedIn) {
@@ -32,15 +33,6 @@ class App extends ConsumerWidget {
     }
 
     ref.watch(authenticatorProvider).signInAnonymously();
-    return const _SplashView();
-  }
-}
-
-class _SplashView extends StatelessWidget {
-  const _SplashView({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(child: CircularProgressIndicator());
+    return const SplashPage();
   }
 }
