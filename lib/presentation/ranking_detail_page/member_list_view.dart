@@ -1,10 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../commons/widgets/dismissible_background.dart';
 import '../../domain/my_ranking/entities/ranking_member.dart';
+import '../../domain/validator/validator.dart';
+import '../../usecases/overwrite_ranking_member.dart';
 import '../../usecases/update_ranking_member_order.dart';
+import '../widgets/image_button.dart';
 
 class MemberListView extends ConsumerWidget {
   const MemberListView({
@@ -67,6 +72,7 @@ class MemberListView extends ConsumerWidget {
             constraints: const BoxConstraints(minHeight: 58),
             child: _MemberCard(
               memberDoc,
+              rankingId: rankingId,
               rank: index + 1,
               isFirst: index == 0,
               isLast: index == memberDocs.length - 1,
@@ -81,12 +87,14 @@ class MemberListView extends ConsumerWidget {
 class _MemberCard extends StatelessWidget {
   const _MemberCard(
     this.memberDoc, {
+    required this.rankingId,
     required this.rank,
     required this.isFirst,
     required this.isLast,
     Key? key,
   }) : super(key: key);
 
+  final String rankingId;
   final QueryDocumentSnapshot<RankingMember> memberDoc;
   final int rank;
   final bool isFirst;
@@ -108,6 +116,19 @@ class _MemberCard extends StatelessWidget {
       if (direction == DismissDirection.endToStart) {
         memberDoc.reference.delete();
       }
+    }
+
+    void onCardTapped() {
+      showModalBottomSheet<void>(
+        context: context,
+        backgroundColor: Colors.transparent,
+        builder: (context) {
+          return _AddMemberModalBottomSheet(
+            rankingId: rankingId,
+            memberDoc: memberDoc,
+          );
+        },
+      );
     }
 
     return Card(
@@ -134,7 +155,7 @@ class _MemberCard extends StatelessWidget {
             vertical: 4,
             horizontal: 16,
           ),
-          onTap: () => debugPrint('OnTap!'),
+          onTap: onCardTapped,
           leading: const CircleAvatar(radius: 20),
           trailing: const Icon(Icons.drag_handle),
           title: Text.rich(
@@ -156,6 +177,93 @@ class _MemberCard extends StatelessWidget {
             overflow: TextOverflow.ellipsis,
           ),
         ),
+      ),
+    );
+  }
+}
+
+class _AddMemberModalBottomSheet extends HookConsumerWidget {
+  const _AddMemberModalBottomSheet({
+    Key? key,
+    required this.rankingId,
+    required this.memberDoc,
+  }) : super(key: key);
+
+  final String rankingId;
+  final QueryDocumentSnapshot<RankingMember> memberDoc;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final member = memberDoc.data();
+    final titleController = useTextEditingController(text: member.title);
+    final descriptionController =
+        useTextEditingController(text: member.description);
+
+    void onUpdateButtonPressed() {
+      ref.read(overwriteRankingMember)(
+        title: titleController.text,
+        description: descriptionController.text,
+        memberDoc: memberDoc,
+      );
+      Navigator.of(context).pop();
+    }
+
+    return Container(
+      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.surface,
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
+      ),
+      child: Stack(
+        children: [
+          SingleChildScrollView(
+            padding: const EdgeInsets.symmetric(vertical: 16),
+            child: Column(
+              children: [
+                const Gap(32),
+                TextFormField(
+                  controller: titleController,
+                  decoration: const InputDecoration(
+                    labelText: '名前',
+                  ),
+                  validator: ref.read(validatorProvider).isNotEmpty,
+                ),
+                const Gap(16),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const ImageButton(),
+                    const Gap(16),
+                    Expanded(
+                      child: TextFormField(
+                        controller: descriptionController,
+                        maxLines: 50,
+                        minLines: 2,
+                        decoration: const InputDecoration(
+                          labelText: '説明や理由',
+                          hintText: 'なぜこの順位に入れたのかや詳しい評価などを書き残しておくと便利です。',
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const Gap(16),
+                ElevatedButton(
+                  onPressed: onUpdateButtonPressed,
+                  child: const Text('Update'),
+                ),
+              ],
+            ),
+          ),
+          Align(
+            alignment: AlignmentDirectional.topEnd,
+            child: IconButton(
+              onPressed: Navigator.of(context).pop,
+              iconSize: 32,
+              icon: const Icon(Icons.cancel),
+            ),
+          ),
+        ],
       ),
     );
   }

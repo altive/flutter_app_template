@@ -20,9 +20,7 @@ class AddRankingMemberFromTitle {
     required int targetIndex,
     required List<QueryDocumentSnapshot<RankingMember>> memberDocs,
   }) {
-    if (title.isEmpty) {
-      return;
-    }
+    assert(title.isNotEmpty);
 
     final previousIndex = targetIndex - 1;
     final previous = previousIndex.isNegative
