@@ -1,7 +1,7 @@
 # See: https://docs.codecov.io/docs/codecov-yaml
 codecov:
   notify:
-    require_ci_to_pass: yes
+    require_ci_to_pass: true
 
 coverage:
   precision: 2
@@ -11,17 +11,17 @@ coverage:
   status:
     project:
       default:
-        target: 70%
+        target: 80% # the required coverage value
     patch: no # See: https://docs.codecov.io/docs/commit-status#section-patch-status
-    changes: no
+    changes: false
 
 parsers:
   gcov:
     branch_detection:
-      conditional: yes
-      loop: yes
-      method: no
-      macro: no
+      conditional: true
+      loop: true
+      method: false
+      macro: false
 
 # excluding generated files and examples from the coverage report
 ignore:
@@ -31,4 +31,4 @@ ignore:
 comment: # See: https://docs.codecov.io/docs/pull-request-comments
   layout: "reach, diff, flags, files"
   behavior: default
-  require_changes: no
+  require_changes: false
