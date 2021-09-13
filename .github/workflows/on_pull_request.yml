@@ -11,16 +11,17 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: dart-lang/setup-dart@v1
+      - name: Setup Dart
+        uses: dart-lang/setup-dart@v1
         with:
           sdk: stable
 
-      - name: Setup Flutter with FVM.
+      - name: Setup Flutter with FVM
         run: |
           make setup
           export PATH="$PATH":"$HOME/.pub-cache/bin"
 
-      - name: Install dependencies.
+      - name: Install dependencies
         run:
           make get-dependencies
 
@@ -33,7 +34,8 @@ jobs:
       - name: Run unit tests
         run: make unit-test
 
-      - uses: codecov/codecov-action@v2
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v2
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: ~/coverage/lcov.info
