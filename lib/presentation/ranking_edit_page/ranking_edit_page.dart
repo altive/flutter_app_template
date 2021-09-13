@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:routemaster/routemaster.dart';
 
 import '../widgets/image_button.dart';
-
-/// Cardの角丸具合
-const _cardRadius = 16.0;
 
 enum ImageState {
   none,
@@ -149,68 +145,68 @@ class _RankingForm extends StatelessWidget {
 //   }
 // }
 
-class _LoadingView extends HookWidget {
-  const _LoadingView({
-    Key? key,
-  }) : super(key: key);
+// class _LoadingView extends HookWidget {
+//   const _LoadingView({
+//     Key? key,
+//   }) : super(key: key);
 
-  static const _length = 6;
+//   static const _length = 6;
 
-  @override
-  Widget build(BuildContext context) {
-    final animationController = useAnimationController(
-      duration: const Duration(milliseconds: 1500),
-    );
+//   @override
+//   Widget build(BuildContext context) {
+//     final animationController = useAnimationController(
+//       duration: const Duration(milliseconds: 1500),
+//     );
 
-    final animation = useAnimation(
-      ColorTween(
-        begin: Colors.grey[50],
-        end: Colors.grey[300],
-      ).animate(animationController),
-    );
+//     final animation = useAnimation(
+//       ColorTween(
+//         begin: Colors.grey[50],
+//         end: Colors.grey[300],
+//       ).animate(animationController),
+//     );
 
-    useEffect(() {
-      animationController.repeat(reverse: true);
-      return null;
-    }, const []);
+//     useEffect(() {
+//       animationController.repeat(reverse: true);
+//       return null;
+//     }, const []);
 
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: Column(
-        children: List.generate(
-          _length,
-          (index) {
-            final isFirst = index == 0;
-            final isLast = index == _length - 1;
-            const radius = Radius.circular(_cardRadius);
-            final shape = RoundedRectangleBorder(
-              borderRadius: BorderRadius.vertical(
-                top: isFirst ? radius : Radius.zero,
-                bottom: isLast ? radius : Radius.zero,
-              ),
-            );
-            return Card(
-              margin: EdgeInsets.zero,
-              elevation: 0,
-              shape: shape,
-              child: ListTile(
-                leading: CircleAvatar(
-                  backgroundColor: animation,
-                ),
-                title: Container(
-                  width: 100,
-                  height: 16,
-                  color: animation,
-                ),
-                trailing: Icon(
-                  Icons.chevron_right,
-                  color: animation,
-                ),
-              ),
-            );
-          },
-        ),
-      ),
-    );
-  }
-}
+//     return Padding(
+//       padding: const EdgeInsets.all(16),
+//       child: Column(
+//         children: List.generate(
+//           _length,
+//           (index) {
+//             final isFirst = index == 0;
+//             final isLast = index == _length - 1;
+//             const radius = Radius.circular(_cardRadius);
+//             final shape = RoundedRectangleBorder(
+//               borderRadius: BorderRadius.vertical(
+//                 top: isFirst ? radius : Radius.zero,
+//                 bottom: isLast ? radius : Radius.zero,
+//               ),
+//             );
+//             return Card(
+//               margin: EdgeInsets.zero,
+//               elevation: 0,
+//               shape: shape,
+//               child: ListTile(
+//                 leading: CircleAvatar(
+//                   backgroundColor: animation,
+//                 ),
+//                 title: Container(
+//                   width: 100,
+//                   height: 16,
+//                   color: animation,
+//                 ),
+//                 trailing: Icon(
+//                   Icons.chevron_right,
+//                   color: animation,
+//                 ),
+//               ),
+//             );
+//           },
+//         ),
+//       ),
+//     );
+//   }
+// }

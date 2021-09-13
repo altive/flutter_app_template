@@ -32,3 +32,9 @@ jobs:
 
       - name: Run unit tests
         run: make unit-test
+
+      - uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ~/coverage/lcov.info
+          fail_ci_if_error: false

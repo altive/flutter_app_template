@@ -1,5 +1,7 @@
 <img src="https://socialify.git.ci/altive/flutter_app_template/image?description=1&font=Inter&issues=1&owner=1&pattern=Floating%20Cogs&pulls=1&stargazers=1&theme=Dark" alt="flutter_app_template" width="640" height="320" />
 
+[![codecov](https://codecov.io/gh/altive/flutter_app_template/branch/main/graph/badge.svg?token=NUHMSLBULE)](https://codecov.io/gh/altive/flutter_app_template)
+
 # Flutter App Template
 
 "Flutter App Template" is a project that introduces an approach to architecture and project structure for developing Flutter apps.
