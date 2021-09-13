@@ -41,7 +41,7 @@ build-runner-watch:
 
 .PHONY: unit-test
 unit-test:
-	fvm flutter test --coverage
+	fvm flutter test --coverage --coverage-path=~/coverage/lcov.info
 
 .PHONY: generate-icons
 generate-icons:
