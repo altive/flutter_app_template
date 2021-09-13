@@ -29,5 +29,13 @@
     "buttonDelete": "DELETE",
     "@buttonDelete": {
         "description": "Label string for the delete button."
+    },
+    "rankingMemberFormTitleLabel": "Item name",
+    "@rankingMemberFormTitleLabel": {
+        "description": "Label string for the TextField title."
+    },
+    "rankingMemberFormDescriptionLabel": "Description or reasons.",
+    "@rankingMemberFormDescriptionLabel": {
+        "description": "Label string for the TextField description."
     }
 }

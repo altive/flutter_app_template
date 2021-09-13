@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:routemaster/routemaster.dart';
 
+import '../../commons/hooks/use_localization.dart';
 import '../../commons/providers/flavor_provider.dart';
 import '../../commons/providers/package_info_provider.dart';
 
@@ -14,6 +14,7 @@ class AppInfoPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = useLocalization();
     final textTheme = Theme.of(context).textTheme;
     final flavor = ref.watch(flavorProvider);
     final packageInfo = ref.watch(packageInfoProvider);
@@ -27,8 +28,8 @@ class AppInfoPage extends HookConsumerWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text(AppLocalizations.of(context)!.title),
-              Text('Author is ${AppLocalizations.of(context)!.authorName}.'),
+              Text(l10n.title),
+              Text('Author is ${l10n.authorName}.'),
               const Text('Developed by Ryunosuke Muramatsu.'),
               const Divider(height: 56),
               Center(child: Text('App Info', style: textTheme.headline2)),

@@ -4,6 +4,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../commons/hooks/use_localization.dart';
 import '../../commons/widgets/dismissible_background.dart';
 import '../../domain/my_ranking/entities/ranking_member.dart';
 import '../../domain/validator/validator.dart';
@@ -194,6 +195,7 @@ class _AddMemberModalBottomSheet extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = useLocalization();
     final member = memberDoc.data();
     final titleController = useTextEditingController(text: member.title);
     final descriptionController =
@@ -250,7 +252,7 @@ class _AddMemberModalBottomSheet extends HookConsumerWidget {
                 const Gap(16),
                 ElevatedButton(
                   onPressed: onUpdateButtonPressed,
-                  child: const Text('Update'),
+                  child: Text(l10n.buttonUpdate),
                 ),
               ],
             ),

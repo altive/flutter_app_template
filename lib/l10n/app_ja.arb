@@ -5,5 +5,7 @@
     "hello": "こんにちは、{userName}！",
     "buttonAdd": "追加",
     "buttonUpdate": "更新",
-    "buttonDelete": "削除"
+    "buttonDelete": "削除",
+    "rankingMemberFormTitleLabel": "項目名",
+    "rankingMemberFormDescriptionLabel": "説明や理由"
 }
