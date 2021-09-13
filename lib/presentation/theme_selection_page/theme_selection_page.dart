@@ -27,6 +27,7 @@ class ThemeListView extends ConsumerWidget {
     final themeSelector = ref.watch(themeSelectorProvider.notifier);
     final currentThemeMode = ref.watch(themeSelectorProvider);
     return ListView.builder(
+      padding: const EdgeInsets.symmetric(vertical: 16),
       itemCount: ThemeMode.values.length,
       itemBuilder: (_, index) {
         final themeMode = ThemeMode.values[index];

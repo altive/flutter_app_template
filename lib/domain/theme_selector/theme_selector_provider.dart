@@ -15,6 +15,9 @@ class ThemeSelector extends StateNotifier<ThemeMode> {
   ThemeSelector(this._read) : super(ThemeMode.system) {
     /// `SharedPreferences` を使用して、記憶しているテーマがあれば取得して反映する。
     final themeIndex = _prefs.getInt(_themePrefsKey);
+    if (themeIndex == null) {
+      return;
+    }
     final themeMode = ThemeMode.values.firstWhere(
       (e) => e.index == themeIndex,
       orElse: () => ThemeMode.system,
