@@ -6,7 +6,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
-  group('ThemeNotifier', () {
+  group('ThemeSelector', () {
     late ProviderContainer container;
     setUp(() {
       return Future(() async {
@@ -27,7 +27,7 @@ void main() {
 
     test('初期テーマが[ThemeMode.system]なこと', () {
       // テスト対象のクラスをコンテナから取得する。
-      final themeMode = container.read(themeNotifierProvider);
+      final themeMode = container.read(themeSelectorProvider);
       expect(themeMode, ThemeMode.system);
     });
 
@@ -40,13 +40,13 @@ void main() {
         overrides: [sharedPreferencesProvider.overrideWithValue(sp)],
       );
 
-      final themeMode = container.read(themeNotifierProvider);
+      final themeMode = container.read(themeSelectorProvider);
       expect(themeMode, ThemeMode.light);
     });
 
     test('Darkテーマに切り替えられ、ローカル記憶領域にも保存されていること', () async {
       // テスト対象のクラスをコンテナから取得する。
-      final themeNotifier = container.read(themeNotifierProvider.notifier);
+      final themeNotifier = container.read(themeSelectorProvider.notifier);
       // テスト対象のメソッドを、任意の引数で実行する。
       await themeNotifier.changeAndSave(ThemeMode.dark);
       expect(themeNotifier.debugState, ThemeMode.dark);

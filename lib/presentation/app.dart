@@ -29,7 +29,7 @@ class App extends ConsumerWidget {
         routeInformationParser: const RoutemasterParser(),
         theme: lightTheme,
         darkTheme: darkTheme,
-        themeMode: ref.watch(themeNotifierProvider),
+        themeMode: ref.watch(themeSelectorProvider),
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
       );

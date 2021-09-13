@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:routemaster/routemaster.dart';
 
@@ -11,6 +10,7 @@ import '../ranking_edit_page/ranking_edit_page.dart';
 import '../ranking_list_page/ranking_list_page.dart';
 import '../settings_page/settings_page.dart';
 import '../tab_scaffold_page/tab_scaffold_page.dart';
+import '../theme_selection_page/theme_selection_page.dart';
 import 'general_route_observer.dart';
 
 final routemasterProvider = Provider(
@@ -36,6 +36,9 @@ final routes = RouteMap(
     // Home / App info
     '/${HomePage.routeName}/app-info': (route) =>
         const MaterialPage<void>(child: AppInfoPage()),
+    // Home / Theme selector
+    '/${HomePage.routeName}/${ThemeSelectionPage.routeName}': (route) =>
+        const MaterialPage<void>(child: ThemeSelectionPage()),
     // Home / Rankings
     '/${HomePage.routeName}/${RankingListPage.routeName}': (_) =>
         const MaterialPage<void>(child: RankingListPage()),
