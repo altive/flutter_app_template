@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:routemaster/routemaster.dart';
@@ -27,8 +27,8 @@ class AppInfoPage extends HookConsumerWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              const Text('Flutter App Template.'),
-              const Text('Author is Altive inc.'),
+              Text(AppLocalizations.of(context)!.title),
+              Text('Author is ${AppLocalizations.of(context)!.authorName}.'),
               const Text('Developed by Ryunosuke Muramatsu.'),
               const Divider(height: 56),
               Center(child: Text('App Info', style: textTheme.headline2)),

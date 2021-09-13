@@ -2,16 +2,32 @@
     "@@locale": "en",
     "title": "Flutter App Template",
     "@title": {
-        "description": "Titie of this App"
+        "description": "Titie of this App."
+    },
+    "authorName": "Altive inc",
+    "@authorName": {
+        "description": "The author of this App."
     },
     "hello": "Hello {userName}!",
     "@hello": {
-        "description": "A message with a single parameter",
+        "description": "A message with a single parameter.",
         "placeholders": {
             "userName": {
                 "type": "String",
                 "example": "Bob"
             }
         }
+    },
+    "buttonAdd": "ADD",
+    "@buttonAdd": {
+        "description": "Label string for the add button."
+    },
+    "buttonUpdate": "UPDATE",
+    "@buttonUpdate": {
+        "description": "Label string for the update button."
+    },
+    "buttonDelete": "DELETE",
+    "@buttonDelete": {
+        "description": "Label string for the delete button."
     }
 }

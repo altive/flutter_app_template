@@ -1,5 +1,9 @@
 {
     "@@locale": "ja",
     "title": "Flutter App Template",
-    "hello": "こんにちは、{userName}！"
+    "authorName": "Altive株式会社",
+    "hello": "こんにちは、{userName}！",
+    "buttonAdd": "追加",
+    "buttonUpdate": "更新",
+    "buttonDelete": "削除"
 }
