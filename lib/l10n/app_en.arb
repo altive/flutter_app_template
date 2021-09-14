@@ -1,13 +1,16 @@
 {
     "@@locale": "en",
     "title": "Flutter App Template",
-    "@title": {
-        "description": "Titie of this App."
-    },
     "authorName": "Altive inc",
-    "@authorName": {
-        "description": "The author of this App."
-    },
+    "buttonAdd": "ADD",
+    "buttonUpdate": "UPDATE",
+    "buttonDelete": "DELETE",
+    "buttonRemovePhoto": "Remove photo",
+    "buttonTakeNewPhoto": "Take new photo",
+    "buttonSelectNewPhoto": "Select new Photo",
+    "titleChangePhoto": "Change photo",
+    "rankingMemberFormTitleLabel": "Item name",
+    "rankingMemberFormDescriptionLabel": "Description or reasons.",
     "hello": "Hello {userName}!",
     "@hello": {
         "description": "A message with a single parameter.",
@@ -17,25 +20,5 @@
                 "example": "Bob"
             }
         }
-    },
-    "buttonAdd": "ADD",
-    "@buttonAdd": {
-        "description": "Label string for the add button."
-    },
-    "buttonUpdate": "UPDATE",
-    "@buttonUpdate": {
-        "description": "Label string for the update button."
-    },
-    "buttonDelete": "DELETE",
-    "@buttonDelete": {
-        "description": "Label string for the delete button."
-    },
-    "rankingMemberFormTitleLabel": "Item name",
-    "@rankingMemberFormTitleLabel": {
-        "description": "Label string for the TextField title."
-    },
-    "rankingMemberFormDescriptionLabel": "Description or reasons.",
-    "@rankingMemberFormDescriptionLabel": {
-        "description": "Label string for the TextField description."
     }
 }

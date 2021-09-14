@@ -3,7 +3,7 @@ import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:routemaster/routemaster.dart';
 
-import '../widgets/image_button.dart';
+import '../widgets/image_picker_button.dart';
 
 enum ImageState {
   none,
@@ -84,7 +84,10 @@ class _RankingForm extends StatelessWidget {
               const Gap(16),
               Row(
                 children: [
-                  const ImageButton(),
+                  ImagePickerButton(
+                    onImageChanged: (file) {},
+                    onImageRemoved: () {},
+                  ),
                   const Gap(16),
                   Expanded(
                     child: TextFormField(

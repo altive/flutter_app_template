@@ -2,10 +2,14 @@
     "@@locale": "ja",
     "title": "Flutter App Template",
     "authorName": "Altive株式会社",
-    "hello": "こんにちは、{userName}！",
     "buttonAdd": "追加",
     "buttonUpdate": "更新",
     "buttonDelete": "削除",
+    "buttonRemovePhoto": "写真を削除",
+    "buttonTakeNewPhoto": "カメラで撮影",
+    "buttonSelectNewPhoto": "写真を選ぶ",
+    "titleChangePhoto": "写真を変更",
     "rankingMemberFormTitleLabel": "項目名",
-    "rankingMemberFormDescriptionLabel": "説明や理由"
+    "rankingMemberFormDescriptionLabel": "説明や理由",
+    "hello": "こんにちは、{userName}！"
 }

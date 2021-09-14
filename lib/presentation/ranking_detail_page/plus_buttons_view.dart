@@ -8,7 +8,7 @@ import '../../commands/add_renking_member.dart';
 import '../../commons/hooks/use_localization.dart';
 import '../../domain/my_ranking/entities/ranking_member.dart';
 import '../../domain/validator/validator.dart';
-import '../widgets/image_button.dart';
+import '../widgets/image_picker_button.dart';
 
 class PlusButtonsView extends StatelessWidget {
   const PlusButtonsView({
@@ -124,7 +124,10 @@ class _AddMemberModalBottomSheet extends HookConsumerWidget {
                 ),
                 Row(
                   children: [
-                    const ImageButton(),
+                    ImagePickerButton(
+                      onImageChanged: (file) {},
+                      onImageRemoved: () {},
+                    ),
                     const Gap(16),
                     Expanded(
                       child: TextFormField(

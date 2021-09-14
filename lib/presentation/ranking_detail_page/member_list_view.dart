@@ -10,7 +10,7 @@ import '../../commons/hooks/use_localization.dart';
 import '../../commons/widgets/dismissible_background.dart';
 import '../../domain/my_ranking/entities/ranking_member.dart';
 import '../../domain/validator/validator.dart';
-import '../widgets/image_button.dart';
+import '../widgets/image_picker_button.dart';
 
 class MemberListView extends ConsumerWidget {
   const MemberListView({
@@ -234,7 +234,10 @@ class _AddMemberModalBottomSheet extends HookConsumerWidget {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const ImageButton(),
+                    ImagePickerButton(
+                      onImageChanged: (file) {},
+                      onImageRemoved: () {},
+                    ),
                     const Gap(16),
                     Expanded(
                       child: TextFormField(
