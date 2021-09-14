@@ -6,10 +6,10 @@ import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:routemaster/routemaster.dart';
 
+import '../../commands/create_ranking_from_title.dart';
 import '../../commons/widgets/dismissible_background.dart';
 import '../../domain/my_ranking/entities/ranking.dart';
 import '../../domain/my_ranking/providers/my_rankings_fetcher.dart';
-import '../../usecases/create_ranking_from_title.dart';
 import '../ranking_detail_page/ranking_detail_page.dart';
 
 /// Cardの角丸具合

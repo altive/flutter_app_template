@@ -20,8 +20,8 @@ class OverwriteRankingMember {
 
     memberDoc.reference.set(
       memberDoc.data().copyWith(
-            title: title,
-            description: description,
+            title: title.trim(),
+            description: description.trim(),
           ),
     );
   }

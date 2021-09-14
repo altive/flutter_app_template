@@ -4,12 +4,12 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../commands/overwrite_ranking_member.dart';
+import '../../commands/update_ranking_member_order.dart';
 import '../../commons/hooks/use_localization.dart';
 import '../../commons/widgets/dismissible_background.dart';
 import '../../domain/my_ranking/entities/ranking_member.dart';
 import '../../domain/validator/validator.dart';
-import '../../usecases/overwrite_ranking_member.dart';
-import '../../usecases/update_ranking_member_order.dart';
 import '../widgets/image_button.dart';
 
 class MemberListView extends ConsumerWidget {

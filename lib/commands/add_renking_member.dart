@@ -5,11 +5,11 @@ import 'package:sort_key_generator/sort_key_generator.dart';
 import '../domain/my_ranking/entities/ranking_member.dart';
 import '../domain/my_ranking/repositories/ranking_member_repository.dart';
 
-final addRankingMember = Provider((ref) => AddRankingMemberFromTitle(ref.read));
+final addRankingMember = Provider((ref) => AddRankingMember(ref.read));
 
 /// Create new ranking member document by title.
-class AddRankingMemberFromTitle {
-  const AddRankingMemberFromTitle(this._read);
+class AddRankingMember {
+  const AddRankingMember(this._read);
 
   final Reader _read;
 

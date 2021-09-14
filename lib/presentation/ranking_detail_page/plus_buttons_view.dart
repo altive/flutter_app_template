@@ -4,10 +4,10 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../commands/add_renking_member.dart';
 import '../../commons/hooks/use_localization.dart';
 import '../../domain/my_ranking/entities/ranking_member.dart';
 import '../../domain/validator/validator.dart';
-import '../../usecases/add_renking_member_from_title.dart';
 import '../widgets/image_button.dart';
 
 class PlusButtonsView extends StatelessWidget {
