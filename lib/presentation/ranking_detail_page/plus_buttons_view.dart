@@ -6,9 +6,9 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../commands/add_renking_member.dart';
 import '../../commons/hooks/use_localization.dart';
+import '../../commons/widgets/image_picker_button.dart';
 import '../../domain/my_ranking/entities/ranking_member.dart';
 import '../../domain/validator/validator.dart';
-import '../widgets/image_picker_button.dart';
 
 class PlusButtonsView extends StatelessWidget {
   const PlusButtonsView({

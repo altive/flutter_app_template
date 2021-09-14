@@ -3,7 +3,7 @@ import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:routemaster/routemaster.dart';
 
-import '../widgets/image_picker_button.dart';
+import '../../commons/widgets/image_picker_button.dart';
 
 enum ImageState {
   none,
