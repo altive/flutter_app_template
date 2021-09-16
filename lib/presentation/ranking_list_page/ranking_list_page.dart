@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -205,9 +206,11 @@ class _RankingCard extends ConsumerWidget {
                     color: Colors.grey[200],
                   ),
                 const SizedBox(width: 6),
-                const CircleAvatar(
+                CircleAvatar(
                   radius: 20,
-                  child: Text('R'),
+                  backgroundImage: ranking.imageUrl == null
+                      ? null
+                      : CachedNetworkImageProvider(ranking.imageUrl!),
                 ),
               ],
             ),

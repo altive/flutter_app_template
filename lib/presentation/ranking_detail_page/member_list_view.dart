@@ -221,7 +221,7 @@ class _UpdateMemberModalBottomSheet extends HookConsumerWidget {
         description: descriptionController.text,
         imageFile: pickedFile == null ? null : File(pickedFile.path),
         imageRemoved: imageRemovedNotifier.value,
-        memberDoc: memberDoc,
+        doc: memberDoc,
       );
       if (pickedFile != null) {
         // 写真のアップロードは時間がかかるので表示

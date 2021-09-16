@@ -26,7 +26,8 @@ class RankingDetailPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final ranking = ref.watch(myRankingProvider(rankingId)).data?.value.data();
+    final doc = ref.watch(myRankingProvider(rankingId)).data?.value;
+    final ranking = doc?.data();
     return Scaffold(
       appBar: AppBar(
         title: Text(ranking?.title ?? '...'),
@@ -39,7 +40,7 @@ class RankingDetailPage extends ConsumerWidget {
                 useRootNavigator: true,
                 // bounce: true,
                 builder: (context) {
-                  return RankingEditingSheet(ranking: ranking!);
+                  return RankingEditingSheet(doc: doc!);
                 },
               );
             },

@@ -1,25 +1,46 @@
+import 'dart:io';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:image_picker/image_picker.dart';
 
+import '../../commands/overwrite_ranking.dart';
 import '../../commons/hooks/use_localization.dart';
 import '../../commons/widgets/image_picker_button.dart';
 import '../../domain/my_ranking/entities/ranking.dart';
 
-class RankingEditingSheet extends HookWidget {
+class RankingEditingSheet extends HookConsumerWidget {
   const RankingEditingSheet({
     Key? key,
-    required this.ranking,
+    required this.doc,
   }) : super(key: key);
 
-  final Ranking ranking;
+  final DocumentSnapshot<Ranking> doc;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final l10n = useLocalization();
+    final ranking = doc.data()!;
     final titleController = useTextEditingController(text: ranking.title);
     final descriptionController =
         useTextEditingController(text: ranking.description);
+    final pickedImageNotifier = useState<XFile?>(null);
+    final imageRemovedNotifier = useState(false);
+
+    void onDone() {
+      final pickedFile = pickedImageNotifier.value;
+      ref.read(overwriteRankingProvider)(
+        title: titleController.text,
+        description: descriptionController.text,
+        imageFile: pickedFile == null ? null : File(pickedFile.path),
+        imageRemoved: imageRemovedNotifier.value,
+        doc: doc,
+      );
+      Navigator.of(context).pop();
+    }
 
     return Scaffold(
       appBar: AppBar(
@@ -31,7 +52,7 @@ class RankingEditingSheet extends HookWidget {
         leadingWidth: 80,
         actions: [
           TextButton(
-            onPressed: Navigator.of(context).pop,
+            onPressed: onDone,
             child: Text(l10n.buttonDone),
           )
         ],
@@ -50,8 +71,17 @@ class RankingEditingSheet extends HookWidget {
                 child: Column(
                   children: [
                     ImagePickerButton(
-                      onImageChanged: (file) {},
-                      onImageRemoved: () {},
+                      imageFile: pickedImageNotifier.value,
+                      imageUrl:
+                          imageRemovedNotifier.value ? null : ranking.imageUrl,
+                      onImageChanged: (file) {
+                        pickedImageNotifier.value = file;
+                        imageRemovedNotifier.value = false;
+                      },
+                      onImageRemoved: () {
+                        pickedImageNotifier.value = null;
+                        imageRemovedNotifier.value = true;
+                      },
                     ),
                     const Gap(24),
                     TextField(
