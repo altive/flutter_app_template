@@ -23,9 +23,8 @@ class RankingListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final router = Routemaster.of(context);
     return Scaffold(
-      appBar: AppBar(title: Text(router.currentRoute.fullPath)),
+      appBar: AppBar(title: const Text('My Rankings')),
       body: const _Body(),
       persistentFooterButtons: const [_AddButton()],
     );
@@ -265,8 +264,8 @@ class _LoadingView extends HookWidget {
 
     final animation = useAnimation(
       ColorTween(
-        begin: Colors.grey[50],
-        end: Colors.grey[300],
+        begin: Theme.of(context).colorScheme.background,
+        end: Theme.of(context).colorScheme.surface,
       ).animate(animationController),
     );
 

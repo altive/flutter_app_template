@@ -125,8 +125,8 @@ class _LoadingView extends HookWidget {
 
     final animation = useAnimation(
       ColorTween(
-        begin: Colors.grey[50],
-        end: Colors.grey[300],
+        begin: Theme.of(context).colorScheme.background,
+        end: Theme.of(context).colorScheme.surface,
       ).animate(animationController),
     );
 

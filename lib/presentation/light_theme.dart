@@ -17,6 +17,11 @@ ThemeData get lightTheme {
     primaryColorLight: Colors.grey[200],
     primaryColorDark: _primaryColor[200],
     scaffoldBackgroundColor: Colors.grey[100],
+    appBarTheme: AppBarTheme(
+      elevation: 0,
+      backgroundColor: Colors.grey[100],
+      foregroundColor: Colors.black,
+    ),
     cardTheme: CardTheme(
       elevation: 0,
       shape: RoundedRectangleBorder(
@@ -40,6 +45,13 @@ ThemeData get lightTheme {
       ),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        minimumSize: const Size.fromHeight(44),
+        elevation: 0,
+        shape: const StadiumBorder(),
+      ),
+    ),
+    outlinedButtonTheme: OutlinedButtonThemeData(
       style: ElevatedButton.styleFrom(
         minimumSize: const Size.fromHeight(44),
         elevation: 0,
