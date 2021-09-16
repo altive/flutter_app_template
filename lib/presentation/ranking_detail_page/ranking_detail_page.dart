@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:linked_scroll_controller/linked_scroll_controller.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 import '../../domain/my_ranking/entities/ranking.dart';
 import '../../domain/my_ranking/entities/ranking_member.dart';
@@ -10,6 +11,7 @@ import '../../domain/my_ranking/providers/my_ranking_members_fetcher.dart';
 import '../../domain/my_ranking/providers/my_ranking_provider.dart';
 import 'member_list_view.dart';
 import 'plus_buttons_view.dart';
+import 'ranking_editing_sheet.dart';
 
 /// 1つのランキングを表示する詳細画面
 class RankingDetailPage extends ConsumerWidget {
@@ -28,6 +30,22 @@ class RankingDetailPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text(ranking?.title ?? '...'),
+        actions: [
+          IconButton(
+            onPressed: () {
+              showCupertinoModalBottomSheet<void>(
+                context: context,
+                expand: false,
+                useRootNavigator: true,
+                // bounce: true,
+                builder: (context) {
+                  return RankingEditingSheet(ranking: ranking!);
+                },
+              );
+            },
+            icon: const Icon(Icons.more_horiz),
+          ),
+        ],
       ),
       body: _Body(
         rankingId: rankingId,

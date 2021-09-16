@@ -1,4 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:uuid/uuid.dart';
 
 import '../../../commons/json_converter/timestamp_supplementer.dart';
 import '../entities/ranking_member.dart';
@@ -28,4 +30,20 @@ DocumentReference<RankingMember> rankingMemberRef({
         fromFirestore: (doc, _) => RankingMember.fromJson(doc.data()!),
         toFirestore: (entity, _) => entity.toJson().suppelementTimestamp(),
       );
+}
+
+/// Firebase Storage: rankings/[rankingId]/members/[filePath]
+/// if filePath is null, Generate uuid.
+Reference rankingMemberImageRef({
+  required String rankingId,
+  required String memberId,
+  String? filePath,
+}) {
+  final path = filePath ?? const Uuid().v4();
+  return FirebaseStorage.instance
+      .ref('rankings')
+      .child(rankingId)
+      .child('members')
+      .child(memberId)
+      .child(path);
 }

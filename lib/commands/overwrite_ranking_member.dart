@@ -1,7 +1,11 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../domain/my_ranking/entities/ranking_member.dart';
+import '../domain/my_ranking/references/ranking_member_reference.dart';
 
 final overwriteRankingMember =
     Provider((ref) => const OverwriteRankingMember());
@@ -11,18 +15,38 @@ class OverwriteRankingMember {
   const OverwriteRankingMember();
 
   /// タイトル・説明・画像を変更できる
-  void call({
+  Future<void> call({
+    required String rankingId,
     required String title,
     required String description,
-    required QueryDocumentSnapshot<RankingMember> memberDoc,
-  }) {
+    File? imageFile,
+    required bool imageRemoved,
+    required QueryDocumentSnapshot<RankingMember> doc,
+  }) async {
     assert(title.isNotEmpty);
 
-    memberDoc.reference.set(
-      memberDoc.data().copyWith(
-            title: title.trim(),
-            description: description.trim(),
-          ),
-    );
+    var newData = doc.data().copyWith(
+          title: title.trim(),
+          description: description.trim(),
+        );
+
+    if (imageFile != null) {
+      // 写真ファイルがある＝写真を上書き保存する必要がある
+      final ref = rankingMemberImageRef(
+        rankingId: rankingId,
+        memberId: doc.id,
+      );
+      // 写真をStorageにアップロードする。
+      await ref.putFile(
+        imageFile,
+        SettableMetadata(cacheControl: 'public, max-age=31536000'),
+      );
+      newData = newData.copyWith(imageUrl: await ref.getDownloadURL());
+    } else if (imageRemoved) {
+      // 新しい写真ファイルはない＆写真が削除されていた場合はImageURLを削除する
+      newData = newData.copyWith(imageUrl: null);
+    }
+
+    await doc.reference.set(newData);
   }
 }

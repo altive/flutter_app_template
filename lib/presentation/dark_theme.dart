@@ -15,7 +15,7 @@ ThemeData get darkTheme {
     scaffoldBackgroundColor: Colors.grey[850],
     appBarTheme: AppBarTheme(
       elevation: 0,
-      backgroundColor: Colors.grey[850]!,
+      backgroundColor: Colors.grey[850],
     ),
     cardTheme: CardTheme(
       elevation: 0,

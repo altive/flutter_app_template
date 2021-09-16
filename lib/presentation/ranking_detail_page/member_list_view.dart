@@ -1,8 +1,12 @@
+import 'dart:io';
+
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../commands/overwrite_ranking_member.dart';
 import '../../commands/update_ranking_member_order.dart';
@@ -124,7 +128,7 @@ class _MemberCard extends StatelessWidget {
         context: context,
         backgroundColor: Colors.transparent,
         builder: (context) {
-          return _AddMemberModalBottomSheet(
+          return _UpdateMemberModalBottomSheet(
             rankingId: rankingId,
             memberDoc: memberDoc,
           );
@@ -157,7 +161,12 @@ class _MemberCard extends StatelessWidget {
             horizontal: 16,
           ),
           onTap: onCardTapped,
-          leading: const CircleAvatar(radius: 20),
+          leading: CircleAvatar(
+            radius: 20,
+            backgroundImage: member.imageUrl == null
+                ? null
+                : CachedNetworkImageProvider(member.imageUrl!),
+          ),
           trailing: const Icon(Icons.drag_handle),
           title: Text.rich(
             TextSpan(
@@ -183,8 +192,8 @@ class _MemberCard extends StatelessWidget {
   }
 }
 
-class _AddMemberModalBottomSheet extends HookConsumerWidget {
-  const _AddMemberModalBottomSheet({
+class _UpdateMemberModalBottomSheet extends HookConsumerWidget {
+  const _UpdateMemberModalBottomSheet({
     Key? key,
     required this.rankingId,
     required this.memberDoc,
@@ -196,17 +205,29 @@ class _AddMemberModalBottomSheet extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = useLocalization();
+    final pickedImageNotifier = useState<XFile?>(null);
+    final imageRemovedNotifier = useState(false);
+
     final member = memberDoc.data();
     final titleController = useTextEditingController(text: member.title);
     final descriptionController =
         useTextEditingController(text: member.description);
 
     void onUpdateButtonPressed() {
+      final pickedFile = pickedImageNotifier.value;
       ref.read(overwriteRankingMember)(
+        rankingId: rankingId,
         title: titleController.text,
         description: descriptionController.text,
+        imageFile: pickedFile == null ? null : File(pickedFile.path),
+        imageRemoved: imageRemovedNotifier.value,
         memberDoc: memberDoc,
       );
+      if (pickedFile != null) {
+        // 写真のアップロードは時間がかかるので表示
+        ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('画像の追加に時間がかかる場合があります。')));
+      }
       Navigator.of(context).pop();
     }
 
@@ -235,8 +256,17 @@ class _AddMemberModalBottomSheet extends HookConsumerWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     ImagePickerButton(
-                      onImageChanged: (file) {},
-                      onImageRemoved: () {},
+                      imageFile: pickedImageNotifier.value,
+                      imageUrl:
+                          imageRemovedNotifier.value ? null : member.imageUrl,
+                      onImageChanged: (file) {
+                        pickedImageNotifier.value = file;
+                        imageRemovedNotifier.value = false;
+                      },
+                      onImageRemoved: () {
+                        pickedImageNotifier.value = null;
+                        imageRemovedNotifier.value = true;
+                      },
                     ),
                     const Gap(16),
                     Expanded(

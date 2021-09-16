@@ -1,8 +1,11 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../../commands/add_renking_member.dart';
 import '../../commons/hooks/use_localization.dart';
@@ -89,25 +92,35 @@ class _AddMemberModalBottomSheet extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = useLocalization();
+    final pickedImageNotifier = useState<XFile?>(null);
+
     final targetRank = targetIndex + 1;
     final titleController = useTextEditingController();
     final descriptionController = useTextEditingController();
 
     void onAddButtonPressed() {
+      final pickedFile = pickedImageNotifier.value;
       ref.read(addRankingMember)(
         rankingId: rankingId,
         title: titleController.text,
         description: descriptionController.text,
+        imageFile: pickedFile == null ? null : File(pickedFile.path),
         targetIndex: targetIndex,
         memberDocs: memberDocs,
       );
+      if (pickedFile != null) {
+        // 写真のアップロードは時間がかかるので表示
+        ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('画像の追加に時間がかかる場合があります。')));
+      }
+      Navigator.of(context).pop();
     }
 
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
-      decoration: const BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+      decoration: BoxDecoration(
+        color: Theme.of(context).colorScheme.surface,
+        borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
       ),
       child: Stack(
         children: [
@@ -125,8 +138,13 @@ class _AddMemberModalBottomSheet extends HookConsumerWidget {
                 Row(
                   children: [
                     ImagePickerButton(
-                      onImageChanged: (file) {},
-                      onImageRemoved: () {},
+                      imageFile: pickedImageNotifier.value,
+                      onImageChanged: (file) {
+                        pickedImageNotifier.value = file;
+                      },
+                      onImageRemoved: () {
+                        pickedImageNotifier.value = null;
+                      },
                     ),
                     const Gap(16),
                     Expanded(

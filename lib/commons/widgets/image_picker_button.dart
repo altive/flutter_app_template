@@ -16,7 +16,7 @@ class ImagePickerButton extends HookWidget {
     required this.onImageRemoved,
   }) : super(key: key);
 
-  final File? imageFile;
+  final XFile? imageFile;
   final String? imageUrl;
   final ValueChanged<XFile> onImageChanged;
   final VoidCallback onImageRemoved;
@@ -42,14 +42,15 @@ class ImagePickerButton extends HookWidget {
                       style: Theme.of(context).textTheme.headline6,
                     ),
                   ),
-                  ListTile(
-                    title: Text(l10n.buttonRemovePhoto),
-                    leading: const Icon(Icons.delete),
-                    onTap: () {
-                      onImageRemoved();
-                      Navigator.of(context).pop();
-                    },
-                  ),
+                  if (imageFile != null || imageUrl != null)
+                    ListTile(
+                      title: Text(l10n.buttonRemovePhoto),
+                      leading: const Icon(Icons.delete),
+                      onTap: () {
+                        onImageRemoved();
+                        Navigator.of(context).pop();
+                      },
+                    ),
                   ListTile(
                     title: Text(l10n.buttonTakeNewPhoto),
                     leading: const Icon(Icons.camera_alt),
@@ -79,20 +80,29 @@ class ImagePickerButton extends HookWidget {
         height: 80,
         decoration: BoxDecoration(
           color: Theme.of(context).inputDecorationTheme.fillColor,
-          borderRadius: BorderRadius.circular(8),
+          // borderRadius: BorderRadius.circular(8),
+          shape: BoxShape.circle,
+          image: () {
+            if (imageFile != null) {
+              return DecorationImage(
+                image: FileImage(File(imageFile!.path)),
+                fit: BoxFit.cover,
+              );
+            }
+            if (imageUrl != null) {
+              return DecorationImage(
+                image: CachedNetworkImageProvider(imageUrl!),
+                fit: BoxFit.cover,
+              );
+            }
+          }(),
         ),
-        child: () {
-          if (imageUrl != null) {
-            return CachedNetworkImage(imageUrl: imageUrl!);
-          }
-          if (imageFile != null) {
-            return Image.file(imageFile!);
-          }
-          return Icon(
-            Icons.camera_alt,
-            color: Theme.of(context).hintColor,
-          );
-        }(),
+        child: imageUrl == null && imageFile == null
+            ? Icon(
+                Icons.camera_alt,
+                color: Theme.of(context).hintColor,
+              )
+            : null,
       ),
     );
   }

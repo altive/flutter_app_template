@@ -28,8 +28,8 @@ class Ranking with _$Ranking {
     /// ランキングタイトル
     @Default('') String title,
 
-    /// ランキングに対するコメント
-    @Default('') String comment,
+    /// ランキングの説明
+    @Default('') String description,
 
     /// ランキングの画像
     String? imageUrl,

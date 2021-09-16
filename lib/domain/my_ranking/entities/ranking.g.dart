@@ -6,28 +6,26 @@ part of 'ranking.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Ranking _$_$_RankingFromJson(Map<String, dynamic> json) {
-  return _$_Ranking(
-    createdAt: const TimestampOrNullConverter()
-        .fromJson(json['created_at'] as Timestamp?),
-    updatedAt: const TimestampOrNullConverter()
-        .fromJson(json['updated_at'] as Timestamp?),
-    userId: json['user_id'] as String,
-    title: json['title'] as String? ?? '',
-    comment: json['comment'] as String? ?? '',
-    imageUrl: json['image_url'] as String?,
-    thumbnailUrl: json['thumbnail_url'] as String?,
-    pinned: json['pinned'] as bool? ?? false,
-  );
-}
+_$_Ranking _$$_RankingFromJson(Map<String, dynamic> json) => _$_Ranking(
+      createdAt: const TimestampOrNullConverter()
+          .fromJson(json['created_at'] as Timestamp?),
+      updatedAt: const TimestampOrNullConverter()
+          .fromJson(json['updated_at'] as Timestamp?),
+      userId: json['user_id'] as String,
+      title: json['title'] as String? ?? '',
+      description: json['description'] as String? ?? '',
+      imageUrl: json['image_url'] as String?,
+      thumbnailUrl: json['thumbnail_url'] as String?,
+      pinned: json['pinned'] as bool? ?? false,
+    );
 
-Map<String, dynamic> _$_$_RankingToJson(_$_Ranking instance) =>
+Map<String, dynamic> _$$_RankingToJson(_$_Ranking instance) =>
     <String, dynamic>{
       'created_at': const TimestampOrNullConverter().toJson(instance.createdAt),
       'updated_at': const TimestampOrNullConverter().toJson(instance.updatedAt),
       'user_id': instance.userId,
       'title': instance.title,
-      'comment': instance.comment,
+      'description': instance.description,
       'image_url': instance.imageUrl,
       'thumbnail_url': instance.thumbnailUrl,
       'pinned': instance.pinned,

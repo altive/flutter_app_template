@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'ranking.dart';
 
@@ -25,7 +26,7 @@ class _$RankingTearOff {
       @TimestampOrNullConverter() DateTime? updatedAt,
       required String userId,
       String title = '',
-      String comment = '',
+      String description = '',
       String? imageUrl,
       String? thumbnailUrl,
       bool pinned = false}) {
@@ -34,7 +35,7 @@ class _$RankingTearOff {
       updatedAt: updatedAt,
       userId: userId,
       title: title,
-      comment: comment,
+      description: description,
       imageUrl: imageUrl,
       thumbnailUrl: thumbnailUrl,
       pinned: pinned,
@@ -62,8 +63,8 @@ mixin _$Ranking {
   /// ランキングタイトル
   String get title => throw _privateConstructorUsedError;
 
-  /// ランキングに対するコメント
-  String get comment => throw _privateConstructorUsedError;
+  /// ランキングの説明
+  String get description => throw _privateConstructorUsedError;
 
   /// ランキングの画像
   String? get imageUrl => throw _privateConstructorUsedError;
@@ -88,7 +89,7 @@ abstract class $RankingCopyWith<$Res> {
       @TimestampOrNullConverter() DateTime? updatedAt,
       String userId,
       String title,
-      String comment,
+      String description,
       String? imageUrl,
       String? thumbnailUrl,
       bool pinned});
@@ -108,7 +109,7 @@ class _$RankingCopyWithImpl<$Res> implements $RankingCopyWith<$Res> {
     Object? updatedAt = freezed,
     Object? userId = freezed,
     Object? title = freezed,
-    Object? comment = freezed,
+    Object? description = freezed,
     Object? imageUrl = freezed,
     Object? thumbnailUrl = freezed,
     Object? pinned = freezed,
@@ -130,9 +131,9 @@ class _$RankingCopyWithImpl<$Res> implements $RankingCopyWith<$Res> {
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      comment: comment == freezed
-          ? _value.comment
-          : comment // ignore: cast_nullable_to_non_nullable
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
       imageUrl: imageUrl == freezed
           ? _value.imageUrl
@@ -160,7 +161,7 @@ abstract class _$RankingCopyWith<$Res> implements $RankingCopyWith<$Res> {
       @TimestampOrNullConverter() DateTime? updatedAt,
       String userId,
       String title,
-      String comment,
+      String description,
       String? imageUrl,
       String? thumbnailUrl,
       bool pinned});
@@ -181,7 +182,7 @@ class __$RankingCopyWithImpl<$Res> extends _$RankingCopyWithImpl<$Res>
     Object? updatedAt = freezed,
     Object? userId = freezed,
     Object? title = freezed,
-    Object? comment = freezed,
+    Object? description = freezed,
     Object? imageUrl = freezed,
     Object? thumbnailUrl = freezed,
     Object? pinned = freezed,
@@ -203,9 +204,9 @@ class __$RankingCopyWithImpl<$Res> extends _$RankingCopyWithImpl<$Res>
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      comment: comment == freezed
-          ? _value.comment
-          : comment // ignore: cast_nullable_to_non_nullable
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
               as String,
       imageUrl: imageUrl == freezed
           ? _value.imageUrl
@@ -231,13 +232,13 @@ class _$_Ranking with DiagnosticableTreeMixin implements _Ranking {
       @TimestampOrNullConverter() this.updatedAt,
       required this.userId,
       this.title = '',
-      this.comment = '',
+      this.description = '',
       this.imageUrl,
       this.thumbnailUrl,
       this.pinned = false});
 
   factory _$_Ranking.fromJson(Map<String, dynamic> json) =>
-      _$_$_RankingFromJson(json);
+      _$$_RankingFromJson(json);
 
   @override
   @TimestampOrNullConverter()
@@ -257,8 +258,8 @@ class _$_Ranking with DiagnosticableTreeMixin implements _Ranking {
   @JsonKey(defaultValue: '')
   @override
 
-  /// ランキングに対するコメント
-  final String comment;
+  /// ランキングの説明
+  final String description;
   @override
 
   /// ランキングの画像
@@ -275,7 +276,7 @@ class _$_Ranking with DiagnosticableTreeMixin implements _Ranking {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Ranking(createdAt: $createdAt, updatedAt: $updatedAt, userId: $userId, title: $title, comment: $comment, imageUrl: $imageUrl, thumbnailUrl: $thumbnailUrl, pinned: $pinned)';
+    return 'Ranking(createdAt: $createdAt, updatedAt: $updatedAt, userId: $userId, title: $title, description: $description, imageUrl: $imageUrl, thumbnailUrl: $thumbnailUrl, pinned: $pinned)';
   }
 
   @override
@@ -287,7 +288,7 @@ class _$_Ranking with DiagnosticableTreeMixin implements _Ranking {
       ..add(DiagnosticsProperty('updatedAt', updatedAt))
       ..add(DiagnosticsProperty('userId', userId))
       ..add(DiagnosticsProperty('title', title))
-      ..add(DiagnosticsProperty('comment', comment))
+      ..add(DiagnosticsProperty('description', description))
       ..add(DiagnosticsProperty('imageUrl', imageUrl))
       ..add(DiagnosticsProperty('thumbnailUrl', thumbnailUrl))
       ..add(DiagnosticsProperty('pinned', pinned));
@@ -307,9 +308,9 @@ class _$_Ranking with DiagnosticableTreeMixin implements _Ranking {
                 const DeepCollectionEquality().equals(other.userId, userId)) &&
             (identical(other.title, title) ||
                 const DeepCollectionEquality().equals(other.title, title)) &&
-            (identical(other.comment, comment) ||
+            (identical(other.description, description) ||
                 const DeepCollectionEquality()
-                    .equals(other.comment, comment)) &&
+                    .equals(other.description, description)) &&
             (identical(other.imageUrl, imageUrl) ||
                 const DeepCollectionEquality()
                     .equals(other.imageUrl, imageUrl)) &&
@@ -327,7 +328,7 @@ class _$_Ranking with DiagnosticableTreeMixin implements _Ranking {
       const DeepCollectionEquality().hash(updatedAt) ^
       const DeepCollectionEquality().hash(userId) ^
       const DeepCollectionEquality().hash(title) ^
-      const DeepCollectionEquality().hash(comment) ^
+      const DeepCollectionEquality().hash(description) ^
       const DeepCollectionEquality().hash(imageUrl) ^
       const DeepCollectionEquality().hash(thumbnailUrl) ^
       const DeepCollectionEquality().hash(pinned);
@@ -339,7 +340,7 @@ class _$_Ranking with DiagnosticableTreeMixin implements _Ranking {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$_$_RankingToJson(this);
+    return _$$_RankingToJson(this);
   }
 }
 
@@ -349,7 +350,7 @@ abstract class _Ranking implements Ranking {
       @TimestampOrNullConverter() DateTime? updatedAt,
       required String userId,
       String title,
-      String comment,
+      String description,
       String? imageUrl,
       String? thumbnailUrl,
       bool pinned}) = _$_Ranking;
@@ -372,8 +373,8 @@ abstract class _Ranking implements Ranking {
   String get title => throw _privateConstructorUsedError;
   @override
 
-  /// ランキングに対するコメント
-  String get comment => throw _privateConstructorUsedError;
+  /// ランキングの説明
+  String get description => throw _privateConstructorUsedError;
   @override
 
   /// ランキングの画像
