@@ -5,6 +5,8 @@
     "buttonAdd": "追加",
     "buttonUpdate": "更新",
     "buttonDelete": "削除",
+    "buttonDone": "完了",
+    "buttonCancel": "キャンセル",
     "buttonRemovePhoto": "写真を削除",
     "buttonTakeNewPhoto": "カメラで撮影",
     "buttonSelectNewPhoto": "写真を選ぶ",

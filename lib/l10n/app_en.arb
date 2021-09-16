@@ -5,6 +5,8 @@
     "buttonAdd": "ADD",
     "buttonUpdate": "UPDATE",
     "buttonDelete": "DELETE",
+    "buttonDone": "DONE",
+    "buttonCancel": "CANCEL",
     "buttonRemovePhoto": "Remove photo",
     "buttonTakeNewPhoto": "Take new photo",
     "buttonSelectNewPhoto": "Select new Photo",
