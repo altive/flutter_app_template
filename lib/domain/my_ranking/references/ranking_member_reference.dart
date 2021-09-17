@@ -47,3 +47,13 @@ Reference rankingMemberImageRef({
       .child(memberId)
       .child(path);
 }
+
+/// Firebase Storage: rankings/[rankingId]/members
+Reference rankingMembersStorageRef({
+  required String rankingId,
+}) {
+  return FirebaseStorage.instance
+      .ref('rankings')
+      .child(rankingId)
+      .child('members');
+}

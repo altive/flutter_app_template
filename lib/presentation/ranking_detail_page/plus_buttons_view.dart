@@ -94,11 +94,16 @@ class _AddMemberModalBottomSheet extends HookConsumerWidget {
     final l10n = useLocalization();
     final pickedImageNotifier = useState<XFile?>(null);
 
+    final formKey = useMemoized(() => GlobalKey<FormState>());
+
     final targetRank = targetIndex + 1;
     final titleController = useTextEditingController();
     final descriptionController = useTextEditingController();
 
     void onAddButtonPressed() {
+      if (!formKey.currentState!.validate()) {
+        return;
+      }
       final pickedFile = pickedImageNotifier.value;
       ref.read(addRankingMember)(
         rankingId: rankingId,
@@ -126,55 +131,59 @@ class _AddMemberModalBottomSheet extends HookConsumerWidget {
         children: [
           SingleChildScrollView(
             padding: const EdgeInsets.symmetric(vertical: 16),
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 8, 40, 16),
-                  child: Text(
-                    '$targetRank位に追加',
-                    style: Theme.of(context).textTheme.headline6,
-                  ),
-                ),
-                Row(
-                  children: [
-                    ImagePickerButton(
-                      imageFile: pickedImageNotifier.value,
-                      onImageChanged: (file) {
-                        pickedImageNotifier.value = file;
-                      },
-                      onImageRemoved: () {
-                        pickedImageNotifier.value = null;
-                      },
+            child: Form(
+              key: formKey,
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.fromLTRB(16, 8, 40, 16),
+                    child: Text(
+                      '$targetRank位に追加',
+                      style: Theme.of(context).textTheme.headline6,
                     ),
-                    const Gap(16),
-                    Expanded(
-                      child: TextFormField(
-                        controller: titleController,
-                        decoration: const InputDecoration(
-                          labelText: '名前',
-                        ),
-                        validator: ref.read(validatorProvider).isNotEmpty,
-                        maxLines: 2,
+                  ),
+                  Row(
+                    children: [
+                      ImagePickerButton(
+                        imageFile: pickedImageNotifier.value,
+                        onImageChanged: (file) {
+                          pickedImageNotifier.value = file;
+                        },
+                        onImageRemoved: () {
+                          pickedImageNotifier.value = null;
+                        },
                       ),
-                    ),
-                  ],
-                ),
-                const Gap(16),
-                TextFormField(
-                  controller: descriptionController,
-                  maxLines: 50,
-                  minLines: 2,
-                  decoration: const InputDecoration(
-                    labelText: '説明',
-                    hintText: 'なぜこの順位に入れたのかや詳しい評価などを書き残しておくと便利です。',
+                      const Gap(16),
+                      Expanded(
+                        child: TextFormField(
+                          controller: titleController,
+                          decoration: const InputDecoration(
+                            labelText: '名前（必須）',
+                          ),
+                          validator: ref.read(validatorProvider).isNotEmpty,
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-                const Gap(16),
-                ElevatedButton(
-                  onPressed: onAddButtonPressed,
-                  child: Text(l10n.buttonAdd),
-                ),
-              ],
+                  const Gap(16),
+                  TextFormField(
+                    controller: descriptionController,
+                    maxLines: 50,
+                    minLines: 2,
+                    decoration: const InputDecoration(
+                      labelText: '説明',
+                      hintText: 'なぜこの順位に入れたのかや詳しい評価などを書き残しておくと便利です。',
+                    ),
+                  ),
+                  const Gap(16),
+                  ElevatedButton(
+                    onPressed: titleController.text.isEmpty
+                        ? null
+                        : onAddButtonPressed,
+                    child: Text(l10n.buttonAdd),
+                  ),
+                ],
+              ),
             ),
           ),
           Align(

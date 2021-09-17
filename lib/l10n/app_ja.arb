@@ -13,5 +13,6 @@
     "titleChangePhoto": "写真を変更",
     "rankingMemberFormTitleLabel": "項目名",
     "rankingMemberFormDescriptionLabel": "説明や理由",
+    "rankingDeleteDialogLabel": "ランキングを削除しますか？",
     "hello": "こんにちは、{userName}！"
 }

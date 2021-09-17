@@ -9,7 +9,7 @@ class Validator {
 
   String? isNotEmpty(String? value) {
     if (value?.isEmpty ?? true) {
-      return '';
+      return 'Please enter some text.';
     }
     return null;
   }

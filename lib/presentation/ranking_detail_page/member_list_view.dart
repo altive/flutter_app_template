@@ -208,12 +208,17 @@ class _UpdateMemberModalBottomSheet extends HookConsumerWidget {
     final pickedImageNotifier = useState<XFile?>(null);
     final imageRemovedNotifier = useState(false);
 
+    final formKey = useMemoized(() => GlobalKey<FormState>());
+
     final member = memberDoc.data();
     final titleController = useTextEditingController(text: member.title);
     final descriptionController =
         useTextEditingController(text: member.description);
 
     void onUpdateButtonPressed() {
+      if (!formKey.currentState!.validate()) {
+        return;
+      }
       final pickedFile = pickedImageNotifier.value;
       ref.read(overwriteRankingMember)(
         rankingId: rankingId,
@@ -241,53 +246,59 @@ class _UpdateMemberModalBottomSheet extends HookConsumerWidget {
         children: [
           SingleChildScrollView(
             padding: const EdgeInsets.symmetric(vertical: 16),
-            child: Column(
-              children: [
-                const Gap(32),
-                TextFormField(
-                  controller: titleController,
-                  decoration: const InputDecoration(
-                    labelText: '名前',
-                  ),
-                  validator: ref.read(validatorProvider).isNotEmpty,
-                ),
-                const Gap(16),
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    ImagePickerButton(
-                      imageFile: pickedImageNotifier.value,
-                      imageUrl:
-                          imageRemovedNotifier.value ? null : member.imageUrl,
-                      onImageChanged: (file) {
-                        pickedImageNotifier.value = file;
-                        imageRemovedNotifier.value = false;
-                      },
-                      onImageRemoved: () {
-                        pickedImageNotifier.value = null;
-                        imageRemovedNotifier.value = true;
-                      },
+            child: Form(
+              key: formKey,
+              child: Column(
+                children: [
+                  const Gap(32),
+                  TextFormField(
+                    controller: titleController,
+                    decoration: const InputDecoration(
+                      labelText: '名前（必須）',
                     ),
-                    const Gap(16),
-                    Expanded(
-                      child: TextFormField(
-                        controller: descriptionController,
-                        maxLines: 50,
-                        minLines: 2,
-                        decoration: const InputDecoration(
-                          labelText: '説明や理由',
-                          hintText: 'なぜこの順位に入れたのかや詳しい評価などを書き残しておくと便利です。',
+                    validator: ref.read(validatorProvider).isNotEmpty,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                  ),
+                  const Gap(16),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ImagePickerButton(
+                        imageFile: pickedImageNotifier.value,
+                        imageUrl:
+                            imageRemovedNotifier.value ? null : member.imageUrl,
+                        onImageChanged: (file) {
+                          pickedImageNotifier.value = file;
+                          imageRemovedNotifier.value = false;
+                        },
+                        onImageRemoved: () {
+                          pickedImageNotifier.value = null;
+                          imageRemovedNotifier.value = true;
+                        },
+                      ),
+                      const Gap(16),
+                      Expanded(
+                        child: TextFormField(
+                          controller: descriptionController,
+                          maxLines: 50,
+                          minLines: 2,
+                          decoration: const InputDecoration(
+                            labelText: '説明や理由',
+                            hintText: 'なぜこの順位に入れたのかや詳しい評価などを書き残しておくと便利です。',
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-                const Gap(16),
-                ElevatedButton(
-                  onPressed: onUpdateButtonPressed,
-                  child: Text(l10n.buttonUpdate),
-                ),
-              ],
+                    ],
+                  ),
+                  const Gap(16),
+                  ElevatedButton(
+                    onPressed: titleController.text.isEmpty
+                        ? null
+                        : onUpdateButtonPressed,
+                    child: Text(l10n.buttonUpdate),
+                  ),
+                ],
+              ),
             ),
           ),
           Align(

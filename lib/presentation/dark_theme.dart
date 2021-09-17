@@ -12,6 +12,8 @@ ThemeData get darkTheme {
       background: Colors.black,
     ),
     primaryColor: _primaryColor,
+    // CircleAvatar/backgroundColor
+    primaryColorDark: Colors.grey[850],
     scaffoldBackgroundColor: Colors.grey[850],
     appBarTheme: AppBarTheme(
       elevation: 0,

@@ -13,6 +13,7 @@
     "titleChangePhoto": "Change photo",
     "rankingMemberFormTitleLabel": "Item name",
     "rankingMemberFormDescriptionLabel": "Description or reasons.",
+    "rankingDeleteDialogLabel": "Do you want to remove your ranking?",
     "hello": "Hello {userName}!",
     "@hello": {
         "description": "A message with a single parameter.",

@@ -35,3 +35,10 @@ Reference rankingImageRef({
   final path = filePath ?? const Uuid().v4();
   return FirebaseStorage.instance.ref('rankings').child(rankingId).child(path);
 }
+
+/// Firebase Storage: rankings/[rankingId]
+Reference rankingStorageRef({
+  required String rankingId,
+}) {
+  return FirebaseStorage.instance.ref('rankings').child(rankingId);
+}
