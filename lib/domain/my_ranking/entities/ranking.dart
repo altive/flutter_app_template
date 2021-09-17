@@ -22,9 +22,6 @@ class Ranking with _$Ranking {
     @TimestampOrNullConverter() DateTime? createdAt,
     @TimestampOrNullConverter() DateTime? updatedAt,
 
-    /// 作成者であるユーザーのID
-    required String userId,
-
     /// ランキングタイトル
     @Default('') String title,
 

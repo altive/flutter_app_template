@@ -2,15 +2,19 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:sort_key_generator/sort_key_generator.dart';
 
+import '../domain/authenticator/auth_user_provider.dart';
 import '../domain/my_ranking/entities/ranking_member.dart';
 import '../domain/my_ranking/references/ranking_member_reference.dart';
 
 final updateRankingMemberOrder =
-    Provider((ref) => const UpdateRankingMemberOrder());
+    Provider((ref) => UpdateRankingMemberOrder(ref.read));
 
 /// ランキングメンバーのランク（並び順序）を更新する
 class UpdateRankingMemberOrder {
-  const UpdateRankingMemberOrder();
+  const UpdateRankingMemberOrder(this._read);
+
+  final Reader _read;
+  String get _uid => _read(uidProvider).data!.value!;
 
   Future<void> call({
     required String rankingId,
@@ -50,7 +54,8 @@ class UpdateRankingMemberOrder {
         newIndex: newIndex,
       );
     }
-    final memberRef = rankingMemberRef(
+    final memberRef = myRankingMemberDocRef(
+      uid: _uid,
       rankingId: rankingId,
       memberId: memberId,
     );

@@ -15,7 +15,7 @@
 				"$dart-build_runner"
 			],
 			"group": "build",
-			"label": "flutter: flutter pub run build_runner watch"
+			"label": "flutter: flutter pub run build_runner watch --delete-conflicting-outputs"
 		},
 		{
 			"type": "flutter",
@@ -31,7 +31,7 @@
 				"$dart-build_runner"
 			],
 			"group": "build",
-			"label": "flutter: flutter pub run build_runner build"
+			"label": "flutter: flutter pub run build_runner build --delete-conflicting-outputs"
 		}
 	]
 }

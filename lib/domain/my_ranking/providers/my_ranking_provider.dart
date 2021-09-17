@@ -1,16 +1,16 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../authenticator/auth_user_provider.dart';
 import '../entities/ranking.dart';
-import '../references/ranking_reference.dart';
+import '../references/my_ranking_reference.dart';
 
 // Provide a single document.
 
 /// Return a ranking document by `rankingId`.
+/// Firestore: Fetch ranking document reference.
 final myRankingProvider =
-    StreamProvider.family<DocumentSnapshot<Ranking>, String>((
-  ref,
-  rankingId,
-) {
-  return rankingRef(rankingId: rankingId).snapshots();
+    StreamProvider.family<DocumentSnapshot<Ranking>, String>((ref, rankingId) {
+  final uid = ref.watch(uidProvider).data!.value!;
+  return myRankingDocRef(rankingId: rankingId, uid: uid).snapshots();
 });

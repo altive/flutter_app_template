@@ -11,7 +11,6 @@ _$_Ranking _$$_RankingFromJson(Map<String, dynamic> json) => _$_Ranking(
           .fromJson(json['created_at'] as Timestamp?),
       updatedAt: const TimestampOrNullConverter()
           .fromJson(json['updated_at'] as Timestamp?),
-      userId: json['user_id'] as String,
       title: json['title'] as String? ?? '',
       description: json['description'] as String? ?? '',
       imageUrl: json['image_url'] as String?,
@@ -23,7 +22,6 @@ Map<String, dynamic> _$$_RankingToJson(_$_Ranking instance) =>
     <String, dynamic>{
       'created_at': const TimestampOrNullConverter().toJson(instance.createdAt),
       'updated_at': const TimestampOrNullConverter().toJson(instance.updatedAt),
-      'user_id': instance.userId,
       'title': instance.title,
       'description': instance.description,
       'image_url': instance.imageUrl,

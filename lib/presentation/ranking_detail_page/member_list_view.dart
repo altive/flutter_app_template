@@ -57,6 +57,10 @@ class MemberListView extends ConsumerWidget {
       );
     }
 
+    if (memberDocs.isEmpty) {
+      return const _EmptyView();
+    }
+
     return SizedBox(
       width: MediaQuery.of(context).size.width -
           (addIconSize + addIconPadding * 2),
@@ -309,6 +313,33 @@ class _UpdateMemberModalBottomSheet extends HookConsumerWidget {
               icon: const Icon(Icons.cancel),
             ),
           ),
+        ],
+      ),
+    );
+  }
+}
+
+/// ランキングが1つも登録されていない時の表示。
+class _EmptyView extends StatelessWidget {
+  const _EmptyView({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
+      child: Row(
+        children: [
+          Flexible(
+            child: Text(
+              'まずは1位から追加しましょう',
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.headline6,
+            ),
+          ),
+          const Gap(8),
+          const Icon(Icons.arrow_forward),
         ],
       ),
     );

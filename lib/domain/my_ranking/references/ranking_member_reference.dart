@@ -4,27 +4,32 @@ import 'package:uuid/uuid.dart';
 
 import '../../../commons/json_converter/timestamp_supplementer.dart';
 import '../entities/ranking_member.dart';
-import 'ranking_reference.dart';
+import 'my_ranking_reference.dart';
 
-const _cPath = 'members';
-
+/// Reference
 /// rankings/[rankingId]/members コレクションの参照を取得する
-CollectionReference<RankingMember> rankingMembersRef({
+CollectionReference<RankingMember> myRankingMemberColRef({
+  required String uid,
   required String rankingId,
 }) {
-  return rankingsRef.doc(rankingId).collection(_cPath).withConverter(
+  return myRankingColRef(uid)
+      .doc(rankingId)
+      .collection('members')
+      .withConverter(
         fromFirestore: (doc, _) => RankingMember.fromJson(doc.data()!),
         toFirestore: (entity, _) => entity.toJson().suppelementTimestamp(),
       );
 }
 
+/// Reference
 /// rankings/[rankingId]/members/[memberId] ドキュメントの参照を取得する
-DocumentReference<RankingMember> rankingMemberRef({
+DocumentReference<RankingMember> myRankingMemberDocRef({
+  required String uid,
   required String rankingId,
   required String memberId,
 }) {
-  return rankingRef(rankingId: rankingId)
-      .collection(_cPath)
+  return myRankingDocRef(rankingId: rankingId, uid: uid)
+      .collection('members')
       .doc(memberId)
       .withConverter(
         fromFirestore: (doc, _) => RankingMember.fromJson(doc.data()!),
@@ -34,7 +39,7 @@ DocumentReference<RankingMember> rankingMemberRef({
 
 /// Firebase Storage: rankings/[rankingId]/members/[filePath]
 /// if filePath is null, Generate uuid.
-Reference rankingMemberImageRef({
+Reference myRankingMemberImageRef({
   required String rankingId,
   required String memberId,
   String? filePath,
@@ -46,14 +51,4 @@ Reference rankingMemberImageRef({
       .child('members')
       .child(memberId)
       .child(path);
-}
-
-/// Firebase Storage: rankings/[rankingId]/members
-Reference rankingMembersStorageRef({
-  required String rankingId,
-}) {
-  return FirebaseStorage.instance
-      .ref('rankings')
-      .child(rankingId)
-      .child('members');
 }

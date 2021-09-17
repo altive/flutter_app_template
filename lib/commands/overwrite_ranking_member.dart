@@ -32,7 +32,7 @@ class OverwriteRankingMember {
 
     if (imageFile != null) {
       // 写真ファイルがある＝写真を上書き保存する必要がある
-      final ref = rankingMemberImageRef(
+      final ref = myRankingMemberImageRef(
         rankingId: rankingId,
         memberId: doc.id,
       );

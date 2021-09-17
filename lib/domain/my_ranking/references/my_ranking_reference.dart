@@ -5,20 +5,23 @@ import 'package:uuid/uuid.dart';
 import '../../../commons/json_converter/timestamp_supplementer.dart';
 import '../entities/ranking.dart';
 
-const _cPath = 'rankings/v1/rankings';
+/// Reference
+CollectionReference<Ranking> myRankingColRef(String uid) {
+  return FirebaseFirestore.instance
+      .collection('users/$uid/rankings')
+      .withConverter(
+        fromFirestore: (doc, _) => Ranking.fromJson(doc.data()!),
+        toFirestore: (entity, _) => entity.toJson().suppelementTimestamp(),
+      );
+}
 
-/// Firestore: rankingsコレクションの参照を取得する
-final rankingsRef = FirebaseFirestore.instance.collection(_cPath).withConverter(
-      fromFirestore: (doc, _) => Ranking.fromJson(doc.data()!),
-      toFirestore: (entity, _) => entity.toJson().suppelementTimestamp(),
-    );
-
-/// Firestore: rankings/[rankingId] ドキュメントの参照を取得する
-DocumentReference<Ranking> rankingRef({
+/// Reference
+DocumentReference<Ranking> myRankingDocRef({
   required String rankingId,
+  required String uid,
 }) {
   return FirebaseFirestore.instance
-      .collection(_cPath)
+      .collection('users/$uid/rankings')
       .doc(rankingId)
       .withConverter(
         fromFirestore: (doc, _) => Ranking.fromJson(doc.data()!),
@@ -28,17 +31,10 @@ DocumentReference<Ranking> rankingRef({
 
 /// Firebase Storage: rankings/[rankingId]/[filePath]
 /// if filePath is null, Generate uuid.
-Reference rankingImageRef({
+Reference myRankingImageRef({
   required String rankingId,
   String? filePath,
 }) {
   final path = filePath ?? const Uuid().v4();
   return FirebaseStorage.instance.ref('rankings').child(rankingId).child(path);
-}
-
-/// Firebase Storage: rankings/[rankingId]
-Reference rankingStorageRef({
-  required String rankingId,
-}) {
-  return FirebaseStorage.instance.ref('rankings').child(rankingId);
 }

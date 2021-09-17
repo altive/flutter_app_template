@@ -24,7 +24,6 @@ class _$RankingTearOff {
   _Ranking call(
       {@TimestampOrNullConverter() DateTime? createdAt,
       @TimestampOrNullConverter() DateTime? updatedAt,
-      required String userId,
       String title = '',
       String description = '',
       String? imageUrl,
@@ -33,7 +32,6 @@ class _$RankingTearOff {
     return _Ranking(
       createdAt: createdAt,
       updatedAt: updatedAt,
-      userId: userId,
       title: title,
       description: description,
       imageUrl: imageUrl,
@@ -56,9 +54,6 @@ mixin _$Ranking {
   DateTime? get createdAt => throw _privateConstructorUsedError;
   @TimestampOrNullConverter()
   DateTime? get updatedAt => throw _privateConstructorUsedError;
-
-  /// 作成者であるユーザーのID
-  String get userId => throw _privateConstructorUsedError;
 
   /// ランキングタイトル
   String get title => throw _privateConstructorUsedError;
@@ -87,7 +82,6 @@ abstract class $RankingCopyWith<$Res> {
   $Res call(
       {@TimestampOrNullConverter() DateTime? createdAt,
       @TimestampOrNullConverter() DateTime? updatedAt,
-      String userId,
       String title,
       String description,
       String? imageUrl,
@@ -107,7 +101,6 @@ class _$RankingCopyWithImpl<$Res> implements $RankingCopyWith<$Res> {
   $Res call({
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
-    Object? userId = freezed,
     Object? title = freezed,
     Object? description = freezed,
     Object? imageUrl = freezed,
@@ -123,10 +116,6 @@ class _$RankingCopyWithImpl<$Res> implements $RankingCopyWith<$Res> {
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      userId: userId == freezed
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -159,7 +148,6 @@ abstract class _$RankingCopyWith<$Res> implements $RankingCopyWith<$Res> {
   $Res call(
       {@TimestampOrNullConverter() DateTime? createdAt,
       @TimestampOrNullConverter() DateTime? updatedAt,
-      String userId,
       String title,
       String description,
       String? imageUrl,
@@ -180,7 +168,6 @@ class __$RankingCopyWithImpl<$Res> extends _$RankingCopyWithImpl<$Res>
   $Res call({
     Object? createdAt = freezed,
     Object? updatedAt = freezed,
-    Object? userId = freezed,
     Object? title = freezed,
     Object? description = freezed,
     Object? imageUrl = freezed,
@@ -196,10 +183,6 @@ class __$RankingCopyWithImpl<$Res> extends _$RankingCopyWithImpl<$Res>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      userId: userId == freezed
-          ? _value.userId
-          : userId // ignore: cast_nullable_to_non_nullable
-              as String,
       title: title == freezed
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
@@ -230,7 +213,6 @@ class _$_Ranking with DiagnosticableTreeMixin implements _Ranking {
   const _$_Ranking(
       {@TimestampOrNullConverter() this.createdAt,
       @TimestampOrNullConverter() this.updatedAt,
-      required this.userId,
       this.title = '',
       this.description = '',
       this.imageUrl,
@@ -246,10 +228,6 @@ class _$_Ranking with DiagnosticableTreeMixin implements _Ranking {
   @override
   @TimestampOrNullConverter()
   final DateTime? updatedAt;
-  @override
-
-  /// 作成者であるユーザーのID
-  final String userId;
   @JsonKey(defaultValue: '')
   @override
 
@@ -276,7 +254,7 @@ class _$_Ranking with DiagnosticableTreeMixin implements _Ranking {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'Ranking(createdAt: $createdAt, updatedAt: $updatedAt, userId: $userId, title: $title, description: $description, imageUrl: $imageUrl, thumbnailUrl: $thumbnailUrl, pinned: $pinned)';
+    return 'Ranking(createdAt: $createdAt, updatedAt: $updatedAt, title: $title, description: $description, imageUrl: $imageUrl, thumbnailUrl: $thumbnailUrl, pinned: $pinned)';
   }
 
   @override
@@ -286,7 +264,6 @@ class _$_Ranking with DiagnosticableTreeMixin implements _Ranking {
       ..add(DiagnosticsProperty('type', 'Ranking'))
       ..add(DiagnosticsProperty('createdAt', createdAt))
       ..add(DiagnosticsProperty('updatedAt', updatedAt))
-      ..add(DiagnosticsProperty('userId', userId))
       ..add(DiagnosticsProperty('title', title))
       ..add(DiagnosticsProperty('description', description))
       ..add(DiagnosticsProperty('imageUrl', imageUrl))
@@ -304,8 +281,6 @@ class _$_Ranking with DiagnosticableTreeMixin implements _Ranking {
             (identical(other.updatedAt, updatedAt) ||
                 const DeepCollectionEquality()
                     .equals(other.updatedAt, updatedAt)) &&
-            (identical(other.userId, userId) ||
-                const DeepCollectionEquality().equals(other.userId, userId)) &&
             (identical(other.title, title) ||
                 const DeepCollectionEquality().equals(other.title, title)) &&
             (identical(other.description, description) ||
@@ -326,7 +301,6 @@ class _$_Ranking with DiagnosticableTreeMixin implements _Ranking {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(createdAt) ^
       const DeepCollectionEquality().hash(updatedAt) ^
-      const DeepCollectionEquality().hash(userId) ^
       const DeepCollectionEquality().hash(title) ^
       const DeepCollectionEquality().hash(description) ^
       const DeepCollectionEquality().hash(imageUrl) ^
@@ -348,7 +322,6 @@ abstract class _Ranking implements Ranking {
   const factory _Ranking(
       {@TimestampOrNullConverter() DateTime? createdAt,
       @TimestampOrNullConverter() DateTime? updatedAt,
-      required String userId,
       String title,
       String description,
       String? imageUrl,
@@ -363,10 +336,6 @@ abstract class _Ranking implements Ranking {
   @override
   @TimestampOrNullConverter()
   DateTime? get updatedAt => throw _privateConstructorUsedError;
-  @override
-
-  /// 作成者であるユーザーのID
-  String get userId => throw _privateConstructorUsedError;
   @override
 
   /// ランキングタイトル

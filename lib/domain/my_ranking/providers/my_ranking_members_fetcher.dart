@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../authenticator/auth_user_provider.dart';
 import '../entities/ranking_member.dart';
 import '../references/ranking_member_reference.dart';
 
@@ -12,7 +13,8 @@ final myRankingMembersProvider =
   ref,
   rankingId,
 ) {
-  return rankingMembersRef(rankingId: rankingId)
+  final uid = ref.watch(uidProvider).data!.value!;
+  return myRankingMemberColRef(uid: uid, rankingId: rankingId)
       .orderBy(RankingMemberField.order)
       .snapshots();
 });

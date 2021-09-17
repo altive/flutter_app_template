@@ -105,7 +105,7 @@ class _AddMemberModalBottomSheet extends HookConsumerWidget {
         return;
       }
       final pickedFile = pickedImageNotifier.value;
-      ref.read(addRankingMember)(
+      ref.read(createRankingMember)(
         rankingId: rankingId,
         title: titleController.text,
         description: descriptionController.text,

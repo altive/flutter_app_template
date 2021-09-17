@@ -5,7 +5,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../domain/my_ranking/entities/ranking.dart';
-import '../domain/my_ranking/references/ranking_reference.dart';
+import '../domain/my_ranking/references/my_ranking_reference.dart';
 
 final overwriteRankingProvider = Provider<OverwriteRanking>((ref) {
   return const OverwriteRanking();
@@ -32,7 +32,7 @@ class OverwriteRanking {
 
     if (imageFile != null) {
       // 写真ファイルがある＝写真を上書き保存する必要がある
-      final ref = rankingImageRef(
+      final ref = myRankingImageRef(
         rankingId: doc.id,
       );
       // 写真をStorageにアップロードする。

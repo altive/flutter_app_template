@@ -6,14 +6,18 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:sort_key_generator/sort_key_generator.dart';
 import 'package:uuid/uuid.dart';
 
+import '../domain/authenticator/auth_user_provider.dart';
 import '../domain/my_ranking/entities/ranking_member.dart';
 import '../domain/my_ranking/references/ranking_member_reference.dart';
 
-final addRankingMember = Provider((ref) => const AddRankingMember());
+final createRankingMember = Provider((ref) => CreateRankingMember(ref.read));
 
 /// Create new ranking member document by title.
-class AddRankingMember {
-  const AddRankingMember();
+class CreateRankingMember {
+  const CreateRankingMember(this._read);
+
+  final Reader _read;
+  String get _uid => _read(uidProvider).data!.value!;
 
   Future<void> call({
     required String rankingId,
@@ -48,7 +52,7 @@ class AddRankingMember {
 
     if (imageFile != null) {
       // 写真ファイルがある
-      final ref = rankingMemberImageRef(
+      final ref = myRankingMemberImageRef(
         rankingId: rankingId,
         memberId: memberId,
       );
@@ -59,7 +63,8 @@ class AddRankingMember {
       newMember = newMember.copyWith(imageUrl: await ref.getDownloadURL());
     }
 
-    await rankingMemberRef(
+    await myRankingMemberDocRef(
+      uid: _uid,
       rankingId: rankingId,
       memberId: memberId,
     ).set(newMember);
