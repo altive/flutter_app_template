@@ -4,7 +4,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../commons/json_converter/timestamp_supplementer.dart';
-import '../../authenticator/auth_user_provider.dart';
 import '../entities/ranking.dart';
 import '../references/my_ranking_reference.dart';
 
@@ -12,15 +11,14 @@ import '../references/my_ranking_reference.dart';
 
 final myRankingsFetcher = StateNotifierProvider<MyRankingsFetcher,
     AsyncValue<List<QueryDocumentSnapshot<Ranking>>>>((ref) {
-  final uid = ref.watch(uidProvider).data!.value!;
-  return MyRankingsFetcher(uid);
+  return MyRankingsFetcher(ref.read);
 });
 
 class MyRankingsFetcher
     extends StateNotifier<AsyncValue<List<QueryDocumentSnapshot<Ranking>>>> {
-  MyRankingsFetcher(this._uid) : super(const AsyncValue.loading()) {
+  MyRankingsFetcher(this._read) : super(const AsyncValue.loading()) {
     // 初回データ取得
-    final subscription = myRankingColRef(_uid)
+    final subscription = _myRankingColRef
         .orderBy(RankingField.pinned, descending: true)
         .orderBy(TimestampField.updatedAt, descending: true)
         .limit(15)
@@ -31,12 +29,15 @@ class MyRankingsFetcher
     _subscriptions.add(subscription);
   }
 
-  final String _uid;
+  final Reader _read;
+  late final CollectionReference<Ranking> _myRankingColRef =
+      _read(myRankingColRefProvider);
+
   final List<StreamSubscription<QuerySnapshot<Ranking>>> _subscriptions = [];
 
   /// 最後に取得したドキュメントを渡し、それ以降のドキュメントのスナップショットを取得する。
   void next(DocumentSnapshot<Ranking> lastDoc) {
-    final subscription = myRankingColRef(_uid)
+    final subscription = _myRankingColRef
         .orderBy(RankingField.pinned, descending: true)
         .orderBy(TimestampField.updatedAt, descending: true)
         .limit(10)

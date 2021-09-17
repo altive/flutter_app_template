@@ -4,9 +4,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:sort_key_generator/sort_key_generator.dart';
+import 'package:tuple/tuple.dart';
 import 'package:uuid/uuid.dart';
 
-import '../domain/authenticator/auth_user_provider.dart';
 import '../domain/my_ranking/entities/ranking_member.dart';
 import '../domain/my_ranking/references/ranking_member_reference.dart';
 
@@ -17,7 +17,17 @@ class CreateRankingMember {
   const CreateRankingMember(this._read);
 
   final Reader _read;
-  String get _uid => _read(uidProvider).data!.value!;
+  DocumentReference<RankingMember> _myRankingMemberDocRef({
+    required String rankingId,
+    required String memberId,
+  }) {
+    return _read(myRankingMemberDocRefProvider(
+      Tuple2(
+        rankingId,
+        memberId,
+      ),
+    ));
+  }
 
   Future<void> call({
     required String rankingId,
@@ -63,8 +73,7 @@ class CreateRankingMember {
       newMember = newMember.copyWith(imageUrl: await ref.getDownloadURL());
     }
 
-    await myRankingMemberDocRef(
-      uid: _uid,
+    await _myRankingMemberDocRef(
       rankingId: rankingId,
       memberId: memberId,
     ).set(newMember);

@@ -1,6 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../domain/authenticator/auth_user_provider.dart';
+import '../domain/my_ranking/entities/ranking.dart';
 import '../domain/my_ranking/references/my_ranking_reference.dart';
 
 final deleteRankingProvider = Provider<DeleteRanking>((ref) {
@@ -8,15 +9,16 @@ final deleteRankingProvider = Provider<DeleteRanking>((ref) {
 });
 
 class DeleteRanking {
-  const DeleteRanking(this._read);
+  DeleteRanking(this._read);
 
   final Reader _read;
-  String get _uid => _read(uidProvider).data!.value!;
+  DocumentReference<Ranking> _myRankingDocRef(String rankingId) =>
+      _read(myRankingDocRefProvider(rankingId));
 
   // TODO(Riscait): Delete storage images.
   Future<void> call({
     required String rankingId,
   }) async {
-    await myRankingDocRef(rankingId: rankingId, uid: _uid).delete();
+    await _myRankingDocRef(rankingId).delete();
   }
 }

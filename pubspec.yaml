@@ -35,6 +35,7 @@ dependencies:
   routemaster: ^0.9.5
   shared_preferences: ^2.0.7
   sort_key_generator: ^0.2.0+1
+  tuple: ^2.0.0
   uuid: ^3.0.4
   version: ^2.0.0
 
