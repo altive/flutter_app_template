@@ -4,13 +4,16 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:uuid/uuid.dart';
 
 import '../../../commons/json_converter/timestamp_supplementer.dart';
+import '../../../commons/providers/firebase_storage_provider.dart';
+import '../../../commons/providers/firestore_provider.dart';
 import '../../authenticator/auth_user_provider.dart';
 import '../entities/ranking.dart';
 
 /// Provide a Collection reference.
 final myRankingColRefProvider = Provider((ref) {
   final uid = ref.watch(uidProvider).data!.value!;
-  return FirebaseFirestore.instance
+  return ref
+      .watch(firestoreProvider)
       .collection('users/$uid/rankings')
       .withConverter(
         fromFirestore: (doc, _) => Ranking.fromJson(doc.data()!),
@@ -25,7 +28,8 @@ final myRankingDocRefProvider =
   rankingId,
 ) {
   final uid = ref.watch(uidProvider).data!.value!;
-  return FirebaseFirestore.instance
+  return ref
+      .watch(firestoreProvider)
       .collection('users/$uid/rankings')
       .doc(rankingId)
       .withConverter(
@@ -34,12 +38,12 @@ final myRankingDocRefProvider =
       );
 });
 
-/// Firebase Storage: rankings/[rankingId]/[filePath]
-/// if filePath is null, Generate uuid.
-Reference myRankingImageRef({
-  required String rankingId,
-  String? filePath,
-}) {
-  final path = filePath ?? const Uuid().v4();
-  return FirebaseStorage.instance.ref('rankings').child(rankingId).child(path);
-}
+/// Firebase Storage: rankings/:rankingId/:uuid
+final newRankingImageRefProvider =
+    Provider.family<Reference, String>((ref, rankingId) {
+  return ref
+      .watch(firebaseStorageProvider)
+      .ref('rankings')
+      .child(rankingId)
+      .child(const Uuid().v4());
+});

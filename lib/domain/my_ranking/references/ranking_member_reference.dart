@@ -42,18 +42,16 @@ final myRankingMemberDocRefProvider =
       );
 });
 
-/// Firebase Storage: rankings/[rankingId]/members/[filePath]
-/// if filePath is null, Generate uuid.
-Reference myRankingMemberImageRef({
-  required String rankingId,
-  required String memberId,
-  String? filePath,
-}) {
-  final path = filePath ?? const Uuid().v4();
+/// Firebase Storage: rankings/:rankingId/members/:uuid
+final newRankingMemberImageRefProvider =
+    Provider.family<Reference, Tuple2<String, String>>((
+  ref,
+  rankingIdAndMemberId,
+) {
   return FirebaseStorage.instance
       .ref('rankings')
-      .child(rankingId)
+      .child(rankingIdAndMemberId.item1)
       .child('members')
-      .child(memberId)
-      .child(path);
-}
+      .child(rankingIdAndMemberId.item2)
+      .child(const Uuid().v4());
+});

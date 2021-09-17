@@ -3,16 +3,28 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:tuple/tuple.dart';
 
 import '../domain/my_ranking/entities/ranking_member.dart';
 import '../domain/my_ranking/references/ranking_member_reference.dart';
 
 final overwriteRankingMember =
-    Provider((ref) => const OverwriteRankingMember());
+    Provider((ref) => OverwriteRankingMember(ref.read));
 
 /// Overwtire ranking member document.
 class OverwriteRankingMember {
-  const OverwriteRankingMember();
+  const OverwriteRankingMember(this._read);
+
+  final Reader _read;
+
+  Reference _newRankingMemberImageRef({
+    required String rankingId,
+    required String memberId,
+  }) {
+    return _read(newRankingMemberImageRefProvider(
+      Tuple2(rankingId, memberId),
+    ));
+  }
 
   /// タイトル・説明・画像を変更できる
   Future<void> call({
@@ -32,7 +44,7 @@ class OverwriteRankingMember {
 
     if (imageFile != null) {
       // 写真ファイルがある＝写真を上書き保存する必要がある
-      final ref = myRankingMemberImageRef(
+      final ref = _newRankingMemberImageRef(
         rankingId: rankingId,
         memberId: doc.id,
       );

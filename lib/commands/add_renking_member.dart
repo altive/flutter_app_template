@@ -17,6 +17,7 @@ class CreateRankingMember {
   const CreateRankingMember(this._read);
 
   final Reader _read;
+
   DocumentReference<RankingMember> _myRankingMemberDocRef({
     required String rankingId,
     required String memberId,
@@ -26,6 +27,15 @@ class CreateRankingMember {
         rankingId,
         memberId,
       ),
+    ));
+  }
+
+  Reference _newRankingMemberImageRef({
+    required String rankingId,
+    required String memberId,
+  }) {
+    return _read(newRankingMemberImageRefProvider(
+      Tuple2(rankingId, memberId),
     ));
   }
 
@@ -61,8 +71,8 @@ class CreateRankingMember {
     final memberId = const Uuid().v4();
 
     if (imageFile != null) {
-      // 写真ファイルがある
-      final ref = myRankingMemberImageRef(
+      // 写真ファイルがあるのでストレージに保存する
+      final ref = _newRankingMemberImageRef(
         rankingId: rankingId,
         memberId: memberId,
       );

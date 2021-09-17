@@ -8,12 +8,18 @@ import '../domain/my_ranking/entities/ranking.dart';
 import '../domain/my_ranking/references/my_ranking_reference.dart';
 
 final overwriteRankingProvider = Provider<OverwriteRanking>((ref) {
-  return const OverwriteRanking();
+  return OverwriteRanking(ref.read);
 });
 
 /// Overwtire ranking document.
 class OverwriteRanking {
-  const OverwriteRanking();
+  const OverwriteRanking(this._read);
+
+  final Reader _read;
+
+  Reference _newRankingImageRef({required String rankingId}) {
+    return _read(newRankingImageRefProvider(rankingId));
+  }
 
   /// タイトル・説明・画像を変更できる
   Future<void> call({
@@ -32,9 +38,7 @@ class OverwriteRanking {
 
     if (imageFile != null) {
       // 写真ファイルがある＝写真を上書き保存する必要がある
-      final ref = myRankingImageRef(
-        rankingId: doc.id,
-      );
+      final ref = _newRankingImageRef(rankingId: doc.id);
       // 写真をStorageにアップロードする。
       await ref.putFile(
         imageFile,
