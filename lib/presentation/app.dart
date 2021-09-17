@@ -8,7 +8,7 @@ import '../domain/authenticator/authenticator.dart';
 import '../domain/theme_selector/theme_selector.dart';
 import 'dark_theme.dart';
 import 'light_theme.dart';
-import 'route/route.dart';
+import 'router/router.dart';
 import 'splash_page.dart';
 
 class App extends ConsumerWidget {
@@ -25,7 +25,7 @@ class App extends ConsumerWidget {
     if (isSignedIn) {
       return MaterialApp.router(
         onGenerateTitle: (context) => AppLocalizations.of(context)!.title,
-        routerDelegate: ref.watch(routemasterProvider),
+        routerDelegate: ref.watch(routerDelegateProvider),
         routeInformationParser: const RoutemasterParser(),
         theme: lightTheme,
         darkTheme: darkTheme,
