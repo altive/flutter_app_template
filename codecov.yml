@@ -11,7 +11,8 @@ coverage:
   status:
     project:
       default:
-        target: 80% # the required coverage value
+        target: auto
+        threshold: 0%
     patch: no # See: https://docs.codecov.io/docs/commit-status#section-patch-status
     changes: false
 

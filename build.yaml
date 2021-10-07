@@ -6,6 +6,9 @@ targets:
           include:
             - lib/**/entities/*.dart
       json_serializable:
+        generate_for:
+          include:
+            - lib/**/entities/*.dart
         options:
           any_map: false
           # checked: true # 例外発生時にCheckedFromJsonExceptionをthrowする

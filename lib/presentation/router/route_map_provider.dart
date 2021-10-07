@@ -8,6 +8,9 @@ import '../not_found_page/not_found_page.dart';
 import '../ranking_detail_page/ranking_detail_page.dart';
 import '../ranking_edit_page/ranking_edit_page.dart';
 import '../ranking_list_page/ranking_list_page.dart';
+import '../riverpod_example_page/riverpod_example_page.dart';
+import '../riverpod_example_page/state_notifier_provider_page/state_notifier_provider_page.dart';
+import '../riverpod_example_page/state_provider_page/state_provider_page.dart';
 import '../settings_page/settings_page.dart';
 import '../tab_scaffold_page/tab_scaffold_page.dart';
 import '../theme_selection_page/theme_selection_page.dart';
@@ -32,6 +35,14 @@ final routeMapProvider = Provider((ref) {
       // Home / Theme selector
       '/${HomePage.routeName}/${ThemeSelectionPage.routeName}': (route) =>
           const MaterialPage<void>(child: ThemeSelectionPage()),
+      // Home / Riverpod examples
+      '/${HomePage.routeName}/${RiverpodExamplePage.routeName}': (route) =>
+          const MaterialPage<void>(child: RiverpodExamplePage()),
+      '/${HomePage.routeName}/${RiverpodExamplePage.routeName}/${StateProviderPage.routeName}':
+          (route) => const MaterialPage<void>(child: StateProviderPage()),
+      '/${HomePage.routeName}/${RiverpodExamplePage.routeName}/${StateNotifierProviderPage.routeName}':
+          (route) =>
+              const MaterialPage<void>(child: StateNotifierProviderPage()),
       // Home / Rankings
       '/${HomePage.routeName}/${RankingListPage.routeName}': (_) =>
           const MaterialPage<void>(child: RankingListPage()),

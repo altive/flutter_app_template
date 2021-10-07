@@ -8,6 +8,15 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "25.0.0"
+  altive_flutter_kit:
+    dependency: "direct main"
+    description:
+      path: "."
+      ref: HEAD
+      resolved-ref: f6eb13748bbe9bda8019c725005ccfb947859f53
+      url: "https://github.com/altive/altive_flutter_kit.git"
+    source: git
+    version: "0.0.1"
   analyzer:
     dependency: transitive
     description:
@@ -867,7 +876,7 @@ packages:
       name: shared_preferences
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.7"
+    version: "2.0.8"
   shared_preferences_linux:
     dependency: transitive
     description:
@@ -1106,4 +1115,4 @@ packages:
     version: "3.1.0"
 sdks:
   dart: ">=2.14.0 <3.0.0"
-  flutter: ">=2.0.0"
+  flutter: ">=2.5.0"
