@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../riverpod_example_page/provider_page/provider_page.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:routemaster/routemaster.dart';
 
@@ -38,6 +39,8 @@ final routeMapProvider = Provider((ref) {
       // Home / Riverpod examples
       '/${HomePage.routeName}/${RiverpodExamplePage.routeName}': (route) =>
           const MaterialPage<void>(child: RiverpodExamplePage()),
+      '/${HomePage.routeName}/${RiverpodExamplePage.routeName}/${ProviderPage.routeName}':
+          (route) => const MaterialPage<void>(child: ProviderPage()),
       '/${HomePage.routeName}/${RiverpodExamplePage.routeName}/${StateProviderPage.routeName}':
           (route) => const MaterialPage<void>(child: StateProviderPage()),
       '/${HomePage.routeName}/${RiverpodExamplePage.routeName}/${StateNotifierProviderPage.routeName}':

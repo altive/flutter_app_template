@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:routemaster/routemaster.dart';
 
+import 'provider_page/provider_page.dart';
 import 'state_notifier_provider_page/state_notifier_provider_page.dart';
 import 'state_provider_page/state_provider_page.dart';
 
@@ -19,6 +20,10 @@ class RiverpodExamplePage extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
+          _FeatureCard(
+            onTap: () => Routemaster.of(context).push(ProviderPage.routeName),
+            label: ProviderPage.title,
+          ),
           _FeatureCard(
             onTap: () =>
                 Routemaster.of(context).push(StateProviderPage.routeName),
