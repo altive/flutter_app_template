@@ -44,7 +44,7 @@ class MyRankingsFetcher
         .startAfterDocument(lastDoc)
         .snapshots()
         .listen((snapshot) {
-      final alreadyDocs = state.data?.value ?? [];
+      final alreadyDocs = state.value ?? [];
       state = AsyncValue.data([
         ...alreadyDocs,
         ...snapshot.docs,

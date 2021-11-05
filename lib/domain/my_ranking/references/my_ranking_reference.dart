@@ -11,7 +11,7 @@ import '../entities/ranking.dart';
 
 /// Provide a Collection reference.
 final myRankingColRefProvider = Provider((ref) {
-  final uid = ref.watch(uidProvider).data!.value!;
+  final uid = ref.watch(uidProvider).value!;
   return ref
       .watch(firestoreProvider)
       .collection('users/$uid/rankings')
@@ -27,7 +27,7 @@ final myRankingDocRefProvider =
   ref,
   rankingId,
 ) {
-  final uid = ref.watch(uidProvider).data!.value!;
+  final uid = ref.watch(uidProvider).value!;
   return ref
       .watch(firestoreProvider)
       .collection('users/$uid/rankings')

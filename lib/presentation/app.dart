@@ -15,7 +15,7 @@ class App extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final isSignedIn = ref.watch(isSignedInProvider).data?.value;
+    final isSignedIn = ref.watch(isSignedInProvider).value;
 
     if (isSignedIn == null) {
       return const SplashPage();

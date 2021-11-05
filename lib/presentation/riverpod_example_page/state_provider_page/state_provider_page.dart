@@ -16,7 +16,7 @@ class StateProviderPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     // Providerを読み取る。watchを使用しているので、
     // Providerの状態が更新されるとbuildメソッドが再実行され、画面が更新される
-    final counter = ref.watch(counterProvider);
+    final counter = ref.watch(counterProvider.notifier);
 
     return Scaffold(
       appBar: AppBar(title: Text(title)),
@@ -27,14 +27,15 @@ class StateProviderPage extends ConsumerWidget {
           children: [
             // counterProviderの状態（カウント数）をTextで表示
             Text(
-              'Count: ${counter.state}',
+              'Count: ${ref.watch(counterProvider)}',
               style: Theme.of(context).textTheme.headline2,
             ),
             const Gap(32),
             ElevatedButton(
               // ボタンタップでcounterProviderの状態をプラス１する
+              // ↓ `counter.state++` や、
               // ↓ `counter.state = counter.state + 1` と書いても同じ。
-              onPressed: () => counter.state++,
+              onPressed: () => counter.update((state) => state + 1),
               child: const Text('Increment'),
             ),
           ],

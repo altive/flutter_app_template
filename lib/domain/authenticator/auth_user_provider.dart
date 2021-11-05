@@ -22,7 +22,7 @@ final isSignedInProvider = Provider(
 /// Returns whether or not [User] is an anonymous authenticated user.
 final isAnonymousSignedInProvider = Provider(
   (ref) {
-    final user = ref.watch(authUserProvider).data?.value;
+    final user = ref.watch(authUserProvider).value;
     return user?.providerData.isEmpty ?? false;
   },
 );
@@ -30,7 +30,7 @@ final isAnonymousSignedInProvider = Provider(
 /// Returns whether [User] is a user who is signed in to Google or not.
 final isGoogleSignedInProvider = Provider(
   (ref) {
-    final user = ref.watch(authUserProvider).data?.value;
+    final user = ref.watch(authUserProvider).value;
     return user?.providerData.any(
           (userInfo) => userInfo.providerId == SignInMethod.google.id,
         ) ??
@@ -41,7 +41,7 @@ final isGoogleSignedInProvider = Provider(
 /// Returns whether [User] is a user who is signed in to Apple or not.
 final isAppleSignedInProvider = Provider(
   (ref) {
-    final user = ref.watch(authUserProvider).data?.value;
+    final user = ref.watch(authUserProvider).value;
     return user?.providerData.any(
           (userInfo) => userInfo.providerId == SignInMethod.apple.id,
         ) ??

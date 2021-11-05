@@ -26,7 +26,7 @@ class RankingDetailPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final doc = ref.watch(myRankingProvider(rankingId)).data?.value;
+    final doc = ref.watch(myRankingProvider(rankingId)).value;
     final ranking = doc?.data();
     return Scaffold(
       appBar: AppBar(

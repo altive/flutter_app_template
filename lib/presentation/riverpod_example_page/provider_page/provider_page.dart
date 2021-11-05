@@ -8,8 +8,8 @@ final counterProvider = StateProvider((ref) => 0);
 
 // カウンターの値を2倍にした値を提供するProvider
 final doubleCounterProvider = Provider((ref) {
-  final counter = ref.watch(counterProvider).state;
-  return counter * 2;
+  final count = ref.watch(counterProvider);
+  return count * 2;
 });
 
 // Widget example.
@@ -28,13 +28,22 @@ class ProviderPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(title: const Text(title)),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          const Text('カウント値：'),
+          Text(
+            '2倍されたカウント値：',
+            style: Theme.of(context).textTheme.headline6,
+          ),
           // doubleCounterProvider の値を表示
-          Text('2倍されたカウント値：$doubleCount'),
+          Text(
+            '$doubleCount',
+            style: Theme.of(context).textTheme.headline1,
+          ),
           ElevatedButton(
             // counterProvider の値を+1する。
-            onPressed: () => ref.read(counterProvider).state++,
+            onPressed: () => ref.read(counterProvider.notifier).update(
+                  (state) => state + 1,
+                ),
             child: const Text('Increase Count'),
           ),
         ],

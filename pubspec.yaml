@@ -31,7 +31,7 @@ dependencies:
   freezed_annotation: ^0.14.3
   gap: ^2.0.0
   google_sign_in: ^5.1.0
-  hooks_riverpod: ^1.0.0-dev.7
+  hooks_riverpod: ^1.0.0
   image_picker: ^0.8.4
   intl: ^0.17.0
   linked_scroll_controller: ^0.2.0
