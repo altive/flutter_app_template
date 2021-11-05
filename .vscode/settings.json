@@ -43,8 +43,14 @@
 	},
 	// 使用するFlutter SDKのパスを指定。
 	"dart.flutterSdkPath": ".fvm/flutter_sdk",
-	// PREVIEW: VS Codeのテストランナーを使用するなら`true`.
-	"dart.previewVsCodeTestRunner": true,
+	// Remove .fvm files from search
+	"search.exclude": {
+		"**/.fvm": true
+	},
+	// Remove from file watching
+	"files.watcherExclude": {
+		"**/.fvm": true
+	},
 	// Dart SDKライブラリをデバッグ可能としてマークし、デバッグ中のステップインを可能にするなら`true`。
 	"dart.debugSdkLibraries": false,
 	// スキップしたテストをテストツリーに表示させるなら`true`.
@@ -54,6 +60,4 @@
 	"git.autofetch": true,
 	// エクスプローラでファイルやフォルダをドラッグ＆ドロップした時に確認を求めるなら`true`.
 	"explorer.confirmDragAndDrop": false,
-	// ファイル保存時に自動で dart-import を実行してインポートを整理する。
-	"dartImport.fixOnSave": true,
 }
