@@ -12,17 +12,17 @@ dependencies:
       url: https://github.com/altive/altive_flutter_kit.git
       version: ^1.0.0
   cached_network_image: ^3.1.0
-  cloud_firestore: ^2.4.0
+  cloud_firestore: ^3.0.0
   cupertino_icons: ^1.0.3
-  firebase_analytics: ^8.2.0
-  firebase_auth: ^3.0.1
-  firebase_core: ^1.4.0
-  firebase_crashlytics: ^2.1.1
-  firebase_dynamic_links: ^2.0.9
-  firebase_messaging: ^10.0.4
-  firebase_performance: ^0.7.0+7
-  firebase_remote_config: ^0.10.0+3
-  firebase_storage: ^10.0.1
+  firebase_analytics: ^8.3.4
+  firebase_auth: ^3.1.5
+  firebase_core: ^1.9.0
+  firebase_crashlytics: ^2.2.5
+  firebase_dynamic_links: ^3.0.0
+  firebase_messaging: ^11.0.0
+  firebase_performance: ^0.7.1+3
+  firebase_remote_config: ^0.11.0+2
+  firebase_storage: ^10.0.7
   flutter:
     sdk: flutter
   flutter_hooks: ^0.18.0
