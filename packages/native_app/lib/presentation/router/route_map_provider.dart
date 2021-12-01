@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../riverpod_example_page/listen_provider_page/listen_provider_page.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:routemaster/routemaster.dart';
 
@@ -9,6 +8,7 @@ import '../not_found_page/not_found_page.dart';
 import '../ranking_detail_page/ranking_detail_page.dart';
 import '../ranking_edit_page/ranking_edit_page.dart';
 import '../ranking_list_page/ranking_list_page.dart';
+import '../riverpod_example_page/listen_provider_page/listen_provider_page.dart';
 import '../riverpod_example_page/provider_page/provider_page.dart';
 import '../riverpod_example_page/riverpod_example_page.dart';
 import '../riverpod_example_page/state_notifier_provider_page/state_notifier_provider_page.dart';
