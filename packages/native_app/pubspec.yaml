@@ -7,10 +7,6 @@ environment:
   sdk: ">=2.14.0 <3.0.0"
 
 dependencies:
-  altive_flutter_kit:
-    git:
-      url: https://github.com/altive/altive_flutter_kit.git
-      version: ^1.0.0
   cached_network_image: ^3.1.0
   cloud_firestore: ^3.0.0
   cupertino_icons: ^1.0.3
@@ -41,6 +37,8 @@ dependencies:
   routemaster: ^0.9.5
   shared_preferences: ^2.0.8
   sort_key_generator: ^0.2.0+1
+  theme:
+    path: ../theme/
   tuple: ^2.0.0
   uuid: ^3.0.4
   version: ^2.0.0

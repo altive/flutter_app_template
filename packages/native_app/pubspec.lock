@@ -8,15 +8,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "31.0.0"
-  altive_flutter_kit:
-    dependency: "direct main"
-    description:
-      path: "."
-      ref: HEAD
-      resolved-ref: f6eb13748bbe9bda8019c725005ccfb947859f53
-      url: "https://github.com/altive/altive_flutter_kit.git"
-    source: git
-    version: "0.0.1"
   analyzer:
     dependency: transitive
     description:
@@ -1043,6 +1034,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.4.2"
+  theme:
+    dependency: "direct main"
+    description:
+      path: "../theme"
+      relative: true
+    source: path
+    version: "0.0.1"
   timing:
     dependency: transitive
     description:

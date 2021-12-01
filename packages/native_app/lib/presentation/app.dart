@@ -1,8 +1,8 @@
-import 'package:altive_flutter_kit/altive_flutter_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:routemaster/routemaster.dart';
+import 'package:theme/theme.dart';
 
 import '../domain/authenticator/auth_user_provider.dart';
 import '../domain/authenticator/authenticator.dart';
@@ -26,8 +26,8 @@ class App extends ConsumerWidget {
         onGenerateTitle: (context) => AppLocalizations.of(context)!.title,
         routerDelegate: ref.watch(routerDelegateProvider),
         routeInformationParser: const RoutemasterParser(),
-        theme: altiveLightThemeData,
-        darkTheme: altiveDarkThemeData,
+        theme: lightThemeData,
+        darkTheme: darkThemeData,
         themeMode: ref.watch(themeSelectorProvider),
         localizationsDelegates: AppLocalizations.localizationsDelegates,
         supportedLocales: AppLocalizations.supportedLocales,
