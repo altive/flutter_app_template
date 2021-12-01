@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../riverpod_example_page/listen_provider_page/listen_provider_page.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:routemaster/routemaster.dart';
 
@@ -46,6 +47,8 @@ final routeMapProvider = Provider((ref) {
       '/${HomePage.routeName}/${RiverpodExamplePage.routeName}/${StateNotifierProviderPage.routeName}':
           (route) =>
               const MaterialPage<void>(child: StateNotifierProviderPage()),
+      '/${HomePage.routeName}/${RiverpodExamplePage.routeName}/${ListenProviderPage.routeName}':
+          (route) => const MaterialPage<void>(child: ListenProviderPage()),
       // Home / Rankings
       '/${HomePage.routeName}/${RankingListPage.routeName}': (_) =>
           const MaterialPage<void>(child: RankingListPage()),

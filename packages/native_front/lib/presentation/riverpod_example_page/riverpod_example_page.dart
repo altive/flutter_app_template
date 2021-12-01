@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:routemaster/routemaster.dart';
 
+import 'listen_provider_page/listen_provider_page.dart';
 import 'provider_page/provider_page.dart';
 import 'state_notifier_provider_page/state_notifier_provider_page.dart';
 import 'state_provider_page/state_provider_page.dart';
@@ -33,6 +34,11 @@ class RiverpodExamplePage extends StatelessWidget {
             onTap: () => Routemaster.of(context)
                 .push(StateNotifierProviderPage.routeName),
             label: StateNotifierProviderPage.title,
+          ),
+          _FeatureCard(
+            onTap: () =>
+                Routemaster.of(context).push(ListenProviderPage.routeName),
+            label: ListenProviderPage.title,
           ),
         ],
       ),

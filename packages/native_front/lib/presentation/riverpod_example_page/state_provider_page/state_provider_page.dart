@@ -14,8 +14,8 @@ class StateProviderPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // Providerを読み取る。watchを使用しているので、
-    // Providerの状態が更新されるとbuildメソッドが再実行され、画面が更新される
+    // Providerを読み取る。 `.notifier` を付けると `StateController` が、
+    // 付けなければ、 `state` つまり int が取得できる。
     final counter = ref.watch(counterProvider.notifier);
 
     return Scaffold(
