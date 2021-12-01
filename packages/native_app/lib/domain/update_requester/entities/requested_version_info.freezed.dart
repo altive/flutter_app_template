@@ -32,7 +32,7 @@ class _$RequestedVersionInfoTearOff {
     );
   }
 
-  RequestedVersionInfo fromJson(Map<String, Object> json) {
+  RequestedVersionInfo fromJson(Map<String, Object?> json) {
     return RequestedVersionInfo.fromJson(json);
   }
 }
@@ -186,24 +186,19 @@ class _$_RequestedVersionInfo
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _RequestedVersionInfo &&
+        (other.runtimeType == runtimeType &&
+            other is _RequestedVersionInfo &&
             (identical(other.requiredVersion, requiredVersion) ||
-                const DeepCollectionEquality()
-                    .equals(other.requiredVersion, requiredVersion)) &&
+                other.requiredVersion == requiredVersion) &&
             (identical(other.canCancel, canCancel) ||
-                const DeepCollectionEquality()
-                    .equals(other.canCancel, canCancel)) &&
+                other.canCancel == canCancel) &&
             (identical(other.enabledAt, enabledAt) ||
-                const DeepCollectionEquality()
-                    .equals(other.enabledAt, enabledAt)));
+                other.enabledAt == enabledAt));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(requiredVersion) ^
-      const DeepCollectionEquality().hash(canCancel) ^
-      const DeepCollectionEquality().hash(enabledAt);
+      Object.hash(runtimeType, requiredVersion, canCancel, enabledAt);
 
   @JsonKey(ignore: true)
   @override
@@ -229,15 +224,15 @@ abstract class _RequestedVersionInfo implements RequestedVersionInfo {
   @override
 
   /// 要求バージョン e.g., '1.0.0'
-  String get requiredVersion => throw _privateConstructorUsedError;
+  String get requiredVersion;
   @override
 
   /// アップデートをキャンセルして利用可能にするかどうか
-  bool get canCancel => throw _privateConstructorUsedError;
+  bool get canCancel;
   @override
 
   /// アップデート要求を有強化する日時
-  DateTime get enabledAt => throw _privateConstructorUsedError;
+  DateTime get enabledAt;
   @override
   @JsonKey(ignore: true)
   _$RequestedVersionInfoCopyWith<_RequestedVersionInfo> get copyWith =>

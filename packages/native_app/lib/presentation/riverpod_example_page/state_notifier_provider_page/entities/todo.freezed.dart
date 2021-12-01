@@ -30,7 +30,7 @@ class _$TodoTearOff {
     );
   }
 
-  Todo fromJson(Map<String, Object> json) {
+  Todo fromJson(Map<String, Object?> json) {
     return Todo.fromJson(json);
   }
 }
@@ -161,22 +161,16 @@ class _$_Todo with DiagnosticableTreeMixin implements _Todo {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Todo &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.title, title) ||
-                const DeepCollectionEquality().equals(other.title, title)) &&
+        (other.runtimeType == runtimeType &&
+            other is _Todo &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.title, title) || other.title == title) &&
             (identical(other.completed, completed) ||
-                const DeepCollectionEquality()
-                    .equals(other.completed, completed)));
+                other.completed == completed));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(title) ^
-      const DeepCollectionEquality().hash(completed);
+  int get hashCode => Object.hash(runtimeType, id, title, completed);
 
   @JsonKey(ignore: true)
   @override
@@ -196,11 +190,11 @@ abstract class _Todo implements Todo {
   factory _Todo.fromJson(Map<String, dynamic> json) = _$_Todo.fromJson;
 
   @override
-  String get id => throw _privateConstructorUsedError;
+  String get id;
   @override
-  String get title => throw _privateConstructorUsedError;
+  String get title;
   @override
-  bool get completed => throw _privateConstructorUsedError;
+  bool get completed;
   @override
   @JsonKey(ignore: true)
   _$TodoCopyWith<_Todo> get copyWith => throw _privateConstructorUsedError;

@@ -40,7 +40,7 @@ class _$RankingMemberTearOff {
     );
   }
 
-  RankingMember fromJson(Map<String, Object> json) {
+  RankingMember fromJson(Map<String, Object?> json) {
     return RankingMember.fromJson(json);
   }
 }
@@ -279,38 +279,25 @@ class _$_RankingMember with DiagnosticableTreeMixin implements _RankingMember {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _RankingMember &&
+        (other.runtimeType == runtimeType &&
+            other is _RankingMember &&
             (identical(other.createdAt, createdAt) ||
-                const DeepCollectionEquality()
-                    .equals(other.createdAt, createdAt)) &&
+                other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
-                const DeepCollectionEquality()
-                    .equals(other.updatedAt, updatedAt)) &&
-            (identical(other.order, order) ||
-                const DeepCollectionEquality().equals(other.order, order)) &&
-            (identical(other.title, title) ||
-                const DeepCollectionEquality().equals(other.title, title)) &&
+                other.updatedAt == updatedAt) &&
+            (identical(other.order, order) || other.order == order) &&
+            (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
-                const DeepCollectionEquality()
-                    .equals(other.description, description)) &&
+                other.description == description) &&
             (identical(other.imageUrl, imageUrl) ||
-                const DeepCollectionEquality()
-                    .equals(other.imageUrl, imageUrl)) &&
+                other.imageUrl == imageUrl) &&
             (identical(other.thumbnailUrl, thumbnailUrl) ||
-                const DeepCollectionEquality()
-                    .equals(other.thumbnailUrl, thumbnailUrl)));
+                other.thumbnailUrl == thumbnailUrl));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(createdAt) ^
-      const DeepCollectionEquality().hash(updatedAt) ^
-      const DeepCollectionEquality().hash(order) ^
-      const DeepCollectionEquality().hash(title) ^
-      const DeepCollectionEquality().hash(description) ^
-      const DeepCollectionEquality().hash(imageUrl) ^
-      const DeepCollectionEquality().hash(thumbnailUrl);
+  int get hashCode => Object.hash(runtimeType, createdAt, updatedAt, order,
+      title, description, imageUrl, thumbnailUrl);
 
   @JsonKey(ignore: true)
   @override
@@ -338,30 +325,30 @@ abstract class _RankingMember implements RankingMember {
 
   @override
   @TimestampOrNullConverter()
-  DateTime? get createdAt => throw _privateConstructorUsedError;
+  DateTime? get createdAt;
   @override
   @TimestampOrNullConverter()
-  DateTime? get updatedAt => throw _privateConstructorUsedError;
+  DateTime? get updatedAt;
   @override
 
   /// 順番
-  double get order => throw _privateConstructorUsedError;
+  double get order;
   @override
 
   /// 項目名
-  String get title => throw _privateConstructorUsedError;
+  String get title;
   @override
 
   /// 項目に対するコメント
-  String get description => throw _privateConstructorUsedError;
+  String get description;
   @override
 
   /// 項目の画像
-  String? get imageUrl => throw _privateConstructorUsedError;
+  String? get imageUrl;
   @override
 
   /// 項目のサムネイル画像
-  String? get thumbnailUrl => throw _privateConstructorUsedError;
+  String? get thumbnailUrl;
   @override
   @JsonKey(ignore: true)
   _$RankingMemberCopyWith<_RankingMember> get copyWith =>
