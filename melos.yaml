@@ -1,0 +1,50 @@
+name: flutter_app_template
+
+packages:
+  - packages/**
+
+scripts:
+
+  fvm:
+    run: melos exec -c 1 -- "fvm install"
+    description: fvm install を実行する
+         
+  get: 
+    run: melos exec -- "fvm flutter pub get"
+    description: pubspec.yamlに従って依存パッケージ・プラグインを取得する
+          
+  analyze:
+    run: |
+      melos exec -- \
+        fvm flutter analyze lib/ --fatal-infos
+    description: コード解析を実行する
+
+  format: 
+    run: |
+      melos exec -- \
+        fvm flutter format --dry-run --set-exit-if-changed lib/
+    description: コードフォーマットを整形する
+
+  generate:
+    run: |
+      melos exec -c 1 --depends-on="build_runner" -- \
+        fvm flutter pub run build_runner build --delete-conflicting-outputs
+    description: コード生成を実行する
+
+  test:
+    run: |
+      melos exec --dir-exists="test" --fail-fast -- \
+        fvm flutter test --coverage
+    description: flutter test を実行する
+
+  upgrade:
+    run: |
+      melos exec -- \
+        fvm flutter pub upgrade --major-versions
+    description: 依存パッケージメジャーバージョンを更新する
+      
+dev_dependencies:
+
+environment:
+  sdk: ">=2.14.0 <3.0.0"
+  flutter: ">=2.5.0 <3.0.0"
