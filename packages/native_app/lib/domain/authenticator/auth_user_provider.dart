@@ -32,7 +32,7 @@ final isGoogleSignedInProvider = Provider(
   (ref) {
     final user = ref.watch(authUserProvider).value;
     return user?.providerData.any(
-          (userInfo) => userInfo.providerId == SignInMethod.google.id,
+          (userInfo) => userInfo.providerId == SignInMethod.google.providerId,
         ) ??
         false;
   },
@@ -43,7 +43,7 @@ final isAppleSignedInProvider = Provider(
   (ref) {
     final user = ref.watch(authUserProvider).value;
     return user?.providerData.any(
-          (userInfo) => userInfo.providerId == SignInMethod.apple.id,
+          (userInfo) => userInfo.providerId == SignInMethod.apple.providerId,
         ) ??
         false;
   },

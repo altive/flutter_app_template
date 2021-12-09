@@ -35,7 +35,7 @@ class AppInfoPage extends HookConsumerWidget {
               Center(child: Text('App Info', style: textTheme.headline2)),
               const Gap(16),
               Text('Flavor', style: textTheme.headline3),
-              Text(flavor.value),
+              Text(flavor.name),
               const Gap(32),
               Text('App name', style: textTheme.headline4),
               Text(packageInfo.appName),

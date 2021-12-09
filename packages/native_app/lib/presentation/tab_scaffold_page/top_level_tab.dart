@@ -6,7 +6,7 @@ enum TopLevelTab {
 }
 
 extension TopLevelTabExt on TopLevelTab {
-  String get label {
+  String get labelText {
     switch (this) {
       case TopLevelTab.home:
         return 'Home';

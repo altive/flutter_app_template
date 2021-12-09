@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -10,10 +9,7 @@ enum SignInMethod {
 }
 
 extension SignInMethodExt on SignInMethod {
-  /// enumの文字列を返却
-  String get key => describeEnum(this);
-
-  String name(BuildContext context) {
+  String labelText(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     switch (this) {
       case SignInMethod.anonymous:
@@ -26,7 +22,7 @@ extension SignInMethodExt on SignInMethod {
   }
 
   /// Provider ID
-  String get id {
+  String get providerId {
     switch (this) {
       case SignInMethod.anonymous:
         return 'firebase';

@@ -25,7 +25,7 @@ Future<void> main() async {
   runApp(
     ProviderScope(
       overrides: [
-        flavorProvider.overrideWithValue(FlavorFromString.call(flavor)),
+        flavorProvider.overrideWithValue(Flavor.values.byName(flavor)),
         sharedPreferencesProvider.overrideWithValue(sp),
         packageInfoProvider.overrideWithValue(pi),
       ],

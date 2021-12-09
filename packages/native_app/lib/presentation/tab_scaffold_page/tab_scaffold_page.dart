@@ -1,6 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-
 import 'package:routemaster/routemaster.dart';
 
 import '../../commons/widgets/unfocus_on_tap.dart';
@@ -21,7 +19,7 @@ class TabScaffoldPage extends StatelessWidget {
             for (final tab in TopLevelTab.values)
               BottomNavigationBarItem(
                 icon: Icon(tab.iconData),
-                label: tab.label,
+                label: tab.labelText,
               ),
           ],
         ),
