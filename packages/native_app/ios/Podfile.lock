@@ -4,7 +4,7 @@ PODS:
     - AppAuth/ExternalUserAgent (= 1.4.0)
   - AppAuth/Core (1.4.0)
   - AppAuth/ExternalUserAgent (1.4.0)
-  - cloud_firestore (3.0.0):
+  - cloud_firestore (3.1.4):
     - Firebase/Firestore (= 8.9.0)
     - firebase_core
     - Flutter
@@ -39,38 +39,38 @@ PODS:
   - Firebase/Storage (8.9.0):
     - Firebase/CoreOnly
     - FirebaseStorage (~> 8.9.0)
-  - firebase_analytics (8.3.4):
+  - firebase_analytics (9.0.2):
     - Firebase/Analytics (= 8.9.0)
     - firebase_core
     - Flutter
-  - firebase_auth (3.1.5):
+  - firebase_auth (3.3.3):
     - Firebase/Auth (= 8.9.0)
     - firebase_core
     - Flutter
-  - firebase_core (1.9.0):
+  - firebase_core (1.10.5):
     - Firebase/CoreOnly (= 8.9.0)
     - Flutter
-  - firebase_crashlytics (2.2.5):
+  - firebase_crashlytics (2.4.3):
     - Firebase/Crashlytics (= 8.9.0)
     - firebase_core
     - Flutter
-  - firebase_dynamic_links (3.0.0):
+  - firebase_dynamic_links (4.0.2):
     - Firebase/DynamicLinks (= 8.9.0)
     - firebase_core
     - Flutter
-  - firebase_messaging (11.0.0):
+  - firebase_messaging (11.2.3):
     - Firebase/Messaging (= 8.9.0)
     - firebase_core
     - Flutter
-  - firebase_performance (0.7.1-3):
+  - firebase_performance (0.8.0-2):
     - Firebase/Performance (= 8.9.0)
     - firebase_core
     - Flutter
-  - firebase_remote_config (0.11.0-2):
+  - firebase_remote_config (1.0.2):
     - Firebase/RemoteConfig (= 8.9.0)
     - firebase_core
     - Flutter
-  - firebase_storage (10.0.7):
+  - firebase_storage (10.2.3):
     - Firebase/Storage (= 8.9.0)
     - firebase_core
     - Flutter
@@ -225,10 +225,10 @@ PODS:
   - nanopb/encode (2.30908.0)
   - package_info_plus (0.4.5):
     - Flutter
-  - path_provider (0.0.1):
+  - path_provider_ios (0.0.1):
     - Flutter
   - PromisesObjC (2.0.0)
-  - shared_preferences (0.0.1):
+  - shared_preferences_ios (0.0.1):
     - Flutter
   - sqflite (0.0.2):
     - Flutter
@@ -250,8 +250,8 @@ DEPENDENCIES:
   - google_sign_in (from `.symlinks/plugins/google_sign_in/ios`)
   - image_picker (from `.symlinks/plugins/image_picker/ios`)
   - package_info_plus (from `.symlinks/plugins/package_info_plus/ios`)
-  - path_provider (from `.symlinks/plugins/path_provider/ios`)
-  - shared_preferences (from `.symlinks/plugins/shared_preferences/ios`)
+  - path_provider_ios (from `.symlinks/plugins/path_provider_ios/ios`)
+  - shared_preferences_ios (from `.symlinks/plugins/shared_preferences_ios/ios`)
   - sqflite (from `.symlinks/plugins/sqflite/ios`)
 
 SPEC REPOS:
@@ -312,10 +312,10 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/image_picker/ios"
   package_info_plus:
     :path: ".symlinks/plugins/package_info_plus/ios"
-  path_provider:
-    :path: ".symlinks/plugins/path_provider/ios"
-  shared_preferences:
-    :path: ".symlinks/plugins/shared_preferences/ios"
+  path_provider_ios:
+    :path: ".symlinks/plugins/path_provider_ios/ios"
+  shared_preferences_ios:
+    :path: ".symlinks/plugins/shared_preferences_ios/ios"
   sqflite:
     :path: ".symlinks/plugins/sqflite/ios"
 
@@ -326,17 +326,17 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
-  cloud_firestore: 834f6770c87865560149a9b2cbb0c1fe54f60698
+  cloud_firestore: c978a55e0bfc675cdc2291ef7670a69695cc663a
   Firebase: 13d8d96499e2635428d5bf0ec675df21f95d9a95
-  firebase_analytics: 7a7528bb2abf4ca22cff7a57bbf909dcab73e13d
-  firebase_auth: 86102828222240509991057a51ae9e9952bcbb5b
-  firebase_core: 3aa324017663581c1d250b66518b86298fda337c
-  firebase_crashlytics: 068cf3d5d78b14b782689092443c85e0d561aaba
-  firebase_dynamic_links: 9337fd79fe04358b802786d395ee8106579ef735
-  firebase_messaging: aab42ce0c80ee9d79a1ab7a5358dc62bd5355ff1
-  firebase_performance: 68b2ca8df5f79669a404b4bba76b8e860a68200e
-  firebase_remote_config: 64af2ad097186f4831a7095b2b03599276eb8a64
-  firebase_storage: 959eca9a8a365aa24d99896ee2c370346b4debb7
+  firebase_analytics: de9c26820ce4ec52fc6f759a73c1c6b8c669b038
+  firebase_auth: fe3a1deb12ebd850295344234abc15588d086baf
+  firebase_core: dfcae4c150a5e24436a0b7677c470478a234d5bf
+  firebase_crashlytics: 6713843d68feb3cefa1471e20dfaa72b934d6db8
+  firebase_dynamic_links: 89300b4c80fa30b03487e56b2926d3261ae47af8
+  firebase_messaging: c4696ded2f44fb5c2bf6e94f9a575105793e58fa
+  firebase_performance: 1ee335f255cae1b3e3238cc4a8b12691785a3f0b
+  firebase_remote_config: b6c8f06b74e803e9d03f9aa9adc58f0720feb3f7
+  firebase_storage: 41d59adeff37c548e167ecbfa834d2d038e6ad87
   FirebaseABTesting: 9de50b34bf9eb4a07d4edb7af82c14152fd905aa
   FirebaseAnalytics: 4ab446ce08a3fe52e8a4303dd997cf26276bf968
   FirebaseAuth: 2b78b2a32c07b3ecfa4970bdf1d3632b8304099b
@@ -352,19 +352,19 @@ SPEC CHECKSUMS:
   FirebaseStorage: 452c98c31ccb40b819764bf3039426c4388d9939
   Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
-  google_sign_in: de494e5e993986afae63e22a32441e30c35c9823
+  google_sign_in: c5cecea71f3be43282263550556e311c4cc03582
   GoogleAppMeasurement: 837649ad3987936c232f6717c5680216f6243d24
   GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
   GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
   GoogleUtilities: 684ee790a24f73ebb2d1d966e9711c203f2a4237
   GTMAppAuth: ad5c2b70b9a8689e1a04033c9369c4915bfcbe89
   GTMSessionFetcher: 43748f93435c2aa068b1cbe39655aaf600652e91
-  image_picker: e06f7a68f000bd36f552c1847e33cda96ed31f1f
+  image_picker: 9aa50e1d8cdacdbed739e925b7eea16d014367e6
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   package_info_plus: 6c92f08e1f853dc01228d6f553146438dafcd14e
-  path_provider: abfe2b5c733d04e238b0d8691db0cfd63a27a93c
+  path_provider_ios: 7d7ce634493af4477d156294792024ec3485acd5
   PromisesObjC: 68159ce6952d93e17b2dfe273b8c40907db5ba58
-  shared_preferences: 5033afbb22d372e15aff8ff766df9021b845f273
+  shared_preferences_ios: aef470a42dc4675a1cdd50e3158b42e3d1232b32
   sqflite: 6d358c025f5b867b29ed92fc697fd34924e11904
 
 PODFILE CHECKSUM: 1f203168f10f8b49396e44654801b96bfc130ec7
