@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:theme/text_theme.dart';
 
 import 'button_theme_data.dart';
+import 'text_theme.dart';
 
 ThemeData get lightThemeData {
   const primaryColor = Colors.amber;
@@ -9,11 +9,8 @@ ThemeData get lightThemeData {
     colorScheme: const ColorScheme.light(
       primary: primaryColor,
       primaryVariant: Colors.amber,
-      onPrimary: Colors.white,
       secondary: Colors.yellow,
       secondaryVariant: Colors.yellowAccent,
-      onSecondary: Colors.black,
-      background: Colors.white,
     ),
     primaryColor: primaryColor,
     primaryColorLight: Colors.grey[200],

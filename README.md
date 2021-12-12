@@ -34,7 +34,7 @@ dev, stg, prod
   - main.dart
 
 ## Setup for using the template
-1. Replace App ID　with your App ID.
+1. Replace App ID with your App ID.
   `jp.co.altive.fat` -> `your.domain.id`
 1. Change `CFBundleName` and `CFBundleDisplayName` in `ios/Runner/info.plist` to your app name.
 1. Change `FlutterAT` in `defaultConfig/resValue` of `android/app/build.gradle` to your app name.

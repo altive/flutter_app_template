@@ -8,6 +8,7 @@
             "name": "Run dev",
             "request": "launch",
             "type": "dart",
+            "program": "packages/flutter_app/lib/main.dart",
             "args": [
                 "--dart-define=FLAVOR=dev"
             ]
@@ -16,6 +17,7 @@
             "name": "Run stg",
             "request": "launch",
             "type": "dart",
+            "program": "packages/flutter_app/lib/main.dart",
             "args": [
                 "--dart-define=FLAVOR=stg"
             ]
@@ -24,6 +26,7 @@
             "name": "Run prod",
             "request": "launch",
             "type": "dart",
+            "program": "packages/flutter_app/lib/main.dart",
             "args": [
                 "--dart-define=FLAVOR=prod"
             ]
@@ -32,6 +35,7 @@
             "name": "Run dev release",
             "request": "launch",
             "type": "dart",
+            "program": "packages/flutter_app/lib/main.dart",
             "args": [
                 "--release",
                 "--dart-define=FLAVOR=dev"
@@ -41,6 +45,7 @@
             "name": "Run stg release",
             "request": "launch",
             "type": "dart",
+            "program": "packages/flutter_app/lib/main.dart",
             "args": [
                 "--release",
                 "--dart-define=FLAVOR=stg"
@@ -50,8 +55,9 @@
             "name": "Run prod release",
             "request": "launch",
             "type": "dart",
+            "flutterMode": "release",
+            "program": "packages/flutter_app/lib/main.dart",
             "args": [
-                "--release",
                 "--dart-define=FLAVOR=prod"
             ]
         },
@@ -60,6 +66,7 @@
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile",
+            "program": "packages/flutter_app/lib/main.dart",
             "args": [
                 "--dart-define=FLAVOR=dev"
             ]
