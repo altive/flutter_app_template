@@ -1,0 +1,85 @@
+include: all_lint_rules.yaml
+analyzer:
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+    - "**/*.mocks.dart"
+    - "**/l10n/*.dart"
+    - "**/generated_plugin_registrant.dart"
+  strong-mode:
+    implicit-casts: false
+    implicit-dynamic: false
+  language:
+    strict-inference: true
+    strict-raw-types: true
+  errors:
+    # TODOとFIXMEをProblemsに表示しない
+    todo: ignore
+    fixme: ignore
+    # include all_lint_rulesで発生するルール衝突による警告を抑制
+    included_file_warning: ignore
+    # false positive when using Freezed
+    invalid_annotation_target: ignore
+linter:
+  rules:
+    # Not work as documented: https://dart-lang.github.io/linter/lints/avoid_returning_null_for_future.html
+    avoid_returning_null_for_future: false
+
+    # temporarily disabled
+    require_trailing_commas: false
+
+    # 冗長すぎる
+    prefer_final_parameters: false
+
+    # Too verbose with little value, and this is taken care of by the Flutter devtool anyway.
+    diagnostic_describe_all_properties: false
+
+    # Incompatible with `prefer_final_locals`
+    # Having immutable local variables makes larger functions more predictible
+    # so we will use `prefer_final_locals` instead.
+    unnecessary_final: false
+
+    # Conflicts with `omit_local_variable_types` and other rules.
+    # As per Dart guidelines, we want to avoid unnecessary types to make the code
+    # more readable.
+    # See https://dart.dev/guides/language/effective-dart/design#avoid-type-annotating-initialized-local-variables
+    always_specify_types: false
+
+    # Conflicts with `prefer_single_quotes`
+    # Single quotes are easier to type and don't compromise on readability.
+    prefer_double_quotes: false
+
+    # prefer_relative_importsを採用
+    always_use_package_imports: false
+
+    # Dart-defineでfromEnvironmentを使う
+    do_not_use_environment: false
+
+    # すべてにドキュメントコメントが必要なわけではない
+    public_member_api_docs: false
+
+    # Not quite suitable for Flutter, which may have a `build` method with a single
+    # return, but that return is still complex enough that a "body" is worth it.
+    prefer_expression_function_bodies: false
+    
+    # Conflicts with the convention used by flutter, which puts `Key key`
+    # and `@required Widget child` last.
+    always_put_required_named_parameters_first: false
+
+    # Conflicts with disabling `implicit-dynamic`
+    avoid_annotating_with_dynamic: false
+
+    # StatefulWidgetで警告が出てしまう
+    library_private_types_in_public_api: false
+
+    # dynamicな引数に型を与えたい時に使えなくなってしまう
+    avoid_types_on_closure_parameters: false
+
+    # すべてのアサートにメッセージを追加する必要はない
+    prefer_asserts_with_message: false
+
+    # RegExpでrを使うため
+    unnecessary_raw_strings: false
+
+    # BasePresenterで使われている
+    prefer_mixin: false
