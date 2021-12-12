@@ -9,10 +9,16 @@ scripts:
     run: melos exec -c 1 -- "fvm install"
     description: fvm install を実行する
          
+  get:all: 
+    run: melos run get --no-select
+    description: pubspec.yamlに従って依存パッケージ・プラグインを取得する
+          
   get: 
     run: melos exec -- "fvm flutter pub get"
     description: pubspec.yamlに従って依存パッケージ・プラグインを取得する
-          
+    select-package:
+      dir-exists: lib
+
   analyze:
     run: |
       melos exec -- \
@@ -25,12 +31,21 @@ scripts:
         fvm flutter format --dry-run --set-exit-if-changed lib/
     description: コードフォーマットを整形する
 
-  generate:
+  gen:all:
     run: |
       melos exec -c 1 --depends-on="build_runner" -- \
         fvm flutter pub run build_runner build --delete-conflicting-outputs
-    description: コード生成を実行する
+    description: 全てのパッケージでコード生成を実行する
 
+  gen:
+    run: |
+      melos exec -c 1 -- \
+        fvm flutter pub run build_runner build --delete-conflicting-outputs
+    description: コード生成したいパッケージを選択して実行する
+    select-package:
+      dir-exists: lib
+      depends-on: "build_runner"
+      
   test:
     run: |
       melos exec --dir-exists="test" --fail-fast -- \
@@ -46,5 +61,5 @@ scripts:
 dev_dependencies:
 
 environment:
-  sdk: ">=2.14.0 <3.0.0"
-  flutter: ">=2.5.0 <3.0.0"
+  sdk: ">=2.15.0 <3.0.0"
+  flutter: ">=2.8.0 <3.0.0"
