@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Run dev",
+            "name": "flutter_app debug-dev",
             "request": "launch",
             "type": "dart",
             "program": "packages/flutter_app/lib/main.dart",
@@ -14,62 +14,22 @@
             ]
         },
         {
-            "name": "Run stg",
+            "name": "flutter_app release-dev",
             "request": "launch",
             "type": "dart",
             "program": "packages/flutter_app/lib/main.dart",
             "args": [
-                "--dart-define=FLAVOR=stg"
-            ]
-        },
-        {
-            "name": "Run prod",
-            "request": "launch",
-            "type": "dart",
-            "program": "packages/flutter_app/lib/main.dart",
-            "args": [
-                "--dart-define=FLAVOR=prod"
-            ]
-        },
-        {
-            "name": "Run dev release",
-            "request": "launch",
-            "type": "dart",
-            "program": "packages/flutter_app/lib/main.dart",
-            "args": [
-                "--release",
                 "--dart-define=FLAVOR=dev"
             ]
         },
         {
-            "name": "Run stg release",
+            "name": "vitaly_app debug-dev",
             "request": "launch",
             "type": "dart",
-            "program": "packages/flutter_app/lib/main.dart",
+            "program": "packages/vitaly_app/lib/main.dart",
             "args": [
-                "--release",
-                "--dart-define=FLAVOR=stg"
+                // "--dart-define=FLAVOR=dev"
             ]
         },
-        {
-            "name": "Run prod release",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "release",
-            "program": "packages/flutter_app/lib/main.dart",
-            "args": [
-                "--dart-define=FLAVOR=prod"
-            ]
-        },
-        {
-            "name": "Run dev (profile mode)",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "profile",
-            "program": "packages/flutter_app/lib/main.dart",
-            "args": [
-                "--dart-define=FLAVOR=dev"
-            ]
-        }
     ]
 }

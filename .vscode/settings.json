@@ -60,4 +60,5 @@
 	"git.autofetch": true,
 	// エクスプローラでファイルやフォルダをドラッグ＆ドロップした時に確認を求めるなら`true`.
 	"explorer.confirmDragAndDrop": false,
+	"dart.runPubGetOnPubspecChanges": false,
 }
