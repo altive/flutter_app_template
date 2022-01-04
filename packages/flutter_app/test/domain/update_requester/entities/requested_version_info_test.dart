@@ -1,4 +1,4 @@
-import 'package:flutter_app_template/domain/update_requester/entities/requested_version_info.dart';
+import 'package:flutter_app/domain/update_requester/entities/requested_version_info.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
