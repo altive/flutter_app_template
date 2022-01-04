@@ -4,16 +4,15 @@ packages:
   - packages/**
 
 scripts:
-
   fvm:
     run: melos exec -c 1 -- "fvm install"
     description: fvm install を実行する
-         
-  get:all: 
+
+  get:all:
     run: melos run get --no-select
     description: pubspec.yamlに従って依存パッケージ・プラグインを取得する
-          
-  get: 
+
+  get:
     run: melos exec -- "fvm flutter pub get"
     description: pubspec.yamlに従って依存パッケージ・プラグインを取得する
     select-package:
@@ -25,7 +24,7 @@ scripts:
         fvm flutter analyze lib/ --fatal-infos
     description: コード解析を実行する
 
-  format: 
+  format:
     run: |
       melos exec -- \
         fvm flutter format --dry-run --set-exit-if-changed lib/
@@ -45,7 +44,7 @@ scripts:
     select-package:
       dir-exists: lib
       depends-on: "build_runner"
-      
+
   test:
     run: |
       melos exec --dir-exists="test" --fail-fast -- \
@@ -57,9 +56,3 @@ scripts:
       melos exec -- \
         fvm flutter pub upgrade --major-versions
     description: 依存パッケージメジャーバージョンを更新する
-      
-dev_dependencies:
-
-environment:
-  sdk: ">=2.15.0 <3.0.0"
-  flutter: ">=2.8.0 <3.0.0"
