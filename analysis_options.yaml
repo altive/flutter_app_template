@@ -61,7 +61,7 @@ linter:
     # Not quite suitable for Flutter, which may have a `build` method with a single
     # return, but that return is still complex enough that a "body" is worth it.
     prefer_expression_function_bodies: false
-    
+
     # Conflicts with the convention used by flutter, which puts `Key key`
     # and `@required Widget child` last.
     always_put_required_named_parameters_first: false
@@ -75,11 +75,5 @@ linter:
     # dynamicな引数に型を与えたい時に使えなくなってしまう
     avoid_types_on_closure_parameters: false
 
-    # すべてのアサートにメッセージを追加する必要はない
+    # 自明なアサートに冗長なメッセージを追加する必要はない
     prefer_asserts_with_message: false
-
-    # RegExpでrを使うため
-    unnecessary_raw_strings: false
-
-    # BasePresenterで使われている
-    prefer_mixin: false
