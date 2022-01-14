@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'ranking.dart';
@@ -228,12 +229,12 @@ class _$_Ranking with DiagnosticableTreeMixin implements _Ranking {
   @override
   @TimestampOrNullConverter()
   final DateTime? updatedAt;
-  @JsonKey(defaultValue: '')
+  @JsonKey()
   @override
 
   /// ランキングタイトル
   final String title;
-  @JsonKey(defaultValue: '')
+  @JsonKey()
   @override
 
   /// ランキングの説明
@@ -246,7 +247,7 @@ class _$_Ranking with DiagnosticableTreeMixin implements _Ranking {
 
   /// ランキングのサムネイル画像
   final String? thumbnailUrl;
-  @JsonKey(defaultValue: false)
+  @JsonKey()
   @override
 
   /// 優先して表示させたいランキングなら `true`
@@ -276,23 +277,27 @@ class _$_Ranking with DiagnosticableTreeMixin implements _Ranking {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Ranking &&
-            (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt) &&
-            (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt) &&
-            (identical(other.title, title) || other.title == title) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
-            (identical(other.imageUrl, imageUrl) ||
-                other.imageUrl == imageUrl) &&
-            (identical(other.thumbnailUrl, thumbnailUrl) ||
-                other.thumbnailUrl == thumbnailUrl) &&
-            (identical(other.pinned, pinned) || other.pinned == pinned));
+            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
+            const DeepCollectionEquality().equals(other.updatedAt, updatedAt) &&
+            const DeepCollectionEquality().equals(other.title, title) &&
+            const DeepCollectionEquality()
+                .equals(other.description, description) &&
+            const DeepCollectionEquality().equals(other.imageUrl, imageUrl) &&
+            const DeepCollectionEquality()
+                .equals(other.thumbnailUrl, thumbnailUrl) &&
+            const DeepCollectionEquality().equals(other.pinned, pinned));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, createdAt, updatedAt, title,
-      description, imageUrl, thumbnailUrl, pinned);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(createdAt),
+      const DeepCollectionEquality().hash(updatedAt),
+      const DeepCollectionEquality().hash(title),
+      const DeepCollectionEquality().hash(description),
+      const DeepCollectionEquality().hash(imageUrl),
+      const DeepCollectionEquality().hash(thumbnailUrl),
+      const DeepCollectionEquality().hash(pinned));
 
   @JsonKey(ignore: true)
   @override

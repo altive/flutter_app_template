@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'todo.dart';
@@ -139,7 +140,7 @@ class _$_Todo with DiagnosticableTreeMixin implements _Todo {
   final String id;
   @override
   final String title;
-  @JsonKey(defaultValue: false)
+  @JsonKey()
   @override
   final bool completed;
 
@@ -163,14 +164,17 @@ class _$_Todo with DiagnosticableTreeMixin implements _Todo {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Todo &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.title, title) || other.title == title) &&
-            (identical(other.completed, completed) ||
-                other.completed == completed));
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.title, title) &&
+            const DeepCollectionEquality().equals(other.completed, completed));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, title, completed);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(title),
+      const DeepCollectionEquality().hash(completed));
 
   @JsonKey(ignore: true)
   @override

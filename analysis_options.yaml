@@ -2,7 +2,6 @@ include: all_lint_rules.yaml
 analyzer:
   exclude:
     - "**/*.g.dart"
-    - "**/*.freezed.dart"
     - "**/*.mocks.dart"
     - "**/l10n/*.dart"
     - "**/generated_plugin_registrant.dart"
