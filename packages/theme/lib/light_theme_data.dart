@@ -8,9 +8,9 @@ ThemeData get lightThemeData {
   return ThemeData.light().copyWith(
     colorScheme: const ColorScheme.light(
       primary: primaryColor,
-      primaryVariant: Colors.amber,
+      primaryContainer: Colors.amber,
       secondary: Colors.yellow,
-      secondaryVariant: Colors.yellowAccent,
+      secondaryContainer: Colors.yellowAccent,
     ),
     primaryColor: primaryColor,
     primaryColorLight: Colors.grey[200],

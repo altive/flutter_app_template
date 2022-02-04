@@ -8,7 +8,7 @@ ThemeData get darkThemeData {
   return ThemeData.dark().copyWith(
     colorScheme: ColorScheme.dark(
       primary: primaryColor,
-      primaryVariant: Colors.amber,
+      primaryContainer: Colors.amber,
       secondary: Colors.brown,
       surface: Colors.grey[800]!,
       background: Colors.black,

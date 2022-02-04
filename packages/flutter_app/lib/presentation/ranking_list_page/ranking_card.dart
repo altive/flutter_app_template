@@ -43,6 +43,7 @@ class RankingCard extends ConsumerWidget {
         rankingDoc.reference.set(newRanking); // ignore: unawaited_futures
         return false;
       }
+      return null;
     }
 
     const radius = Radius.circular(16);
