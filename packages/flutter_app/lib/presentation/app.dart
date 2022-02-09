@@ -3,6 +3,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:routemaster/routemaster.dart';
 import 'package:theme/theme.dart';
 
+import '../commons/providers/app_lifecycle_provider.dart';
+import '../commons/providers/locales_provider.dart';
 import '../domain/authenticator/auth_user_provider.dart';
 import '../domain/authenticator/authenticator.dart';
 import '../domain/theme_selector/theme_selector.dart';
@@ -15,6 +17,16 @@ class App extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    ref
+      ..listen<List<Locale>?>(
+        localesProvider,
+        (previous, next) => debugPrint('Previous: $previous, Next: $next'),
+      )
+      ..listen<AppLifecycleState>(
+        appLifecycleProvider,
+        (previous, next) => debugPrint('Previous: $previous, Next: $next'),
+      );
+
     final isSignedIn = ref.watch(isSignedInProvider).value;
 
     if (isSignedIn == null) {
