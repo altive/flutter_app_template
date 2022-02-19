@@ -46,6 +46,6 @@ ThemeData get darkThemeData {
     ),
     elevatedButtonTheme: elevatedButtonThemeData,
     outlinedButtonTheme: outlinedButtonThemeData,
-    textTheme: textTheme,
+    textTheme: darkTextTheme,
   );
 }

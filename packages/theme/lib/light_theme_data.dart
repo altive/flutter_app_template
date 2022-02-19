@@ -46,6 +46,6 @@ ThemeData get lightThemeData {
     ),
     elevatedButtonTheme: elevatedButtonThemeData,
     outlinedButtonTheme: outlinedButtonThemeData,
-    textTheme: textTheme,
+    textTheme: lightTextTheme,
   );
 }
