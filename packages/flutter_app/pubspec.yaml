@@ -5,7 +5,7 @@ version: 1.0.0+1
 
 environment:
   sdk: ">=2.16.0 <3.0.0"
-  flutter: ">=2.8.0"
+  flutter: ">=2.10.2"
 
 dependencies:
   cached_network_image: ^3.1.0
