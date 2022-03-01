@@ -1,0 +1,57 @@
+name: TestFlight Production iOS
+
+on:
+  workflow_dispatch: # 手動実行可能化
+  pull_request:
+    paths:
+      - "packages/flutter_app/**"
+    types: [opened, synchronize, reopened]
+
+defaults:
+  run:
+    working-directory: packages/flutter_app
+
+jobs:
+  build_ios:
+    name: Build for iOS
+    runs-on: macos-latest
+
+    steps:
+      - name: Checks-out my repository
+        uses: actions/checkout@v2
+
+      - name: Install Flutter
+        run: git clone https://github.com/flutter/flutter.git -b stable
+
+      - name: Add path
+        run: echo "$(pwd)/flutter/bin" >> $GITHUB_PATH
+
+      - name: Download Flutter packages
+        run: flutter pub get
+
+      - name: Import Provisioning Profile
+        run: |
+          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+          echo -n ${{ secrets.PROVISIONING_PROFILE }} | base64 -d > ~/Library/MobileDevice/Provisioning\ Profiles/AppStore_jpcoaltivefat.mobileprovision
+
+      - name: Import Code-Signing Certificates
+        uses: apple-actions/import-codesign-certs@v1
+        with:
+          p12-file-base64: ${{ secrets.CERTIFICATES_P12 }}
+          p12-password: ${{ secrets.CERTIFICATE_PASSWORD }}
+
+      - name: Create ipa file
+        run: flutter build ipa --dart-define=FLAVOR=prod --export-options-plist=ExportOptions.plist --build-number ${GITHUB_RUN_NUMBER}
+
+      - name: Upload to AppStoreConnect
+        run: xcrun altool --upload-app --file "/Users/runner/work/styler_flutter/styler_flutter/build/ios/ipa" --type ios --username $APPLE_USER_NAME --password $APPLE_APP_SPECIFIC_PASSWORD
+        env:
+          APPLE_USER_NAME: ${{ secrets.APPLE_ID }}
+          APPLE_APP_SPECIFIC_PASSWORD: ${{ secrets.APPLE_APP_PASSWORD }}
+
+      # - name: Send notification to slack
+      #   uses: tokorom/action-slack-incoming-webhook@main
+      #   env:
+      #     INCOMING_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+      #   with:
+      #     text: Uploaded iOS App (Production)
