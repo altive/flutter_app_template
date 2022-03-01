@@ -9,7 +9,7 @@
 		<key>provisioningProfiles</key>
 		<dict>
 			<key>jp.co.altive.fat</key>
-			<string>AppStore_jpcoaltivefat</string>
+			<string>AppStore jp.co.altive.fat</string>
 		</dict>
 		<key>signingCertificate</key>
 		<string>iOS Distribution</string>

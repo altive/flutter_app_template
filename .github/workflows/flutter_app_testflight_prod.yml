@@ -41,7 +41,7 @@ jobs:
           p12-password: ${{ secrets.CERTIFICATE_PASSWORD }}
 
       - name: Create ipa file
-        run: flutter build ipa --dart-define=FLAVOR=prod --export-options-plist=ios/ExportOptions.plist --build-number ${GITHUB_RUN_NUMBER}
+        run: flutter build ipa --dart-define=FLAVOR=prod --export-options-plist=ios/prod/ExportOptions.plist --build-number ${GITHUB_RUN_NUMBER}
 
       - name: Upload to AppStoreConnect
         run: xcrun altool --upload-app --file "/Users/runner/work/styler_flutter/styler_flutter/build/ios/ipa" --type ios --username $APPLE_USER_NAME --password $APPLE_APP_SPECIFIC_PASSWORD
