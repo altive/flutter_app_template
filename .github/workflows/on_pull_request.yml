@@ -18,21 +18,17 @@ jobs:
 
       - name: Setup Flutter with FVM
         run: |
-          make setup
+          make
           export PATH="$PATH":"$HOME/.pub-cache/bin"
 
-      - name: Install dependencies
-        run:
-          make get-dependencies
-
       - name: Analyze project
-        run: make analyze
+        run: melos run analyze
 
       - name: Format lib files
-        run: make format-dry-exit-if-changed
+        run: melos run format
 
       - name: Run unit tests
-        run: make unit-test
+        run: melos run test
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v2

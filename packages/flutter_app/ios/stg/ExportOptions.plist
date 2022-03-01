@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>destination</key>
+		<string>export</string>
+		<key>method</key>
+		<string>app-store</string>
+		<key>provisioningProfiles</key>
+		<dict>
+			<key>jp.co.altive.fat.stg</key>
+			<string>AppStore jp.co.altive.fat.stg</string>
+		</dict>
+		<key>signingCertificate</key>
+		<string>iOS Distribution</string>
+		<key>signingStyle</key>
+		<string>manual</string>
+		<key>teamID</key>
+		<string>3537BAHE48</string>
+		<key>stripSwiftSymbols</key>
+		<true/>
+		<key>compileBitcode</key>
+		<false/>
+		<key>uploadBitcode</key>
+		<false/>
+		<key>uploadSymbols</key>
+		<true/>
+	</dict>
+</plist>

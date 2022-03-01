@@ -1,0 +1,81 @@
+name: Upload Flutter App Template iOS App (Staging)
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - develop
+
+defaults:
+  run:
+    working-directory: packages/flutter_app
+
+jobs:
+  upload_ios_app:
+    name: Upload iOS App
+    runs-on: macos-latest
+
+    steps:
+      - name: Checks-out my repository
+        uses: actions/checkout@v2
+
+      - name: Install Flutter
+        run: git clone https://github.com/flutter/flutter.git -b stable
+
+      - name: Add path
+        run: echo "$(pwd)/flutter/bin" >> $GITHUB_PATH
+
+      - name: Download Flutter packages
+        run: flutter pub get
+
+      - name: Import Provisioning Profile
+        run: |
+          mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
+          echo -n ${{ secrets.PROVISIONING_PROFILE }} | base64 -d > ~/Library/MobileDevice/Provisioning\ Profiles/AppStore_jpcoaltivefat.mobileprovision
+
+      - name: Import Code-Signing Certificates
+        uses: apple-actions/import-codesign-certs@v1
+        with:
+          keychain: signing_temp
+          create-keychain: true
+          p12-file-base64: ${{ secrets.CERTIFICATES_P12 }}
+          p12-password: ${{ secrets.CERTIFICATE_PASSWORD }}
+
+      - name: Create ipa file
+        run: flutter build ipa --dart-define=FLAVOR=prod --export-options-plist=ios/prod/ExportOptions.plist --build-number ${GITHUB_RUN_NUMBER}
+
+      - name: Upload to AppStoreConnect
+        run: xcrun altool --upload-app --file "./build/ios/ipa/FAT.ipa" --type ios --username $APPLE_USER_NAME --password $APPLE_APP_SPECIFIC_PASSWORD
+        env:
+          APPLE_USER_NAME: ${{ secrets.APPLE_ID }}
+          APPLE_APP_SPECIFIC_PASSWORD: ${{ secrets.APPLE_APP_PASSWORD }}
+
+      - name: Send GitHub Action trigger data to Slack workflow
+        id: slack
+        uses: slackapi/slack-github-action@v1
+        with:
+          payload: |
+            {
+              "text": "Uploaded iOS App (Production)",
+              "blocks": [
+                {
+                  "type": "section",
+                  "text": {
+                    "type": "mrkdwn",
+                    "text": "ビルド結果: ${{ job.status }}\n\nUploaded iOS App (Production)"
+                  }
+                },
+                {
+                  "type": "context",
+                  "elements": [
+                    {
+                      "type": "mrkdwn",
+                      "text": "Author: <https://github.com/${{ github.event.sender.login }}|@${{ github.event.sender.login }}>"
+                    }
+                  ]
+                }
+              ]
+            }
+        env:
+          SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_INCOMING_WEBHOOK_URL }}
