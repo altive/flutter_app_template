@@ -25,10 +25,10 @@ jobs:
         run: melos run analyze
 
       - name: Format lib files
-        run: make run format
+        run: melos run format
 
       - name: Run unit tests
-        run: make run test
+        run: melos run test
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v2

@@ -1,4 +1,4 @@
 FLAVOR=prod
 APP_ID_SUFFIX=
 GOOGLE_REVERSED_CLIENT_ID=com.googleusercontent.apps.1007652573613-2ggi30iortpdb6gilpfli5ouk6ruckhg
-PROVISIONING_PROFILE_SPECIFIER="AppStore jp.co.altive.fat"
+PROVISIONING_PROFILE_SPECIFIER=AppStore jp.co.altive.fat
