@@ -5,6 +5,7 @@
 		<key>destination</key>
 		<string>export</string>
 		<key>method</key>
+		<string>app-store</string>
 		<key>distributionBundleIdentifier</key>
 		<string>jp.co.altive.fat</string>
 		<string>app-store</string>
