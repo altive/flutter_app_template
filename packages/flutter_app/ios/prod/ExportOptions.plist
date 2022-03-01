@@ -8,7 +8,6 @@
 		<string>app-store</string>
 		<key>distributionBundleIdentifier</key>
 		<string>jp.co.altive.fat</string>
-		<string>app-store</string>
 		<key>provisioningProfiles</key>
 		<dict>
 			<key>jp.co.altive.fat</key>
