@@ -1,5 +1,7 @@
 name: flutter_app
-description: Flutter App Template is a project that introduces an approach to architecture and project structure for developing Flutter apps.
+description: |
+  The Flutter App Template is a starter kit for developing Flutter apps.
+  It is also a project that Altive Inc continues to update as a sample of architecture, configuration, and package usage.
 publish_to: none
 version: 1.0.0+1
 
@@ -28,7 +30,7 @@ dependencies:
   freezed_annotation: ^1.1.0
   gap: ^2.0.0
   google_sign_in: ^5.1.0
-  hooks_riverpod: ^1.0.3
+  hooks_riverpod: ^2.0.0-dev.4
   image_picker: ^0.8.4
   intl: ^0.17.0
   json_annotation: ^4.3.0
