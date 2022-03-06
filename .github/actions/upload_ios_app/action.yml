@@ -57,3 +57,4 @@ runs:
     - name: Upload to AppStoreConnect
       run: xcrun altool --upload-app --file "./build/ios/ipa/${{ inputs.bundle_name }}.ipa" --type ios --username ${{ inputs.apple_id }} --password ${{ inputs.app_specific_password}}
       shell: bash
+      working-directory: ${{ inputs.working_directory }}

@@ -38,10 +38,8 @@ jobs:
           apple_id: ${{ secrets.APPLE_ID }}
           app_specific_password: ${{ secrets.APPLE_APP_PASSWORD }}
 
-  send_to_slack:
-    needs: upload_app
-    uses: altive/flutter_app_template/.github/workflows/send_notification_to_slack.yml@main
-    with:
-      text: Upload succeeded!
-    secrets:
-      incoming_webhook_url: ${{ secrets.SLACK_INCOMING_WEBHOOK_URL }}
+      - name: Send notification to Slack
+        uses: ./.github/actions/send_notification_to_slack
+        with:
+          text: Uploaded succeeded!
+          incoming_webhook_url: ${{ secrets.SLACK_INCOMING_WEBHOOK_URL }}

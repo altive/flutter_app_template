@@ -1,0 +1,41 @@
+name: Send notification to Slack
+description: "Send notification to Slack"
+inputs:
+  text:
+    description: "Message text"
+    required: true
+  incoming_webhook_url:
+    description: "Slack incoming webhook URL"
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - name: Send GitHub Action trigger data to Slack workflow
+      id: slack
+      uses: slackapi/slack-github-action@v1
+      with:
+        payload: |
+          {
+            "text": ${{ inputs.text }},
+            "blocks": [
+              {
+                "type": "section",
+                "text": {
+                  "type": "mrkdwn",
+                  "text": ${{ inputs.text }}
+                }
+              },
+              {
+                "type": "context",
+                "elements": [
+                  {
+                    "type": "mrkdwn",
+                    "text": "Author: <https://github.com/${{ github.event.sender.login }}|@${{ github.event.sender.login }}>"
+                  }
+                ]
+              }
+            ]
+          }
+      env:
+        SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
+        SLACK_WEBHOOK_URL: ${{ secrets.incoming_webhook_url }}
