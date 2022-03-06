@@ -4,4 +4,8 @@
 
 - Flavor (dev, stg, prod)
 - Riverpod examples
-- 
+
+## Confidential files required for Release
+
+- android/key.properties
+- android/app/upload-keystore.jks
