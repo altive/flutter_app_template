@@ -16,7 +16,7 @@ jobs:
         uses: ./.github/actions/setup_flutter
 
   upload_ios_app:
-    uses: altive/flutter_app_template/.github/workflows/setup_flutter.yml@main
+    uses: altive/flutter_app_template/.github/workflows/upload_ios_app.yml@main
     with:
       package: flutter_app
       flavor: prod
