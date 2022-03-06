@@ -4,34 +4,47 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - develop
+      - main
     paths:
       - "packages/flutter_app/**"
+
+defaults:
+  run:
+    working-directory: packages/flutter_app
+
+env:
+  working_directory: packages/flutter_app
+
 jobs:
-  setup_flutter:
-    name: Setup Flutter
+  upload_app:
+    name: Upload App
     runs-on: macos-latest
     steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
       - name: Setup Flutter from repository
         uses: ./.github/actions/setup_flutter
+        with:
+          ref: stable
+          working_directory: ${{ env.working_directory }}
 
-  upload_ios_app:
-    uses: altive/flutter_app_template/.github/workflows/upload_ios_app.yml@main
-    with:
-      package: flutter_app
-      flavor: stg
-      bundle_name: FAT
-      profile_name: AppStore_jpcoaltivefat
-    secrets:
-      certificate_p12: ${{ secrets.CERTIFICATES_P12 }}
-      certificate_password: ${{ secrets.CERTIFICATE_PASSWORD }}
-      apple_id: ${{ secrets.APPLE_ID }}
-      app_specific_password: ${{ secrets.APPLE_APP_PASSWORD }}
-      slack_incoming_webhook_url: ${{ secrets.SLACK_INCOMING_WEBHOOK_URL }}
+      - name: Upload Flutter iOS App
+        uses: ./.github/actions/upload_ios_app
+        with:
+          working_directory: ${{ env.working_directory }}
+          flavor: stg
+          bundle_name: FAT.stg
+          profile_name: AppStore_jpcoaltivefatstg
+          build_number: ${{ github.run_number}}
+          provisioning_profile: ${{ secrets.PROVISIONING_PROFILE }}
+          certificate_p12: ${{ secrets.CERTIFICATES_P12 }}
+          certificate_password: ${{ secrets.CERTIFICATE_PASSWORD }}
+          apple_id: ${{ secrets.APPLE_ID }}
+          app_specific_password: ${{ secrets.APPLE_APP_PASSWORD }}
 
-  send_to_slack:
-    uses: altive/flutter_app_template/.github/workflows/send_notification_to_slack.yml@main
-    with:
-      text: Uploaded
-    secrets:
-      incoming_webhook_url: ${{ secrets.SLACK_INCOMING_WEBHOOK_URL }}
+      - name: Send notification to Slack
+        uses: ./.github/actions/send_notification_to_slack
+        with:
+          text: Uploaded succeeded!
+          incoming_webhook_url: ${{ secrets.SLACK_INCOMING_WEBHOOK_URL }}

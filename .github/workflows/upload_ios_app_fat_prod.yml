@@ -7,27 +7,32 @@ on:
       - main
     paths:
       - "packages/flutter_app/**"
+
 defaults:
   run:
     working-directory: packages/flutter_app
+
+env:
+  working_directory: packages/flutter_app
+
 jobs:
   upload_app:
-    name: Setup Flutter
+    name: Upload App
     runs-on: macos-latest
     steps:
-      - name: Check out my repository
+      - name: Check out repository
         uses: actions/checkout@v2
 
       - name: Setup Flutter from repository
         uses: ./.github/actions/setup_flutter
         with:
           ref: stable
-          working_directory: packages/flutter_app
+          working_directory: ${{ env.working_directory }}
 
       - name: Upload Flutter iOS App
         uses: ./.github/actions/upload_ios_app
         with:
-          working_directory: packages/flutter_app
+          working_directory: ${{ env.working_directory }}
           flavor: prod
           bundle_name: FAT
           profile_name: AppStore_jpcoaltivefat
