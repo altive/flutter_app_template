@@ -19,8 +19,12 @@ jobs:
         uses: actions/checkout@v2
       - name: Setup Flutter from repository
         uses: ./.github/actions/setup_flutter
+        with:
+          ref: stable
+          working_directory: packages/flutter_app
 
   upload_ios_app:
+    needs: setup_flutter
     uses: altive/flutter_app_template/.github/workflows/upload_ios_app.yml@main
     with:
       flavor: prod
@@ -36,8 +40,9 @@ jobs:
       slack_incoming_webhook_url: ${{ secrets.SLACK_INCOMING_WEBHOOK_URL }}
 
   send_to_slack:
+    needs: upload_ios_app
     uses: altive/flutter_app_template/.github/workflows/send_notification_to_slack.yml@main
     with:
-      text: Uploaded
+      text: Upload succeeded!
     secrets:
       incoming_webhook_url: ${{ secrets.SLACK_INCOMING_WEBHOOK_URL }}
