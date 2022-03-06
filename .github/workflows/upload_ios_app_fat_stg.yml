@@ -1,0 +1,37 @@
+name: Upload Flutter App Template iOS App (Staging)
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - develop
+    paths:
+      - "packages/flutter_app/**"
+jobs:
+  setup_flutter:
+    name: Setup Flutter
+    runs-on: macos-latest
+    steps:
+      - name: Setup Flutter from repository
+        uses: ./.github/actions/setup_flutter
+
+  upload_ios_app:
+    uses: altive/flutter_app_template/.github/workflows/setup_flutter.yml@main
+    with:
+      package: flutter_app
+      flavor: stg
+      bundle_name: FAT
+      profile_name: AppStore_jpcoaltivefat
+    secrets:
+      certificate_p12: ${{ secrets.CERTIFICATES_P12 }}
+      certificate_password: ${{ secrets.CERTIFICATE_PASSWORD }}
+      apple_id: ${{ secrets.APPLE_ID }}
+      app_specific_password: ${{ secrets.APPLE_APP_PASSWORD }}
+      slack_incoming_webhook_url: ${{ secrets.SLACK_INCOMING_WEBHOOK_URL }}
+
+  send_to_slack:
+    uses: altive/flutter_app_template/.github/workflows/send_notification_to_slack.yml@main
+    with:
+      text: Uploaded
+    secrets:
+      incoming_webhook_url: ${{ secrets.SLACK_INCOMING_WEBHOOK_URL }}

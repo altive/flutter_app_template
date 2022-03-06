@@ -1,0 +1,21 @@
+name: Setup Flutter from repository
+description: "dependencies install step"
+inputs:
+  ref:
+    description: "example: Branch"
+    required: false
+    default: "stable"
+
+runs:
+  using: "composite"
+  steps:
+    - name: Check out my repository
+      uses: actions/checkout@v2
+
+    - name: Install Flutter
+      run: ./.github/workflows/scripts/install-flutter.sh ${{ inputs.ref }}
+      shell: bash
+
+    - name: Get dependencies
+      run: flutter pub get
+      shell: bash
