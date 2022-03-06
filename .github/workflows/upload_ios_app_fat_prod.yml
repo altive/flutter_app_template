@@ -11,36 +11,35 @@ defaults:
   run:
     working-directory: packages/flutter_app
 jobs:
-  setup_flutter:
+  upload_app:
     name: Setup Flutter
     runs-on: macos-latest
     steps:
       - name: Check out my repository
         uses: actions/checkout@v2
+
       - name: Setup Flutter from repository
         uses: ./.github/actions/setup_flutter
         with:
           ref: stable
           working_directory: packages/flutter_app
 
-  upload_ios_app:
-    needs: setup_flutter
-    uses: altive/flutter_app_template/.github/workflows/upload_ios_app.yml@main
-    with:
-      flavor: prod
-      bundle_name: FAT
-      profile_name: AppStore_jpcoaltivefat
-      build_number: ${{ github.run_number}}
-    secrets:
-      provisioning_profile: ${{ secrets.PROVISIONING_PROFILE }}
-      certificate_p12: ${{ secrets.CERTIFICATES_P12 }}
-      certificate_password: ${{ secrets.CERTIFICATE_PASSWORD }}
-      apple_id: ${{ secrets.APPLE_ID }}
-      app_specific_password: ${{ secrets.APPLE_APP_PASSWORD }}
-      slack_incoming_webhook_url: ${{ secrets.SLACK_INCOMING_WEBHOOK_URL }}
+      - name: Upload Flutter iOS App
+        uses: ./.github/actions/upload_ios_app
+        with:
+          flavor: prod
+          bundle_name: FAT
+          profile_name: AppStore_jpcoaltivefat
+          build_number: ${{ github.run_number}}
+          provisioning_profile: ${{ secrets.PROVISIONING_PROFILE }}
+          certificate_p12: ${{ secrets.CERTIFICATES_P12 }}
+          certificate_password: ${{ secrets.CERTIFICATE_PASSWORD }}
+          apple_id: ${{ secrets.APPLE_ID }}
+          app_specific_password: ${{ secrets.APPLE_APP_PASSWORD }}
+          slack_incoming_webhook_url: ${{ secrets.SLACK_INCOMING_WEBHOOK_URL }}
 
   send_to_slack:
-    needs: upload_ios_app
+    needs: upload_app
     uses: altive/flutter_app_template/.github/workflows/send_notification_to_slack.yml@main
     with:
       text: Upload succeeded!

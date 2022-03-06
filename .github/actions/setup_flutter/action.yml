@@ -1,5 +1,5 @@
 name: Setup Flutter from repository
-description: "dependencies install step"
+description: "Setup Flutter from repository"
 inputs:
   ref:
     description: "example: Branch"
