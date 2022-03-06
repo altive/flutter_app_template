@@ -7,6 +7,9 @@ on:
       - main
     paths:
       - "packages/flutter_app/**"
+defaults:
+  run:
+    working-directory: packages/flutter_app
 jobs:
   setup_flutter:
     name: Setup Flutter
@@ -18,12 +21,12 @@ jobs:
   upload_ios_app:
     uses: altive/flutter_app_template/.github/workflows/upload_ios_app.yml@main
     with:
-      package: flutter_app
       flavor: prod
       bundle_name: FAT
       profile_name: AppStore_jpcoaltivefat
       build_number: ${{ github.run_number}}
     secrets:
+      provisioning_profile: ${{ secrets.PROVISIONING_PROFILE }}
       certificate_p12: ${{ secrets.CERTIFICATES_P12 }}
       certificate_password: ${{ secrets.CERTIFICATE_PASSWORD }}
       apple_id: ${{ secrets.APPLE_ID }}

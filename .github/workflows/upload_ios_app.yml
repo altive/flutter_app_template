@@ -3,10 +3,6 @@ name: Upload Flutter iOS App
 on:
   workflow_call:
     inputs:
-      package:
-        description: "Package directory name"
-        required: true
-        type: string
       flavor:
         description: "Flavor name"
         required: true
@@ -16,7 +12,7 @@ on:
         required: true
         type: string
       profile_name:
-        description: "Provisioning Profile finle name"
+        description: "Provisioning Profile file name"
         required: true
         type: string
       build_number:
@@ -24,6 +20,8 @@ on:
         required: true
         type: string
     secrets:
+      provisioning_profile:
+        required: true
       certificate_p12:
         required: true
       certificate_password:
@@ -34,11 +32,6 @@ on:
         required: true
       slack_incoming_webhook_url:
         required: true
-
-defaults:
-  run:
-    working-directory: packages/${{ inputs.package }}
-
 jobs:
   upload_ios_app:
     name: Upload iOS App
@@ -51,7 +44,7 @@ jobs:
       - name: Import Provisioning Profile
         run: |
           mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
-          echo -n ${{ secrets.PROVISIONING_PROFILE }} | base64 -d > ~/Library/MobileDevice/Provisioning\ Profiles/${{ inputs.profile_name }}.mobileprovision
+          echo -n ${{ secrets.provisioning_profile }} | base64 -d > ~/Library/MobileDevice/Provisioning\ Profiles/${{ inputs.profile_name }}.mobileprovision
 
       - name: Import Code-Signing Certificates
         uses: apple-actions/import-codesign-certs@v1
@@ -62,7 +55,7 @@ jobs:
           p12-password: ${{ secrets.certificate_password }}
 
       - name: Create ipa file
-        run: flutter build ipa --dart-define=FLAVOR=${{ flavor }} --export-options-plist=ios/${{ flavor }}/ExportOptions.plist --build-number ${{ build_number }}
+        run: flutter build ipa --dart-define=FLAVOR=${{ inputs.flavor }} --export-options-plist=ios/${{ inputs.flavor }}/ExportOptions.plist --build-number ${{ inputs.build_number }}
 
       - name: Upload to AppStoreConnect
-        run: xcrun altool --upload-app --file "./build/ios/ipa/${{ bundle_name }}.ipa" --type ios --username ${{ apple_id }} --password ${{ app_specific_password}}
+        run: xcrun altool --upload-app --file "./build/ios/ipa/${{ inputs.bundle_name }}.ipa" --type ios --username ${{ secrets.apple_id }} --password ${{ secrets.app_specific_password}}
