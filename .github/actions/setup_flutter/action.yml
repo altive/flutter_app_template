@@ -9,9 +9,6 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Check out my repository
-      uses: actions/checkout@v2
-
     - name: Install Flutter
       run: ./.github/workflows/scripts/install-flutter.sh ${{ inputs.ref }}
       shell: bash
