@@ -1,0 +1,4 @@
+FLAVOR=dev
+APP_ID_SUFFIX=.dev
+GOOGLE_REVERSED_CLIENT_ID=com.googleusercontent.apps.644379019183-im914rto3hokil4s3fiufrqq87596i6n
+PROVISIONING_PROFILE_SPECIFIER=match Development jp.co.altive.rankingnote.dev

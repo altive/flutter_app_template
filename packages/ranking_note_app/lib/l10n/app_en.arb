@@ -1,0 +1,33 @@
+{
+    "@@locale": "en",
+    "title": "Flutter App Template",
+    "authorName": "Altive inc",
+    "buttonAdd": "ADD",
+    "buttonUpdate": "UPDATE",
+    "buttonDelete": "DELETE",
+    "buttonDone": "DONE",
+    "buttonCancel": "CANCEL",
+    "buttonUnlink": "UNLINK",
+    "buttonSignIn": "SIGN IN",
+    "buttonSignOut": "SIGN OUT",
+    "buttonRemovePhoto": "Remove photo",
+    "buttonTakeNewPhoto": "Take new photo",
+    "buttonSelectNewPhoto": "Select new Photo",
+    "titleChangePhoto": "Change photo",
+    "signInMethodAnonymous": "Anonymous",
+    "signInMethodApple": "Apple",
+    "signInMethodGoogle": "Google",
+    "rankingMemberFormTitleLabel": "Item name",
+    "rankingMemberFormDescriptionLabel": "Description or reasons.",
+    "rankingDeleteDialogLabel": "Do you want to remove your ranking?",
+    "hello": "Hello {userName}!",
+    "@hello": {
+        "description": "A message with a single parameter.",
+        "placeholders": {
+            "userName": {
+                "type": "String",
+                "example": "Bob"
+            }
+        }
+    }
+}

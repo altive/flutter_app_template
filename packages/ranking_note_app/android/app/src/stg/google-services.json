@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "644379019183",
+    "project_id": "ranking-note",
+    "storage_bucket": "ranking-note.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:644379019183:android:22f800403a86f2a311d15a",
+        "android_client_info": {
+          "package_name": "jp.co.altive.rankingnote"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "644379019183-g4raemln2gmn941nsu3f65ivoqofink5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4ljfVGgd-RgZrnKZB12qnM8SXP_w-KvU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "644379019183-g4raemln2gmn941nsu3f65ivoqofink5.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "644379019183-im914rto3hokil4s3fiufrqq87596i6n.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "jp.co.altive.rankingnote"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

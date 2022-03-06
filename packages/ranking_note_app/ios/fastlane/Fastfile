@@ -1,0 +1,95 @@
+fastlane_require 'dotenv'
+
+# Properties
+bundle_id_prod = 'jp.co.altive.rankingnote'
+bundle_id_stg = 'jp.co.altive.rankingnote.stg'
+ipa_path = '../build/ios/ipa/Ranking note.ipa'
+
+default_platform(:ios)
+
+platform :ios do
+
+  # before_all do
+  #   if is_ci?
+  #     create_keychain(
+  #       name: ENV['MATCH_KEYCHAIN_NAME'],
+  #       password: ENV['MATCH_KEYCHAIN_PASSWORD'],
+  #       timeout: 1800
+  #     )
+  #   end
+  # end
+
+  desc "Build Staging iOS"
+  private_lane :flutter_build_stg do
+    sh "cd ../../ && fvm flutter build ipa --dart-define=FLAVOR=stg --export-options-plist=ios/ExportOptions.plist"
+  end
+
+  desc "Build Production iOS"
+  private_lane :flutter_build_prod do
+    sh "cd ../../ && fvm flutter build ipa --dart-define=FLAVOR=prod --export-options-plist=ios/ExportOptions.plist"
+  end
+
+  desc "[CI] Push a new release build to the App Store"
+  lane :upload do
+    # キーチェーンをセットアップし、CIで動作するように一致させます
+    setup_ci
+    # api_keyの生成
+    app_store_connect_api_key(
+      key_id: ENV['ASC_KEY_ID'],
+      issuer_id: ENV['ASC_ISSUER_ID'],
+      key_content: ENV['ASC_KEY_CONTENT'],
+    )
+
+    match(
+      app_identifier: 'jp.co.altive.rankingnote',
+      type: "appstore",
+      readonly: is_ci,
+    )
+
+    flutter_build_prod
+
+    upload_to_testflight(
+      # beta_app_description: "Flutter(staging)",
+      demo_account_required: false,
+      notify_external_testers: false,
+      skip_waiting_for_build_processing: true,
+      ipa: ipa_path,
+    )
+    # upload_to_app_store(
+    #   skip_metadata: true,
+    #   skip_screenshots: true,
+    #   precheck_include_in_app_purchases: false, # 2.162.0ではfalseにしなければならない
+    # )
+  end
+
+  desc "[Local] Push a new release build to the App Store"
+  lane :upload_from_local do
+    # api_keyの生成
+    app_store_connect_api_key(
+      key_id: ENV['ASC_KEY_ID'],
+      issuer_id: ENV['ASC_ISSUER_ID'],
+      key_content: ENV['ASC_KEY_CONTENT'],
+    )
+
+    match(
+      app_identifier: 'jp.co.altive.rankingnote',
+      type: "appstore",
+      readonly: is_ci,
+    )
+
+    flutter_build_prod
+
+    upload_to_testflight(
+      # beta_app_description: "Flutter(staging)",
+      demo_account_required: false,
+      notify_external_testers: false,
+      skip_waiting_for_build_processing: true,
+      ipa: ipa_path,
+    )
+    # upload_to_app_store(
+    #   skip_metadata: true,
+    #   skip_screenshots: true,
+    #   precheck_include_in_app_purchases: false, # 2.162.0ではfalseにしなければならない
+    # )
+  end
+end

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "734573310882",
+    "project_id": "ranking-note-dev",
+    "storage_bucket": "ranking-note-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:734573310882:android:20189a09597df0788878fb",
+        "android_client_info": {
+          "package_name": "jp.co.altive.rankingnote.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "734573310882-4p62phjp3c57ua9q13n9mb93kmsk064p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRnG_fWqsEEA7MVqvQantG8KSB1tbERz4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "734573310882-4p62phjp3c57ua9q13n9mb93kmsk064p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
