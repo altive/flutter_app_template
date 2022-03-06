@@ -14,7 +14,6 @@ runs:
   steps:
     - name: Install Flutter
       run: ./.github/workflows/scripts/install-flutter.sh ${{ inputs.ref }}
-      working-directory: ${{ inputs.working_directory }}
       shell: bash
 
     - name: Get dependencies
