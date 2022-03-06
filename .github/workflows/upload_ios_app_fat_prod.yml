@@ -27,6 +27,7 @@ jobs:
       - name: Upload Flutter iOS App
         uses: ./.github/actions/upload_ios_app
         with:
+          working_directory: packages/flutter_app
           flavor: prod
           bundle_name: FAT
           profile_name: AppStore_jpcoaltivefat
@@ -36,7 +37,6 @@ jobs:
           certificate_password: ${{ secrets.CERTIFICATE_PASSWORD }}
           apple_id: ${{ secrets.APPLE_ID }}
           app_specific_password: ${{ secrets.APPLE_APP_PASSWORD }}
-          slack_incoming_webhook_url: ${{ secrets.SLACK_INCOMING_WEBHOOK_URL }}
 
   send_to_slack:
     needs: upload_app
