@@ -38,4 +38,4 @@ runs:
           }
       env:
         SLACK_WEBHOOK_TYPE: INCOMING_WEBHOOK
-        SLACK_WEBHOOK_URL: ${{ secrets.incoming_webhook_url }}
+        SLACK_WEBHOOK_URL: ${{ inputs.incoming_webhook_url }}
