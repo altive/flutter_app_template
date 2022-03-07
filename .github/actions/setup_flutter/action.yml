@@ -12,11 +12,32 @@ inputs:
 runs:
   using: "composite"
   steps:
+    - name: Cache Flutter
+      uses: actions/cache@v2
+      id: flutter-cache
+      with:
+        path: path/to/dependencies
+        key: ${{ runner.os }}-${{ inputs.ref }}-${{ inputs.working_directory }}
+
     - name: Install Flutter
+      if: steps.flutter-cache.outputs.cache-hit != 'true'
       run: ./.github/workflows/scripts/install-flutter.sh ${{ inputs.ref }}
       shell: bash
 
+    - name: Cache Pub
+      uses: actions/cache@v2
+      id: pub-cache
+      with:
+        path: |
+          ${{ env.FLUTTER_HOME }}/.pub-cache
+          **/.packages
+          **/.flutter-plugins
+          **/.flutter-plugin-dependencies
+          **/.dart_tool/package_config.json
+        key: build-pubspec-${{ hashFiles('**/pubspec.lock') }}
+
     - name: Get dependencies
+      if: steps.pub-cache.outputs.cache-hit != 'true'
       run: flutter pub get
       working-directory: ${{ inputs.working_directory }}
       shell: bash

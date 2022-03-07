@@ -13,5 +13,7 @@
 
 ## Secret files required for Release
 
+only `--release`
+
 - android/key.properties
 - android/app/upload-keystore.jks
