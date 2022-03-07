@@ -69,7 +69,7 @@ runs:
     - name: Upload to Google Play
       uses: r0adkll/upload-google-play@v1
       with:
-        serviceAccountJson: android/service-account.json
+        serviceAccountJson: ${{ inputs.working-directory }}/android/service-account.json
         packageName: ${{ inputs.package-name }}
         releaseFiles: ${{ inputs.working-directory }}/build/app/outputs/bundle/release/app-release.aab
         track: ${{ inputs.release-track }}

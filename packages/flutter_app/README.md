@@ -2,11 +2,13 @@
 
 "Flutter App Template" is a project that introduces an approach to architecture and project structure for developing Flutter apps.
 
-- jp.co.altive.fat
-- jp.co.altive.fat.stg
-- jp.co.altive.fat.dev
+## Flavor with App ID
 
-- Flavor (dev, stg, prod)
+- dev: jp.co.altive.fat
+- stg: jp.co.altive.fat.stg
+- prod: jp.co.altive.fat.dev
+
+## Apps
 - Riverpod examples
 
 ## Confidential files required for Release
