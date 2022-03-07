@@ -2,6 +2,8 @@
 
 "Flutter App Template" is a project that introduces an approach to architecture and project structure for developing Flutter apps.
 
+- jp.co.altive.fat
+
 - Flavor (dev, stg, prod)
 - Riverpod examples
 
