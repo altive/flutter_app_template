@@ -16,25 +16,6 @@ runs:
       with:
         payload: |
           {
-            "text": "${{ inputs.text }}",
-            "blocks": [
-              {
-                "type": "section",
-                "text": {
-                  "type": "mrkdwn",
-                  "text": "${{ inputs.text }}"
-                }
-              },
-              {
-                "type": "context",
-                "elements": [
-                  {
-                    "type": "mrkdwn",
-                    "text": "Author: <https://github.com/${{ github.event.sender.login }}|@${{ github.event.sender.login }}>"
-                  }
-                ]
-              }
-            ],
             "attachments": [
               {
                 "color": "${{ (job.status == 'success' && 'good') || 'danger' }}",
