@@ -32,6 +32,7 @@ jobs:
       - name: Upload to Google Play
         uses: ./.github/actions/upload_android_app
         with:
+          working-directory: ${{ env.working_directory }}
           flavor: prod
           package-name: jp.co.altive.fat
           build-number: ${GITHUB_RUN_NUMBER}

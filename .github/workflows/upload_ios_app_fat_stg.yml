@@ -1,4 +1,4 @@
-name: Upload Flutter App Template iOS App (Staging)
+name: Upload FAT iOS App (Staging)
 
 on:
   workflow_dispatch:
