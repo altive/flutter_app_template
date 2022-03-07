@@ -37,10 +37,11 @@ runs:
             ],
             "attachments": [
               {
-                "color": "${{ (job.status == 'success' && good) || danger }}",
+                "color": "${{ (job.status == 'success' && 'good') || 'danger' }}",
                 "author_name": "${{ github.event.sender.login }}",
                 "author_link": "https://github.com/${{ github.event.sender.login }}",
                 "title": "${{ job.status }}",
+                "title_link": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}",
                 "text": "${{ inputs.text }}",
                 "footer": "Send from GitHub Actions"
               }

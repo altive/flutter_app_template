@@ -21,7 +21,10 @@ runs:
 
     - name: Install Flutter
       if: steps.flutter-cache.outputs.cache-hit != 'true'
-      run: ./.github/workflows/scripts/install-flutter.sh ${{ inputs.ref }}
+      # run: ./.github/workflows/scripts/install-flutter.sh ${{ inputs.ref }}
+      run: |
+        git clone https://github.com/flutter/flutter.git --depth 1 -b ${{ inputs.ref }} "${{ GITHUB_WORKSPACE }} /_flutter"
+        echo "${{ GITHUB_WORKSPACE }}/_flutter/bin" >> ${{ GITHUB_PATH }}
       shell: bash
 
     - name: Cache Pub
