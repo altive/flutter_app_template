@@ -1,7 +1,5 @@
 # Examples app of Flutter App Template
 
-"Flutter App Template" is a project that introduces an approach to architecture and project structure for developing Flutter apps.
-
 ## Flavor with App ID
 
 - dev: jp.co.altive.fat
@@ -13,7 +11,7 @@
 
 ## Secret files required for Release
 
-only `--release`
+Required only `--release` mode.
 
 - android/key.properties
 - android/app/upload-keystore.jks

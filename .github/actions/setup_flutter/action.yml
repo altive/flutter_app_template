@@ -16,7 +16,7 @@ runs:
       uses: actions/cache@v2
       id: flutter-cache
       with:
-        path: path/to/dependencies
+        path: _flutter
         key: ${{ runner.os }}-${{ inputs.ref }}-${{ inputs.working_directory }}
 
     - name: Install Flutter
