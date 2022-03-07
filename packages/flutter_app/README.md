@@ -8,6 +8,7 @@
 
 ## Apps
 - Riverpod examples
+- Theme selector
 
 ## Secret files required for Release
 
