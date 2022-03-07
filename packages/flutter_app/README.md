@@ -4,6 +4,7 @@
 
 - jp.co.altive.fat
 - jp.co.altive.fat.stg
+- jp.co.altive.fat.dev
 
 - Flavor (dev, stg, prod)
 - Riverpod examples

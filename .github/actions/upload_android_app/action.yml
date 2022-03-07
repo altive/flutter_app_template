@@ -71,6 +71,6 @@ runs:
       with:
         serviceAccountJson: android/service-account.json
         packageName: ${{ inputs.package-name }}
-        releaseFiles: build/app/outputs/bundle/release/app-release.aab
+        releaseFiles: ${{ inputs.working-directory }}/build/app/outputs/bundle/release/app-release.aab
         track: ${{ inputs.release-track }}
         status: ${{ inputs.release-status }}
