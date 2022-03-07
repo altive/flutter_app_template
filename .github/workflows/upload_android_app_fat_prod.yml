@@ -14,6 +14,7 @@ defaults:
 
 env:
   working_directory: packages/flutter_app
+  flavor: prod
 
 jobs:
   upload_app:
@@ -33,7 +34,7 @@ jobs:
         uses: ./.github/actions/upload_android_app
         with:
           working-directory: ${{ env.working_directory }}
-          flavor: prod
+          flavor: ${{ env.flavor }}
           package-name: jp.co.altive.fat
           build-number: ${GITHUB_RUN_NUMBER}
           release-track: internal
@@ -45,7 +46,8 @@ jobs:
           service-account-json: ${{ secrets.SERVICE_ACCOUNT_JSON }}
 
       - name: Send notification to Slack
+        if: always()
         uses: ./.github/actions/send_notification_to_slack
         with:
-          text: Uploaded Android App (Staging)
+          text: "${{ job.status }}: Android app upload in ${{ env.flavor }}"
           incoming_webhook_url: ${{ secrets.SLACK_INCOMING_WEBHOOK_URL }}

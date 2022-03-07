@@ -16,13 +16,13 @@ runs:
       with:
         payload: |
           {
-            "text": ${{ inputs.text }},
+            "text": "${{ inputs.text }}",
             "blocks": [
               {
                 "type": "section",
                 "text": {
                   "type": "mrkdwn",
-                  "text": ${{ inputs.text }}
+                  "text": "${{ inputs.text }}"
                 }
               },
               {

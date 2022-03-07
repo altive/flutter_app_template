@@ -14,6 +14,7 @@ defaults:
 
 env:
   working_directory: packages/flutter_app
+  flavor: stg
 
 jobs:
   upload_app:
@@ -33,7 +34,7 @@ jobs:
         uses: ./.github/actions/upload_ios_app
         with:
           working_directory: ${{ env.working_directory }}
-          flavor: stg
+          flavor: ${{ env.flavor }}
           bundle_name: FAT.stg
           profile_name: AppStore_jpcoaltivefatstg
           build_number: ${{ github.run_number}}
@@ -44,7 +45,8 @@ jobs:
           app_specific_password: ${{ secrets.APPLE_APP_PASSWORD }}
 
       - name: Send notification to Slack
+        if: always()
         uses: ./.github/actions/send_notification_to_slack
         with:
-          text: Uploaded succeeded!
+          text: "${{ job.status }}: iOS app upload in ${{ env.flavor }}"
           incoming_webhook_url: ${{ secrets.SLACK_INCOMING_WEBHOOK_URL }}
