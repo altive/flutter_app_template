@@ -21,6 +21,7 @@ runs:
                 "color": "${{ (job.status == 'success' && 'good') || 'danger' }}",
                 "author_name": "${{ github.event.sender.login }}",
                 "author_link": "https://github.com/${{ github.event.sender.login }}",
+                "author_icon": "$ {{ github.event.sender.avatar_url }}",
                 "title": "${{ job.status }}",
                 "title_link": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}",
                 "text": "${{ inputs.text }}",

@@ -49,5 +49,5 @@ jobs:
         if: always()
         uses: ./.github/actions/send_notification_to_slack
         with:
-          text: "${{ job.status }}: Android app upload in ${{ env.flavor }}"
+          text: "Android app upload in ${{ env.flavor }}"
           incoming_webhook_url: ${{ secrets.SLACK_INCOMING_WEBHOOK_URL }}
