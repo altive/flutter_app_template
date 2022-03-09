@@ -73,9 +73,8 @@ flutter_icons:
 flutter:
   uses-material-design: true
 
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/sample_images
 
   # fonts:
   #   - family: Schyler
