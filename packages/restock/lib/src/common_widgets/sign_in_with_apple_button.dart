@@ -5,7 +5,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../models/authenticator/sign_with_apple_service.dart';
 import '../views/reception/reception_controller.dart';
 
-class SignInWithAppleButton extends HookWidget {
+class SignInWithAppleButton extends HookConsumerWidget {
   // ----------------------------------
   // Constructor
   // ----------------------------------
@@ -15,7 +15,7 @@ class SignInWithAppleButton extends HookWidget {
   // Override Methods
   // ----------------------------------
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final isLightTheme = Theme.of(context).brightness == Brightness.light;
     return FutureBuilder<bool>(
       future: canSignInWithApple,
@@ -41,8 +41,7 @@ class SignInWithAppleButton extends HookWidget {
                 // 不自然な表現になってしまう。回避策としてタップ時の色変更を透明（なし）にしている
                 // highlightColor: Colors.transparent,
                 // splashColor: Colors.transparent,
-                onPressed: () => context
-                    .read(receptionProvider.notifier)
+                onPressed: () => ref.read(receptionProvider.notifier)
                     .onPressedAppleButton(context),
                 icon: Image.asset(
                   isLightTheme

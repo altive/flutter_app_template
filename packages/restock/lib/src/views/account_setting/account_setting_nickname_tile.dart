@@ -8,7 +8,7 @@ import '../../common_widgets/loading_indicator.dart';
 import '../../core/me/me.dart';
 import '../../my_account/ng_words.dart';
 
-class AccountSettingNicknameTile extends HookWidget {
+class AccountSettingNicknameTile extends HookConsumerWidget {
   // Constructor
   const AccountSettingNicknameTile({
     Key? key,
@@ -16,14 +16,14 @@ class AccountSettingNicknameTile extends HookWidget {
 
   // Methods
   @override
-  Widget build(BuildContext context) {
-    final me = useProvider(meEntityProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final me = ref.watch(meEntityProvider);
     if (me == null) {
       return const LoadingIndicator();
     }
     final nickname = me.nickname;
     if (nickname == null || nickname.isEmpty) {
-      useProvider(meRepositoryProvider)?.addNickname();
+      ref.watch(meRepositoryProvider)?.addNickname();
     }
     return ListTile(
       leading: const Icon(MdiIcons.alphabetical),
@@ -60,7 +60,7 @@ class AccountSettingNicknameTile extends HookWidget {
           return;
         }
         // ニックネームを更新
-        await context.read(meRepositoryProvider)?.updateNickname(results.first);
+        await ref.read(meRepositoryProvider)?.updateNickname(results.first);
         ScaffoldMessenger.of(context)
           ..removeCurrentSnackBar()
           ..showSnackBar(

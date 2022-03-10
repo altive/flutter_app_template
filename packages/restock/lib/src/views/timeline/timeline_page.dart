@@ -5,7 +5,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'timeline_controller.dart';
 import 'timeline_item_cell.dart';
 
-class TimelinePage extends HookWidget {
+class TimelinePage extends HookConsumerWidget {
   // Constructor
   const TimelinePage({
     Key? key,
@@ -16,9 +16,9 @@ class TimelinePage extends HookWidget {
 
   // Methods
   @override
-  Widget build(BuildContext context) {
-    final state = useProvider(timelineProvider);
-    final controller = useProvider(timelineProvider.notifier);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(timelineProvider);
+    final controller = ref.watch(timelineProvider.notifier);
     return Scaffold(
       appBar: AppBar(
         title: const Text('みんなのストック'),

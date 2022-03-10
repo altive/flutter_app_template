@@ -1,21 +1,20 @@
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import 'stock_detail_page_controller.dart';
 
 /// アイテムの個数を表示し、増減ボタンもある
-class StockDetailCounterView extends HookWidget {
+class StockDetailCounterView extends HookConsumerWidget {
   const StockDetailCounterView({
     Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final numberOfItems = useProvider(stockForStockDetailProvider
-        .select((value) => value?.numberOfItems.toInt()));
+  Widget build(BuildContext context, WidgetRef ref) {
+    final numberOfItems = ref.watch(stockForStockDetailProvider
+        .select<int?>((value) => value?.numberOfItems.toInt()));
     if (numberOfItems == null) {
       return const SizedBox();
     }
@@ -30,6 +29,7 @@ class StockDetailCounterView extends HookWidget {
               color: Theme.of(context).colorScheme.secondary,
               onPressed: numberOfItems < 99
                   ? () => _incrementItem(
+                        ref: ref,
                         context: context,
                         itemCount: numberOfItems,
                       )
@@ -40,6 +40,7 @@ class StockDetailCounterView extends HookWidget {
               color: Theme.of(context).colorScheme.secondary,
               onPressed: numberOfItems > 0
                   ? () => _decrementItem(
+                        ref: ref,
                         context: context,
                         itemCount: numberOfItems,
                       )
@@ -50,6 +51,7 @@ class StockDetailCounterView extends HookWidget {
               color: Theme.of(context).colorScheme.primary,
               onPressed: numberOfItems > 1
                   ? () => _reduceItemToZero(
+                        ref: ref,
                         context: context,
                       )
                   : null,
@@ -62,12 +64,11 @@ class StockDetailCounterView extends HookWidget {
 
   /// アイテムを1個増やす
   Future<void> _incrementItem({
+    required WidgetRef ref,
     required BuildContext context,
     required int itemCount,
   }) async {
-    await context
-        .read(stockDetailPageControllerProvider.notifier)
-        .incrementItem();
+    await ref.read(stockDetailPageControllerProvider.notifier).incrementItem();
     // トーストを表示する
     ScaffoldMessenger.of(context)
       ..removeCurrentSnackBar()
@@ -78,14 +79,14 @@ class StockDetailCounterView extends HookWidget {
 
   /// アイテムを1個減らす
   Future<void> _decrementItem({
+    required WidgetRef ref,
     required BuildContext context,
     required int itemCount,
   }) async {
-    await context
-        .read(stockDetailPageControllerProvider.notifier)
-        .decrementItem();
+    await ref.read(stockDetailPageControllerProvider.notifier).decrementItem();
     if (itemCount == 1) {
       return _onZeroCount(
+        ref: ref,
         context: context,
       );
     }
@@ -99,6 +100,7 @@ class StockDetailCounterView extends HookWidget {
 
   /// アイテムを0個にする
   Future<void> _reduceItemToZero({
+    required WidgetRef ref,
     required BuildContext context,
   }) async {
     final result = await showOkCancelAlertDialog(
@@ -110,11 +112,12 @@ class StockDetailCounterView extends HookWidget {
       // キャンセル
       return;
     }
-    final isSucceeded = await context
+    final isSucceeded = await ref
         .read(stockDetailPageControllerProvider.notifier)
         .reduceItemToZero();
     if (isSucceeded) {
       return _onZeroCount(
+        ref: ref,
         context: context,
       );
     }
@@ -122,10 +125,11 @@ class StockDetailCounterView extends HookWidget {
 
   /// アイテムが0個になった時
   Future<void> _onZeroCount({
+    required WidgetRef ref,
     required BuildContext context,
   }) async {
     // 通知をOFFにする
-    await context
+    await ref
         .read(stockDetailPageControllerProvider.notifier)
         .removeNotification();
 
@@ -143,9 +147,7 @@ class StockDetailCounterView extends HookWidget {
       case OkCancelResult.ok:
         // アイテムを削除してリスト画面へ戻る
         Navigator.of(context).pop('削除しました');
-        await context
-            .read(stockDetailPageControllerProvider.notifier)
-            .deleteItem();
+        await ref.read(stockDetailPageControllerProvider.notifier).deleteItem();
         break;
       case OkCancelResult.cancel:
         break;

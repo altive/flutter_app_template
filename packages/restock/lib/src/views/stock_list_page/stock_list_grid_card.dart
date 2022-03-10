@@ -52,7 +52,7 @@ class StockListGridCard extends StatelessWidget {
 }
 
 /// 表示するカード本体
-class _Card extends StatelessWidget {
+class _Card extends ConsumerWidget {
   const _Card({
     Key? key,
     required this.stock,
@@ -71,13 +71,13 @@ class _Card extends StatelessWidget {
   final double imageHeight;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final messenger = ScaffoldMessenger.of(context);
     const radius = Radius.circular(16);
     return GestureDetector(
       onTap: () async {
         // 詳細画面へ遷移
-        context.read(selectedStockIdForStockDetailProvider).state = stock.id;
+        ref.read(selectedStockIdForStockDetailProvider.state).state = stock.id;
         final result =
             await Navigator.of(context).pushNamed(StockDetailPage.routeName);
         // 何か返ってきた時のみスナックバーを表示する
@@ -236,7 +236,7 @@ class _ExpirationText extends StatelessWidget {
 }
 
 /// 通知が登録されている場合に表示するアイコン
-class _NotificationIcon extends HookWidget {
+class _NotificationIcon extends HookConsumerWidget {
   const _NotificationIcon({
     Key? key,
     required this.stock,
@@ -245,8 +245,8 @@ class _NotificationIcon extends HookWidget {
   final StockEntity stock;
 
   @override
-  Widget build(BuildContext context) {
-    final notificationList = useProvider(notificationControllerProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final notificationList = ref.watch(notificationControllerProvider);
     if (!notificationList.contains(stock.idNumber)) {
       return const SizedBox();
     }

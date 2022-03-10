@@ -8,15 +8,15 @@ import '../stock_list_page_controller.dart';
 import '../stock_list_page_providers.dart';
 import '../stock_list_sort_selection.dart';
 
-class StockFilterPage extends HookWidget {
+class StockFilterPage extends HookConsumerWidget {
   const StockFilterPage({
     Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final filteringState = useProvider(stockFilterProvider).state;
-    final sortingState = useProvider(stockSortingProvider).state;
+  Widget build(BuildContext context, WidgetRef ref) {
+    final filteringState = ref.watch(stockFilterProvider.state).state;
+    final sortingState = ref.watch(stockSortingProvider.state).state;
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
       child: ListView(
@@ -29,11 +29,9 @@ class StockFilterPage extends HookWidget {
             is2ndSelected: sortingState.isExpirationFar,
             firstSelectionLabel: '近い',
             secondSelectionLabel: '遠い',
-            on1stSelected: (isOn) => context
-                .read(stockListPageControllerProvider.notifier)
+            on1stSelected: (isOn) => ref.read(stockListPageControllerProvider.notifier)
                 .saveSelectedSorting(StockSortSelection.expirationNear),
-            on2ndSelected: (isOn) => context
-                .read(stockListPageControllerProvider.notifier)
+            on2ndSelected: (isOn) => ref.read(stockListPageControllerProvider.notifier)
                 .saveSelectedSorting(StockSortSelection.expirationFar),
           ),
           _SorterChips(
@@ -43,11 +41,9 @@ class StockFilterPage extends HookWidget {
             is2ndSelected: sortingState.isNameDesc,
             firstSelectionLabel: 'A → Z',
             secondSelectionLabel: 'Z → A',
-            on1stSelected: (isOn) => context
-                .read(stockListPageControllerProvider.notifier)
+            on1stSelected: (isOn) => ref.read(stockListPageControllerProvider.notifier)
                 .saveSelectedSorting(StockSortSelection.nameAsc),
-            on2ndSelected: (isOn) => context
-                .read(stockListPageControllerProvider.notifier)
+            on2ndSelected: (isOn) => ref.read(stockListPageControllerProvider.notifier)
                 .saveSelectedSorting(StockSortSelection.nameDesc),
           ),
           _SorterChips(
@@ -57,11 +53,9 @@ class StockFilterPage extends HookWidget {
             is2ndSelected: sortingState.isMemoDesc,
             firstSelectionLabel: 'A → Z',
             secondSelectionLabel: 'Z → A',
-            on1stSelected: (isOn) => context
-                .read(stockListPageControllerProvider.notifier)
+            on1stSelected: (isOn) => ref.read(stockListPageControllerProvider.notifier)
                 .saveSelectedSorting(StockSortSelection.memoAsc),
-            on2ndSelected: (isOn) => context
-                .read(stockListPageControllerProvider.notifier)
+            on2ndSelected: (isOn) => ref.read(stockListPageControllerProvider.notifier)
                 .saveSelectedSorting(StockSortSelection.memoDesc),
           ),
           const Divider(),
@@ -70,8 +64,7 @@ class StockFilterPage extends HookWidget {
             children: [
               const Headline('絞り込み'),
               TextButton(
-                onPressed: context
-                    .read(stockListPageControllerProvider.notifier)
+                onPressed: ref.read(stockListPageControllerProvider.notifier)
                     .resetFilter,
                 child: const Text('リセット'),
               ),
@@ -81,12 +74,10 @@ class StockFilterPage extends HookWidget {
             title: '在庫',
             iconData: Icons.backpack_outlined,
             state: filteringState.inventory,
-            onYesSelected: (isOn) => context
-                .read(stockListPageControllerProvider.notifier)
+            onYesSelected: (isOn) => ref.read(stockListPageControllerProvider.notifier)
                 .saveFilteringInventory(
                     isOn ? FilteringState.yes : FilteringState.notSelected),
-            onNoSelected: (isOn) => context
-                .read(stockListPageControllerProvider.notifier)
+            onNoSelected: (isOn) => ref.read(stockListPageControllerProvider.notifier)
                 .saveFilteringInventory(
                     isOn ? FilteringState.no : FilteringState.notSelected),
           ),
@@ -94,12 +85,10 @@ class StockFilterPage extends HookWidget {
             title: '期限',
             iconData: MdiIcons.calendarAlert,
             state: filteringState.expiration,
-            onYesSelected: (isOn) => context
-                .read(stockListPageControllerProvider.notifier)
+            onYesSelected: (isOn) => ref.read(stockListPageControllerProvider.notifier)
                 .saveFilteringExpiration(
                     isOn ? FilteringState.yes : FilteringState.notSelected),
-            onNoSelected: (isOn) => context
-                .read(stockListPageControllerProvider.notifier)
+            onNoSelected: (isOn) => ref.read(stockListPageControllerProvider.notifier)
                 .saveFilteringExpiration(
                     isOn ? FilteringState.no : FilteringState.notSelected),
           ),
@@ -109,12 +98,10 @@ class StockFilterPage extends HookWidget {
             yesText: '食品',
             noText: 'その他',
             state: filteringState.category,
-            onYesSelected: (isOn) => context
-                .read(stockListPageControllerProvider.notifier)
+            onYesSelected: (isOn) => ref.read(stockListPageControllerProvider.notifier)
                 .saveFilteringCategory(
                     isOn ? FilteringState.yes : FilteringState.notSelected),
-            onNoSelected: (isOn) => context
-                .read(stockListPageControllerProvider.notifier)
+            onNoSelected: (isOn) => ref.read(stockListPageControllerProvider.notifier)
                 .saveFilteringCategory(
                     isOn ? FilteringState.no : FilteringState.notSelected),
           ),

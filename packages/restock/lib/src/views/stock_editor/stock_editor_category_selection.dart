@@ -8,16 +8,16 @@ import '../../utils/utils.dart';
 import 'stock_editor_controller.dart';
 
 /// 期限の種類を選択する
-class StockEditorCategorySelection extends HookWidget {
+class StockEditorCategorySelection extends HookConsumerWidget {
   const StockEditorCategorySelection({
     Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final currentCategory =
-        useProvider(stockEditorPageControllerProvider).productCategory;
+        ref.watch(stockEditorPageControllerProvider).productCategory;
     return ColoredBox(
       color: Theme.of(context).backgroundColor,
       child: ListTile(
@@ -40,8 +40,7 @@ class StockEditorCategorySelection extends HookWidget {
           },
           onValueChanged: (selectedCategory) {
             logger.finest('Changed to $selectedCategory');
-            context
-                .read(stockEditorPageControllerProvider.notifier)
+            ref.read(stockEditorPageControllerProvider.notifier)
                 .changeCategory(selectedCategory!);
           },
         ),

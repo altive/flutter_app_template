@@ -9,7 +9,7 @@ import '../../core/app_constant/app_info.dart';
 import 'reception_controller.dart';
 import 'reception_view_component.dart';
 
-class ReceptionPage extends HookWidget {
+class ReceptionPage extends HookConsumerWidget {
   // Constructor
   // ----------------------------------
   const ReceptionPage({Key? key}) : super(key: key);
@@ -21,10 +21,10 @@ class ReceptionPage extends HookWidget {
   // Methods
   // ----------------------------------
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final isLightTheme = Theme.of(context).brightness == Brightness.light;
-    final receptionState = useProvider(receptionProvider);
-    final appTitle = useProvider(appConstantProvider).title;
+    final receptionState = ref.watch(receptionProvider);
+    final appTitle = ref.watch(appConstantProvider).title;
     return Scaffold(
       body: LoadingIndicator(
         loading: receptionState.loading,
@@ -59,8 +59,7 @@ class ReceptionPage extends HookWidget {
               const GoogleSignInButton(),
               // 匿名認証ではじめるボタン
               TextButton(
-                onPressed: () => context
-                    .read(receptionProvider.notifier)
+                onPressed: () => ref.read(receptionProvider.notifier)
                     .onPressedAnonymousButton(context),
                 child: const Text('ゲストではじめる'),
               ),

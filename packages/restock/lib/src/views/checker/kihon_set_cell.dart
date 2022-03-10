@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
@@ -8,7 +7,7 @@ import 'checker_controller.dart';
 import 'recommend_detail/recommend_detail_controller.dart';
 import 'recommend_detail/recommend_detail_page.dart';
 
-class KihonSetCell extends HookWidget {
+class KihonSetCell extends HookConsumerWidget {
   const KihonSetCell({
     Key? key,
     required this.rice,
@@ -19,8 +18,8 @@ class KihonSetCell extends HookWidget {
   final int water;
 
   @override
-  Widget build(BuildContext context) {
-    final state = useProvider(checkerProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(checkerProvider);
 
     final familyCount = state.manCount + state.womanCount + state.childCount;
     final kihonSet = RecommendStockSet(
@@ -48,16 +47,17 @@ class KihonSetCell extends HookWidget {
       title: Text(kihonSet.title),
       subtitle: Text(kihonSet.subtitle),
       trailing: const Icon(MdiIcons.chevronRight),
-      onTap: () => navigateDetailPage(context, kihonSet: kihonSet),
+      onTap: () => navigateDetailPage(ref, context, kihonSet: kihonSet),
     );
   }
 
   /// お勧め商品セットの詳細説明ページへ遷移
   void navigateDetailPage(
+    WidgetRef ref,
     BuildContext context, {
     required RecommendStockSet kihonSet,
   }) {
-    context.read(recommendDetailParameterProvider).state = kihonSet;
+    ref.read(recommendDetailParameterProvider.state).state = kihonSet;
     Navigator.of(context).pushNamed(RecommendDetailPage.routeName);
   }
 }

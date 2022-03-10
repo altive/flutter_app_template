@@ -7,17 +7,17 @@ import '../../common_widgets/secondary_button.dart';
 import '../../core/revenue/revenue.dart';
 import 'pro_plan_page_controller.dart';
 
-class ProPlanButtonsCard extends HookWidget {
+class ProPlanButtonsCard extends HookConsumerWidget {
   const ProPlanButtonsCard({
     Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
-    final isProPlanUser = useProvider(
-        revenueControllerProvider.select((value) => value.isSubscriber));
-    final pageState = useProvider(proPlanPageControllerProvider);
+    final isProPlanUser = ref.watch(
+        revenueControllerProvider.select<bool>((value) => value.isSubscriber));
+    final pageState = ref.watch(proPlanPageControllerProvider);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
@@ -35,7 +35,7 @@ class ProPlanButtonsCard extends HookWidget {
             padding: const EdgeInsets.symmetric(vertical: 8),
             onPressed:
                 // すでにProプランの場合はボタン非活性
-                isProPlanUser ? null : () => _purchaseMonthly(context),
+                isProPlanUser ? null : () => _purchaseMonthly(ref, context),
           ),
         if (pageState.annualProPlanInformation != null)
           PrimaryButton.circular(
@@ -43,7 +43,7 @@ class ProPlanButtonsCard extends HookWidget {
             padding: const EdgeInsets.symmetric(vertical: 8),
             onPressed:
                 // すでにProプランの場合はボタン非活性
-                isProPlanUser ? null : () => _purchaseAnnual(context),
+                isProPlanUser ? null : () => _purchaseAnnual(ref, context),
           ),
         const SizedBox(height: 16),
         Text(
@@ -53,30 +53,27 @@ class ProPlanButtonsCard extends HookWidget {
         ),
         SecondaryButton(
           labelText: '購入情報を復元',
-          onPressed: () => _restore(context),
+          onPressed: () => _restore(ref, context),
         ),
       ],
     );
   }
 
   // 月額プランの購入ボタンが押された時
-  Future<void> _purchaseMonthly(BuildContext context) async {
-    return context
-        .read(proPlanPageControllerProvider.notifier)
+  Future<void> _purchaseMonthly(WidgetRef ref, BuildContext context) async {
+    return ref.read(proPlanPageControllerProvider.notifier)
         .purchaseMonthlyProPlan(context);
   }
 
   // 年額プランの購入ボタンが押された時
-  Future<void> _purchaseAnnual(BuildContext context) async {
-    return context
-        .read(proPlanPageControllerProvider.notifier)
+  Future<void> _purchaseAnnual(WidgetRef ref, BuildContext context) async {
+    return ref.read(proPlanPageControllerProvider.notifier)
         .purchaseAnnualProPlan(context);
   }
 
   // 購入の復元ボタンが押された時
-  Future<void> _restore(BuildContext context) async {
-    return context
-        .read(proPlanPageControllerProvider.notifier)
+  Future<void> _restore(WidgetRef ref, BuildContext context) async {
+    return ref.read(proPlanPageControllerProvider.notifier)
         .restorePurchase(context);
   }
 }

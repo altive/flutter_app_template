@@ -13,7 +13,7 @@ import 'stock_list_page_providers.dart';
 /// ストック一覧を表示する画面
 /// 何を表示するかはグループ次第
 /// アイテムをスクロール可能な縦並び表示する
-class StockListView extends HookWidget {
+class StockListView extends HookConsumerWidget {
   const StockListView({
     Key? key,
     required this.categoryIndex,
@@ -30,20 +30,20 @@ class StockListView extends HookWidget {
   final ScrollController scrollController;
 
   @override
-  Widget build(BuildContext context) {
-    final displayMode = useProvider(displayModeProvider).state;
+  Widget build(BuildContext context, WidgetRef ref) {
+    final displayMode = ref.watch(displayModeProvider.state).state;
     // グループごとのストックリスト
-    final groupedStocks = useProvider(groupedStocksProvider(group));
+    final groupedStocks = ref.watch(groupedStocksProvider(group));
     if (groupedStocks == null) {
       // 取得前
       return const SizedBox();
     }
     // 並び替え・絞込み適用後のストックリスト
-    final filteredStocks = useProvider(filteredStocksProvider(group));
+    final filteredStocks = ref.watch(filteredStocksProvider(group));
     // 検索適用後のストックリスト
-    final searchedStocks = useProvider(searchedStocksProvider(group));
+    final searchedStocks = ref.watch(searchedStocksProvider(group));
     // 並び替え適用後のストックリスト
-    final sortedStocks = useProvider(sortedStocksProvider(group));
+    final sortedStocks = ref.watch(sortedStocksProvider(group));
     if (groupedStocks.isEmpty) {
       // このグループにストックがない時の表示
       return EmptyView(
@@ -194,7 +194,7 @@ class NoFindedView extends StatelessWidget {
 }
 
 /// コンテンツが空の時に表示するWidget
-class EmptyView extends StatelessWidget {
+class EmptyView extends ConsumerWidget {
   const EmptyView({
     Key? key,
     required this.index,
@@ -208,7 +208,7 @@ class EmptyView extends StatelessWidget {
   final String? category;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final isCategory = category != null;
     return Container(
       alignment: Alignment.center,
@@ -235,8 +235,7 @@ class EmptyView extends StatelessWidget {
           if (isCategory)
             PrimaryButton(
               labelText: 'グループの名前を変更する',
-              onPressed: () => context
-                  .read(stockListPageControllerProvider.notifier)
+              onPressed: () => ref.read(stockListPageControllerProvider.notifier)
                   .updageCategory(
                     context: context,
                     currentCategory: category,

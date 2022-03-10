@@ -7,11 +7,11 @@ import '../../util/web_launcher.dart';
 import 'reception_controller.dart';
 
 // 「Googleでサインイン」ボタン
-class GoogleSignInButton extends HookWidget {
+class GoogleSignInButton extends HookConsumerWidget {
   const GoogleSignInButton({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final isLightTheme = Theme.of(context).brightness == Brightness.light;
     return Padding(
       padding: const EdgeInsets.fromLTRB(40, 16, 40, 8),
@@ -19,8 +19,7 @@ class GoogleSignInButton extends HookWidget {
         width: MediaQuery.of(context).size.width,
         height: 44,
         child: TextButton.icon(
-          onPressed: () => context
-              .read(receptionProvider.notifier)
+          onPressed: () => ref.read(receptionProvider.notifier)
               .onPressedGoogleButton(context),
           icon: Image.asset('assets/images/btn_google_light_normal.png'),
           label: const Text(
@@ -49,15 +48,14 @@ class GoogleSignInButton extends HookWidget {
 }
 
 /// 利用規約ボタン
-class TermsButton extends StatelessWidget {
+class TermsButton extends ConsumerWidget {
   const TermsButton({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return TextButton(
       onPressed: () {
-        context
-            .read(remoteConfigProvider)
+        ref.read(remoteConfigProvider)
             .whenData((value) => launchUrl(value!.termsUrl));
       },
       child: const Text(
@@ -69,15 +67,14 @@ class TermsButton extends StatelessWidget {
 }
 
 /// プライバシーポリシーボタン
-class PrivacyButton extends StatelessWidget {
+class PrivacyButton extends ConsumerWidget {
   const PrivacyButton({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return TextButton(
       onPressed: () {
-        context
-            .read(remoteConfigProvider)
+        ref.read(remoteConfigProvider)
             .whenData((value) => launchUrl(value!.privacyPoliciesUrl));
       },
       child: const Text(

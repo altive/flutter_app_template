@@ -39,10 +39,10 @@ class _UserRequestPageState extends State<UserRequestPage> {
   @override
   Widget build(BuildContext context) {
     return Consumer(
-      builder: (context, watch, child) {
-        final appInfo = watch(appConstantProvider);
-        final userRequestState = watch(userRequestProvider);
-        final userRequestController = watch(userRequestProvider.notifier);
+      builder: (context, ref, child) {
+        final appInfo = ref.watch(appConstantProvider);
+        final userRequestState = ref.watch(userRequestProvider);
+        final userRequestController = ref.watch(userRequestProvider.notifier);
         return UnfocusOnTap(
           child: Scaffold(
             appBar: AppBar(title: const Text('要望・不具合')),

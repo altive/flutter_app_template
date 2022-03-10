@@ -1,6 +1,5 @@
 import 'package:amazon_paapi/amazon_paapi.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../search_result/search_result_controller.dart';
@@ -9,7 +8,7 @@ import 'recommended_word_chips.dart';
 import 'search_entrance_controller.dart';
 
 /// 商品の文字列検索エリア
-class GoodsSearchArea extends HookWidget {
+class GoodsSearchArea extends HookConsumerWidget {
   GoodsSearchArea({
     Key? key,
   }) : super(key: key);
@@ -21,10 +20,9 @@ class GoodsSearchArea extends HookWidget {
   // Override Methods
   // ----------------------------------
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final _searchFieldController = TextEditingController();
-    final searchEntranceController =
-        useProvider(searchEntranceProvider.notifier);
+    final searchEntranceController = ref.watch(searchEntranceProvider.notifier);
     return Container(
       color: Theme.of(context).backgroundColor,
       padding: const EdgeInsets.all(16),
@@ -32,7 +30,6 @@ class GoodsSearchArea extends HookWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[
           Row(
-            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               const SizedBox(width: 8),
               Expanded(
@@ -79,6 +76,7 @@ class GoodsSearchArea extends HookWidget {
                     },
                     // returnキーが押されたとき
                     onFieldSubmitted: (_) => executeSearch(
+                      ref: ref,
                       context: context,
                       searchEntranceController: searchEntranceController,
                     ),
@@ -90,13 +88,13 @@ class GoodsSearchArea extends HookWidget {
               const SizedBox(width: 8),
               ElevatedButton(
                 onPressed: () => executeSearch(
+                  ref: ref,
                   context: context,
                   searchEntranceController: searchEntranceController,
                 ),
                 style: ElevatedButton.styleFrom(
                     visualDensity: VisualDensity.compact,
-                    padding:
-                        const EdgeInsets.symmetric(vertical: 20, horizontal: 0),
+                    padding: const EdgeInsets.symmetric(vertical: 20),
                     elevation: 0,
                     shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(
@@ -116,6 +114,7 @@ class GoodsSearchArea extends HookWidget {
 
   /// 検索を実行する
   Future<void> executeSearch({
+    required WidgetRef ref,
     required BuildContext context,
     required SearchEntranceController searchEntranceController,
   }) async {
@@ -123,7 +122,7 @@ class GoodsSearchArea extends HookWidget {
       _formKey.currentState!.save();
       final params = searchEntranceController.genetateParams();
       // 検索結果画面へ遷移
-      context.read(searchParamProvider).state = params;
+      ref.read(searchParamProvider.state).state = params;
       await Navigator.of(context).pushNamed(
         SearchResultView.routeName,
       );
@@ -132,7 +131,7 @@ class GoodsSearchArea extends HookWidget {
 }
 
 /// 検索対象のカテゴリを選択できる
-class SearchCategoryRadioField extends HookWidget {
+class SearchCategoryRadioField extends HookConsumerWidget {
   const SearchCategoryRadioField({
     Key? key,
     required this.category,
@@ -141,9 +140,9 @@ class SearchCategoryRadioField extends HookWidget {
   final SearchItemsCategory category;
 
   @override
-  Widget build(BuildContext context) {
-    final controller = useProvider(searchEntranceProvider.notifier);
-    final state = useProvider(searchEntranceProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final controller = ref.watch(searchEntranceProvider.notifier);
+    final state = ref.watch(searchEntranceProvider);
     void changeSelection(SearchItemsCategory? newValue) =>
         controller.changeSearchItemsCategory(newValue);
     final selectedCategory = state.searchItemsCategory;

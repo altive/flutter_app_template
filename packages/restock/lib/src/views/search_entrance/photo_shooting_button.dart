@@ -12,13 +12,13 @@ import '../stock_editor/stock_editor_page.dart';
 import '../stock_editor/stock_editor_parameter.dart';
 
 /// 写真を撮影するボタン
-class PhotoShootingButton extends HookWidget {
+class PhotoShootingButton extends HookConsumerWidget {
   const PhotoShootingButton({
     Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return ListTile(
       dense: true,
       title: const Icon(MdiIcons.camera),
@@ -26,12 +26,12 @@ class PhotoShootingButton extends HookWidget {
         '写真を撮る',
         textAlign: TextAlign.center,
       ),
-      onTap: () => _takePicture(context),
+      onTap: () => _takePicture(ref, context),
     );
   }
 
   /// カメラで写真を撮影できる
-  Future<void> _takePicture(BuildContext context) async {
+  Future<void> _takePicture(WidgetRef ref, BuildContext context) async {
     final status = await Permission.camera.status;
     if (status.isDenied) {
       // カメラ使用拒否されていた場合は設定画面へ促す
@@ -62,7 +62,7 @@ class PhotoShootingButton extends HookWidget {
       return;
     }
     // この時点ではStockItemは作成せず、画像ファイルだけ渡す
-    context.read(stockEditorParameterProvider).state =
+    ref.read(stockEditorParameterProvider.state).state =
         StockEditorParameter.createrWithPhoto(imageFile: croppedFile);
     // ストック作成結果画面へ遷移
     await Navigator.of(context).pushNamed(

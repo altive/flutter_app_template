@@ -1,7 +1,5 @@
 import 'package:adaptive_dialog/adaptive_dialog.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../common_widgets/loading_indicator.dart';
@@ -21,7 +19,7 @@ import 'stock_editor_state.dart';
 import 'stock_editor_view_component.dart';
 
 /// ストックアイテムを登録・更新・複製する画面
-class StockEditorPage extends HookWidget {
+class StockEditorPage extends HookConsumerWidget {
   // === Constructor ===
   StockEditorPage({Key? key}) : super(key: key);
 
@@ -34,12 +32,12 @@ class StockEditorPage extends HookWidget {
 
   // === Methods ===
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     const spacer = SizedBox(height: 8);
     const divider = SizedBox(height: 1);
 
-    final state = useProvider(stockEditorPageControllerProvider);
-    final controller = useProvider(stockEditorPageControllerProvider.notifier);
+    final state = ref.watch(stockEditorPageControllerProvider);
+    final controller = ref.watch(stockEditorPageControllerProvider.notifier);
     final mode = controller.param!.mode!;
 
     return _PopHandlingView(
@@ -88,6 +86,7 @@ class StockEditorPage extends HookWidget {
                     labelText: '保存',
                     onPressed: validate(state)
                         ? () => _popAndSave(
+                              ref: ref,
                               context: context,
                               isDuplicater: mode.isDuplicater,
                             )
@@ -110,12 +109,11 @@ class StockEditorPage extends HookWidget {
 
   /// StockItemを保存して、前の画面へ戻る
   Future<void> _popAndSave({
+    required WidgetRef ref,
     required BuildContext context,
     required bool isDuplicater,
   }) async {
-    await context
-        .read(stockEditorPageControllerProvider.notifier)
-        .saveStockItem();
+    await ref.read(stockEditorPageControllerProvider.notifier).saveStockItem();
     if (isDuplicater) {
       // ストックリスト画面まで一気に戻る
       Navigator.of(context).pop();
@@ -127,7 +125,7 @@ class StockEditorPage extends HookWidget {
 }
 
 /// 前の画面へ戻ろうとしたときに確認する
-class _PopHandlingView extends HookWidget {
+class _PopHandlingView extends HookConsumerWidget {
   const _PopHandlingView({
     Key? key,
     required this.child,
@@ -136,9 +134,8 @@ class _PopHandlingView extends HookWidget {
   final Widget child;
 
   @override
-  Widget build(BuildContext context) {
-    final hasChanged =
-        useProvider(stockEditorPageControllerProvider).hasChanged;
+  Widget build(BuildContext context, WidgetRef ref) {
+    final hasChanged = ref.watch(stockEditorPageControllerProvider).hasChanged;
     return WillPopScope(
       onWillPop: () async {
         if (!hasChanged) {

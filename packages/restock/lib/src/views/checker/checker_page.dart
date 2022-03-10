@@ -13,7 +13,7 @@ import 'new_label.dart';
 import 'stock_set_cell.dart';
 
 /// ユーザーに必要なストック量を計算し、お勧めセットを提示する
-class CheckerPage extends HookWidget {
+class CheckerPage extends HookConsumerWidget {
   // Constructor
   const CheckerPage({
     Key? key,
@@ -24,8 +24,8 @@ class CheckerPage extends HookWidget {
 
   // Methods
   @override
-  Widget build(BuildContext context) {
-    final state = useProvider(checkerProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(checkerProvider);
     final rice = calculateRice(state);
     final water = calculateWater(state);
     return LoadingIndicator(

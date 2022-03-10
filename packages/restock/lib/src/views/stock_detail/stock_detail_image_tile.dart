@@ -8,7 +8,7 @@ import 'stock_detail_page_controller.dart';
 
 /// 商品の画像をリンク付きで表示
 /// 適した大きさの画像を非同期で取得して表示する
-class StockDetailImageTile extends HookWidget {
+class StockDetailImageTile extends HookConsumerWidget {
   const StockDetailImageTile({
     Key? key,
     this.imageSize = 200,
@@ -17,8 +17,8 @@ class StockDetailImageTile extends HookWidget {
   final double imageSize;
 
   @override
-  Widget build(BuildContext context) {
-    final stock = useProvider(stockForStockDetailProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final stock = ref.watch(stockForStockDetailProvider);
     return SizedBox(
       width: imageSize,
       height: imageSize,

@@ -3,7 +3,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:state_notifier/state_notifier.dart';
 
 import '../../utils/utils.dart';
 import 'auth_error_code.dart';
@@ -18,7 +17,7 @@ final authControllerProvider =
     StateNotifierProvider<AuthController, User?>((ref) {
   return AuthController(
     ref.read,
-    user: ref.read(currentUserProvider).state,
+    user: ref.watch(currentUserProvider),
   );
 });
 

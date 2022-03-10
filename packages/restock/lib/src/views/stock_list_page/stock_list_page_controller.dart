@@ -4,7 +4,6 @@ import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:app_review/app_review.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:state_notifier/state_notifier.dart';
 
 import '../../core/me/me.dart';
 import '../../core/me/me_validator.dart';
@@ -64,34 +63,37 @@ class StockListPageController extends StateNotifier<bool> {
   /// 並び替えの方法を記憶する
   void saveSelectedSorting(StockSortSelection sorting) {
     _prefsController.saveStockSorting(sorting: sorting);
-    _read(stockSortingProvider).state = sorting;
+    _read(stockSortingProvider.notifier).state = sorting;
   }
 
   /// 在庫の絞り込みを記憶する
   void saveFilteringInventory(FilteringState value) {
-    final currentState = _read(stockFilterProvider).state;
+    final currentState = _read(stockFilterProvider);
     _prefsController.saveStockFilteringInventory(value);
-    _read(stockFilterProvider).state = currentState.copyWith(inventory: value);
+    _read(stockFilterProvider.notifier).state =
+        currentState.copyWith(inventory: value);
   }
 
   /// 期限の絞り込みを記憶する
   void saveFilteringExpiration(FilteringState value) {
-    final currentState = _read(stockFilterProvider).state;
+    final currentState = _read(stockFilterProvider);
     _prefsController.saveStockFilteringExpiration(value);
-    _read(stockFilterProvider).state = currentState.copyWith(expiration: value);
+    _read(stockFilterProvider.notifier).state =
+        currentState.copyWith(expiration: value);
   }
 
   /// 商品の種類の絞り込みを記憶する
   void saveFilteringCategory(FilteringState value) {
-    final currentState = _read(stockFilterProvider).state;
+    final currentState = _read(stockFilterProvider);
     _prefsController.saveStockFilteringCategory(value);
-    _read(stockFilterProvider).state = currentState.copyWith(category: value);
+    _read(stockFilterProvider.notifier).state =
+        currentState.copyWith(category: value);
   }
 
   /// 絞り込み設定をリセットする
   void resetFilter() {
     _prefsController.resetStockFilter();
-    _read(stockFilterProvider).state = const HomeStockFilterState();
+    _read(stockFilterProvider.notifier).state = const HomeStockFilterState();
   }
 
   /// 複数のダイアログの表示を制御する

@@ -2,7 +2,6 @@ import 'package:amazon_paapi/amazon_paapi.dart';
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../common_widgets/icon_buttons_on_cell.dart';
@@ -19,7 +18,7 @@ import '../stock_editor/stock_editor_parameter.dart';
 import 'search_result_controller.dart';
 
 /// 検索結果の1商品情報を表示する
-class SearchResultItemCard extends HookWidget {
+class SearchResultItemCard extends HookConsumerWidget {
   const SearchResultItemCard({
     Key? key,
     required this.searchItem,
@@ -30,7 +29,7 @@ class SearchResultItemCard extends HookWidget {
   final List<StockEntity?> stockList;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     /// Amazon検索結果アイテムに一致するDB登録済みのアイテムをASINで判別（なければnull）
     final stockedItems =
         stockList.where((stock) => stock!.asin == searchItem.asin).toList();
@@ -51,9 +50,9 @@ class SearchResultItemCard extends HookWidget {
 
     return InkWell(
       onTap: () {
-        context
+        ref
             .read(searchResultControllerProvider.notifier)
-            .presentStockEditorPage(searchItem, context);
+            .presentStockEditorPage(ref, searchItem, context);
       },
       child: Card(
         elevation: 0,
@@ -119,7 +118,7 @@ class SearchResultItemCard extends HookWidget {
 }
 
 /// 商品ごとに表示する複数のアクションボタン
-class _IconButtons extends HookWidget {
+class _IconButtons extends HookConsumerWidget {
   const _IconButtons({
     Key? key,
     required this.item,
@@ -128,9 +127,9 @@ class _IconButtons extends HookWidget {
   final PaapiSearchItem item;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     // お気に入りリストを取得
-    return useProvider(favoriteItemProvider).when(
+    return ref.watch(favoriteItemProvider).when(
         loading: () => const LoadingIndicator(),
         error: (error, stack) => ErrorWidget(error),
         data: (favoriteItems) {
@@ -141,10 +140,12 @@ class _IconButtons extends HookWidget {
           return IconButtonsOnCell(
             isFavorited: isFavorited,
             onPressedAddButton: () => _didTapCreateButton(
+              ref: ref,
               context: context,
               item: item,
             ),
             onPressedFavoriteButton: () => _didTapFavoriteButton(
+              ref: ref,
               context: context,
               item: item,
               favoritesCount: favoriteItems.length,
@@ -163,6 +164,7 @@ class _IconButtons extends HookWidget {
 
   /// ストックアイテムを作成するボタンが押された
   Future<void> _didTapCreateButton({
+    required WidgetRef ref,
     required BuildContext context,
     required PaapiSearchItem item,
   }) async {
@@ -170,7 +172,7 @@ class _IconButtons extends HookWidget {
     HapticFeedback.selectionClick();
     final scaffold = ScaffoldMessenger.of(context);
     // Providerにドキュメントをセット
-    context.read(stockEditorParameterProvider).state =
+    ref.read(stockEditorParameterProvider.state).state =
         StockEditorParameter.createrWithAmazon(
       stock: StockEntity.fromSearchedAmazonItem(item),
     );
@@ -190,6 +192,7 @@ class _IconButtons extends HookWidget {
 
   /// お気に入りボタンが押された
   Future<void> _didTapFavoriteButton({
+    required WidgetRef ref,
     required BuildContext context,
     required PaapiSearchItem item,
     required int favoritesCount,
@@ -200,12 +203,12 @@ class _IconButtons extends HookWidget {
     HapticFeedback.selectionClick();
     if (isFavorited) {
       // お気に入り解除
-      await context.read(favoriteProvider).removeFavorite(item.asin);
+      await ref.read(favoriteProvider).removeFavorite(item.asin);
       snackText = 'お気に入りを解除しました';
     } else {
       // お気に入り追加
       final favoriteItem = FavoriteItem.fromTPaapiItem(item);
-      snackText = await context.read(favoriteProvider).addFavorite(
+      snackText = await ref.read(favoriteProvider).addFavorite(
             favoriteItem,
             count: favoritesCount,
           );

@@ -1,9 +1,7 @@
 import 'package:amazon_paapi/amazon_paapi.dart';
 import 'package:collection/collection.dart' show IterableExtension;
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../common_widgets/icon_buttons_on_cell.dart';
@@ -18,7 +16,7 @@ import '../../stock_editor/stock_editor_controller.dart';
 import '../../stock_editor/stock_editor_page.dart';
 import '../../stock_editor/stock_editor_parameter.dart';
 
-class RecommendDetailCell extends HookWidget {
+class RecommendDetailCell extends HookConsumerWidget {
   const RecommendDetailCell({
     Key? key,
     required this.count,
@@ -29,11 +27,11 @@ class RecommendDetailCell extends HookWidget {
   final PaapiSearchItem? item;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final hasItem = count > 0;
     // お気に入りリスト
-    final favoritesAsyncValue = useProvider(favoriteItemProvider);
+    final favoritesAsyncValue = ref.watch(favoriteItemProvider);
     return favoritesAsyncValue.when(
       loading: () => const LoadingIndicator(),
       error: (error, stack) => ErrorWidget(error),
@@ -83,11 +81,13 @@ class RecommendDetailCell extends HookWidget {
                           IconButtonsOnCell(
                             isFavorited: isFavorited,
                             onPressedAddButton: () => _didTapCreateButton(
+                              ref: ref,
                               context: context,
                               item: item!,
                             ),
                             onPressedFavoriteButton: () =>
                                 _didTapFavoritesButton(
+                              ref: ref,
                               context: context,
                               item: item,
                               favoritesCount: favoriteItems.length,
@@ -117,6 +117,7 @@ class RecommendDetailCell extends HookWidget {
 
   /// ストックアイテムを作成するボタンが押された
   Future<void> _didTapCreateButton({
+    required WidgetRef ref,
     required BuildContext context,
     required PaapiSearchItem item,
   }) async {
@@ -124,7 +125,7 @@ class RecommendDetailCell extends HookWidget {
     HapticFeedback.selectionClick();
     final scaffold = ScaffoldMessenger.of(context);
     // Providerにドキュメントをセット
-    context.read(stockEditorParameterProvider).state =
+    ref.read(stockEditorParameterProvider.state).state =
         StockEditorParameter.createrWithAmazon(
       stock: StockEntity.fromSearchedAmazonItem(item),
     );
@@ -144,6 +145,7 @@ class RecommendDetailCell extends HookWidget {
 
   /// お気に入りボタンが押された
   Future<void> _didTapFavoritesButton({
+    required WidgetRef ref,
     required BuildContext context,
     required PaapiSearchItem? item,
     required int favoritesCount,
@@ -154,12 +156,11 @@ class RecommendDetailCell extends HookWidget {
     HapticFeedback.selectionClick();
     if (isFavorited) {
       // お気に入り解除
-      snackText =
-          await context.read(favoriteProvider).removeFavorite(item!.asin);
+      snackText = await ref.read(favoriteProvider).removeFavorite(item!.asin);
     } else {
       // お気に入り追加
       final favoriteItem = FavoriteItem.fromTPaapiItem(item!);
-      snackText = await context.read(favoriteProvider).addFavorite(
+      snackText = await ref.read(favoriteProvider).addFavorite(
             favoriteItem,
             count: favoritesCount,
           );

@@ -1,7 +1,6 @@
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:convenient_widgets/convenient_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
@@ -13,7 +12,7 @@ import '../pro_plan/pro_plan_page.dart';
 import 'place_editor_card.dart';
 import 'place_editor_controller.dart';
 
-class PlaceEditorPage extends HookWidget {
+class PlaceEditorPage extends HookConsumerWidget {
   const PlaceEditorPage({
     Key? key,
   }) : super(key: key);
@@ -22,10 +21,10 @@ class PlaceEditorPage extends HookWidget {
 
   // Methods
   @override
-  Widget build(BuildContext context) {
-    final me = useProvider(meEntityProvider)!;
-    final isProUser = useProvider(
-        revenueControllerProvider.select((value) => value.isSubscriber));
+  Widget build(BuildContext context, WidgetRef ref) {
+    final me = ref.watch(meEntityProvider)!;
+    final isProUser = ref.watch(
+        revenueControllerProvider.select<bool>((value) => value.isSubscriber));
     final stockCategories = me.groups!;
     return Scaffold(
       appBar: AppBar(
@@ -43,7 +42,7 @@ class PlaceEditorPage extends HookWidget {
             if (!isProUser && stockCategories.length > 2)
               Card(
                 elevation: 0.3,
-                margin: const EdgeInsets.symmetric(vertical: 0, horizontal: 16),
+                margin: const EdgeInsets.symmetric(horizontal: 16),
                 color: Theme.of(context).colorScheme.primary,
                 child: ListTile(
                   leading: const Icon(MdiIcons.diamondStone),
@@ -60,6 +59,7 @@ class PlaceEditorPage extends HookWidget {
                 padding:
                     const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
                 onReorder: (oldIndex, newIndex) => _onReorder(
+                  ref: ref,
                   context: context,
                   oldIndex: oldIndex,
                   newIndex: newIndex,
@@ -82,6 +82,7 @@ class PlaceEditorPage extends HookWidget {
                                   direction: direction,
                                 ),
                             onDismissed: (direction) => _onDismissed(
+                                  ref: ref,
                                   context: context,
                                   direction: direction,
                                   category: place,
@@ -123,17 +124,19 @@ class PlaceEditorPage extends HookWidget {
 
   /// スワイプした時の動作
   Future<void> _onDismissed({
+    required WidgetRef ref,
     required BuildContext context,
     required DismissDirection direction,
     required String category,
   }) async {
     if (direction == DismissDirection.startToEnd) {
-      context.read(placeEditorPageProvider.notifier).removeCategory(category);
+      ref.read(placeEditorPageProvider.notifier).removeCategory(category);
     }
   }
 
   /// 並び替え
   void _onReorder({
+    required WidgetRef ref,
     required BuildContext context,
     required int oldIndex,
     required int newIndex,
@@ -154,7 +157,7 @@ class PlaceEditorPage extends HookWidget {
       categories.insert(newIndex, category);
     }
     // 新しい保管場所リストで更新する
-    context.read(placeEditorPageProvider.notifier).updateCategories(categories);
+    ref.read(placeEditorPageProvider.notifier).updateCategories(categories);
   }
 
   void _pushToProPlanPage(BuildContext context) {
@@ -162,7 +165,7 @@ class PlaceEditorPage extends HookWidget {
   }
 }
 
-class AddButton extends StatelessWidget {
+class AddButton extends ConsumerWidget {
   const AddButton({
     Key? key,
     required this.count,
@@ -171,9 +174,10 @@ class AddButton extends StatelessWidget {
   final int count;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return TextButton(
       onPressed: () => _append(
+        ref: ref,
         context: context,
         count: count,
       ),
@@ -183,10 +187,11 @@ class AddButton extends StatelessWidget {
 
   /// 追加
   Future<void> _append({
+    required WidgetRef ref,
     required BuildContext context,
     required int count,
   }) async {
-    final isProUser = context.read(revenueControllerProvider).isSubscriber;
+    final isProUser = ref.read(revenueControllerProvider).isSubscriber;
     if (!isProUser && count >= 3) {
       // 非Proユーザーかつ3つ以上登録している場合は追加できない
       ScaffoldMessenger.of(context)
@@ -199,7 +204,7 @@ class AddButton extends StatelessWidget {
       textFields: [
         DialogTextField(
           hintText: '寝室のクローゼット',
-          validator: context.read(meValidatorProvider).validateCategory,
+          validator: ref.read(meValidatorProvider).validateCategory,
         ),
       ],
       title: 'グループを追加',
@@ -209,6 +214,6 @@ class AddButton extends StatelessWidget {
       // Cancel
       return;
     }
-    context.read(placeEditorPageProvider.notifier).unionPlace(result.first);
+    ref.read(placeEditorPageProvider.notifier).unionPlace(result.first);
   }
 }

@@ -9,7 +9,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 import 'package:package_info/package_info.dart';
-import 'package:state_notifier/state_notifier.dart';
 
 import '../../core/revenue/revenue.dart';
 import '../../models/authenticator/auth_controller.dart';
@@ -21,14 +20,14 @@ import 'splash_state.dart';
 
 final splashPageControllerProvider =
     StateNotifierProvider<SplashPageController, SplashState>(
-        (ref) => SplashPageController(ref));
+        SplashPageController.new);
 
 /// アプリ起動直後に表示するスプラッシュ画面のロジック担当
 class SplashPageController extends StateNotifier<SplashState> {
   // ----- Constructor ----- //
   SplashPageController(this._ref) : super(const SplashState());
 
-  final ProviderReference _ref;
+  final Ref _ref;
   RevenueController get _purchasesController =>
       _ref.read(revenueControllerProvider.notifier);
 
@@ -37,17 +36,18 @@ class SplashPageController extends StateNotifier<SplashState> {
 
   /// アプリの初期設定
   Future<Object>? initialize({
+    required WidgetRef ref,
     required BuildContext context,
   }) async {
     // デフォルトLocaleの設定
     Intl.defaultLocale = 'ja_JP';
-    await initializeDateFormatting('ja_JP', null);
+    await initializeDateFormatting('ja_JP');
     // In-App Purchasesの初期化
     await _purchasesController.initialSetup();
     // サインイン状態を取得
     final user = FirebaseAuth.instance.currentUser;
     // ProviderのStateに反映
-    _ref.read(currentUserProvider).state = user;
+    _ref.read(currentUserProvider.state).state = user;
     if (user == null) {
       // 未サインインなら、受付画面へ遷移する
       return Navigator.of(context).pushReplacementNamed(
@@ -60,7 +60,10 @@ class SplashPageController extends StateNotifier<SplashState> {
       await FirebaseCrashlytics.instance.setUserIdentifier(user.uid);
 
       // バージョンアップの要求が必要かチェック、（不要・必要・必要だが後回し可能）
-      final versionUpdateStatus = await shouldRequestVersionUp(uid: user.uid);
+      final versionUpdateStatus = await shouldRequestVersionUp(
+        ref: ref,
+        uid: user.uid,
+      );
       final storeName = Platform.isIOS ? 'App Store' : 'Google Play Store';
       const title = '最新バージョンが公開されています';
       final message = '$storeNameでアップデートをお願いします。';
@@ -107,8 +110,10 @@ class SplashPageController extends StateNotifier<SplashState> {
   }
 
   /// バージョンアップを求めるか否か
-  Future<VersionUpdateStatus> shouldRequestVersionUp(
-      {required String uid}) async {
+  Future<VersionUpdateStatus> shouldRequestVersionUp({
+    required WidgetRef ref,
+    required String uid,
+  }) async {
     final remoteConfig = await _ref.read(remoteConfigProvider.future);
     if (remoteConfig == null) {
       return VersionUpdateStatus.none;

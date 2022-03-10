@@ -9,20 +9,20 @@ import 'stock_list_top_area.dart';
 import 'stock_list_view.dart';
 
 /// ストックリスト上部に表示するエリアの表示・非表示フラグ
-final stockListTopAreaVisibleProvider = StateProvider((ref) => true);
+final stockListTopAreaVisibleProvider = StateProvider<bool>((ref) => true);
 
 /// ストック一覧を表示する画面
 /// スクロール可能なタブとグループ分けした画面を内包する
-class StockListPage extends HookWidget {
+class StockListPage extends HookConsumerWidget {
   const StockListPage({Key? key}) : super(key: key);
 
   static const String routeName = '/home';
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final scrollController = useScrollController();
     final isSearchFieldVisible =
-        useProvider(stockListTopAreaVisibleProvider).state;
+        ref.watch(stockListTopAreaVisibleProvider.state).state;
 
     void scrollListner() {
       // 表示・非表示を切り替えるスクロール位置の割合閾値
@@ -31,20 +31,21 @@ class StockListPage extends HookWidget {
       final current =
           scrollController.offset / scrollController.position.maxScrollExtent;
       // 現在表示中なら `true`
-      final fieldVisible = context.read(stockListTopAreaVisibleProvider).state;
+      final fieldVisible =
+          ref.read(stockListTopAreaVisibleProvider.state).state;
 
       if (fieldVisible &&
           current > threshold + 0.1 &&
           scrollController.position.userScrollDirection ==
               ScrollDirection.reverse) {
         // 現在表示中かつ、スクロールを進めて閾値を越えたら非表示にする
-        context.read(stockListTopAreaVisibleProvider).state = false;
+        ref.read(stockListTopAreaVisibleProvider.state).state = false;
       }
       if (!fieldVisible &&
           scrollController.position.userScrollDirection ==
               ScrollDirection.forward) {
         // 現在非表示かつ、上方向にスクロールしたら再表示する
-        context.read(stockListTopAreaVisibleProvider).state = true;
+        ref.read(stockListTopAreaVisibleProvider.state).state = true;
       }
     }
 
@@ -53,14 +54,14 @@ class StockListPage extends HookWidget {
       return () => scrollController.removeListener(scrollListner);
     }, [scrollController]);
 
-    final stockCategories = useProvider(stockCategoriesProvider);
+    final stockCategories = ref.watch(stockCategoriesProvider);
 
     if (stockCategories == null) {
       return const SizedBox();
     }
     WidgetsBinding.instance!.addPostFrameCallback((_) {
       // 必要なダイアログを表示させる
-      context
+      ref
           .read(stockListPageControllerProvider.notifier)
           .showDialogsIfNeeded(context);
     });
@@ -76,7 +77,6 @@ class StockListPage extends HookWidget {
               child: TabBar(
                 isScrollable: true,
                 indicatorColor: Theme.of(context).colorScheme.primary,
-                indicatorWeight: 2,
                 tabs: <Widget>[
                   const Tab(child: Text('すべて')),
                   for (final category in stockCategories)

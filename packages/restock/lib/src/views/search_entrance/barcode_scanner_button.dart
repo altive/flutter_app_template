@@ -12,13 +12,13 @@ import '../search_result/search_result_view.dart';
 import 'search_entrance_controller.dart';
 
 /// バーコードを撮影する選択するボタン
-class BarcodeScannerButton extends HookWidget {
+class BarcodeScannerButton extends HookConsumerWidget {
   const BarcodeScannerButton({
     Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return ListTile(
       dense: true,
       title: const Icon(MdiIcons.barcodeScan),
@@ -26,11 +26,11 @@ class BarcodeScannerButton extends HookWidget {
         'バーコード',
         textAlign: TextAlign.center,
       ),
-      onTap: () => _onButton(context),
+      onTap: () => _onButton(ref, context),
     );
   }
 
-  Future<void> _onButton(BuildContext context) async {
+  Future<void> _onButton(WidgetRef ref, BuildContext context) async {
     final status = await Permission.camera.status;
     if (status.isDenied) {
       // カメラ使用拒否されていた場合は設定画面へ促す
@@ -52,11 +52,11 @@ class BarcodeScannerButton extends HookWidget {
     if (barcodeString == null) {
       return;
     }
-    final controller = context.read(searchEntranceProvider.notifier)
+    final controller = ref.read(searchEntranceProvider.notifier)
       ..editSearchText(barcodeString);
     final params = controller.genetateParams(category: SearchItemsCategory.all);
     // 検索結果画面へ遷移
-    context.read(searchParamProvider).state = params;
+    ref.read(searchParamProvider.state).state = params;
     await Navigator.of(context).pushNamed(
       SearchResultView.routeName,
     );

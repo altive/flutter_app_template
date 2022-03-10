@@ -55,7 +55,7 @@ class DeviceSizeChecker {
   });
 
   // ignore: unused_field
-  final ProviderReference _ref;
+  final Ref _ref;
   final MediaQueryData mediaQueryData;
 
   /// 横幅から判定したデバイスの分類を返す

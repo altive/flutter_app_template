@@ -8,7 +8,7 @@ import '../../core/stock/stock_repository.dart';
 import 'search_result_controller.dart';
 import 'search_result_item_card.dart';
 
-class SearchResultView extends HookWidget {
+class SearchResultView extends HookConsumerWidget {
   // Constructor
   // ----------------------------------
   const SearchResultView({Key? key}) : super(key: key);
@@ -20,8 +20,8 @@ class SearchResultView extends HookWidget {
   // Methods
   // ----------------------------------
   @override
-  Widget build(BuildContext context) {
-    final state = useProvider(searchResultControllerProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(searchResultControllerProvider);
 
     return Scaffold(
       appBar: AppBar(title: const Text('検索結果')),
@@ -49,7 +49,7 @@ class _EmptyView extends StatelessWidget {
 }
 
 /// 検索結果のリストを表示
-class ResultListView extends HookWidget {
+class ResultListView extends HookConsumerWidget {
   const ResultListView({
     Key? key,
     required this.searchResult,
@@ -58,8 +58,8 @@ class ResultListView extends HookWidget {
   final PaapiSearchItemsResult? searchResult;
 
   @override
-  Widget build(BuildContext context) {
-    final stockList = useProvider(stockEntityListProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final stockList = ref.watch(stockEntityListProvider);
     if (stockList == null) {
       return const SizedBox();
     }

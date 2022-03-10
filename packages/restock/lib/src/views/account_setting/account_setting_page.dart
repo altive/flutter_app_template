@@ -1,6 +1,5 @@
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../common_widgets/list_section_header.dart';
@@ -16,7 +15,7 @@ import 'account_setting_nickname_tile.dart';
 import 'account_setting_page_controller.dart';
 import 'account_setting_quit_tile.dart';
 
-class AccountSettingPage extends HookWidget {
+class AccountSettingPage extends HookConsumerWidget {
   const AccountSettingPage({
     Key? key,
   }) : super(key: key);
@@ -26,11 +25,11 @@ class AccountSettingPage extends HookWidget {
   // Methods
   // ----------------------------------
   @override
-  Widget build(BuildContext context) {
-    final authController = useProvider(authControllerProvider.notifier);
-    final user = useProvider(authControllerProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final authController = ref.watch(authControllerProvider.notifier);
+    final user = ref.watch(authControllerProvider);
     return LoadingIndicator(
-      loading: useProvider(accountSettingPageControllerProvider).loading,
+      loading: ref.watch(accountSettingPageControllerProvider).loading,
       child: Scaffold(
         appBar: AppBar(title: const Text('アカウント設定')),
         body: SafeArea(
@@ -41,9 +40,9 @@ class AccountSettingPage extends HookWidget {
               ),
               const _Cell(child: AccountSettingNicknameTile()),
               // TODO(Aimiee): Functionsをデプロイできていないため、Releseaモード時では非表示
-              if (useProvider(buildModeProvider).isDebug)
+              if (ref.watch(buildModeProvider).isDebug)
                 const SizedBox(height: 16),
-              if (useProvider(buildModeProvider).isDebug)
+              if (ref.watch(buildModeProvider).isDebug)
                 const _StockVisibilityToggleCell(),
               ListSectionHeader(
                 title: authController.isAnonymous(user: user)
@@ -68,15 +67,15 @@ class AccountSettingPage extends HookWidget {
 }
 
 /// マイストックの可視性を変更できるセル
-class _StockVisibilityToggleCell extends HookWidget {
+class _StockVisibilityToggleCell extends HookConsumerWidget {
   const _StockVisibilityToggleCell({
     Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final isPrivateMyStock =
-        useProvider(meEntityProvider.select((v) => v?.isPrivateMyStock));
+        ref.watch(meEntityProvider.select<bool?>((v) => v?.isPrivateMyStock));
     return ColoredBox(
       color: Theme.of(context).cardColor,
       child: SwitchListTile.adaptive(
@@ -84,6 +83,7 @@ class _StockVisibilityToggleCell extends HookWidget {
         onChanged: isPrivateMyStock == null
             ? null
             : (isOn) => _switchChanged(
+                  ref: ref,
                   context: context,
                   isOn: isOn,
                 ),
@@ -97,11 +97,12 @@ class _StockVisibilityToggleCell extends HookWidget {
 
   /// ストックを非公開にするのトグル
   Future<void> _switchChanged({
+    required WidgetRef ref,
     required BuildContext context,
     required bool isOn,
   }) async {
     //
-    final errorString = await context
+    final errorString = await ref
         .read(accountSettingPageControllerProvider.notifier)
         .togglePrivateStockSwitch(isPrivate: isOn);
 

@@ -8,17 +8,17 @@ import '../../utils/utils.dart';
 import 'stock_editor_controller.dart';
 
 /// 期限の種類を選択する
-class StockEditorExpirationSelection extends HookWidget {
+class StockEditorExpirationSelection extends HookConsumerWidget {
   const StockEditorExpirationSelection({
     Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final expirationDateType =
-        useProvider(stockEditorPageControllerProvider).expirationDateType;
-    final deviceSize = useProvider(deviceSizeProvider(MediaQuery.of(context)));
+        ref.watch(stockEditorPageControllerProvider).expirationDateType;
+    final deviceSize = ref.watch(deviceSizeProvider(MediaQuery.of(context)));
 
     return ColoredBox(
       color: theme.backgroundColor,
@@ -44,8 +44,7 @@ class StockEditorExpirationSelection extends HookWidget {
           },
           onValueChanged: (selectedType) {
             logger.finest('Changed to $selectedType');
-            context
-                .read(stockEditorPageControllerProvider.notifier)
+            ref.read(stockEditorPageControllerProvider.notifier)
                 .changeExpirationDateType(selectedType!);
           },
         ),

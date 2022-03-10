@@ -5,7 +5,7 @@ import '../../common_widgets/primary_button.dart';
 import '../../core/notification_service/notification_service.dart';
 import '../../utils/utils.dart';
 
-class NotificationGuideDialog extends StatelessWidget {
+class NotificationGuideDialog extends ConsumerWidget {
   // Constructor
   const NotificationGuideDialog({
     Key? key,
@@ -16,7 +16,7 @@ class NotificationGuideDialog extends StatelessWidget {
 
   // Methods
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
 
     return AlertDialog(
@@ -59,8 +59,7 @@ class NotificationGuideDialog extends StatelessWidget {
           onPressed: () async {
             logger.finest('訴求ダイアログの通知を受け取るアクションが選択されました');
             // iOSの通知の許可を得るためのOS標準ダイアログを表示する
-            final result = await context
-                .read(notificationControllerProvider.notifier)
+            final result = await ref.read(notificationControllerProvider.notifier)
                 .requestLocalNotificationPermission();
             logger.fine('通知の許可： $result');
             // ダイアログを閉じて、許可/拒否の結果を伝える

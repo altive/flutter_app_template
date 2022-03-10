@@ -4,16 +4,16 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../core/revenue/revenue.dart';
 
-class ProPlanTopCard extends HookWidget {
+class ProPlanTopCard extends HookConsumerWidget {
   const ProPlanTopCard({
     Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
-    final isProPlanUser = useProvider(
-        revenueControllerProvider.select((value) => value.isSubscriber));
+    final isProPlanUser = ref.watch(
+        revenueControllerProvider.select<bool>((value) => value.isSubscriber));
 
     return Container(
       margin: const EdgeInsets.only(bottom: 16),

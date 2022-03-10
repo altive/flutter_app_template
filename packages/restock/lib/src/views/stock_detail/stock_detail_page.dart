@@ -39,17 +39,17 @@ class StockDetailPage extends HookWidget {
   }
 }
 
-class ShareButton extends HookWidget {
+class ShareButton extends HookConsumerWidget {
   const ShareButton({
     Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return IconButton(
       icon: Icon(Platform.isIOS ? CupertinoIcons.share : Icons.share),
       onPressed: () => shareWithStock(
-        context.read(stockForStockDetailProvider)!,
+        ref.read(stockForStockDetailProvider)!,
         size: MediaQuery.of(context).size,
       ),
     );
@@ -99,15 +99,15 @@ class Content extends HookWidget {
   }
 }
 
-class MemoCell extends HookWidget {
+class MemoCell extends HookConsumerWidget {
   const MemoCell({
     Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final memo =
-        useProvider(stockForStockDetailProvider.select((value) => value?.memo));
+        ref.watch(stockForStockDetailProvider.select<String?>((value) => value?.memo));
     if (memo == null) {
       return const SizedBox();
     }
@@ -122,15 +122,15 @@ class MemoCell extends HookWidget {
   }
 }
 
-class NumberOfItemsCell extends HookWidget {
+class NumberOfItemsCell extends HookConsumerWidget {
   const NumberOfItemsCell({
     Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final numberOfItems = useProvider(
-        stockForStockDetailProvider.select((value) => value?.numberOfItems));
+  Widget build(BuildContext context, WidgetRef ref) {
+    final numberOfItems = ref.watch(
+        stockForStockDetailProvider.select<double?>((value) => value?.numberOfItems));
     return ListTile(
       leading: Text(
         'ストック個数',
@@ -147,15 +147,15 @@ class NumberOfItemsCell extends HookWidget {
   }
 }
 
-class CategoryCell extends HookWidget {
+class CategoryCell extends HookConsumerWidget {
   const CategoryCell({
     Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final stockCategory = useProvider(
-        stockForStockDetailProvider.select((value) => value?.stockCategory));
+  Widget build(BuildContext context, WidgetRef ref) {
+    final stockCategory = ref.watch(
+        stockForStockDetailProvider.select<String?>((value) => value?.stockCategory));
     return ListTile(
       leading: Text(
         'グループ',
@@ -168,17 +168,17 @@ class CategoryCell extends HookWidget {
   }
 }
 
-class ExpirationCell extends HookWidget {
+class ExpirationCell extends HookConsumerWidget {
   const ExpirationCell({
     Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final expirationAt = useProvider(
-        stockForStockDetailProvider.select((value) => value?.expirationAt));
-    final expirationDateType = useProvider(stockForStockDetailProvider
-        .select((value) => value?.expirationDateType));
+  Widget build(BuildContext context, WidgetRef ref) {
+    final expirationAt = ref.watch(
+        stockForStockDetailProvider.select<DateTime?>((value) => value?.expirationAt));
+    final expirationDateType = ref.watch(stockForStockDetailProvider
+        .select<ExpirationDateType?>((value) => value?.expirationDateType));
     return ListTile(
       leading: Text(
         expirationDateType?.label ?? '',

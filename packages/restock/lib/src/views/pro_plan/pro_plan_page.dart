@@ -12,7 +12,7 @@ import 'pro_plan_notice_card.dart';
 import 'pro_plan_page_controller.dart';
 import 'pro_plan_top_card.dart';
 
-class ProPlanPage extends HookWidget {
+class ProPlanPage extends HookConsumerWidget {
   // Constructor
   const ProPlanPage({
     Key? key,
@@ -23,10 +23,10 @@ class ProPlanPage extends HookWidget {
 
   // Methods
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return LoadingIndicator(
       loading:
-          useProvider(proPlanPageControllerProvider.select((s) => s.isLoading)),
+          ref.watch(proPlanPageControllerProvider.select<bool?>((s) => s.isLoading)),
       child: Scaffold(
         appBar: AppBar(title: const Text('Proプラン')),
         body: SafeArea(
@@ -76,29 +76,27 @@ class _Card extends StatelessWidget {
   }
 }
 
-class ProPlanStoreLinkCard extends HookWidget {
+class ProPlanStoreLinkCard extends HookConsumerWidget {
   const ProPlanStoreLinkCard({
     Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         SecondaryButton.icon(
           iconData: Icons.launch,
           labelText: 'お支払い方法の管理',
-          onPressed: () => context
-              .read(proPlanPageControllerProvider.notifier)
+          onPressed: () => ref.read(proPlanPageControllerProvider.notifier)
               .openBillingPage(),
         ),
         const SizedBox(height: 16),
         SecondaryButton.icon(
           iconData: Icons.launch,
           labelText: 'サブスクリプションの管理',
-          onPressed: () => context
-              .read(proPlanPageControllerProvider.notifier)
+          onPressed: () => ref.read(proPlanPageControllerProvider.notifier)
               .openSubscriptionManagingPage(),
         ),
       ],

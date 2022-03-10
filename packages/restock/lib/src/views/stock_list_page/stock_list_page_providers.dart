@@ -51,7 +51,7 @@ final groupedStocksProvider =
 
 final filteredStocksProvider =
     Provider.family.autoDispose<List<StockEntity>, String?>((ref, category) {
-  final filterState = ref.watch(stockFilterProvider).state;
+  final filterState = ref.watch(stockFilterProvider.state).state;
   final unfiltererd = ref.watch(groupedStocksProvider(category));
 
   // 在庫有無
@@ -78,7 +78,7 @@ final filteredStocksProvider =
 });
 
 /// 検索中の文字列状態
-final searchTextProvider = StateProvider((ref) => '');
+final searchTextProvider = StateProvider<String>((ref) => '');
 
 /// 文字列検索で絞り込んだストックリスト
 final searchedStocksProvider =
@@ -87,7 +87,7 @@ final searchedStocksProvider =
   if (beforeStocks.isEmpty) {
     return [];
   }
-  final searchText = ref.watch(searchTextProvider).state;
+  final searchText = ref.watch(searchTextProvider.state).state;
   if (searchText.isEmpty) {
     return beforeStocks;
   }
@@ -99,14 +99,14 @@ final searchedStocksProvider =
 });
 
 /// ストック一覧の並び替え設定
-final stockSortingProvider = StateProvider(
+final stockSortingProvider = StateProvider<StockSortSelection>(
     (ref) => ref.watch(sharedPreferencesServiceProvider).getStockSorting);
 
 /// 並び替えをしたマイストックリスト
 final sortedStocksProvider =
     Provider.family.autoDispose<List<StockEntity>, String?>((ref, category) {
   final stocks = ref.watch(searchedStocksProvider(category));
-  final sorting = ref.watch(stockSortingProvider).state;
+  final sorting = ref.watch(stockSortingProvider.state).state;
   if (stocks.isEmpty) {
     return [];
   }
@@ -176,4 +176,4 @@ final stockCountProvider =
   return list?.length;
 });
 
-final selectedTabIndexProvider = StateProvider((ref) => 0);
+final selectedTabIndexProvider = StateProvider<int>((ref) => 0);

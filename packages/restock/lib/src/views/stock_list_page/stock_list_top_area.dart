@@ -8,20 +8,20 @@ import 'stock_display_mode.dart';
 import 'stock_filter_page/stock_filter_page.dart';
 import 'stock_list_page_providers.dart';
 
-class StockListTopArea extends HookWidget {
+class StockListTopArea extends HookConsumerWidget {
   const StockListTopArea({
     Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final searchText = useProvider(searchTextProvider).state;
+  Widget build(BuildContext context, WidgetRef ref) {
+    final searchText = ref.watch(searchTextProvider.state).state;
     final textEditingController = useTextEditingController(text: searchText);
     final tabController = DefaultTabController.of(context);
 
     void tabControllerListener() {
       if (tabController != null) {
-        context.read(selectedTabIndexProvider).state = tabController.index;
+        ref.read(selectedTabIndexProvider.state).state = tabController.index;
       }
     }
 
@@ -32,10 +32,10 @@ class StockListTopArea extends HookWidget {
       },
       [tabController],
     );
-    final selectedTabIndex = useProvider(selectedTabIndexProvider).state;
-    final groups = useProvider(stockCategoriesProvider);
+    final selectedTabIndex = ref.watch(selectedTabIndexProvider.state).state;
+    final groups = ref.watch(stockCategoriesProvider);
     final group = selectedTabIndex == 0 ? null : groups![selectedTabIndex - 1];
-    final stockCount = useProvider(stockCountProvider(group));
+    final stockCount = ref.watch(stockCountProvider(group));
     return Padding(
       padding: const EdgeInsets.all(16),
       child: Column(
@@ -49,7 +49,7 @@ class StockListTopArea extends HookWidget {
                     controller: textEditingController,
                     textInputAction: TextInputAction.done,
                     onChanged: (text) =>
-                        context.read(searchTextProvider).state = text,
+                        ref.read(searchTextProvider.state).state = text,
                     style: Theme.of(context).textTheme.subtitle2,
                     decoration: InputDecoration(
                       hintText: '検索',
@@ -62,7 +62,7 @@ class StockListTopArea extends HookWidget {
                           : IconButton(
                               icon: const Icon(Icons.clear),
                               onPressed: () {
-                                context.read(searchTextProvider).state = '';
+                                ref.read(searchTextProvider.state).state = '';
                                 textEditingController.clear();
                               },
                             ),
@@ -127,7 +127,7 @@ class _ModeSelector extends HookWidget {
   }
 }
 
-class _ChoiceChip extends HookWidget {
+class _ChoiceChip extends HookConsumerWidget {
   const _ChoiceChip({
     Key? key,
     required this.displayMode,
@@ -136,8 +136,8 @@ class _ChoiceChip extends HookWidget {
   final StockDisplayMode displayMode;
 
   @override
-  Widget build(BuildContext context) {
-    final currentMode = useProvider(displayModeProvider).state;
+  Widget build(BuildContext context, WidgetRef ref) {
+    final currentMode = ref.watch(displayModeProvider.state).state;
     return ChoiceChip(
       label: Icon(
         displayMode.iconData,
@@ -147,8 +147,8 @@ class _ChoiceChip extends HookWidget {
       selected: currentMode == displayMode,
       onSelected: (isOn) {
         if (isOn) {
-          context.read(displayModeProvider).state = displayMode;
-          context
+          ref.read(displayModeProvider.state).state = displayMode;
+          ref
               .read(sharedPreferencesServiceProvider)
               .saveStockDisplayMode(mode: displayMode);
         }

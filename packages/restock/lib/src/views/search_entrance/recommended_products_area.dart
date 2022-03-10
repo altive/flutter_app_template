@@ -7,7 +7,7 @@ import '../../common_widgets/list_section_header.dart';
 import '../../common_widgets/url_image.dart';
 import 'search_entrance_controller.dart';
 
-class RecommendedProductsArea extends HookWidget {
+class RecommendedProductsArea extends HookConsumerWidget {
   const RecommendedProductsArea({Key? key}) : super(key: key);
 
   static const horizontalCellCount = 3;
@@ -15,7 +15,7 @@ class RecommendedProductsArea extends HookWidget {
   static const cellSpacing = 8.0;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final width = MediaQuery.of(context).size.width;
     final cellWidth = (width -
             horizontalPadding * 2 -
@@ -24,7 +24,7 @@ class RecommendedProductsArea extends HookWidget {
     // 端数を含めてしまうと指定個数のセルを表示しきれなくなるので、小数点以下を切り捨てる
     final flooredCellWidth = cellWidth.floorToDouble();
 
-    final items = useProvider(searchEntranceProvider).recommendProducts;
+    final items = ref.watch(searchEntranceProvider).recommendProducts;
     if (items == null) {
       return const SizedBox();
     }
@@ -59,7 +59,7 @@ class RecommendedProductsArea extends HookWidget {
 }
 
 /// オススメ商品を表示するセル
-class ProductCell extends HookWidget {
+class ProductCell extends HookConsumerWidget {
   const ProductCell({
     Key? key,
     required this.size,
@@ -70,15 +70,14 @@ class ProductCell extends HookWidget {
   final PaapiSearchItem item;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     // 再背面に背景色を設定
     return Material(
       color: Theme.of(context).backgroundColor,
       child: InkWell(
         onTap: () {
-          context
-              .read(searchEntranceProvider.notifier)
-              .presentStockEditorPage(item, context);
+          ref.read(searchEntranceProvider.notifier)
+              .presentStockEditorPage(ref, item, context);
         },
         child: SizedBox(
           width: size,

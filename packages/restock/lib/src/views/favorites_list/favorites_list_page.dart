@@ -7,7 +7,7 @@ import '../../common_widgets/loading_indicator.dart';
 import '../../models/firestore/favorite_item/favorite_item.dart';
 import 'favorite_item_cell.dart';
 
-class FavoritesListPage extends HookWidget {
+class FavoritesListPage extends HookConsumerWidget {
   // Constructor
   const FavoritesListPage({
     Key? key,
@@ -18,8 +18,8 @@ class FavoritesListPage extends HookWidget {
 
   // Methods
   @override
-  Widget build(BuildContext context) {
-    final favoriteItems = useProvider(favoriteItemProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final favoriteItems = ref.watch(favoriteItemProvider);
     return favoriteItems.when(
       loading: () => const LoadingIndicator(),
       error: (error, stack) => ErrorWidget(error),

@@ -1,5 +1,4 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:state_notifier/state_notifier.dart';
 
 import '../../models/remote_config/remote_config_provider.dart';
 import '../../utils/utils.dart';
@@ -7,7 +6,7 @@ import 'checker_human_type.dart';
 import 'checker_state.dart';
 
 final checkerProvider = StateNotifierProvider<CheckerController, CheckerState>(
-    (ref) => CheckerController(ref));
+    CheckerController.new);
 
 class CheckerController extends StateNotifier<CheckerState> {
   // ----- Constructor ----- //
@@ -17,7 +16,7 @@ class CheckerController extends StateNotifier<CheckerState> {
 
   // contextからサービスクラスを取り出す
   // ignore: unused_field
-  final ProviderReference _ref;
+  final Ref _ref;
 
   /// お勧めストックセットのリストをRemote Configから取得
   Future<void> getSetList() async {

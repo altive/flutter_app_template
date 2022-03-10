@@ -1,6 +1,5 @@
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -10,19 +9,19 @@ import '../../util/shared_preferences_service.dart';
 import 'stock_editor_controller.dart';
 
 /// 通知をON/OFFするセル
-class StockEditorNotificationTile extends HookWidget {
+class StockEditorNotificationTile extends HookConsumerWidget {
   const StockEditorNotificationTile({
     Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
 
-    final stockEditorState = useProvider(stockEditorPageControllerProvider);
+    final stockEditorState = ref.watch(stockEditorPageControllerProvider);
     // 何日前に通知するか
     final durationDays =
-        useProvider(sharedPreferencesServiceProvider).getNotificationDuration;
+        ref.watch(sharedPreferencesServiceProvider).getNotificationDuration;
     // 期限日
     final expirationAt = stockEditorState.expirationDate ?? DateTime.now();
     // 通知予定日
@@ -50,11 +49,12 @@ class StockEditorNotificationTile extends HookWidget {
           value: stockEditorState.isNotificationEnabled,
           onChanged: (isOn) => isOn
               ? _onNotificationEnabled(
+                  ref: ref,
                   context: context,
                   isDatePassed: isDatePassed,
                   numberOfItems: stockEditorState.numberOfItems,
                 )
-              : _onNotificationDisabled(context: context),
+              : _onNotificationDisabled(ref: ref, context: context),
         ),
       ),
     );
@@ -62,10 +62,11 @@ class StockEditorNotificationTile extends HookWidget {
 
   /// 通知のトグルがOFFにされた
   void _onNotificationDisabled({
+    required WidgetRef ref,
     required BuildContext context,
   }) {
     // ToggleをOFFにする（その場で削除はしない）
-    context
+    ref
         .read(stockEditorPageControllerProvider.notifier)
         .toggleNotification(isEnabled: false);
   }
@@ -73,6 +74,7 @@ class StockEditorNotificationTile extends HookWidget {
   /// 通知のトグルがONにされた
   /// 通知予定日が過去日であれば[isDatePassed]が`true`
   Future<void> _onNotificationEnabled({
+    required WidgetRef ref,
     required BuildContext context,
     required bool isDatePassed,
     required int numberOfItems,
@@ -108,7 +110,7 @@ class StockEditorNotificationTile extends HookWidget {
     // MEMO: 本当は通知の訴求ダイアログを開こうとしたんだけど、
     // 拒否状態なのにPermissionで`denied`ではなく`undetermined`が返ってくるので
     // 直接OSのダイアログを開けば開いて、結果拒否でも設定開くダイアログを表示するようにした
-    final hasNotificationGranted = await context
+    final hasNotificationGranted = await ref
         .read(notificationControllerProvider.notifier)
         .hasNotificationGranted;
     if (hasNotificationGranted == false) {
@@ -128,7 +130,7 @@ class StockEditorNotificationTile extends HookWidget {
     //   }
     // }
     // 許可状態だった or 今回許可された場合のみ、通知ToggleをONにできる
-    final result = await context
+    final result = await ref
         .read(stockEditorPageControllerProvider.notifier)
         .toggleNotification(isEnabled: true);
     if (result == null) {

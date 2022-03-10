@@ -30,14 +30,14 @@ class PurchaseDebugPage extends HookWidget {
   }
 }
 
-class _ListView extends HookWidget {
+class _ListView extends HookConsumerWidget {
   const _ListView({
     Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final revenueState = useProvider(revenueControllerProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final revenueState = ref.watch(revenueControllerProvider);
     return ListView(
       children: [
         ListTile(

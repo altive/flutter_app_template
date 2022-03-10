@@ -33,7 +33,7 @@ class RecommendedWordChips extends StatelessWidget {
   }
 }
 
-class WordChip extends HookWidget {
+class WordChip extends HookConsumerWidget {
   const WordChip({
     Key? key,
     required this.iconData,
@@ -46,7 +46,7 @@ class WordChip extends HookWidget {
   final bool isGlossary;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return ActionChip(
       avatar: Icon(
         iconData,
@@ -65,15 +65,14 @@ class WordChip extends HookWidget {
         ),
       ),
       onPressed: () async {
-        final searchEntranceController = context
-            .read(searchEntranceProvider.notifier)
+        final searchEntranceController = ref.read(searchEntranceProvider.notifier)
           ..editSearchText(label);
         final params = searchEntranceController.genetateParams(
             category: isGlossary
                 ? SearchItemsCategory.grocery
                 : SearchItemsCategory.all);
         // 検索結果画面へ遷移
-        context.read(searchParamProvider).state = params;
+        ref.read(searchParamProvider.state).state = params;
         await Navigator.of(context).pushNamed(
           SearchResultView.routeName,
         );

@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:state_notifier/state_notifier.dart';
 
 import '../../core/amazon_searcher/amazon_searcher.dart';
 import '../../core/stock/stock_entity.dart';
@@ -19,7 +18,7 @@ final searchParamProvider =
 /// パラメーターを渡したController
 final searchResultControllerProvider =
     StateNotifierProvider<SearchResultController, SearchResultState>((ref) {
-  final searchParam = ref.watch(searchParamProvider).state;
+  final searchParam = ref.watch(searchParamProvider.state).state;
   return SearchResultController(
     ref.read,
     searchParams: searchParam,
@@ -71,12 +70,13 @@ class SearchResultController extends StateNotifier<SearchResultState> {
   /// ストック編集画面へ遷移
   /// 新規登録なので[PaapiSearchItem]を[StockEntity]に変換した物のみを提供する
   Future<Object>? presentStockEditorPage(
+    WidgetRef ref,
     PaapiSearchItem item,
     BuildContext context,
   ) async {
     final stock = StockEntity.fromSearchedAmazonItem(item);
     // 編集画面で必要なParameterをセット
-    context.read(stockEditorParameterProvider).state =
+    ref.read(stockEditorParameterProvider.state).state =
         StockEditorParameter.createrWithAmazon(stock: stock);
     return Navigator.of(context).pushNamed(
       StockEditorPage.routeName,

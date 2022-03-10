@@ -1,21 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import '../../common_widgets/single_selection_list_page.dart';
 
+import '../../common_widgets/single_selection_list_page.dart';
 import 'stock_editor_controller.dart';
 
 /// グループを選択できる
-class StockEditorPlaceField extends HookWidget {
+class StockEditorPlaceField extends HookConsumerWidget {
   const StockEditorPlaceField({
     Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final stockCategory =
-        useProvider(stockEditorPageControllerProvider).stockCategory;
+        ref.watch(stockEditorPageControllerProvider).stockCategory;
 
     return ColoredBox(
       color: theme.backgroundColor,
@@ -40,18 +39,19 @@ class StockEditorPlaceField extends HookWidget {
           ],
         ),
         trailing: const Icon(Icons.chevron_right),
-        onTap: () => _onTap(context: context, currentPlace: stockCategory),
+        onTap: () =>
+            _onTap(ref: ref, context: context, currentPlace: stockCategory),
       ),
     );
   }
 
   Future<void> _onTap({
+    required WidgetRef ref,
     required BuildContext context,
     required String? currentPlace,
   }) async {
-    final stockCategory = await context
-        .read(stockEditorPageControllerProvider.notifier)
-        .getPlaces();
+    final stockCategory =
+        await ref.read(stockEditorPageControllerProvider.notifier).getPlaces();
     // グループ選択画面へ遷移
     final selectedPlace = await Navigator.of(context).push<String>(
       MaterialPageRoute(
@@ -66,7 +66,7 @@ class StockEditorPlaceField extends HookWidget {
       return;
     }
     // 選択したグループで更新する
-    context
+    ref
         .read(stockEditorPageControllerProvider.notifier)
         .updatePlace(selectedPlace);
   }

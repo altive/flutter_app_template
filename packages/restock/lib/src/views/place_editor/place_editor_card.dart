@@ -1,12 +1,10 @@
 import 'package:adaptive_dialog/adaptive_dialog.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'place_editor_controller.dart';
 
-class PlaceEditorCard extends HookWidget {
+class PlaceEditorCard extends HookConsumerWidget {
   const PlaceEditorCard({
     Key? key,
     required this.index,
@@ -17,17 +15,18 @@ class PlaceEditorCard extends HookWidget {
   final List<String> stockCategories;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final place = stockCategories[index];
     return Card(
       elevation: 0.3,
-      margin: const EdgeInsets.symmetric(vertical: 1, horizontal: 0),
+      margin: const EdgeInsets.symmetric(vertical: 1),
       child: ListTile(
         title: Text(place),
         trailing: const Icon(
           Icons.reorder,
         ),
         onTap: () => _onTap(
+          ref: ref,
           context: context,
           place: place,
         ),
@@ -37,6 +36,7 @@ class PlaceEditorCard extends HookWidget {
 
   /// カードをタップしたときの動作
   Future<void> _onTap({
+    required WidgetRef ref,
     required BuildContext context,
     required String place,
   }) async {
@@ -69,7 +69,7 @@ class PlaceEditorCard extends HookWidget {
     // 保管場所名を更新
     stockCategories[index] = results.first;
     // 新しいリストで全置換え
-    context
+    ref
         .read(placeEditorPageProvider.notifier)
         .updateCategories(stockCategories);
     ScaffoldMessenger.of(context)

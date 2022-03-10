@@ -7,7 +7,7 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'stock_editor_controller.dart';
 
 /// アイテムの個数を入力するフォーム
-class StockEditorCountField extends HookWidget {
+class StockEditorCountField extends HookConsumerWidget {
   const StockEditorCountField({
     Key? key,
     required this.numberFocus,
@@ -16,11 +16,11 @@ class StockEditorCountField extends HookWidget {
   final FocusNode numberFocus;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     // TextEditingControllerに初期値代入
     final numberOfItems =
-        useProvider(stockEditorPageControllerProvider).numberOfItems;
+        ref.watch(stockEditorPageControllerProvider).numberOfItems;
     final controller = useTextEditingController(text: numberOfItems.toString());
     return Container(
       color: Theme.of(context).backgroundColor,
@@ -42,8 +42,7 @@ class StockEditorCountField extends HookWidget {
               ),
               style: theme.textTheme.bodyText2,
               onChanged: (_) {
-                context
-                    .read(stockEditorPageControllerProvider.notifier)
+                ref.read(stockEditorPageControllerProvider.notifier)
                     .changeNumberOfItems(controller.text);
               },
             ),
@@ -58,8 +57,7 @@ class StockEditorCountField extends HookWidget {
                 return;
               }
               controller.text = (int.parse(controller.text) + 1).toString();
-              context
-                  .read(stockEditorPageControllerProvider.notifier)
+              ref.read(stockEditorPageControllerProvider.notifier)
                   .incrementNumberOfItems();
             },
           ),
@@ -74,8 +72,7 @@ class StockEditorCountField extends HookWidget {
                 return;
               }
               controller.text = (int.parse(controller.text) - 1).toString();
-              context
-                  .read(stockEditorPageControllerProvider.notifier)
+              ref.read(stockEditorPageControllerProvider.notifier)
                   .dencrementNumberOfItems();
             },
           ),

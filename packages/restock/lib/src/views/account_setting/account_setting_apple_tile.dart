@@ -1,7 +1,6 @@
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
@@ -12,13 +11,13 @@ import '../../utils/utils.dart';
 import 'account_setting_page_controller.dart';
 
 /// Appleと連携
-class AccountSettingAppleTile extends HookWidget {
+class AccountSettingAppleTile extends HookConsumerWidget {
   const AccountSettingAppleTile({Key? key}) : super(key: key);
   @override
-  Widget build(BuildContext context) {
-    final user = useProvider(authControllerProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final user = ref.watch(authControllerProvider);
     final userInfo =
-        useProvider(authControllerProvider.notifier).appleUserInfo(user: user);
+        ref.watch(authControllerProvider.notifier).appleUserInfo(user: user);
     return FutureBuilder<bool>(
       future: canSignInWithApple,
       builder: (_, snapshot) {
@@ -29,6 +28,7 @@ class AccountSettingAppleTile extends HookWidget {
           leading: const Icon(MdiIcons.apple),
           title: Text(userInfo == null ? 'Apple IDと連携する' : 'Apple IDと連携済み'),
           onTap: () => _presentConfirmDialog(
+            ref: ref,
             context: context,
             hasAppleLinked: userInfo != null,
           ),
@@ -39,6 +39,7 @@ class AccountSettingAppleTile extends HookWidget {
 
   /// Apple連携の確認ダイアログを表示
   Future<void> _presentConfirmDialog({
+    required WidgetRef ref,
     required BuildContext context,
     required bool hasAppleLinked,
   }) async {
@@ -47,7 +48,7 @@ class AccountSettingAppleTile extends HookWidget {
         title: hasAppleLinked ? 'Apple IDとの連携を解除しますか？' : 'Apple IDと連携しますか？');
     switch (result) {
       case OkCancelResult.ok:
-        return _linkOrUnlinkAccount(context);
+        return _linkOrUnlinkAccount(ref, context);
 
       case OkCancelResult.cancel:
         return;
@@ -55,9 +56,9 @@ class AccountSettingAppleTile extends HookWidget {
   }
 
   /// Apple連携or解除
-  Future<void> _linkOrUnlinkAccount(BuildContext context) async {
+  Future<void> _linkOrUnlinkAccount(WidgetRef ref, BuildContext context) async {
     try {
-      final result = await context
+      final result = await ref
           .read(accountSettingPageControllerProvider.notifier)
           .linkOrUnlinkAppleAccount();
       if (result == null) {

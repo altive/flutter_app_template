@@ -17,7 +17,7 @@ import '../place_editor/place_editor_page.dart';
 import '../pro_plan/pro_plan_page.dart';
 import '../theme_selection/theme_selection_page.dart';
 
-class MypagePage extends HookWidget {
+class MypagePage extends HookConsumerWidget {
   // ----------------------------------
   // Constructor
   // ----------------------------------
@@ -32,10 +32,10 @@ class MypagePage extends HookWidget {
   // Override Methods
   // ----------------------------------
   @override
-  Widget build(BuildContext context) {
-    final packageInfo = useProvider(packageInfoProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final packageInfo = ref.watch(packageInfoProvider);
     final isSubscriber =
-        useProvider(revenueControllerProvider.select((s) => s.isSubscriber));
+        ref.watch(revenueControllerProvider.select<bool>((s) => s.isSubscriber));
     return Scaffold(
       appBar: AppBar(
         title: const Text('マイページ'),
@@ -50,7 +50,7 @@ class MypagePage extends HookWidget {
               onTap: () =>
                   Navigator.of(context).pushNamed(ProPlanPage.routeName),
             ),
-            if (useProvider(flavorProvider) != Flavor.production)
+            if (ref.watch(flavorProvider) != Flavor.production)
               ListCell(
                 leading: null,
                 title: const Text('アプリ内課金デバッグ画面'),
@@ -116,11 +116,11 @@ class MypagePage extends HookWidget {
 
 /// テーマ設定画面へ遷移するためのListTile
 /// 現在選択中のテーマ名を表示する
-class _ThemeSelectionTile extends HookWidget {
+class _ThemeSelectionTile extends HookConsumerWidget {
   const _ThemeSelectionTile();
   @override
-  Widget build(BuildContext context) {
-    final currentTheme = useProvider(themeColorProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final currentTheme = ref.watch(themeColorProvider);
     return Ink(
       color: Theme.of(context).backgroundColor,
       child: ListTile(

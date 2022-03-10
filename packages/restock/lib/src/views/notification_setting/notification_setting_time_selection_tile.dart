@@ -6,7 +6,7 @@ import '../../utils/utils.dart';
 
 /// 通知の時刻を設定するためのListTile
 /// 現在の選択状態も表示する
-class NotificationSettingTimeSelectionTile extends StatefulWidget {
+class NotificationSettingTimeSelectionTile extends ConsumerStatefulWidget {
   const NotificationSettingTimeSelectionTile({Key? key}) : super(key: key);
 
   @override
@@ -15,14 +15,16 @@ class NotificationSettingTimeSelectionTile extends StatefulWidget {
 }
 
 class _NotificationSettingTimeSelectionTileState
-    extends State<NotificationSettingTimeSelectionTile> {
+    extends ConsumerState<NotificationSettingTimeSelectionTile> {
   @override
   Widget build(BuildContext context) {
-    return Consumer(builder: (context, watch, child) {
-      final selectedTime =
-          watch(sharedPreferencesServiceProvider).getNotificationTimeSetting;
+    return Consumer(builder: (context, ref, child) {
+      final selectedTime = ref
+          .watch(sharedPreferencesServiceProvider)
+          .getNotificationTimeSetting;
       return ListTile(
         onTap: () => _updateNotificationTime(
+          ref: ref,
           context: context,
           initialTime: selectedTime,
         ),
@@ -42,6 +44,7 @@ class _NotificationSettingTimeSelectionTileState
 
   /// 通知する時刻を変更
   Future<void> _updateNotificationTime({
+    required WidgetRef ref,
     required BuildContext context,
     required TimeOfDay initialTime,
   }) async {
@@ -54,7 +57,7 @@ class _NotificationSettingTimeSelectionTileState
       return;
     }
     logger.finer('通知時刻設定を変更: $result');
-    await context
+    await ref
         .read(sharedPreferencesServiceProvider)
         .saveNotificationTimeSetting(timeOfDay: result);
     setState(() {});

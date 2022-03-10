@@ -5,7 +5,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'stock_editor_controller.dart';
 
 /// アイテムの名前を入力するフォーム
-class StockEditorNameField extends HookWidget {
+class StockEditorNameField extends HookConsumerWidget {
   const StockEditorNameField({
     Key? key,
     required this.titleFocus,
@@ -16,10 +16,10 @@ class StockEditorNameField extends HookWidget {
   final FocusNode numberFocus;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     // HookのTextEditingControllerを使用
-    final initialName = useProvider(stockEditorPageControllerProvider).itemName;
+    final initialName = ref.watch(stockEditorPageControllerProvider).itemName;
     final controller = useTextEditingController(text: initialName);
     return Container(
       color: Theme.of(context).backgroundColor,
@@ -39,8 +39,7 @@ class StockEditorNameField extends HookWidget {
         style: theme.textTheme.bodyText2,
         onChanged: (_) {
           // アイテム名の更新を状態に反映する
-          context
-              .read(stockEditorPageControllerProvider.notifier)
+          ref.read(stockEditorPageControllerProvider.notifier)
               .changeItemName(controller.text);
         },
         onSubmitted: (_) {

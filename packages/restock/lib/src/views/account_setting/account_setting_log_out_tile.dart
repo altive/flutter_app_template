@@ -9,12 +9,12 @@ import '../reception/reception_view.dart';
 import 'account_setting_page_controller.dart';
 
 /// ログアウトボタン
-class AccountSettingLogOutTile extends HookWidget {
+class AccountSettingLogOutTile extends HookConsumerWidget {
   const AccountSettingLogOutTile({Key? key}) : super(key: key);
   @override
-  Widget build(BuildContext context) {
-    final user = useProvider(authControllerProvider);
-    final authController = useProvider(authControllerProvider.notifier);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final user = ref.watch(authControllerProvider);
+    final authController = ref.watch(authControllerProvider.notifier);
     if (user == null) {
       return const SizedBox();
     }
@@ -24,19 +24,18 @@ class AccountSettingLogOutTile extends HookWidget {
       child: ListTile(
         leading: const Icon(MdiIcons.logout),
         title: const Text('ログアウト'),
-        onTap: () => _presentConfirmDialog(context),
+        onTap: () => _presentConfirmDialog(ref, context),
       ),
     );
   }
 
   /// ログアウトするかの確認ダイアログを表示
-  Future<void> _presentConfirmDialog(BuildContext context) async {
+  Future<void> _presentConfirmDialog(WidgetRef ref, BuildContext context) async {
     final result = await showOkCancelAlertDialog(
         context: context, title: '期限の通知がすべてOFFになります');
     switch (result) {
       case OkCancelResult.ok:
-        final isSucceeded = await context
-            .read(accountSettingPageControllerProvider.notifier)
+        final isSucceeded = await ref.read(accountSettingPageControllerProvider.notifier)
             .logOut();
         if (isSucceeded) {
           return _popToReceptionPage(context);

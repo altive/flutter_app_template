@@ -1,7 +1,6 @@
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
@@ -11,13 +10,13 @@ import '../../utils/utils.dart';
 import 'account_setting_page_controller.dart';
 
 /// Googleと連携
-class AccountSettingGoogleTile extends HookWidget {
+class AccountSettingGoogleTile extends HookConsumerWidget {
   const AccountSettingGoogleTile({Key? key}) : super(key: key);
   @override
-  Widget build(BuildContext context) {
-    final user = useProvider(authControllerProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final user = ref.watch(authControllerProvider);
     final userInfo =
-        useProvider(authControllerProvider.notifier).googleUserInfo(user: user);
+        ref.watch(authControllerProvider.notifier).googleUserInfo(user: user);
     return ListTile(
       leading: const Icon(MdiIcons.google),
       title: Text(userInfo == null ? 'Googleアカウントと連携する' : 'Googleアカウント'),
@@ -30,6 +29,7 @@ class AccountSettingGoogleTile extends HookWidget {
             ),
       trailing: const Icon(Icons.chevron_right),
       onTap: () => _presentConfirmDialog(
+        ref: ref,
         context: context,
         hasGoogleLinked: userInfo != null,
       ),
@@ -38,6 +38,7 @@ class AccountSettingGoogleTile extends HookWidget {
 
   /// リンクの確認ダイアログを表示
   Future<void> _presentConfirmDialog({
+    required WidgetRef ref,
     required BuildContext context,
     required bool hasGoogleLinked,
   }) async {
@@ -48,7 +49,7 @@ class AccountSettingGoogleTile extends HookWidget {
             : 'Googleアカウントと連携しますか？');
     switch (result) {
       case OkCancelResult.ok:
-        await _linkOrUnlinkAccount(context);
+        await _linkOrUnlinkAccount(ref, context);
         return;
 
       case OkCancelResult.cancel:
@@ -57,9 +58,9 @@ class AccountSettingGoogleTile extends HookWidget {
   }
 
   /// Google連携or解除
-  Future<void> _linkOrUnlinkAccount(BuildContext context) async {
+  Future<void> _linkOrUnlinkAccount(WidgetRef ref, BuildContext context) async {
     try {
-      final result = await context
+      final result = await ref
           .read(accountSettingPageControllerProvider.notifier)
           .linkOrUnlinkGoogleAccount();
       if (result == null) {

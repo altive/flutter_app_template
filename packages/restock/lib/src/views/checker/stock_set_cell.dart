@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
@@ -8,7 +7,7 @@ import 'recommend_detail/recommend_detail_controller.dart';
 import 'recommend_detail/recommend_detail_page.dart';
 
 /// お勧めストックセットの概要を表示するCell
-class StockSetCell extends HookWidget {
+class StockSetCell extends HookConsumerWidget {
   const StockSetCell({
     Key? key,
     required this.stockSet,
@@ -17,22 +16,23 @@ class StockSetCell extends HookWidget {
   final RecommendStockSet stockSet;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return ListTile(
       leading: Icon(MdiIcons.fromString(stockSet.iconName)),
       title: Text(stockSet.title),
       subtitle: Text(stockSet.subtitle),
       trailing: const Icon(MdiIcons.chevronRight),
-      onTap: () => navigateDetailPage(context, stockSet: stockSet),
+      onTap: () => navigateDetailPage(ref, context, stockSet: stockSet),
     );
   }
 
   /// お勧め商品セットの詳細説明ページへ遷移
   void navigateDetailPage(
+    WidgetRef ref,
     BuildContext context, {
     required RecommendStockSet stockSet,
   }) {
-    context.read(recommendDetailParameterProvider).state = stockSet;
+    ref.read(recommendDetailParameterProvider.state).state = stockSet;
     Navigator.of(context).pushNamed(RecommendDetailPage.routeName);
   }
 }

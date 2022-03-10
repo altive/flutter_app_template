@@ -21,24 +21,23 @@ class NotificationSettingDateSelectionTile extends StatelessWidget {
   }
 }
 
-class _DateDropdownButton extends StatefulWidget {
+class _DateDropdownButton extends ConsumerStatefulWidget {
   @override
   __DateDropdownButtonState createState() => __DateDropdownButtonState();
 }
 
-class __DateDropdownButtonState extends State<_DateDropdownButton> {
+class __DateDropdownButtonState extends ConsumerState<_DateDropdownButton> {
   @override
   Widget build(BuildContext context) {
-    return Consumer(builder: (context, watch, child) {
+    return Consumer(builder: (context, ref, child) {
       return DropdownButton<NotificationDate>(
-        value: watch(sharedPreferencesServiceProvider).getNotificationDuration,
+        value: ref.watch(sharedPreferencesServiceProvider).getNotificationDuration,
         icon: const Icon(Icons.arrow_drop_down),
         onChanged: (date) {
           logger.finer('通知日を変更: $date');
           // 何日前に通知するかを変更
           setState(() {
-            context
-                .read(sharedPreferencesServiceProvider)
+            ref.read(sharedPreferencesServiceProvider)
                 .saveNotificationDuration(days: date.count);
           });
         },

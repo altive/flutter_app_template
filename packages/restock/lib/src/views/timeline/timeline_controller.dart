@@ -17,7 +17,7 @@ class TimelineController extends StateNotifier<TimelineState> {
   }
 
   // ignore: unused_field
-  final ProviderReference _ref;
+  final Ref _ref;
 
   // ----- Functions ----- //
 

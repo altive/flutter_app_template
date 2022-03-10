@@ -1,8 +1,6 @@
 import 'package:collection/collection.dart' show IterableExtension;
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -20,7 +18,7 @@ import '../stock_editor/stock_editor_page.dart';
 import '../stock_editor/stock_editor_parameter.dart';
 
 /// リストで表示するカード。一つのアイテム情報を表示する
-class TimelineItemCell extends HookWidget {
+class TimelineItemCell extends HookConsumerWidget {
   const TimelineItemCell({
     Key? key,
     required this.item,
@@ -29,9 +27,9 @@ class TimelineItemCell extends HookWidget {
   final EveryonesStockModel item;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     // お気に入りリスト
-    final favoritesAsyncValue = useProvider(favoriteItemProvider);
+    final favoritesAsyncValue = ref.watch(favoriteItemProvider);
     // アイテム名の最大文字数
     const itemNameMaxLength = 40;
     final theme = Theme.of(context);
@@ -131,10 +129,12 @@ class TimelineItemCell extends HookWidget {
                         IconButtonsOnCell(
                           isFavorited: isFavorited,
                           onPressedAddButton: () => _didTapCreateButton(
+                            ref: ref,
                             context: context,
                             item: item,
                           ),
                           onPressedFavoriteButton: () => _didTapFavoritesButton(
+                            ref: ref,
                             context: context,
                             timelineItem: item,
                             favoritesCount: favoriteItems.length,
@@ -160,6 +160,7 @@ class TimelineItemCell extends HookWidget {
 
   /// ストックアイテムを作成するボタンが押された
   Future<void> _didTapCreateButton({
+    required WidgetRef ref,
     required BuildContext context,
     required EveryonesStockModel item,
   }) async {
@@ -167,7 +168,7 @@ class TimelineItemCell extends HookWidget {
     HapticFeedback.selectionClick();
     final scaffold = ScaffoldMessenger.of(context);
     // Providerにドキュメントをセット
-    context.read(stockEditorParameterProvider).state =
+    ref.read(stockEditorParameterProvider.state).state =
         StockEditorParameter.createrWithAmazon(
       stock: StockEntity.fromTimelineItem(item),
     );
@@ -187,6 +188,7 @@ class TimelineItemCell extends HookWidget {
 
   /// お気に入りボタンが押された
   Future<void> _didTapFavoritesButton({
+    required WidgetRef ref,
     required BuildContext context,
     required EveryonesStockModel timelineItem,
     required int favoritesCount,
@@ -197,13 +199,12 @@ class TimelineItemCell extends HookWidget {
     HapticFeedback.selectionClick();
     if (isFavorited) {
       // お気に入り解除
-      snackText = await context
-          .read(favoriteProvider)
-          .removeFavorite(timelineItem.asin);
+      snackText =
+          await ref.read(favoriteProvider).removeFavorite(timelineItem.asin);
     } else {
       // お気に入り追加
       final favoriteItem = FavoriteItem.fromTimelineItem(timelineItem);
-      snackText = await context.read(favoriteProvider).addFavorite(
+      snackText = await ref.read(favoriteProvider).addFavorite(
             favoriteItem,
             count: favoritesCount,
           );

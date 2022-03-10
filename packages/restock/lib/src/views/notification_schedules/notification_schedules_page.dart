@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:convenient_widgets/convenient_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:tuple/tuple.dart';
 
@@ -12,8 +11,8 @@ import '../../core/notification_service/notification_service.dart';
 import '../../core/stock/stock_entity.dart';
 import '../../core/stock/stock_repository.dart';
 
-final notificationScheduleListProvider =
-    FutureProvider.autoDispose((ref) async {
+final notificationScheduleListProvider = FutureProvider.autoDispose<
+    Tuple2<List<NotificationPayload>, List<StockEntity>>>((ref) async {
   //
   final pendingList = await ref
       .watch(notificationControllerProvider.notifier)
@@ -36,7 +35,7 @@ final notificationScheduleListProvider =
   return Tuple2(payloadList, stockList);
 });
 
-class NotificationSchedulesPage extends HookWidget {
+class NotificationSchedulesPage extends HookConsumerWidget {
   // Constructor
   const NotificationSchedulesPage({
     Key? key,
@@ -47,8 +46,8 @@ class NotificationSchedulesPage extends HookWidget {
 
   // Methods
   @override
-  Widget build(BuildContext context) {
-    final list = useProvider(notificationScheduleListProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final list = ref.watch(notificationScheduleListProvider);
     if (list.data == null) {
       return const LoadingIndicator();
     }
@@ -60,7 +59,7 @@ class NotificationSchedulesPage extends HookWidget {
         title: const Text('通知予定'),
         actions: <Widget>[
           TextButton(
-            onPressed: () => _cancelAllNotifications(context),
+            onPressed: () => _cancelAllNotifications(ref, context),
             child: const Text('すべて削除'),
           ),
         ],
@@ -84,7 +83,10 @@ class NotificationSchedulesPage extends HookWidget {
   }
 
   /// 確認後、すべての通知をキャンセルする
-  Future<void> _cancelAllNotifications(BuildContext context) async {
+  Future<void> _cancelAllNotifications(
+    WidgetRef ref,
+    BuildContext context,
+  ) async {
     final result = await showOkCancelAlertDialog(
       context: context,
       title: '通知をすべて削除',
@@ -95,9 +97,7 @@ class NotificationSchedulesPage extends HookWidget {
     );
     switch (result) {
       case OkCancelResult.ok:
-        await context
-            .read(notificationControllerProvider.notifier)
-            .canceleAll();
+        await ref.read(notificationControllerProvider.notifier).canceleAll();
         Navigator.of(context).pop();
         break;
       case OkCancelResult.cancel:
@@ -108,7 +108,7 @@ class NotificationSchedulesPage extends HookWidget {
 
 /// 1つの通知情報を表示する
 /// ストックアイテムの名前・期限日・○日前か
-class NotificationTile extends StatelessWidget {
+class NotificationTile extends ConsumerWidget {
   const NotificationTile({
     Key? key,
     required this.idNumber,
@@ -121,7 +121,7 @@ class NotificationTile extends StatelessWidget {
   final StockEntity stock;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     var notificationDateText = '';
 
     final notificationDaysString =
@@ -142,6 +142,7 @@ class NotificationTile extends StatelessWidget {
           direction: direction,
         ),
         onDismissed: (direction) => _onDismissed(
+          ref: ref,
           direction: direction,
           context: context,
           notificationIdNumber: idNumber!,
@@ -179,12 +180,13 @@ class NotificationTile extends StatelessWidget {
 
   /// スワイプした時の動作
   void _onDismissed({
+    required WidgetRef ref,
     DismissDirection? direction,
     required BuildContext context,
     required int notificationIdNumber,
   }) {
     // 対象の通知をキャンセル
-    context
+    ref
         .read(notificationControllerProvider.notifier)
         .cancele(id: notificationIdNumber);
   }

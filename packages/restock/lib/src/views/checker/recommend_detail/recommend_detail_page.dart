@@ -1,7 +1,6 @@
 import 'package:amazon_paapi/amazon_paapi.dart';
 import 'package:convenient_widgets/convenient_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../common_widgets/loading_indicator.dart';
@@ -16,7 +15,7 @@ import '../../stock_editor/stock_editor_parameter.dart';
 import 'recommend_detail_cell.dart';
 import 'recommend_detail_controller.dart';
 
-class RecommendDetailPage extends HookWidget {
+class RecommendDetailPage extends HookConsumerWidget {
   // Constructor
   const RecommendDetailPage({
     Key? key,
@@ -27,8 +26,8 @@ class RecommendDetailPage extends HookWidget {
 
   // Methods
   @override
-  Widget build(BuildContext context) {
-    final state = useProvider(recommendDetailProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(recommendDetailProvider);
     return LoadingIndicator(
       loading: false,
       child: Scaffold(
@@ -41,16 +40,16 @@ class RecommendDetailPage extends HookWidget {
   }
 }
 
-class _ListView extends HookWidget {
+class _ListView extends HookConsumerWidget {
   const _ListView({
     Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
-    final controller = useProvider(recommendDetailProvider.notifier);
-    final state = useProvider(recommendDetailProvider);
+    final controller = ref.watch(recommendDetailProvider.notifier);
+    final state = ref.watch(recommendDetailProvider);
     final items = state.itemResult!.items;
     final recommendStocks = controller.setList!;
 
@@ -91,7 +90,7 @@ class _ListView extends HookWidget {
   }
 }
 
-class RecommendCell extends HookWidget {
+class RecommendCell extends HookConsumerWidget {
   const RecommendCell({
     Key? key,
     this.item,
@@ -102,10 +101,9 @@ class RecommendCell extends HookWidget {
   final String? description;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     // asin で絞ったストックリスト
-    final stocks =
-        useProvider(stockEntityFilteredAsinListProvider(item!.asin!));
+    final stocks = ref.watch(stockEntityFilteredAsinListProvider(item!.asin!));
     if (stocks == null) {
       return const SizedBox(height: 220, child: LoadingIndicator());
     }
@@ -158,7 +156,6 @@ class RecommendCell extends HookWidget {
         // ボタン群
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          mainAxisSize: MainAxisSize.max,
           children: [
             Expanded(
               child: SecondaryButton(
@@ -171,6 +168,7 @@ class RecommendCell extends HookWidget {
                 labelText: '登録',
                 padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
                 onPressed: () => navigateToStockEditPage(
+                  ref,
                   context,
                   searchItem: item!,
                 ),
@@ -190,12 +188,13 @@ class RecommendCell extends HookWidget {
 
   /// ストック編集（登録）ページに遷移する
   void navigateToStockEditPage(
+    WidgetRef ref,
     BuildContext context, {
     required PaapiSearchItem searchItem,
   }) {
     final stock = StockEntity.fromSearchedAmazonItem(searchItem);
     final param = StockEditorParameter.createrWithAmazon(stock: stock);
-    context.read(stockEditorParameterProvider).state = param;
+    ref.read(stockEditorParameterProvider.state).state = param;
     Navigator.of(context).pushNamed(StockEditorPage.routeName);
   }
 }

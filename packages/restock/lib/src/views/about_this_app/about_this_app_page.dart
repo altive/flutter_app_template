@@ -11,15 +11,15 @@ import '../../providers/package_info.dart';
 import '../../util/web_launcher.dart';
 import '../user_request/user_request_page.dart';
 
-class AboutThisAppPage extends HookWidget {
+class AboutThisAppPage extends HookConsumerWidget {
   const AboutThisAppPage({Key? key}) : super(key: key);
 
   static const String routeName = '/about-this-app';
 
   @override
-  Widget build(BuildContext context) {
-    final analyticsSender = useProvider(analyticsSenderProvider);
-    final packageInfo = useProvider(packageInfoProvider);
+  Widget build(BuildContext context, WidgetRef ref) {
+    final analyticsSender = ref.watch(analyticsSenderProvider);
+    final packageInfo = ref.watch(packageInfoProvider);
     return Scaffold(
       appBar: AppBar(
         title: const Text('このアプリについて'),
@@ -74,7 +74,7 @@ class AboutThisAppPage extends HookWidget {
               trailing: const Icon(Icons.open_in_browser),
               onTap: () async {
                 final remoteConfig =
-                    await context.read(remoteConfigProvider.future);
+                    await ref.read(remoteConfigProvider.future);
                 if (remoteConfig == null) {
                   return;
                 }
@@ -88,7 +88,7 @@ class AboutThisAppPage extends HookWidget {
               trailing: const Icon(Icons.open_in_browser),
               onTap: () async {
                 final remoteConfig =
-                    await context.read(remoteConfigProvider.future);
+                    await ref.read(remoteConfigProvider.future);
                 if (remoteConfig == null) {
                   return;
                 }

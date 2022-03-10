@@ -1,6 +1,5 @@
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -8,24 +7,24 @@ import '../../core/notification_service/notification_service.dart';
 import 'stock_detail_page_controller.dart';
 
 /// 通知をON/OFFするセル
-class StockDetailNotificationTile extends HookWidget {
+class StockDetailNotificationTile extends HookConsumerWidget {
   const StockDetailNotificationTile({
     Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final expirationAt = useProvider(
-        stockForStockDetailProvider.select((value) => value?.expirationAt));
+  Widget build(BuildContext context, WidgetRef ref) {
+    final expirationAt = ref.watch(stockForStockDetailProvider
+        .select<DateTime?>((value) => value?.expirationAt));
     if (expirationAt == null) {
       return const SizedBox();
     }
-    final idNumber = useProvider(
-        stockForStockDetailProvider.select((value) => value?.idNumber));
-    final isOn = useProvider(notificationControllerProvider
-        .select((value) => value.contains(idNumber)));
+    final idNumber = ref.watch(
+        stockForStockDetailProvider.select<int?>((value) => value?.idNumber));
+    final isOn = ref.watch(notificationControllerProvider
+        .select<bool>((value) => value.contains(idNumber)));
 
-    final controller = useProvider(stockDetailPageControllerProvider.notifier);
+    final controller = ref.watch(stockDetailPageControllerProvider.notifier);
 
     return FutureBuilder<NotificationPayload?>(
       future: controller.fetchNotificationPayload(),
@@ -50,9 +49,10 @@ class StockDetailNotificationTile extends HookWidget {
           value: isOn,
           onChanged: (isOn) => isOn
               ? _onNotificationEnabled(
+                  ref: ref,
                   context: context,
                 )
-              : _onNotificationDisabled(context: context),
+              : _onNotificationDisabled(ref: ref, context: context),
         );
       },
     );
@@ -60,21 +60,20 @@ class StockDetailNotificationTile extends HookWidget {
 
   /// 通知のトグルがOFFにされた
   void _onNotificationDisabled({
+    required WidgetRef ref,
     required BuildContext context,
   }) {
     // 通知を削除する
-    context
-        .read(stockDetailPageControllerProvider.notifier)
-        .removeNotification();
+    ref.read(stockDetailPageControllerProvider.notifier).removeNotification();
   }
 
   /// 通知のトグルがONにされた
   Future<void> _onNotificationEnabled({
+    required WidgetRef ref,
     required BuildContext context,
   }) async {
     final scaffold = ScaffoldMessenger.of(context);
-    final numberOfItems =
-        context.read(stockForStockDetailProvider)!.numberOfItems;
+    final numberOfItems = ref.read(stockForStockDetailProvider)!.numberOfItems;
     final isZeroCount = numberOfItems < 1;
     if (isZeroCount) {
       // ②ストックが0個のため通知はONにできない
@@ -92,7 +91,7 @@ class StockDetailNotificationTile extends HookWidget {
     // MEMO: 本当は通知の訴求ダイアログを開こうとしたんだけど、
     // 拒否状態なのにPermissionで`denied`ではなく`undetermined`が返ってくるので
     // 直接OSのダイアログを開けば開いて、結果拒否でも設定開くダイアログを表示するようにした
-    final hasNotificationGranted = await context
+    final hasNotificationGranted = await ref
         .read(notificationControllerProvider.notifier)
         .hasNotificationGranted;
     if (hasNotificationGranted == false) {
@@ -111,7 +110,7 @@ class StockDetailNotificationTile extends HookWidget {
     //   }
     // }
     // 許可状態だった or 今回許可された場合のみ、通知を追加する
-    final result = await context
+    final result = await ref
         .read(stockDetailPageControllerProvider.notifier)
         .addNotification();
     if (result == null) {

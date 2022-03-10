@@ -5,15 +5,15 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'stock_detail_page_controller.dart';
 
 /// アイテム名
-class StockDetailNameTile extends HookWidget {
+class StockDetailNameTile extends HookConsumerWidget {
   const StockDetailNameTile({
     Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final name =
-        useProvider(stockForStockDetailProvider.select((value) => value?.name));
+        ref.watch(stockForStockDetailProvider.select<String?>((value) => value?.name));
     final theme = Theme.of(context);
     return Container(
       color: theme.backgroundColor,

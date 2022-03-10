@@ -11,19 +11,19 @@ import 'util/theme/ex_theme.dart';
 import 'util/theme/theme_controller.dart';
 import 'views/splash/splash_page.dart';
 
-class App extends HookWidget {
+class App extends HookConsumerWidget {
   const App({
     Key? key,
   }) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     // 現在のテーマを取得
-    final currentTheme = useProvider(themeColorProvider);
+    final currentTheme = ref.watch(themeColorProvider);
     // Firebase AnalyticsのObserverでPageRoute遷移の追跡を行う
-    final analyticsObserver = useProvider(analyticsSenderProvider).observer;
+    final analyticsObserver = ref.watch(analyticsSenderProvider).observer;
     return MaterialApp(
-      title: useProvider(appConstantProvider).title,
+      title: ref.watch(appConstantProvider).title,
       localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
@@ -39,7 +39,7 @@ class App extends HookWidget {
       theme: currentTheme.themeData,
       darkTheme: currentTheme.darkThemeData,
       // この `navigatorKey` を使用することで、`context` がなくても画面遷移できる
-      navigatorKey: useProvider(navigatorKeyProvider),
+      navigatorKey: ref.watch(navigatorKeyProvider),
       navigatorObservers: [analyticsObserver],
     );
   }

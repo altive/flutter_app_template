@@ -30,7 +30,7 @@ class CheckerInputCell extends StatelessWidget {
 }
 
 /// 人間タイプごとに人数を表示して増減できる
-class HumanTypeBox extends HookWidget {
+class HumanTypeBox extends HookConsumerWidget {
   const HumanTypeBox({
     Key? key,
     required this.type,
@@ -39,10 +39,10 @@ class HumanTypeBox extends HookWidget {
   final HumanType type;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
-    final deviceSize = useProvider(deviceSizeProvider(MediaQuery.of(context)));
-    final state = useProvider(checkerProvider);
+    final deviceSize = ref.watch(deviceSizeProvider(MediaQuery.of(context)));
+    final state = ref.watch(checkerProvider);
     final currentCount = () {
       switch (type) {
         case HumanType.male:
@@ -89,13 +89,13 @@ class HumanTypeBox extends HookWidget {
                 icon: const Icon(MdiIcons.plusCircle),
                 color: Theme.of(context).colorScheme.primary,
                 onPressed:
-                    currentCount > 9 ? null : () => didTapPlusButton(context),
+                    currentCount > 9 ? null : () => didTapPlusButton(ref, context),
               ),
               IconButton(
                 icon: const Icon(MdiIcons.minusCircle),
                 color: Theme.of(context).colorScheme.secondary,
                 onPressed:
-                    currentCount < 1 ? null : () => didTapMinusButton(context),
+                    currentCount < 1 ? null : () => didTapMinusButton(ref, context),
               ),
             ],
           ),
@@ -122,9 +122,9 @@ class HumanTypeBox extends HookWidget {
   }
 
   /// プラスボタンが押された
-  void didTapPlusButton(BuildContext context) {
+  void didTapPlusButton(WidgetRef ref, BuildContext context) {
     final isSucceeded =
-        context.read(checkerProvider.notifier).increaseCount(type: type);
+        ref.read(checkerProvider.notifier).increaseCount(type: type);
     if (isSucceeded) {
       HapticFeedback.selectionClick();
     } else {
@@ -135,9 +135,9 @@ class HumanTypeBox extends HookWidget {
   }
 
   /// マイナスボタンが押された
-  void didTapMinusButton(BuildContext context) {
+  void didTapMinusButton(WidgetRef ref, BuildContext context) {
     final isSucceeded =
-        context.read(checkerProvider.notifier).decreaseCount(type: type);
+        ref.read(checkerProvider.notifier).decreaseCount(type: type);
     if (isSucceeded) {
       HapticFeedback.selectionClick();
     } else {
