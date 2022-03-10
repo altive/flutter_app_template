@@ -1,0 +1,107 @@
+import 'dart:io';
+
+import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import '../../common_widgets/loading_indicator.dart';
+import '../../common_widgets/secondary_button.dart';
+import 'pro_plan_buttons_card.dart';
+import 'pro_plan_comparison_card.dart';
+import 'pro_plan_notice_card.dart';
+import 'pro_plan_page_controller.dart';
+import 'pro_plan_top_card.dart';
+
+class ProPlanPage extends HookWidget {
+  // Constructor
+  const ProPlanPage({
+    Key? key,
+  }) : super(key: key);
+
+  // Field
+  static const String routeName = '/pro-plan';
+
+  // Methods
+  @override
+  Widget build(BuildContext context) {
+    return LoadingIndicator(
+      loading:
+          useProvider(proPlanPageControllerProvider.select((s) => s.isLoading)),
+      child: Scaffold(
+        appBar: AppBar(title: const Text('Proプラン')),
+        body: SafeArea(
+          child: ListView(
+            padding: const EdgeInsets.only(bottom: 16),
+            children: [
+              const ProPlanTopCard(),
+              const _Card(child: ProPlanComparisonCard()),
+              const _Card(child: ProPlanButtonsCard()),
+              if (Platform.isIOS || Platform.isMacOS)
+                const _Card(child: ProPlanStoreLinkCard()),
+              const _Card(child: ProPlanNoticeCard()),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// 共通のカードデザイン
+class _Card extends StatelessWidget {
+  const _Card({
+    this.color,
+    required this.child,
+  });
+
+  final Widget child;
+  final Color? color;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+      child: Container(
+        decoration: BoxDecoration(
+          color: color ?? Theme.of(context).cardColor,
+          borderRadius: BorderRadius.circular(16),
+        ),
+        child: Card(
+          elevation: 0,
+          margin: const EdgeInsets.symmetric(vertical: 32, horizontal: 16),
+          child: child,
+        ),
+      ),
+    );
+  }
+}
+
+class ProPlanStoreLinkCard extends HookWidget {
+  const ProPlanStoreLinkCard({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        SecondaryButton.icon(
+          iconData: Icons.launch,
+          labelText: 'お支払い方法の管理',
+          onPressed: () => context
+              .read(proPlanPageControllerProvider.notifier)
+              .openBillingPage(),
+        ),
+        const SizedBox(height: 16),
+        SecondaryButton.icon(
+          iconData: Icons.launch,
+          labelText: 'サブスクリプションの管理',
+          onPressed: () => context
+              .read(proPlanPageControllerProvider.notifier)
+              .openSubscriptionManagingPage(),
+        ),
+      ],
+    );
+  }
+}

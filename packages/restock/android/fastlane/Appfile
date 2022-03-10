@@ -1,0 +1,4 @@
+# Path to the json secret file
+# https://docs.fastlane.tools/actions/supply/#setup
+json_key_file("service-account.json")
+package_name("jp.altive.restock")

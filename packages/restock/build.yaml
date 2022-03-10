@@ -1,0 +1,27 @@
+targets:
+  $default:
+    builders:
+      freezed:
+        generate_for:
+          include:
+            - lib/**/*state.dart
+            - lib/**/models/amazon/*.dart
+            - lib/**/models/firestore/**/*.dart
+            - lib/**/*_model.dart
+            - lib/**/*_entity.dart
+            - lib/**/*_payload.dart
+            - lib/**/*_parameter.dart
+            - lib/**/result.dart
+      json_serializable:
+        generate_for:
+          include:
+            - lib/**/*state.dart
+            - lib/**/models/amazon/*.dart
+            - lib/**/models/firestore/**/*.dart
+            - lib/**/*_model.dart
+            - lib/**/*_entity.dart
+            - lib/**/*_payload.dart
+            - lib/**/*_parameter.dart
+        options:
+          any_map: true
+          explicit_to_json: true

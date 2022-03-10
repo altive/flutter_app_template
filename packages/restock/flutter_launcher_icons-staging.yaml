@@ -1,0 +1,6 @@
+flutter_icons:
+  image_path: "assets/app_icons/icon-staging.png"
+  android: true
+  ios: true
+  adaptive_icon_background: "assets/app_icons/adaptive-icon-background.png"
+  adaptive_icon_foreground: "assets/app_icons/adaptive-icon-foreground.png"

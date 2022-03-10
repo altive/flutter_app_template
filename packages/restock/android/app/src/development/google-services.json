@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "142133475394",
+    "firebase_url": "https://restock-development.firebaseio.com",
+    "project_id": "restock-development",
+    "storage_bucket": "restock-development.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:142133475394:android:10cd065710581da111d5db",
+        "android_client_info": {
+          "package_name": "jp.altive.rollingstock.development"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "142133475394-im53raelfk2kg58ijgekidjq3dajrdf0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "jp.altive.rollingstock.development",
+            "certificate_hash": "c7ea60bb2dc9727e234551f2a25321d70191bda3"
+          }
+        },
+        {
+          "client_id": "142133475394-2idbom3tfu1qu7q53n12pktkvjdcv4de.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBi0VJj1BFgEqYeeSI1FHre_qBIIQ-MOW4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "142133475394-2idbom3tfu1qu7q53n12pktkvjdcv4de.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "142133475394-qgfa8cnrtqo5ug6e7tqq0c2ln8lpbe3d.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "jp.altive.rollingstock.development"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

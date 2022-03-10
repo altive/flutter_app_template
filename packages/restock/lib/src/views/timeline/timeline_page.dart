@@ -1,0 +1,44 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+
+import 'timeline_controller.dart';
+import 'timeline_item_cell.dart';
+
+class TimelinePage extends HookWidget {
+  // Constructor
+  const TimelinePage({
+    Key? key,
+  }) : super(key: key);
+
+  // Field
+  static const String routeName = '/timeline';
+
+  // Methods
+  @override
+  Widget build(BuildContext context) {
+    final state = useProvider(timelineProvider);
+    final controller = useProvider(timelineProvider.notifier);
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('みんなのストック'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.refresh),
+            onPressed: controller.loadItems,
+          ),
+        ],
+      ),
+      body: SafeArea(
+        child: ListView.builder(
+          itemBuilder: (_, index) {
+            final timelineItem = state.displayItems[index];
+            return TimelineItemCell(item: timelineItem);
+          },
+          itemCount: state.displayItems.length,
+          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
+        ),
+      ),
+    );
+  }
+}

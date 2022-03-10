@@ -1,0 +1,213 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:intl/intl.dart';
+
+import '../../common_widgets/list_section_header.dart';
+import '../../everyones_stock/expiration_date_type.dart';
+import '../../util/share/share_service.dart';
+import 'stock_detail_counter_view.dart';
+import 'stock_detail_image_tile.dart';
+import 'stock_detail_menu_button.dart';
+import 'stock_detail_name_tile.dart';
+import 'stock_detail_notification_tile.dart';
+import 'stock_detail_page_controller.dart';
+
+/// 所有アイテムの詳細情報を閲覧する画面
+class StockDetailPage extends HookWidget {
+  const StockDetailPage({Key? key}) : super(key: key);
+
+  static const String routeName = '/item-detail';
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('ストック詳細'),
+        actions: const <Widget>[
+          ShareButton(),
+          StockDetailMenuButton(),
+        ],
+      ),
+      body: const SafeArea(
+        child: Content(),
+      ),
+    );
+  }
+}
+
+class ShareButton extends HookWidget {
+  const ShareButton({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      icon: Icon(Platform.isIOS ? CupertinoIcons.share : Icons.share),
+      onPressed: () => shareWithStock(
+        context.read(stockForStockDetailProvider)!,
+        size: MediaQuery.of(context).size,
+      ),
+    );
+  }
+}
+
+class Content extends HookWidget {
+  const Content({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    const spacer = SizedBox(height: 16);
+    const divider = Divider(height: 1);
+
+    return ButtonTheme(
+      height: 50,
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(8)),
+      ),
+      child: ListView(
+        children: const <Widget>[
+          StockDetailImageTile(),
+          StockDetailNameTile(),
+          spacer,
+          // 期限
+          _Cell(child: ExpirationCell()),
+          divider,
+          // グループ
+          _Cell(child: CategoryCell()),
+          divider,
+          // 通知
+          _Cell(child: StockDetailNotificationTile()),
+          divider,
+          // 個数
+          _Cell(child: NumberOfItemsCell()),
+          ListSectionHeader(
+            title: 'メモ',
+            padding: EdgeInsets.fromLTRB(16, 8, 16, 8),
+          ),
+          MemoCell(),
+          spacer,
+        ],
+      ),
+    );
+  }
+}
+
+class MemoCell extends HookWidget {
+  const MemoCell({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final memo =
+        useProvider(stockForStockDetailProvider.select((value) => value?.memo));
+    if (memo == null) {
+      return const SizedBox();
+    }
+    return Container(
+      color: Theme.of(context).backgroundColor,
+      padding: const EdgeInsets.symmetric(
+        vertical: 16,
+        horizontal: 16,
+      ),
+      child: Text(memo),
+    );
+  }
+}
+
+class NumberOfItemsCell extends HookWidget {
+  const NumberOfItemsCell({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final numberOfItems = useProvider(
+        stockForStockDetailProvider.select((value) => value?.numberOfItems));
+    return ListTile(
+      leading: Text(
+        'ストック個数',
+        style: Theme.of(context).textTheme.subtitle2!.copyWith(
+              fontWeight: FontWeight.bold,
+            ),
+      ),
+      title: Text(
+        numberOfItems == null ? '' : '${numberOfItems.toInt()}個',
+        textAlign: TextAlign.center,
+      ),
+      trailing: const StockDetailCounterView(),
+    );
+  }
+}
+
+class CategoryCell extends HookWidget {
+  const CategoryCell({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final stockCategory = useProvider(
+        stockForStockDetailProvider.select((value) => value?.stockCategory));
+    return ListTile(
+      leading: Text(
+        'グループ',
+        style: Theme.of(context).textTheme.subtitle2!.copyWith(
+              fontWeight: FontWeight.bold,
+            ),
+      ),
+      trailing: Text(stockCategory ?? '未設定'),
+    );
+  }
+}
+
+class ExpirationCell extends HookWidget {
+  const ExpirationCell({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final expirationAt = useProvider(
+        stockForStockDetailProvider.select((value) => value?.expirationAt));
+    final expirationDateType = useProvider(stockForStockDetailProvider
+        .select((value) => value?.expirationDateType));
+    return ListTile(
+      leading: Text(
+        expirationDateType?.label ?? '',
+        style: Theme.of(context).textTheme.subtitle2!.copyWith(
+              fontWeight: FontWeight.bold,
+            ),
+      ),
+      trailing: Text(
+        expirationDateType == ExpirationDateType.none || expirationAt == null
+            ? ''
+            : DateFormat.yMEd().format(expirationAt),
+      ),
+    );
+  }
+}
+
+class _Cell extends StatelessWidget {
+  const _Cell({
+    Key? key,
+    required this.child,
+  }) : super(key: key);
+
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Theme.of(context).canvasColor,
+      child: child,
+    );
+  }
+}
