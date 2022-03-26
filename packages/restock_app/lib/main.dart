@@ -5,6 +5,7 @@ import 'package:package_info/package_info.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import 'src/app.dart';
+import 'src/environment.dart';
 import 'src/providers/package_info.dart';
 import 'src/util/shared_preferences_service.dart';
 import 'src/utils/utils.dart';
@@ -14,13 +15,17 @@ Future<void> main() async {
 
   final flavor = Flavor.values.byName(const String.fromEnvironment('FLAVOR'));
 
+  const environment = Environment();
+
   await Future.wait<void>([
     Firebase.initializeApp(),
+    environment.initialize(),
   ]);
 
   return runApp(
     ProviderScope(
       overrides: [
+        environmentProvider.overrideWithValue(environment),
         flavorProvider.overrideWithValue(flavor),
         packageInfoProvider.overrideWithValue(await PackageInfo.fromPlatform()),
         sharedPreferencesServiceProvider.overrideWithValue(

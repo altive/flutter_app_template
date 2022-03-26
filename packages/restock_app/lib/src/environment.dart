@@ -1,14 +1,14 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-final environmentProvider = Provider((ref) => Environment());
+final environmentProvider = Provider<Environment>(
+  (ref) => throw UnimplementedError(),
+);
 
 class Environment {
-  Environment() {
-    _initialize();
-  }
+  const Environment();
 
-  Future<void> _initialize() async {
+  Future<void> initialize() async {
     await dotenv.load();
   }
 

@@ -28,7 +28,7 @@
             "name": "ReStock (dev)",
             "request": "launch",
             "type": "dart",
-            "program": "packages/restock/lib/main.dart",
+            "program": "packages/restock_app/lib/main.dart",
             "flutterMode": "debug",
             "args": [
                 "--flavor",

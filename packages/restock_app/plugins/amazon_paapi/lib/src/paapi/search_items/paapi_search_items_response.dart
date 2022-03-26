@@ -7,17 +7,17 @@ import 'package:collection/collection.dart';
 
 // TODO(Riscait): freezed化する
 
-/// JSON: Map<String, dynamic>を変換
+/// JSON: Map<String, Object?>を変換
 /// SearchResultを内包する
 class PaapiSearchItemResponse {
   const PaapiSearchItemResponse({
     this.searchResult,
   });
 
-  factory PaapiSearchItemResponse.fromJson(Map<String, dynamic> json) {
+  factory PaapiSearchItemResponse.fromJson(Map<String, Object?> json) {
     return PaapiSearchItemResponse(
       searchResult: PaapiSearchItemsResult.fromJson(
-        json['SearchResult'] as Map<String, dynamic>,
+        json['SearchResult']! as Map<String, Object?>,
       ),
     );
   }
@@ -25,7 +25,7 @@ class PaapiSearchItemResponse {
   final PaapiSearchItemsResult? searchResult;
 }
 
-/// JSON: Map<String, dynamic>を変換
+/// JSON: Map<String, Object?>を変換
 /// 複数アイテム情報等を含むデータのルート
 class PaapiSearchItemsResult {
   const PaapiSearchItemsResult({
@@ -33,14 +33,14 @@ class PaapiSearchItemsResult {
     this.totalResultCount,
   });
 
-  factory PaapiSearchItemsResult.fromJson(Map<String, dynamic> json) {
+  factory PaapiSearchItemsResult.fromJson(Map<String, Object?> json) {
     final itemList =
-        List<Map<String, dynamic>>.from(json['Items'] as List<dynamic>);
+        List<Map<String, Object?>>.from(json['Items']! as List<dynamic>);
     final itemTypeList =
         itemList.map((dic) => PaapiSearchItem.fromJson(dic)).toList();
     return PaapiSearchItemsResult(
       items: itemTypeList,
-      totalResultCount: json['TotalResultCount'] as int?,
+      totalResultCount: json['TotalResultCount']! as int?,
     );
   }
 
@@ -48,7 +48,7 @@ class PaapiSearchItemsResult {
   final int? totalResultCount;
 }
 
-/// JSON: List<Map<String, dynamic>> リストの中身を変換
+/// JSON: List<Map<String, Object?>> リストの中身を変換
 /// 単一のアイテム情報を内包
 class PaapiSearchItem {
   const PaapiSearchItem({
@@ -59,14 +59,15 @@ class PaapiSearchItem {
     this.offers,
   });
 
-  factory PaapiSearchItem.fromJson(Map<String, dynamic> json) {
+  factory PaapiSearchItem.fromJson(Map<String, Object?> json) {
+    final offers = json['Offers'] as Map<String, Object?>?;
     return PaapiSearchItem(
-      asin: json['ASIN'] as String?,
-      detailPageUrl: json['DetailPageURL'] as String?,
-      images: PaapiItemImage.fromJson(json['Images'] as Map<String, dynamic>),
+      asin: json['ASIN']! as String?,
+      detailPageUrl: json['DetailPageURL']! as String?,
+      images: PaapiItemImage.fromJson(json['Images']! as Map<String, Object?>),
       itemInfo:
-          PaapiItemInfo.fromJson(json['ItemInfo'] as Map<String, dynamic>),
-      offers: PaapiOffers.fromJson(json['Offers'] as Map<String, dynamic>),
+          PaapiItemInfo.fromJson(json['ItemInfo']! as Map<String, Object?>),
+      offers: offers == null ? null : PaapiOffers.fromJson(offers),
     );
   }
 
@@ -87,24 +88,24 @@ class PaapiSearchItem {
       itemInfo?.classifications?.itemBinding?.displayValue;
 }
 
-/// JSON: Map<String, dynamic>を変換
+/// JSON: Map<String, Object?>を変換
 /// Primary, Variantsを持つ
 class PaapiItemImage {
   const PaapiItemImage({
     this.primary,
   });
 
-  factory PaapiItemImage.fromJson(Map<String, dynamic> json) {
+  factory PaapiItemImage.fromJson(Map<String, Object?> json) {
     return PaapiItemImage(
       primary:
-          PaapiItemImageSize.fromJson(json['Primary'] as Map<String, dynamic>),
+          PaapiItemImageSize.fromJson(json['Primary']! as Map<String, Object?>),
     );
   }
 
   final PaapiItemImageSize? primary;
 }
 
-/// JSON: Map<String, dynamic>を変換
+/// JSON: Map<String, Object?>を変換
 /// Small, Medium, Large を持つ
 class PaapiItemImageSize {
   const PaapiItemImageSize({
@@ -113,16 +114,16 @@ class PaapiItemImageSize {
     this.large,
   });
 
-  factory PaapiItemImageSize.fromJson(Map<String, dynamic> json) {
+  factory PaapiItemImageSize.fromJson(Map<String, Object?> json) {
     return PaapiItemImageSize(
       small: PaapiItemImageSizeData.fromJson(
-        json['Small'] as Map<String, dynamic>,
+        json['Small']! as Map<String, Object?>,
       ),
       medium: PaapiItemImageSizeData.fromJson(
-        json['Medium'] as Map<String, dynamic>,
+        json['Medium']! as Map<String, Object?>,
       ),
       large: PaapiItemImageSizeData.fromJson(
-        json['Large'] as Map<String, dynamic>,
+        json['Large']! as Map<String, Object?>,
       ),
     );
   }
@@ -132,7 +133,7 @@ class PaapiItemImageSize {
   final PaapiItemImageSizeData? large;
 }
 
-/// JSON: Map<String, dynamic>を変換<br>
+/// JSON: Map<String, Object?>を変換<br>
 /// URL, Height, Width を持つ
 class PaapiItemImageSizeData {
   const PaapiItemImageSizeData({
@@ -141,11 +142,11 @@ class PaapiItemImageSizeData {
     this.width,
   });
 
-  factory PaapiItemImageSizeData.fromJson(Map<String, dynamic> json) {
+  factory PaapiItemImageSizeData.fromJson(Map<String, Object?> json) {
     return PaapiItemImageSizeData(
-      url: json['URL'] as String?,
-      height: json['Height'] as int?,
-      width: json['Width'] as int?,
+      url: json['URL']! as String?,
+      height: json['Height']! as int?,
+      width: json['Width']! as int?,
     );
   }
 
@@ -154,16 +155,16 @@ class PaapiItemImageSizeData {
   final int? width;
 }
 
-/// JSON: Map<String, dynamic>を変換
+/// JSON: Map<String, Object?>を変換
 /// Title を持つ
 class PaapiItemInfo {
   const PaapiItemInfo({this.title, this.classifications});
 
-  factory PaapiItemInfo.fromJson(Map<String, dynamic> json) {
+  factory PaapiItemInfo.fromJson(Map<String, Object?> json) {
     return PaapiItemInfo(
-      title: PaapiItemTitle.fromJson(json['Title'] as Map<String, dynamic>),
+      title: PaapiItemTitle.fromJson(json['Title']! as Map<String, Object?>),
       classifications: PaapiItemClassifications.fromJson(
-        json['Classifications'] as Map<String, dynamic>,
+        json['Classifications']! as Map<String, Object?>,
       ),
     );
   }
@@ -172,16 +173,16 @@ class PaapiItemInfo {
   final PaapiItemClassifications? classifications;
 }
 
-/// JSON: Map<String, dynamic>を変換<br>
+/// JSON: Map<String, Object?>を変換<br>
 /// DisplayValue, Label, Locale を持つ
 class PaapiItemTitle {
   const PaapiItemTitle({
     this.displayValue,
   });
 
-  factory PaapiItemTitle.fromJson(Map<String, dynamic> json) {
+  factory PaapiItemTitle.fromJson(Map<String, Object?> json) {
     return PaapiItemTitle(
-      displayValue: json['DisplayValue'] as String?,
+      displayValue: json['DisplayValue']! as String?,
     );
   }
 
@@ -195,17 +196,17 @@ class PaapiItemClassifications {
     this.productGroup,
   });
 
-  factory PaapiItemClassifications.fromJson(Map<String, dynamic> json) {
+  factory PaapiItemClassifications.fromJson(Map<String, Object?> json) {
     return PaapiItemClassifications(
       productGroup: json['Binding'] == null
           ? null
           : PaapiItemProductGroup.fromJson(
-              json['Binding'] as Map<String, dynamic>,
+              json['Binding']! as Map<String, Object?>,
             ),
       itemBinding: json['ProductGroup'] == null
           ? null
           : PaapiItemBinding.fromJson(
-              json['ProductGroup'] as Map<String, dynamic>,
+              json['ProductGroup']! as Map<String, Object?>,
             ),
     );
   }
@@ -220,9 +221,9 @@ class PaapiItemProductGroup {
     this.displayValue,
   });
 
-  factory PaapiItemProductGroup.fromJson(Map<String, dynamic> json) {
+  factory PaapiItemProductGroup.fromJson(Map<String, Object?> json) {
     return PaapiItemProductGroup(
-      displayValue: json['DisplayValue'] as String?,
+      displayValue: json['DisplayValue']! as String?,
     );
   }
 
@@ -235,9 +236,9 @@ class PaapiItemBinding {
     this.displayValue,
   });
 
-  factory PaapiItemBinding.fromJson(Map<String, dynamic> json) {
+  factory PaapiItemBinding.fromJson(Map<String, Object?> json) {
     return PaapiItemBinding(
-      displayValue: json['DisplayValue'] as String?,
+      displayValue: json['DisplayValue']! as String?,
     );
   }
 
@@ -247,14 +248,12 @@ class PaapiItemBinding {
 class PaapiOffers {
   const PaapiOffers({this.listings});
 
-  factory PaapiOffers.fromJson(Map<String, dynamic> json) {
+  factory PaapiOffers.fromJson(Map<String, Object?> json) {
+    final dynamics = json['Listings']! as List;
+    final maps = dynamics.map((dynamic e) => e as Map<String, Object?>);
+    final listingsList = maps.map((e) => PaapiOffersListings.fromJson(e));
     return PaapiOffers(
-      listings: List<PaapiOffersListings>.from(
-        (json['Listings'] as List).map<PaapiOffersListings>(
-          (dynamic x) =>
-              PaapiOffersListings.fromJson(x as Map<String, dynamic>),
-        ),
-      ),
+      listings: listingsList.toList(),
     );
   }
 
@@ -264,9 +263,9 @@ class PaapiOffers {
 class PaapiOffersListings {
   const PaapiOffersListings({this.price});
 
-  factory PaapiOffersListings.fromJson(Map<String, dynamic> json) {
+  factory PaapiOffersListings.fromJson(Map<String, Object?> json) {
     return PaapiOffersListings(
-      price: PaapiOffersPrice.fromJson(json['Price'] as Map<String, dynamic>),
+      price: PaapiOffersPrice.fromJson(json['Price']! as Map<String, Object?>),
     );
   }
 
@@ -279,10 +278,10 @@ class PaapiOffersPrice {
     this.displayAmount,
   });
 
-  factory PaapiOffersPrice.fromJson(Map<String, dynamic> json) {
+  factory PaapiOffersPrice.fromJson(Map<String, Object?> json) {
     return PaapiOffersPrice(
-      amount: json['Amount'] as double?,
-      displayAmount: json['DisplayAmount'] as String?,
+      amount: json['Amount']! as double?,
+      displayAmount: json['DisplayAmount']! as String?,
     );
   }
 
