@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../common_widgets/loading_indicator.dart';
@@ -25,8 +24,8 @@ class ProPlanPage extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return LoadingIndicator(
-      loading:
-          ref.watch(proPlanPageControllerProvider.select<bool?>((s) => s.isLoading)),
+      loading: ref.watch(
+          proPlanPageControllerProvider.select<bool?>((s) => s.isLoading)),
       child: Scaffold(
         appBar: AppBar(title: const Text('Proプラン')),
         body: SafeArea(
@@ -89,14 +88,16 @@ class ProPlanStoreLinkCard extends HookConsumerWidget {
         SecondaryButton.icon(
           iconData: Icons.launch,
           labelText: 'お支払い方法の管理',
-          onPressed: () => ref.read(proPlanPageControllerProvider.notifier)
+          onPressed: () => ref
+              .read(proPlanPageControllerProvider.notifier)
               .openBillingPage(),
         ),
         const SizedBox(height: 16),
         SecondaryButton.icon(
           iconData: Icons.launch,
           labelText: 'サブスクリプションの管理',
-          onPressed: () => ref.read(proPlanPageControllerProvider.notifier)
+          onPressed: () => ref
+              .read(proPlanPageControllerProvider.notifier)
               .openSubscriptionManagingPage(),
         ),
       ],

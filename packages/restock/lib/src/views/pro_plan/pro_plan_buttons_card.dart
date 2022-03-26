@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../common_widgets/primary_button.dart';
@@ -61,19 +60,22 @@ class ProPlanButtonsCard extends HookConsumerWidget {
 
   // 月額プランの購入ボタンが押された時
   Future<void> _purchaseMonthly(WidgetRef ref, BuildContext context) async {
-    return ref.read(proPlanPageControllerProvider.notifier)
+    return ref
+        .read(proPlanPageControllerProvider.notifier)
         .purchaseMonthlyProPlan(context);
   }
 
   // 年額プランの購入ボタンが押された時
   Future<void> _purchaseAnnual(WidgetRef ref, BuildContext context) async {
-    return ref.read(proPlanPageControllerProvider.notifier)
+    return ref
+        .read(proPlanPageControllerProvider.notifier)
         .purchaseAnnualProPlan(context);
   }
 
   // 購入の復元ボタンが押された時
   Future<void> _restore(WidgetRef ref, BuildContext context) async {
-    return ref.read(proPlanPageControllerProvider.notifier)
+    return ref
+        .read(proPlanPageControllerProvider.notifier)
         .restorePurchase(context);
   }
 }

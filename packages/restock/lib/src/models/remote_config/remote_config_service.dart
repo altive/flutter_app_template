@@ -7,17 +7,17 @@ import 'recommend_stock_set_parameter.dart';
 import 'required_version_parameter.dart';
 
 class RemoteConfigService {
-  const RemoteConfigService({RemoteConfig? remoteConfig})
+  const RemoteConfigService({FirebaseRemoteConfig? remoteConfig})
       : _remoteConfig = remoteConfig;
 
-  final RemoteConfig? _remoteConfig;
+  final FirebaseRemoteConfig? _remoteConfig;
 
   static RemoteConfigService? _instance;
 
   /// 一意のインスタンスを使用する
   static Future<RemoteConfigService?> getInstance() async {
     if (_instance == null) {
-      final remoteConfig = RemoteConfig.instance;
+      final remoteConfig = FirebaseRemoteConfig.instance;
       _instance = RemoteConfigService(remoteConfig: remoteConfig);
       // デフォルト値をセット
       await setupDefaults(remoteConfig);
@@ -54,7 +54,7 @@ class RemoteConfigService {
   static const requiredAppVersionKey = 'required_app_version';
 
   /// 各デフォルト値を設定
-  static Future<void> setupDefaults(RemoteConfig remoteConfig) async {
+  static Future<void> setupDefaults(FirebaseRemoteConfig remoteConfig) async {
     return remoteConfig.setDefaults(<String, dynamic>{
       recommendedAsinListForSearchEntranceKey: '["B01BEPNPF6"]',
       requiredAppVersionKey:

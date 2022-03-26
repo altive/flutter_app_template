@@ -139,10 +139,13 @@ class PaapiClient {
       headers: Map.from(authorizedHeaders),
       body: payload,
     );
-    logger.fine('''Response: ${response.request}
-    Status Code: ${response.statusCode}
-    Body: ${response.body}
-    ''');
+    logger.fine(
+      '''
+Response: ${response.request}
+Status Code: ${response.statusCode}
+Body: ${response.body}
+    ''',
+    );
     return response;
   }
 
@@ -150,8 +153,9 @@ class PaapiClient {
   // Private Methods
   // ----------------------------------
   /// 商品取得API用のPayloadを作成
-  String _createPayloadForGetItems(
-      {required PaapiGetItemsParameters parameters}) {
+  String _createPayloadForGetItems({
+    required PaapiGetItemsParameters parameters,
+  }) {
     final payloadBuffer = StringBuffer('{');
     // ASINリストを展開
     final asinList = _unfoldListParameter(parameters.asin);
@@ -171,8 +175,9 @@ class PaapiClient {
   }
 
   /// 商品検索API用のPayloadを作成
-  String _createPayloadForSearchItems(
-      {required PaapiSearchItemsParameters parameters}) {
+  String _createPayloadForSearchItems({
+    required PaapiSearchItemsParameters parameters,
+  }) {
     final payloadBuffer = StringBuffer('{');
     // 任意パラメータをセット
     if (parameters.searchIndex != null) {
@@ -211,8 +216,9 @@ class PaapiClient {
   }
 
   /// 基底Headerを作成
-  SplayTreeMap<String, String?> _generateBaseHeaders(
-      {required PaapiOperation operation}) {
+  SplayTreeMap<String, String?> _generateBaseHeaders({
+    required PaapiOperation operation,
+  }) {
     final baseHeaders = SplayTreeMap<String, String?>();
     baseHeaders['content-encoding'] = contentEncoding;
     baseHeaders['content-type'] = contentType;

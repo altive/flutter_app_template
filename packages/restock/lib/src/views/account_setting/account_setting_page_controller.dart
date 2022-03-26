@@ -1,7 +1,6 @@
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:state_notifier/state_notifier.dart';
 
 import '../../core/me/me.dart';
 import '../../core/revenue/revenue.dart';

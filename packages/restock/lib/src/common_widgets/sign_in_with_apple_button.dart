@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../models/authenticator/sign_with_apple_service.dart';
@@ -32,16 +31,15 @@ class SignInWithAppleButton extends HookConsumerWidget {
                   elevation: 0,
                   primary: isLightTheme ? Colors.black : Colors.white,
                   shape: StadiumBorder(
-                    side: isLightTheme
-                        ? const BorderSide(width: 1)
-                        : BorderSide.none,
+                    side: isLightTheme ? const BorderSide() : BorderSide.none,
                   ),
                 ),
                 // タップした時に色の変化があるが、使用している画像の背景色が透明ではないので、
                 // 不自然な表現になってしまう。回避策としてタップ時の色変更を透明（なし）にしている
                 // highlightColor: Colors.transparent,
                 // splashColor: Colors.transparent,
-                onPressed: () => ref.read(receptionProvider.notifier)
+                onPressed: () => ref
+                    .read(receptionProvider.notifier)
                     .onPressedAppleButton(context),
                 icon: Image.asset(
                   isLightTheme

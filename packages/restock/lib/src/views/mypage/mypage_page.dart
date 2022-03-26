@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
@@ -34,8 +33,8 @@ class MypagePage extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final packageInfo = ref.watch(packageInfoProvider);
-    final isSubscriber =
-        ref.watch(revenueControllerProvider.select<bool>((s) => s.isSubscriber));
+    final isSubscriber = ref
+        .watch(revenueControllerProvider.select<bool>((s) => s.isSubscriber));
     return Scaffold(
       appBar: AppBar(
         title: const Text('マイページ'),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
@@ -29,9 +28,11 @@ class StockFilterPage extends HookConsumerWidget {
             is2ndSelected: sortingState.isExpirationFar,
             firstSelectionLabel: '近い',
             secondSelectionLabel: '遠い',
-            on1stSelected: (isOn) => ref.read(stockListPageControllerProvider.notifier)
+            on1stSelected: (isOn) => ref
+                .read(stockListPageControllerProvider.notifier)
                 .saveSelectedSorting(StockSortSelection.expirationNear),
-            on2ndSelected: (isOn) => ref.read(stockListPageControllerProvider.notifier)
+            on2ndSelected: (isOn) => ref
+                .read(stockListPageControllerProvider.notifier)
                 .saveSelectedSorting(StockSortSelection.expirationFar),
           ),
           _SorterChips(
@@ -41,9 +42,11 @@ class StockFilterPage extends HookConsumerWidget {
             is2ndSelected: sortingState.isNameDesc,
             firstSelectionLabel: 'A → Z',
             secondSelectionLabel: 'Z → A',
-            on1stSelected: (isOn) => ref.read(stockListPageControllerProvider.notifier)
+            on1stSelected: (isOn) => ref
+                .read(stockListPageControllerProvider.notifier)
                 .saveSelectedSorting(StockSortSelection.nameAsc),
-            on2ndSelected: (isOn) => ref.read(stockListPageControllerProvider.notifier)
+            on2ndSelected: (isOn) => ref
+                .read(stockListPageControllerProvider.notifier)
                 .saveSelectedSorting(StockSortSelection.nameDesc),
           ),
           _SorterChips(
@@ -53,9 +56,11 @@ class StockFilterPage extends HookConsumerWidget {
             is2ndSelected: sortingState.isMemoDesc,
             firstSelectionLabel: 'A → Z',
             secondSelectionLabel: 'Z → A',
-            on1stSelected: (isOn) => ref.read(stockListPageControllerProvider.notifier)
+            on1stSelected: (isOn) => ref
+                .read(stockListPageControllerProvider.notifier)
                 .saveSelectedSorting(StockSortSelection.memoAsc),
-            on2ndSelected: (isOn) => ref.read(stockListPageControllerProvider.notifier)
+            on2ndSelected: (isOn) => ref
+                .read(stockListPageControllerProvider.notifier)
                 .saveSelectedSorting(StockSortSelection.memoDesc),
           ),
           const Divider(),
@@ -64,7 +69,8 @@ class StockFilterPage extends HookConsumerWidget {
             children: [
               const Headline('絞り込み'),
               TextButton(
-                onPressed: ref.read(stockListPageControllerProvider.notifier)
+                onPressed: ref
+                    .read(stockListPageControllerProvider.notifier)
                     .resetFilter,
                 child: const Text('リセット'),
               ),
@@ -74,10 +80,12 @@ class StockFilterPage extends HookConsumerWidget {
             title: '在庫',
             iconData: Icons.backpack_outlined,
             state: filteringState.inventory,
-            onYesSelected: (isOn) => ref.read(stockListPageControllerProvider.notifier)
+            onYesSelected: (isOn) => ref
+                .read(stockListPageControllerProvider.notifier)
                 .saveFilteringInventory(
                     isOn ? FilteringState.yes : FilteringState.notSelected),
-            onNoSelected: (isOn) => ref.read(stockListPageControllerProvider.notifier)
+            onNoSelected: (isOn) => ref
+                .read(stockListPageControllerProvider.notifier)
                 .saveFilteringInventory(
                     isOn ? FilteringState.no : FilteringState.notSelected),
           ),
@@ -85,10 +93,12 @@ class StockFilterPage extends HookConsumerWidget {
             title: '期限',
             iconData: MdiIcons.calendarAlert,
             state: filteringState.expiration,
-            onYesSelected: (isOn) => ref.read(stockListPageControllerProvider.notifier)
+            onYesSelected: (isOn) => ref
+                .read(stockListPageControllerProvider.notifier)
                 .saveFilteringExpiration(
                     isOn ? FilteringState.yes : FilteringState.notSelected),
-            onNoSelected: (isOn) => ref.read(stockListPageControllerProvider.notifier)
+            onNoSelected: (isOn) => ref
+                .read(stockListPageControllerProvider.notifier)
                 .saveFilteringExpiration(
                     isOn ? FilteringState.no : FilteringState.notSelected),
           ),
@@ -98,10 +108,12 @@ class StockFilterPage extends HookConsumerWidget {
             yesText: '食品',
             noText: 'その他',
             state: filteringState.category,
-            onYesSelected: (isOn) => ref.read(stockListPageControllerProvider.notifier)
+            onYesSelected: (isOn) => ref
+                .read(stockListPageControllerProvider.notifier)
                 .saveFilteringCategory(
                     isOn ? FilteringState.yes : FilteringState.notSelected),
-            onNoSelected: (isOn) => ref.read(stockListPageControllerProvider.notifier)
+            onNoSelected: (isOn) => ref
+                .read(stockListPageControllerProvider.notifier)
                 .saveFilteringCategory(
                     isOn ? FilteringState.no : FilteringState.notSelected),
           ),

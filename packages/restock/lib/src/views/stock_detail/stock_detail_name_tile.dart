@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import 'stock_detail_page_controller.dart';
@@ -12,8 +11,8 @@ class StockDetailNameTile extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final name =
-        ref.watch(stockForStockDetailProvider.select<String?>((value) => value?.name));
+    final name = ref.watch(
+        stockForStockDetailProvider.select<String?>((value) => value?.name));
     final theme = Theme.of(context);
     return Container(
       color: theme.backgroundColor,

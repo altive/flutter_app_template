@@ -3,10 +3,8 @@ import 'dart:math';
 import 'package:amazon_paapi/amazon_paapi.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:intl/intl.dart';
-import 'package:json_annotation/json_annotation.dart';
 import 'package:uuid/uuid.dart';
 
 import '../../everyones_stock/everyones_stock_model.dart';

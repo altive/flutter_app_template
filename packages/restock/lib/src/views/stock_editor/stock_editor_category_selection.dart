@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../my_stock/my_stock_category.dart';
@@ -40,7 +39,8 @@ class StockEditorCategorySelection extends HookConsumerWidget {
           },
           onValueChanged: (selectedCategory) {
             logger.finest('Changed to $selectedCategory');
-            ref.read(stockEditorPageControllerProvider.notifier)
+            ref
+                .read(stockEditorPageControllerProvider.notifier)
                 .changeCategory(selectedCategory!);
           },
         ),

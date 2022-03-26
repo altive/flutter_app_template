@@ -31,13 +31,15 @@ class __DateDropdownButtonState extends ConsumerState<_DateDropdownButton> {
   Widget build(BuildContext context) {
     return Consumer(builder: (context, ref, child) {
       return DropdownButton<NotificationDate>(
-        value: ref.watch(sharedPreferencesServiceProvider).getNotificationDuration,
+        value:
+            ref.watch(sharedPreferencesServiceProvider).getNotificationDuration,
         icon: const Icon(Icons.arrow_drop_down),
         onChanged: (date) {
           logger.finer('通知日を変更: $date');
           // 何日前に通知するかを変更
           setState(() {
-            ref.read(sharedPreferencesServiceProvider)
+            ref
+                .read(sharedPreferencesServiceProvider)
                 .saveNotificationDuration(days: date.count);
           });
         },

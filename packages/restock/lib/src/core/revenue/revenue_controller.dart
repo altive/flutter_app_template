@@ -4,7 +4,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
-import 'package:state_notifier/state_notifier.dart';
 
 import '../../models/authenticator/auth_controller.dart';
 import '../../utils/utils.dart';

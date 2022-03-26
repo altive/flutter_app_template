@@ -26,7 +26,7 @@ final stockEntityListStreamProvider = StreamProvider<List<StockEntity>>((ref) {
 
 /// ストックリストを提供
 final stockEntityListProvider = Provider<List<StockEntity>?>((ref) {
-  return ref.watch(stockEntityListStreamProvider).data?.value;
+  return ref.watch(stockEntityListStreamProvider).value;
 });
 
 /// 単一ストックのStreamを提供
@@ -43,7 +43,7 @@ final stockEntityDetailStreamProvider =
 final stockEntityDetailProvider =
     Provider.family<StockEntity?, String>((ref, id) {
   final asyncValue = ref.watch(stockEntityDetailStreamProvider(id));
-  return asyncValue.data?.value;
+  return asyncValue.value;
 });
 
 /// ASINで絞り込んだストックリストのStreamを提供
@@ -60,7 +60,7 @@ final stockEntityFilteredAsinListStreamProvider =
 final stockEntityFilteredAsinListProvider =
     Provider.family<List<StockEntity?>?, String>((ref, asin) {
   final asyncValue = ref.watch(stockEntityFilteredAsinListStreamProvider(asin));
-  final data = asyncValue.data?.value;
+  final data = asyncValue.value;
   return data;
 });
 

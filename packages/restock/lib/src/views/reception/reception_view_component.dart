@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../models/remote_config/remote_config_provider.dart';
@@ -19,7 +18,8 @@ class GoogleSignInButton extends HookConsumerWidget {
         width: MediaQuery.of(context).size.width,
         height: 44,
         child: TextButton.icon(
-          onPressed: () => ref.read(receptionProvider.notifier)
+          onPressed: () => ref
+              .read(receptionProvider.notifier)
               .onPressedGoogleButton(context),
           icon: Image.asset('assets/images/btn_google_light_normal.png'),
           label: const Text(
@@ -33,7 +33,7 @@ class GoogleSignInButton extends HookConsumerWidget {
             elevation: 0,
             primary: Colors.white,
             shape: StadiumBorder(
-              side: isLightTheme ? const BorderSide(width: 1) : BorderSide.none,
+              side: isLightTheme ? const BorderSide() : BorderSide.none,
             ),
           ),
           // タップした時に色の変化があるが、使用している画像の背景色が透明ではないので、
@@ -55,7 +55,8 @@ class TermsButton extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return TextButton(
       onPressed: () {
-        ref.read(remoteConfigProvider)
+        ref
+            .read(remoteConfigProvider)
             .whenData((value) => launchUrl(value!.termsUrl));
       },
       child: const Text(
@@ -74,7 +75,8 @@ class PrivacyButton extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return TextButton(
       onPressed: () {
-        ref.read(remoteConfigProvider)
+        ref
+            .read(remoteConfigProvider)
             .whenData((value) => launchUrl(value!.privacyPoliciesUrl));
       },
       child: const Text(

@@ -1,6 +1,5 @@
 import 'package:amazon_paapi/amazon_paapi.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../common_widgets/list_section_header.dart';
@@ -76,7 +75,8 @@ class ProductCell extends HookConsumerWidget {
       color: Theme.of(context).backgroundColor,
       child: InkWell(
         onTap: () {
-          ref.read(searchEntranceProvider.notifier)
+          ref
+              .read(searchEntranceProvider.notifier)
               .presentStockEditorPage(ref, item, context);
         },
         child: SizedBox(

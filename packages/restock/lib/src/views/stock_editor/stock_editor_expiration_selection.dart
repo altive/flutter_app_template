@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+
 import '../../everyones_stock/expiration_date_type.dart';
 import '../../util/device_size_checker.dart';
 import '../../utils/utils.dart';
@@ -44,7 +44,8 @@ class StockEditorExpirationSelection extends HookConsumerWidget {
           },
           onValueChanged: (selectedType) {
             logger.finest('Changed to $selectedType');
-            ref.read(stockEditorPageControllerProvider.notifier)
+            ref
+                .read(stockEditorPageControllerProvider.notifier)
                 .changeExpirationDateType(selectedType!);
           },
         ),

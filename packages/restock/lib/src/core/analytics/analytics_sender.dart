@@ -1,5 +1,4 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
-import 'package:firebase_analytics/observer.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../models/authenticator/auth_method.dart';
@@ -50,7 +49,7 @@ class AnalyticsSender {
     String? currencyCode,
     required double price,
   }) {
-    analytics.logPurchaseRefund(
+    analytics.logRefund(
       currency: currencyCode ?? 'JPY',
       value: price,
     );

@@ -2,7 +2,6 @@ import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
-import 'package:state_notifier/state_notifier.dart';
 
 import '../../core/revenue/revenue.dart';
 import '../../util/web_launcher.dart';

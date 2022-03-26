@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:state_notifier/state_notifier.dart';
 import 'package:timezone/timezone.dart' as tz;
 
 import '../../providers/navigator.dart';

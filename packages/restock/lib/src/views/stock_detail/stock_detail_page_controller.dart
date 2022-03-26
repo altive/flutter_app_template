@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:state_notifier/state_notifier.dart';
 
 import '../../core/notification_service/notification_service.dart';
 import '../../core/revenue/revenue.dart';

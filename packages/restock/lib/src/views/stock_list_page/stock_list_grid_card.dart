@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
 
@@ -31,7 +30,6 @@ class StockListGridCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
-      alignment: AlignmentDirectional.topStart,
       children: [
         _Card(
           stock: stock,

@@ -1,7 +1,6 @@
 import 'package:firestore_ref/firestore_ref.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:json_annotation/json_annotation.dart';
 
 part 'user_request.freezed.dart';
 part 'user_request.g.dart';

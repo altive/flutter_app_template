@@ -1,7 +1,6 @@
 import 'package:collection/collection.dart';
 //import 'package:flutter/foundation.dart';
 //import 'package:freezed_annotation/freezed_annotation.dart';
-//import 'package:json_annotation/json_annotation.dart';
 
 //part 'paapi_search_items_response.freezed.dart';
 //part 'paapi_search_items_response.g.dart';
@@ -18,7 +17,8 @@ class PaapiSearchItemResponse {
   factory PaapiSearchItemResponse.fromJson(Map<String, dynamic> json) {
     return PaapiSearchItemResponse(
       searchResult: PaapiSearchItemsResult.fromJson(
-          json['SearchResult'] as Map<String, dynamic>),
+        json['SearchResult'] as Map<String, dynamic>,
+      ),
     );
   }
 
@@ -116,11 +116,14 @@ class PaapiItemImageSize {
   factory PaapiItemImageSize.fromJson(Map<String, dynamic> json) {
     return PaapiItemImageSize(
       small: PaapiItemImageSizeData.fromJson(
-          json['Small'] as Map<String, dynamic>),
+        json['Small'] as Map<String, dynamic>,
+      ),
       medium: PaapiItemImageSizeData.fromJson(
-          json['Medium'] as Map<String, dynamic>),
+        json['Medium'] as Map<String, dynamic>,
+      ),
       large: PaapiItemImageSizeData.fromJson(
-          json['Large'] as Map<String, dynamic>),
+        json['Large'] as Map<String, dynamic>,
+      ),
     );
   }
 
@@ -160,7 +163,8 @@ class PaapiItemInfo {
     return PaapiItemInfo(
       title: PaapiItemTitle.fromJson(json['Title'] as Map<String, dynamic>),
       classifications: PaapiItemClassifications.fromJson(
-          json['Classifications'] as Map<String, dynamic>),
+        json['Classifications'] as Map<String, dynamic>,
+      ),
     );
   }
 
@@ -245,9 +249,12 @@ class PaapiOffers {
 
   factory PaapiOffers.fromJson(Map<String, dynamic> json) {
     return PaapiOffers(
-      listings: List<PaapiOffersListings>.from((json['Listings'] as List)
-          .map<PaapiOffersListings>((dynamic x) =>
-              PaapiOffersListings.fromJson(x as Map<String, dynamic>))),
+      listings: List<PaapiOffersListings>.from(
+        (json['Listings'] as List).map<PaapiOffersListings>(
+          (dynamic x) =>
+              PaapiOffersListings.fromJson(x as Map<String, dynamic>),
+        ),
+      ),
     );
   }
 

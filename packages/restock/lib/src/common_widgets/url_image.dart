@@ -29,7 +29,6 @@ class UrlImage extends StatelessWidget {
       url!,
       width: width,
       height: height,
-      cache: true,
       loadStateChanged: (state) {
         switch (state.extendedImageLoadState) {
           case LoadState.failed:

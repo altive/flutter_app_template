@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:device_info/device_info.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:package_info/package_info.dart';
-import 'package:state_notifier/state_notifier.dart';
 
 import '../../models/authenticator/auth_controller.dart';
 import '../../models/firestore/user_request/user_request.dart';

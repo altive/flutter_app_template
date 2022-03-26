@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:state_notifier/state_notifier.dart';
 
 import '../../../core/amazon_searcher/amazon_searcher.dart';
 import '../../../models/remote_config/recommend_stock_set_parameter.dart';

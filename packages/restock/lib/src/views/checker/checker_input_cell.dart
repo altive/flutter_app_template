@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
@@ -88,14 +87,16 @@ class HumanTypeBox extends HookConsumerWidget {
               IconButton(
                 icon: const Icon(MdiIcons.plusCircle),
                 color: Theme.of(context).colorScheme.primary,
-                onPressed:
-                    currentCount > 9 ? null : () => didTapPlusButton(ref, context),
+                onPressed: currentCount > 9
+                    ? null
+                    : () => didTapPlusButton(ref, context),
               ),
               IconButton(
                 icon: const Icon(MdiIcons.minusCircle),
                 color: Theme.of(context).colorScheme.secondary,
-                onPressed:
-                    currentCount < 1 ? null : () => didTapMinusButton(ref, context),
+                onPressed: currentCount < 1
+                    ? null
+                    : () => didTapMinusButton(ref, context),
               ),
             ],
           ),

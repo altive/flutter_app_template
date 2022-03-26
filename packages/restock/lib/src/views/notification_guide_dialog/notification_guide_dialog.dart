@@ -59,7 +59,8 @@ class NotificationGuideDialog extends ConsumerWidget {
           onPressed: () async {
             logger.finest('訴求ダイアログの通知を受け取るアクションが選択されました');
             // iOSの通知の許可を得るためのOS標準ダイアログを表示する
-            final result = await ref.read(notificationControllerProvider.notifier)
+            final result = await ref
+                .read(notificationControllerProvider.notifier)
                 .requestLocalNotificationPermission();
             logger.fine('通知の許可： $result');
             // ダイアログを閉じて、許可/拒否の結果を伝える

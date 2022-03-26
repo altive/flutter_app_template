@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../common_widgets/list_section_header.dart';
@@ -59,7 +58,6 @@ class CheckerPage extends HookConsumerWidget {
                   final updatedAtDuration =
                       DateTime.now().difference(stockSet.updatedAt!);
                   return Stack(
-                    clipBehavior: Clip.hardEdge,
                     alignment: Alignment.topRight,
                     children: [
                       Column(

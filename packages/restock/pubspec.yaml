@@ -53,6 +53,7 @@ dependencies:
   intl: ^0.17.0
   json_annotation: ^4.0.1
   material_design_icons_flutter: 5.0.5955-rc.1
+  nested: ^1.0.0
   package_info: ^2.0.2
   permission_handler: ^9.2.0
   purchases_flutter: ^3.3.0
@@ -62,6 +63,7 @@ dependencies:
   shared_preferences: ^2.0.6
   sign_in_with_apple: ^3.2.0
   simple_logger: ^1.8.1
+  timezone: ^0.8.0
   tuple: ^2.0.0
   url_launcher: ^6.0.20
   uuid: ^3.0.4

@@ -48,10 +48,10 @@ class NotificationSchedulesPage extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final list = ref.watch(notificationScheduleListProvider);
-    if (list.data == null) {
+    if (list.value == null) {
       return const LoadingIndicator();
     }
-    final tuple = list.data!.value;
+    final tuple = list.value!;
     final payloadList = tuple.item1;
     final stockList = tuple.item2;
     return Scaffold(
@@ -134,7 +134,7 @@ class NotificationTile extends ConsumerWidget {
     return ColoredBox(
       color: Theme.of(context).backgroundColor,
       child: Dismissible(
-        key: Key(notificationPayload.documentId.toString()),
+        key: Key(notificationPayload.documentId),
         direction: DismissDirection.startToEnd,
         background: const DeletableBackground(label: '削除'),
         confirmDismiss: (direction) => _confirm(

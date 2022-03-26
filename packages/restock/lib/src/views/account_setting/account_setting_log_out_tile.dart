@@ -1,6 +1,5 @@
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
@@ -30,12 +29,14 @@ class AccountSettingLogOutTile extends HookConsumerWidget {
   }
 
   /// ログアウトするかの確認ダイアログを表示
-  Future<void> _presentConfirmDialog(WidgetRef ref, BuildContext context) async {
+  Future<void> _presentConfirmDialog(
+      WidgetRef ref, BuildContext context) async {
     final result = await showOkCancelAlertDialog(
         context: context, title: '期限の通知がすべてOFFになります');
     switch (result) {
       case OkCancelResult.ok:
-        final isSucceeded = await ref.read(accountSettingPageControllerProvider.notifier)
+        final isSucceeded = await ref
+            .read(accountSettingPageControllerProvider.notifier)
             .logOut();
         if (isSucceeded) {
           return _popToReceptionPage(context);

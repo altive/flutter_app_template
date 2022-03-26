@@ -1,11 +1,9 @@
 import 'package:amazon_paapi/amazon_paapi.dart';
 import 'package:firestore_ref/firestore_ref.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/widgets.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
-import 'package:json_annotation/json_annotation.dart';
 
 import '../../../core/revenue/revenue.dart';
 import '../../../everyones_stock/everyones_stock_model.dart';
@@ -106,7 +104,6 @@ class FavoriteItem with _$FavoriteItem {
                     MyStockCategory.grocery
                 ? 0
                 : 1,
-        expirationAt: null,
         amazonUrl: item.detailPageUrl,
         imageUrlSmall: item.smallImageUrl,
         imageUrlMedium: item.mediumImageUrl,

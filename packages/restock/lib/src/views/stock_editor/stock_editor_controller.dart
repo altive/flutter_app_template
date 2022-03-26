@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:state_notifier/state_notifier.dart';
 import 'package:uuid/uuid.dart';
 
 import '../../core/me/me.dart';
@@ -237,7 +236,6 @@ class StockEditorPageController extends StateNotifier<StockEditorState> {
           id: documentId,
           idNumber: Random().nextInt(294967296),
           name: state.itemName,
-          originalName: null,
           numberOfItems: state.numberOfItems.toDouble(),
           asin: null,
           itemId: itemId,
@@ -368,7 +366,7 @@ class StockEditorPageController extends StateNotifier<StockEditorState> {
 
   /// ストック保管場所の最新選択肢を取得
   Future<List<String>?> getPlaces() async {
-    final me = await _read(meEntityStreamProvider.last);
+    final me = await _read(meEntityStreamProvider.future);
     return me.groups;
   }
 }

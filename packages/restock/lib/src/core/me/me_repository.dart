@@ -27,7 +27,7 @@ final meEntityStreamProvider = StreamProvider<MeEntity>((ref) {
 
 /// Meを提供
 final meEntityProvider = Provider<MeEntity?>((ref) {
-  return ref.watch(meEntityStreamProvider).data?.value;
+  return ref.watch(meEntityStreamProvider).value;
 });
 
 /// Meのリポジトリ

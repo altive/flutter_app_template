@@ -4,7 +4,6 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:state_notifier/state_notifier.dart';
 
 import '../../core/analytics/analytics.dart';
 import '../../models/authenticator/auth_controller.dart';

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
 
@@ -25,7 +24,6 @@ class HomeItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Stack(
-      alignment: AlignmentDirectional.topStart,
       children: [
         _Card(
           stock: stock,
@@ -106,7 +104,8 @@ class _Card extends ConsumerWidget {
         dense: true,
         onTap: () async {
           // 詳細画面へ遷移
-          ref.read(selectedStockIdForStockDetailProvider.state).state = stock.id;
+          ref.read(selectedStockIdForStockDetailProvider.state).state =
+              stock.id;
           final result =
               await Navigator.of(context).pushNamed(StockDetailPage.routeName);
           // 何か返ってきた時のみスナックバーを表示する

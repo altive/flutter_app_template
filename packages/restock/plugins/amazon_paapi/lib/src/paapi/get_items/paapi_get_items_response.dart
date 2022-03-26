@@ -8,7 +8,8 @@ class PaapiGetItemsResponse {
   factory PaapiGetItemsResponse.fromJson(Map<String, dynamic> json) {
     return PaapiGetItemsResponse(
       itemsResult: PaapiGetItemsResult.fromJson(
-          json['ItemsResult'] as Map<String, dynamic>),
+        json['ItemsResult'] as Map<String, dynamic>,
+      ),
     );
   }
 

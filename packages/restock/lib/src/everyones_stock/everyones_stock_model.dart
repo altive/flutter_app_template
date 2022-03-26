@@ -2,7 +2,6 @@ import 'package:firestore_ref/firestore_ref.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:intl/intl.dart';
-import 'package:json_annotation/json_annotation.dart';
 
 import '../my_stock/my_stock_category.dart';
 import 'expiration_date_type.dart';

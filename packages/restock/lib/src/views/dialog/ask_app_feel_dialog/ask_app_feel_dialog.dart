@@ -25,7 +25,6 @@ class AskAppFeelDialog extends StatelessWidget {
       imageName: 'assets/images/ball_and_cat.png',
       titleLabel: 'ご利用ありがとうございます☺️',
       messageLabel: '「リストック」アプリは使いやすいと思いますか？',
-      primaryButtonLabel: 'はい',
       secondaryButtonLabel: '使いにくい',
       primaryButtonIconData: MdiIcons.starFace,
       primaryButtonOnPressed: () async {

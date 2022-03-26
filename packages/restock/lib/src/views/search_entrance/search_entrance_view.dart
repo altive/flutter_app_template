@@ -55,7 +55,6 @@ class ActionCard extends StatelessWidget {
         elevation: 0,
         shape: const RoundedRectangleBorder(
           side: BorderSide(
-            width: 1,
             color: Colors.black12,
           ),
           borderRadius: BorderRadius.all(Radius.circular(4)),

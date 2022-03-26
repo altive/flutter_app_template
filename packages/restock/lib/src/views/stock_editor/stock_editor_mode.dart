@@ -35,6 +35,7 @@ extension StockEditorModeNullableExt on StockEditorMode? {
       return null;
     }
     this!.title;
+    return null;
   }
 
   bool get isCreaterFromAmazon => this == StockEditorMode.creationWithAmazon;

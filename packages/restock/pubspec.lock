@@ -815,7 +815,7 @@ packages:
     source: hosted
     version: "1.0.1"
   nested:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: nested
       url: "https://pub.dartlang.org"
@@ -1205,7 +1205,7 @@ packages:
     source: hosted
     version: "0.4.8"
   timezone:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: timezone
       url: "https://pub.dartlang.org"
