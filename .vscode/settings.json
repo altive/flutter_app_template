@@ -43,6 +43,11 @@
 	},
 	// 使用するFlutter SDKのパスを指定。
 	"dart.flutterSdkPath": ".fvm/flutter_sdk",
+	// Dart SDKライブラリをデバッグ可能としてマークし、デバッグ中のステップインを可能にするなら`true`。
+	"dart.debugSdkLibraries": false,
+	// スキップしたテストをテストツリーに表示させるなら`true`.
+	"dart.showSkippedTests": false,
+	"dart.runPubGetOnPubspecChanges": true,
 	// 検索対象から生成ファイルを除外する
 	"search.exclude": {
 		"**/.fvm": true,
@@ -53,14 +58,9 @@
 	"files.watcherExclude": {
 		"**/.fvm": true
 	},
-	// Dart SDKライブラリをデバッグ可能としてマークし、デバッグ中のステップインを可能にするなら`true`。
-	"dart.debugSdkLibraries": false,
-	// スキップしたテストをテストツリーに表示させるなら`true`.
-	"dart.showSkippedTests": false,
 	// 現在のGitリポジトリのデフォルトリモートからコミットを自動で取得するなら`true`.
 	// `all` に設定すると、全てのリモートから取得する。
 	"git.autofetch": true,
 	// エクスプローラでファイルやフォルダをドラッグ＆ドロップした時に確認を求めるなら`true`.
 	"explorer.confirmDragAndDrop": false,
-	"dart.runPubGetOnPubspecChanges": false,
 }
