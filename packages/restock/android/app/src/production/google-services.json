@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "273222294304",
+    "firebase_url": "https://re-stock.firebaseio.com",
+    "project_id": "re-stock",
+    "storage_bucket": "re-stock.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:273222294304:android:490840a846ee465929d545",
+        "android_client_info": {
+          "package_name": "jp.altive.restock"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "273222294304-l69jkbdituploilg133892s0ibq54l1q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "jp.altive.restock",
+            "certificate_hash": "c7ea60bb2dc9727e234551f2a25321d70191bda3"
+          }
+        },
+        {
+          "client_id": "273222294304-gpi0jfohda3af8n7p30fqoaujid25qes.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCe8g8xklQh6VbTbNNUrozIGhEJInVYSnI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "273222294304-gpi0jfohda3af8n7p30fqoaujid25qes.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "273222294304-vjukbcahpm2puf8so4eu7b3haghpojm2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "jp.altive.restock"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

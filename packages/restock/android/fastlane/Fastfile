@@ -1,0 +1,62 @@
+default_platform(:android)
+
+platform :android do
+  desc "Build"
+  private_lane :build do
+    sh "cd ../../ && fvm flutter build appbundle --release --flavor production --dart-define=FLAVOR=production --no-tree-shake-icons"
+  end
+
+  desc "Submit a new Beta Build to Crashlytics Beta"
+  lane :beta do |options|
+    # gradle(task: "clean assembleRelease")
+    # crashlytics
+  
+    build
+
+    upload_to_play_store(
+      track: 'internal',
+      aab: '../build/app/outputs/bundle/productionRelease/app-production-release.aab',
+      skip_upload_apk: 'true',
+      skip_upload_aab: 'false',
+      skip_upload_metadata: 'true',
+      skip_upload_changelogs: 'false',
+      skip_upload_images: 'true',
+      skip_upload_screenshots: 'true',
+    )
+  end
+
+  desc "Submit a new Production Build"
+  lane :submit do |options|
+    # gradle(task: "clean assembleRelease")
+    # crashlytics
+  
+    build
+
+    upload_to_play_store(
+      track: 'production',
+      aab: '../build/app/outputs/bundle/productionRelease/app-production-release.aab',
+      skip_upload_apk: 'true',
+      skip_upload_aab: 'false',
+      skip_upload_images: 'true',
+      skip_upload_screenshots: 'true',
+    )
+  end
+
+  after_all do |lane|
+    slack(
+      success: true,
+      message: "#{lane} has succeeded! <@UJXB3RU0P>"
+    )
+  end
+
+  error do |lane, exception, options|
+    if options[:debug]
+      puts "some output"
+    else
+      slack(
+        success: false,
+        message: "#{lane}:#{exception.to_s} :\n#{exception.backtrace}"
+      )
+    end
+  end
+end

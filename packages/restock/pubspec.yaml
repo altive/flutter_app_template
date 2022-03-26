@@ -1,0 +1,101 @@
+name: rollingstock
+description: ReStock
+publish_to: 'none'
+version: 2.9.0+86
+
+environment:
+  sdk: ">=2.16.0 <3.0.0"
+  flutter: ">=2.10.3"
+
+dependencies:
+  adaptive_dialog: ^1.0.1
+  altive_flutter_kit:
+    git:
+      url: https://github.com/altive/altive_flutter_kit.git
+      ref: c2970bbbc7dd9833bbf9e3a462eece600cb0c87d
+  amazon_paapi:
+    path: plugins/amazon_paapi/
+  app_review: ^2.1.1+1
+  async: ^2.6.1
+  cloud_firestore: ^3.1.10
+  collection: ^1.15.0
+  convenient_widgets:
+    path: plugins/convenient_widgets/
+  crypto: ^3.0.1
+  cupertino_icons: ^1.0.3
+  device_info: ^2.0.2
+  enum_to_string: ^2.0.1
+  extended_image: ^6.0.1
+  firebase_analytics: ^9.1.2
+  firebase_auth: ^3.1.5
+  firebase_core: ^1.9.0
+  firebase_crashlytics: ^2.2.5
+  firebase_dynamic_links: ^4.0.8
+  firebase_messaging: ^11.2.8
+  firebase_performance: ^0.8.0+7
+  firebase_remote_config: ^2.0.2
+  firebase_storage: ^10.0.7
+  firestore_ref: ^0.13.3
+  flutter:
+    sdk: flutter
+  flutter_barcode_scanner: ^2.0.0
+  flutter_dotenv: ^5.0.2
+  flutter_hooks: ^0.18.0
+  flutter_local_notifications: ^9.4.0
+  flutter_localizations:
+    sdk: flutter
+  freezed_annotation: ^0.14.2
+  google_sign_in: ^5.0.4
+  hooks_riverpod: ^1.0.3
+  http: ^0.13.3
+  image_cropper: ^1.4.1
+  image_picker: ^0.8.1+2
+  intl: ^0.17.0
+  json_annotation: ^4.0.1
+  material_design_icons_flutter: 5.0.5955-rc.1
+  nested: ^1.0.0
+  package_info: ^2.0.2
+  permission_handler: ^9.2.0
+  purchases_flutter: ^3.3.0
+  quiver: ^3.0.1
+  recase: ^4.0.0
+  share: ^2.0.4
+  shared_preferences: ^2.0.6
+  sign_in_with_apple: ^3.2.0
+  simple_logger: ^1.8.1
+  timezone: ^0.8.0
+  tuple: ^2.0.0
+  url_launcher: ^6.0.20
+  uuid: ^3.0.4
+  version: ^2.0.0
+
+dev_dependencies:
+  build_runner: ^2.0.5
+  flutter_launcher_icons: ^0.9.0
+  flutter_lints: ^1.0.4
+  flutter_test:
+    sdk: flutter
+  freezed: ^0.14.2
+  json_serializable: ^6.1.5
+
+dependency_overrides:
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/app_icons/
+    - assets/images/
+    - assets/images/2x/
+    - assets/images/3x/
+    - assets/images/apple_logo_black.png
+    - assets/images/apple_logo_white.png
+    - assets/images/apple_logo_white.png
+    - assets/images/btn_google_light_normal.png
+    - assets/images/reception_featured_dark.png
+    - assets/images/reception_featured_light.png
+
+  fonts:
+    - family: M_PLUS_Rounded_1c
+      fonts:
+        - asset: assets/fonts/MPLUSRounded1c-Regular.ttf

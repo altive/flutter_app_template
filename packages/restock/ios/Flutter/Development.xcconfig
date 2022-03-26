@@ -1,0 +1,5 @@
+FLUTTER_FLAVOR=Development
+PRODUCT_BUNDLE_IDENTIFIER=jp.altive.rollingstock.development
+DISPLAY_NAME=ReStock Dev
+FLUTTER_TARGET=lib/main.dart
+ASSETCATALOG_COMPILER_APPICON_NAME=AppIcon-development

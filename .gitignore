@@ -140,10 +140,10 @@ coverage/
 **/fastlane/report.xml
 
 # FVM related
-.fvm/flutter_sdk
+**/.fvm/flutter_sdk
 
 # Bundler related
-vendor/bundle
+**/vendor/bundle
 
 # ENV
 .envrc

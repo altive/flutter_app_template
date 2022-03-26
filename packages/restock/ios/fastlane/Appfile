@@ -1,0 +1,8 @@
+# https://docs.fastlane.tools/advanced/#appfile
+
+# The bundle identifier
+app_identifier("jp.altive.restock")
+# App Store Connect Team ID
+itc_team_id("101958804") 
+# Developer Portal Team ID
+team_id("3537BAHE48") 

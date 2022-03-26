@@ -1,0 +1,25 @@
+name: convenient_widgets
+description: A new Flutter package project.
+publish_to: 'none'
+version: 0.0.1
+homepage: null
+
+environment:
+  sdk: '>=2.12.0 <3.0.0'
+  flutter: ">=1.17.0"
+
+dependencies:
+  altive_flutter_kit:
+    git:
+      url: https://github.com/altive/altive_flutter_kit.git
+      ref: c2970bbbc7dd9833bbf9e3a462eece600cb0c87d
+  flutter:
+    sdk: flutter
+  simple_logger: ^1.8.0+1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  pedantic_mono: ^1.14.0+1
+
+flutter:

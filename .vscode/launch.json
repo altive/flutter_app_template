@@ -25,6 +25,18 @@
             ]
         },
         {
+            "name": "ReStock (dev)",
+            "request": "launch",
+            "type": "dart",
+            "program": "packages/restock/lib/main.dart",
+            "flutterMode": "debug",
+            "args": [
+                "--flavor",
+                "development",
+                "--dart-define=FLAVOR=development"
+            ]
+        },
+        {
             "name": "vitaly_app (dev)",
             "request": "launch",
             "type": "dart",

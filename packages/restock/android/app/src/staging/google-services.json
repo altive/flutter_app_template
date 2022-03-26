@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "727863764527",
+    "firebase_url": "https://rolling-stock-app.firebaseio.com",
+    "project_id": "rolling-stock-app",
+    "storage_bucket": "rolling-stock-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:727863764527:android:60de361331b312169688da",
+        "android_client_info": {
+          "package_name": "jp.altive.rollingstock"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "727863764527-t6ug467i2364201jg81e089l95ter4ik.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC9WiqSDFa1HfI41cuhspZcyAlfWUz6174"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "727863764527-t6ug467i2364201jg81e089l95ter4ik.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "727863764527-6v90arqckamvcujn63gd9maevugk3mal.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "jp.altive.rollingstock"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
