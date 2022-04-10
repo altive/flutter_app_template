@@ -35,7 +35,7 @@ class RevenueController extends StateNotifier<RevenueState> {
 
   final Reader _read;
 
-  AnalyticsSender get _analyticsSender => _read(analyticsSenderProvider);
+  AnalysisLogger get _logger => _read(analysisLoggerProvider);
 
   final User? _user;
 
@@ -146,7 +146,7 @@ class RevenueController extends StateNotifier<RevenueState> {
 
     _updatePurchaserState(purchaserInfo);
 
-    _analyticsSender.purchase(
+    _logger.purchase(
       currencyCode: package.product.currencyCode,
       price: package.product.price,
     );

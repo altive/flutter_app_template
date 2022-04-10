@@ -13,6 +13,8 @@ scripts:
       melos exec -- \
         flutter pub upgrade --major-versions
     description: Upgrade the major version of the pub in all packages
+    select-packages:
+      flutter: true
 
   analyze:
     run: |
@@ -53,3 +55,24 @@ scripts:
         flutter build ipa --dart-define=FLAVOR=prod --export-options-plist="ios/prod/ExportOptions.plist"
     select-package:
       dir-exists: lib
+
+  upload:ios:prod:restock:
+    run: |
+      melos exec -c 1 --scope="rollingstock" --flutter --private -- \
+        flutter build ipa --flavor production --dart-define=FLAVOR=production --export-options-plist="ios/prod/ExportOptions.plist --no-tree-shake-icons"
+
+  # use fastlane
+  submit:all:restock:
+    run: |
+      melos run submit:ios:restock
+      melos run submit:android:restock
+      
+  submit:ios:restock:
+    run: |
+      melos exec -c 1 --scope="rollingstock" --flutter --private -- \
+        "cd ios && rbenv exec bundle update && rbenv exec bundle install && bundle exec fastlane submit"
+
+  submit:android:restock:
+    run: |
+      melos exec -c 1 --scope="rollingstock" --flutter --private -- \
+        "cd android && rbenv exec bundle update && rbenv exec bundle install && bundle exec fastlane submit"

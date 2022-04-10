@@ -4,6 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import '../../core/notification_service/notification_service.dart';
+import '../../util/notification_configurator/notification_configurator.dart';
 import 'stock_detail_page_controller.dart';
 
 /// 通知をON/OFFするセル
@@ -72,12 +73,11 @@ class StockDetailNotificationTile extends HookConsumerWidget {
     required WidgetRef ref,
     required BuildContext context,
   }) async {
-    final scaffold = ScaffoldMessenger.of(context);
     final numberOfItems = ref.read(stockForStockDetailProvider)!.numberOfItems;
     final isZeroCount = numberOfItems < 1;
     if (isZeroCount) {
       // ②ストックが0個のため通知はONにできない
-      scaffold
+      ScaffoldMessenger.of(context)
         ..removeCurrentSnackBar()
         ..showSnackBar(
           const SnackBar(
@@ -87,29 +87,12 @@ class StockDetailNotificationTile extends HookConsumerWidget {
       return;
     }
 
-    // 通知の許可状態
-    // MEMO: 本当は通知の訴求ダイアログを開こうとしたんだけど、
-    // 拒否状態なのにPermissionで`denied`ではなく`undetermined`が返ってくるので
-    // 直接OSのダイアログを開けば開いて、結果拒否でも設定開くダイアログを表示するようにした
-    final hasNotificationGranted = await ref
-        .read(notificationControllerProvider.notifier)
-        .hasNotificationGranted;
-    if (hasNotificationGranted == false) {
-      // ③通知の許可を訴求したが、拒否されている場合は、設定画面へ促す
+    if (ref.read(notificationConfiguratorProvider).isNotAuthorized) {
+      // ③通知の権限が拒否されている場合は、設定画面へ促す
       return _showSettingDialog(context);
     }
-    // if (hasNotificationGranted == null) {
-    //   // ④まだ許可/拒否が未確定の場合は、iOSの通知の許可を得るためのOS標準ダイアログを表示する
-    //   final selectedPermission = await context
-    //       .read(notificationControllerProvider.notifier)
-    //       .requestLocalNotificationPermission();
-    //   logger.fine('通知の許可： $selectedPermission');
-    //   if (selectedPermission == false) {
-    //     // 拒否された場合は設定画面へ促す
-    //     return _showSettingDialog(context);
-    //   }
-    // }
-    // 許可状態だった or 今回許可された場合のみ、通知を追加する
+
+    // 通知ToggleをONにできる
     final result = await ref
         .read(stockDetailPageControllerProvider.notifier)
         .addNotification();
@@ -117,7 +100,7 @@ class StockDetailNotificationTile extends HookConsumerWidget {
       return;
     }
     // 失敗したらトーストで理由を表示する
-    scaffold
+    ScaffoldMessenger.of(context)
       ..removeCurrentSnackBar()
       ..showSnackBar(SnackBar(content: Text(result)));
   }

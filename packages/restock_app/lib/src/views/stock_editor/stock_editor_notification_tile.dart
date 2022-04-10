@@ -5,6 +5,7 @@ import 'package:permission_handler/permission_handler.dart';
 
 import '../../core/notification_service/notification_service.dart';
 import '../../everyones_stock/expiration_date_type.dart';
+import '../../util/notification_configurator/notification_configurator.dart';
 import '../../util/shared_preferences_service.dart';
 import 'stock_editor_controller.dart';
 
@@ -106,30 +107,12 @@ class StockEditorNotificationTile extends HookConsumerWidget {
       return;
     }
 
-    // 通知の許可状態
-    // MEMO: 本当は通知の訴求ダイアログを開こうとしたんだけど、
-    // 拒否状態なのにPermissionで`denied`ではなく`undetermined`が返ってくるので
-    // 直接OSのダイアログを開けば開いて、結果拒否でも設定開くダイアログを表示するようにした
-    final hasNotificationGranted = await ref
-        .read(notificationControllerProvider.notifier)
-        .hasNotificationGranted;
-    if (hasNotificationGranted == false) {
-      // ③通知の許可を訴求したが、拒否されている場合は、設定画面へ促す
+    if (ref.read(notificationConfiguratorProvider).isNotAuthorized) {
+      // ③通知の権限が拒否されている場合は、設定画面へ促す
       return _showSettingDialog(context);
     }
-    // nullableではないので不必要
-    // if (hasNotificationGranted == null) {
-    //   // ④まだ許可/拒否が未確定の場合は、iOSの通知の許可を得るためのOS標準ダイアログを表示する
-    //   final selectedPermission = await context
-    //       .read(notificationControllerProvider.notifier)
-    //       .requestLocalNotificationPermission();
-    //   logger.fine('通知の許可： $selectedPermission');
-    //   if (selectedPermission == false) {
-    //     // 拒否された場合は設定画面へ促す
-    //     return _showSettingDialog(context);
-    //   }
-    // }
-    // 許可状態だった or 今回許可された場合のみ、通知ToggleをONにできる
+
+    // 通知ToggleをONにできる
     final result = await ref
         .read(stockEditorPageControllerProvider.notifier)
         .toggleNotification(isEnabled: true);

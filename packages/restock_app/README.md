@@ -1,5 +1,8 @@
 [![Codemagic build status](https://api.codemagic.io/apps/5ef7faee1aafca24b0a88384/5ef7faee1aafca24b0a88383/status_badge.svg)](https://codemagic.io/apps/5ef7faee1aafca24b0a88384/5ef7faee1aafca24b0a88383/latest_build)
 
+⚠️ This app is riddled with legacy code...
+（このアプリケーションはレガシーコードにまみれています…）
+
 # リストック (ReStock)
 
 備蓄をスマートに！
@@ -30,12 +33,13 @@ https://console.firebase.google.com/u/0/project/rolling-stock-app/
 Rolling Stock Staging
 https://console.firebase.google.com/u/0/project/rolling-stock-staging/
 
-## StoreへのDeploy手順
+## Storeへのリリース手順
 
 ### バージョンを決めて pubspec.yaml を編集
 
 ```yaml
-version: 2.5.0+80
+# セマンティックバージョニング＋ビルド番号
+version: x.y.g+XX
 ```
 
 ### リリースノートを編集する
@@ -46,22 +50,16 @@ version: 2.5.0+80
 1. `fastlane/metadata/ja/release_notes.txt` を編集してリリースノートを記載
 1. App Store Connect のアプリ画面で新しいバージョンを作成 e.g. `2.2.1`
 
-### Android と iOS を続けて審査提出
+### Android と iOS アプリを審査提出
+リポジトリのルートディレクトリにて以下を実行
 ```
-$ cd packages/restock
-$ make submit
-```
+$ melos run submit:all:restock
 
-### Androidのみ審査提出
+# Androidのみ審査提出する場合
+$ melos run submit:android:restock
 
-```
-$ cd packages/restock
-$ make submit-android
-```
-
-## iOSのみ審査提出
-
-```
-$ cd packages/restock
-$ make submit-ios
+# iOSのみ審査提出する場合
+$ melos submit:all:restock
+# fastlane が使用できない場合は以下を実行した後にApp Store Connectにて手動で審査提出
+$ melos upload:ios:prod:restock
 ```

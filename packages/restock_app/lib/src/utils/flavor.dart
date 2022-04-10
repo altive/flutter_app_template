@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -11,9 +10,6 @@ enum Flavor {
 }
 
 extension FlavorExt on Flavor {
-  /// enumの文字列を返却
-  String get key => describeEnum(this);
-
   /// 実行環境がDevelopment環境かどうか
   bool get isDevelopment => this == Flavor.development;
 
@@ -24,7 +20,7 @@ extension FlavorExt on Flavor {
   bool get isProduction => this == Flavor.production;
 
   /// アイコンのアセットパス
-  String get asset => 'assets/app_icons/icon-$key.png';
+  String get asset => 'assets/app_icons/icon-$name.png';
 
   /// 表示文字列
   String get label {

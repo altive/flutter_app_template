@@ -20,7 +20,7 @@ class App extends HookConsumerWidget {
     // 現在のテーマを取得
     final currentTheme = ref.watch(themeColorProvider);
     // Firebase AnalyticsのObserverでPageRoute遷移の追跡を行う
-    final analyticsObserver = ref.watch(analyticsSenderProvider).observer;
+    final analyticsObserver = ref.watch(analysisLoggerProvider).observer;
     return MaterialApp(
       title: ref.watch(appConstantProvider).title,
       localizationsDelegates: const [

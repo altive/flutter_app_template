@@ -5,7 +5,7 @@ platform :ios do
   desc 'Build iOS'
   private_lane :build do |options|
     # 事前ビルド
-    sh "cd ../../ && fvm flutter build ios --release --no-codesign --flavor production --dart-define=FLAVOR=production  --no-tree-shake-icons"
+    sh "cd ../../ && fvm flutter build ios --release --no-codesign --flavor production --dart-define=FLAVOR=production --no-tree-shake-icons"
     build_ios_app(
       workspace: "Runner.xcworkspace",
       scheme: "Runner",

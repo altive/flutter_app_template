@@ -7,6 +7,7 @@ import '../../common_widgets/loading_indicator.dart';
 import '../../common_widgets/unfocus_on_tap.dart';
 import '../../core/dynamic_links/dynamic_links.dart';
 import '../../models/authenticator/auth_controller.dart';
+import '../../util/notification_configurator/notification_configurator.dart';
 import 'bottom_tab.dart';
 import 'overlay_indicator_state_provider.dart';
 
@@ -29,7 +30,10 @@ class MainStackView extends HookConsumerWidget {
     useEffect(() {
       // 初回表示時のみ実行
       dynamicLinks.navigateDynamicLinksIfNeeded();
-      return;
+
+      // 通知の権限をリクエストする（iOSではシステムダイアログが表示される）
+      ref.read(notificationConfiguratorProvider.notifier).requestPermission();
+      return null;
     }, const []);
 
     final selectedIndex = ref.watch(_bottomTabIndexProvider.state).state;

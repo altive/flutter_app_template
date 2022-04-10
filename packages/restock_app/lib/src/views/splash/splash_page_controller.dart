@@ -3,13 +3,13 @@ import 'dart:io';
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:app_review/app_review.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 import 'package:package_info/package_info.dart';
 
+import '../../core/analytics/analytics.dart';
 import '../../core/revenue/revenue.dart';
 import '../../models/authenticator/auth_controller.dart';
 import '../../models/remote_config/remote_config_provider.dart';
@@ -30,6 +30,7 @@ class SplashPageController extends StateNotifier<SplashState> {
   final Ref _ref;
   RevenueController get _purchasesController =>
       _ref.read(revenueControllerProvider.notifier);
+  AnalysisLogger get _logger => _ref.read(analysisLoggerProvider);
 
   // Methods
   // ----------------------------------
@@ -56,8 +57,8 @@ class SplashPageController extends StateNotifier<SplashState> {
     } else {
       // サインインしていることが確定
       logger.fine('Signed User ID: ${user.uid}');
-      // CrashlyticsにユーザーのIDを設定
-      await FirebaseCrashlytics.instance.setUserIdentifier(user.uid);
+      // ユーザーのIDを設定
+      _logger.setUser(id: user.uid);
 
       // バージョンアップの要求が必要かチェック、（不要・必要・必要だが後回し可能）
       final versionUpdateStatus = await shouldRequestVersionUp(

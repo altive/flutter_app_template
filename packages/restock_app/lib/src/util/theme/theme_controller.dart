@@ -16,7 +16,7 @@ class ThemeController extends StateNotifier<ExTheme> {
 
   final Reader _read;
 
-  AnalyticsSender get _analyticsSender => _read(analyticsSenderProvider);
+  AnalysisLogger get _logger => _read(analysisLoggerProvider);
 
   SharedPreferencesService get _prefsController =>
       _read(sharedPreferencesServiceProvider);
@@ -34,6 +34,6 @@ class ThemeController extends StateNotifier<ExTheme> {
   Future<void> change(ExTheme theme) async {
     state = theme;
     await _prefsController.saveTheme(theme);
-    _analyticsSender.sendChangeTheme(theme);
+    _logger.sendChangeTheme(theme);
   }
 }

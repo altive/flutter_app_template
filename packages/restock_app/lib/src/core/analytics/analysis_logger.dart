@@ -1,35 +1,22 @@
-import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:analysis_logger/analysis_logger.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../models/authenticator/auth_method.dart';
 import '../../util/theme/ex_theme.dart';
 
+export 'package:analysis_logger/analysis_logger.dart';
+
 /// 解析送信クラスを提供する
-final analyticsSenderProvider = Provider<AnalyticsSender>((ref) {
-  return AnalyticsSender(ref.read);
-});
+final analysisLoggerProvider = Provider((ref) => AnalysisLogger());
 
 enum AnalyticsPurchaseEvent {
   displayDescriptionPage,
 }
 
 /// アナリティクス
-class AnalyticsSender {
-  AnalyticsSender(this._read);
-
-  // ignore: unused_field
-  final Reader _read;
-
-  final FirebaseAnalytics analytics = FirebaseAnalytics.instance;
-
-  // MEMO: late final にする
-  FirebaseAnalyticsObserver? _observer;
-  FirebaseAnalyticsObserver get observer =>
-      _observer ??= FirebaseAnalyticsObserver(analytics: analytics);
-
-  /// ユーザーの一意の識別子を送信する
-  void setUserId(String id) {
-    analytics.setUserId(id: id);
+extension EventLogger on AnalysisLogger {
+  void logCustomEvent() {
+    analytics.logEvent(name: 'event_name', parameters: {'key': 'value'});
   }
 
   /// サインアップログを送信する

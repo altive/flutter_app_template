@@ -17,7 +17,7 @@ class AboutThisAppPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final analyticsSender = ref.watch(analyticsSenderProvider);
+    final analyticsSender = ref.watch(analysisLoggerProvider);
     final packageInfo = ref.watch(packageInfoProvider);
     return Scaffold(
       appBar: AppBar(

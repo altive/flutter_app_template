@@ -1,6 +1,5 @@
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -26,7 +25,7 @@ class ReceptionController extends StateNotifier<ReceptionState> {
   final Reader _read;
 
   AuthController get _authController => _read(authControllerProvider.notifier);
-  AnalyticsSender get _analyticsSender => _read(analyticsSenderProvider);
+  AnalysisLogger get _logger => _read(analysisLoggerProvider);
 
   // Methods
   // ----------------------------------------
@@ -113,13 +112,12 @@ class ReceptionController extends StateNotifier<ReceptionState> {
     final result = await _authController.signInWithAnonymous();
 
     // 匿名アカウントにサインアップ成功
-    // CrashlyticsにユーザーのIDを設定
-    await FirebaseCrashlytics.instance.setUserIdentifier(result.user!.uid);
+    _logger.setUser(id: result.user!.uid);
     // ユーザーデータ作成
     await _createUserData();
     // Log送信
     logger.info('匿名アカウントで登録成功：${result.user!.uid}');
-    _analyticsSender.sendSignUpLog(AuthMethod.anonymous);
+    _logger.sendSignUpLog(AuthMethod.anonymous);
     // 状態更新：サインイン完了
     state = state.copyWith(loading: false);
     await Navigator.of(context).pushReplacementNamed(
@@ -155,20 +153,19 @@ class ReceptionController extends StateNotifier<ReceptionState> {
         signInMethod: signInMethod,
       );
     }
-    // CrashlyticsにユーザーのIDを設定
-    await FirebaseCrashlytics.instance
-        .setUserIdentifier(userCredential.user!.uid);
+    // ユーザーのIDを設定
+    _logger.setUser(id: userCredential.user!.uid);
     // 初めての登録か否か
     if (userCredential.additionalUserInfo!.isNewUser) {
       // （初めての）登録の場合
       // ユーザーデータ作成
       await _createUserData();
       // ログ送信
-      _analyticsSender.sendSignUpLog(signInMethod);
+      _logger.sendSignUpLog(signInMethod);
       logger.fine('新規登録完了: $signInMethod');
     } else {
       // ログインの場合
-      _analyticsSender.sendLogInLog(signInMethod);
+      _logger.sendLogInLog(signInMethod);
       logger.fine('ログイン完了: $signInMethod');
     }
     // 状態更新：サインイン完了

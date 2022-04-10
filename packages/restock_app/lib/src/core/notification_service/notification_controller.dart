@@ -4,7 +4,6 @@ import 'package:collection/collection.dart' show IterableExtension;
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'package:timezone/timezone.dart' as tz;
 
 import '../../providers/navigator.dart';
@@ -35,23 +34,6 @@ class NotificationController extends StateNotifier<List<int>> {
 
   static const notificationListKey = 'notificationList';
 
-  /// 通知の権限状態を調べる
-  Future<bool> get hasNotificationGranted async {
-    final status = await Permission.notification.status;
-    switch (status) {
-      case PermissionStatus.granted:
-        return true;
-      case PermissionStatus.denied:
-        return false;
-      case PermissionStatus.restricted:
-        return false;
-      case PermissionStatus.permanentlyDenied:
-        return false;
-      case PermissionStatus.limited:
-        return true;
-    }
-  }
-
   // --------------------------------
   // flutter_local_notifications API
   // --------------------------------
@@ -81,15 +63,13 @@ class NotificationController extends StateNotifier<List<int>> {
 
   /// 指定したIDの通知をキャンセル/削除
   Future<void> cancele({required int id}) async {
-    state.remove(id);
-    state = state;
+    state = state.where((e) => e != id).toList();
     return _plugin.cancel(id);
   }
 
   /// すべての通知をキャンセル/削除
   Future<void> canceleAll() async {
-    state.clear();
-    state = state;
+    state = [];
     return _plugin.cancelAll();
   }
 
@@ -183,8 +163,7 @@ class NotificationController extends StateNotifier<List<int>> {
     if (containsNotification(idNumber)) {
       // 登録済みの通知をキャンセルする
       await cancele(id: idNumber);
-      state.remove(idNumber);
-      state = state;
+      state = state.where((e) => e != idNumber).toList();
     }
     // 何日前に通知を送るか
     final durationDays = _prefsController.getNotificationDuration.count;
@@ -246,8 +225,7 @@ class NotificationController extends StateNotifier<List<int>> {
     //   notificationDetails,
     //   payload: payloadJson,
     // );
-    state.add(idNumber);
-    state = state;
+    state = [...state, idNumber];
   }
 
   /* 以下、未使用API
