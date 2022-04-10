@@ -49,8 +49,9 @@ class PurchaseProPlanUsecase {
   RevenueController get _revenueController =>
       _read(revenueControllerProvider.notifier);
 
-  Future<Result<void, PurchaseProPlanException>> call(
-      {required PackageType packageType}) async {
+  Future<Result<void, PurchaseProPlanException>> call({
+    required PackageType packageType,
+  }) async {
     try {
       await _revenueController
           .purchase(packageType: packageType)
@@ -67,11 +68,13 @@ class PurchaseProPlanUsecase {
         case PurchasesErrorCode.storeProblemError:
           // ストアに繋がらない
           return const Result.failure(
-              PurchaseProPlanException.notConnectedStore);
+            PurchaseProPlanException.notConnectedStore,
+          );
         case PurchasesErrorCode.networkError:
           // ネットワークエラー
           return const Result.failure(
-              PurchaseProPlanException.notConnectedStore);
+            PurchaseProPlanException.notConnectedStore,
+          );
         case PurchasesErrorCode.purchaseNotAllowedError:
         // 購入が許可されなかった
         case PurchasesErrorCode.purchaseInvalidError:
@@ -127,7 +130,8 @@ class PurchaseProPlanUsecase {
       switch (e.message) {
         case 'Not Found Curren offerings':
           return const Result.failure(
-              PurchaseProPlanException.notFoundOfferings);
+            PurchaseProPlanException.notFoundOfferings,
+          );
         default:
           return const Result.failure(PurchaseProPlanException.unknown);
       }

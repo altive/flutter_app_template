@@ -30,11 +30,12 @@ class PhotoShootingButton extends HookConsumerWidget {
         if (e.code == 'camera_access_denied') {
           // カメラ使用拒否されていた場合は設定画面へ促す
           final result = await showOkCancelAlertDialog(
-              context: context,
-              message: 'カメラへのアクセス許可が必要です。',
-              okLabel: '設定を開く',
-              cancelLabel: 'キャンセル',
-              defaultType: OkCancelAlertDefaultType.ok);
+            context: context,
+            message: 'カメラへのアクセス許可が必要です。',
+            okLabel: '設定を開く',
+            cancelLabel: 'キャンセル',
+            defaultType: OkCancelAlertDefaultType.ok,
+          );
           switch (result) {
             case OkCancelResult.ok:
               await openAppSettings();

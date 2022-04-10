@@ -83,11 +83,13 @@ class StockFilterPage extends HookConsumerWidget {
             onYesSelected: (isOn) => ref
                 .read(stockListPageControllerProvider.notifier)
                 .saveFilteringInventory(
-                    isOn ? FilteringState.yes : FilteringState.notSelected),
+                  isOn ? FilteringState.yes : FilteringState.notSelected,
+                ),
             onNoSelected: (isOn) => ref
                 .read(stockListPageControllerProvider.notifier)
                 .saveFilteringInventory(
-                    isOn ? FilteringState.no : FilteringState.notSelected),
+                  isOn ? FilteringState.no : FilteringState.notSelected,
+                ),
           ),
           _FilterChips(
             title: '期限',
@@ -96,11 +98,13 @@ class StockFilterPage extends HookConsumerWidget {
             onYesSelected: (isOn) => ref
                 .read(stockListPageControllerProvider.notifier)
                 .saveFilteringExpiration(
-                    isOn ? FilteringState.yes : FilteringState.notSelected),
+                  isOn ? FilteringState.yes : FilteringState.notSelected,
+                ),
             onNoSelected: (isOn) => ref
                 .read(stockListPageControllerProvider.notifier)
                 .saveFilteringExpiration(
-                    isOn ? FilteringState.no : FilteringState.notSelected),
+                  isOn ? FilteringState.no : FilteringState.notSelected,
+                ),
           ),
           _FilterChips(
             title: '種類',
@@ -111,11 +115,13 @@ class StockFilterPage extends HookConsumerWidget {
             onYesSelected: (isOn) => ref
                 .read(stockListPageControllerProvider.notifier)
                 .saveFilteringCategory(
-                    isOn ? FilteringState.yes : FilteringState.notSelected),
+                  isOn ? FilteringState.yes : FilteringState.notSelected,
+                ),
             onNoSelected: (isOn) => ref
                 .read(stockListPageControllerProvider.notifier)
                 .saveFilteringCategory(
-                    isOn ? FilteringState.no : FilteringState.notSelected),
+                  isOn ? FilteringState.no : FilteringState.notSelected,
+                ),
           ),
         ],
       ),

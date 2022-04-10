@@ -331,7 +331,8 @@ class AuthController extends StateNotifier<User?> {
   /// 認証で得たCredentialを使ってサインインし、取得できたフルネームがあれば反映する
   /// [FirebaseAuthException], [Exception] が発生する可能性がある
   Future<UserCredential> _signInWithAuthCredential(
-      AuthCredential authCredential) async {
+    AuthCredential authCredential,
+  ) async {
     final userCredential = await _auth.signInWithCredential(authCredential);
     logger.info('サインイン成功：${userCredential.user!.uid}');
     // 状態更新

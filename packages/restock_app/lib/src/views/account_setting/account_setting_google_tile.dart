@@ -43,10 +43,10 @@ class AccountSettingGoogleTile extends HookConsumerWidget {
     required bool hasGoogleLinked,
   }) async {
     final result = await showOkCancelAlertDialog(
-        context: context,
-        title: hasGoogleLinked
-            ? 'Googleアカウントとの連携を解除しますか？'
-            : 'Googleアカウントと連携しますか？');
+      context: context,
+      title:
+          hasGoogleLinked ? 'Googleアカウントとの連携を解除しますか？' : 'Googleアカウントと連携しますか？',
+    );
     switch (result) {
       case OkCancelResult.ok:
         await _linkOrUnlinkAccount(ref, context);

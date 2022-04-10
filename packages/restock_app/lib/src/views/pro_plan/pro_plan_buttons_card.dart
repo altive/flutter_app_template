@@ -15,7 +15,8 @@ class ProPlanButtonsCard extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final isProPlanUser = ref.watch(
-        revenueControllerProvider.select<bool>((value) => value.isSubscriber));
+      revenueControllerProvider.select<bool>((value) => value.isSubscriber),
+    );
     final pageState = ref.watch(proPlanPageControllerProvider);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,

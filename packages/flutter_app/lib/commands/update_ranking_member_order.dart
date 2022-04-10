@@ -18,12 +18,14 @@ class UpdateRankingMemberOrder {
     required String rankingId,
     required String memberId,
   }) {
-    return _read(myRankingMemberDocRefProvider(
-      Tuple2(
-        rankingId,
-        memberId,
+    return _read(
+      myRankingMemberDocRefProvider(
+        Tuple2(
+          rankingId,
+          memberId,
+        ),
       ),
-    ));
+    );
   }
 
   Future<void> call({

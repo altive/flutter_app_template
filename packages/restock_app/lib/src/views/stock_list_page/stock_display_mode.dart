@@ -24,4 +24,5 @@ extension StockDisplayModeExt on StockDisplayMode {
 
 /// [StockDisplayMode]ストックリストの表示モード
 final displayModeProvider = StateProvider(
-    (ref) => ref.watch(sharedPreferencesServiceProvider).getStockDisplayMode);
+  (ref) => ref.watch(sharedPreferencesServiceProvider).getStockDisplayMode,
+);

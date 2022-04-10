@@ -66,9 +66,10 @@ class WordChip extends HookConsumerWidget {
         final searchEntranceController =
             ref.read(searchEntranceProvider.notifier)..editSearchText(label);
         final params = searchEntranceController.genetateParams(
-            category: isGlossary
-                ? SearchItemsCategory.grocery
-                : SearchItemsCategory.all);
+          category: isGlossary
+              ? SearchItemsCategory.grocery
+              : SearchItemsCategory.all,
+        );
         // 検索結果画面へ遷移
         ref.read(searchParamProvider.state).state = params;
         await Navigator.of(context).pushNamed(

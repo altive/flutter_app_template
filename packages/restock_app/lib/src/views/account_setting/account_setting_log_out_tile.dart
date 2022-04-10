@@ -30,9 +30,13 @@ class AccountSettingLogOutTile extends HookConsumerWidget {
 
   /// ログアウトするかの確認ダイアログを表示
   Future<void> _presentConfirmDialog(
-      WidgetRef ref, BuildContext context) async {
+    WidgetRef ref,
+    BuildContext context,
+  ) async {
     final result = await showOkCancelAlertDialog(
-        context: context, title: '期限の通知がすべてOFFになります');
+      context: context,
+      title: '期限の通知がすべてOFFになります',
+    );
     switch (result) {
       case OkCancelResult.ok:
         final isSucceeded = await ref

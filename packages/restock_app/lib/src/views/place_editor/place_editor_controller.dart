@@ -5,7 +5,8 @@ import '../../core/me/me.dart';
 /// ストック保管場所ページのViewModel
 final placeEditorPageProvider =
     StateNotifierProvider<PlaceEditorPageController, bool>(
-        (ref) => PlaceEditorPageController(ref.read));
+  (ref) => PlaceEditorPageController(ref.read),
+);
 
 class PlaceEditorPageController extends StateNotifier<bool> {
   // ----- Constructor ----- //

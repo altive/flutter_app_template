@@ -24,7 +24,8 @@ class PlaceEditorPage extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final me = ref.watch(meEntityProvider)!;
     final isProUser = ref.watch(
-        revenueControllerProvider.select<bool>((value) => value.isSubscriber));
+      revenueControllerProvider.select<bool>((value) => value.isSubscriber),
+    );
     final stockCategories = me.groups!;
     return Scaffold(
       appBar: AppBar(
@@ -71,27 +72,28 @@ class PlaceEditorPage extends HookConsumerWidget {
                       (index, place) => MapEntry(
                         index,
                         Dismissible(
+                          key: Key(place),
+                          direction: DismissDirection.startToEnd,
+                          background: const DeletableBackground(
+                            label: '削除',
+                            margin: EdgeInsets.all(4),
+                          ),
+                          confirmDismiss: (direction) => _confirm(
+                            context: context,
+                            direction: direction,
+                          ),
+                          onDismissed: (direction) => _onDismissed(
+                            ref: ref,
+                            context: context,
+                            direction: direction,
+                            category: place,
+                          ),
+                          child: PlaceEditorCard(
                             key: Key(place),
-                            direction: DismissDirection.startToEnd,
-                            background: const DeletableBackground(
-                              label: '削除',
-                              margin: EdgeInsets.all(4),
-                            ),
-                            confirmDismiss: (direction) => _confirm(
-                                  context: context,
-                                  direction: direction,
-                                ),
-                            onDismissed: (direction) => _onDismissed(
-                                  ref: ref,
-                                  context: context,
-                                  direction: direction,
-                                  category: place,
-                                ),
-                            child: PlaceEditorCard(
-                              key: Key(place),
-                              index: index,
-                              stockCategories: stockCategories,
-                            )),
+                            index: index,
+                            stockCategories: stockCategories,
+                          ),
+                        ),
                       ),
                     )
                     .values

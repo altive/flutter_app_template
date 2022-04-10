@@ -37,125 +37,125 @@ class TimelineItemCell extends HookConsumerWidget {
     final itemNameLength = item.name.length;
     // 最大文字数を超えていた場合は最大文字数でカットする
     final itemName = item.name.substring(
-        0,
-        itemNameLength > itemNameMaxLength
-            ? itemNameMaxLength
-            : itemNameLength);
+      0,
+      itemNameLength > itemNameMaxLength ? itemNameMaxLength : itemNameLength,
+    );
     final itemCount = '${item.numberOfItems.toInt()}';
     final storongStyle = theme.textTheme.bodyText2!.copyWith(
       fontSize: 14,
       fontWeight: FontWeight.bold,
     );
     return favoritesAsyncValue.when(
-        loading: () => const LoadingIndicator(),
-        error: (error, stack) => ErrorWidget(error),
-        data: (favoriteItems) {
-          final isFavorited = favoriteItems.firstWhereOrNull(
-                (doc) => doc.entity!.asin == item.asin,
-              ) !=
-              null;
-          return Card(
-            elevation: 0,
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(8)),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
-              child: Row(
-                children: [
-                  // アイテム画像
-                  Column(
+      loading: () => const LoadingIndicator(),
+      error: (error, stack) => ErrorWidget(error),
+      data: (favoriteItems) {
+        final isFavorited = favoriteItems.firstWhereOrNull(
+              (doc) => doc.entity!.asin == item.asin,
+            ) !=
+            null;
+        return Card(
+          elevation: 0,
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(8)),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.fromLTRB(16, 8, 16, 0),
+            child: Row(
+              children: [
+                // アイテム画像
+                Column(
+                  children: [
+                    UrlImage(
+                      item.imageUrlSmall,
+                      width: 48,
+                      height: 48,
+                    ),
+                    const SizedBox(height: 8),
+                    FittedBox(child: _CreatedAtText(date: item.createdAt)),
+                  ],
+                ),
+                const SizedBox(width: 16),
+                // 画像以外（アイテム名など）
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      UrlImage(
-                        item.imageUrlSmall,
-                        width: 48,
-                        height: 48,
+                      // アイテム名
+                      Text.rich(
+                        TextSpan(
+                          text: '',
+                          style: theme.textTheme.bodyText2!.copyWith(
+                            fontSize: 14,
+                            color: Colors.grey,
+                          ),
+                          children: [
+                            if (item.expirationAt != null)
+                              TextSpan(
+                                text: '期限まで ',
+                                children: [
+                                  TextSpan(
+                                    text:
+                                        '''${item.expirationAt!.difference(DateTime.now()).inDays}''',
+                                    style: storongStyle,
+                                  ),
+                                  const TextSpan(
+                                    text: ' 日の',
+                                  ),
+                                ],
+                              ),
+                            const TextSpan(
+                              text: '「',
+                            ),
+                            TextSpan(
+                              text: itemName,
+                              style: storongStyle,
+                            ),
+                            const TextSpan(
+                              text: '」 が ',
+                            ),
+                            TextSpan(
+                              text: itemCount,
+                              style: storongStyle,
+                            ),
+                            const TextSpan(
+                              text: ' 個 ストックされました！',
+                            ),
+                          ],
+                        ),
+                        maxLines: 4,
                       ),
-                      const SizedBox(height: 8),
-                      FittedBox(child: _CreatedAtText(date: item.createdAt)),
+                      // アイコンボタン
+                      IconButtonsOnCell(
+                        isFavorited: isFavorited,
+                        onPressedAddButton: () => _didTapCreateButton(
+                          ref: ref,
+                          context: context,
+                          item: item,
+                        ),
+                        onPressedFavoriteButton: () => _didTapFavoritesButton(
+                          ref: ref,
+                          context: context,
+                          timelineItem: item,
+                          favoritesCount: favoriteItems.length,
+                          isFavorited: isFavorited,
+                        ),
+                        onPressedAmazonButton: () => _didTapAmazonButton(
+                          url: item.amazonUrl,
+                        ),
+                        onPressedShareButton: () => _didTapShareButton(
+                          context: context,
+                          item: item,
+                        ),
+                      ),
                     ],
                   ),
-                  const SizedBox(width: 16),
-                  // 画像以外（アイテム名など）
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        // アイテム名
-                        Text.rich(
-                          TextSpan(
-                            text: '',
-                            style: theme.textTheme.bodyText2!.copyWith(
-                              fontSize: 14,
-                              color: Colors.grey,
-                            ),
-                            children: [
-                              if (item.expirationAt != null)
-                                TextSpan(
-                                  text: '期限まで ',
-                                  children: [
-                                    TextSpan(
-                                      text:
-                                          '''${item.expirationAt!.difference(DateTime.now()).inDays}''',
-                                      style: storongStyle,
-                                    ),
-                                    const TextSpan(
-                                      text: ' 日の',
-                                    ),
-                                  ],
-                                ),
-                              const TextSpan(
-                                text: '「',
-                              ),
-                              TextSpan(
-                                text: itemName,
-                                style: storongStyle,
-                              ),
-                              const TextSpan(
-                                text: '」 が ',
-                              ),
-                              TextSpan(
-                                text: itemCount,
-                                style: storongStyle,
-                              ),
-                              const TextSpan(
-                                text: ' 個 ストックされました！',
-                              ),
-                            ],
-                          ),
-                          maxLines: 4,
-                        ),
-                        // アイコンボタン
-                        IconButtonsOnCell(
-                          isFavorited: isFavorited,
-                          onPressedAddButton: () => _didTapCreateButton(
-                            ref: ref,
-                            context: context,
-                            item: item,
-                          ),
-                          onPressedFavoriteButton: () => _didTapFavoritesButton(
-                            ref: ref,
-                            context: context,
-                            timelineItem: item,
-                            favoritesCount: favoriteItems.length,
-                            isFavorited: isFavorited,
-                          ),
-                          onPressedAmazonButton: () => _didTapAmazonButton(
-                            url: item.amazonUrl,
-                          ),
-                          onPressedShareButton: () => _didTapShareButton(
-                            context: context,
-                            item: item,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
-          );
-        });
+          ),
+        );
+      },
+    );
   }
 
   /// ストックアイテムを作成するボタンが押された

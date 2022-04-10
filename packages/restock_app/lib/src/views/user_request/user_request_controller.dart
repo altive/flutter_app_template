@@ -12,7 +12,8 @@ import 'user_request_state.dart';
 
 final userRequestProvider =
     StateNotifierProvider.autoDispose<UserRequestController, UserRequestState>(
-        (ref) => UserRequestController(ref.read));
+  (ref) => UserRequestController(ref.read),
+);
 
 class UserRequestController extends StateNotifier<UserRequestState> {
   UserRequestController(this._read) : super(const UserRequestState());

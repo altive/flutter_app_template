@@ -60,7 +60,8 @@ class RecommendDetailController extends StateNotifier<RecommendDetailState> {
     if (response == null || response.statusCode != 200) {
       // 失敗した場合
       logger.warning(
-          '商品検索に失敗: ${response?.statusCode}(${response?.reasonPhrase})');
+        '商品検索に失敗: ${response?.statusCode}(${response?.reasonPhrase})',
+      );
       return;
     }
     // 文字化け対策bodyBytes: https://qiita.com/takyam/items/98d6336f1b2fe912fd56

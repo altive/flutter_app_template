@@ -10,7 +10,8 @@ import 'pro_plan_page_state.dart';
 
 final proPlanPageControllerProvider =
     StateNotifierProvider<ProPlanPageController, ProPlanPageState>(
-        (ref) => ProPlanPageController(ref.read));
+  (ref) => ProPlanPageController(ref.read),
+);
 
 // Proプラン案内ページのロジック
 class ProPlanPageController extends StateNotifier<ProPlanPageState> {

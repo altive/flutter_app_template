@@ -25,7 +25,8 @@ class ProPlanPage extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return LoadingIndicator(
       loading: ref.watch(
-          proPlanPageControllerProvider.select<bool?>((s) => s.isLoading)),
+        proPlanPageControllerProvider.select<bool?>((s) => s.isLoading),
+      ),
       child: Scaffold(
         appBar: AppBar(title: const Text('Proプラン')),
         body: SafeArea(

@@ -9,7 +9,8 @@ part 'stock_list_filter_state.freezed.dart';
 /// ストックリストの絞り込み表示設定状態を提供する
 /// 初期値はSharedPreferencesに記憶済みの値から取得する
 final stockFilterProvider = StateProvider(
-    (ref) => ref.watch(sharedPreferencesServiceProvider).getStockFilterings);
+  (ref) => ref.watch(sharedPreferencesServiceProvider).getStockFilterings,
+);
 
 @freezed
 class HomeStockFilterState with _$HomeStockFilterState {

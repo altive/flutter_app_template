@@ -51,44 +51,68 @@ class MeRepository {
   /// マイストックの可視性を変更する
   /// ※未公開
   Future<void> updateStockVisibility({required bool isPrivate}) async {
-    return meRef.update(updateTimestamp(json: <String, Object>{
-      MeEntityField.isPrivateMyStock: isPrivate,
-    }));
+    return meRef.update(
+      updateTimestamp(
+        json: <String, Object>{
+          MeEntityField.isPrivateMyStock: isPrivate,
+        },
+      ),
+    );
   }
 
   /// ニックネームを付与する
   Future<void> addNickname() async {
-    await meRef.update(updateTimestamp(json: <String, Object>{
-      MeEntityField.nickname: generateNickname(),
-    }));
+    await meRef.update(
+      updateTimestamp(
+        json: <String, Object>{
+          MeEntityField.nickname: generateNickname(),
+        },
+      ),
+    );
   }
 
   /// ニックネームを更新する
   Future<void> updateNickname(String nickname) async {
-    await meRef.update(updateTimestamp(json: <String, Object>{
-      MeEntityField.nickname: nickname,
-    }));
+    await meRef.update(
+      updateTimestamp(
+        json: <String, Object>{
+          MeEntityField.nickname: nickname,
+        },
+      ),
+    );
   }
 
   /// ストックグループリストを新しいリストで更新する
   Future<void> updateGroups(List<String> categories) async {
-    await meRef.update(updateTimestamp(json: <String, Object>{
-      MeEntityField.groups: categories,
-    }));
+    await meRef.update(
+      updateTimestamp(
+        json: <String, Object>{
+          MeEntityField.groups: categories,
+        },
+      ),
+    );
   }
 
   /// ストックグループを1つ削除する
   Future<void> removeGroup(String category) async {
-    await meRef.update(updateTimestamp(json: <String, Object>{
-      MeEntityField.groups: FieldValue.arrayRemove(<String>[category]),
-    }));
+    await meRef.update(
+      updateTimestamp(
+        json: <String, Object>{
+          MeEntityField.groups: FieldValue.arrayRemove(<String>[category]),
+        },
+      ),
+    );
   }
 
   /// ストックグループを1つ追加する
   Future<void> unionGroup(String category) async {
-    await meRef.update(updateTimestamp(json: <String, Object>{
-      MeEntityField.groups: FieldValue.arrayUnion(<String>[category]),
-    }));
+    await meRef.update(
+      updateTimestamp(
+        json: <String, Object>{
+          MeEntityField.groups: FieldValue.arrayUnion(<String>[category]),
+        },
+      ),
+    );
   }
 
   /// ストックグループを1つ更新する
@@ -111,9 +135,11 @@ class MeRepository {
       // 新しいグループ情報でドキュメントを更新する
       transaction.update(
         meRef,
-        updateTimestamp(json: <String, Object?>{
-          MeEntityField.groups: categories,
-        }),
+        updateTimestamp(
+          json: <String, Object?>{
+            MeEntityField.groups: categories,
+          },
+        ),
       );
     });
   }
@@ -123,9 +149,13 @@ class MeRepository {
     required String nickname,
     required List<String> stockCategories,
   }) async {
-    return meRef.update(updateTimestamp(json: <String, Object>{
-      MeEntityField.nickname: nickname,
-      MeEntityField.groups: stockCategories,
-    }));
+    return meRef.update(
+      updateTimestamp(
+        json: <String, Object>{
+          MeEntityField.nickname: nickname,
+          MeEntityField.groups: stockCategories,
+        },
+      ),
+    );
   }
 }

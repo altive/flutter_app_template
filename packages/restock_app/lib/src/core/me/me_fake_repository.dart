@@ -48,8 +48,11 @@ class FakeMeRepository implements MeRepository {
   }
 
   @override
-  Future<void> updateGroup(
-      {int? position, String? oldCategory, String? newCategory}) {
+  Future<void> updateGroup({
+    int? position,
+    String? oldCategory,
+    String? newCategory,
+  }) {
     throw UnimplementedError();
   }
 }

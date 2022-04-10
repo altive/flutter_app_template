@@ -70,8 +70,9 @@ class AccountSettingAppleTile extends HookConsumerWidget {
       required bool hasAppleLinked,
     }) async {
       final result = await showOkCancelAlertDialog(
-          context: context,
-          title: hasAppleLinked ? 'Apple IDとの連携を解除しますか？' : 'Apple IDと連携しますか？');
+        context: context,
+        title: hasAppleLinked ? 'Apple IDとの連携を解除しますか？' : 'Apple IDと連携しますか？',
+      );
       switch (result) {
         case OkCancelResult.ok:
           return linkOrUnlinkAccount();

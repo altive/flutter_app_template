@@ -100,7 +100,8 @@ final searchedStocksProvider =
 
 /// ストック一覧の並び替え設定
 final stockSortingProvider = StateProvider<StockSortSelection>(
-    (ref) => ref.watch(sharedPreferencesServiceProvider).getStockSorting);
+  (ref) => ref.watch(sharedPreferencesServiceProvider).getStockSorting,
+);
 
 /// 並び替えをしたマイストックリスト
 final sortedStocksProvider =

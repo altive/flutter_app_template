@@ -27,14 +27,17 @@ class MainStackView extends HookConsumerWidget {
       return const SizedBox();
     }
     final dynamicLinks = ref.watch(dynamicLinksControllerProvider);
-    useEffect(() {
-      // 初回表示時のみ実行
-      dynamicLinks.navigateDynamicLinksIfNeeded();
+    useEffect(
+      () {
+        // 初回表示時のみ実行
+        dynamicLinks.navigateDynamicLinksIfNeeded();
 
-      // 通知の権限をリクエストする（iOSではシステムダイアログが表示される）
-      ref.read(notificationConfiguratorProvider.notifier).requestPermission();
-      return null;
-    }, const []);
+        // 通知の権限をリクエストする（iOSではシステムダイアログが表示される）
+        ref.read(notificationConfiguratorProvider.notifier).requestPermission();
+        return null;
+      },
+      const [],
+    );
 
     final selectedIndex = ref.watch(_bottomTabIndexProvider.state).state;
     return UnfocusOnTap(

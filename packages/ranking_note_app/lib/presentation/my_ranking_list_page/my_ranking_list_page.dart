@@ -145,10 +145,13 @@ class _LoadingView extends HookWidget {
       ).animate(animationController),
     );
 
-    useEffect(() {
-      animationController.repeat(reverse: true);
-      return null;
-    }, const []);
+    useEffect(
+      () {
+        animationController.repeat(reverse: true);
+        return null;
+      },
+      const [],
+    );
 
     return Padding(
       padding: const EdgeInsets.all(16),

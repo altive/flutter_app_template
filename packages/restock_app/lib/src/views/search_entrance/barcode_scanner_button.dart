@@ -26,11 +26,12 @@ class BarcodeScannerButton extends HookConsumerWidget {
         // カメラ使用拒否されていた場合は設定画面へ促す
         // 現状このcatchには入らず、パッケージのダイアログが表示される🤔
         final result = await showOkCancelAlertDialog(
-            context: context,
-            message: 'バーコードのスキャンにはカメラへのアクセス許可が必要です。',
-            okLabel: '設定を開く',
-            cancelLabel: 'キャンセル',
-            defaultType: OkCancelAlertDefaultType.ok);
+          context: context,
+          message: 'バーコードのスキャンにはカメラへのアクセス許可が必要です。',
+          okLabel: '設定を開く',
+          cancelLabel: 'キャンセル',
+          defaultType: OkCancelAlertDefaultType.ok,
+        );
         switch (result) {
           case OkCancelResult.ok:
             await openAppSettings();

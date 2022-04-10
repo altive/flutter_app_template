@@ -107,7 +107,8 @@ class MemoCell extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final memo = ref.watch(
-        stockForStockDetailProvider.select<String?>((value) => value?.memo));
+      stockForStockDetailProvider.select<String?>((value) => value?.memo),
+    );
     if (memo == null) {
       return const SizedBox();
     }
@@ -129,8 +130,10 @@ class NumberOfItemsCell extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final numberOfItems = ref.watch(stockForStockDetailProvider
-        .select<double?>((value) => value?.numberOfItems));
+    final numberOfItems = ref.watch(
+      stockForStockDetailProvider
+          .select<double?>((value) => value?.numberOfItems),
+    );
     return ListTile(
       leading: Text(
         'ストック個数',
@@ -154,8 +157,10 @@ class CategoryCell extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final stockCategory = ref.watch(stockForStockDetailProvider
-        .select<String?>((value) => value?.stockCategory));
+    final stockCategory = ref.watch(
+      stockForStockDetailProvider
+          .select<String?>((value) => value?.stockCategory),
+    );
     return ListTile(
       leading: Text(
         'グループ',
@@ -175,10 +180,14 @@ class ExpirationCell extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final expirationAt = ref.watch(stockForStockDetailProvider
-        .select<DateTime?>((value) => value?.expirationAt));
-    final expirationDateType = ref.watch(stockForStockDetailProvider
-        .select<ExpirationDateType?>((value) => value?.expirationDateType));
+    final expirationAt = ref.watch(
+      stockForStockDetailProvider
+          .select<DateTime?>((value) => value?.expirationAt),
+    );
+    final expirationDateType = ref.watch(
+      stockForStockDetailProvider
+          .select<ExpirationDateType?>((value) => value?.expirationDateType),
+    );
     return ListTile(
       leading: Text(
         expirationDateType?.label ?? '',

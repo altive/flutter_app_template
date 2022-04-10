@@ -5,8 +5,10 @@ class LoadingIndicator extends StatelessWidget {
     Key? key,
     this.child,
     this.loading,
-  })  : assert((child == null && loading == null) ||
-            (child != null && loading != null)),
+  })  : assert(
+          (child == null && loading == null) ||
+              (child != null && loading != null),
+        ),
         super(key: key);
 
   final Widget? child;

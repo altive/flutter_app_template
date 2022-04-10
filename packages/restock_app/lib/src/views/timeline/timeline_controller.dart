@@ -26,6 +26,7 @@ class TimelineController extends StateNotifier<TimelineState> {
       (query) => query.orderBy('createdAt', descending: true).limit(20),
     );
     state = state.copyWith(
-        displayItems: value.map((e) => e.entity).whereNotNull().toList());
+      displayItems: value.map((e) => e.entity).whereNotNull().toList(),
+    );
   }
 }

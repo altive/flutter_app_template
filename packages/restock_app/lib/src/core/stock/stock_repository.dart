@@ -82,32 +82,36 @@ class StockRepository {
     final snapshots = orderByField == null
         ? collectionRef.snapshots()
         : collectionRef.orderBy(StockEntityField.expirationAt).snapshots();
-    return snapshots.map((e) => e.docs.map((e) {
-          return StockEntity.fromJson(e.data()! as Map<String, Object?>)
-              .copyWith(
-            id: e.id, // 古いストックはIDをフィールドに保存していないため
-          );
-        }).toList());
+    return snapshots.map(
+      (e) => e.docs.map((e) {
+        return StockEntity.fromJson(e.data()! as Map<String, Object?>).copyWith(
+          id: e.id, // 古いストックはIDをフィールドに保存していないため
+        );
+      }).toList(),
+    );
   }
 
   /// ASINで絞り込んだストックリストのStreamを返す。
   Stream<List<StockEntity?>> streamListFilteredAsin(String asin) {
     final snapshots =
         collectionRef.where(StockEntityField.asin, isEqualTo: asin).snapshots();
-    return snapshots.map((e) => e.docs.map((e) {
-          return StockEntity.fromJson(e.data()! as Map<String, Object?>)
-              .copyWith(
-            id: e.id, // 古いストックはIDをフィールドに保存していないため
-          );
-        }).toList());
+    return snapshots.map(
+      (e) => e.docs.map((e) {
+        return StockEntity.fromJson(e.data()! as Map<String, Object?>).copyWith(
+          id: e.id, // 古いストックはIDをフィールドに保存していないため
+        );
+      }).toList(),
+    );
   }
 
   /// 単一ストックのStreamを返す
   Stream<StockEntity?> stream(String id) {
     return collectionRef.doc(id).snapshots().map(
-        (e) => StockEntity.fromJson(e.data()! as Map<String, Object?>).copyWith(
-              id: e.id, // 古いストックはIDをフィールドに保存していないため
-            ));
+          (e) =>
+              StockEntity.fromJson(e.data()! as Map<String, Object?>).copyWith(
+            id: e.id, // 古いストックはIDをフィールドに保存していないため
+          ),
+        );
   }
 
   /// 単一ストックを非同期で取得する
@@ -133,9 +137,13 @@ class StockRepository {
     String? id, {
     required int value,
   }) async {
-    return collectionRef.doc(id).update(updateTimestamp(json: <String, Object>{
-          StockEntityField.numberOfItems: FieldValue.increment(value),
-        }));
+    return collectionRef.doc(id).update(
+          updateTimestamp(
+            json: <String, Object>{
+              StockEntityField.numberOfItems: FieldValue.increment(value),
+            },
+          ),
+        );
   }
 
   /// ストックの個数を指定数分減らす

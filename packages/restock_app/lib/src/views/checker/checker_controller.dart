@@ -6,7 +6,8 @@ import 'checker_human_type.dart';
 import 'checker_state.dart';
 
 final checkerProvider = StateNotifierProvider<CheckerController, CheckerState>(
-    CheckerController.new);
+  CheckerController.new,
+);
 
 class CheckerController extends StateNotifier<CheckerState> {
   // ----- Constructor ----- //

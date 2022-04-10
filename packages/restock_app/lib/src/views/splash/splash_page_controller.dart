@@ -20,7 +20,8 @@ import 'splash_state.dart';
 
 final splashPageControllerProvider =
     StateNotifierProvider<SplashPageController, SplashState>(
-        SplashPageController.new);
+  SplashPageController.new,
+);
 
 /// アプリ起動直後に表示するスプラッシュ画面のロジック担当
 class SplashPageController extends StateNotifier<SplashState> {

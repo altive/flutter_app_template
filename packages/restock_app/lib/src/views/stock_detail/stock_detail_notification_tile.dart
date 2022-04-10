@@ -15,15 +15,20 @@ class StockDetailNotificationTile extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final expirationAt = ref.watch(stockForStockDetailProvider
-        .select<DateTime?>((value) => value?.expirationAt));
+    final expirationAt = ref.watch(
+      stockForStockDetailProvider
+          .select<DateTime?>((value) => value?.expirationAt),
+    );
     if (expirationAt == null) {
       return const SizedBox();
     }
     final idNumber = ref.watch(
-        stockForStockDetailProvider.select<int?>((value) => value?.idNumber));
-    final isOn = ref.watch(notificationControllerProvider
-        .select<bool>((value) => value.contains(idNumber)));
+      stockForStockDetailProvider.select<int?>((value) => value?.idNumber),
+    );
+    final isOn = ref.watch(
+      notificationControllerProvider
+          .select<bool>((value) => value.contains(idNumber)),
+    );
 
     final controller = ref.watch(stockDetailPageControllerProvider.notifier);
 
@@ -108,11 +113,12 @@ class StockDetailNotificationTile extends HookConsumerWidget {
   /// 通知の設定を開くダイアログを表示する
   Future<void> _showSettingDialog(BuildContext context) async {
     final result = await showOkCancelAlertDialog(
-        context: context,
-        message: 'ストックの期限を通知するために、設定アプリから「通知」をONにしてください。',
-        okLabel: '設定を開く',
-        cancelLabel: 'キャンセル',
-        defaultType: OkCancelAlertDefaultType.ok);
+      context: context,
+      message: 'ストックの期限を通知するために、設定アプリから「通知」をONにしてください。',
+      okLabel: '設定を開く',
+      cancelLabel: 'キャンセル',
+      defaultType: OkCancelAlertDefaultType.ok,
+    );
     switch (result) {
       case OkCancelResult.ok:
         await openAppSettings();

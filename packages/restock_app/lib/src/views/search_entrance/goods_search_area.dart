@@ -33,13 +33,15 @@ class GoodsSearchArea extends HookConsumerWidget {
             children: <Widget>[
               const SizedBox(width: 8),
               Expanded(
-                  child: Text(
-                'Amazonで検索',
-                style: Theme.of(context).textTheme.subtitle2,
-              )),
+                child: Text(
+                  'Amazonで検索',
+                  style: Theme.of(context).textTheme.subtitle2,
+                ),
+              ),
               const SearchCategoryRadioField(category: SearchItemsCategory.all),
               const SearchCategoryRadioField(
-                  category: SearchItemsCategory.grocery),
+                category: SearchItemsCategory.grocery,
+              ),
             ],
           ),
           Row(
@@ -59,9 +61,10 @@ class GoodsSearchArea extends HookConsumerWidget {
                       prefixIcon: const Icon(Icons.search),
                       suffixIcon: IconButton(
                         icon: const Icon(Icons.clear),
-                        onPressed: () => WidgetsBinding.instance!
-                            .addPostFrameCallback(
-                                (_) => _searchFieldController.clear()),
+                        onPressed: () =>
+                            WidgetsBinding.instance!.addPostFrameCallback(
+                          (_) => _searchFieldController.clear(),
+                        ),
                       ),
                       border: OutlineInputBorder(
                         borderSide: BorderSide.none,
@@ -93,14 +96,15 @@ class GoodsSearchArea extends HookConsumerWidget {
                   searchEntranceController: searchEntranceController,
                 ),
                 style: ElevatedButton.styleFrom(
-                    visualDensity: VisualDensity.compact,
-                    padding: const EdgeInsets.symmetric(vertical: 20),
-                    elevation: 0,
-                    shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(8),
-                      ),
-                    )),
+                  visualDensity: VisualDensity.compact,
+                  padding: const EdgeInsets.symmetric(vertical: 20),
+                  elevation: 0,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(8),
+                    ),
+                  ),
+                ),
                 child: Text('検索', style: Theme.of(context).textTheme.button),
               ),
             ],

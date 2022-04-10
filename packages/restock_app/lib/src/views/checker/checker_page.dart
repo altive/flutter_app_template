@@ -37,10 +37,11 @@ class CheckerPage extends HookConsumerWidget {
               const ListSectionHeader(title: '家族の人数を入力して、ストック量を計算してみよう！'),
               const CheckerInputCell(),
               _ListCell(
-                  child: ResultCell(
-                rice: rice,
-                water: water,
-              )),
+                child: ResultCell(
+                  rice: rice,
+                  water: water,
+                ),
+              ),
               const Divider(height: 1),
               // 無洗米・飲料水の基本セット
               _ListCell(

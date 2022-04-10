@@ -22,21 +22,25 @@ class CreateRankingMember {
     required String rankingId,
     required String memberId,
   }) {
-    return _read(myRankingMemberDocRefProvider(
-      Tuple2(
-        rankingId,
-        memberId,
+    return _read(
+      myRankingMemberDocRefProvider(
+        Tuple2(
+          rankingId,
+          memberId,
+        ),
       ),
-    ));
+    );
   }
 
   Reference _newRankingMemberImageRef({
     required String rankingId,
     required String memberId,
   }) {
-    return _read(newRankingMemberImageRefProvider(
-      Tuple2(rankingId, memberId),
-    ));
+    return _read(
+      newRankingMemberImageRefProvider(
+        Tuple2(rankingId, memberId),
+      ),
+    );
   }
 
   Future<void> call({

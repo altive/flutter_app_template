@@ -13,8 +13,10 @@ class StockDetailCounterView extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final numberOfItems = ref.watch(stockForStockDetailProvider
-        .select<int?>((value) => value?.numberOfItems.toInt()));
+    final numberOfItems = ref.watch(
+      stockForStockDetailProvider
+          .select<int?>((value) => value?.numberOfItems.toInt()),
+    );
     if (numberOfItems == null) {
       return const SizedBox();
     }

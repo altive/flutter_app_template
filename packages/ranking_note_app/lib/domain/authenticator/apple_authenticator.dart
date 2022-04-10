@@ -48,9 +48,11 @@ class AppleAuthenticator {
     /// Sign in with Apple が使えない場合、 [SignInWithAppleNotSupportedException]
     late AuthorizationCredentialAppleID credential;
     try {
-      credential = await SignInWithApple.getAppleIDCredential(scopes: [
-        AppleIDAuthorizationScopes.email,
-      ]);
+      credential = await SignInWithApple.getAppleIDCredential(
+        scopes: [
+          AppleIDAuthorizationScopes.email,
+        ],
+      );
     } on SignInWithAppleAuthorizationException catch (e) {
       switch (e.code) {
         case AuthorizationErrorCode.canceled:

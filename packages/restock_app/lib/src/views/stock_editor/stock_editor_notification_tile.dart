@@ -128,11 +128,12 @@ class StockEditorNotificationTile extends HookConsumerWidget {
   /// 通知の設定を開くダイアログを表示する
   Future<void> _showSettingDialog(BuildContext context) async {
     final result = await showOkCancelAlertDialog(
-        context: context,
-        message: 'ストックの期限を通知するために、設定アプリから「通知」をONにしてください。',
-        okLabel: '設定を開く',
-        cancelLabel: 'キャンセル',
-        defaultType: OkCancelAlertDefaultType.ok);
+      context: context,
+      message: 'ストックの期限を通知するために、設定アプリから「通知」をONにしてください。',
+      okLabel: '設定を開く',
+      cancelLabel: 'キャンセル',
+      defaultType: OkCancelAlertDefaultType.ok,
+    );
     switch (result) {
       case OkCancelResult.ok:
         await openAppSettings();

@@ -15,11 +15,12 @@ class ResultCell extends StatelessWidget {
     final theme = Theme.of(context);
     if (rice == 0 || water == 0) {
       return const ListTile(
-          title: Text(
-        '3日分の無洗米と飲料水を計算できます',
-        style: TextStyle(color: Colors.grey),
-        textAlign: TextAlign.center,
-      ));
+        title: Text(
+          '3日分の無洗米と飲料水を計算できます',
+          style: TextStyle(color: Colors.grey),
+          textAlign: TextAlign.center,
+        ),
+      );
     }
     final strongStyle = TextStyle(
       fontWeight: FontWeight.bold,

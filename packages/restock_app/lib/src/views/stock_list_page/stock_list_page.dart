@@ -49,10 +49,13 @@ class StockListPage extends HookConsumerWidget {
       }
     }
 
-    useEffect(() {
-      scrollController.addListener(scrollListner);
-      return () => scrollController.removeListener(scrollListner);
-    }, [scrollController]);
+    useEffect(
+      () {
+        scrollController.addListener(scrollListner);
+        return () => scrollController.removeListener(scrollListner);
+      },
+      [scrollController],
+    );
 
     final stockCategories = ref.watch(stockCategoriesProvider);
 
@@ -100,13 +103,16 @@ class StockListPage extends HookConsumerWidget {
                 ),
                 ...stockCategories
                     .asMap()
-                    .map((index, category) => MapEntry(
+                    .map(
+                      (index, category) => MapEntry(
                         index,
                         StockListView(
                           categoryIndex: index,
                           group: category,
                           scrollController: scrollController,
-                        )))
+                        ),
+                      ),
+                    )
                     .values,
               ],
             ),

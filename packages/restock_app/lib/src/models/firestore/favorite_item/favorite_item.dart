@@ -149,10 +149,12 @@ FavoritesRef favoritesRef(String uid) => FavoritesRef(uid);
 class FavoritesRef
     extends CollectionRef<FavoriteItem, FavoriteDoc, FavoriteRef> {
   FavoritesRef(this.uid)
-      : super(FirebaseFirestore.instance
-            .collection('users')
-            .doc(uid)
-            .collection('favorites'));
+      : super(
+          FirebaseFirestore.instance
+              .collection('users')
+              .doc(uid)
+              .collection('favorites'),
+        );
 
   final String uid;
 

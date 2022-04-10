@@ -12,7 +12,8 @@ class StockDetailNameTile extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final name = ref.watch(
-        stockForStockDetailProvider.select<String?>((value) => value?.name));
+      stockForStockDetailProvider.select<String?>((value) => value?.name),
+    );
     final theme = Theme.of(context);
     return Container(
       color: theme.backgroundColor,

@@ -12,7 +12,8 @@ class ProPlanTopCard extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final theme = Theme.of(context);
     final isProPlanUser = ref.watch(
-        revenueControllerProvider.select<bool>((value) => value.isSubscriber));
+      revenueControllerProvider.select<bool>((value) => value.isSubscriber),
+    );
 
     return Container(
       margin: const EdgeInsets.only(bottom: 16),

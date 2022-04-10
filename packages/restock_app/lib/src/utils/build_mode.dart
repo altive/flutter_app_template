@@ -20,9 +20,11 @@ BuildMode get _buildMode {
     return BuildMode.release;
   }
   var result = BuildMode.profile;
-  assert(() {
-    result = BuildMode.debug;
-    return true;
-  }());
+  assert(
+    () {
+      result = BuildMode.debug;
+      return true;
+    }(),
+  );
   return result;
 }

@@ -50,10 +50,12 @@ class ProPlanComparisonCard extends StatelessWidget {
                 children: [
                   const _NormalCell(label: '無料'),
                   ...ProPlanBenefit.values
-                      .map((e) => Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 8),
-                            child: _NormalCell(label: e.forFree),
-                          ))
+                      .map(
+                        (e) => Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 8),
+                          child: _NormalCell(label: e.forFree),
+                        ),
+                      )
                       .toList(),
                 ],
               ),
@@ -66,15 +68,19 @@ class ProPlanComparisonCard extends StatelessWidget {
                 color: Theme.of(context).colorScheme.secondary,
                 borderRadius: BorderRadius.circular(8),
               ),
-              child: Column(children: [
-                const _PremiumCell(label: 'Pro'),
-                ...ProPlanBenefit.values
-                    .map((e) => Padding(
+              child: Column(
+                children: [
+                  const _PremiumCell(label: 'Pro'),
+                  ...ProPlanBenefit.values
+                      .map(
+                        (e) => Padding(
                           padding: const EdgeInsets.symmetric(vertical: 8),
                           child: _PremiumCell(label: e.forPremium),
-                        ))
-                    .toList(),
-              ]),
+                        ),
+                      )
+                      .toList(),
+                ],
+              ),
             ),
           ],
         ),

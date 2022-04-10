@@ -24,9 +24,6 @@ linter:
     # Not work as documented: https://dart-lang.github.io/linter/lints/avoid_returning_null_for_future.html
     avoid_returning_null_for_future: false
 
-    # temporarily disabled
-    require_trailing_commas: false
-
     # 冗長すぎる
     prefer_final_parameters: false
 

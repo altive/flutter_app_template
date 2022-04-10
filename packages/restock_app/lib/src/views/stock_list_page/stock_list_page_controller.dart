@@ -20,7 +20,8 @@ import 'stock_list_sort_selection.dart';
 
 final stockListPageControllerProvider =
     StateNotifierProvider<StockListPageController, bool>(
-        (ref) => StockListPageController(ref.read));
+  (ref) => StockListPageController(ref.read),
+);
 
 class StockListPageController extends StateNotifier<bool> {
   // ----- Constructor ----- //

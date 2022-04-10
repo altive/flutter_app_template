@@ -69,7 +69,9 @@ class ItemImageDisplay extends StatelessWidget {
                   label: Text(
                     category!.displayLabel,
                     style: Theme.of(context).textTheme.subtitle2!.copyWith(
-                        color: Colors.white, fontWeight: FontWeight.bold),
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                        ),
                   ),
                   backgroundColor: category.color,
                 ),

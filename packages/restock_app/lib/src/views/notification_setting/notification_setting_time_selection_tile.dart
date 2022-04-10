@@ -18,28 +18,30 @@ class _NotificationSettingTimeSelectionTileState
     extends ConsumerState<NotificationSettingTimeSelectionTile> {
   @override
   Widget build(BuildContext context) {
-    return Consumer(builder: (context, ref, child) {
-      final selectedTime = ref
-          .watch(sharedPreferencesServiceProvider)
-          .getNotificationTimeSetting;
-      return ListTile(
-        onTap: () => _updateNotificationTime(
-          ref: ref,
-          context: context,
-          initialTime: selectedTime,
-        ),
-        leading: const Icon(Icons.access_time),
-        title: const Text('通知の時刻'),
-        subtitle: const Text('登録済み通知の時刻は変更されません'),
-        trailing: Wrap(
-          crossAxisAlignment: WrapCrossAlignment.center,
-          children: <Widget>[
-            FittedBox(child: Text(selectedTime.format(context))),
-            const FittedBox(child: Icon(Icons.arrow_drop_down)),
-          ],
-        ),
-      );
-    });
+    return Consumer(
+      builder: (context, ref, child) {
+        final selectedTime = ref
+            .watch(sharedPreferencesServiceProvider)
+            .getNotificationTimeSetting;
+        return ListTile(
+          onTap: () => _updateNotificationTime(
+            ref: ref,
+            context: context,
+            initialTime: selectedTime,
+          ),
+          leading: const Icon(Icons.access_time),
+          title: const Text('通知の時刻'),
+          subtitle: const Text('登録済み通知の時刻は変更されません'),
+          trailing: Wrap(
+            crossAxisAlignment: WrapCrossAlignment.center,
+            children: <Widget>[
+              FittedBox(child: Text(selectedTime.format(context))),
+              const FittedBox(child: Icon(Icons.arrow_drop_down)),
+            ],
+          ),
+        );
+      },
+    );
   }
 
   /// 通知する時刻を変更

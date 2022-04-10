@@ -54,7 +54,9 @@ class _UserRequestPageState extends State<UserRequestPage> {
                   child: SingleChildScrollView(
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
-                          vertical: 16, horizontal: 16),
+                        vertical: 16,
+                        horizontal: 16,
+                      ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: <Widget>[

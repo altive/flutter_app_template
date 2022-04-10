@@ -63,7 +63,8 @@ class SearchEntranceController extends StateNotifier<SearchEntranceState> {
     // 失敗した場合は `null` を返す
     if (response == null || response.statusCode != 200) {
       logger.warning(
-          '商品特定に失敗: ${response?.statusCode}(${response?.reasonPhrase})');
+        '商品特定に失敗: ${response?.statusCode}(${response?.reasonPhrase})',
+      );
       return;
     }
     // 文字化け対策bodyBytes: https://qiita.com/takyam/items/98d6336f1b2fe912fd56

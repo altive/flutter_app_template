@@ -176,7 +176,8 @@ class RankingEditingSheet extends HookConsumerWidget {
                               ref.read(validatorProvider).isValidTag(value);
                           if (validated != null) {
                             ScaffoldMessenger.of(context).showSnackBar(
-                                SnackBar(content: Text(validated)));
+                              SnackBar(content: Text(validated)),
+                            );
                             return;
                           }
                           addTag(value);

@@ -78,7 +78,9 @@ class SearchResultItemCard extends HookConsumerWidget {
                       style: theme.textTheme.bodyText1,
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
-                            vertical: 8, horizontal: 16),
+                          vertical: 8,
+                          horizontal: 16,
+                        ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: <Widget>[
@@ -97,7 +99,8 @@ class SearchResultItemCard extends HookConsumerWidget {
                                 child: Text(
                                   '$counts個ストック済み',
                                   style: theme.textTheme.caption!.copyWith(
-                                      color: theme.colorScheme.primary),
+                                    color: theme.colorScheme.primary,
+                                  ),
                                 ),
                               ),
                           ],
@@ -130,36 +133,37 @@ class _IconButtons extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     // お気に入りリストを取得
     return ref.watch(favoriteItemProvider).when(
-        loading: () => const LoadingIndicator(),
-        error: (error, stack) => ErrorWidget(error),
-        data: (favoriteItems) {
-          final isFavorited = favoriteItems.firstWhereOrNull(
-                (doc) => doc.entity!.asin == item.asin,
-              ) !=
-              null;
-          return IconButtonsOnCell(
-            isFavorited: isFavorited,
-            onPressedAddButton: () => _didTapCreateButton(
-              ref: ref,
-              context: context,
-              item: item,
-            ),
-            onPressedFavoriteButton: () => _didTapFavoriteButton(
-              ref: ref,
-              context: context,
-              item: item,
-              favoritesCount: favoriteItems.length,
+          loading: () => const LoadingIndicator(),
+          error: (error, stack) => ErrorWidget(error),
+          data: (favoriteItems) {
+            final isFavorited = favoriteItems.firstWhereOrNull(
+                  (doc) => doc.entity!.asin == item.asin,
+                ) !=
+                null;
+            return IconButtonsOnCell(
               isFavorited: isFavorited,
-            ),
-            onPressedAmazonButton: () => _didTapAmazonButton(
-              url: item.detailPageUrl,
-            ),
-            onPressedShareButton: () => _didTapShareButton(
-              context: context,
-              item: item,
-            ),
-          );
-        });
+              onPressedAddButton: () => _didTapCreateButton(
+                ref: ref,
+                context: context,
+                item: item,
+              ),
+              onPressedFavoriteButton: () => _didTapFavoriteButton(
+                ref: ref,
+                context: context,
+                item: item,
+                favoritesCount: favoriteItems.length,
+                isFavorited: isFavorited,
+              ),
+              onPressedAmazonButton: () => _didTapAmazonButton(
+                url: item.detailPageUrl,
+              ),
+              onPressedShareButton: () => _didTapShareButton(
+                context: context,
+                item: item,
+              ),
+            );
+          },
+        );
   }
 
   /// ストックアイテムを作成するボタンが押された

@@ -63,11 +63,13 @@ class RestorePurchasesUsecase {
         case PurchasesErrorCode.storeProblemError:
           // ストアに繋がらない
           return const Result.failure(
-              RestorePurchasesException.notConnectedStore);
+            RestorePurchasesException.notConnectedStore,
+          );
         case PurchasesErrorCode.networkError:
           // ネットワークエラー
           return const Result.failure(
-              RestorePurchasesException.notConnectedStore);
+            RestorePurchasesException.notConnectedStore,
+          );
         case PurchasesErrorCode.purchaseNotAllowedError:
         // 購入が許可されなかった
         case PurchasesErrorCode.purchaseInvalidError:

@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class IconButtonsOnCell extends StatelessWidget {
-  const IconButtonsOnCell(
-      {Key? key,
-      required this.isFavorited,
-      required this.onPressedAddButton,
-      required this.onPressedFavoriteButton,
-      required this.onPressedAmazonButton,
-      required this.onPressedShareButton})
-      : super(key: key);
+  const IconButtonsOnCell({
+    Key? key,
+    required this.isFavorited,
+    required this.onPressedAddButton,
+    required this.onPressedFavoriteButton,
+    required this.onPressedAmazonButton,
+    required this.onPressedShareButton,
+  }) : super(key: key);
 
   final bool isFavorited;
   final void Function() onPressedAddButton;

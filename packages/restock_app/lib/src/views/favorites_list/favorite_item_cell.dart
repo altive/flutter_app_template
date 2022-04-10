@@ -82,9 +82,9 @@ class FavoriteItemCell extends HookConsumerWidget {
                             _didTapAmazonButton(url: item.amazonUrl),
                       ),
                       IconButton(
-                        icon: Icon(Platform.isIOS
-                            ? CupertinoIcons.share
-                            : Icons.share),
+                        icon: Icon(
+                          Platform.isIOS ? CupertinoIcons.share : Icons.share,
+                        ),
                         onPressed: () => _didTapShareButton(
                           context: context,
                           item: item,

@@ -53,8 +53,9 @@ class NotificationController extends StateNotifier<List<int>> {
   }
 
   /// 保留中の通知リクエストを[idNumber]で検索して最初の一致を返す。無ければ`null`を返す
-  Future<PendingNotificationRequest?> firstWhere(
-      {required int? idNumber}) async {
+  Future<PendingNotificationRequest?> firstWhere({
+    required int? idNumber,
+  }) async {
     final list = await _plugin.pendingNotificationRequests();
     return list.firstWhereOrNull(
       (element) => element.id == idNumber,
@@ -206,16 +207,17 @@ class NotificationController extends StateNotifier<List<int>> {
       iOS: iosDetails,
     );
     await _plugin.zonedSchedule(
-        idNumber,
-        '期限のお知らせ',
-        '$itemNameの期限まで残り$durationDays日です',
-        // TODO(Aimee): timezone部分を確認する
-        tz.TZDateTime.now(tz.UTC).add(Duration(days: durationDays)),
-        notificationDetails,
-        uiLocalNotificationDateInterpretation:
-            UILocalNotificationDateInterpretation.absoluteTime,
-        androidAllowWhileIdle: true,
-        payload: payloadJson);
+      idNumber,
+      '期限のお知らせ',
+      '$itemNameの期限まで残り$durationDays日です',
+      // TODO(Aimee): timezone部分を確認する
+      tz.TZDateTime.now(tz.UTC).add(Duration(days: durationDays)),
+      notificationDetails,
+      uiLocalNotificationDateInterpretation:
+          UILocalNotificationDateInterpretation.absoluteTime,
+      androidAllowWhileIdle: true,
+      payload: payloadJson,
+    );
 
     // await _plugin.schedule(
     //   idNumber,

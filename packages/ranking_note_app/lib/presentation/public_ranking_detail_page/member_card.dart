@@ -52,12 +52,14 @@ class MemberCard extends StatelessWidget {
           if (member.imageUrl != null) ...[
             const Gap(16),
             Center(
-              child: LayoutBuilder(builder: (context, constraints) {
-                return ImageThumbnail(
-                  imageUrl: member.imageUrl,
-                  width: constraints.maxWidth * 0.8,
-                );
-              }),
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  return ImageThumbnail(
+                    imageUrl: member.imageUrl,
+                    width: constraints.maxWidth * 0.8,
+                  );
+                },
+              ),
             ),
           ],
           if (member.description.isNotEmpty) ...[

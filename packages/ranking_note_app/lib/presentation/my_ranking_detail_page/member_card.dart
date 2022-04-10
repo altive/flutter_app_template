@@ -125,7 +125,8 @@ class _UpdateMemberModalBottomSheet extends HookConsumerWidget {
       if (pickedXFile != null) {
         // 写真のアップロードは時間がかかるので表示
         ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('画像の追加に時間がかかる場合があります。')));
+          const SnackBar(content: Text('画像の追加に時間がかかる場合があります。')),
+        );
       }
       Navigator.of(context).pop();
     }
