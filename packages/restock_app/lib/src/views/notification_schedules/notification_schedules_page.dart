@@ -1,3 +1,4 @@
+import 'dart:collection';
 import 'dart:convert';
 
 import 'package:adaptive_dialog/adaptive_dialog.dart';
@@ -19,7 +20,7 @@ final notificationScheduleListProvider = FutureProvider.autoDispose<
       .getAndStorePendingNotificationRequests;
 
   final payloadList = pendingList.map((e) {
-    final json = jsonDecode(e.payload!) as Map<String, Object>;
+    final json = jsonDecode(e.payload!) as LinkedHashMap<String, Object?>;
     return NotificationPayload.fromJson(json);
   }).toList();
 
