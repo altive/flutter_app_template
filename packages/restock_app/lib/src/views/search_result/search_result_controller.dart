@@ -18,7 +18,7 @@ final searchParamProvider =
 /// パラメーターを渡したController
 final searchResultControllerProvider =
     StateNotifierProvider<SearchResultController, SearchResultState>((ref) {
-  final searchParam = ref.watch(searchParamProvider.state).state;
+  final searchParam = ref.watch(searchParamProvider);
   return SearchResultController(
     ref.read,
     searchParams: searchParam,

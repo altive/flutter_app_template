@@ -14,7 +14,7 @@ final selectedStockIdForStockDetailProvider =
 
 /// ストック詳細画面で表示するストック
 final stockForStockDetailProvider = Provider<StockEntity?>((ref) {
-  final id = ref.watch(selectedStockIdForStockDetailProvider.state).state;
+  final id = ref.watch(selectedStockIdForStockDetailProvider);
   final stock = ref.watch(stockEntityDetailProvider(id));
   return stock;
 });

@@ -39,7 +39,7 @@ class MainStackView extends HookConsumerWidget {
       const [],
     );
 
-    final selectedIndex = ref.watch(_bottomTabIndexProvider.state).state;
+    final selectedIndex = ref.watch(_bottomTabIndexProvider);
     return UnfocusOnTap(
       child: LoadingIndicator(
         loading: ref.watch(overlayIndicatorStateProvider.state).state,

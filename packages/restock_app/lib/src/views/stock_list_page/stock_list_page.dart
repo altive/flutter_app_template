@@ -21,8 +21,7 @@ class StockListPage extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final scrollController = useScrollController();
-    final isSearchFieldVisible =
-        ref.watch(stockListTopAreaVisibleProvider.state).state;
+    final isSearchFieldVisible = ref.watch(stockListTopAreaVisibleProvider);
 
     void scrollListner() {
       // 表示・非表示を切り替えるスクロール位置の割合閾値
@@ -31,8 +30,7 @@ class StockListPage extends HookConsumerWidget {
       final current =
           scrollController.offset / scrollController.position.maxScrollExtent;
       // 現在表示中なら `true`
-      final fieldVisible =
-          ref.read(stockListTopAreaVisibleProvider.state).state;
+      final fieldVisible = ref.read(stockListTopAreaVisibleProvider);
 
       if (fieldVisible &&
           current > threshold + 0.1 &&

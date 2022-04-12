@@ -14,8 +14,8 @@ class StockFilterPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final filteringState = ref.watch(stockFilterProvider.state).state;
-    final sortingState = ref.watch(stockSortingProvider.state).state;
+    final filteringState = ref.watch(stockFilterProvider);
+    final sortingState = ref.watch(stockSortingProvider);
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 24),
       child: ListView(

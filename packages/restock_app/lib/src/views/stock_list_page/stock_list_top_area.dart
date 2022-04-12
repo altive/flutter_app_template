@@ -15,7 +15,7 @@ class StockListTopArea extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final searchText = ref.watch(searchTextProvider.state).state;
+    final searchText = ref.watch(searchTextProvider);
     final textEditingController = useTextEditingController(text: searchText);
     final tabController = DefaultTabController.of(context);
 
@@ -32,7 +32,7 @@ class StockListTopArea extends HookConsumerWidget {
       },
       [tabController],
     );
-    final selectedTabIndex = ref.watch(selectedTabIndexProvider.state).state;
+    final selectedTabIndex = ref.watch(selectedTabIndexProvider);
     final groups = ref.watch(stockCategoriesProvider);
     final group = selectedTabIndex == 0 ? null : groups![selectedTabIndex - 1];
     final stockCount = ref.watch(stockCountProvider(group));
@@ -137,7 +137,7 @@ class _ChoiceChip extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final currentMode = ref.watch(displayModeProvider.state).state;
+    final currentMode = ref.watch(displayModeProvider);
     return ChoiceChip(
       label: Icon(
         displayMode.iconData,

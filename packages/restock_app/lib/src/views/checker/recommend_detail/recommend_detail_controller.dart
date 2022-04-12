@@ -17,7 +17,7 @@ final recommendDetailParameterProvider = StateProvider<RecommendStockSet?>(
 final recommendDetailProvider =
     StateNotifierProvider<RecommendDetailController, RecommendDetailState>(
         (ref) {
-  final setList = ref.watch(recommendDetailParameterProvider.state).state;
+  final setList = ref.watch(recommendDetailParameterProvider);
   return RecommendDetailController(
     ref.read,
     setList,

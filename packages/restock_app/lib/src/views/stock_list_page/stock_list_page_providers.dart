@@ -51,7 +51,7 @@ final groupedStocksProvider =
 
 final filteredStocksProvider =
     Provider.family.autoDispose<List<StockEntity>, String?>((ref, category) {
-  final filterState = ref.watch(stockFilterProvider.state).state;
+  final filterState = ref.watch(stockFilterProvider);
   final unfiltererd = ref.watch(groupedStocksProvider(category));
 
   // 在庫有無
@@ -87,7 +87,7 @@ final searchedStocksProvider =
   if (beforeStocks.isEmpty) {
     return [];
   }
-  final searchText = ref.watch(searchTextProvider.state).state;
+  final searchText = ref.watch(searchTextProvider);
   if (searchText.isEmpty) {
     return beforeStocks;
   }
@@ -107,7 +107,7 @@ final stockSortingProvider = StateProvider<StockSortSelection>(
 final sortedStocksProvider =
     Provider.family.autoDispose<List<StockEntity>, String?>((ref, category) {
   final stocks = ref.watch(searchedStocksProvider(category));
-  final sorting = ref.watch(stockSortingProvider.state).state;
+  final sorting = ref.watch(stockSortingProvider);
   if (stocks.isEmpty) {
     return [];
   }

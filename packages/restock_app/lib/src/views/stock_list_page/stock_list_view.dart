@@ -30,7 +30,7 @@ class StockListView extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final displayMode = ref.watch(displayModeProvider.state).state;
+    final displayMode = ref.watch(displayModeProvider);
     // グループごとのストックリスト
     final groupedStocks = ref.watch(groupedStocksProvider(group));
     if (groupedStocks == null) {
