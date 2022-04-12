@@ -22,7 +22,7 @@ class _$StockEntityTearOff {
   const _$StockEntityTearOff();
 
   _StockEntity call(
-      {required String id,
+      {required String? id,
       required int idNumber,
       @TimestampConverter()
           DateTime? createdAt,
@@ -85,7 +85,9 @@ const $StockEntity = _$StockEntityTearOff();
 
 /// @nodoc
 mixin _$StockEntity {
-  String get id => throw _privateConstructorUsedError;
+  /// 古いバージョンのアプリでは `id` を入れていなかった。
+  /// そもそも入れなくて良い運用が良さそうだが、現時点では取得時点で補完した上で使用している
+  String? get id => throw _privateConstructorUsedError;
 
   /// 通知で使用する一位の数列
   int get idNumber => throw _privateConstructorUsedError;
@@ -171,7 +173,7 @@ abstract class $StockEntityCopyWith<$Res> {
           StockEntity value, $Res Function(StockEntity) then) =
       _$StockEntityCopyWithImpl<$Res>;
   $Res call(
-      {String id,
+      {String? id,
       int idNumber,
       @TimestampConverter() DateTime? createdAt,
       @TimestampConverter() DateTime? updatedAt,
@@ -232,7 +234,7 @@ class _$StockEntityCopyWithImpl<$Res> implements $StockEntityCopyWith<$Res> {
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       idNumber: idNumber == freezed
           ? _value.idNumber
           : idNumber // ignore: cast_nullable_to_non_nullable
@@ -329,7 +331,7 @@ abstract class _$StockEntityCopyWith<$Res>
       __$StockEntityCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String id,
+      {String? id,
       int idNumber,
       @TimestampConverter() DateTime? createdAt,
       @TimestampConverter() DateTime? updatedAt,
@@ -392,7 +394,7 @@ class __$StockEntityCopyWithImpl<$Res> extends _$StockEntityCopyWithImpl<$Res>
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       idNumber: idNumber == freezed
           ? _value.idNumber
           : idNumber // ignore: cast_nullable_to_non_nullable
@@ -518,7 +520,10 @@ class _$_StockEntity extends _StockEntity with DiagnosticableTreeMixin {
       _$$_StockEntityFromJson(json);
 
   @override
-  final String id;
+
+  /// 古いバージョンのアプリでは `id` を入れていなかった。
+  /// そもそも入れなくて良い運用が良さそうだが、現時点では取得時点で補完した上で使用している
+  final String? id;
   @override
 
   /// 通知で使用する一位の数列
@@ -753,7 +758,7 @@ class _$_StockEntity extends _StockEntity with DiagnosticableTreeMixin {
 
 abstract class _StockEntity extends StockEntity {
   const factory _StockEntity(
-      {required String id,
+      {required String? id,
       required int idNumber,
       @TimestampConverter()
           DateTime? createdAt,
@@ -786,7 +791,10 @@ abstract class _StockEntity extends StockEntity {
       _$_StockEntity.fromJson;
 
   @override
-  String get id => throw _privateConstructorUsedError;
+
+  /// 古いバージョンのアプリでは `id` を入れていなかった。
+  /// そもそも入れなくて良い運用が良さそうだが、現時点では取得時点で補完した上で使用している
+  String? get id => throw _privateConstructorUsedError;
   @override
 
   /// 通知で使用する一位の数列

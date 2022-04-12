@@ -40,7 +40,9 @@ class StockEntityField {
 @freezed
 class StockEntity with _$StockEntity {
   const factory StockEntity({
-    required String id,
+    /// 古いバージョンのアプリでは `id` を入れていなかった。
+    /// そもそも入れなくて良い運用が良さそうだが、現時点では取得時点で補完した上で使用している
+    required String? id,
 
     /// 通知で使用する一位の数列
     required int idNumber,

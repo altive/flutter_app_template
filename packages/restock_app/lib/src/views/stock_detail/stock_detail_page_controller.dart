@@ -117,7 +117,7 @@ class StockDetailPageController extends StateNotifier<bool> {
     }
     // 通知追加
     await _notificationController.addStockExpirationNotice(
-      documentId: stock.id,
+      documentId: stock.id!,
       idNumber: stock.idNumber,
       itemName: stock.name,
       expirationDate: stock.expirationAt!,

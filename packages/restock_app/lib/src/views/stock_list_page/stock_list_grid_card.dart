@@ -75,7 +75,7 @@ class _Card extends ConsumerWidget {
     return GestureDetector(
       onTap: () async {
         // 詳細画面へ遷移
-        ref.read(selectedStockIdForStockDetailProvider.state).state = stock.id;
+        ref.read(selectedStockIdForStockDetailProvider.state).state = stock.id!;
         final result =
             await Navigator.of(context).pushNamed(StockDetailPage.routeName);
         // 何か返ってきた時のみスナックバーを表示する
