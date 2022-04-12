@@ -21,7 +21,7 @@ class GoodsSearchArea extends HookConsumerWidget {
   // ----------------------------------
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final _searchFieldController = TextEditingController();
+    final searchFieldController = TextEditingController();
     final searchEntranceController = ref.watch(searchEntranceProvider.notifier);
     return Container(
       color: Theme.of(context).backgroundColor,
@@ -51,7 +51,7 @@ class GoodsSearchArea extends HookConsumerWidget {
                 key: _formKey,
                 child: Expanded(
                   child: TextFormField(
-                    controller: _searchFieldController,
+                    controller: searchFieldController,
                     textInputAction: TextInputAction.search,
                     decoration: InputDecoration(
                       hintText: '何をストックしますか？',
@@ -63,7 +63,7 @@ class GoodsSearchArea extends HookConsumerWidget {
                         icon: const Icon(Icons.clear),
                         onPressed: () =>
                             WidgetsBinding.instance!.addPostFrameCallback(
-                          (_) => _searchFieldController.clear(),
+                          (_) => searchFieldController.clear(),
                         ),
                       ),
                       border: OutlineInputBorder(

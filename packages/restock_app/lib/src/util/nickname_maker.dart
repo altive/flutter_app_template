@@ -70,6 +70,6 @@ const List<String> _position = [
 
 String generateNickname() {
   final nameIndex = Random().nextInt(_position.length);
-  final _titleIndex = Random().nextInt(_title.length);
-  return _title[_titleIndex] + _position[nameIndex];
+  final titleIndex = Random().nextInt(_title.length);
+  return _title[titleIndex] + _position[nameIndex];
 }

@@ -12,10 +12,9 @@ analyzer:
     strict-inference: true
     strict-raw-types: true
   errors:
-    # TODOとFIXMEをProblemsに表示しない
     todo: ignore
     fixme: ignore
-    # include all_lint_rulesで発生するルール衝突による警告を抑制
+    # Suppresses warnings caused by rule collisions in `include all_lint_rules`
     included_file_warning: ignore
     # false positive when using Freezed
     invalid_annotation_target: ignore
@@ -24,7 +23,13 @@ linter:
     # Not work as documented: https://dart-lang.github.io/linter/lints/avoid_returning_null_for_future.html
     avoid_returning_null_for_future: false
 
-    # 冗長すぎる
+    # Conflicts with implicit_dynamic_parameter, or it may be smarter to specify type to parameters instead of generics
+    avoid_types_on_closure_parameters: false
+
+    # temporarily disabled
+    require_trailing_commas: false
+
+    # Too verbose. Use avoid_final_parameters
     prefer_final_parameters: false
 
     # Too verbose with little value, and this is taken care of by the Flutter devtool anyway.
@@ -45,14 +50,11 @@ linter:
     # Single quotes are easier to type and don't compromise on readability.
     prefer_double_quotes: false
 
-    # prefer_relative_importsを採用
+    # Adopt prefer_relative_imports
     always_use_package_imports: false
 
-    # Dart-defineでfromEnvironmentを使う
+    # Use Dart-define and fromEnvironment
     do_not_use_environment: false
-
-    # すべてにドキュメントコメントが必要なわけではない
-    public_member_api_docs: false
 
     # Not quite suitable for Flutter, which may have a `build` method with a single
     # return, but that return is still complex enough that a "body" is worth it.
@@ -65,11 +67,10 @@ linter:
     # Conflicts with disabling `implicit-dynamic`
     avoid_annotating_with_dynamic: false
 
-    # StatefulWidgetで警告が出てしまう
+    # StatefulWidget will give you a warning
     library_private_types_in_public_api: false
 
-    # dynamicな引数に型を与えたい時に使えなくなってしまう
-    avoid_types_on_closure_parameters: false
-
-    # 自明なアサートに冗長なメッセージを追加する必要はない
+    # For app code
+    public_member_api_docs: false
+    # Too verbose
     prefer_asserts_with_message: false

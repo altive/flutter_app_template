@@ -6,8 +6,8 @@ ThemeData get defaultLightTheme {
   const primaryColor = Color(0xFFF0BC1B);
   // const primaryLightColor = Color(0xFFffee57);
   const primaryDarkColor = Color(0xFFcc9900);
-  const _appBarBackgroundColor = Color(0xFFEEEAE1);
-  const _scaffoldBackgroundColor = Color(0xFFF6F3F0);
+  const appBarBackgroundColor = Color(0xFFEEEAE1);
+  const scaffoldBackgroundColor = Color(0xFFF6F3F0);
 
   return ThemeData.from(
     colorScheme: const ColorScheme.light().copyWith(
@@ -35,8 +35,8 @@ ThemeData get defaultLightTheme {
     primaryColorDark: primaryDarkColor,
     // TabBarの背景色に使用している。
     // AppBarと同じ色を指定するため
-    bottomAppBarColor: _appBarBackgroundColor,
-    scaffoldBackgroundColor: _scaffoldBackgroundColor,
+    bottomAppBarColor: appBarBackgroundColor,
+    scaffoldBackgroundColor: scaffoldBackgroundColor,
     appBarTheme: const AppBarTheme(
       titleTextStyle: TextStyle(color: Colors.black, fontSize: 20),
       // AppBarの背景色
