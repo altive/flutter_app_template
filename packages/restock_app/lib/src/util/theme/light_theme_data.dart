@@ -40,7 +40,8 @@ ThemeData get defaultLightTheme {
     appBarTheme: const AppBarTheme(
       titleTextStyle: TextStyle(color: Colors.black, fontSize: 20),
       // AppBarの背景色
-      color: _appBarBackgroundColor,
+      color: appBarBackgroundColor,
+      foregroundColor: Colors.black,
       elevation: 1,
     ),
     tabBarTheme: const TabBarTheme(

@@ -33,6 +33,7 @@ ThemeData get defaultDarkTheme {
     appBarTheme: const AppBarTheme(
       // AppBarの色
       color: appBarBackgroundColor,
+      foregroundColor: Colors.white,
       elevation: 1,
     ),
     tabBarTheme: const TabBarTheme(
