@@ -3,6 +3,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../common_widgets/primary_button.dart';
 import '../../core/stock/stock_entity.dart';
+import '../components/loading_view.dart';
 import 'stock_display_mode.dart';
 import 'stock_list_grid_card.dart';
 import 'stock_list_item_card.dart';
@@ -35,7 +36,7 @@ class StockListView extends HookConsumerWidget {
     final groupedStocks = ref.watch(groupedStocksProvider(group));
     if (groupedStocks == null) {
       // 取得前
-      return const SizedBox();
+      return LoadingView(text: '${group ?? 'すべて'}のストックを取得中…');
     }
     // 並び替え・絞込み適用後のストックリスト
     final filteredStocks = ref.watch(filteredStocksProvider(group));
