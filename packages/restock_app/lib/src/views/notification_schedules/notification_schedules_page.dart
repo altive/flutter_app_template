@@ -49,61 +49,59 @@ class NotificationSchedulesPage extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final list = ref.watch(notificationScheduleListProvider);
-    if (list.value == null) {
-      return const LoadingIndicator();
+
+    final tuple = list.value;
+    final payloadList = tuple?.item1;
+    final stockList = tuple?.item2;
+
+    /// 確認後、すべての通知をキャンセルする
+    Future<void> _cancelAllNotifications() async {
+      final result = await showOkCancelAlertDialog(
+        context: context,
+        title: '通知をすべて削除',
+        message: '登録済みの期限切れ通知をすべて削除します。',
+        okLabel: 'すべて削除',
+        defaultType: OkCancelAlertDefaultType.cancel,
+        isDestructiveAction: true,
+      );
+      switch (result) {
+        case OkCancelResult.ok:
+          await ref.read(notificationControllerProvider.notifier).canceleAll();
+          Navigator.of(context).pop();
+          break;
+        case OkCancelResult.cancel:
+          break;
+      }
     }
-    final tuple = list.value!;
-    final payloadList = tuple.item1;
-    final stockList = tuple.item2;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('通知予定'),
         actions: <Widget>[
           TextButton(
-            onPressed: () => _cancelAllNotifications(ref, context),
+            onPressed: _cancelAllNotifications,
             child: const Text('すべて削除'),
           ),
         ],
       ),
       body: SafeArea(
-        child: ListView.separated(
-          separatorBuilder: (_, __) => const Divider(height: 1),
-          itemCount: payloadList.length,
-          itemBuilder: (context, index) {
-            final payload = payloadList[index];
-            final stock = stockList[index];
-            return NotificationTile(
-              idNumber: stock.idNumber,
-              notificationPayload: payload,
-              stock: stock,
-            );
-          },
-        ),
+        child: tuple == null
+            ? const LoadingIndicator()
+            : ListView.separated(
+                separatorBuilder: (_, __) => const Divider(height: 1),
+                itemCount: payloadList!.length,
+                itemBuilder: (context, index) {
+                  final payload = payloadList[index];
+                  final stock = stockList![index];
+                  return NotificationTile(
+                    idNumber: stock.idNumber,
+                    notificationPayload: payload,
+                    stock: stock,
+                  );
+                },
+              ),
       ),
     );
-  }
-
-  /// 確認後、すべての通知をキャンセルする
-  Future<void> _cancelAllNotifications(
-    WidgetRef ref,
-    BuildContext context,
-  ) async {
-    final result = await showOkCancelAlertDialog(
-      context: context,
-      title: '通知をすべて削除',
-      message: '登録済みの期限切れ通知をすべて削除します。',
-      okLabel: 'すべて削除',
-      defaultType: OkCancelAlertDefaultType.cancel,
-      isDestructiveAction: true,
-    );
-    switch (result) {
-      case OkCancelResult.ok:
-        await ref.read(notificationControllerProvider.notifier).canceleAll();
-        Navigator.of(context).pop();
-        break;
-      case OkCancelResult.cancel:
-        break;
-    }
   }
 }
 

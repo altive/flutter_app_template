@@ -21,7 +21,7 @@ class NotificationSettingPage extends StatelessWidget {
       appBar: AppBar(title: const Text('通知の設定')),
       body: SafeArea(
         child: ListView(
-          children: const <Widget>[
+          children: const [
             _ContainerTile(child: NotificationSettingScheduleTile()),
             Divider(height: 1),
             _ContainerTile(child: NotificationSettingDateSelectionTile()),
