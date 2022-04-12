@@ -1,5 +1,6 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'result.dart';
 
@@ -41,6 +42,12 @@ mixin _$Result<S, F> {
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(S value)? success,
+    TResult Function(F exception)? failure,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(S value)? success,
     TResult Function(F exception)? failure,
@@ -51,6 +58,12 @@ mixin _$Result<S, F> {
   TResult map<TResult extends Object?>({
     required TResult Function(Success<S, F> value) success,
     required TResult Function(Failure<S, F> value) failure,
+  }) =>
+      throw _privateConstructorUsedError;
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Success<S, F> value)? success,
+    TResult Function(Failure<S, F> value)? failure,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -158,6 +171,15 @@ class _$Success<S, F> extends Success<S, F> with DiagnosticableTreeMixin {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(S value)? success,
+    TResult Function(F exception)? failure,
+  }) {
+    return success?.call(value);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(S value)? success,
     TResult Function(F exception)? failure,
@@ -176,6 +198,15 @@ class _$Success<S, F> extends Success<S, F> with DiagnosticableTreeMixin {
     required TResult Function(Failure<S, F> value) failure,
   }) {
     return success(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Success<S, F> value)? success,
+    TResult Function(Failure<S, F> value)? failure,
+  }) {
+    return success?.call(this);
   }
 
   @override
@@ -283,6 +314,15 @@ class _$Failure<S, F> extends Failure<S, F> with DiagnosticableTreeMixin {
 
   @override
   @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(S value)? success,
+    TResult Function(F exception)? failure,
+  }) {
+    return failure?.call(exception);
+  }
+
+  @override
+  @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(S value)? success,
     TResult Function(F exception)? failure,
@@ -301,6 +341,15 @@ class _$Failure<S, F> extends Failure<S, F> with DiagnosticableTreeMixin {
     required TResult Function(Failure<S, F> value) failure,
   }) {
     return failure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(Success<S, F> value)? success,
+    TResult Function(Failure<S, F> value)? failure,
+  }) {
+    return failure?.call(this);
   }
 
   @override
