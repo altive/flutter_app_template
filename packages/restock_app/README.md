@@ -59,7 +59,7 @@ $ melos run submit:all:restock
 $ melos run submit:android:restock
 
 # iOSのみ審査提出する場合
-$ melos submit:all:restock
+$ melos run submit:all:restock
 # fastlane が使用できない場合は以下を実行した後にApp Store Connectにて手動で審査提出
-$ melos upload:ios:prod:restock
+$ melos run upload:ios:prod:restock
 ```
