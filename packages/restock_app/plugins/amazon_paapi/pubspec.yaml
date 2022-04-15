@@ -23,11 +23,11 @@ dependencies:
   simple_logger: ^1.8.0+1
 
 dev_dependencies:
+  altive_lints: ^1.0.0
   build_runner: ^2.0.4
   flutter_test:
     sdk: flutter
   freezed: ^0.14.2
   json_serializable: ^6.1.5
-  pedantic_mono: ^1.14.0+1
 
 flutter: 
