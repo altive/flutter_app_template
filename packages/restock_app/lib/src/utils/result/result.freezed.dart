@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'result.dart';
@@ -11,27 +12,7 @@ part of 'result.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$ResultTearOff {
-  const _$ResultTearOff();
-
-  Success<S, F> success<S, F>(S value) {
-    return Success<S, F>(
-      value,
-    );
-  }
-
-  Failure<S, F> failure<S, F>(F exception) {
-    return Failure<S, F>(
-      exception,
-    );
-  }
-}
-
-/// @nodoc
-const $Result = _$ResultTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$Result<S, F> {
@@ -146,14 +127,14 @@ class _$Success<S, F> extends Success<S, F> with DiagnosticableTreeMixin {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is Success<S, F> &&
-            (identical(other.value, value) ||
-                const DeepCollectionEquality().equals(other.value, value)));
+        (other.runtimeType == runtimeType &&
+            other is Success<S, F> &&
+            const DeepCollectionEquality().equals(other.value, value));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(value);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
 
   @JsonKey(ignore: true)
   @override
@@ -224,7 +205,7 @@ class _$Success<S, F> extends Success<S, F> with DiagnosticableTreeMixin {
 }
 
 abstract class Success<S, F> extends Result<S, F> {
-  const factory Success(S value) = _$Success<S, F>;
+  const factory Success(final S value) = _$Success<S, F>;
   const Success._() : super._();
 
   S get value => throw _privateConstructorUsedError;
@@ -288,15 +269,14 @@ class _$Failure<S, F> extends Failure<S, F> with DiagnosticableTreeMixin {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is Failure<S, F> &&
-            (identical(other.exception, exception) ||
-                const DeepCollectionEquality()
-                    .equals(other.exception, exception)));
+        (other.runtimeType == runtimeType &&
+            other is Failure<S, F> &&
+            const DeepCollectionEquality().equals(other.exception, exception));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(exception);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(exception));
 
   @JsonKey(ignore: true)
   @override
@@ -367,7 +347,7 @@ class _$Failure<S, F> extends Failure<S, F> with DiagnosticableTreeMixin {
 }
 
 abstract class Failure<S, F> extends Result<S, F> {
-  const factory Failure(F exception) = _$Failure<S, F>;
+  const factory Failure(final F exception) = _$Failure<S, F>;
   const Failure._() : super._();
 
   F get exception => throw _privateConstructorUsedError;

@@ -15,7 +15,7 @@ class MeEntityField {
 }
 
 /// ユーザーの情報（非公開）
-@freezed
+@Freezed(makeCollectionsUnmodifiable: false)
 class MeEntity with _$MeEntity {
   const factory MeEntity({
     /// 作成日時

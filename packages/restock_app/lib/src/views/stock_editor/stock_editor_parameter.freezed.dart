@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'stock_editor_parameter.dart';
@@ -11,24 +12,7 @@ part of 'stock_editor_parameter.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$StockEditorParameterTearOff {
-  const _$StockEditorParameterTearOff();
-
-  _StockEditorParameter call(
-      {StockEditorMode? mode, StockEntity? stock, File? imageFile}) {
-    return _StockEditorParameter(
-      mode: mode,
-      stock: stock,
-      imageFile: imageFile,
-    );
-  }
-}
-
-/// @nodoc
-const $StockEditorParameter = _$StockEditorParameterTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$StockEditorParameter {
@@ -153,17 +137,16 @@ class _$_StockEditorParameter
     implements _StockEditorParameter {
   const _$_StockEditorParameter({this.mode, this.stock, this.imageFile});
 
-  @override
-
   /// @nullable
+  @override
   final StockEditorMode? mode;
-  @override
 
   /// @nullable
+  @override
   final StockEntity? stock;
-  @override
 
   /// @nullable
+  @override
   final File? imageFile;
 
   @override
@@ -184,22 +167,19 @@ class _$_StockEditorParameter
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _StockEditorParameter &&
-            (identical(other.mode, mode) ||
-                const DeepCollectionEquality().equals(other.mode, mode)) &&
-            (identical(other.stock, stock) ||
-                const DeepCollectionEquality().equals(other.stock, stock)) &&
-            (identical(other.imageFile, imageFile) ||
-                const DeepCollectionEquality()
-                    .equals(other.imageFile, imageFile)));
+        (other.runtimeType == runtimeType &&
+            other is _StockEditorParameter &&
+            const DeepCollectionEquality().equals(other.mode, mode) &&
+            const DeepCollectionEquality().equals(other.stock, stock) &&
+            const DeepCollectionEquality().equals(other.imageFile, imageFile));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(mode) ^
-      const DeepCollectionEquality().hash(stock) ^
-      const DeepCollectionEquality().hash(imageFile);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(mode),
+      const DeepCollectionEquality().hash(stock),
+      const DeepCollectionEquality().hash(imageFile));
 
   @JsonKey(ignore: true)
   @override
@@ -210,9 +190,9 @@ class _$_StockEditorParameter
 
 abstract class _StockEditorParameter implements StockEditorParameter {
   const factory _StockEditorParameter(
-      {StockEditorMode? mode,
-      StockEntity? stock,
-      File? imageFile}) = _$_StockEditorParameter;
+      {final StockEditorMode? mode,
+      final StockEntity? stock,
+      final File? imageFile}) = _$_StockEditorParameter;
 
   @override
 

@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'everyones_stock_model.dart';
@@ -11,52 +12,11 @@ part of 'everyones_stock_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 EveryonesStockModel _$EveryonesStockModelFromJson(Map<String, dynamic> json) {
   return _EveryonesStockModel.fromJson(json);
 }
-
-/// @nodoc
-class _$EveryonesStockModelTearOff {
-  const _$EveryonesStockModelTearOff();
-
-  _EveryonesStockModel call(
-      {@TimestampConverter() DateTime? createdAt,
-      required String name,
-      required double numberOfItems,
-      required String asin,
-      required String category,
-      required int expirationDateTypeInt,
-      @TimestampConverter() DateTime? expirationAt,
-      required String amazonUrl,
-      String? imageUrlSmall,
-      String? imageUrlMedium,
-      String? imageUrlLarge,
-      required String nickname}) {
-    return _EveryonesStockModel(
-      createdAt: createdAt,
-      name: name,
-      numberOfItems: numberOfItems,
-      asin: asin,
-      category: category,
-      expirationDateTypeInt: expirationDateTypeInt,
-      expirationAt: expirationAt,
-      amazonUrl: amazonUrl,
-      imageUrlSmall: imageUrlSmall,
-      imageUrlMedium: imageUrlMedium,
-      imageUrlLarge: imageUrlLarge,
-      nickname: nickname,
-    );
-  }
-
-  EveryonesStockModel fromJson(Map<String, Object> json) {
-    return EveryonesStockModel.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $EveryonesStockModel = _$EveryonesStockModelTearOff();
 
 /// @nodoc
 mixin _$EveryonesStockModel {
@@ -325,55 +285,54 @@ class _$_EveryonesStockModel extends _EveryonesStockModel
   factory _$_EveryonesStockModel.fromJson(Map<String, dynamic> json) =>
       _$$_EveryonesStockModelFromJson(json);
 
-  @override
-
   /// 作成日時
+  @override
   @TimestampConverter()
   final DateTime? createdAt;
-  @override
 
   /// アイテムの名前
-  final String name;
   @override
+  final String name;
 
   /// アイテムのストック数
-  final double numberOfItems;
   @override
+  final double numberOfItems;
 
   /// Amazonの商品コード @nullable
-  final String asin;
   @override
+  final String asin;
 
   /// 商品カテゴリ
-  final String category;
   @override
+  final String category;
 
   /// 期限の種類
-  final int expirationDateTypeInt;
   @override
+  final int expirationDateTypeInt;
 
   /// 消費期限 or 賞味期限 @nullable
+  @override
   @TimestampConverter()
   final DateTime? expirationAt;
-  @override
 
   /// Amazonの商品Url @nullable
-  final String amazonUrl;
   @override
+  final String amazonUrl;
 
   /// Amazonの商品画像（小） @nullable
-  final String? imageUrlSmall;
   @override
+  final String? imageUrlSmall;
 
   /// Amazonの商品画像（中） @nullable
-  final String? imageUrlMedium;
   @override
+  final String? imageUrlMedium;
 
   /// Amazonの商品画像（大） @nullable
-  final String? imageUrlLarge;
   @override
+  final String? imageUrlLarge;
 
   /// ニックネーム @nullable
+  @override
   final String nickname;
 
   @override
@@ -403,58 +362,44 @@ class _$_EveryonesStockModel extends _EveryonesStockModel
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _EveryonesStockModel &&
-            (identical(other.createdAt, createdAt) ||
-                const DeepCollectionEquality()
-                    .equals(other.createdAt, createdAt)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
-            (identical(other.numberOfItems, numberOfItems) ||
-                const DeepCollectionEquality()
-                    .equals(other.numberOfItems, numberOfItems)) &&
-            (identical(other.asin, asin) ||
-                const DeepCollectionEquality().equals(other.asin, asin)) &&
-            (identical(other.category, category) ||
-                const DeepCollectionEquality()
-                    .equals(other.category, category)) &&
-            (identical(other.expirationDateTypeInt, expirationDateTypeInt) ||
-                const DeepCollectionEquality().equals(
-                    other.expirationDateTypeInt, expirationDateTypeInt)) &&
-            (identical(other.expirationAt, expirationAt) ||
-                const DeepCollectionEquality()
-                    .equals(other.expirationAt, expirationAt)) &&
-            (identical(other.amazonUrl, amazonUrl) ||
-                const DeepCollectionEquality()
-                    .equals(other.amazonUrl, amazonUrl)) &&
-            (identical(other.imageUrlSmall, imageUrlSmall) ||
-                const DeepCollectionEquality()
-                    .equals(other.imageUrlSmall, imageUrlSmall)) &&
-            (identical(other.imageUrlMedium, imageUrlMedium) ||
-                const DeepCollectionEquality()
-                    .equals(other.imageUrlMedium, imageUrlMedium)) &&
-            (identical(other.imageUrlLarge, imageUrlLarge) ||
-                const DeepCollectionEquality()
-                    .equals(other.imageUrlLarge, imageUrlLarge)) &&
-            (identical(other.nickname, nickname) ||
-                const DeepCollectionEquality()
-                    .equals(other.nickname, nickname)));
+        (other.runtimeType == runtimeType &&
+            other is _EveryonesStockModel &&
+            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality()
+                .equals(other.numberOfItems, numberOfItems) &&
+            const DeepCollectionEquality().equals(other.asin, asin) &&
+            const DeepCollectionEquality().equals(other.category, category) &&
+            const DeepCollectionEquality()
+                .equals(other.expirationDateTypeInt, expirationDateTypeInt) &&
+            const DeepCollectionEquality()
+                .equals(other.expirationAt, expirationAt) &&
+            const DeepCollectionEquality().equals(other.amazonUrl, amazonUrl) &&
+            const DeepCollectionEquality()
+                .equals(other.imageUrlSmall, imageUrlSmall) &&
+            const DeepCollectionEquality()
+                .equals(other.imageUrlMedium, imageUrlMedium) &&
+            const DeepCollectionEquality()
+                .equals(other.imageUrlLarge, imageUrlLarge) &&
+            const DeepCollectionEquality().equals(other.nickname, nickname));
   }
 
+  @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(createdAt) ^
-      const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(numberOfItems) ^
-      const DeepCollectionEquality().hash(asin) ^
-      const DeepCollectionEquality().hash(category) ^
-      const DeepCollectionEquality().hash(expirationDateTypeInt) ^
-      const DeepCollectionEquality().hash(expirationAt) ^
-      const DeepCollectionEquality().hash(amazonUrl) ^
-      const DeepCollectionEquality().hash(imageUrlSmall) ^
-      const DeepCollectionEquality().hash(imageUrlMedium) ^
-      const DeepCollectionEquality().hash(imageUrlLarge) ^
-      const DeepCollectionEquality().hash(nickname);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(createdAt),
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(numberOfItems),
+      const DeepCollectionEquality().hash(asin),
+      const DeepCollectionEquality().hash(category),
+      const DeepCollectionEquality().hash(expirationDateTypeInt),
+      const DeepCollectionEquality().hash(expirationAt),
+      const DeepCollectionEquality().hash(amazonUrl),
+      const DeepCollectionEquality().hash(imageUrlSmall),
+      const DeepCollectionEquality().hash(imageUrlMedium),
+      const DeepCollectionEquality().hash(imageUrlLarge),
+      const DeepCollectionEquality().hash(nickname));
 
   @JsonKey(ignore: true)
   @override
@@ -470,18 +415,18 @@ class _$_EveryonesStockModel extends _EveryonesStockModel
 
 abstract class _EveryonesStockModel extends EveryonesStockModel {
   const factory _EveryonesStockModel(
-      {@TimestampConverter() DateTime? createdAt,
-      required String name,
-      required double numberOfItems,
-      required String asin,
-      required String category,
-      required int expirationDateTypeInt,
-      @TimestampConverter() DateTime? expirationAt,
-      required String amazonUrl,
-      String? imageUrlSmall,
-      String? imageUrlMedium,
-      String? imageUrlLarge,
-      required String nickname}) = _$_EveryonesStockModel;
+      {@TimestampConverter() final DateTime? createdAt,
+      required final String name,
+      required final double numberOfItems,
+      required final String asin,
+      required final String category,
+      required final int expirationDateTypeInt,
+      @TimestampConverter() final DateTime? expirationAt,
+      required final String amazonUrl,
+      final String? imageUrlSmall,
+      final String? imageUrlMedium,
+      final String? imageUrlLarge,
+      required final String nickname}) = _$_EveryonesStockModel;
   const _EveryonesStockModel._() : super._();
 
   factory _EveryonesStockModel.fromJson(Map<String, dynamic> json) =

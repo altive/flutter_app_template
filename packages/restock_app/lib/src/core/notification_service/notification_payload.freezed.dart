@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'notification_payload.dart';
@@ -11,40 +12,11 @@ part of 'notification_payload.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 NotificationPayload _$NotificationPayloadFromJson(Map<String, dynamic> json) {
   return _NotificationPayload.fromJson(json);
 }
-
-/// @nodoc
-class _$NotificationPayloadTearOff {
-  const _$NotificationPayloadTearOff();
-
-  _NotificationPayload call(
-      {required String documentId,
-      required String itemName,
-      required DateTime expirationDate,
-      required int notificationDurationDays,
-      required int hour,
-      required int minute}) {
-    return _NotificationPayload(
-      documentId: documentId,
-      itemName: itemName,
-      expirationDate: expirationDate,
-      notificationDurationDays: notificationDurationDays,
-      hour: hour,
-      minute: minute,
-    );
-  }
-
-  NotificationPayload fromJson(Map<String, Object> json) {
-    return NotificationPayload.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $NotificationPayload = _$NotificationPayloadTearOff();
 
 /// @nodoc
 mixin _$NotificationPayload {
@@ -238,36 +210,29 @@ class _$_NotificationPayload extends _NotificationPayload
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _NotificationPayload &&
-            (identical(other.documentId, documentId) ||
-                const DeepCollectionEquality()
-                    .equals(other.documentId, documentId)) &&
-            (identical(other.itemName, itemName) ||
-                const DeepCollectionEquality()
-                    .equals(other.itemName, itemName)) &&
-            (identical(other.expirationDate, expirationDate) ||
-                const DeepCollectionEquality()
-                    .equals(other.expirationDate, expirationDate)) &&
-            (identical(
-                    other.notificationDurationDays, notificationDurationDays) ||
-                const DeepCollectionEquality().equals(
-                    other.notificationDurationDays,
-                    notificationDurationDays)) &&
-            (identical(other.hour, hour) ||
-                const DeepCollectionEquality().equals(other.hour, hour)) &&
-            (identical(other.minute, minute) ||
-                const DeepCollectionEquality().equals(other.minute, minute)));
+        (other.runtimeType == runtimeType &&
+            other is _NotificationPayload &&
+            const DeepCollectionEquality()
+                .equals(other.documentId, documentId) &&
+            const DeepCollectionEquality().equals(other.itemName, itemName) &&
+            const DeepCollectionEquality()
+                .equals(other.expirationDate, expirationDate) &&
+            const DeepCollectionEquality().equals(
+                other.notificationDurationDays, notificationDurationDays) &&
+            const DeepCollectionEquality().equals(other.hour, hour) &&
+            const DeepCollectionEquality().equals(other.minute, minute));
   }
 
+  @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(documentId) ^
-      const DeepCollectionEquality().hash(itemName) ^
-      const DeepCollectionEquality().hash(expirationDate) ^
-      const DeepCollectionEquality().hash(notificationDurationDays) ^
-      const DeepCollectionEquality().hash(hour) ^
-      const DeepCollectionEquality().hash(minute);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(documentId),
+      const DeepCollectionEquality().hash(itemName),
+      const DeepCollectionEquality().hash(expirationDate),
+      const DeepCollectionEquality().hash(notificationDurationDays),
+      const DeepCollectionEquality().hash(hour),
+      const DeepCollectionEquality().hash(minute));
 
   @JsonKey(ignore: true)
   @override
@@ -283,12 +248,12 @@ class _$_NotificationPayload extends _NotificationPayload
 
 abstract class _NotificationPayload extends NotificationPayload {
   const factory _NotificationPayload(
-      {required String documentId,
-      required String itemName,
-      required DateTime expirationDate,
-      required int notificationDurationDays,
-      required int hour,
-      required int minute}) = _$_NotificationPayload;
+      {required final String documentId,
+      required final String itemName,
+      required final DateTime expirationDate,
+      required final int notificationDurationDays,
+      required final int hour,
+      required final int minute}) = _$_NotificationPayload;
   const _NotificationPayload._() : super._();
 
   factory _NotificationPayload.fromJson(Map<String, dynamic> json) =

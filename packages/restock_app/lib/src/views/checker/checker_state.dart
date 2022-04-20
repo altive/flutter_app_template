@@ -4,7 +4,7 @@ import '../../models/remote_config/recommend_stock_set_parameter.dart';
 
 part 'checker_state.freezed.dart';
 
-@freezed
+@Freezed(makeCollectionsUnmodifiable: false)
 class CheckerState with _$CheckerState {
   const factory CheckerState({
     // 読み込み中かどうか

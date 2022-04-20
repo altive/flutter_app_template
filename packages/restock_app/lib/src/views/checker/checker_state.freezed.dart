@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'checker_state.dart';
@@ -11,30 +12,7 @@ part of 'checker_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$CheckerStateTearOff {
-  const _$CheckerStateTearOff();
-
-  _CheckerState call(
-      {bool loading = false,
-      int manCount = 0,
-      int womanCount = 0,
-      int childCount = 0,
-      List<RecommendStockSet>? stockSetList}) {
-    return _CheckerState(
-      loading: loading,
-      manCount: manCount,
-      womanCount: womanCount,
-      childCount: childCount,
-      stockSetList: stockSetList,
-    );
-  }
-}
-
-/// @nodoc
-const $CheckerState = _$CheckerStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$CheckerState {
@@ -173,17 +151,18 @@ class _$_CheckerState implements _CheckerState {
       this.childCount = 0,
       this.stockSetList});
 
-  @JsonKey(defaultValue: false)
-  @override // 読み込み中かどうか
+// 読み込み中かどうか
+  @override
+  @JsonKey()
   final bool loading;
-  @JsonKey(defaultValue: 0)
   @override
+  @JsonKey()
   final int manCount;
-  @JsonKey(defaultValue: 0)
   @override
+  @JsonKey()
   final int womanCount;
-  @JsonKey(defaultValue: 0)
   @override
+  @JsonKey()
   final int childCount;
   @override
   final List<RecommendStockSet>? stockSetList;
@@ -196,32 +175,26 @@ class _$_CheckerState implements _CheckerState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _CheckerState &&
-            (identical(other.loading, loading) ||
-                const DeepCollectionEquality()
-                    .equals(other.loading, loading)) &&
-            (identical(other.manCount, manCount) ||
-                const DeepCollectionEquality()
-                    .equals(other.manCount, manCount)) &&
-            (identical(other.womanCount, womanCount) ||
-                const DeepCollectionEquality()
-                    .equals(other.womanCount, womanCount)) &&
-            (identical(other.childCount, childCount) ||
-                const DeepCollectionEquality()
-                    .equals(other.childCount, childCount)) &&
-            (identical(other.stockSetList, stockSetList) ||
-                const DeepCollectionEquality()
-                    .equals(other.stockSetList, stockSetList)));
+        (other.runtimeType == runtimeType &&
+            other is _CheckerState &&
+            const DeepCollectionEquality().equals(other.loading, loading) &&
+            const DeepCollectionEquality().equals(other.manCount, manCount) &&
+            const DeepCollectionEquality()
+                .equals(other.womanCount, womanCount) &&
+            const DeepCollectionEquality()
+                .equals(other.childCount, childCount) &&
+            const DeepCollectionEquality()
+                .equals(other.stockSetList, stockSetList));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(loading) ^
-      const DeepCollectionEquality().hash(manCount) ^
-      const DeepCollectionEquality().hash(womanCount) ^
-      const DeepCollectionEquality().hash(childCount) ^
-      const DeepCollectionEquality().hash(stockSetList);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(loading),
+      const DeepCollectionEquality().hash(manCount),
+      const DeepCollectionEquality().hash(womanCount),
+      const DeepCollectionEquality().hash(childCount),
+      const DeepCollectionEquality().hash(stockSetList));
 
   @JsonKey(ignore: true)
   @override
@@ -231,11 +204,11 @@ class _$_CheckerState implements _CheckerState {
 
 abstract class _CheckerState implements CheckerState {
   const factory _CheckerState(
-      {bool loading,
-      int manCount,
-      int womanCount,
-      int childCount,
-      List<RecommendStockSet>? stockSetList}) = _$_CheckerState;
+      {final bool loading,
+      final int manCount,
+      final int womanCount,
+      final int childCount,
+      final List<RecommendStockSet>? stockSetList}) = _$_CheckerState;
 
   @override // 読み込み中かどうか
   bool get loading => throw _privateConstructorUsedError;

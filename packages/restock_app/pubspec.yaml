@@ -44,7 +44,7 @@ dependencies:
   flutter_local_notifications: ^9.4.0
   flutter_localizations:
     sdk: flutter
-  freezed_annotation: ^0.14.2
+  freezed_annotation: ^2.0.0
   google_sign_in: ^5.0.4
   hooks_riverpod: ^2.0.0-dev.5
   http: ^0.13.3
@@ -59,7 +59,7 @@ dependencies:
   purchases_flutter: ^3.3.0
   quiver: ^3.0.1
   recase: ^4.0.0
-  share: ^2.0.4
+  share_plus: ^4.0.4
   shared_preferences: ^2.0.6
   sign_in_with_apple: ^3.2.0
   simple_logger: ^1.8.1
@@ -75,7 +75,7 @@ dev_dependencies:
   flutter_launcher_icons: ^0.9.0
   flutter_test:
     sdk: flutter
-  freezed: ^0.14.2
+  freezed: ^2.0.0
   json_serializable: ^6.1.5
 
 dependency_overrides:

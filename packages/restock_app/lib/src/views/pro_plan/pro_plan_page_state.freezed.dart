@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'pro_plan_page_state.dart';
@@ -11,26 +12,7 @@ part of 'pro_plan_page_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$ProPlanPageStateTearOff {
-  const _$ProPlanPageStateTearOff();
-
-  _ProPlanPageState call(
-      {bool isLoading = false,
-      ProPlanInformation? monthlyProPlanInformation,
-      ProPlanInformation? annualProPlanInformation}) {
-    return _ProPlanPageState(
-      isLoading: isLoading,
-      monthlyProPlanInformation: monthlyProPlanInformation,
-      annualProPlanInformation: annualProPlanInformation,
-    );
-  }
-}
-
-/// @nodoc
-const $ProPlanPageState = _$ProPlanPageStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$ProPlanPageState {
@@ -150,18 +132,17 @@ class _$_ProPlanPageState
       this.monthlyProPlanInformation,
       this.annualProPlanInformation});
 
-  @JsonKey(defaultValue: false)
-  @override
-
   /// ローディング
-  final bool isLoading;
   @override
+  @JsonKey()
+  final bool isLoading;
 
   /// 月契約のProプラン情報@nullable
-  final ProPlanInformation? monthlyProPlanInformation;
   @override
+  final ProPlanInformation? monthlyProPlanInformation;
 
   /// 年契約のProプラン情報@nullable
+  @override
   final ProPlanInformation? annualProPlanInformation;
 
   @override
@@ -184,27 +165,21 @@ class _$_ProPlanPageState
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _ProPlanPageState &&
-            (identical(other.isLoading, isLoading) ||
-                const DeepCollectionEquality()
-                    .equals(other.isLoading, isLoading)) &&
-            (identical(other.monthlyProPlanInformation,
-                    monthlyProPlanInformation) ||
-                const DeepCollectionEquality().equals(
-                    other.monthlyProPlanInformation,
-                    monthlyProPlanInformation)) &&
-            (identical(
-                    other.annualProPlanInformation, annualProPlanInformation) ||
-                const DeepCollectionEquality().equals(
-                    other.annualProPlanInformation, annualProPlanInformation)));
+        (other.runtimeType == runtimeType &&
+            other is _ProPlanPageState &&
+            const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
+            const DeepCollectionEquality().equals(
+                other.monthlyProPlanInformation, monthlyProPlanInformation) &&
+            const DeepCollectionEquality().equals(
+                other.annualProPlanInformation, annualProPlanInformation));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(isLoading) ^
-      const DeepCollectionEquality().hash(monthlyProPlanInformation) ^
-      const DeepCollectionEquality().hash(annualProPlanInformation);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(isLoading),
+      const DeepCollectionEquality().hash(monthlyProPlanInformation),
+      const DeepCollectionEquality().hash(annualProPlanInformation));
 
   @JsonKey(ignore: true)
   @override
@@ -214,9 +189,10 @@ class _$_ProPlanPageState
 
 abstract class _ProPlanPageState implements ProPlanPageState {
   const factory _ProPlanPageState(
-      {bool isLoading,
-      ProPlanInformation? monthlyProPlanInformation,
-      ProPlanInformation? annualProPlanInformation}) = _$_ProPlanPageState;
+          {final bool isLoading,
+          final ProPlanInformation? monthlyProPlanInformation,
+          final ProPlanInformation? annualProPlanInformation}) =
+      _$_ProPlanPageState;
 
   @override
 

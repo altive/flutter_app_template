@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'stock_list_filter_state.dart';
@@ -11,26 +12,7 @@ part of 'stock_list_filter_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$HomeStockFilterStateTearOff {
-  const _$HomeStockFilterStateTearOff();
-
-  _HomeStockFilterState call(
-      {FilteringState inventory = FilteringState.notSelected,
-      FilteringState expiration = FilteringState.notSelected,
-      FilteringState category = FilteringState.notSelected}) {
-    return _HomeStockFilterState(
-      inventory: inventory,
-      expiration: expiration,
-      category: category,
-    );
-  }
-}
-
-/// @nodoc
-const $HomeStockFilterState = _$HomeStockFilterStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$HomeStockFilterState {
@@ -148,20 +130,19 @@ class _$_HomeStockFilterState extends _HomeStockFilterState
       this.category = FilteringState.notSelected})
       : super._();
 
-  @JsonKey(defaultValue: FilteringState.notSelected)
-  @override
-
   /// 在庫
-  final FilteringState inventory;
-  @JsonKey(defaultValue: FilteringState.notSelected)
   @override
+  @JsonKey()
+  final FilteringState inventory;
 
   /// 期限
-  final FilteringState expiration;
-  @JsonKey(defaultValue: FilteringState.notSelected)
   @override
+  @JsonKey()
+  final FilteringState expiration;
 
   /// 種類
+  @override
+  @JsonKey()
   final FilteringState category;
 
   @override
@@ -182,24 +163,20 @@ class _$_HomeStockFilterState extends _HomeStockFilterState
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _HomeStockFilterState &&
-            (identical(other.inventory, inventory) ||
-                const DeepCollectionEquality()
-                    .equals(other.inventory, inventory)) &&
-            (identical(other.expiration, expiration) ||
-                const DeepCollectionEquality()
-                    .equals(other.expiration, expiration)) &&
-            (identical(other.category, category) ||
-                const DeepCollectionEquality()
-                    .equals(other.category, category)));
+        (other.runtimeType == runtimeType &&
+            other is _HomeStockFilterState &&
+            const DeepCollectionEquality().equals(other.inventory, inventory) &&
+            const DeepCollectionEquality()
+                .equals(other.expiration, expiration) &&
+            const DeepCollectionEquality().equals(other.category, category));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(inventory) ^
-      const DeepCollectionEquality().hash(expiration) ^
-      const DeepCollectionEquality().hash(category);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(inventory),
+      const DeepCollectionEquality().hash(expiration),
+      const DeepCollectionEquality().hash(category));
 
   @JsonKey(ignore: true)
   @override
@@ -210,9 +187,9 @@ class _$_HomeStockFilterState extends _HomeStockFilterState
 
 abstract class _HomeStockFilterState extends HomeStockFilterState {
   const factory _HomeStockFilterState(
-      {FilteringState inventory,
-      FilteringState expiration,
-      FilteringState category}) = _$_HomeStockFilterState;
+      {final FilteringState inventory,
+      final FilteringState expiration,
+      final FilteringState category}) = _$_HomeStockFilterState;
   const _HomeStockFilterState._() : super._();
 
   @override

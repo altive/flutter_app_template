@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'search_result_state.dart';
@@ -11,26 +12,7 @@ part of 'search_result_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$SearchResultStateTearOff {
-  const _$SearchResultStateTearOff();
-
-  _SearchResultState call(
-      {bool fetching = true,
-      PaapiSearchItemsResult? searchResult,
-      PaapiSearchItemsParameters? searchParams}) {
-    return _SearchResultState(
-      fetching: fetching,
-      searchResult: searchResult,
-      searchParams: searchParams,
-    );
-  }
-}
-
-/// @nodoc
-const $SearchResultState = _$SearchResultStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$SearchResultState {
@@ -159,8 +141,9 @@ class _$_SearchResultState implements _SearchResultState {
   const _$_SearchResultState(
       {this.fetching = true, this.searchResult, this.searchParams});
 
-  @JsonKey(defaultValue: true)
-  @override // ローディング中かどうか
+// ローディング中かどうか
+  @override
+  @JsonKey()
   final bool fetching;
   @override
   final PaapiSearchItemsResult? searchResult;
@@ -175,24 +158,21 @@ class _$_SearchResultState implements _SearchResultState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SearchResultState &&
-            (identical(other.fetching, fetching) ||
-                const DeepCollectionEquality()
-                    .equals(other.fetching, fetching)) &&
-            (identical(other.searchResult, searchResult) ||
-                const DeepCollectionEquality()
-                    .equals(other.searchResult, searchResult)) &&
-            (identical(other.searchParams, searchParams) ||
-                const DeepCollectionEquality()
-                    .equals(other.searchParams, searchParams)));
+        (other.runtimeType == runtimeType &&
+            other is _SearchResultState &&
+            const DeepCollectionEquality().equals(other.fetching, fetching) &&
+            const DeepCollectionEquality()
+                .equals(other.searchResult, searchResult) &&
+            const DeepCollectionEquality()
+                .equals(other.searchParams, searchParams));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(fetching) ^
-      const DeepCollectionEquality().hash(searchResult) ^
-      const DeepCollectionEquality().hash(searchParams);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(fetching),
+      const DeepCollectionEquality().hash(searchResult),
+      const DeepCollectionEquality().hash(searchParams));
 
   @JsonKey(ignore: true)
   @override
@@ -202,9 +182,9 @@ class _$_SearchResultState implements _SearchResultState {
 
 abstract class _SearchResultState implements SearchResultState {
   const factory _SearchResultState(
-      {bool fetching,
-      PaapiSearchItemsResult? searchResult,
-      PaapiSearchItemsParameters? searchParams}) = _$_SearchResultState;
+      {final bool fetching,
+      final PaapiSearchItemsResult? searchResult,
+      final PaapiSearchItemsParameters? searchParams}) = _$_SearchResultState;
 
   @override // ローディング中かどうか
   bool get fetching => throw _privateConstructorUsedError;

@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'recommend_detail_state.dart';
@@ -11,23 +12,7 @@ part of 'recommend_detail_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$RecommendDetailStateTearOff {
-  const _$RecommendDetailStateTearOff();
-
-  _RecommendDetailState call(
-      {bool fetching = true, PaapiGetItemsResult? itemResult}) {
-    return _RecommendDetailState(
-      fetching: fetching,
-      itemResult: itemResult,
-    );
-  }
-}
-
-/// @nodoc
-const $RecommendDetailState = _$RecommendDetailStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$RecommendDetailState {
@@ -119,10 +104,12 @@ class __$RecommendDetailStateCopyWithImpl<$Res>
 class _$_RecommendDetailState implements _RecommendDetailState {
   const _$_RecommendDetailState({this.fetching = true, this.itemResult});
 
-  @JsonKey(defaultValue: true)
-  @override // ローディング中かどうか
+// ローディング中かどうか
+  @override
+  @JsonKey()
   final bool fetching;
-  @override // 商品検索結果
+// 商品検索結果
+  @override
   final PaapiGetItemsResult? itemResult;
 
   @override
@@ -133,20 +120,18 @@ class _$_RecommendDetailState implements _RecommendDetailState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _RecommendDetailState &&
-            (identical(other.fetching, fetching) ||
-                const DeepCollectionEquality()
-                    .equals(other.fetching, fetching)) &&
-            (identical(other.itemResult, itemResult) ||
-                const DeepCollectionEquality()
-                    .equals(other.itemResult, itemResult)));
+        (other.runtimeType == runtimeType &&
+            other is _RecommendDetailState &&
+            const DeepCollectionEquality().equals(other.fetching, fetching) &&
+            const DeepCollectionEquality()
+                .equals(other.itemResult, itemResult));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(fetching) ^
-      const DeepCollectionEquality().hash(itemResult);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(fetching),
+      const DeepCollectionEquality().hash(itemResult));
 
   @JsonKey(ignore: true)
   @override
@@ -157,8 +142,8 @@ class _$_RecommendDetailState implements _RecommendDetailState {
 
 abstract class _RecommendDetailState implements RecommendDetailState {
   const factory _RecommendDetailState(
-      {bool fetching,
-      PaapiGetItemsResult? itemResult}) = _$_RecommendDetailState;
+      {final bool fetching,
+      final PaapiGetItemsResult? itemResult}) = _$_RecommendDetailState;
 
   @override // ローディング中かどうか
   bool get fetching => throw _privateConstructorUsedError;

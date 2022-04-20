@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'revenue_state.dart';
@@ -11,26 +12,7 @@ part of 'revenue_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$RevenueStateTearOff {
-  const _$RevenueStateTearOff();
-
-  _RevenueState call(
-      {bool isSubscriber = false,
-      String? updatedDateString,
-      String? latestExpirationDateString}) {
-    return _RevenueState(
-      isSubscriber: isSubscriber,
-      updatedDateString: updatedDateString,
-      latestExpirationDateString: latestExpirationDateString,
-    );
-  }
-}
-
-/// @nodoc
-const $RevenueState = _$RevenueStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$RevenueState {
@@ -144,18 +126,17 @@ class _$_RevenueState with DiagnosticableTreeMixin implements _RevenueState {
       this.updatedDateString,
       this.latestExpirationDateString});
 
-  @JsonKey(defaultValue: false)
-  @override
-
   /// サブスクリプション契約中かどうか default: false
-  final bool isSubscriber;
   @override
+  @JsonKey()
+  final bool isSubscriber;
 
   /// 情報更新日時
-  final String? updatedDateString;
   @override
+  final String? updatedDateString;
 
   /// 最新の有効期限日
+  @override
   final String? latestExpirationDateString;
 
   @override
@@ -177,26 +158,22 @@ class _$_RevenueState with DiagnosticableTreeMixin implements _RevenueState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _RevenueState &&
-            (identical(other.isSubscriber, isSubscriber) ||
-                const DeepCollectionEquality()
-                    .equals(other.isSubscriber, isSubscriber)) &&
-            (identical(other.updatedDateString, updatedDateString) ||
-                const DeepCollectionEquality()
-                    .equals(other.updatedDateString, updatedDateString)) &&
-            (identical(other.latestExpirationDateString,
-                    latestExpirationDateString) ||
-                const DeepCollectionEquality().equals(
-                    other.latestExpirationDateString,
-                    latestExpirationDateString)));
+        (other.runtimeType == runtimeType &&
+            other is _RevenueState &&
+            const DeepCollectionEquality()
+                .equals(other.isSubscriber, isSubscriber) &&
+            const DeepCollectionEquality()
+                .equals(other.updatedDateString, updatedDateString) &&
+            const DeepCollectionEquality().equals(
+                other.latestExpirationDateString, latestExpirationDateString));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(isSubscriber) ^
-      const DeepCollectionEquality().hash(updatedDateString) ^
-      const DeepCollectionEquality().hash(latestExpirationDateString);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(isSubscriber),
+      const DeepCollectionEquality().hash(updatedDateString),
+      const DeepCollectionEquality().hash(latestExpirationDateString));
 
   @JsonKey(ignore: true)
   @override
@@ -206,9 +183,9 @@ class _$_RevenueState with DiagnosticableTreeMixin implements _RevenueState {
 
 abstract class _RevenueState implements RevenueState {
   const factory _RevenueState(
-      {bool isSubscriber,
-      String? updatedDateString,
-      String? latestExpirationDateString}) = _$_RevenueState;
+      {final bool isSubscriber,
+      final String? updatedDateString,
+      final String? latestExpirationDateString}) = _$_RevenueState;
 
   @override
 

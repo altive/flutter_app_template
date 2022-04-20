@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'my_account_model.dart';
@@ -11,36 +12,11 @@ part of 'my_account_model.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 AppUserModel _$AppUserModelFromJson(Map<String, dynamic> json) {
   return _AppUserModel.fromJson(json);
 }
-
-/// @nodoc
-class _$AppUserModelTearOff {
-  const _$AppUserModelTearOff();
-
-  _AppUserModel call(
-      {@TimestampConverter() DateTime? createdAt,
-      @TimestampConverter() DateTime? updatedAt,
-      String? nickname,
-      @JsonKey(name: 'stockPlaces') List<String>? stockCategories}) {
-    return _AppUserModel(
-      createdAt: createdAt,
-      updatedAt: updatedAt,
-      nickname: nickname,
-      stockCategories: stockCategories,
-    );
-  }
-
-  AppUserModel fromJson(Map<String, Object> json) {
-    return AppUserModel.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $AppUserModel = _$AppUserModelTearOff();
 
 /// @nodoc
 mixin _$AppUserModel {
@@ -177,9 +153,11 @@ class _$_AppUserModel extends _AppUserModel with DiagnosticableTreeMixin {
   @override
   @TimestampConverter()
   final DateTime? updatedAt;
-  @override // ニックネーム
+// ニックネーム
+  @override
   final String? nickname;
-  @override // ストック保管場所
+// ストック保管場所
+  @override
   @JsonKey(name: 'stockPlaces')
   final List<String>? stockCategories;
 
@@ -202,28 +180,23 @@ class _$_AppUserModel extends _AppUserModel with DiagnosticableTreeMixin {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _AppUserModel &&
-            (identical(other.createdAt, createdAt) ||
-                const DeepCollectionEquality()
-                    .equals(other.createdAt, createdAt)) &&
-            (identical(other.updatedAt, updatedAt) ||
-                const DeepCollectionEquality()
-                    .equals(other.updatedAt, updatedAt)) &&
-            (identical(other.nickname, nickname) ||
-                const DeepCollectionEquality()
-                    .equals(other.nickname, nickname)) &&
-            (identical(other.stockCategories, stockCategories) ||
-                const DeepCollectionEquality()
-                    .equals(other.stockCategories, stockCategories)));
+        (other.runtimeType == runtimeType &&
+            other is _AppUserModel &&
+            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
+            const DeepCollectionEquality().equals(other.updatedAt, updatedAt) &&
+            const DeepCollectionEquality().equals(other.nickname, nickname) &&
+            const DeepCollectionEquality()
+                .equals(other.stockCategories, stockCategories));
   }
 
+  @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(createdAt) ^
-      const DeepCollectionEquality().hash(updatedAt) ^
-      const DeepCollectionEquality().hash(nickname) ^
-      const DeepCollectionEquality().hash(stockCategories);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(createdAt),
+      const DeepCollectionEquality().hash(updatedAt),
+      const DeepCollectionEquality().hash(nickname),
+      const DeepCollectionEquality().hash(stockCategories));
 
   @JsonKey(ignore: true)
   @override
@@ -238,10 +211,10 @@ class _$_AppUserModel extends _AppUserModel with DiagnosticableTreeMixin {
 
 abstract class _AppUserModel extends AppUserModel {
   const factory _AppUserModel(
-          {@TimestampConverter() DateTime? createdAt,
-          @TimestampConverter() DateTime? updatedAt,
-          String? nickname,
-          @JsonKey(name: 'stockPlaces') List<String>? stockCategories}) =
+          {@TimestampConverter() final DateTime? createdAt,
+          @TimestampConverter() final DateTime? updatedAt,
+          final String? nickname,
+          @JsonKey(name: 'stockPlaces') final List<String>? stockCategories}) =
       _$_AppUserModel;
   const _AppUserModel._() : super._();
 

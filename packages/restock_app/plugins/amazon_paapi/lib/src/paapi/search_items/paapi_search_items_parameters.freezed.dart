@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'paapi_search_items_parameters.dart';
 
@@ -10,30 +12,7 @@ part of 'paapi_search_items_parameters.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$PaapiSearchItemsParametersTearOff {
-  const _$PaapiSearchItemsParametersTearOff();
-
-  _PaapiSearchItemsParameters call(
-      {String? keyword,
-      List<String> resources = const <String>[],
-      String? searchIndex,
-      int? itemCount,
-      int? itemPage}) {
-    return _PaapiSearchItemsParameters(
-      keyword: keyword,
-      resources: resources,
-      searchIndex: searchIndex,
-      itemCount: itemCount,
-      itemPage: itemPage,
-    );
-  }
-}
-
-/// @nodoc
-const $PaapiSearchItemsParameters = _$PaapiSearchItemsParametersTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$PaapiSearchItemsParameters {
@@ -175,21 +154,33 @@ class _$_PaapiSearchItemsParameters
     implements _PaapiSearchItemsParameters {
   const _$_PaapiSearchItemsParameters(
       {this.keyword,
-      this.resources = const <String>[],
+      final List<String> resources = const <String>[],
       this.searchIndex,
       this.itemCount,
-      this.itemPage});
+      this.itemPage})
+      : _resources = resources;
 
-  @override // 検索キーワードまたはフレーズ
+// 検索キーワードまたはフレーズ
+  @override
   final String? keyword;
-  @JsonKey(defaultValue: const <String>[])
-  @override // 欲しいレスポンス情報
-  final List<String> resources;
-  @override // 検索対象の製品カテゴリ
+// 欲しいレスポンス情報
+  final List<String> _resources;
+// 欲しいレスポンス情報
+  @override
+  @JsonKey()
+  List<String> get resources {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_resources);
+  }
+
+// 検索対象の製品カテゴリ
+  @override
   final String? searchIndex;
-  @override // 幾つの検索結果を返却するか
+// 幾つの検索結果を返却するか
+  @override
   final int? itemCount;
-  @override // 検索結果のうちの何ページを目を返却するか
+// 検索結果のうちの何ページを目を返却するか
+  @override
   final int? itemPage;
 
   @override
@@ -212,32 +203,24 @@ class _$_PaapiSearchItemsParameters
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _PaapiSearchItemsParameters &&
-            (identical(other.keyword, keyword) ||
-                const DeepCollectionEquality()
-                    .equals(other.keyword, keyword)) &&
-            (identical(other.resources, resources) ||
-                const DeepCollectionEquality()
-                    .equals(other.resources, resources)) &&
-            (identical(other.searchIndex, searchIndex) ||
-                const DeepCollectionEquality()
-                    .equals(other.searchIndex, searchIndex)) &&
-            (identical(other.itemCount, itemCount) ||
-                const DeepCollectionEquality()
-                    .equals(other.itemCount, itemCount)) &&
-            (identical(other.itemPage, itemPage) ||
-                const DeepCollectionEquality()
-                    .equals(other.itemPage, itemPage)));
+        (other.runtimeType == runtimeType &&
+            other is _PaapiSearchItemsParameters &&
+            const DeepCollectionEquality().equals(other.keyword, keyword) &&
+            const DeepCollectionEquality().equals(other.resources, resources) &&
+            const DeepCollectionEquality()
+                .equals(other.searchIndex, searchIndex) &&
+            const DeepCollectionEquality().equals(other.itemCount, itemCount) &&
+            const DeepCollectionEquality().equals(other.itemPage, itemPage));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(keyword) ^
-      const DeepCollectionEquality().hash(resources) ^
-      const DeepCollectionEquality().hash(searchIndex) ^
-      const DeepCollectionEquality().hash(itemCount) ^
-      const DeepCollectionEquality().hash(itemPage);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(keyword),
+      const DeepCollectionEquality().hash(resources),
+      const DeepCollectionEquality().hash(searchIndex),
+      const DeepCollectionEquality().hash(itemCount),
+      const DeepCollectionEquality().hash(itemPage));
 
   @JsonKey(ignore: true)
   @override
@@ -249,11 +232,11 @@ class _$_PaapiSearchItemsParameters
 abstract class _PaapiSearchItemsParameters
     implements PaapiSearchItemsParameters {
   const factory _PaapiSearchItemsParameters(
-      {String? keyword,
-      List<String> resources,
-      String? searchIndex,
-      int? itemCount,
-      int? itemPage}) = _$_PaapiSearchItemsParameters;
+      {final String? keyword,
+      final List<String> resources,
+      final String? searchIndex,
+      final int? itemCount,
+      final int? itemPage}) = _$_PaapiSearchItemsParameters;
 
   @override // 検索キーワードまたはフレーズ
   String? get keyword => throw _privateConstructorUsedError;

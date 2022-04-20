@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'account_setting_state.dart';
@@ -11,21 +12,7 @@ part of 'account_setting_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$AccountSettingStateTearOff {
-  const _$AccountSettingStateTearOff();
-
-  _AccountSettingState call({bool loading = false}) {
-    return _AccountSettingState(
-      loading: loading,
-    );
-  }
-}
-
-/// @nodoc
-const $AccountSettingState = _$AccountSettingStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$AccountSettingState {
@@ -105,8 +92,8 @@ class __$AccountSettingStateCopyWithImpl<$Res>
 class _$_AccountSettingState implements _AccountSettingState {
   const _$_AccountSettingState({this.loading = false});
 
-  @JsonKey(defaultValue: false)
   @override
+  @JsonKey()
   final bool loading;
 
   @override
@@ -117,14 +104,14 @@ class _$_AccountSettingState implements _AccountSettingState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _AccountSettingState &&
-            (identical(other.loading, loading) ||
-                const DeepCollectionEquality().equals(other.loading, loading)));
+        (other.runtimeType == runtimeType &&
+            other is _AccountSettingState &&
+            const DeepCollectionEquality().equals(other.loading, loading));
   }
 
   @override
   int get hashCode =>
-      runtimeType.hashCode ^ const DeepCollectionEquality().hash(loading);
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(loading));
 
   @JsonKey(ignore: true)
   @override
@@ -134,7 +121,8 @@ class _$_AccountSettingState implements _AccountSettingState {
 }
 
 abstract class _AccountSettingState implements AccountSettingState {
-  const factory _AccountSettingState({bool loading}) = _$_AccountSettingState;
+  const factory _AccountSettingState({final bool loading}) =
+      _$_AccountSettingState;
 
   @override
   bool get loading => throw _privateConstructorUsedError;

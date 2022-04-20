@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'stock_entity.dart';
@@ -11,77 +12,11 @@ part of 'stock_entity.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 StockEntity _$StockEntityFromJson(Map<String, dynamic> json) {
   return _StockEntity.fromJson(json);
 }
-
-/// @nodoc
-class _$StockEntityTearOff {
-  const _$StockEntityTearOff();
-
-  _StockEntity call(
-      {required String? id,
-      required int idNumber,
-      @TimestampConverter()
-          DateTime? createdAt,
-      @TimestampConverter()
-          DateTime? updatedAt,
-      required String name,
-      String? originalName,
-      required double numberOfItems,
-      required String? asin,
-      required String? itemId,
-      @JsonKey(name: StockEntityField.productCategory)
-          required String productCategory,
-      required int expirationDateTypeInt,
-      @TimestampConverter()
-          DateTime? expirationAt,
-      required String? amazonUrl,
-      String? imageUrlSmall,
-      String? imageUrlMedium,
-      String? imageUrlLarge,
-      String? imagePathSmall,
-      String? imagePathMedium,
-      String? imagePathLarge,
-      String? imagePathOriginal,
-      String? memo,
-      @JsonKey(name: StockEntityField.stockCategory)
-          String? stockCategory}) {
-    return _StockEntity(
-      id: id,
-      idNumber: idNumber,
-      createdAt: createdAt,
-      updatedAt: updatedAt,
-      name: name,
-      originalName: originalName,
-      numberOfItems: numberOfItems,
-      asin: asin,
-      itemId: itemId,
-      productCategory: productCategory,
-      expirationDateTypeInt: expirationDateTypeInt,
-      expirationAt: expirationAt,
-      amazonUrl: amazonUrl,
-      imageUrlSmall: imageUrlSmall,
-      imageUrlMedium: imageUrlMedium,
-      imageUrlLarge: imageUrlLarge,
-      imagePathSmall: imagePathSmall,
-      imagePathMedium: imagePathMedium,
-      imagePathLarge: imagePathLarge,
-      imagePathOriginal: imagePathOriginal,
-      memo: memo,
-      stockCategory: stockCategory,
-    );
-  }
-
-  StockEntity fromJson(Map<String, Object> json) {
-    return StockEntity.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $StockEntity = _$StockEntityTearOff();
 
 /// @nodoc
 mixin _$StockEntity {
@@ -519,102 +454,101 @@ class _$_StockEntity extends _StockEntity with DiagnosticableTreeMixin {
   factory _$_StockEntity.fromJson(Map<String, dynamic> json) =>
       _$$_StockEntityFromJson(json);
 
-  @override
-
   /// 古いバージョンのアプリでは `id` を入れていなかった。
   /// そもそも入れなくて良い運用が良さそうだが、現時点では取得時点で補完した上で使用している
-  final String? id;
   @override
+  final String? id;
 
   /// 通知で使用する一位の数列
-  final int idNumber;
   @override
+  final int idNumber;
 
   /// 作成日時
+  @override
   @TimestampConverter()
   final DateTime? createdAt;
-  @override
 
   /// 更新日時
+  @override
   @TimestampConverter()
   final DateTime? updatedAt;
-  @override
 
   /// アイテムの名前
-  final String name;
   @override
+  final String name;
 
   /// アイテムの名前（Amazon商品の編集されていない名前）
   /// みんなのストックなどの表示に使う @nullable
-  final String? originalName;
   @override
+  final String? originalName;
 
   /// アイテムのストック数
-  final double numberOfItems;
   @override
+  final double numberOfItems;
 
   /// Amazonの商品コード @nullable
-  final String? asin;
   @override
+  final String? asin;
 
   /// 手動で登録したアイテムのID。複製した場合はこのIDを引き継ぐ @nullable
-  final String? itemId;
   @override
+  final String? itemId;
 
   /// 商品の種類（食品・その他など）
   /// v2.2.1: ローカルでは `productCategory` に変更
+  @override
   @JsonKey(name: StockEntityField.productCategory)
   final String productCategory;
-  @override
 
   /// 期限の種類
-  final int expirationDateTypeInt;
   @override
+  final int expirationDateTypeInt;
 
   /// 消費期限 or 賞味期限 @nullable
+  @override
   @TimestampConverter()
   final DateTime? expirationAt;
-  @override
 
   /// Amazonの商品Url @nullable
-  final String? amazonUrl;
   @override
+  final String? amazonUrl;
 
   /// Amazonの商品画像（小） @nullable
-  final String? imageUrlSmall;
   @override
+  final String? imageUrlSmall;
 
   /// Amazonの商品画像（中） @nullable
-  final String? imageUrlMedium;
   @override
+  final String? imageUrlMedium;
 
   /// Amazonの商品画像（大） @nullable
-  final String? imageUrlLarge;
   @override
+  final String? imageUrlLarge;
 
   /// 商品写真のStorage保存パス（200x200） @nullable
-  final String? imagePathSmall;
   @override
+  final String? imagePathSmall;
 
   /// 商品写真のStorage保存パス（400x400） @nullable
+  @override
   final String? imagePathMedium;
-  @override
 
   /// 商品写真のStorage保存パス（600x600） @nullable
+  @override
   final String? imagePathLarge;
-  @override
 
   /// 商品写真のStorage保存パス（600x600） @nullable
-  final String? imagePathOriginal;
   @override
+  final String? imagePathOriginal;
 
   /// メモ @nullable
-  final String? memo;
   @override
+  final String? memo;
 
   /// グループ @nullable
   /// added: v1.9.0
   /// v2.2.1: ローカルでは `stockCategory` に変更
+  @override
   @JsonKey(name: StockEntityField.stockCategory)
   final String? stockCategory;
 
@@ -655,95 +589,72 @@ class _$_StockEntity extends _StockEntity with DiagnosticableTreeMixin {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _StockEntity &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.idNumber, idNumber) ||
-                const DeepCollectionEquality()
-                    .equals(other.idNumber, idNumber)) &&
-            (identical(other.createdAt, createdAt) ||
-                const DeepCollectionEquality()
-                    .equals(other.createdAt, createdAt)) &&
-            (identical(other.updatedAt, updatedAt) ||
-                const DeepCollectionEquality()
-                    .equals(other.updatedAt, updatedAt)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
-            (identical(other.originalName, originalName) ||
-                const DeepCollectionEquality()
-                    .equals(other.originalName, originalName)) &&
-            (identical(other.numberOfItems, numberOfItems) ||
-                const DeepCollectionEquality()
-                    .equals(other.numberOfItems, numberOfItems)) &&
-            (identical(other.asin, asin) ||
-                const DeepCollectionEquality().equals(other.asin, asin)) &&
-            (identical(other.itemId, itemId) ||
-                const DeepCollectionEquality().equals(other.itemId, itemId)) &&
-            (identical(other.productCategory, productCategory) ||
-                const DeepCollectionEquality()
-                    .equals(other.productCategory, productCategory)) &&
-            (identical(other.expirationDateTypeInt, expirationDateTypeInt) ||
-                const DeepCollectionEquality().equals(
-                    other.expirationDateTypeInt, expirationDateTypeInt)) &&
-            (identical(other.expirationAt, expirationAt) ||
-                const DeepCollectionEquality()
-                    .equals(other.expirationAt, expirationAt)) &&
-            (identical(other.amazonUrl, amazonUrl) ||
-                const DeepCollectionEquality()
-                    .equals(other.amazonUrl, amazonUrl)) &&
-            (identical(other.imageUrlSmall, imageUrlSmall) ||
-                const DeepCollectionEquality()
-                    .equals(other.imageUrlSmall, imageUrlSmall)) &&
-            (identical(other.imageUrlMedium, imageUrlMedium) ||
-                const DeepCollectionEquality()
-                    .equals(other.imageUrlMedium, imageUrlMedium)) &&
-            (identical(other.imageUrlLarge, imageUrlLarge) ||
-                const DeepCollectionEquality()
-                    .equals(other.imageUrlLarge, imageUrlLarge)) &&
-            (identical(other.imagePathSmall, imagePathSmall) ||
-                const DeepCollectionEquality()
-                    .equals(other.imagePathSmall, imagePathSmall)) &&
-            (identical(other.imagePathMedium, imagePathMedium) ||
-                const DeepCollectionEquality()
-                    .equals(other.imagePathMedium, imagePathMedium)) &&
-            (identical(other.imagePathLarge, imagePathLarge) ||
-                const DeepCollectionEquality()
-                    .equals(other.imagePathLarge, imagePathLarge)) &&
-            (identical(other.imagePathOriginal, imagePathOriginal) ||
-                const DeepCollectionEquality()
-                    .equals(other.imagePathOriginal, imagePathOriginal)) &&
-            (identical(other.memo, memo) ||
-                const DeepCollectionEquality().equals(other.memo, memo)) &&
-            (identical(other.stockCategory, stockCategory) ||
-                const DeepCollectionEquality()
-                    .equals(other.stockCategory, stockCategory)));
+        (other.runtimeType == runtimeType &&
+            other is _StockEntity &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.idNumber, idNumber) &&
+            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
+            const DeepCollectionEquality().equals(other.updatedAt, updatedAt) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality()
+                .equals(other.originalName, originalName) &&
+            const DeepCollectionEquality()
+                .equals(other.numberOfItems, numberOfItems) &&
+            const DeepCollectionEquality().equals(other.asin, asin) &&
+            const DeepCollectionEquality().equals(other.itemId, itemId) &&
+            const DeepCollectionEquality()
+                .equals(other.productCategory, productCategory) &&
+            const DeepCollectionEquality()
+                .equals(other.expirationDateTypeInt, expirationDateTypeInt) &&
+            const DeepCollectionEquality()
+                .equals(other.expirationAt, expirationAt) &&
+            const DeepCollectionEquality().equals(other.amazonUrl, amazonUrl) &&
+            const DeepCollectionEquality()
+                .equals(other.imageUrlSmall, imageUrlSmall) &&
+            const DeepCollectionEquality()
+                .equals(other.imageUrlMedium, imageUrlMedium) &&
+            const DeepCollectionEquality()
+                .equals(other.imageUrlLarge, imageUrlLarge) &&
+            const DeepCollectionEquality()
+                .equals(other.imagePathSmall, imagePathSmall) &&
+            const DeepCollectionEquality()
+                .equals(other.imagePathMedium, imagePathMedium) &&
+            const DeepCollectionEquality()
+                .equals(other.imagePathLarge, imagePathLarge) &&
+            const DeepCollectionEquality()
+                .equals(other.imagePathOriginal, imagePathOriginal) &&
+            const DeepCollectionEquality().equals(other.memo, memo) &&
+            const DeepCollectionEquality()
+                .equals(other.stockCategory, stockCategory));
   }
 
+  @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(idNumber) ^
-      const DeepCollectionEquality().hash(createdAt) ^
-      const DeepCollectionEquality().hash(updatedAt) ^
-      const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(originalName) ^
-      const DeepCollectionEquality().hash(numberOfItems) ^
-      const DeepCollectionEquality().hash(asin) ^
-      const DeepCollectionEquality().hash(itemId) ^
-      const DeepCollectionEquality().hash(productCategory) ^
-      const DeepCollectionEquality().hash(expirationDateTypeInt) ^
-      const DeepCollectionEquality().hash(expirationAt) ^
-      const DeepCollectionEquality().hash(amazonUrl) ^
-      const DeepCollectionEquality().hash(imageUrlSmall) ^
-      const DeepCollectionEquality().hash(imageUrlMedium) ^
-      const DeepCollectionEquality().hash(imageUrlLarge) ^
-      const DeepCollectionEquality().hash(imagePathSmall) ^
-      const DeepCollectionEquality().hash(imagePathMedium) ^
-      const DeepCollectionEquality().hash(imagePathLarge) ^
-      const DeepCollectionEquality().hash(imagePathOriginal) ^
-      const DeepCollectionEquality().hash(memo) ^
-      const DeepCollectionEquality().hash(stockCategory);
+  int get hashCode => Object.hashAll([
+        runtimeType,
+        const DeepCollectionEquality().hash(id),
+        const DeepCollectionEquality().hash(idNumber),
+        const DeepCollectionEquality().hash(createdAt),
+        const DeepCollectionEquality().hash(updatedAt),
+        const DeepCollectionEquality().hash(name),
+        const DeepCollectionEquality().hash(originalName),
+        const DeepCollectionEquality().hash(numberOfItems),
+        const DeepCollectionEquality().hash(asin),
+        const DeepCollectionEquality().hash(itemId),
+        const DeepCollectionEquality().hash(productCategory),
+        const DeepCollectionEquality().hash(expirationDateTypeInt),
+        const DeepCollectionEquality().hash(expirationAt),
+        const DeepCollectionEquality().hash(amazonUrl),
+        const DeepCollectionEquality().hash(imageUrlSmall),
+        const DeepCollectionEquality().hash(imageUrlMedium),
+        const DeepCollectionEquality().hash(imageUrlLarge),
+        const DeepCollectionEquality().hash(imagePathSmall),
+        const DeepCollectionEquality().hash(imagePathMedium),
+        const DeepCollectionEquality().hash(imagePathLarge),
+        const DeepCollectionEquality().hash(imagePathOriginal),
+        const DeepCollectionEquality().hash(memo),
+        const DeepCollectionEquality().hash(stockCategory)
+      ]);
 
   @JsonKey(ignore: true)
   @override
@@ -758,33 +669,33 @@ class _$_StockEntity extends _StockEntity with DiagnosticableTreeMixin {
 
 abstract class _StockEntity extends StockEntity {
   const factory _StockEntity(
-      {required String? id,
-      required int idNumber,
+      {required final String? id,
+      required final int idNumber,
       @TimestampConverter()
-          DateTime? createdAt,
+          final DateTime? createdAt,
       @TimestampConverter()
-          DateTime? updatedAt,
-      required String name,
-      String? originalName,
-      required double numberOfItems,
-      required String? asin,
-      required String? itemId,
+          final DateTime? updatedAt,
+      required final String name,
+      final String? originalName,
+      required final double numberOfItems,
+      required final String? asin,
+      required final String? itemId,
       @JsonKey(name: StockEntityField.productCategory)
-          required String productCategory,
-      required int expirationDateTypeInt,
+          required final String productCategory,
+      required final int expirationDateTypeInt,
       @TimestampConverter()
-          DateTime? expirationAt,
-      required String? amazonUrl,
-      String? imageUrlSmall,
-      String? imageUrlMedium,
-      String? imageUrlLarge,
-      String? imagePathSmall,
-      String? imagePathMedium,
-      String? imagePathLarge,
-      String? imagePathOriginal,
-      String? memo,
+          final DateTime? expirationAt,
+      required final String? amazonUrl,
+      final String? imageUrlSmall,
+      final String? imageUrlMedium,
+      final String? imageUrlLarge,
+      final String? imagePathSmall,
+      final String? imagePathMedium,
+      final String? imagePathLarge,
+      final String? imagePathOriginal,
+      final String? memo,
       @JsonKey(name: StockEntityField.stockCategory)
-          String? stockCategory}) = _$_StockEntity;
+          final String? stockCategory}) = _$_StockEntity;
   const _StockEntity._() : super._();
 
   factory _StockEntity.fromJson(Map<String, dynamic> json) =

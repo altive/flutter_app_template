@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'stock_editor_state.dart';
@@ -11,46 +12,7 @@ part of 'stock_editor_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$StockEditorStateTearOff {
-  const _$StockEditorStateTearOff();
-
-  _StockEditorState call(
-      {bool hasChanged = false,
-      bool loading = false,
-      String itemName = '',
-      int numberOfItems = 1,
-      ExpirationDateType expirationDateType = ExpirationDateType.bestBefore,
-      DateTime? expirationDate,
-      String? amazonUrl,
-      String? imageUrl,
-      @JsonKey(name: 'category')
-          MyStockCategory productCategory = MyStockCategory.grocery,
-      String? memo,
-      bool isNotificationEnabled = false,
-      @JsonKey(name: 'place')
-          String? stockCategory}) {
-    return _StockEditorState(
-      hasChanged: hasChanged,
-      loading: loading,
-      itemName: itemName,
-      numberOfItems: numberOfItems,
-      expirationDateType: expirationDateType,
-      expirationDate: expirationDate,
-      amazonUrl: amazonUrl,
-      imageUrl: imageUrl,
-      productCategory: productCategory,
-      memo: memo,
-      isNotificationEnabled: isNotificationEnabled,
-      stockCategory: stockCategory,
-    );
-  }
-}
-
-/// @nodoc
-const $StockEditorState = _$StockEditorStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$StockEditorState {
@@ -294,36 +256,48 @@ class _$_StockEditorState implements _StockEditorState {
       this.isNotificationEnabled = false,
       @JsonKey(name: 'place') this.stockCategory});
 
-  @JsonKey(defaultValue: false)
-  @override // 編集されたかどうか
+// 編集されたかどうか
+  @override
+  @JsonKey()
   final bool hasChanged;
-  @JsonKey(defaultValue: false)
-  @override // 読み込み中かどうか
+// 読み込み中かどうか
+  @override
+  @JsonKey()
   final bool loading;
-  @JsonKey(defaultValue: '')
-  @override // アイテムの名前
+// アイテムの名前
+  @override
+  @JsonKey()
   final String itemName;
-  @JsonKey(defaultValue: 1)
-  @override // アイテムの個数
+// アイテムの個数
+  @override
+  @JsonKey()
   final int numberOfItems;
-  @JsonKey(defaultValue: ExpirationDateType.bestBefore)
-  @override // 期限の種類
+// 期限の種類
+  @override
+  @JsonKey()
   final ExpirationDateType expirationDateType;
-  @override // 期限の日付
+// 期限の日付
+  @override
   final DateTime? expirationDate;
-  @override // アマゾンの商品URL@nullable
+// アマゾンの商品URL@nullable
+  @override
   final String? amazonUrl;
-  @override // 商品画像（大）
+// 商品画像（大）
+  @override
   final String? imageUrl;
-  @override // アイテムのジャンル
+// アイテムのジャンル
+  @override
   @JsonKey(name: 'category')
   final MyStockCategory productCategory;
-  @override // メモ@nullable
+// メモ@nullable
+  @override
   final String? memo;
-  @JsonKey(defaultValue: false)
-  @override // 通知するか
+// 通知するか
+  @override
+  @JsonKey()
   final bool isNotificationEnabled;
-  @override // グループ@nullable
+// グループ@nullable
+  @override
   @JsonKey(name: 'place')
   final String? stockCategory;
 
@@ -335,59 +309,44 @@ class _$_StockEditorState implements _StockEditorState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _StockEditorState &&
-            (identical(other.hasChanged, hasChanged) ||
-                const DeepCollectionEquality()
-                    .equals(other.hasChanged, hasChanged)) &&
-            (identical(other.loading, loading) ||
-                const DeepCollectionEquality()
-                    .equals(other.loading, loading)) &&
-            (identical(other.itemName, itemName) ||
-                const DeepCollectionEquality()
-                    .equals(other.itemName, itemName)) &&
-            (identical(other.numberOfItems, numberOfItems) ||
-                const DeepCollectionEquality()
-                    .equals(other.numberOfItems, numberOfItems)) &&
-            (identical(other.expirationDateType, expirationDateType) ||
-                const DeepCollectionEquality()
-                    .equals(other.expirationDateType, expirationDateType)) &&
-            (identical(other.expirationDate, expirationDate) ||
-                const DeepCollectionEquality()
-                    .equals(other.expirationDate, expirationDate)) &&
-            (identical(other.amazonUrl, amazonUrl) ||
-                const DeepCollectionEquality()
-                    .equals(other.amazonUrl, amazonUrl)) &&
-            (identical(other.imageUrl, imageUrl) ||
-                const DeepCollectionEquality()
-                    .equals(other.imageUrl, imageUrl)) &&
-            (identical(other.productCategory, productCategory) ||
-                const DeepCollectionEquality()
-                    .equals(other.productCategory, productCategory)) &&
-            (identical(other.memo, memo) ||
-                const DeepCollectionEquality().equals(other.memo, memo)) &&
-            (identical(other.isNotificationEnabled, isNotificationEnabled) ||
-                const DeepCollectionEquality().equals(
-                    other.isNotificationEnabled, isNotificationEnabled)) &&
-            (identical(other.stockCategory, stockCategory) ||
-                const DeepCollectionEquality()
-                    .equals(other.stockCategory, stockCategory)));
+        (other.runtimeType == runtimeType &&
+            other is _StockEditorState &&
+            const DeepCollectionEquality()
+                .equals(other.hasChanged, hasChanged) &&
+            const DeepCollectionEquality().equals(other.loading, loading) &&
+            const DeepCollectionEquality().equals(other.itemName, itemName) &&
+            const DeepCollectionEquality()
+                .equals(other.numberOfItems, numberOfItems) &&
+            const DeepCollectionEquality()
+                .equals(other.expirationDateType, expirationDateType) &&
+            const DeepCollectionEquality()
+                .equals(other.expirationDate, expirationDate) &&
+            const DeepCollectionEquality().equals(other.amazonUrl, amazonUrl) &&
+            const DeepCollectionEquality().equals(other.imageUrl, imageUrl) &&
+            const DeepCollectionEquality()
+                .equals(other.productCategory, productCategory) &&
+            const DeepCollectionEquality().equals(other.memo, memo) &&
+            const DeepCollectionEquality()
+                .equals(other.isNotificationEnabled, isNotificationEnabled) &&
+            const DeepCollectionEquality()
+                .equals(other.stockCategory, stockCategory));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(hasChanged) ^
-      const DeepCollectionEquality().hash(loading) ^
-      const DeepCollectionEquality().hash(itemName) ^
-      const DeepCollectionEquality().hash(numberOfItems) ^
-      const DeepCollectionEquality().hash(expirationDateType) ^
-      const DeepCollectionEquality().hash(expirationDate) ^
-      const DeepCollectionEquality().hash(amazonUrl) ^
-      const DeepCollectionEquality().hash(imageUrl) ^
-      const DeepCollectionEquality().hash(productCategory) ^
-      const DeepCollectionEquality().hash(memo) ^
-      const DeepCollectionEquality().hash(isNotificationEnabled) ^
-      const DeepCollectionEquality().hash(stockCategory);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(hasChanged),
+      const DeepCollectionEquality().hash(loading),
+      const DeepCollectionEquality().hash(itemName),
+      const DeepCollectionEquality().hash(numberOfItems),
+      const DeepCollectionEquality().hash(expirationDateType),
+      const DeepCollectionEquality().hash(expirationDate),
+      const DeepCollectionEquality().hash(amazonUrl),
+      const DeepCollectionEquality().hash(imageUrl),
+      const DeepCollectionEquality().hash(productCategory),
+      const DeepCollectionEquality().hash(memo),
+      const DeepCollectionEquality().hash(isNotificationEnabled),
+      const DeepCollectionEquality().hash(stockCategory));
 
   @JsonKey(ignore: true)
   @override
@@ -397,18 +356,19 @@ class _$_StockEditorState implements _StockEditorState {
 
 abstract class _StockEditorState implements StockEditorState {
   const factory _StockEditorState(
-      {bool hasChanged,
-      bool loading,
-      String itemName,
-      int numberOfItems,
-      ExpirationDateType expirationDateType,
-      DateTime? expirationDate,
-      String? amazonUrl,
-      String? imageUrl,
-      @JsonKey(name: 'category') MyStockCategory productCategory,
-      String? memo,
-      bool isNotificationEnabled,
-      @JsonKey(name: 'place') String? stockCategory}) = _$_StockEditorState;
+          {final bool hasChanged,
+          final bool loading,
+          final String itemName,
+          final int numberOfItems,
+          final ExpirationDateType expirationDateType,
+          final DateTime? expirationDate,
+          final String? amazonUrl,
+          final String? imageUrl,
+          @JsonKey(name: 'category') final MyStockCategory productCategory,
+          final String? memo,
+          final bool isNotificationEnabled,
+          @JsonKey(name: 'place') final String? stockCategory}) =
+      _$_StockEditorState;
 
   @override // 編集されたかどうか
   bool get hasChanged => throw _privateConstructorUsedError;

@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'favorite_item.dart';
@@ -11,48 +12,11 @@ part of 'favorite_item.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 FavoriteItem _$FavoriteItemFromJson(Map<String, dynamic> json) {
   return _FavoriteItem.fromJson(json);
 }
-
-/// @nodoc
-class _$FavoriteItemTearOff {
-  const _$FavoriteItemTearOff();
-
-  _FavoriteItem call(
-      {@TimestampConverter() DateTime? createdAt,
-      required String name,
-      required String? asin,
-      required String category,
-      required int expirationDateTypeInt,
-      @TimestampConverter() DateTime? expirationAt,
-      required String? amazonUrl,
-      String? imageUrlSmall,
-      String? imageUrlMedium,
-      String? imageUrlLarge}) {
-    return _FavoriteItem(
-      createdAt: createdAt,
-      name: name,
-      asin: asin,
-      category: category,
-      expirationDateTypeInt: expirationDateTypeInt,
-      expirationAt: expirationAt,
-      amazonUrl: amazonUrl,
-      imageUrlSmall: imageUrlSmall,
-      imageUrlMedium: imageUrlMedium,
-      imageUrlLarge: imageUrlLarge,
-    );
-  }
-
-  FavoriteItem fromJson(Map<String, Object> json) {
-    return FavoriteItem.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $FavoriteItem = _$FavoriteItemTearOff();
 
 /// @nodoc
 mixin _$FavoriteItem {
@@ -285,47 +249,46 @@ class _$_FavoriteItem extends _FavoriteItem with DiagnosticableTreeMixin {
   factory _$_FavoriteItem.fromJson(Map<String, dynamic> json) =>
       _$$_FavoriteItemFromJson(json);
 
-  @override
-
   /// 作成日時
+  @override
   @TimestampConverter()
   final DateTime? createdAt;
-  @override
 
   /// アイテムの名前
-  final String name;
   @override
+  final String name;
 
   /// Amazonの商品コード @nullable
-  final String? asin;
   @override
+  final String? asin;
 
   /// 商品カテゴリ
-  final String category;
   @override
+  final String category;
 
   /// 期限の種類
-  final int expirationDateTypeInt;
   @override
+  final int expirationDateTypeInt;
 
   /// 消費期限 or 賞味期限 @nullable
+  @override
   @TimestampConverter()
   final DateTime? expirationAt;
-  @override
 
   /// Amazonの商品Url @nullable
-  final String? amazonUrl;
   @override
+  final String? amazonUrl;
 
   /// Amazonの商品画像（小） @nullable
-  final String? imageUrlSmall;
   @override
+  final String? imageUrlSmall;
 
   /// Amazonの商品画像（中） @nullable
-  final String? imageUrlMedium;
   @override
+  final String? imageUrlMedium;
 
   /// Amazonの商品画像（大） @nullable
+  @override
   final String? imageUrlLarge;
 
   @override
@@ -353,50 +316,39 @@ class _$_FavoriteItem extends _FavoriteItem with DiagnosticableTreeMixin {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _FavoriteItem &&
-            (identical(other.createdAt, createdAt) ||
-                const DeepCollectionEquality()
-                    .equals(other.createdAt, createdAt)) &&
-            (identical(other.name, name) ||
-                const DeepCollectionEquality().equals(other.name, name)) &&
-            (identical(other.asin, asin) ||
-                const DeepCollectionEquality().equals(other.asin, asin)) &&
-            (identical(other.category, category) ||
-                const DeepCollectionEquality()
-                    .equals(other.category, category)) &&
-            (identical(other.expirationDateTypeInt, expirationDateTypeInt) ||
-                const DeepCollectionEquality().equals(
-                    other.expirationDateTypeInt, expirationDateTypeInt)) &&
-            (identical(other.expirationAt, expirationAt) ||
-                const DeepCollectionEquality()
-                    .equals(other.expirationAt, expirationAt)) &&
-            (identical(other.amazonUrl, amazonUrl) ||
-                const DeepCollectionEquality()
-                    .equals(other.amazonUrl, amazonUrl)) &&
-            (identical(other.imageUrlSmall, imageUrlSmall) ||
-                const DeepCollectionEquality()
-                    .equals(other.imageUrlSmall, imageUrlSmall)) &&
-            (identical(other.imageUrlMedium, imageUrlMedium) ||
-                const DeepCollectionEquality()
-                    .equals(other.imageUrlMedium, imageUrlMedium)) &&
-            (identical(other.imageUrlLarge, imageUrlLarge) ||
-                const DeepCollectionEquality()
-                    .equals(other.imageUrlLarge, imageUrlLarge)));
+        (other.runtimeType == runtimeType &&
+            other is _FavoriteItem &&
+            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.asin, asin) &&
+            const DeepCollectionEquality().equals(other.category, category) &&
+            const DeepCollectionEquality()
+                .equals(other.expirationDateTypeInt, expirationDateTypeInt) &&
+            const DeepCollectionEquality()
+                .equals(other.expirationAt, expirationAt) &&
+            const DeepCollectionEquality().equals(other.amazonUrl, amazonUrl) &&
+            const DeepCollectionEquality()
+                .equals(other.imageUrlSmall, imageUrlSmall) &&
+            const DeepCollectionEquality()
+                .equals(other.imageUrlMedium, imageUrlMedium) &&
+            const DeepCollectionEquality()
+                .equals(other.imageUrlLarge, imageUrlLarge));
   }
 
+  @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(createdAt) ^
-      const DeepCollectionEquality().hash(name) ^
-      const DeepCollectionEquality().hash(asin) ^
-      const DeepCollectionEquality().hash(category) ^
-      const DeepCollectionEquality().hash(expirationDateTypeInt) ^
-      const DeepCollectionEquality().hash(expirationAt) ^
-      const DeepCollectionEquality().hash(amazonUrl) ^
-      const DeepCollectionEquality().hash(imageUrlSmall) ^
-      const DeepCollectionEquality().hash(imageUrlMedium) ^
-      const DeepCollectionEquality().hash(imageUrlLarge);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(createdAt),
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(asin),
+      const DeepCollectionEquality().hash(category),
+      const DeepCollectionEquality().hash(expirationDateTypeInt),
+      const DeepCollectionEquality().hash(expirationAt),
+      const DeepCollectionEquality().hash(amazonUrl),
+      const DeepCollectionEquality().hash(imageUrlSmall),
+      const DeepCollectionEquality().hash(imageUrlMedium),
+      const DeepCollectionEquality().hash(imageUrlLarge));
 
   @JsonKey(ignore: true)
   @override
@@ -411,16 +363,16 @@ class _$_FavoriteItem extends _FavoriteItem with DiagnosticableTreeMixin {
 
 abstract class _FavoriteItem extends FavoriteItem {
   const factory _FavoriteItem(
-      {@TimestampConverter() DateTime? createdAt,
-      required String name,
-      required String? asin,
-      required String category,
-      required int expirationDateTypeInt,
-      @TimestampConverter() DateTime? expirationAt,
-      required String? amazonUrl,
-      String? imageUrlSmall,
-      String? imageUrlMedium,
-      String? imageUrlLarge}) = _$_FavoriteItem;
+      {@TimestampConverter() final DateTime? createdAt,
+      required final String name,
+      required final String? asin,
+      required final String category,
+      required final int expirationDateTypeInt,
+      @TimestampConverter() final DateTime? expirationAt,
+      required final String? amazonUrl,
+      final String? imageUrlSmall,
+      final String? imageUrlMedium,
+      final String? imageUrlLarge}) = _$_FavoriteItem;
   const _FavoriteItem._() : super._();
 
   factory _FavoriteItem.fromJson(Map<String, dynamic> json) =

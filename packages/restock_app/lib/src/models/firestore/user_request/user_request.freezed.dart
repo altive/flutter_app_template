@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'user_request.dart';
@@ -11,50 +12,11 @@ part of 'user_request.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 UserRequest _$UserRequestFromJson(Map<String, dynamic> json) {
   return _UserRequest.fromJson(json);
 }
-
-/// @nodoc
-class _$UserRequestTearOff {
-  const _$UserRequestTearOff();
-
-  _UserRequest call(
-      {@TimestampConverter() DateTime? createdAt,
-      @TimestampConverter() DateTime? updatedAt,
-      required String uid,
-      String? deviceName,
-      String? deviceOS,
-      required String appName,
-      String? packageName,
-      required String version,
-      required String buildNumber,
-      required String replyFor,
-      required String text}) {
-    return _UserRequest(
-      createdAt: createdAt,
-      updatedAt: updatedAt,
-      uid: uid,
-      deviceName: deviceName,
-      deviceOS: deviceOS,
-      appName: appName,
-      packageName: packageName,
-      version: version,
-      buildNumber: buildNumber,
-      replyFor: replyFor,
-      text: text,
-    );
-  }
-
-  UserRequest fromJson(Map<String, Object> json) {
-    return UserRequest.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $UserRequest = _$UserRequestTearOff();
 
 /// @nodoc
 mixin _$UserRequest {
@@ -333,54 +295,39 @@ class _$_UserRequest extends _UserRequest with DiagnosticableTreeMixin {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _UserRequest &&
-            (identical(other.createdAt, createdAt) ||
-                const DeepCollectionEquality()
-                    .equals(other.createdAt, createdAt)) &&
-            (identical(other.updatedAt, updatedAt) ||
-                const DeepCollectionEquality()
-                    .equals(other.updatedAt, updatedAt)) &&
-            (identical(other.uid, uid) ||
-                const DeepCollectionEquality().equals(other.uid, uid)) &&
-            (identical(other.deviceName, deviceName) ||
-                const DeepCollectionEquality()
-                    .equals(other.deviceName, deviceName)) &&
-            (identical(other.deviceOS, deviceOS) ||
-                const DeepCollectionEquality()
-                    .equals(other.deviceOS, deviceOS)) &&
-            (identical(other.appName, appName) ||
-                const DeepCollectionEquality()
-                    .equals(other.appName, appName)) &&
-            (identical(other.packageName, packageName) ||
-                const DeepCollectionEquality()
-                    .equals(other.packageName, packageName)) &&
-            (identical(other.version, version) ||
-                const DeepCollectionEquality()
-                    .equals(other.version, version)) &&
-            (identical(other.buildNumber, buildNumber) ||
-                const DeepCollectionEquality()
-                    .equals(other.buildNumber, buildNumber)) &&
-            (identical(other.replyFor, replyFor) ||
-                const DeepCollectionEquality()
-                    .equals(other.replyFor, replyFor)) &&
-            (identical(other.text, text) ||
-                const DeepCollectionEquality().equals(other.text, text)));
+        (other.runtimeType == runtimeType &&
+            other is _UserRequest &&
+            const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
+            const DeepCollectionEquality().equals(other.updatedAt, updatedAt) &&
+            const DeepCollectionEquality().equals(other.uid, uid) &&
+            const DeepCollectionEquality()
+                .equals(other.deviceName, deviceName) &&
+            const DeepCollectionEquality().equals(other.deviceOS, deviceOS) &&
+            const DeepCollectionEquality().equals(other.appName, appName) &&
+            const DeepCollectionEquality()
+                .equals(other.packageName, packageName) &&
+            const DeepCollectionEquality().equals(other.version, version) &&
+            const DeepCollectionEquality()
+                .equals(other.buildNumber, buildNumber) &&
+            const DeepCollectionEquality().equals(other.replyFor, replyFor) &&
+            const DeepCollectionEquality().equals(other.text, text));
   }
 
+  @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(createdAt) ^
-      const DeepCollectionEquality().hash(updatedAt) ^
-      const DeepCollectionEquality().hash(uid) ^
-      const DeepCollectionEquality().hash(deviceName) ^
-      const DeepCollectionEquality().hash(deviceOS) ^
-      const DeepCollectionEquality().hash(appName) ^
-      const DeepCollectionEquality().hash(packageName) ^
-      const DeepCollectionEquality().hash(version) ^
-      const DeepCollectionEquality().hash(buildNumber) ^
-      const DeepCollectionEquality().hash(replyFor) ^
-      const DeepCollectionEquality().hash(text);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(createdAt),
+      const DeepCollectionEquality().hash(updatedAt),
+      const DeepCollectionEquality().hash(uid),
+      const DeepCollectionEquality().hash(deviceName),
+      const DeepCollectionEquality().hash(deviceOS),
+      const DeepCollectionEquality().hash(appName),
+      const DeepCollectionEquality().hash(packageName),
+      const DeepCollectionEquality().hash(version),
+      const DeepCollectionEquality().hash(buildNumber),
+      const DeepCollectionEquality().hash(replyFor),
+      const DeepCollectionEquality().hash(text));
 
   @JsonKey(ignore: true)
   @override
@@ -395,17 +342,17 @@ class _$_UserRequest extends _UserRequest with DiagnosticableTreeMixin {
 
 abstract class _UserRequest extends UserRequest {
   const factory _UserRequest(
-      {@TimestampConverter() DateTime? createdAt,
-      @TimestampConverter() DateTime? updatedAt,
-      required String uid,
-      String? deviceName,
-      String? deviceOS,
-      required String appName,
-      String? packageName,
-      required String version,
-      required String buildNumber,
-      required String replyFor,
-      required String text}) = _$_UserRequest;
+      {@TimestampConverter() final DateTime? createdAt,
+      @TimestampConverter() final DateTime? updatedAt,
+      required final String uid,
+      final String? deviceName,
+      final String? deviceOS,
+      required final String appName,
+      final String? packageName,
+      required final String version,
+      required final String buildNumber,
+      required final String replyFor,
+      required final String text}) = _$_UserRequest;
   const _UserRequest._() : super._();
 
   factory _UserRequest.fromJson(Map<String, dynamic> json) =

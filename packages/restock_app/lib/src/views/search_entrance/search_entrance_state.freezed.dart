@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'search_entrance_state.dart';
@@ -11,26 +12,7 @@ part of 'search_entrance_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$SearchEntranceStateTearOff {
-  const _$SearchEntranceStateTearOff();
-
-  _SearchEntranceState call(
-      {String searchText = '',
-      SearchItemsCategory searchItemsCategory = SearchItemsCategory.all,
-      List<PaapiSearchItem>? recommendProducts}) {
-    return _SearchEntranceState(
-      searchText: searchText,
-      searchItemsCategory: searchItemsCategory,
-      recommendProducts: recommendProducts,
-    );
-  }
-}
-
-/// @nodoc
-const $SearchEntranceState = _$SearchEntranceStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$SearchEntranceState {
@@ -144,13 +126,15 @@ class _$_SearchEntranceState implements _SearchEntranceState {
       this.searchItemsCategory = SearchItemsCategory.all,
       this.recommendProducts});
 
-  @JsonKey(defaultValue: '')
-  @override // 検索フィールド用文字列
-  final String searchText;
-  @JsonKey(defaultValue: SearchItemsCategory.all)
+// 検索フィールド用文字列
   @override
+  @JsonKey()
+  final String searchText;
+  @override
+  @JsonKey()
   final SearchItemsCategory searchItemsCategory;
-  @override // ASINによる商品検索の結果
+// ASINによる商品検索の結果
+  @override
   final List<PaapiSearchItem>? recommendProducts;
 
   @override
@@ -161,24 +145,22 @@ class _$_SearchEntranceState implements _SearchEntranceState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _SearchEntranceState &&
-            (identical(other.searchText, searchText) ||
-                const DeepCollectionEquality()
-                    .equals(other.searchText, searchText)) &&
-            (identical(other.searchItemsCategory, searchItemsCategory) ||
-                const DeepCollectionEquality()
-                    .equals(other.searchItemsCategory, searchItemsCategory)) &&
-            (identical(other.recommendProducts, recommendProducts) ||
-                const DeepCollectionEquality()
-                    .equals(other.recommendProducts, recommendProducts)));
+        (other.runtimeType == runtimeType &&
+            other is _SearchEntranceState &&
+            const DeepCollectionEquality()
+                .equals(other.searchText, searchText) &&
+            const DeepCollectionEquality()
+                .equals(other.searchItemsCategory, searchItemsCategory) &&
+            const DeepCollectionEquality()
+                .equals(other.recommendProducts, recommendProducts));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(searchText) ^
-      const DeepCollectionEquality().hash(searchItemsCategory) ^
-      const DeepCollectionEquality().hash(recommendProducts);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(searchText),
+      const DeepCollectionEquality().hash(searchItemsCategory),
+      const DeepCollectionEquality().hash(recommendProducts));
 
   @JsonKey(ignore: true)
   @override
@@ -189,9 +171,9 @@ class _$_SearchEntranceState implements _SearchEntranceState {
 
 abstract class _SearchEntranceState implements SearchEntranceState {
   const factory _SearchEntranceState(
-      {String searchText,
-      SearchItemsCategory searchItemsCategory,
-      List<PaapiSearchItem>? recommendProducts}) = _$_SearchEntranceState;
+      {final String searchText,
+      final SearchItemsCategory searchItemsCategory,
+      final List<PaapiSearchItem>? recommendProducts}) = _$_SearchEntranceState;
 
   @override // 検索フィールド用文字列
   String get searchText => throw _privateConstructorUsedError;

@@ -1,5 +1,6 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'timeline_state.dart';
@@ -11,24 +12,7 @@ part of 'timeline_state.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$TimelineStateTearOff {
-  const _$TimelineStateTearOff();
-
-  _TimelineState call(
-      {bool loading = false,
-      List<EveryonesStockModel> displayItems = const <EveryonesStockModel>[]}) {
-    return _TimelineState(
-      loading: loading,
-      displayItems: displayItems,
-    );
-  }
-}
-
-/// @nodoc
-const $TimelineState = _$TimelineStateTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$TimelineState {
@@ -121,14 +105,23 @@ class __$TimelineStateCopyWithImpl<$Res>
 class _$_TimelineState with DiagnosticableTreeMixin implements _TimelineState {
   const _$_TimelineState(
       {this.loading = false,
-      this.displayItems = const <EveryonesStockModel>[]});
+      final List<EveryonesStockModel> displayItems =
+          const <EveryonesStockModel>[]})
+      : _displayItems = displayItems;
 
-  @JsonKey(defaultValue: false)
-  @override // 読み込み中かどうか
+// 読み込み中かどうか
+  @override
+  @JsonKey()
   final bool loading;
-  @JsonKey(defaultValue: const <EveryonesStockModel>[])
-  @override // 表示しているアイテムリスト
-  final List<EveryonesStockModel> displayItems;
+// 表示しているアイテムリスト
+  final List<EveryonesStockModel> _displayItems;
+// 表示しているアイテムリスト
+  @override
+  @JsonKey()
+  List<EveryonesStockModel> get displayItems {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_displayItems);
+  }
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -147,20 +140,18 @@ class _$_TimelineState with DiagnosticableTreeMixin implements _TimelineState {
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _TimelineState &&
-            (identical(other.loading, loading) ||
-                const DeepCollectionEquality()
-                    .equals(other.loading, loading)) &&
-            (identical(other.displayItems, displayItems) ||
-                const DeepCollectionEquality()
-                    .equals(other.displayItems, displayItems)));
+        (other.runtimeType == runtimeType &&
+            other is _TimelineState &&
+            const DeepCollectionEquality().equals(other.loading, loading) &&
+            const DeepCollectionEquality()
+                .equals(other.displayItems, displayItems));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(loading) ^
-      const DeepCollectionEquality().hash(displayItems);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(loading),
+      const DeepCollectionEquality().hash(displayItems));
 
   @JsonKey(ignore: true)
   @override
@@ -170,8 +161,8 @@ class _$_TimelineState with DiagnosticableTreeMixin implements _TimelineState {
 
 abstract class _TimelineState implements TimelineState {
   const factory _TimelineState(
-      {bool loading,
-      List<EveryonesStockModel> displayItems}) = _$_TimelineState;
+      {final bool loading,
+      final List<EveryonesStockModel> displayItems}) = _$_TimelineState;
 
   @override // 読み込み中かどうか
   bool get loading => throw _privateConstructorUsedError;

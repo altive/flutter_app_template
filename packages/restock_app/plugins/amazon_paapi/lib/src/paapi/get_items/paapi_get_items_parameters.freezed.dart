@@ -1,5 +1,7 @@
+// coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
 part of 'paapi_get_items_parameters.dart';
 
@@ -10,24 +12,7 @@ part of 'paapi_get_items_parameters.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
-
-/// @nodoc
-class _$PaapiGetItemsParametersTearOff {
-  const _$PaapiGetItemsParametersTearOff();
-
-  _PaapiGetItemsParameters call(
-      {List<String> asin = const <String>[],
-      List<String> resources = const <String>[]}) {
-    return _PaapiGetItemsParameters(
-      asin: asin,
-      resources: resources,
-    );
-  }
-}
-
-/// @nodoc
-const $PaapiGetItemsParameters = _$PaapiGetItemsParametersTearOff();
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
 mixin _$PaapiGetItemsParameters {
@@ -121,14 +106,30 @@ class _$_PaapiGetItemsParameters
     with DiagnosticableTreeMixin
     implements _PaapiGetItemsParameters {
   const _$_PaapiGetItemsParameters(
-      {this.asin = const <String>[], this.resources = const <String>[]});
+      {final List<String> asin = const <String>[],
+      final List<String> resources = const <String>[]})
+      : _asin = asin,
+        _resources = resources;
 
-  @JsonKey(defaultValue: const <String>[])
-  @override // Amazon Standard Identification Number: 10文字のユニークな英数字
-  final List<String> asin;
-  @JsonKey(defaultValue: const <String>[])
-  @override // 欲しいレスポンス情報
-  final List<String> resources;
+// Amazon Standard Identification Number: 10文字のユニークな英数字
+  final List<String> _asin;
+// Amazon Standard Identification Number: 10文字のユニークな英数字
+  @override
+  @JsonKey()
+  List<String> get asin {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_asin);
+  }
+
+// 欲しいレスポンス情報
+  final List<String> _resources;
+// 欲しいレスポンス情報
+  @override
+  @JsonKey()
+  List<String> get resources {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_resources);
+  }
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
@@ -147,19 +148,17 @@ class _$_PaapiGetItemsParameters
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _PaapiGetItemsParameters &&
-            (identical(other.asin, asin) ||
-                const DeepCollectionEquality().equals(other.asin, asin)) &&
-            (identical(other.resources, resources) ||
-                const DeepCollectionEquality()
-                    .equals(other.resources, resources)));
+        (other.runtimeType == runtimeType &&
+            other is _PaapiGetItemsParameters &&
+            const DeepCollectionEquality().equals(other.asin, asin) &&
+            const DeepCollectionEquality().equals(other.resources, resources));
   }
 
   @override
-  int get hashCode =>
-      runtimeType.hashCode ^
-      const DeepCollectionEquality().hash(asin) ^
-      const DeepCollectionEquality().hash(resources);
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(asin),
+      const DeepCollectionEquality().hash(resources));
 
   @JsonKey(ignore: true)
   @override
@@ -170,7 +169,8 @@ class _$_PaapiGetItemsParameters
 
 abstract class _PaapiGetItemsParameters implements PaapiGetItemsParameters {
   const factory _PaapiGetItemsParameters(
-      {List<String> asin, List<String> resources}) = _$_PaapiGetItemsParameters;
+      {final List<String> asin,
+      final List<String> resources}) = _$_PaapiGetItemsParameters;
 
   @override // Amazon Standard Identification Number: 10文字のユニークな英数字
   List<String> get asin => throw _privateConstructorUsedError;
