@@ -12,46 +12,11 @@ part of 'ranking.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 Ranking _$RankingFromJson(Map<String, dynamic> json) {
   return _Ranking.fromJson(json);
 }
-
-/// @nodoc
-class _$RankingTearOff {
-  const _$RankingTearOff();
-
-  _Ranking call(
-      {@TimestampOrNullConverter() DateTime? createdAt,
-      @TimestampOrNullConverter() DateTime? updatedAt,
-      String title = '',
-      String description = '',
-      String? imageUrl,
-      String? thumbnailUrl,
-      bool pinned = false,
-      List<String> tags = const <String>[],
-      bool recommendTagsShowing = true}) {
-    return _Ranking(
-      createdAt: createdAt,
-      updatedAt: updatedAt,
-      title: title,
-      description: description,
-      imageUrl: imageUrl,
-      thumbnailUrl: thumbnailUrl,
-      pinned: pinned,
-      tags: tags,
-      recommendTagsShowing: recommendTagsShowing,
-    );
-  }
-
-  Ranking fromJson(Map<String, Object?> json) {
-    return Ranking.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $Ranking = _$RankingTearOff();
 
 /// @nodoc
 mixin _$Ranking {
@@ -253,9 +218,10 @@ class _$_Ranking extends _Ranking with DiagnosticableTreeMixin {
       this.imageUrl,
       this.thumbnailUrl,
       this.pinned = false,
-      this.tags = const <String>[],
+      final List<String> tags = const <String>[],
       this.recommendTagsShowing = true})
-      : super._();
+      : _tags = tags,
+        super._();
 
   factory _$_Ranking.fromJson(Map<String, dynamic> json) =>
       _$$_RankingFromJson(json);
@@ -266,38 +232,44 @@ class _$_Ranking extends _Ranking with DiagnosticableTreeMixin {
   @override
   @TimestampOrNullConverter()
   final DateTime? updatedAt;
-  @JsonKey()
-  @override
 
   /// ランキングタイトル
-  final String title;
-  @JsonKey()
   @override
+  @JsonKey()
+  final String title;
 
   /// ランキングの説明
-  final String description;
   @override
+  @JsonKey()
+  final String description;
 
   /// ランキングの画像
-  final String? imageUrl;
   @override
+  final String? imageUrl;
 
   /// ランキングのサムネイル画像
-  final String? thumbnailUrl;
-  @JsonKey()
   @override
+  final String? thumbnailUrl;
 
   /// 優先して表示させたいランキングなら `true`
-  final bool pinned;
-  @JsonKey()
   @override
+  @JsonKey()
+  final bool pinned;
 
   /// タグリスト
-  final List<String> tags;
-  @JsonKey()
+  final List<String> _tags;
+
+  /// タグリスト
   @override
+  @JsonKey()
+  List<String> get tags {
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_tags);
+  }
 
   /// お勧めタグを表示するか
+  @override
+  @JsonKey()
   final bool recommendTagsShowing;
 
   @override
@@ -340,6 +312,7 @@ class _$_Ranking extends _Ranking with DiagnosticableTreeMixin {
                 .equals(other.recommendTagsShowing, recommendTagsShowing));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -366,53 +339,53 @@ class _$_Ranking extends _Ranking with DiagnosticableTreeMixin {
 
 abstract class _Ranking extends Ranking {
   const factory _Ranking(
-      {@TimestampOrNullConverter() DateTime? createdAt,
-      @TimestampOrNullConverter() DateTime? updatedAt,
-      String title,
-      String description,
-      String? imageUrl,
-      String? thumbnailUrl,
-      bool pinned,
-      List<String> tags,
-      bool recommendTagsShowing}) = _$_Ranking;
+      {@TimestampOrNullConverter() final DateTime? createdAt,
+      @TimestampOrNullConverter() final DateTime? updatedAt,
+      final String title,
+      final String description,
+      final String? imageUrl,
+      final String? thumbnailUrl,
+      final bool pinned,
+      final List<String> tags,
+      final bool recommendTagsShowing}) = _$_Ranking;
   const _Ranking._() : super._();
 
   factory _Ranking.fromJson(Map<String, dynamic> json) = _$_Ranking.fromJson;
 
   @override
   @TimestampOrNullConverter()
-  DateTime? get createdAt;
+  DateTime? get createdAt => throw _privateConstructorUsedError;
   @override
   @TimestampOrNullConverter()
-  DateTime? get updatedAt;
+  DateTime? get updatedAt => throw _privateConstructorUsedError;
   @override
 
   /// ランキングタイトル
-  String get title;
+  String get title => throw _privateConstructorUsedError;
   @override
 
   /// ランキングの説明
-  String get description;
+  String get description => throw _privateConstructorUsedError;
   @override
 
   /// ランキングの画像
-  String? get imageUrl;
+  String? get imageUrl => throw _privateConstructorUsedError;
   @override
 
   /// ランキングのサムネイル画像
-  String? get thumbnailUrl;
+  String? get thumbnailUrl => throw _privateConstructorUsedError;
   @override
 
   /// 優先して表示させたいランキングなら `true`
-  bool get pinned;
+  bool get pinned => throw _privateConstructorUsedError;
   @override
 
   /// タグリスト
-  List<String> get tags;
+  List<String> get tags => throw _privateConstructorUsedError;
   @override
 
   /// お勧めタグを表示するか
-  bool get recommendTagsShowing;
+  bool get recommendTagsShowing => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$RankingCopyWith<_Ranking> get copyWith =>

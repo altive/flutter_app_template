@@ -12,32 +12,11 @@ part of 'todo.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 Todo _$TodoFromJson(Map<String, dynamic> json) {
   return _Todo.fromJson(json);
 }
-
-/// @nodoc
-class _$TodoTearOff {
-  const _$TodoTearOff();
-
-  _Todo call(
-      {required String id, required String title, bool completed = false}) {
-    return _Todo(
-      id: id,
-      title: title,
-      completed: completed,
-    );
-  }
-
-  Todo fromJson(Map<String, Object?> json) {
-    return Todo.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $Todo = _$TodoTearOff();
 
 /// @nodoc
 mixin _$Todo {
@@ -140,8 +119,8 @@ class _$_Todo with DiagnosticableTreeMixin implements _Todo {
   final String id;
   @override
   final String title;
-  @JsonKey()
   @override
+  @JsonKey()
   final bool completed;
 
   @override
@@ -169,6 +148,7 @@ class _$_Todo with DiagnosticableTreeMixin implements _Todo {
             const DeepCollectionEquality().equals(other.completed, completed));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -189,16 +169,18 @@ class _$_Todo with DiagnosticableTreeMixin implements _Todo {
 
 abstract class _Todo implements Todo {
   const factory _Todo(
-      {required String id, required String title, bool completed}) = _$_Todo;
+      {required final String id,
+      required final String title,
+      final bool completed}) = _$_Todo;
 
   factory _Todo.fromJson(Map<String, dynamic> json) = _$_Todo.fromJson;
 
   @override
-  String get id;
+  String get id => throw _privateConstructorUsedError;
   @override
-  String get title;
+  String get title => throw _privateConstructorUsedError;
   @override
-  bool get completed;
+  bool get completed => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$TodoCopyWith<_Todo> get copyWith => throw _privateConstructorUsedError;

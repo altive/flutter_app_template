@@ -159,9 +159,10 @@ class _$_MeEntity extends _MeEntity with DiagnosticableTreeMixin {
       {@TimestampConverter() this.createdAt,
       @TimestampConverter() this.updatedAt,
       this.nickname,
-      @JsonKey(name: MeEntityField.groups) this.groups,
+      @JsonKey(name: MeEntityField.groups) final List<String>? groups,
       this.isPrivateMyStock})
-      : super._();
+      : _groups = groups,
+        super._();
 
   factory _$_MeEntity.fromJson(Map<String, dynamic> json) =>
       _$$_MeEntityFromJson(json);
@@ -181,9 +182,18 @@ class _$_MeEntity extends _MeEntity with DiagnosticableTreeMixin {
   final String? nickname;
 
   /// ユーザーが作成したグループリスト
+  @JsonKey(name: MeEntityField.groups)
+  final List<String>? _groups;
+
+  /// ユーザーが作成したグループリスト
   @override
   @JsonKey(name: MeEntityField.groups)
-  final List<String>? groups;
+  List<String>? get groups {
+    final value = _groups;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   /// マイストックを非公開にするか
   @override

@@ -12,42 +12,11 @@ part of 'ranking_member.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 RankingMember _$RankingMemberFromJson(Map<String, dynamic> json) {
   return _RankingMember.fromJson(json);
 }
-
-/// @nodoc
-class _$RankingMemberTearOff {
-  const _$RankingMemberTearOff();
-
-  _RankingMember call(
-      {@TimestampOrNullConverter() DateTime? createdAt,
-      @TimestampOrNullConverter() DateTime? updatedAt,
-      required double order,
-      required String title,
-      String description = '',
-      String? imageUrl,
-      String? thumbnailUrl}) {
-    return _RankingMember(
-      createdAt: createdAt,
-      updatedAt: updatedAt,
-      order: order,
-      title: title,
-      description: description,
-      imageUrl: imageUrl,
-      thumbnailUrl: thumbnailUrl,
-    );
-  }
-
-  RankingMember fromJson(Map<String, Object?> json) {
-    return RankingMember.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RankingMember = _$RankingMemberTearOff();
 
 /// @nodoc
 mixin _$RankingMember {
@@ -236,26 +205,26 @@ class _$_RankingMember with DiagnosticableTreeMixin implements _RankingMember {
   @override
   @TimestampOrNullConverter()
   final DateTime? updatedAt;
-  @override
 
   /// 順番
-  final double order;
   @override
+  final double order;
 
   /// 項目名
-  final String title;
-  @JsonKey()
   @override
+  final String title;
 
   /// 項目に対するコメント
-  final String description;
   @override
+  @JsonKey()
+  final String description;
 
   /// 項目の画像
-  final String? imageUrl;
   @override
+  final String? imageUrl;
 
   /// 項目のサムネイル画像
+  @override
   final String? thumbnailUrl;
 
   @override
@@ -293,6 +262,7 @@ class _$_RankingMember with DiagnosticableTreeMixin implements _RankingMember {
                 .equals(other.thumbnailUrl, thumbnailUrl));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -317,43 +287,43 @@ class _$_RankingMember with DiagnosticableTreeMixin implements _RankingMember {
 
 abstract class _RankingMember implements RankingMember {
   const factory _RankingMember(
-      {@TimestampOrNullConverter() DateTime? createdAt,
-      @TimestampOrNullConverter() DateTime? updatedAt,
-      required double order,
-      required String title,
-      String description,
-      String? imageUrl,
-      String? thumbnailUrl}) = _$_RankingMember;
+      {@TimestampOrNullConverter() final DateTime? createdAt,
+      @TimestampOrNullConverter() final DateTime? updatedAt,
+      required final double order,
+      required final String title,
+      final String description,
+      final String? imageUrl,
+      final String? thumbnailUrl}) = _$_RankingMember;
 
   factory _RankingMember.fromJson(Map<String, dynamic> json) =
       _$_RankingMember.fromJson;
 
   @override
   @TimestampOrNullConverter()
-  DateTime? get createdAt;
+  DateTime? get createdAt => throw _privateConstructorUsedError;
   @override
   @TimestampOrNullConverter()
-  DateTime? get updatedAt;
+  DateTime? get updatedAt => throw _privateConstructorUsedError;
   @override
 
   /// 順番
-  double get order;
+  double get order => throw _privateConstructorUsedError;
   @override
 
   /// 項目名
-  String get title;
+  String get title => throw _privateConstructorUsedError;
   @override
 
   /// 項目に対するコメント
-  String get description;
+  String get description => throw _privateConstructorUsedError;
   @override
 
   /// 項目の画像
-  String? get imageUrl;
+  String? get imageUrl => throw _privateConstructorUsedError;
   @override
 
   /// 項目のサムネイル画像
-  String? get thumbnailUrl;
+  String? get thumbnailUrl => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$RankingMemberCopyWith<_RankingMember> get copyWith =>

@@ -149,7 +149,8 @@ class _$_CheckerState implements _CheckerState {
       this.manCount = 0,
       this.womanCount = 0,
       this.childCount = 0,
-      this.stockSetList});
+      final List<RecommendStockSet>? stockSetList})
+      : _stockSetList = stockSetList;
 
 // 読み込み中かどうか
   @override
@@ -164,8 +165,14 @@ class _$_CheckerState implements _CheckerState {
   @override
   @JsonKey()
   final int childCount;
+  final List<RecommendStockSet>? _stockSetList;
   @override
-  final List<RecommendStockSet>? stockSetList;
+  List<RecommendStockSet>? get stockSetList {
+    final value = _stockSetList;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {

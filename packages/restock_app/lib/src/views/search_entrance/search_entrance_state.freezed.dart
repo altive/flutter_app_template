@@ -124,7 +124,8 @@ class _$_SearchEntranceState implements _SearchEntranceState {
   const _$_SearchEntranceState(
       {this.searchText = '',
       this.searchItemsCategory = SearchItemsCategory.all,
-      this.recommendProducts});
+      final List<PaapiSearchItem>? recommendProducts})
+      : _recommendProducts = recommendProducts;
 
 // 検索フィールド用文字列
   @override
@@ -134,8 +135,15 @@ class _$_SearchEntranceState implements _SearchEntranceState {
   @JsonKey()
   final SearchItemsCategory searchItemsCategory;
 // ASINによる商品検索の結果
+  final List<PaapiSearchItem>? _recommendProducts;
+// ASINによる商品検索の結果
   @override
-  final List<PaapiSearchItem>? recommendProducts;
+  List<PaapiSearchItem>? get recommendProducts {
+    final value = _recommendProducts;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString() {

@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'search_entrance_state.freezed.dart';
 
-@Freezed(makeCollectionsUnmodifiable: false)
+@freezed
 class SearchEntranceState with _$SearchEntranceState {
   const factory SearchEntranceState({
     // 検索フィールド用文字列

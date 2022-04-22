@@ -141,8 +141,9 @@ class _$_AppUserModel extends _AppUserModel with DiagnosticableTreeMixin {
       {@TimestampConverter() this.createdAt,
       @TimestampConverter() this.updatedAt,
       this.nickname,
-      @JsonKey(name: 'stockPlaces') this.stockCategories})
-      : super._();
+      @JsonKey(name: 'stockPlaces') final List<String>? stockCategories})
+      : _stockCategories = stockCategories,
+        super._();
 
   factory _$_AppUserModel.fromJson(Map<String, dynamic> json) =>
       _$$_AppUserModelFromJson(json);
@@ -157,9 +158,17 @@ class _$_AppUserModel extends _AppUserModel with DiagnosticableTreeMixin {
   @override
   final String? nickname;
 // ストック保管場所
+  @JsonKey(name: 'stockPlaces')
+  final List<String>? _stockCategories;
+// ストック保管場所
   @override
   @JsonKey(name: 'stockPlaces')
-  final List<String>? stockCategories;
+  List<String>? get stockCategories {
+    final value = _stockCategories;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {

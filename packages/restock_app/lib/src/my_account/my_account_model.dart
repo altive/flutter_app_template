@@ -20,7 +20,7 @@ final appUserProvider = StreamProvider.autoDispose((ref) {
 });
 
 /// ユーザーの情報（非公開）
-@Freezed(makeCollectionsUnmodifiable: false)
+@freezed
 class AppUserModel with _$AppUserModel {
   // データ型を定義
   const factory AppUserModel({

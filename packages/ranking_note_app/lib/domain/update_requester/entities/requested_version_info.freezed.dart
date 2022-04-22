@@ -12,34 +12,11 @@ part of 'requested_version_info.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 RequestedVersionInfo _$RequestedVersionInfoFromJson(Map<String, dynamic> json) {
   return _RequestedVersionInfo.fromJson(json);
 }
-
-/// @nodoc
-class _$RequestedVersionInfoTearOff {
-  const _$RequestedVersionInfoTearOff();
-
-  _RequestedVersionInfo call(
-      {required String requiredVersion,
-      bool canCancel = false,
-      required DateTime enabledAt}) {
-    return _RequestedVersionInfo(
-      requiredVersion: requiredVersion,
-      canCancel: canCancel,
-      enabledAt: enabledAt,
-    );
-  }
-
-  RequestedVersionInfo fromJson(Map<String, Object?> json) {
-    return RequestedVersionInfo.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $RequestedVersionInfo = _$RequestedVersionInfoTearOff();
 
 /// @nodoc
 mixin _$RequestedVersionInfo {
@@ -155,18 +132,17 @@ class _$_RequestedVersionInfo
   factory _$_RequestedVersionInfo.fromJson(Map<String, dynamic> json) =>
       _$$_RequestedVersionInfoFromJson(json);
 
-  @override
-
   /// 要求バージョン e.g., '1.0.0'
-  final String requiredVersion;
-  @JsonKey()
   @override
+  final String requiredVersion;
 
   /// アップデートをキャンセルして利用可能にするかどうか
-  final bool canCancel;
   @override
+  @JsonKey()
+  final bool canCancel;
 
   /// アップデート要求を有強化する日時
+  @override
   final DateTime enabledAt;
 
   @override
@@ -195,6 +171,7 @@ class _$_RequestedVersionInfo
             const DeepCollectionEquality().equals(other.enabledAt, enabledAt));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -216,9 +193,9 @@ class _$_RequestedVersionInfo
 
 abstract class _RequestedVersionInfo implements RequestedVersionInfo {
   const factory _RequestedVersionInfo(
-      {required String requiredVersion,
-      bool canCancel,
-      required DateTime enabledAt}) = _$_RequestedVersionInfo;
+      {required final String requiredVersion,
+      final bool canCancel,
+      required final DateTime enabledAt}) = _$_RequestedVersionInfo;
 
   factory _RequestedVersionInfo.fromJson(Map<String, dynamic> json) =
       _$_RequestedVersionInfo.fromJson;
@@ -226,15 +203,15 @@ abstract class _RequestedVersionInfo implements RequestedVersionInfo {
   @override
 
   /// 要求バージョン e.g., '1.0.0'
-  String get requiredVersion;
+  String get requiredVersion => throw _privateConstructorUsedError;
   @override
 
   /// アップデートをキャンセルして利用可能にするかどうか
-  bool get canCancel;
+  bool get canCancel => throw _privateConstructorUsedError;
   @override
 
   /// アップデート要求を有強化する日時
-  DateTime get enabledAt;
+  DateTime get enabledAt => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$RequestedVersionInfoCopyWith<_RequestedVersionInfo> get copyWith =>

@@ -12,42 +12,11 @@ part of 'ranking.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 Ranking _$RankingFromJson(Map<String, dynamic> json) {
   return _Ranking.fromJson(json);
 }
-
-/// @nodoc
-class _$RankingTearOff {
-  const _$RankingTearOff();
-
-  _Ranking call(
-      {@TimestampOrNullConverter() DateTime? createdAt,
-      @TimestampOrNullConverter() DateTime? updatedAt,
-      String title = '',
-      String description = '',
-      String? imageUrl,
-      String? thumbnailUrl,
-      bool pinned = false}) {
-    return _Ranking(
-      createdAt: createdAt,
-      updatedAt: updatedAt,
-      title: title,
-      description: description,
-      imageUrl: imageUrl,
-      thumbnailUrl: thumbnailUrl,
-      pinned: pinned,
-    );
-  }
-
-  Ranking fromJson(Map<String, Object?> json) {
-    return Ranking.fromJson(json);
-  }
-}
-
-/// @nodoc
-const $Ranking = _$RankingTearOff();
 
 /// @nodoc
 mixin _$Ranking {
@@ -229,28 +198,28 @@ class _$_Ranking with DiagnosticableTreeMixin implements _Ranking {
   @override
   @TimestampOrNullConverter()
   final DateTime? updatedAt;
-  @JsonKey()
-  @override
 
   /// ランキングタイトル
-  final String title;
-  @JsonKey()
   @override
+  @JsonKey()
+  final String title;
 
   /// ランキングの説明
-  final String description;
   @override
+  @JsonKey()
+  final String description;
 
   /// ランキングの画像
-  final String? imageUrl;
   @override
+  final String? imageUrl;
 
   /// ランキングのサムネイル画像
-  final String? thumbnailUrl;
-  @JsonKey()
   @override
+  final String? thumbnailUrl;
 
   /// 優先して表示させたいランキングなら `true`
+  @override
+  @JsonKey()
   final bool pinned;
 
   @override
@@ -288,6 +257,7 @@ class _$_Ranking with DiagnosticableTreeMixin implements _Ranking {
             const DeepCollectionEquality().equals(other.pinned, pinned));
   }
 
+  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -312,42 +282,42 @@ class _$_Ranking with DiagnosticableTreeMixin implements _Ranking {
 
 abstract class _Ranking implements Ranking {
   const factory _Ranking(
-      {@TimestampOrNullConverter() DateTime? createdAt,
-      @TimestampOrNullConverter() DateTime? updatedAt,
-      String title,
-      String description,
-      String? imageUrl,
-      String? thumbnailUrl,
-      bool pinned}) = _$_Ranking;
+      {@TimestampOrNullConverter() final DateTime? createdAt,
+      @TimestampOrNullConverter() final DateTime? updatedAt,
+      final String title,
+      final String description,
+      final String? imageUrl,
+      final String? thumbnailUrl,
+      final bool pinned}) = _$_Ranking;
 
   factory _Ranking.fromJson(Map<String, dynamic> json) = _$_Ranking.fromJson;
 
   @override
   @TimestampOrNullConverter()
-  DateTime? get createdAt;
+  DateTime? get createdAt => throw _privateConstructorUsedError;
   @override
   @TimestampOrNullConverter()
-  DateTime? get updatedAt;
+  DateTime? get updatedAt => throw _privateConstructorUsedError;
   @override
 
   /// ランキングタイトル
-  String get title;
+  String get title => throw _privateConstructorUsedError;
   @override
 
   /// ランキングの説明
-  String get description;
+  String get description => throw _privateConstructorUsedError;
   @override
 
   /// ランキングの画像
-  String? get imageUrl;
+  String? get imageUrl => throw _privateConstructorUsedError;
   @override
 
   /// ランキングのサムネイル画像
-  String? get thumbnailUrl;
+  String? get thumbnailUrl => throw _privateConstructorUsedError;
   @override
 
   /// 優先して表示させたいランキングなら `true`
-  bool get pinned;
+  bool get pinned => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
   _$RankingCopyWith<_Ranking> get copyWith =>
