@@ -6,9 +6,10 @@
     "configurations": [
         {
             "name": "flutter_app (dev)",
+            "cwd": "packages/flutter_app",
+            "program": "lib/main.dart",
             "request": "launch",
             "type": "dart",
-            "program": "packages/flutter_app/lib/main.dart",
             "flutterMode": "debug",
             "args": [
                 "--dart-define=FLAVOR=dev"
@@ -16,9 +17,22 @@
         },
         {
             "name": "Ranking note (dev)",
+            "cwd": "packages/ranking_note_app",
+            "program": "lib/main.dart",
             "request": "launch",
             "type": "dart",
-            "program": "packages/ranking_note_app/lib/main.dart",
+            "flutterMode": "debug",
+            "args": [
+                "--dart-define=FLAVOR=dev"
+            ]
+        },
+        {
+            "name": "Ranking note (dev, web)",
+            "cwd": "packages/ranking_note_app",
+            "program": "lib/main.dart",
+            "request": "launch",
+            "type": "dart",
+            "deviceId": "chrome",
             "flutterMode": "debug",
             "args": [
                 "--dart-define=FLAVOR=dev"
@@ -26,9 +40,10 @@
         },
         {
             "name": "ReStock (dev)",
+            "cwd": "packages/restock_app",
+            "program": "lib/main.dart",
             "request": "launch",
             "type": "dart",
-            "program": "packages/restock_app/lib/main.dart",
             "flutterMode": "debug",
             "args": [
                 "--flavor",
@@ -38,9 +53,10 @@
         },
         {
             "name": "vitaly_app (dev)",
+            "cwd": "packages/vitaly_app",
+            "program": "lib/main.dart",
             "request": "launch",
             "type": "dart",
-            "program": "packages/vitaly_app/lib/main.dart",
             "flutterMode": "debug",
             "args": [
                 // "--dart-define=FLAVOR=dev"
