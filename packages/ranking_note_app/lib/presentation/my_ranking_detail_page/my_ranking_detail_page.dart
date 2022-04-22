@@ -15,10 +15,28 @@ import '../../domain/my_ranking/providers/my_ranking_provider.dart';
 import '../components/ranking_tags.dart';
 import '../components/rounded_card.dart';
 import '../router/router.dart';
-import 'app_bar_action_menu.dart';
 import 'member_list_view.dart';
 import 'plus_buttons_view.dart';
 import 'ranking_editing_sheet.dart';
+
+enum _AppBarActionMenu {
+  preview,
+  edit,
+  share,
+}
+
+extension AppBarActionMenuExt on _AppBarActionMenu {
+  String get label {
+    switch (this) {
+      case _AppBarActionMenu.preview:
+        return 'Preview';
+      case _AppBarActionMenu.edit:
+        return 'Edit';
+      case _AppBarActionMenu.share:
+        return 'Share';
+    }
+  }
+}
 
 /// 自分のランキング1つを詳細に表示する画面
 class MyRankingDetailPage extends ConsumerWidget {
@@ -40,16 +58,16 @@ class MyRankingDetailPage extends ConsumerWidget {
         appBar: AppBar(
           title: Text(ranking?.title ?? '...'),
           actions: [
-            PopupMenuButton<AppBarActionMenu>(
+            PopupMenuButton<_AppBarActionMenu>(
               onSelected: (menu) {
                 switch (menu) {
-                  case AppBarActionMenu.preview:
+                  case _AppBarActionMenu.preview:
                     // 他人から見たランキングをプレビューできる
                     ref.read(routerProvider).navigateToMyRankingPreviewPage(
                           rankingId: rankingId,
                         );
                     break;
-                  case AppBarActionMenu.edit:
+                  case _AppBarActionMenu.edit:
                     showCupertinoModalBottomSheet<void>(
                       context: context,
                       expand: false,
@@ -60,11 +78,14 @@ class MyRankingDetailPage extends ConsumerWidget {
                       },
                     );
                     break;
+                  case _AppBarActionMenu.share:
+                    // TODO(Riscait): シェア機能！
+                    break;
                 }
               },
               itemBuilder: (context) {
                 return [
-                  for (final menu in AppBarActionMenu.values)
+                  for (final menu in _AppBarActionMenu.values)
                     PopupMenuItem(
                       value: menu,
                       child: Text(menu.label),
