@@ -36,8 +36,7 @@ class PaapiSearchItemsResult {
   factory PaapiSearchItemsResult.fromJson(Map<String, Object?> json) {
     final itemList =
         List<Map<String, Object?>>.from(json['Items']! as List<dynamic>);
-    final itemTypeList =
-        itemList.map((dic) => PaapiSearchItem.fromJson(dic)).toList();
+    final itemTypeList = itemList.map(PaapiSearchItem.fromJson).toList();
     return PaapiSearchItemsResult(
       items: itemTypeList,
       totalResultCount: json['TotalResultCount']! as int?,
@@ -251,7 +250,7 @@ class PaapiOffers {
   factory PaapiOffers.fromJson(Map<String, Object?> json) {
     final dynamics = json['Listings']! as List;
     final maps = dynamics.map((dynamic e) => e as Map<String, Object?>);
-    final listingsList = maps.map((e) => PaapiOffersListings.fromJson(e));
+    final listingsList = maps.map(PaapiOffersListings.fromJson);
     return PaapiOffers(
       listings: listingsList.toList(),
     );

@@ -25,8 +25,7 @@ class PaapiGetItemsResult {
 
   factory PaapiGetItemsResult.fromJson(Map<String, Object?> json) {
     final itemList = List<Map<String, Object?>>.from(json['Items']! as List);
-    final itemTypeList =
-        itemList.map((dic) => PaapiSearchItem.fromJson(dic)).toList();
+    final itemTypeList = itemList.map(PaapiSearchItem.fromJson).toList();
     return PaapiGetItemsResult(
       items: itemTypeList,
     );
