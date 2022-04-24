@@ -58,7 +58,7 @@ scripts:
 
   upload:ios:prod:restock:
     run: |
-      melos exec -c 1 --scope="rollingstock" --flutter --private -- \
+      melos exec -c 1 --scope="restock" --flutter --private -- \
         flutter build ipa --flavor production --dart-define=FLAVOR=production --export-options-plist="ios/prod/ExportOptions.plist --no-tree-shake-icons"
 
   # use fastlane
@@ -69,10 +69,10 @@ scripts:
       
   submit:ios:restock:
     run: |
-      melos exec -c 1 --scope="rollingstock" --flutter --private -- \
+      melos exec -c 1 --scope="restock" --flutter --private -- \
         "cd ios && rbenv exec bundle update && rbenv exec bundle install && bundle exec fastlane submit"
 
   submit:android:restock:
     run: |
-      melos exec -c 1 --scope="rollingstock" --flutter --private -- \
+      melos exec -c 1 --scope="restock" --flutter --private -- \
         "cd android && rbenv exec bundle update && rbenv exec bundle install && bundle exec fastlane submit"
