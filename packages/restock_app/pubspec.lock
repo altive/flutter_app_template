@@ -34,7 +34,7 @@ packages:
   amazon_paapi:
     dependency: "direct main"
     description:
-      path: "plugins/amazon_paapi"
+      path: "../amazon_paapi"
       relative: true
     source: path
     version: "0.0.1"
@@ -216,7 +216,7 @@ packages:
   convenient_widgets:
     dependency: "direct main"
     description:
-      path: "plugins/convenient_widgets"
+      path: "../convenient_widgets"
       relative: true
     source: path
     version: "0.0.1"
