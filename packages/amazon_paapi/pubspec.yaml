@@ -2,17 +2,12 @@ name: amazon_paapi
 description: A new Flutter package project.
 publish_to: 'none'
 version: 0.0.1
-homepage: null
+homepage: https://altive.co.jp
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
-  flutter: ">=1.17.0"
+  sdk: '>=2.16.2 <3.0.0'
 
 dependencies:
-  altive_flutter_kit:
-    git:
-      url: https://github.com/altive/altive_flutter_kit.git
-      ref: c2970bbbc7dd9833bbf9e3a462eece600cb0c87d
   collection: ^1.15.0
   crypto: ^3.0.1
   flutter:

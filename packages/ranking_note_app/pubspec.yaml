@@ -4,14 +4,10 @@ publish_to: "none"
 version: 1.0.0+10
 
 environment:
-  sdk: ">=2.16.0 <3.0.0"
-  flutter: ">=2.10.3"
+  sdk: ">=2.16.2 <3.0.0"
+  flutter: ">=2.10.5"
 
 dependencies:
-  altive_flutter_kit:
-    git:
-      url: https://github.com/altive/altive_flutter_kit.git
-      version: ^1.1.1
   cached_network_image: ^3.1.0
   cloud_firestore: ^3.0.0
   collection: ^1.15.0

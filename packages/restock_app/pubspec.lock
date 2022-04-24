@@ -15,15 +15,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.4.0"
-  altive_flutter_kit:
-    dependency: "direct main"
-    description:
-      path: "."
-      ref: c2970bbbc7dd9833bbf9e3a462eece600cb0c87d
-      resolved-ref: c2970bbbc7dd9833bbf9e3a462eece600cb0c87d
-      url: "https://github.com/altive/altive_flutter_kit.git"
-    source: git
-    version: "0.0.1"
   altive_lints:
     dependency: "direct dev"
     description:
@@ -1381,4 +1372,4 @@ packages:
     version: "3.1.0"
 sdks:
   dart: ">=2.16.2 <3.0.0"
-  flutter: ">=2.10.3"
+  flutter: ">=2.10.5"

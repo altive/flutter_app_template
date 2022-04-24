@@ -1,4 +1,3 @@
-import 'package:altive_flutter_kit/altive_flutter_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
