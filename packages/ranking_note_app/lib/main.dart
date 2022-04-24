@@ -12,7 +12,7 @@ import 'presentation/app.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  const flavor = String.fromEnvironment('FLAVOR');
+  const flavorName = String.fromEnvironment('FLAVOR');
 
   late final SharedPreferences sp;
   late final PackageInfo pi;
@@ -25,7 +25,7 @@ Future<void> main() async {
   runApp(
     ProviderScope(
       overrides: [
-        flavorProvider.overrideWithValue(FlavorFromString.call(flavor)),
+        flavorProvider.overrideWithValue(Flavor.values.byName(flavorName)),
         sharedPreferencesProvider.overrideWithValue(sp),
         packageInfoProvider.overrideWithValue(pi),
       ],
