@@ -1,0 +1,15 @@
+fragment NestedFragment on Pokemon {
+  id
+  name
+  avatar
+}
+
+fragment PokemonCard on Pokemon {
+  ...NestedFragment
+  height {
+    in_meter
+  }
+  weight {
+    in_kg
+  }
+}

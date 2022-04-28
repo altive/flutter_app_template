@@ -1,0 +1,24 @@
+targets:
+  $default:
+    builders:
+      ferry_generator|graphql_builder:
+        enabled: true
+        options:
+          schema: graphql_playground|lib/schema.graphql
+      ferry_generator|serializer_builder:
+        enabled: true
+        options:
+          schema: graphql_playground|lib/schema.graphql
+      freezed:
+        generate_for:
+          include:
+            - lib/**/model/*.dart
+      json_serializable:
+        generate_for:
+          include:
+            - lib/**/model/*.dart
+        options:
+          any_map: false
+          disallow_unrecognized_keys: false # 認識できないキーがあった場合、UnrecognizedKeysExceptionをthrowする
+          explicit_to_json: false
+          field_rename: snake

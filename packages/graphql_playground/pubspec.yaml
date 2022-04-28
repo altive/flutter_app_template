@@ -1,0 +1,37 @@
+name: graphql_playground
+description: GraphQL playground app.
+version: 0.0.1
+homepage: https://altive.co.jp
+
+environment:
+  sdk: ">=2.16.2 <3.0.0"
+  flutter: ">=2.10.5"
+
+dependencies:
+  cached_network_image: ^3.2.0
+  collection: ^1.16.0
+  ferry: ^0.10.4
+  flutter:
+    sdk: flutter
+  flutter_dotenv: ^5.0.2
+  flutter_hooks: ^0.18.3
+  freezed_annotation: ^2.0.1
+  gql_http_link: ^0.4.0
+  hooks_riverpod: ^2.0.0-dev.5
+  json_annotation: ^4.4.0
+
+dev_dependencies:
+  altive_lints: ^1.0.0
+  build_runner: ^2.1.10
+  ferry_generator: ^0.5.0-dev.10
+  flutter_test:
+    sdk: flutter
+  freezed: ^2.0.2
+  json_serializable: ^6.1.6
+
+dependency_overrides:
+  collection: 1.16.0
+
+flutter:
+  assets:
+    - .env

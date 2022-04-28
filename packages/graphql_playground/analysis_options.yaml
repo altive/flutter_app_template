@@ -1,0 +1,4 @@
+include: package:altive_lints/altive_lints.yaml
+analyzer:
+  exclude:
+    - "**/__generated__/*.dart"
