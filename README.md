@@ -45,6 +45,15 @@ dev, stg, prod
   1. Create a Web app and modify the parameters in `firebaseConfig` in `web/index.html` according to the Firebase SDK additions.
     - apiKey, authDomain, databaseURL, projectId, storageBucket, messagingSenderId, appId, measurementId
     
+## How to add a package
+
+```shell
+# Package
+flutter create -t package packages/{package_name}
+# App
+flutter create --org jp.co.altive packages/{app_name}
+```
+
 ## Reference list
 [Internationalization User Guild](https://docs.google.com/document/d/10e0saTfAv32OZLRmONy866vnaw0I2jwL8zukykpgWBc/)
 [PresentationDomainSeparation](https://martinfowler.com/bliki/PresentationDomainSeparation.html)
