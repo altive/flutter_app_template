@@ -132,7 +132,7 @@ class StockDetailPageController extends StateNotifier<bool> {
       return;
     }
     // このアイテムの通知をキャンセル
-    await _notificationController.cancele(id: stock.idNumber);
+    await _notificationController.cancel(id: stock.idNumber);
   }
 
   /// ストックアイテムを削除する

@@ -339,7 +339,7 @@ class StockEditorPageController extends StateNotifier<StockEditorState> {
     if (expirationDateType == ExpirationDateType.none ||
         !state.isNotificationEnabled) {
       // 通知をキャンセルする
-      await _notificationController.cancele(id: idNumber!);
+      await _notificationController.cancel(id: idNumber!);
       return;
     }
     // 通知追加

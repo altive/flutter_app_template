@@ -63,7 +63,7 @@ class NotificationController extends StateNotifier<List<int>> {
   }
 
   /// 指定したIDの通知をキャンセル/削除
-  Future<void> cancele({required int id}) async {
+  Future<void> cancel({required int id}) async {
     state = state.where((e) => e != id).toList();
     return _plugin.cancel(id);
   }
@@ -150,6 +150,7 @@ class NotificationController extends StateNotifier<List<int>> {
     return granted;
   }
 
+  /// ストック期限の通知を登録する
   /// Androidデバイスのデフォルト動作では、デバイスが低電力アイドルモードの場合、
   /// 指定された時間に通知が配信されない場合があります。
   /// この動作はandroidAllowWhileIdle、scheduleメソッドを呼び出すときに、
@@ -163,7 +164,7 @@ class NotificationController extends StateNotifier<List<int>> {
     // 重複登録防止
     if (containsNotification(idNumber)) {
       // 登録済みの通知をキャンセルする
-      await cancele(id: idNumber);
+      await cancel(id: idNumber);
       state = state.where((e) => e != idNumber).toList();
     }
     // 何日前に通知を送るか
