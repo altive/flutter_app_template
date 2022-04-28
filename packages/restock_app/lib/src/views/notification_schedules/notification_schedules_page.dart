@@ -121,15 +121,14 @@ class NotificationTile extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    var notificationDateText = '';
-
     final notificationDaysString =
         '${notificationPayload.notificationDurationDays}日前';
     final notificationTimeString =
         '${notificationPayload.hour}時${notificationPayload.minute}分';
-    notificationDateText = '$notificationDaysStringの$notificationTimeString';
+    final notificationDateText =
+        '$notificationDaysStringの$notificationTimeString';
 
-    final expirationString = '期限日：${stock.displayExpirationDate}';
+    final expirationString = '期限：${stock.displayExpirationDate}';
     return ColoredBox(
       color: Theme.of(context).backgroundColor,
       child: Dismissible(
@@ -149,13 +148,7 @@ class NotificationTile extends ConsumerWidget {
         child: ListTile(
           // leading: Text(item.id.toString()),
           title: Text(stock.name),
-          subtitle: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Text(expirationString),
-              Text('$notificationDateTextに通知'),
-            ],
-          ),
+          subtitle: Text('$expirationString\n通知：$notificationDateText'),
           // trailing: Text(item.payload),
         ),
       ),
@@ -187,6 +180,6 @@ class NotificationTile extends ConsumerWidget {
     // 対象の通知をキャンセル
     ref
         .read(notificationControllerProvider.notifier)
-        .cancele(id: notificationIdNumber);
+        .cancel(id: notificationIdNumber);
   }
 }
