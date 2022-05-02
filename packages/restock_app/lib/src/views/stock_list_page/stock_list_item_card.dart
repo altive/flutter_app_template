@@ -123,7 +123,7 @@ class _Card extends ConsumerWidget {
         ),
         title: Padding(
           padding: const EdgeInsets.only(right: 16),
-          child: Text(stock.name),
+          child: Text(stock.name.value),
         ),
         subtitle: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,

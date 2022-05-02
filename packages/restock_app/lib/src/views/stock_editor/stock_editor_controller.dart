@@ -69,7 +69,7 @@ class StockEditorPageController extends StateNotifier<StockEditorState> {
     // 状態を初期値でセット
     final stockItem = param!.stock!;
     state = state.copyWith(
-      itemName: stockItem.name,
+      itemName: stockItem.name.value,
       numberOfItems: stockItem.numberOfItems.toInt(),
       expirationDateType: stockItem.expirationDateType,
       expirationDate: stockItem.expirationAt ?? after1Month,
@@ -235,7 +235,7 @@ class StockEditorPageController extends StateNotifier<StockEditorState> {
         final newItem = StockEntity(
           id: documentId,
           idNumber: Random().nextInt(294967296),
-          name: state.itemName,
+          name: StockName(state.itemName),
           numberOfItems: state.numberOfItems.toDouble(),
           asin: null,
           itemId: itemId,
@@ -256,7 +256,7 @@ class StockEditorPageController extends StateNotifier<StockEditorState> {
         await _addNotification(
           documentId: documentId,
           idNumber: newItem.idNumber,
-          itemName: newItem.name,
+          itemName: newItem.name.value,
           expirationDate: newItem.expirationAt,
           expirationDateType: newItem.expirationDateType,
         );
@@ -274,8 +274,8 @@ class StockEditorPageController extends StateNotifier<StockEditorState> {
           updatedAt: null,
           id: const Uuid().v4(), // 新しいストックとして登録するためIDは新調する必要あり
           idNumber: Random().nextInt(294967296),
-          name: state.itemName,
-          originalName: param!.stock?.name,
+          name: StockName(state.itemName),
+          originalName: param!.stock?.name.value,
           numberOfItems: state.numberOfItems.toDouble(),
           expirationDateTypeInt: state.expirationDateType.index,
           expirationAt: _generateExpirationAt(),
@@ -291,7 +291,7 @@ class StockEditorPageController extends StateNotifier<StockEditorState> {
         await _addNotification(
           documentId: newItem.id,
           idNumber: newItem.idNumber,
-          itemName: newItem.name,
+          itemName: newItem.name.value,
           expirationDate: newItem.expirationAt,
           expirationDateType: newItem.expirationDateType,
         );
@@ -301,7 +301,7 @@ class StockEditorPageController extends StateNotifier<StockEditorState> {
       case StockEditorMode.update:
         // 1. 既存データを更新
         final stock = param!.stock!.copyWith(
-          name: state.itemName,
+          name: StockName(state.itemName),
           numberOfItems: state.numberOfItems.toDouble(),
           expirationDateTypeInt: state.expirationDateType.index,
           expirationAt: _generateExpirationAt(),
@@ -314,7 +314,7 @@ class StockEditorPageController extends StateNotifier<StockEditorState> {
         await _addNotification(
           documentId: stock.id,
           idNumber: stock.idNumber,
-          itemName: stock.name,
+          itemName: stock.name.value,
           expirationDate: stock.expirationAt,
           expirationDateType: stock.expirationDateType,
         );

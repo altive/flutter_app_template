@@ -80,7 +80,7 @@ class StockDetailMenuButton extends HookConsumerWidget {
             return _handleDeleteAction(
               ref: ref,
               context: context,
-              stockName: stock.name,
+              stockName: stock.name.value,
             );
 
           case DetailMenuAction.duplicate:

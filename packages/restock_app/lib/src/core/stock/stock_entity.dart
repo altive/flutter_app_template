@@ -36,6 +36,21 @@ class StockEntityField {
   static const stockCategory = 'place';
 }
 
+@freezed
+class StockName with _$StockName {
+  const factory StockName(String value) = _StockName;
+}
+
+class StockNameConverter implements JsonConverter<StockName, String> {
+  const StockNameConverter();
+
+  @override
+  StockName fromJson(String json) => StockName(json);
+
+  @override
+  String toJson(StockName object) => object.value;
+}
+
 /// ユーザーのストック
 @freezed
 class StockEntity with _$StockEntity {
@@ -54,7 +69,7 @@ class StockEntity with _$StockEntity {
     @TimestampConverter() DateTime? updatedAt,
 
     /// アイテムの名前
-    required String name,
+    @StockNameConverter() required StockName name,
 
     /// アイテムの名前（Amazon商品の編集されていない名前）
     /// みんなのストックなどの表示に使う @nullable
@@ -128,7 +143,7 @@ class StockEntity with _$StockEntity {
     return StockEntity(
       id: const Uuid().v4(),
       idNumber: Random().nextInt(294967296),
-      name: item.displayTitle!,
+      name: StockName(item.displayTitle!),
       originalName: item.displayTitle,
       numberOfItems: 1,
       asin: item.asin,
@@ -151,7 +166,7 @@ class StockEntity with _$StockEntity {
     return StockEntity(
       id: const Uuid().v4(),
       idNumber: Random().nextInt(294967296),
-      name: item.name,
+      name: StockName(item.name),
       originalName: item.name,
       numberOfItems: item.numberOfItems,
       asin: item.asin,
@@ -170,7 +185,7 @@ class StockEntity with _$StockEntity {
     return StockEntity(
       id: const Uuid().v4(),
       idNumber: Random().nextInt(294967296),
-      name: item.name,
+      name: StockName(item.name),
       originalName: item.name,
       numberOfItems: 1,
       asin: item.asin,

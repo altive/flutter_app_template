@@ -14,6 +14,124 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
+/// @nodoc
+mixin _$StockName {
+  String get value => throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $StockNameCopyWith<StockName> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $StockNameCopyWith<$Res> {
+  factory $StockNameCopyWith(StockName value, $Res Function(StockName) then) =
+      _$StockNameCopyWithImpl<$Res>;
+  $Res call({String value});
+}
+
+/// @nodoc
+class _$StockNameCopyWithImpl<$Res> implements $StockNameCopyWith<$Res> {
+  _$StockNameCopyWithImpl(this._value, this._then);
+
+  final StockName _value;
+  // ignore: unused_field
+  final $Res Function(StockName) _then;
+
+  @override
+  $Res call({
+    Object? value = freezed,
+  }) {
+    return _then(_value.copyWith(
+      value: value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$StockNameCopyWith<$Res> implements $StockNameCopyWith<$Res> {
+  factory _$StockNameCopyWith(
+          _StockName value, $Res Function(_StockName) then) =
+      __$StockNameCopyWithImpl<$Res>;
+  @override
+  $Res call({String value});
+}
+
+/// @nodoc
+class __$StockNameCopyWithImpl<$Res> extends _$StockNameCopyWithImpl<$Res>
+    implements _$StockNameCopyWith<$Res> {
+  __$StockNameCopyWithImpl(_StockName _value, $Res Function(_StockName) _then)
+      : super(_value, (v) => _then(v as _StockName));
+
+  @override
+  _StockName get _value => super._value as _StockName;
+
+  @override
+  $Res call({
+    Object? value = freezed,
+  }) {
+    return _then(_StockName(
+      value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_StockName with DiagnosticableTreeMixin implements _StockName {
+  const _$_StockName(this.value);
+
+  @override
+  final String value;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'StockName(value: $value)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'StockName'))
+      ..add(DiagnosticsProperty('value', value));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _StockName &&
+            const DeepCollectionEquality().equals(other.value, value));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(value));
+
+  @JsonKey(ignore: true)
+  @override
+  _$StockNameCopyWith<_StockName> get copyWith =>
+      __$StockNameCopyWithImpl<_StockName>(this, _$identity);
+}
+
+abstract class _StockName implements StockName {
+  const factory _StockName(final String value) = _$_StockName;
+
+  @override
+  String get value => throw _privateConstructorUsedError;
+  @override
+  @JsonKey(ignore: true)
+  _$StockNameCopyWith<_StockName> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
 StockEntity _$StockEntityFromJson(Map<String, dynamic> json) {
   return _StockEntity.fromJson(json);
 }
@@ -36,7 +154,8 @@ mixin _$StockEntity {
   DateTime? get updatedAt => throw _privateConstructorUsedError;
 
   /// アイテムの名前
-  String get name => throw _privateConstructorUsedError;
+  @StockNameConverter()
+  StockName get name => throw _privateConstructorUsedError;
 
   /// アイテムの名前（Amazon商品の編集されていない名前）
   /// みんなのストックなどの表示に使う @nullable
@@ -112,7 +231,7 @@ abstract class $StockEntityCopyWith<$Res> {
       int idNumber,
       @TimestampConverter() DateTime? createdAt,
       @TimestampConverter() DateTime? updatedAt,
-      String name,
+      @StockNameConverter() StockName name,
       String? originalName,
       double numberOfItems,
       String? asin,
@@ -130,6 +249,8 @@ abstract class $StockEntityCopyWith<$Res> {
       String? imagePathOriginal,
       String? memo,
       @JsonKey(name: StockEntityField.stockCategory) String? stockCategory});
+
+  $StockNameCopyWith<$Res> get name;
 }
 
 /// @nodoc
@@ -185,7 +306,7 @@ class _$StockEntityCopyWithImpl<$Res> implements $StockEntityCopyWith<$Res> {
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as StockName,
       originalName: originalName == freezed
           ? _value.originalName
           : originalName // ignore: cast_nullable_to_non_nullable
@@ -256,6 +377,13 @@ class _$StockEntityCopyWithImpl<$Res> implements $StockEntityCopyWith<$Res> {
               as String?,
     ));
   }
+
+  @override
+  $StockNameCopyWith<$Res> get name {
+    return $StockNameCopyWith<$Res>(_value.name, (value) {
+      return _then(_value.copyWith(name: value));
+    });
+  }
 }
 
 /// @nodoc
@@ -270,7 +398,7 @@ abstract class _$StockEntityCopyWith<$Res>
       int idNumber,
       @TimestampConverter() DateTime? createdAt,
       @TimestampConverter() DateTime? updatedAt,
-      String name,
+      @StockNameConverter() StockName name,
       String? originalName,
       double numberOfItems,
       String? asin,
@@ -288,6 +416,9 @@ abstract class _$StockEntityCopyWith<$Res>
       String? imagePathOriginal,
       String? memo,
       @JsonKey(name: StockEntityField.stockCategory) String? stockCategory});
+
+  @override
+  $StockNameCopyWith<$Res> get name;
 }
 
 /// @nodoc
@@ -345,7 +476,7 @@ class __$StockEntityCopyWithImpl<$Res> extends _$StockEntityCopyWithImpl<$Res>
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as String,
+              as StockName,
       originalName: originalName == freezed
           ? _value.originalName
           : originalName // ignore: cast_nullable_to_non_nullable
@@ -428,7 +559,8 @@ class _$_StockEntity extends _StockEntity with DiagnosticableTreeMixin {
           this.createdAt,
       @TimestampConverter()
           this.updatedAt,
-      required this.name,
+      @StockNameConverter()
+          required this.name,
       this.originalName,
       required this.numberOfItems,
       required this.asin,
@@ -475,7 +607,8 @@ class _$_StockEntity extends _StockEntity with DiagnosticableTreeMixin {
 
   /// アイテムの名前
   @override
-  final String name;
+  @StockNameConverter()
+  final StockName name;
 
   /// アイテムの名前（Amazon商品の編集されていない名前）
   /// みんなのストックなどの表示に使う @nullable
@@ -675,7 +808,8 @@ abstract class _StockEntity extends StockEntity {
           final DateTime? createdAt,
       @TimestampConverter()
           final DateTime? updatedAt,
-      required final String name,
+      @StockNameConverter()
+          required final StockName name,
       final String? originalName,
       required final double numberOfItems,
       required final String? asin,
@@ -723,7 +857,8 @@ abstract class _StockEntity extends StockEntity {
   @override
 
   /// アイテムの名前
-  String get name => throw _privateConstructorUsedError;
+  @StockNameConverter()
+  StockName get name => throw _privateConstructorUsedError;
   @override
 
   /// アイテムの名前（Amazon商品の編集されていない名前）

@@ -109,7 +109,7 @@ class _Card extends ConsumerWidget {
                 size: imageHeight,
               ),
               Text(
-                stock.name,
+                stock.name.value,
                 style: Theme.of(context).textTheme.caption,
                 maxLines: 2,
               ),

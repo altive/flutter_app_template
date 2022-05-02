@@ -93,7 +93,7 @@ final searchedStocksProvider =
   }
   return beforeStocks
       .where(
-        (e) => e.name.toLowerCase().contains(searchText.toLowerCase()),
+        (e) => e.name.value.toLowerCase().contains(searchText.toLowerCase()),
       )
       .toList();
 });
@@ -138,11 +138,11 @@ final sortedStocksProvider =
 
           // 名前 / 昇順
           case StockSortSelection.nameAsc:
-            return a.name.compareTo(b.name);
+            return a.name.value.compareTo(b.name.value);
 
           // 名前 / 降順
           case StockSortSelection.nameDesc:
-            return b.name.compareTo(a.name);
+            return b.name.value.compareTo(a.name.value);
 
           // メモ / 昇順
           case StockSortSelection.memoAsc:

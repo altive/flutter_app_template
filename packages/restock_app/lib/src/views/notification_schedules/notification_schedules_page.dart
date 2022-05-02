@@ -147,7 +147,7 @@ class NotificationTile extends ConsumerWidget {
         ),
         child: ListTile(
           // leading: Text(item.id.toString()),
-          title: Text(stock.name),
+          title: Text(stock.name.value),
           subtitle: Text('$expirationString\n通知：$notificationDateText'),
           // trailing: Text(item.payload),
         ),

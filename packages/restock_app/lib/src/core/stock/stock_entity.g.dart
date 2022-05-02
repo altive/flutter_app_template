@@ -13,7 +13,7 @@ _$_StockEntity _$$_StockEntityFromJson(Map json) => _$_StockEntity(
           const TimestampConverter().fromJson(json['createdAt'] as Timestamp?),
       updatedAt:
           const TimestampConverter().fromJson(json['updatedAt'] as Timestamp?),
-      name: json['name'] as String,
+      name: const StockNameConverter().fromJson(json['name'] as String),
       originalName: json['originalName'] as String?,
       numberOfItems: (json['numberOfItems'] as num).toDouble(),
       asin: json['asin'] as String?,
@@ -40,7 +40,7 @@ Map<String, dynamic> _$$_StockEntityToJson(_$_StockEntity instance) =>
       'idNumber': instance.idNumber,
       'createdAt': const TimestampConverter().toJson(instance.createdAt),
       'updatedAt': const TimestampConverter().toJson(instance.updatedAt),
-      'name': instance.name,
+      'name': const StockNameConverter().toJson(instance.name),
       'originalName': instance.originalName,
       'numberOfItems': instance.numberOfItems,
       'asin': instance.asin,
