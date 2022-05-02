@@ -1,13 +1,10 @@
 name: flutter_app_template
+repository: https://github.com/altive/flutter_app_template
 
 packages:
   - packages/**
 
 scripts:
-  version:
-    run: melos exec  --flutter -- "flutter --version"
-    description: Flutter SDK version for each package
-
   upgrade:
     run: |
       melos exec -- \
@@ -15,24 +12,25 @@ scripts:
     description: Upgrade the major version of the pub in all packages
     select-packages:
       flutter: true
+      dir-exists: lib
 
   analyze:
     run: |
       melos exec -- \
         flutter analyze . --fatal-infos
     description: Analyze in all packages
+    select-packages:
+      flutter: true
+      dir-exists: lib
 
   format:
     run: |
       melos exec -- \
         flutter format --dry-run --set-exit-if-changed lib/
     description: Format in all packages
-
-  gen:all:
-    run: |
-      melos exec -c 1 --depends-on="build_runner" -- \
-        flutter pub run build_runner build --delete-conflicting-outputs
-    description: Generate code in all packages
+    select-packages:
+      flutter: true
+      dir-exists: lib
 
   gen:
     run: |
@@ -40,6 +38,7 @@ scripts:
         flutter pub run build_runner build --delete-conflicting-outputs
     description: コード生成したいパッケージを選択して実行する
     select-package:
+      flutter: true
       dir-exists: lib
       depends-on: "build_runner"
 
@@ -48,6 +47,8 @@ scripts:
       melos exec --dir-exists="test" --fail-fast -- \
         flutter test --coverage
     description: flutter test in all packages
+    select-package:
+      dir-exists: test
 
   upload:ios:prod:
     run: |
