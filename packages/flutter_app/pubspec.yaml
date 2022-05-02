@@ -6,38 +6,38 @@ publish_to: none
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.16.0 <3.0.0"
-  flutter: ">=2.10.3"
+  sdk: ">=2.16.2 <3.0.0"
+  flutter: ">=2.10.5"
 
 dependencies:
   cached_network_image: ^3.1.0
-  cloud_firestore: ^3.0.0
+  cloud_firestore: ^3.1.13
   cupertino_icons: ^1.0.3
-  firebase_analytics: ^9.0.2
-  firebase_auth: ^3.1.5
-  firebase_core: ^1.9.0
-  firebase_crashlytics: ^2.2.5
-  firebase_dynamic_links: ^4.0.2
-  firebase_messaging: ^11.0.0
-  firebase_performance: ^0.8.0+2
-  firebase_remote_config: ^2.0.2
-  firebase_storage: ^10.0.7
+  firebase_analytics: ^9.1.6
+  firebase_auth: ^3.3.16
+  firebase_core: ^1.15.0
+  firebase_crashlytics: ^2.7.1
+  firebase_dynamic_links: ^4.2.1
+  firebase_messaging: ^11.2.15
+  firebase_performance: ^0.8.0+10
+  firebase_remote_config: ^2.0.5
+  firebase_storage: ^10.2.14
   flutter:
     sdk: flutter
-  flutter_hooks: ^0.18.0
+  flutter_hooks: ^0.18.3
   flutter_localizations:
     sdk: flutter
   freezed_annotation: ^2.0.1
   gap: ^2.0.0
-  google_sign_in: ^5.1.0
-  hooks_riverpod: ^2.0.0-dev.4
-  image_picker: ^0.8.4
+  google_sign_in: ^5.3.0
+  hooks_riverpod: ^2.0.0-dev.5
+  image_picker: ^0.8.5
   intl: ^0.17.0
-  json_annotation: ^4.3.0
+  json_annotation: ^4.5.0
   linked_scroll_controller: ^0.2.0
-  modal_bottom_sheet: ^2.0.0
-  package_info_plus: ^1.0.5
-  routemaster: ^0.9.5
+  modal_bottom_sheet: ^2.0.1
+  package_info_plus: ^1.4.2
+  routemaster: ^1.0.0
   shared_preferences: ^2.0.8
   sort_key_generator: ^0.2.0+1
   theme:
@@ -48,13 +48,13 @@ dependencies:
 
 dev_dependencies:
   altive_lints: ^1.0.0
-  build_runner: ^2.1.4
-  flutter_gen_runner: ^4.1.5
+  build_runner: ^2.1.10
+  flutter_gen_runner: ^4.1.6
   flutter_launcher_icons: ^0.9.2
   flutter_test:
     sdk: flutter
   freezed: ^2.0.2
-  json_serializable: ^6.0.1
+  json_serializable: ^6.2.0
 
 flutter_gen:
   output: lib/gen/
