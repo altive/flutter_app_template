@@ -52,15 +52,13 @@
             ]
         },
         {
-            "name": "vitaly_app (dev)",
-            "cwd": "packages/vitaly_app",
+            "name": "graphql_playground",
+            "cwd": "packages/graphql_playground",
             "program": "lib/main.dart",
             "request": "launch",
             "type": "dart",
             "flutterMode": "debug",
-            "args": [
-                // "--dart-define=FLAVOR=dev"
-            ]
+            "args": []
         },
     ]
 }
