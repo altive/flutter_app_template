@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-mixin TabBarPage implements Widget {
+// ignore: avoid_implementing_value_types
+abstract class TabBarPage implements Widget {
   /// そのタブを表す文字列
   String get labelText;
 
@@ -40,7 +41,7 @@ class _TabEnumPageState extends State<TabEnumPage> {
 
 // 以下、TabBarViewとして表示したいWidgets
 
-class TimelinePage extends StatelessWidget with TabBarPage {
+class TimelinePage extends StatelessWidget implements TabBarPage {
   const TimelinePage({Key? key}) : super(key: key);
 
   @override
@@ -59,7 +60,7 @@ class TimelinePage extends StatelessWidget with TabBarPage {
   }
 }
 
-class InformationPage extends StatelessWidget with TabBarPage {
+class InformationPage extends StatelessWidget implements TabBarPage {
   const InformationPage({Key? key}) : super(key: key);
 
   @override
@@ -78,7 +79,7 @@ class InformationPage extends StatelessWidget with TabBarPage {
   }
 }
 
-class AccountPage extends StatelessWidget with TabBarPage {
+class AccountPage extends StatelessWidget implements TabBarPage {
   const AccountPage({Key? key}) : super(key: key);
 
   @override
