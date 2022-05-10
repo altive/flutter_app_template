@@ -1,4 +1,4 @@
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 import '../utils/utils.dart';
 
@@ -8,10 +8,10 @@ Future<bool> launchUrl(String? url, {String? secondUrl}) async {
     logger.finer('URLがnullです');
     return false;
   }
-  if (await canLaunch(url!)) {
-    return launch(url);
-  } else if (secondUrl != null && await canLaunch(secondUrl)) {
-    return launch(secondUrl);
+  if (await canLaunchUrlString(url!)) {
+    return launchUrlString(url);
+  } else if (secondUrl != null && await canLaunchUrlString(secondUrl)) {
+    return launchUrlString(secondUrl);
   } else {
     logger.warning('開けないURLです：$url, $secondUrl');
     return false;

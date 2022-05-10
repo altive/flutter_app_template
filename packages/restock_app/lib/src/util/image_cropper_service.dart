@@ -10,16 +10,21 @@ Future<File?> presentImageCroppingView(File imageFile) async {
   /// クロップ画面を表示し、結果を受け取る
   final croppedImageFile = await ImageCropper().cropImage(
     sourcePath: imageFile.path,
-    androidUiSettings: const AndroidUiSettings(
-      toolbarTitle: screenTitle,
-      // デフォルトで選択されているアスペクト比
-      initAspectRatio: CropAspectRatioPreset.ratio4x3,
-    ),
-    iosUiSettings: const IOSUiSettings(
-      title: screenTitle,
-      // キャンセルがタップされた時、変更がある場合は確認ダイアログを表示する
-      showCancelConfirmationDialog: true,
-    ),
+    uiSettings: [
+      AndroidUiSettings(
+        toolbarTitle: screenTitle,
+        // デフォルトで選択されているアスペクト比
+        initAspectRatio: CropAspectRatioPreset.ratio4x3,
+      ),
+      IOSUiSettings(
+        title: screenTitle,
+        // キャンセルがタップされた時、変更がある場合は確認ダイアログを表示する
+        showCancelConfirmationDialog: true,
+      )
+    ],
   );
-  return croppedImageFile;
+  if (croppedImageFile == null) {
+    return null;
+  }
+  return File(croppedImageFile.path);
 }
