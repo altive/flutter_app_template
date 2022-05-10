@@ -1,10 +1,11 @@
 PODS:
-  - AppAuth (1.4.0):
-    - AppAuth/Core (= 1.4.0)
-    - AppAuth/ExternalUserAgent (= 1.4.0)
-  - AppAuth/Core (1.4.0)
-  - AppAuth/ExternalUserAgent (1.4.0)
-  - cloud_firestore (3.1.10):
+  - AppAuth (1.5.0):
+    - AppAuth/Core (= 1.5.0)
+    - AppAuth/ExternalUserAgent (= 1.5.0)
+  - AppAuth/Core (1.5.0)
+  - AppAuth/ExternalUserAgent (1.5.0):
+    - AppAuth/Core
+  - cloud_firestore (3.1.13):
     - Firebase/Firestore (= 8.9.0)
     - firebase_core
     - Flutter
@@ -39,38 +40,38 @@ PODS:
   - Firebase/Storage (8.9.0):
     - Firebase/CoreOnly
     - FirebaseStorage (~> 8.9.0)
-  - firebase_analytics (8.3.4):
+  - firebase_analytics (9.1.6):
     - Firebase/Analytics (= 8.9.0)
     - firebase_core
     - Flutter
-  - firebase_auth (3.3.9):
+  - firebase_auth (3.3.16):
     - Firebase/Auth (= 8.9.0)
     - firebase_core
     - Flutter
-  - firebase_core (1.13.1):
+  - firebase_core (1.15.0):
     - Firebase/CoreOnly (= 8.9.0)
     - Flutter
-  - firebase_crashlytics (2.5.3):
+  - firebase_crashlytics (2.7.1):
     - Firebase/Crashlytics (= 8.9.0)
     - firebase_core
     - Flutter
-  - firebase_dynamic_links (3.0.2):
+  - firebase_dynamic_links (4.2.1):
     - Firebase/DynamicLinks (= 8.9.0)
     - firebase_core
     - Flutter
-  - firebase_messaging (11.2.8):
+  - firebase_messaging (11.2.15):
     - Firebase/Messaging (= 8.9.0)
     - firebase_core
     - Flutter
-  - firebase_performance (0.7.1-5):
+  - firebase_performance (0.8.0-10):
     - Firebase/Performance (= 8.9.0)
     - firebase_core
     - Flutter
-  - firebase_remote_config (0.11.0-2):
+  - firebase_remote_config (2.0.5):
     - Firebase/RemoteConfig (= 8.9.0)
     - firebase_core
     - Flutter
-  - firebase_storage (10.2.9):
+  - firebase_storage (10.2.14):
     - Firebase/Storage (= 8.9.0)
     - firebase_core
     - Flutter
@@ -161,7 +162,7 @@ PODS:
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
-  - google_sign_in (0.0.1):
+  - google_sign_in_ios (0.0.1):
     - Flutter
     - GoogleSignIn (~> 5.0)
   - GoogleAppMeasurement (8.9.1):
@@ -212,11 +213,11 @@ PODS:
     - GoogleUtilities/Logger
   - GoogleUtilities/UserDefaults (7.6.0):
     - GoogleUtilities/Logger
-  - GTMAppAuth (1.2.2):
+  - GTMAppAuth (1.2.3):
     - AppAuth/Core (~> 1.4)
     - GTMSessionFetcher/Core (~> 1.5)
   - GTMSessionFetcher/Core (1.7.0)
-  - image_picker (0.0.1):
+  - image_picker_ios (0.0.1):
     - Flutter
   - nanopb (2.30908.0):
     - nanopb/decode (= 2.30908.0)
@@ -253,8 +254,8 @@ DEPENDENCIES:
   - firebase_storage (from `.symlinks/plugins/firebase_storage/ios`)
   - FirebaseFirestore (from `https://github.com/invertase/firestore-ios-sdk-frameworks.git`, tag `8.9.0`)
   - Flutter (from `Flutter`)
-  - google_sign_in (from `.symlinks/plugins/google_sign_in/ios`)
-  - image_picker (from `.symlinks/plugins/image_picker/ios`)
+  - google_sign_in_ios (from `.symlinks/plugins/google_sign_in_ios/ios`)
+  - image_picker_ios (from `.symlinks/plugins/image_picker_ios/ios`)
   - package_info_plus (from `.symlinks/plugins/package_info_plus/ios`)
   - path_provider_ios (from `.symlinks/plugins/path_provider_ios/ios`)
   - share_plus (from `.symlinks/plugins/share_plus/ios`)
@@ -315,10 +316,10 @@ EXTERNAL SOURCES:
     :tag: 8.9.0
   Flutter:
     :path: Flutter
-  google_sign_in:
-    :path: ".symlinks/plugins/google_sign_in/ios"
-  image_picker:
-    :path: ".symlinks/plugins/image_picker/ios"
+  google_sign_in_ios:
+    :path: ".symlinks/plugins/google_sign_in_ios/ios"
+  image_picker_ios:
+    :path: ".symlinks/plugins/image_picker_ios/ios"
   package_info_plus:
     :path: ".symlinks/plugins/package_info_plus/ios"
   path_provider_ios:
@@ -340,18 +341,18 @@ CHECKOUT OPTIONS:
     :tag: 8.9.0
 
 SPEC CHECKSUMS:
-  AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
-  cloud_firestore: a7640ea347114cf598438e3ab95c5cd8a19c94a0
+  AppAuth: 80317d99ac7ff2801a2f18ff86b48cd315ed465d
+  cloud_firestore: fc7b785f21780830d297405ae0ba7deb32317e2b
   Firebase: 13d8d96499e2635428d5bf0ec675df21f95d9a95
-  firebase_analytics: 7a7528bb2abf4ca22cff7a57bbf909dcab73e13d
-  firebase_auth: 9c47d4f44c8f272ee2a6f4d626851129e3607833
-  firebase_core: 381716afd65ba03dd8a5c10b618380b09fdd1a9c
-  firebase_crashlytics: 83528d78608e1c018df42d0265208acf040f5abe
-  firebase_dynamic_links: d79118550dc36eccc182e4990ed5d4342d5ab900
-  firebase_messaging: 62445f824a3c67aa3a0abcd2756894e276763f8a
-  firebase_performance: a87be8f45dda8d075c9ae75b1b64353aa33dd49f
-  firebase_remote_config: 64af2ad097186f4831a7095b2b03599276eb8a64
-  firebase_storage: 952b7a940e4b6de85a190d21efee861ee2970dbd
+  firebase_analytics: 48e7410de6a05ae5799d0590ddb189ea941ad9d5
+  firebase_auth: ca8d0fa54511bbfa449eefdb8d9b798951624bbb
+  firebase_core: e4d96998f331ccee1ec09a1db3931db03c80af00
+  firebase_crashlytics: 46cfec37f577cef3645135fc788d864f96d6dee4
+  firebase_dynamic_links: 34169bd0e701b6339b8eb66617dca2b957faece8
+  firebase_messaging: 523e24b010e43005d33ec63addf52d539ed406e7
+  firebase_performance: e18a7270685c401b84f3bab71092bc47ee6631ac
+  firebase_remote_config: fe535c5c4706e138eece94f79c12130a99201c8e
+  firebase_storage: 83a142cfcffa902ffd1e87463b428558a6ce3161
   FirebaseABTesting: 9de50b34bf9eb4a07d4edb7af82c14152fd905aa
   FirebaseAnalytics: 4ab446ce08a3fe52e8a4303dd997cf26276bf968
   FirebaseAuth: 2b78b2a32c07b3ecfa4970bdf1d3632b8304099b
@@ -367,14 +368,14 @@ SPEC CHECKSUMS:
   FirebaseStorage: 452c98c31ccb40b819764bf3039426c4388d9939
   Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
-  google_sign_in: f669f45933dad48cd218dc3e189726bced3d19f4
+  google_sign_in_ios: ed71c0dbddfba8b1ea9aa210dbda695f46bf51bd
   GoogleAppMeasurement: 837649ad3987936c232f6717c5680216f6243d24
   GoogleDataTransport: 629c20a4d363167143f30ea78320d5a7eb8bd940
   GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
   GoogleUtilities: 684ee790a24f73ebb2d1d966e9711c203f2a4237
-  GTMAppAuth: ad5c2b70b9a8689e1a04033c9369c4915bfcbe89
+  GTMAppAuth: 987526d41b07efb1bedda5e936fe0cb718a03113
   GTMSessionFetcher: 43748f93435c2aa068b1cbe39655aaf600652e91
-  image_picker: 541dcbb3b9cf32d87eacbd957845d8651d6c62c3
+  image_picker_ios: b786a5dcf033a8336a657191401bfdf12017dabb
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   package_info_plus: 6c92f08e1f853dc01228d6f553146438dafcd14e
   path_provider_ios: 14f3d2fd28c4fdb42f44e0f751d12861c43cee02
@@ -387,4 +388,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 1f203168f10f8b49396e44654801b96bfc130ec7
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.11.3

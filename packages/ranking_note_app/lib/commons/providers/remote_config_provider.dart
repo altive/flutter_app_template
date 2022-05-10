@@ -4,8 +4,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'flavor_provider.dart';
 
 /// Firebase Remote Config Provider
-final remoteConfigProvider = Provider<RemoteConfig>((ref) {
-  final rc = RemoteConfig.instance;
+final remoteConfigProvider = Provider<FirebaseRemoteConfig>((ref) {
+  final rc = FirebaseRemoteConfig.instance;
 
   // 本番環境ではFetch間隔を12時間に設定、開発環境では0
   final flavor = ref.watch(flavorProvider);
