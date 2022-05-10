@@ -39,6 +39,10 @@ class MainStackView extends HookConsumerWidget {
       const [],
     );
 
+    void switchBottomTab(int index) {
+      ref.read(_bottomTabIndexProvider.state).state = index;
+    }
+
     final selectedIndex = ref.watch(_bottomTabIndexProvider);
     return UnfocusOnTap(
       child: LoadingIndicator(
@@ -60,22 +64,10 @@ class MainStackView extends HookConsumerWidget {
                 .toList(),
             backgroundColor: Theme.of(context).bottomAppBarColor,
             currentIndex: selectedIndex,
-            onTap: (index) => _switchBottomTab(
-              ref: ref,
-              context: context,
-              index: index,
-            ),
+            onTap: switchBottomTab,
           ),
         ),
       ),
     );
-  }
-
-  void _switchBottomTab({
-    required WidgetRef ref,
-    required BuildContext context,
-    required int index,
-  }) {
-    ref.read(_bottomTabIndexProvider.state).state = index;
   }
 }
