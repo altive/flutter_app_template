@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-import '../../core/notification_service/notification_service.dart';
+import '../../core/local_notification_controller/local_notification_controller.dart';
 import '../../util/notification_configurator/notification_configurator.dart';
 import 'stock_detail_page_controller.dart';
 
@@ -26,7 +26,7 @@ class StockDetailNotificationTile extends HookConsumerWidget {
       stockForStockDetailProvider.select<int?>((value) => value?.idNumber),
     );
     final isOn = ref.watch(
-      notificationControllerProvider
+      localNotificationControllerProvider
           .select<bool>((value) => value.contains(idNumber)),
     );
 

@@ -14,10 +14,18 @@ import '../stock/stock_repository.dart';
 import 'notification_date.dart';
 import 'notification_payload.dart';
 
+export 'notification_date.dart';
+export 'notification_payload.dart';
+
+final localNotificationControllerProvider =
+    StateNotifierProvider<LocalNotificationController, List<int>>((ref) {
+  return LocalNotificationController(ref.read);
+});
+
 /// flutter_local_notifications を使用して通知を操作する
-class NotificationController extends StateNotifier<List<int>> {
+class LocalNotificationController extends StateNotifier<List<int>> {
   // ----- Constructor ----- //
-  NotificationController(this._read)
+  LocalNotificationController(this._read)
       : _plugin = FlutterLocalNotificationsPlugin(),
         super(<int>[]) {
     initializeLocalNotifications();
@@ -168,7 +176,7 @@ class NotificationController extends StateNotifier<List<int>> {
       state = state.where((e) => e != idNumber).toList();
     }
     // 何日前に通知を送るか
-    final durationDays = _prefsController.getNotificationDuration.count;
+    final durationDays = _prefsController.getNotificationDuration!.count;
 
     /// 時刻設定
     final timeOfDay = _prefsController.getNotificationTimeSetting;

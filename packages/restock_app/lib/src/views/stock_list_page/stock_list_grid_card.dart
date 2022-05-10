@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
 
-import '../../core/notification_service/notification_service.dart';
+import '../../core/local_notification_controller/local_notification_controller.dart';
 import '../../core/stock/stock_entity.dart';
 import '../stock_detail/stock_detail_page.dart';
 import '../stock_detail/stock_detail_page_controller.dart';
@@ -244,7 +244,7 @@ class _NotificationIcon extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final notificationList = ref.watch(notificationControllerProvider);
+    final notificationList = ref.watch(localNotificationControllerProvider);
     if (!notificationList.contains(stock.idNumber)) {
       return const SizedBox();
     }

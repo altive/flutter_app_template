@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../core/notification_service/notification_service.dart';
+import '../../core/local_notification_controller/local_notification_controller.dart';
 import '../../util/shared_preferences_service.dart';
 import '../../utils/utils.dart';
 

@@ -3,8 +3,8 @@ import 'dart:math';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:uuid/uuid.dart';
 
+import '../../core/local_notification_controller/local_notification_controller.dart';
 import '../../core/me/me.dart';
-import '../../core/notification_service/notification_service.dart';
 import '../../core/revenue/revenue.dart';
 import '../../core/stock/stock_entity.dart';
 import '../../core/stock/stock_repository.dart';
@@ -44,8 +44,8 @@ class StockEditorPageController extends StateNotifier<StockEditorState> {
   final Reader _read;
 
   StockRepository? get _stockRepository => _read(stockRepositoryProvider);
-  NotificationController get _notificationController =>
-      _read(notificationControllerProvider.notifier);
+  LocalNotificationController get _notificationController =>
+      _read(localNotificationControllerProvider.notifier);
   SharedPreferencesService get _prefsController =>
       _read(sharedPreferencesServiceProvider);
 

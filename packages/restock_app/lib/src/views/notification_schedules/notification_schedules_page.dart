@@ -8,7 +8,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:tuple/tuple.dart';
 
 import '../../common_widgets/loading_indicator.dart';
-import '../../core/notification_service/notification_service.dart';
+import '../../core/local_notification_controller/local_notification_controller.dart';
 import '../../core/stock/stock_entity.dart';
 import '../../core/stock/stock_repository.dart';
 
@@ -16,7 +16,7 @@ final notificationScheduleListProvider = FutureProvider.autoDispose<
     Tuple2<List<NotificationPayload>, List<StockEntity>>>((ref) async {
   //
   final pendingList = await ref
-      .watch(notificationControllerProvider.notifier)
+      .watch(localNotificationControllerProvider.notifier)
       .getAndStorePendingNotificationRequests;
 
   final payloadList = pendingList.map((e) {
@@ -66,7 +66,9 @@ class NotificationSchedulesPage extends HookConsumerWidget {
       );
       switch (result) {
         case OkCancelResult.ok:
-          await ref.read(notificationControllerProvider.notifier).canceleAll();
+          await ref
+              .read(localNotificationControllerProvider.notifier)
+              .canceleAll();
           Navigator.of(context).pop();
           break;
         case OkCancelResult.cancel:
@@ -179,7 +181,7 @@ class NotificationTile extends ConsumerWidget {
   }) {
     // 対象の通知をキャンセル
     ref
-        .read(notificationControllerProvider.notifier)
+        .read(localNotificationControllerProvider.notifier)
         .cancel(id: notificationIdNumber);
   }
 }

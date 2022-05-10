@@ -1,9 +1,8 @@
 import 'package:async/async.dart';
-
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../app_error/app_error.dart';
-import '../../core/notification_service/notification_service.dart';
+import '../../core/local_notification_controller/local_notification_controller.dart';
 import '../../core/revenue/revenue.dart';
 import '../../util/shared_preferences_service.dart';
 import 'auth_controller.dart';
@@ -20,8 +19,8 @@ class DeleteMeUsecase {
   AuthController get _authController => _read(authControllerProvider.notifier);
   RevenueController get _revenueController =>
       _read(revenueControllerProvider.notifier);
-  NotificationController get _notificationController =>
-      _read(notificationControllerProvider.notifier);
+  LocalNotificationController get _notificationController =>
+      _read(localNotificationControllerProvider.notifier);
   SharedPreferencesService get _prefsController =>
       _read(sharedPreferencesServiceProvider);
 

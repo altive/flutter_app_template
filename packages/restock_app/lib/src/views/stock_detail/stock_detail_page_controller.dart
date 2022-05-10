@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../core/notification_service/notification_service.dart';
+import '../../core/local_notification_controller/local_notification_controller.dart';
 import '../../core/revenue/revenue.dart';
 import '../../core/stock/stock_entity.dart';
 import '../../core/stock/stock_repository.dart';
@@ -39,8 +39,8 @@ class StockDetailPageController extends StateNotifier<bool> {
   SharedPreferencesService get _prefsController =>
       _read(sharedPreferencesServiceProvider);
 
-  NotificationController get _notificationController =>
-      _read(notificationControllerProvider.notifier);
+  LocalNotificationController get _notificationController =>
+      _read(localNotificationControllerProvider.notifier);
 
   /// Payload取得
   Future<NotificationPayload?> fetchNotificationPayload() async {

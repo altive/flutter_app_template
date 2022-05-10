@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-import '../../core/notification_service/notification_service.dart';
+import '../../core/local_notification_controller/local_notification_controller.dart';
 import '../../everyones_stock/expiration_date_type.dart';
 import '../../util/notification_configurator/notification_configurator.dart';
 import '../../util/shared_preferences_service.dart';
