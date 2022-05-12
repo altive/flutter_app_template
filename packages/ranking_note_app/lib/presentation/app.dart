@@ -11,7 +11,7 @@ import 'theme_data/dark_theme.dart';
 import 'theme_data/light_theme.dart';
 
 class App extends ConsumerWidget {
-  const App({Key? key}) : super(key: key);
+  const App();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

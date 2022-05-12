@@ -14,9 +14,7 @@ import 'stock_set_cell.dart';
 /// ユーザーに必要なストック量を計算し、お勧めセットを提示する
 class CheckerPage extends HookConsumerWidget {
   // Constructor
-  const CheckerPage({
-    Key? key,
-  }) : super(key: key);
+  const CheckerPage();
 
   // Field
   static const String routeName = '/checker';
@@ -103,14 +101,13 @@ class CheckerPage extends HookConsumerWidget {
 
 class _ListCell extends StatelessWidget {
   const _ListCell({
-    Key? key,
     this.child,
-  }) : super(key: key);
+  });
 
   final Widget? child;
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return ColoredBox(
       color: Theme.of(context).cardColor,
       child: child,
     );

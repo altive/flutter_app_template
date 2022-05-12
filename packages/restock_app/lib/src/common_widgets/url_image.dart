@@ -9,8 +9,7 @@ class UrlImage extends StatelessWidget {
     this.url, {
     this.width = 200,
     this.height = 200,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final String? url;
   final double width;

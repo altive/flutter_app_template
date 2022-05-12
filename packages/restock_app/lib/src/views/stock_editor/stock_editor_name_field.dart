@@ -7,10 +7,9 @@ import 'stock_editor_controller.dart';
 /// アイテムの名前を入力するフォーム
 class StockEditorNameField extends HookConsumerWidget {
   const StockEditorNameField({
-    Key? key,
     required this.titleFocus,
     required this.numberFocus,
-  }) : super(key: key);
+  });
 
   final FocusNode titleFocus;
   final FocusNode numberFocus;

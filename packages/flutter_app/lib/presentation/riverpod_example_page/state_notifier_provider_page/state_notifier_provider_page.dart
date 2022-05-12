@@ -47,7 +47,9 @@ class TodoListNotifier extends StateNotifier<List<Todo>> {
 
 // Widget example.
 class StateNotifierProviderPage extends ConsumerWidget {
-  const StateNotifierProviderPage({Key? key}) : super(key: key);
+  const StateNotifierProviderPage({
+    super.key,
+  });
 
   static const String title = 'StateNotifierProvider';
   static const String routeName = 'state-notifier-provider';

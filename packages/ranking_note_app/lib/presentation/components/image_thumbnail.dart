@@ -3,12 +3,11 @@ import 'package:flutter/material.dart';
 
 class ImageThumbnail extends StatelessWidget {
   const ImageThumbnail({
-    Key? key,
     required this.imageUrl,
     this.width,
     this.height,
     this.emptyView,
-  }) : super(key: key);
+  });
 
   final String? imageUrl;
   final double? width;

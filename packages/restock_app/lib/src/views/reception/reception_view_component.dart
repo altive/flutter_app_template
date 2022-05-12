@@ -7,7 +7,7 @@ import 'reception_controller.dart';
 
 // 「Googleでサインイン」ボタン
 class GoogleSignInButton extends HookConsumerWidget {
-  const GoogleSignInButton({Key? key}) : super(key: key);
+  const GoogleSignInButton();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -49,7 +49,7 @@ class GoogleSignInButton extends HookConsumerWidget {
 
 /// 利用規約ボタン
 class TermsButton extends ConsumerWidget {
-  const TermsButton({Key? key}) : super(key: key);
+  const TermsButton();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -69,7 +69,7 @@ class TermsButton extends ConsumerWidget {
 
 /// プライバシーポリシーボタン
 class PrivacyButton extends ConsumerWidget {
-  const PrivacyButton({Key? key}) : super(key: key);
+  const PrivacyButton();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

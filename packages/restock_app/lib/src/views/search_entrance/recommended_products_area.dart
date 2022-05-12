@@ -7,7 +7,7 @@ import '../../common_widgets/url_image.dart';
 import 'search_entrance_controller.dart';
 
 class RecommendedProductsArea extends HookConsumerWidget {
-  const RecommendedProductsArea({Key? key}) : super(key: key);
+  const RecommendedProductsArea();
 
   static const horizontalCellCount = 3;
   static const horizontalPadding = 16.0;
@@ -60,10 +60,9 @@ class RecommendedProductsArea extends HookConsumerWidget {
 /// オススメ商品を表示するセル
 class ProductCell extends HookConsumerWidget {
   const ProductCell({
-    Key? key,
     required this.size,
     required this.item,
-  }) : super(key: key);
+  });
 
   final double size;
   final PaapiSearchItem item;
@@ -119,9 +118,8 @@ class ProductCell extends HookConsumerWidget {
 
 class CaptionTextPadding extends StatelessWidget {
   const CaptionTextPadding({
-    Key? key,
     required this.child,
-  }) : super(key: key);
+  });
 
   final Widget child;
 

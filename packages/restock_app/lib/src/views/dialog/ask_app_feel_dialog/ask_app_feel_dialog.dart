@@ -6,9 +6,7 @@ import '../ok_cancel_with_image_dialog.dart';
 
 class AskAppFeelDialog extends StatelessWidget {
   // Constructor
-  const AskAppFeelDialog({
-    Key? key,
-  }) : super(key: key);
+  const AskAppFeelDialog();
 
   // Field
   static const String routeName = '/ask-app-feel';

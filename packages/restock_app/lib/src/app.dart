@@ -11,9 +11,7 @@ import 'util/theme/theme_controller.dart';
 import 'views/splash/splash_page.dart';
 
 class App extends HookConsumerWidget {
-  const App({
-    Key? key,
-  }) : super(key: key);
+  const App();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

@@ -6,7 +6,7 @@ import 'account_setting_page_controller.dart';
 
 /// アカウント削除ボタン
 class AccountSettingQuitTile extends ConsumerWidget {
-  const AccountSettingQuitTile({Key? key}) : super(key: key);
+  const AccountSettingQuitTile();
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return ListTile(

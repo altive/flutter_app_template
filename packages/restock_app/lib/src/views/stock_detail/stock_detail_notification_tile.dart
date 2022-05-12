@@ -9,9 +9,7 @@ import 'stock_detail_page_controller.dart';
 
 /// 通知をON/OFFするセル
 class StockDetailNotificationTile extends HookConsumerWidget {
-  const StockDetailNotificationTile({
-    Key? key,
-  }) : super(key: key);
+  const StockDetailNotificationTile();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

@@ -5,9 +5,8 @@ import '../utils/utils.dart';
 class ErrorHandler extends StatelessWidget {
   const ErrorHandler(
     this.error, {
-    Key? key,
     required this.stack,
-  }) : super(key: key);
+  });
 
   final Object error;
   final StackTrace stack;

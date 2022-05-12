@@ -5,7 +5,6 @@ class TextInputPage extends StatefulWidget {
   // Constructor
   // ----------------------------------------
   const TextInputPage({
-    Key? key,
     this.title,
     this.labelText,
     this.initialText,
@@ -14,7 +13,7 @@ class TextInputPage extends StatefulWidget {
     this.maxLength = 400,
     this.maxLines = 14,
     this.minLines = 7,
-  }) : super(key: key);
+  });
 
   // ----------------------------------------
   // Field

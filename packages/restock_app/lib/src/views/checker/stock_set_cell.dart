@@ -9,9 +9,8 @@ import 'recommend_detail/recommend_detail_page.dart';
 /// お勧めストックセットの概要を表示するCell
 class StockSetCell extends HookConsumerWidget {
   const StockSetCell({
-    Key? key,
     required this.stockSet,
-  }) : super(key: key);
+  });
 
   final RecommendStockSet stockSet;
 

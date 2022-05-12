@@ -5,7 +5,7 @@ import '../components/rounded_card.dart';
 import '../router/router.dart';
 
 class SettingsPage extends ConsumerWidget {
-  const SettingsPage({Key? key}) : super(key: key);
+  const SettingsPage();
 
   static const routeName = 'settings';
 
@@ -40,13 +40,12 @@ class SettingsPage extends ConsumerWidget {
 
 class _ListTile extends StatelessWidget {
   const _ListTile({
-    Key? key,
     required this.titleLabel,
     this.icon,
     required this.onTap,
     this.isFirst = false,
     this.isLast = false,
-  }) : super(key: key);
+  });
 
   final String titleLabel;
   final Icon? icon;

@@ -6,10 +6,10 @@ import 'place_editor_controller.dart';
 
 class PlaceEditorCard extends HookConsumerWidget {
   const PlaceEditorCard({
-    Key? key,
+    super.key,
     required this.index,
     required this.stockCategories,
-  }) : super(key: key);
+  });
 
   final int index;
   final List<String> stockCategories;

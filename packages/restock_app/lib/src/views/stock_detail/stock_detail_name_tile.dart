@@ -5,9 +5,7 @@ import 'stock_detail_page_controller.dart';
 
 /// アイテム名
 class StockDetailNameTile extends HookConsumerWidget {
-  const StockDetailNameTile({
-    Key? key,
-  }) : super(key: key);
+  const StockDetailNameTile();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

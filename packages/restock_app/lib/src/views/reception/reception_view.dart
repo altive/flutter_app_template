@@ -8,16 +8,10 @@ import 'reception_controller.dart';
 import 'reception_view_component.dart';
 
 class ReceptionPage extends HookConsumerWidget {
-  // Constructor
-  // ----------------------------------
-  const ReceptionPage({Key? key}) : super(key: key);
+  const ReceptionPage();
 
-  // Field
-  // ----------------------------------------
   static const String routeName = '/reception';
 
-  // Methods
-  // ----------------------------------
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final isLightTheme = Theme.of(context).brightness == Brightness.light;

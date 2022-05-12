@@ -12,14 +12,12 @@ import '../components/member_editing_sheet.dart';
 
 class PlusButtonsView extends StatelessWidget {
   const PlusButtonsView({
-    Key? key,
     required ScrollController subScrollController,
     required this.rankingId,
     required this.memberDocs,
     required this.addIconSize,
     required this.addIconPadding,
-  })  : _subScrollController = subScrollController,
-        super(key: key);
+  })  : _subScrollController = subScrollController;
 
   final ScrollController _subScrollController;
   final String rankingId;
@@ -76,11 +74,10 @@ class PlusButtonsView extends StatelessWidget {
 /// 新しいランキングメンバーを追加するためのシート
 class _AddMemberModalBottomSheet extends HookConsumerWidget {
   const _AddMemberModalBottomSheet({
-    Key? key,
     required this.rankingId,
     required this.targetIndex,
     required this.memberDocs,
-  }) : super(key: key);
+  });
 
   final String rankingId;
   final int targetIndex;

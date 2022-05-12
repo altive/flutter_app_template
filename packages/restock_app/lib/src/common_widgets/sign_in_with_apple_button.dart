@@ -8,7 +8,7 @@ class SignInWithAppleButton extends HookConsumerWidget {
   // ----------------------------------
   // Constructor
   // ----------------------------------
-  const SignInWithAppleButton({Key? key}) : super(key: key);
+  const SignInWithAppleButton();
 
   // ----------------------------------
   // Override Methods

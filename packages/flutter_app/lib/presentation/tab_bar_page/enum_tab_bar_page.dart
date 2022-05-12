@@ -42,7 +42,7 @@ extension TabEnumExt on TabEnum {
 }
 
 class TabEnumPage extends StatefulWidget {
-  const TabEnumPage({Key? key}) : super(key: key);
+  const TabEnumPage({super.key});
 
   @override
   State<TabEnumPage> createState() => _TabEnumPageState();
@@ -68,7 +68,7 @@ class _TabEnumPageState extends State<TabEnumPage> {
 // 以下、TabBarViewとして表示したいWidgets
 
 class TimelinePage extends StatelessWidget {
-  const TimelinePage({Key? key}) : super(key: key);
+  const TimelinePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -81,7 +81,7 @@ class TimelinePage extends StatelessWidget {
 }
 
 class InformationPage extends StatelessWidget {
-  const InformationPage({Key? key}) : super(key: key);
+  const InformationPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -94,7 +94,7 @@ class InformationPage extends StatelessWidget {
 }
 
 class AccountPage extends StatelessWidget {
-  const AccountPage({Key? key}) : super(key: key);
+  const AccountPage({super.key});
 
   @override
   Widget build(BuildContext context) {

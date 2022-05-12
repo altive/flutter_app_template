@@ -7,7 +7,7 @@ import '../../utils/utils.dart';
 /// 通知の時刻を設定するためのListTile
 /// 現在の選択状態も表示する
 class NotificationSettingTimeSelectionTile extends ConsumerStatefulWidget {
-  const NotificationSettingTimeSelectionTile({Key? key}) : super(key: key);
+  const NotificationSettingTimeSelectionTile();
 
   @override
   _NotificationSettingTimeSelectionTileState createState() =>

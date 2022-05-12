@@ -15,9 +15,7 @@ import '../stock_editor/stock_editor_parameter.dart';
 
 /// 写真を撮影するボタン
 class PhotoShootingButton extends HookConsumerWidget {
-  const PhotoShootingButton({
-    Key? key,
-  }) : super(key: key);
+  const PhotoShootingButton();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

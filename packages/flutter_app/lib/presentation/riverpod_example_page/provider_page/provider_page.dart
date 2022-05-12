@@ -14,7 +14,9 @@ final doubleCounterProvider = Provider((ref) {
 
 // Widget example.
 class ProviderPage extends ConsumerWidget {
-  const ProviderPage({Key? key}) : super(key: key);
+  const ProviderPage({
+    super.key,
+  });
 
   static const String title = 'ProviderPage';
   static const String routeName = 'provider-page';

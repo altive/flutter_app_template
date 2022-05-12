@@ -16,9 +16,9 @@ import 'ranking_editing_sheet.dart';
 /// 1つのランキングを表示する詳細画面
 class RankingDetailPage extends ConsumerWidget {
   const RankingDetailPage({
-    Key? key,
+    super.key,
     required this.rankingId,
-  }) : super(key: key);
+  });
 
   static const routeName = 'ranking-detail';
 
@@ -58,10 +58,9 @@ class RankingDetailPage extends ConsumerWidget {
 
 class _Body extends ConsumerStatefulWidget {
   const _Body({
-    Key? key,
     required this.rankingId,
     required this.ranking,
-  }) : super(key: key);
+  });
 
   final Ranking? ranking;
   final String rankingId;
@@ -130,9 +129,7 @@ class __BodyState extends ConsumerState<_Body> {
 }
 
 class _LoadingView extends HookWidget {
-  const _LoadingView({
-    Key? key,
-  }) : super(key: key);
+  const _LoadingView();
 
   static const _length = 6;
 

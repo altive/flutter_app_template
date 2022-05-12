@@ -9,9 +9,8 @@ import 'stock_editor_controller.dart';
 /// アイテムの個数を入力するフォーム
 class StockEditorCountField extends HookConsumerWidget {
   const StockEditorCountField({
-    Key? key,
     required this.numberFocus,
-  }) : super(key: key);
+  });
 
   final FocusNode numberFocus;
 

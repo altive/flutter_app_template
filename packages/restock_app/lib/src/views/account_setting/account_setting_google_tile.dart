@@ -11,7 +11,7 @@ import 'account_setting_page_controller.dart';
 
 /// Googleと連携
 class AccountSettingGoogleTile extends HookConsumerWidget {
-  const AccountSettingGoogleTile({Key? key}) : super(key: key);
+  const AccountSettingGoogleTile();
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final user = ref.watch(authControllerProvider);

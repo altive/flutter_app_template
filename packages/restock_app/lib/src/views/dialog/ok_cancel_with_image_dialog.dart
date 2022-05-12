@@ -6,7 +6,6 @@ import '../../common_widgets/secondary_button.dart';
 class OkCancelWithImageDialog extends StatelessWidget {
   // Constructor
   const OkCancelWithImageDialog({
-    Key? key,
     required this.imageName,
     required this.titleLabel,
     required this.messageLabel,
@@ -16,7 +15,7 @@ class OkCancelWithImageDialog extends StatelessWidget {
     this.secondaryButtonIconData,
     this.secondaryButtonLabel = 'いいえ',
     required this.secondaryButtonOnPressed,
-  }) : super(key: key);
+  });
 
   // Field
   static const String routeName = '/ask-app-feel';

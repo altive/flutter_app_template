@@ -6,11 +6,10 @@ import 'loading_indicator.dart';
 class SingleSelectableListPage extends StatefulWidget {
   // Constructor
   const SingleSelectableListPage({
-    Key? key,
     required this.values,
     required this.initialValue,
     this.pageTitle,
-  }) : super(key: key);
+  });
 
   final List<String>? values;
   final String? initialValue;

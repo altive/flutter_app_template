@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 class NewLabel extends StatelessWidget {
   const NewLabel(
     this.label, {
-    Key? key,
     this.color,
-  }) : super(key: key);
+  });
 
   final String label;
   final Color? color;

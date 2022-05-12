@@ -9,12 +9,12 @@ import '../hooks/use_localization.dart';
 
 class ImagePickerButton extends HookWidget {
   const ImagePickerButton({
-    Key? key,
+    super.key,
     this.imageFile,
     this.imageUrl,
     required this.onImageChanged,
     required this.onImageRemoved,
-  }) : super(key: key);
+  });
 
   final XFile? imageFile;
   final String? imageUrl;

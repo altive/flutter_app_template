@@ -20,8 +20,7 @@ class MemberCard extends StatelessWidget {
     required this.rank,
     required this.isFirst,
     required this.isLast,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final String rankingId;
   final QueryDocumentSnapshot<RankingMember> memberDoc;
@@ -91,10 +90,9 @@ class MemberCard extends StatelessWidget {
 /// 既存のランキングメンバーを変更するためのシート
 class _UpdateMemberModalBottomSheet extends HookConsumerWidget {
   const _UpdateMemberModalBottomSheet({
-    Key? key,
     required this.rankingId,
     required this.memberDoc,
-  }) : super(key: key);
+  });
 
   final String rankingId;
   final QueryDocumentSnapshot<RankingMember> memberDoc;

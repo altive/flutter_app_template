@@ -5,7 +5,9 @@ import '../../commons/widgets/unfocus_on_tap.dart';
 import 'top_level_tab.dart';
 
 class TabScaffoldPage extends StatelessWidget {
-  const TabScaffoldPage({Key? key}) : super(key: key);
+  const TabScaffoldPage({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

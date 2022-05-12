@@ -3,9 +3,8 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 
 class AmazonIcon extends StatelessWidget {
   const AmazonIcon({
-    Key? key,
     this.alignment = Alignment.center,
-  }) : super(key: key);
+  });
 
   /// 表示位置揃え
   final Alignment alignment;

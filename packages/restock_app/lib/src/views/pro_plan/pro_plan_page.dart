@@ -13,9 +13,7 @@ import 'pro_plan_top_card.dart';
 
 class ProPlanPage extends HookConsumerWidget {
   // Constructor
-  const ProPlanPage({
-    Key? key,
-  }) : super(key: key);
+  const ProPlanPage();
 
   // Field
   static const String routeName = '/pro-plan';
@@ -50,12 +48,10 @@ class ProPlanPage extends HookConsumerWidget {
 /// 共通のカードデザイン
 class _Card extends StatelessWidget {
   const _Card({
-    this.color,
     required this.child,
   });
 
   final Widget child;
-  final Color? color;
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +59,7 @@ class _Card extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color: color ?? Theme.of(context).cardColor,
+          color: Theme.of(context).cardColor,
           borderRadius: BorderRadius.circular(16),
         ),
         child: Card(
@@ -77,9 +73,7 @@ class _Card extends StatelessWidget {
 }
 
 class ProPlanStoreLinkCard extends HookConsumerWidget {
-  const ProPlanStoreLinkCard({
-    Key? key,
-  }) : super(key: key);
+  const ProPlanStoreLinkCard();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

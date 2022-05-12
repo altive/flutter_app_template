@@ -9,13 +9,12 @@ import 'member_card.dart';
 
 class MemberListView extends ConsumerWidget {
   const MemberListView({
-    Key? key,
     required this.mainScrollController,
     required this.rankingId,
     required this.memberDocs,
     required this.addIconSize,
     required this.addIconPadding,
-  }) : super(key: key);
+  });
 
   final ScrollController mainScrollController;
   final String rankingId;
@@ -86,9 +85,7 @@ class MemberListView extends ConsumerWidget {
 
 /// ランキングが1つも登録されていない時の表示。
 class _EmptyView extends StatelessWidget {
-  const _EmptyView({
-    Key? key,
-  }) : super(key: key);
+  const _EmptyView();
 
   @override
   Widget build(BuildContext context) {

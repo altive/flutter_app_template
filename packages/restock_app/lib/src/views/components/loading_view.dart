@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 
 class LoadingView extends StatelessWidget {
   const LoadingView({
-    Key? key,
     this.text,
-  }) : super(key: key);
+  });
 
   final String? text;
 

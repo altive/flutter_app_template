@@ -5,11 +5,10 @@ class ListSectionHeader extends StatelessWidget {
   // Constructor
   // ----------------------------------
   const ListSectionHeader({
-    Key? key,
     required this.title,
     this.visibility,
     this.padding = const EdgeInsets.all(16),
-  }) : super(key: key);
+  });
 
   // ----------------------------------------
   // Field

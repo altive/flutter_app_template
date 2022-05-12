@@ -10,9 +10,7 @@ import '../stock_editor/stock_editor_controller.dart';
 
 /// 期限の日付を選択するフォーム
 class ExpirationDateForm extends HookConsumerWidget {
-  const ExpirationDateForm({
-    Key? key,
-  }) : super(key: key);
+  const ExpirationDateForm();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -74,9 +72,7 @@ class ExpirationDateForm extends HookConsumerWidget {
 
 /// メモを入力できる
 class MemoForm extends HookConsumerWidget {
-  const MemoForm({
-    Key? key,
-  }) : super(key: key);
+  const MemoForm();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

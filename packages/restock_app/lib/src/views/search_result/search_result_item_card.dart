@@ -20,10 +20,9 @@ import 'search_result_controller.dart';
 /// 検索結果の1商品情報を表示する
 class SearchResultItemCard extends HookConsumerWidget {
   const SearchResultItemCard({
-    Key? key,
     required this.searchItem,
     required this.stockList,
-  }) : super(key: key);
+  });
 
   final PaapiSearchItem searchItem;
   final List<StockEntity?> stockList;
@@ -123,9 +122,8 @@ class SearchResultItemCard extends HookConsumerWidget {
 /// 商品ごとに表示する複数のアクションボタン
 class _IconButtons extends HookConsumerWidget {
   const _IconButtons({
-    Key? key,
     required this.item,
-  }) : super(key: key);
+  });
 
   final PaapiSearchItem item;
 

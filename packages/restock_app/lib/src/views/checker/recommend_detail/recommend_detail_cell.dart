@@ -18,10 +18,9 @@ import '../../stock_editor/stock_editor_parameter.dart';
 
 class RecommendDetailCell extends HookConsumerWidget {
   const RecommendDetailCell({
-    Key? key,
     required this.count,
     required this.item,
-  }) : super(key: key);
+  });
 
   final int count;
   final PaapiSearchItem? item;

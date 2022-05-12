@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'pro_plan_benefit.dart';
 
 class ProPlanComparisonCard extends StatelessWidget {
-  const ProPlanComparisonCard({Key? key}) : super(key: key);
+  const ProPlanComparisonCard();
 
   @override
   Widget build(BuildContext context) {
@@ -91,9 +91,8 @@ class ProPlanComparisonCard extends StatelessWidget {
 
 class _HeadCell extends StatelessWidget {
   const _HeadCell({
-    Key? key,
     required this.label,
-  }) : super(key: key);
+  });
 
   final String label;
 
@@ -120,9 +119,8 @@ class _HeadCell extends StatelessWidget {
 
 class _NormalCell extends StatelessWidget {
   const _NormalCell({
-    Key? key,
     required this.label,
-  }) : super(key: key);
+  });
 
   final String label;
 
@@ -149,9 +147,8 @@ class _NormalCell extends StatelessWidget {
 
 class _PremiumCell extends StatelessWidget {
   const _PremiumCell({
-    Key? key,
     required this.label,
-  }) : super(key: key);
+  });
 
   final String label;
 

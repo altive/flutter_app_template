@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 
 class RankingTags extends StatelessWidget {
   const RankingTags({
-    Key? key,
     required this.tags,
     required this.onTagPressed,
-  }) : super(key: key);
+  });
 
   final List<String> tags;
   final void Function(String tag) onTagPressed;

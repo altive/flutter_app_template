@@ -19,9 +19,8 @@ import '../stock_editor/stock_editor_parameter.dart';
 /// リストで表示するカード。一つのアイテム情報を表示する
 class TimelineItemCell extends HookConsumerWidget {
   const TimelineItemCell({
-    Key? key,
     required this.item,
-  }) : super(key: key);
+  });
 
   final EveryonesStockModel item;
 
@@ -242,9 +241,8 @@ class TimelineItemCell extends HookConsumerWidget {
 /// 登録日（相対）を表示
 class _CreatedAtText extends StatelessWidget {
   const _CreatedAtText({
-    Key? key,
     required this.date,
-  }) : super(key: key);
+  });
 
   final DateTime? date;
 

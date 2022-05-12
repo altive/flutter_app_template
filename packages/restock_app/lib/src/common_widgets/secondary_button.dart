@@ -2,20 +2,17 @@ import 'package:flutter/material.dart';
 
 class SecondaryButton extends StatelessWidget {
   const SecondaryButton({
-    Key? key,
     required this.onPressed,
     required this.labelText,
     this.minWidth = 44,
-  })  : iconData = null,
-        super(key: key);
+  })  : iconData = null;
 
   const SecondaryButton.icon({
-    Key? key,
     required this.onPressed,
     required this.iconData,
     required this.labelText,
     this.minWidth = 44,
-  }) : super(key: key);
+  });
 
   final void Function() onPressed;
   final IconData? iconData;

@@ -7,7 +7,9 @@ import 'state_notifier_provider_page/state_notifier_provider_page.dart';
 import 'state_provider_page/state_provider_page.dart';
 
 class RiverpodExamplePage extends StatelessWidget {
-  const RiverpodExamplePage({Key? key}) : super(key: key);
+  const RiverpodExamplePage({
+    super.key,
+  });
 
   static const String title = 'Riverpod Examples';
   static const String routeName = 'riverpod-example';
@@ -48,10 +50,9 @@ class RiverpodExamplePage extends StatelessWidget {
 
 class _FeatureCard extends StatelessWidget {
   const _FeatureCard({
-    Key? key,
     required this.onTap,
     required this.label,
-  }) : super(key: key);
+  });
 
   final VoidCallback onTap;
   final String label;

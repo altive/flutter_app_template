@@ -14,9 +14,7 @@ import 'overlay_indicator_state_provider.dart';
 final _bottomTabIndexProvider = StateProvider<int>((ref) => 0);
 
 class MainStackView extends HookConsumerWidget {
-  const MainStackView({
-    Key? key,
-  }) : super(key: key);
+  const MainStackView();
 
   static const String routeName = 'main-stack';
 

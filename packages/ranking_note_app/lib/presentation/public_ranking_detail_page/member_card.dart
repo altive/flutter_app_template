@@ -13,8 +13,7 @@ class MemberCard extends StatelessWidget {
     required this.rank,
     required this.isFirst,
     required this.isLast,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final String rankingId;
   final QueryDocumentSnapshot<RankingMember> memberDoc;

@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 import 'pro_plan_notice.dart';
 
 class ProPlanNoticeCard extends StatelessWidget {
-  const ProPlanNoticeCard({
-    Key? key,
-  }) : super(key: key);
+  const ProPlanNoticeCard();
 
   @override
   Widget build(BuildContext context) {

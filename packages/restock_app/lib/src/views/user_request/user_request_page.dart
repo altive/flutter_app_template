@@ -9,10 +9,7 @@ import '../../core/app_constant/app_info.dart';
 import 'user_request_controller.dart';
 
 class UserRequestPage extends StatefulWidget {
-  // ----------------------------------
-  // Constructor
-  // ----------------------------------
-  const UserRequestPage({Key? key}) : super(key: key);
+  const UserRequestPage();
 
   // ----------------------------------------
   // Field

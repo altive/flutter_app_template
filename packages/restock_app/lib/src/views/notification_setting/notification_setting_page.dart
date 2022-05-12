@@ -7,7 +7,7 @@ import 'notification_setting_time_selection_tile.dart';
 class NotificationSettingPage extends StatelessWidget {
   // Constructor
   // ----------------------------------
-  const NotificationSettingPage({Key? key}) : super(key: key);
+  const NotificationSettingPage();
 
   // Field
   // ----------------------------------------
@@ -37,9 +37,8 @@ class NotificationSettingPage extends StatelessWidget {
 /// 共通で使うタイル設定
 class _ContainerTile extends StatelessWidget {
   const _ContainerTile({
-    Key? key,
     required this.child,
-  }) : super(key: key);
+  });
 
   final Widget child;
 

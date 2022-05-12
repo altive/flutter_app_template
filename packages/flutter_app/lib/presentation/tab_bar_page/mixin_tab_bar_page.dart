@@ -10,7 +10,9 @@ abstract class TabBarPage implements Widget {
 }
 
 class TabEnumPage extends StatefulWidget {
-  const TabEnumPage({Key? key}) : super(key: key);
+  const TabEnumPage({
+    super.key,
+  });
 
   @override
   State<TabEnumPage> createState() => _TabEnumPageState();
@@ -42,7 +44,9 @@ class _TabEnumPageState extends State<TabEnumPage> {
 // 以下、TabBarViewとして表示したいWidgets
 
 class TimelinePage extends StatelessWidget implements TabBarPage {
-  const TimelinePage({Key? key}) : super(key: key);
+  const TimelinePage({
+    super.key,
+  });
 
   @override
   IconData get iconData => Icons.timelapse;
@@ -61,7 +65,7 @@ class TimelinePage extends StatelessWidget implements TabBarPage {
 }
 
 class InformationPage extends StatelessWidget implements TabBarPage {
-  const InformationPage({Key? key}) : super(key: key);
+  const InformationPage({super.key});
 
   @override
   IconData get iconData => Icons.info;
@@ -80,7 +84,7 @@ class InformationPage extends StatelessWidget implements TabBarPage {
 }
 
 class AccountPage extends StatelessWidget implements TabBarPage {
-  const AccountPage({Key? key}) : super(key: key);
+  const AccountPage({super.key});
 
   @override
   IconData get iconData => Icons.person;

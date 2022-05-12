@@ -38,9 +38,7 @@ final notificationScheduleListProvider = FutureProvider.autoDispose<
 
 class NotificationSchedulesPage extends HookConsumerWidget {
   // Constructor
-  const NotificationSchedulesPage({
-    Key? key,
-  }) : super(key: key);
+  const NotificationSchedulesPage();
 
   // Field
   static const String routeName = '/notification-requests';
@@ -111,11 +109,10 @@ class NotificationSchedulesPage extends HookConsumerWidget {
 /// ストックアイテムの名前・期限日・○日前か
 class NotificationTile extends ConsumerWidget {
   const NotificationTile({
-    Key? key,
     required this.idNumber,
     required this.notificationPayload,
     required this.stock,
-  }) : super(key: key);
+  });
 
   final int? idNumber;
   final NotificationPayload notificationPayload;

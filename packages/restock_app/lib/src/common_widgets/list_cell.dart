@@ -4,12 +4,11 @@ import 'package:flutter/material.dart';
 /// [leading], [title], [trailing]
 class ListCell extends StatelessWidget {
   const ListCell({
-    Key? key,
     required this.leading,
     required this.title,
     required this.trailing,
     required this.onTap,
-  }) : super(key: key);
+  });
 
   final Widget? leading;
   final Widget title;

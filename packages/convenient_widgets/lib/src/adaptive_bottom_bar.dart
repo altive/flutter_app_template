@@ -6,12 +6,12 @@ import 'package:flutter/material.dart';
 /// Platformごとにだし分けるBottomBar
 class AdaptiveBottomBar extends StatelessWidget {
   const AdaptiveBottomBar({
-    Key? key,
+    super.key,
     required this.items,
     required this.backgroundColor,
     required this.currentIndex,
     required this.onTap,
-  }) : super(key: key);
+  });
 
   final List<BottomNavigationBarItem> items;
   final Color backgroundColor;

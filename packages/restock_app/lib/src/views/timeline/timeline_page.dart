@@ -6,9 +6,7 @@ import 'timeline_item_cell.dart';
 
 class TimelinePage extends HookConsumerWidget {
   // Constructor
-  const TimelinePage({
-    Key? key,
-  }) : super(key: key);
+  const TimelinePage();
 
   // Field
   static const String routeName = '/timeline';

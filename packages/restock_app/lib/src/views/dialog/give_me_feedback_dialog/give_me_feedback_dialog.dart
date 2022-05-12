@@ -7,9 +7,7 @@ import '../ok_cancel_with_image_dialog.dart';
 
 class GiveMeFeedbackDialog extends StatelessWidget {
   // Constructor
-  const GiveMeFeedbackDialog({
-    Key? key,
-  }) : super(key: key);
+  const GiveMeFeedbackDialog();
 
   // Field
   static const String routeName = '/give-me-feedback';

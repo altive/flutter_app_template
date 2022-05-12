@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 
 class ResultCell extends StatelessWidget {
   const ResultCell({
-    Key? key,
     required this.rice,
     required this.water,
-  }) : super(key: key);
+  });
 
   final double rice;
   final int water;

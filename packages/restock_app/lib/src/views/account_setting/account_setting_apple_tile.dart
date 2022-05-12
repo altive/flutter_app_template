@@ -13,7 +13,7 @@ import 'account_setting_page_controller.dart';
 
 /// Appleと連携
 class AccountSettingAppleTile extends HookConsumerWidget {
-  const AccountSettingAppleTile({Key? key}) : super(key: key);
+  const AccountSettingAppleTile();
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final user = ref.watch(authControllerProvider);

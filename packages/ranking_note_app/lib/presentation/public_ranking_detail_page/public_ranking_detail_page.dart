@@ -15,9 +15,8 @@ import 'member_card.dart';
 /// 自分以外のランキング1つを詳細に表示する画面
 class PublicRankingDetailPage extends ConsumerWidget {
   const PublicRankingDetailPage({
-    Key? key,
     required this.rankingId,
-  }) : super(key: key);
+  });
 
   static const routeName = 'ranking';
   static const routeNameByPreview = 'preview';
@@ -80,9 +79,8 @@ class PublicRankingDetailPage extends ConsumerWidget {
 
 class _SliverListView extends HookConsumerWidget {
   const _SliverListView({
-    Key? key,
     required this.rankingDoc,
-  }) : super(key: key);
+  });
 
   final DocumentSnapshot<Ranking> rankingDoc;
 
@@ -119,9 +117,8 @@ class _SliverListView extends HookConsumerWidget {
 
 class _DescriptionCard extends StatelessWidget {
   const _DescriptionCard({
-    Key? key,
     required this.ranking,
-  }) : super(key: key);
+  });
 
   final Ranking ranking;
 
@@ -172,9 +169,7 @@ class _DescriptionCard extends StatelessWidget {
 }
 
 class _LoadingView extends HookWidget {
-  const _LoadingView({
-    Key? key,
-  }) : super(key: key);
+  const _LoadingView();
 
   static const _length = 6;
 

@@ -41,9 +41,8 @@ extension AppBarActionMenuExt on _AppBarActionMenu {
 /// 自分のランキング1つを詳細に表示する画面
 class MyRankingDetailPage extends ConsumerWidget {
   const MyRankingDetailPage({
-    Key? key,
     required this.rankingId,
-  }) : super(key: key);
+  });
 
   static const routeName = 'my-ranking';
 
@@ -107,9 +106,8 @@ class MyRankingDetailPage extends ConsumerWidget {
 
 class _Body extends ConsumerStatefulWidget {
   const _Body({
-    Key? key,
     required this.rankingDoc,
-  }) : super(key: key);
+  });
 
   final DocumentSnapshot<Ranking> rankingDoc;
 
@@ -232,9 +230,7 @@ class __BodyState extends ConsumerState<_Body> {
 }
 
 class _LoadingView extends HookWidget {
-  const _LoadingView({
-    Key? key,
-  }) : super(key: key);
+  const _LoadingView();
 
   static const _length = 6;
 

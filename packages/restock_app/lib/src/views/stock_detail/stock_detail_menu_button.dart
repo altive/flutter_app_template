@@ -41,9 +41,7 @@ extension Ex on DetailMenuAction {
 
 /// ストックアイテムを編集・削除等するためのPopupMenu
 class StockDetailMenuButton extends HookConsumerWidget {
-  const StockDetailMenuButton({
-    Key? key,
-  }) : super(key: key);
+  const StockDetailMenuButton();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

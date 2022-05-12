@@ -17,9 +17,7 @@ import 'recommend_detail_controller.dart';
 
 class RecommendDetailPage extends HookConsumerWidget {
   // Constructor
-  const RecommendDetailPage({
-    Key? key,
-  }) : super(key: key);
+  const RecommendDetailPage();
 
   // Field
   static const String routeName = '/recommend-detail';
@@ -41,9 +39,7 @@ class RecommendDetailPage extends HookConsumerWidget {
 }
 
 class _ListView extends HookConsumerWidget {
-  const _ListView({
-    Key? key,
-  }) : super(key: key);
+  const _ListView();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -92,10 +88,9 @@ class _ListView extends HookConsumerWidget {
 
 class RecommendCell extends HookConsumerWidget {
   const RecommendCell({
-    Key? key,
     this.item,
     this.description,
-  }) : super(key: key);
+  });
 
   final PaapiSearchItem? item;
   final String? description;

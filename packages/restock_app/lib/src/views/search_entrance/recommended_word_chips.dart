@@ -8,7 +8,7 @@ import '../search_result/search_result_view.dart';
 import 'search_entrance_controller.dart';
 
 class RecommendedWordChips extends StatelessWidget {
-  const RecommendedWordChips({Key? key}) : super(key: key);
+  const RecommendedWordChips();
 
   @override
   Widget build(BuildContext context) {
@@ -34,11 +34,10 @@ class RecommendedWordChips extends StatelessWidget {
 
 class WordChip extends HookConsumerWidget {
   const WordChip({
-    Key? key,
     required this.iconData,
     required this.label,
     this.isGlossary = false,
-  }) : super(key: key);
+  });
 
   final IconData iconData;
   final String label;

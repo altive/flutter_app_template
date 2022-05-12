@@ -6,9 +6,7 @@ import 'stock_editor_controller.dart';
 
 /// グループを選択できる
 class StockEditorPlaceField extends HookConsumerWidget {
-  const StockEditorPlaceField({
-    Key? key,
-  }) : super(key: key);
+  const StockEditorPlaceField();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

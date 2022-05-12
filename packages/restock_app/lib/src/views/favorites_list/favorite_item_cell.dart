@@ -20,9 +20,8 @@ import '../stock_editor/stock_editor_parameter.dart';
 /// リストで表示するカード。一つのアイテム情報を表示する
 class FavoriteItemCell extends HookConsumerWidget {
   const FavoriteItemCell({
-    Key? key,
     required this.document,
-  }) : super(key: key);
+  });
 
   final Document<FavoriteItem> document;
 

@@ -18,9 +18,8 @@ import '../components/ranking_tags.dart';
 
 class RankingEditingSheet extends HookConsumerWidget {
   const RankingEditingSheet({
-    Key? key,
     required this.doc,
-  }) : super(key: key);
+  });
 
   final DocumentSnapshot<Ranking> doc;
 

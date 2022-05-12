@@ -5,7 +5,7 @@ import '../../domain/theme_selector/theme_selector.dart';
 import '../components/rounded_card.dart';
 
 class ThemeSelectionPage extends StatelessWidget {
-  const ThemeSelectionPage({Key? key}) : super(key: key);
+  const ThemeSelectionPage();
 
   static const String routeName = 'theme-selection';
 
@@ -21,7 +21,7 @@ class ThemeSelectionPage extends StatelessWidget {
 }
 
 class ThemeListView extends ConsumerWidget {
-  const ThemeListView({Key? key}) : super(key: key);
+  const ThemeListView();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

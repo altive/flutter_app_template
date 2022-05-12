@@ -9,9 +9,8 @@ import 'stock_detail_page_controller.dart';
 /// 適した大きさの画像を非同期で取得して表示する
 class StockDetailImageTile extends HookConsumerWidget {
   const StockDetailImageTile({
-    Key? key,
     this.imageSize = 200,
-  }) : super(key: key);
+  });
 
   final double imageSize;
 

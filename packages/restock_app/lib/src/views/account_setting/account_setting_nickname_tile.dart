@@ -9,9 +9,7 @@ import '../../my_account/ng_words.dart';
 
 class AccountSettingNicknameTile extends HookConsumerWidget {
   // Constructor
-  const AccountSettingNicknameTile({
-    Key? key,
-  }) : super(key: key);
+  const AccountSettingNicknameTile();
 
   // Methods
   @override

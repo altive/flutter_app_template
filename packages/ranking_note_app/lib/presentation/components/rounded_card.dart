@@ -12,8 +12,7 @@ class RoundedCard extends StatelessWidget {
     this.elevation = 0,
     this.color,
     required this.child,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final bool isFirst;
   final bool isLast;

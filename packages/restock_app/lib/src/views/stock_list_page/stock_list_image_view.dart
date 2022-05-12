@@ -8,9 +8,8 @@ import '../../utils/utils.dart';
 class StockListImageView extends HookWidget {
   const StockListImageView(
     this.stock, {
-    Key? key,
     this.size = 100,
-  }) : super(key: key);
+  });
 
   final StockEntity stock;
   final double size;

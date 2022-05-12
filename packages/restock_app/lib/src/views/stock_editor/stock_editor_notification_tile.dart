@@ -11,9 +11,7 @@ import 'stock_editor_controller.dart';
 
 /// 通知をON/OFFするセル
 class StockEditorNotificationTile extends HookConsumerWidget {
-  const StockEditorNotificationTile({
-    Key? key,
-  }) : super(key: key);
+  const StockEditorNotificationTile();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

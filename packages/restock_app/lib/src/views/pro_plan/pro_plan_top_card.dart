@@ -4,9 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../core/revenue/revenue.dart';
 
 class ProPlanTopCard extends HookConsumerWidget {
-  const ProPlanTopCard({
-    Key? key,
-  }) : super(key: key);
+  const ProPlanTopCard();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

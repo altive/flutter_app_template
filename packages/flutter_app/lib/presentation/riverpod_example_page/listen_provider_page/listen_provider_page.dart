@@ -7,7 +7,7 @@ final counterProvider = StateProvider((ref) => 0);
 
 // Widget example.
 class ListenProviderPage extends ConsumerWidget {
-  const ListenProviderPage({Key? key}) : super(key: key);
+  const ListenProviderPage({super.key});
 
   static String title = 'Listen Provider';
   static String routeName = 'listen-provider';

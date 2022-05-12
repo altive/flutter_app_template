@@ -18,13 +18,13 @@ import '../../domain/validator/validator.dart';
 
 class MemberListView extends ConsumerWidget {
   const MemberListView({
-    Key? key,
+    super.key,
     required this.mainScrollController,
     required this.rankingId,
     required this.memberDocs,
     required this.addIconSize,
     required this.addIconPadding,
-  }) : super(key: key);
+  });
 
   final ScrollController mainScrollController;
   final String rankingId;
@@ -100,8 +100,7 @@ class _MemberCard extends StatelessWidget {
     required this.rank,
     required this.isFirst,
     required this.isLast,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final String rankingId;
   final QueryDocumentSnapshot<RankingMember> memberDoc;
@@ -198,10 +197,9 @@ class _MemberCard extends StatelessWidget {
 
 class _UpdateMemberModalBottomSheet extends HookConsumerWidget {
   const _UpdateMemberModalBottomSheet({
-    Key? key,
     required this.rankingId,
     required this.memberDoc,
-  }) : super(key: key);
+  });
 
   final String rankingId;
   final QueryDocumentSnapshot<RankingMember> memberDoc;
@@ -322,9 +320,7 @@ class _UpdateMemberModalBottomSheet extends HookConsumerWidget {
 
 /// ランキングが1つも登録されていない時の表示。
 class _EmptyView extends StatelessWidget {
-  const _EmptyView({
-    Key? key,
-  }) : super(key: key);
+  const _EmptyView();
 
   @override
   Widget build(BuildContext context) {

@@ -12,9 +12,7 @@ import 'search_entrance_controller.dart';
 
 /// バーコードを撮影する選択するボタン
 class BarcodeScannerButton extends HookConsumerWidget {
-  const BarcodeScannerButton({
-    Key? key,
-  }) : super(key: key);
+  const BarcodeScannerButton();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

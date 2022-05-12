@@ -7,9 +7,7 @@ import 'stock_detail_page_controller.dart';
 
 /// アイテムの個数を表示し、増減ボタンもある
 class StockDetailCounterView extends HookConsumerWidget {
-  const StockDetailCounterView({
-    Key? key,
-  }) : super(key: key);
+  const StockDetailCounterView();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

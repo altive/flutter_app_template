@@ -9,9 +9,7 @@ import 'stock_filter_page/stock_filter_page.dart';
 import 'stock_list_page_providers.dart';
 
 class StockListTopArea extends HookConsumerWidget {
-  const StockListTopArea({
-    Key? key,
-  }) : super(key: key);
+  const StockListTopArea();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -110,9 +108,7 @@ class StockListTopArea extends HookConsumerWidget {
 }
 
 class _ModeSelector extends HookWidget {
-  const _ModeSelector({
-    Key? key,
-  }) : super(key: key);
+  const _ModeSelector();
 
   @override
   Widget build(BuildContext context) {
@@ -129,9 +125,8 @@ class _ModeSelector extends HookWidget {
 
 class _ChoiceChip extends HookConsumerWidget {
   const _ChoiceChip({
-    Key? key,
     required this.displayMode,
-  }) : super(key: key);
+  });
 
   final StockDisplayMode displayMode;
 

@@ -9,10 +9,9 @@ import 'recommend_detail/recommend_detail_page.dart';
 
 class KihonSetCell extends HookConsumerWidget {
   const KihonSetCell({
-    Key? key,
     required this.rice,
     required this.water,
-  }) : super(key: key);
+  });
 
   final double rice;
   final int water;

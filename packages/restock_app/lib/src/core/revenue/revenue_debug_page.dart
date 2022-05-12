@@ -8,9 +8,7 @@ import 'revenue_controller.dart';
 /// アプリ内課金デバッグ画面
 class PurchaseDebugPage extends HookWidget {
   // Constructor
-  const PurchaseDebugPage({
-    Key? key,
-  }) : super(key: key);
+  const PurchaseDebugPage();
 
   // Field
   static const String routeName = '/debug-purchase';
@@ -31,9 +29,7 @@ class PurchaseDebugPage extends HookWidget {
 }
 
 class _ListView extends HookConsumerWidget {
-  const _ListView({
-    Key? key,
-  }) : super(key: key);
+  const _ListView();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

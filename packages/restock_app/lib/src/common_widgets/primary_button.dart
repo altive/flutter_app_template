@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 /// 送信ボタン
 class PrimaryButton extends StatelessWidget {
   const PrimaryButton({
-    Key? key,
     this.iconData,
     required this.labelText,
     required this.onPressed,
@@ -11,10 +10,9 @@ class PrimaryButton extends StatelessWidget {
     this.shape,
     this.backgroundColor,
     this.foregroundColor,
-  }) : super(key: key);
+  });
 
   const PrimaryButton.circular({
-    Key? key,
     this.iconData,
     required this.labelText,
     required this.onPressed,
@@ -22,7 +20,7 @@ class PrimaryButton extends StatelessWidget {
     this.shape = const StadiumBorder(),
     this.backgroundColor,
     this.foregroundColor,
-  }) : super(key: key);
+  });
 
   final IconData? iconData;
   final String labelText;

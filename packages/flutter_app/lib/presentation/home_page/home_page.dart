@@ -7,7 +7,9 @@ import '../theme_selection_page/theme_selection_page.dart';
 
 /// デモ機能をリスト表示する
 class HomePage extends StatelessWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({
+    super.key,
+  });
 
   static const routeName = 'home';
 
@@ -52,10 +54,9 @@ class HomePage extends StatelessWidget {
 
 class _FeatureCard extends StatelessWidget {
   const _FeatureCard({
-    Key? key,
     required this.onTap,
     required this.label,
-  }) : super(key: key);
+  });
 
   final VoidCallback onTap;
   final String label;

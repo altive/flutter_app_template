@@ -8,7 +8,7 @@ import '../../utils/utils.dart';
 /// 通知日を選択するためのListTile
 /// 現在の選択状態も表示する
 class NotificationSettingDateSelectionTile extends StatelessWidget {
-  const NotificationSettingDateSelectionTile({Key? key}) : super(key: key);
+  const NotificationSettingDateSelectionTile();
 
   @override
   Widget build(BuildContext context) {

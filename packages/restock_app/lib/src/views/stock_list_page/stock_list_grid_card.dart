@@ -11,14 +11,13 @@ import 'stock_list_image_view.dart';
 /// グリッドで表示するカード。単一のアイテム情報を表示する
 class StockListGridCard extends StatelessWidget {
   const StockListGridCard({
-    Key? key,
     required this.stock,
     required this.isTopLeft,
     required this.isTopRight,
     required this.isBottomLeft,
     required this.isBottomRight,
     required this.imageHeight,
-  }) : super(key: key);
+  });
 
   final StockEntity stock;
   final bool isTopLeft;
@@ -52,14 +51,13 @@ class StockListGridCard extends StatelessWidget {
 /// 表示するカード本体
 class _Card extends ConsumerWidget {
   const _Card({
-    Key? key,
     required this.stock,
     required this.isTopLeft,
     required this.isTopRight,
     required this.isBottomLeft,
     required this.isBottomRight,
     required this.imageHeight,
-  }) : super(key: key);
+  });
 
   final StockEntity stock;
   final bool isTopLeft;
@@ -142,9 +140,8 @@ class _Card extends ConsumerWidget {
 /// アイテム個数を表示するTextWidget
 class _ItemCountText extends StatelessWidget {
   const _ItemCountText({
-    Key? key,
     required this.itemCount,
-  }) : super(key: key);
+  });
 
   final int itemCount;
 
@@ -160,10 +157,9 @@ class _ItemCountText extends StatelessWidget {
 /// ストックの期限を表示
 class _ExpirationText extends StatelessWidget {
   const _ExpirationText({
-    Key? key,
     required this.date,
     required this.hasStock,
-  }) : super(key: key);
+  });
 
   final DateTime? date;
   final bool hasStock;
@@ -236,9 +232,8 @@ class _ExpirationText extends StatelessWidget {
 /// 通知が登録されている場合に表示するアイコン
 class _NotificationIcon extends HookConsumerWidget {
   const _NotificationIcon({
-    Key? key,
     required this.stock,
-  }) : super(key: key);
+  });
 
   final StockEntity stock;
 

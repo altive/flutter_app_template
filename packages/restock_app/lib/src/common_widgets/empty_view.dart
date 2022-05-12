@@ -3,10 +3,9 @@ import 'package:flutter/material.dart';
 /// コンテンツが空の時に表示するWidget
 class EmptyView extends StatelessWidget {
   const EmptyView({
-    Key? key,
     required this.label,
     required this.image,
-  }) : super(key: key);
+  });
 
   final Widget label;
   final Image image;

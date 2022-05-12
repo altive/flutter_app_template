@@ -11,9 +11,7 @@ import '../../domain/authenticator/sign_in_method.dart';
 import '../components/rounded_card.dart';
 
 class AccountPage extends HookConsumerWidget {
-  const AccountPage({
-    Key? key,
-  }) : super(key: key);
+  const AccountPage();
 
   static const routeName = 'account';
 
@@ -124,7 +122,6 @@ class AccountPage extends HookConsumerWidget {
 
 class _Card extends HookWidget {
   const _Card({
-    Key? key,
     required this.titleLabel,
     this.icon,
     this.needConfirm = false,
@@ -136,8 +133,7 @@ class _Card extends HookWidget {
   })  : assert(
           needConfirm && confirmOkLabel != null ||
               !needConfirm && confirmMessage == null && confirmOkLabel == null,
-        ),
-        super(key: key);
+        );
 
   final String titleLabel;
   final Icon? icon;
@@ -192,7 +188,6 @@ class _Card extends HookWidget {
 
 class _ProviderLinkCard extends HookWidget {
   const _ProviderLinkCard({
-    Key? key,
     required this.isSigneIn,
     required this.titleLabel,
     required this.email,
@@ -200,7 +195,7 @@ class _ProviderLinkCard extends HookWidget {
     required this.unLink,
     this.isFirst = false,
     this.isLast = false,
-  }) : super(key: key);
+  });
 
   final bool isSigneIn;
   final String titleLabel;

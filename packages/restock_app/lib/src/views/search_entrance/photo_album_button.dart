@@ -9,9 +9,7 @@ import '../stock_editor/stock_editor_parameter.dart';
 
 /// アルバムから選択するボタン
 class PhotoAlbumButton extends HookConsumerWidget {
-  const PhotoAlbumButton({
-    Key? key,
-  }) : super(key: key);
+  const PhotoAlbumButton();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

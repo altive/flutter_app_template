@@ -20,7 +20,7 @@ class MypagePage extends HookConsumerWidget {
   // ----------------------------------
   // Constructor
   // ----------------------------------
-  const MypagePage({Key? key}) : super(key: key);
+  const MypagePage();
 
   // ----------------------------------------
   // Field

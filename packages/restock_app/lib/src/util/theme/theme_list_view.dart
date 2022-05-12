@@ -6,7 +6,7 @@ import 'theme_controller.dart';
 
 /// テーマを選択できる画面
 class ThemeListView extends HookConsumerWidget {
-  const ThemeListView({Key? key}) : super(key: key);
+  const ThemeListView();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

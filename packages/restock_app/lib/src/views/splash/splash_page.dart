@@ -4,7 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'splash_page_controller.dart';
 
 class SplashPage extends HookConsumerWidget {
-  const SplashPage({Key? key}) : super(key: key);
+  const SplashPage();
 
   static const String routeName = '/';
 

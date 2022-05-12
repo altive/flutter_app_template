@@ -13,9 +13,7 @@ import 'place_editor_card.dart';
 import 'place_editor_controller.dart';
 
 class PlaceEditorPage extends HookConsumerWidget {
-  const PlaceEditorPage({
-    Key? key,
-  }) : super(key: key);
+  const PlaceEditorPage();
 
   static const String routeName = '/place-editor';
 
@@ -169,9 +167,9 @@ class PlaceEditorPage extends HookConsumerWidget {
 
 class AddButton extends ConsumerWidget {
   const AddButton({
-    Key? key,
+    super.key,
     required this.count,
-  }) : super(key: key);
+  });
 
   final int count;
 

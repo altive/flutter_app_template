@@ -15,9 +15,9 @@ enum ImageState {
 /// 未使用
 class RankingEditPage extends StatelessWidget {
   const RankingEditPage({
-    Key? key,
+    super.key,
     this.rankingId,
-  }) : super(key: key);
+  });
 
   static const routeName = 'edit';
 
@@ -44,9 +44,8 @@ class RankingEditPage extends StatelessWidget {
 
 class _Body extends ConsumerWidget {
   const _Body({
-    Key? key,
     required this.rankingId,
-  }) : super(key: key);
+  });
 
   final String? rankingId;
 
@@ -69,9 +68,7 @@ class _Body extends ConsumerWidget {
 }
 
 class _RankingForm extends StatelessWidget {
-  const _RankingForm({
-    Key? key,
-  }) : super(key: key);
+  const _RankingForm();
 
   @override
   Widget build(BuildContext context) {

@@ -69,10 +69,9 @@ class AppUsersRef extends CollectionRef<AppUserModel, AppUserDoc, AppUserRef> {
 
 class AppUserRef extends DocumentRef<AppUserModel, AppUserDoc> {
   const AppUserRef({
-    required DocumentReference<Map<String, Object?>> ref,
+    required DocumentReference<Map<String, Object?>> super.ref,
     required this.cRef,
   }) : super(
-          ref: ref,
           collectionRef: cRef,
         );
   final AppUsersRef cRef;

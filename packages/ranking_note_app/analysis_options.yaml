@@ -1,4 +1,9 @@
 include: package:altive_lints/altive_lints.yaml
 analyzer:
   exclude:
-    - "**/l10n.dart"
+    - "**/l10n/*.dart"
+linter:
+  rules:
+    # 数が多いため一時的に無効
+    use_key_in_widget_constructors: false
+    

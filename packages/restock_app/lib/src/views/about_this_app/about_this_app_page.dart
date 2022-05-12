@@ -11,7 +11,7 @@ import '../../util/web_launcher.dart';
 import '../user_request/user_request_page.dart';
 
 class AboutThisAppPage extends HookConsumerWidget {
-  const AboutThisAppPage({Key? key}) : super(key: key);
+  const AboutThisAppPage();
 
   static const String routeName = '/about-this-app';
 

@@ -130,10 +130,9 @@ class EveryonesStocksRef extends CollectionRef<EveryonesStockModel,
 class EveryonesStockRef
     extends DocumentRef<EveryonesStockModel, EveryonesStockDoc> {
   const EveryonesStockRef({
-    required DocumentReference<Map<String, dynamic>> ref,
+    required super.ref,
     required this.cRef,
   }) : super(
-          ref: ref,
           collectionRef: cRef,
         );
   final EveryonesStocksRef cRef;

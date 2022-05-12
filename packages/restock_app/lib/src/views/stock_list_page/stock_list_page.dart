@@ -14,7 +14,7 @@ final stockListTopAreaVisibleProvider = StateProvider<bool>((ref) => true);
 /// ストック一覧を表示する画面
 /// スクロール可能なタブとグループ分けした画面を内包する
 class StockListPage extends HookConsumerWidget {
-  const StockListPage({Key? key}) : super(key: key);
+  const StockListPage();
 
   static const String routeName = '/home';
 
@@ -60,7 +60,7 @@ class StockListPage extends HookConsumerWidget {
     if (stockCategories == null) {
       return const SizedBox();
     }
-    WidgetsBinding.instance!.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       // 必要なダイアログを表示させる
       ref
           .read(stockListPageControllerProvider.notifier)

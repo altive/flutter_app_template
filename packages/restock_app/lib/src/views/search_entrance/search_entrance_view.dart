@@ -8,7 +8,7 @@ import 'photo_shooting_button.dart';
 
 /// 検索画面の最上位view
 class SearchEntranceView extends StatelessWidget {
-  const SearchEntranceView({Key? key}) : super(key: key);
+  const SearchEntranceView();
 
   static const String routeName = '/store-entrance';
 
@@ -42,9 +42,8 @@ class SearchEntranceView extends StatelessWidget {
 
 class ActionCard extends StatelessWidget {
   const ActionCard({
-    Key? key,
     required this.child,
-  }) : super(key: key);
+  });
   final Widget child;
 
   @override

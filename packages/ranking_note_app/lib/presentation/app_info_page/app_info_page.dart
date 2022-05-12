@@ -8,9 +8,7 @@ import '../../commons/providers/flavor_provider.dart';
 import '../../commons/providers/package_info_provider.dart';
 
 class AppInfoPage extends HookConsumerWidget {
-  const AppInfoPage({
-    Key? key,
-  }) : super(key: key);
+  const AppInfoPage();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

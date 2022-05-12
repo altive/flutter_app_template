@@ -6,7 +6,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 final localesProvider = Provider<List<Locale>?>((ref) {
   final observer = _LocaleObserver((value) => ref.state = value);
 
-  final binding = WidgetsBinding.instance!..addObserver(observer);
+  final binding = WidgetsBinding.instance..addObserver(observer);
   ref.onDispose(() => binding.removeObserver(observer));
 
   return window.locales;

@@ -5,9 +5,7 @@ import 'package:routemaster/routemaster.dart';
 
 class NotFoundPage extends StatelessWidget {
   const NotFoundPage(
-    this._path, {
-    Key? key,
-  }) : super(key: key);
+    this._path);
 
   final String _path;
 

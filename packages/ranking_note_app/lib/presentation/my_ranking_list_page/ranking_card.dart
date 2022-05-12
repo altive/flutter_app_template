@@ -15,8 +15,7 @@ class RankingCard extends ConsumerWidget {
     this.rankingDoc, {
     required this.isFirst,
     required this.isLast,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final QueryDocumentSnapshot<Ranking> rankingDoc;
   final bool isFirst;

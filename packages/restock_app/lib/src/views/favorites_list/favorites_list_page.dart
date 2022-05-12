@@ -8,9 +8,7 @@ import 'favorite_item_cell.dart';
 
 class FavoritesListPage extends HookConsumerWidget {
   // Constructor
-  const FavoritesListPage({
-    Key? key,
-  }) : super(key: key);
+  const FavoritesListPage();
 
   // Field
   static const String routeName = '/favorites-list';

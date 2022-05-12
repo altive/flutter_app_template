@@ -4,7 +4,7 @@ import '../notification_schedules/notification_schedules_page.dart';
 
 /// 設定済み通知リストのタイル
 class NotificationSettingScheduleTile extends StatelessWidget {
-  const NotificationSettingScheduleTile({Key? key}) : super(key: key);
+  const NotificationSettingScheduleTile();
 
   @override
   Widget build(BuildContext context) {

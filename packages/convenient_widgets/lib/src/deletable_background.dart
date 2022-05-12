@@ -4,12 +4,12 @@ import 'package:flutter/material.dart';
 class DeletableBackground extends StatelessWidget {
   // Constructor
   const DeletableBackground({
-    Key? key,
+    super.key,
     this.label = 'Delete',
     this.margin = EdgeInsets.zero,
     this.alignment = Alignment.centerLeft,
     this.borderRadius,
-  }) : super(key: key);
+  });
 
   /// 表示する文字列。デフォルトは `Delete`
   final String label;

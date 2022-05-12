@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-
 import 'package:gap/gap.dart';
 import 'package:routemaster/routemaster.dart';
 
 class NotFoundPage extends StatelessWidget {
   const NotFoundPage(
     this._path, {
-    Key? key,
-  }) : super(key: key);
+    super.key,
+  });
 
   final String _path;
 

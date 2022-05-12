@@ -8,9 +8,7 @@ import '../stock_list_page_providers.dart';
 import '../stock_list_sort_selection.dart';
 
 class StockFilterPage extends HookConsumerWidget {
-  const StockFilterPage({
-    Key? key,
-  }) : super(key: key);
+  const StockFilterPage();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -131,9 +129,7 @@ class StockFilterPage extends HookConsumerWidget {
 
 class Headline extends StatelessWidget {
   const Headline(
-    this.label, {
-    Key? key,
-  }) : super(key: key);
+    this.label);
 
   final String label;
 
@@ -154,7 +150,6 @@ class Headline extends StatelessWidget {
 /// 並び替えのChipを表示する
 class _SorterChips extends StatelessWidget {
   const _SorterChips({
-    Key? key,
     required this.is1stSelected,
     required this.is2ndSelected,
     required this.on1stSelected,
@@ -163,7 +158,7 @@ class _SorterChips extends StatelessWidget {
     required this.title,
     required this.firstSelectionLabel,
     required this.secondSelectionLabel,
-  }) : super(key: key);
+  });
 
   final bool is1stSelected;
   final bool is2ndSelected;
@@ -209,7 +204,6 @@ class _SorterChips extends StatelessWidget {
 /// 絞込みのChipを表示する
 class _FilterChips extends StatelessWidget {
   const _FilterChips({
-    Key? key,
     required this.state,
     required this.onYesSelected,
     required this.onNoSelected,
@@ -217,7 +211,7 @@ class _FilterChips extends StatelessWidget {
     required this.title,
     this.yesText = 'あり',
     this.noText = 'なし',
-  }) : super(key: key);
+  });
 
   final FilteringState state;
   final void Function(bool) onYesSelected;
@@ -261,11 +255,10 @@ class _FilterChips extends StatelessWidget {
 
 class _FiterChip extends StatelessWidget {
   const _FiterChip({
-    Key? key,
     required this.isSelected,
     required this.label,
     required this.onSelected,
-  }) : super(key: key);
+  });
 
   final bool isSelected;
   final String label;

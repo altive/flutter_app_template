@@ -16,9 +16,7 @@ import 'account_setting_page_controller.dart';
 import 'account_setting_quit_tile.dart';
 
 class AccountSettingPage extends HookConsumerWidget {
-  const AccountSettingPage({
-    Key? key,
-  }) : super(key: key);
+  const AccountSettingPage();
 
   static const String routeName = '/account-setting';
 
@@ -68,9 +66,7 @@ class AccountSettingPage extends HookConsumerWidget {
 
 /// マイストックの可視性を変更できるセル
 class _StockVisibilityToggleCell extends HookConsumerWidget {
-  const _StockVisibilityToggleCell({
-    Key? key,
-  }) : super(key: key);
+  const _StockVisibilityToggleCell();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -124,9 +120,8 @@ class _StockVisibilityToggleCell extends HookConsumerWidget {
 /// タイル共通で使う
 class _Cell extends StatelessWidget {
   const _Cell({
-    Key? key,
     this.child,
-  }) : super(key: key);
+  });
   final Widget? child;
   @override
   Widget build(BuildContext context) {

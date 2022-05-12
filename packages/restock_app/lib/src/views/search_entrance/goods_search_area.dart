@@ -9,9 +9,7 @@ import 'search_entrance_controller.dart';
 
 /// 商品の文字列検索エリア
 class GoodsSearchArea extends HookConsumerWidget {
-  GoodsSearchArea({
-    Key? key,
-  }) : super(key: key);
+  GoodsSearchArea();
 
   /// FormのKey
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -62,7 +60,7 @@ class GoodsSearchArea extends HookConsumerWidget {
                       suffixIcon: IconButton(
                         icon: const Icon(Icons.clear),
                         onPressed: () =>
-                            WidgetsBinding.instance!.addPostFrameCallback(
+                            WidgetsBinding.instance.addPostFrameCallback(
                           (_) => searchFieldController.clear(),
                         ),
                       ),
@@ -137,9 +135,8 @@ class GoodsSearchArea extends HookConsumerWidget {
 /// 検索対象のカテゴリを選択できる
 class SearchCategoryRadioField extends HookConsumerWidget {
   const SearchCategoryRadioField({
-    Key? key,
     required this.category,
-  }) : super(key: key);
+  });
 
   final SearchItemsCategory category;
 

@@ -15,11 +15,10 @@ import 'stock_list_page_providers.dart';
 /// アイテムをスクロール可能な縦並び表示する
 class StockListView extends HookConsumerWidget {
   const StockListView({
-    Key? key,
     required this.categoryIndex,
     required this.group,
     required this.scrollController,
-  }) : super(key: key);
+  });
 
   /// このグループの表示位置
   final int? categoryIndex;
@@ -78,10 +77,9 @@ class StockListView extends HookConsumerWidget {
 /// リスト形式で表示する場合のView
 class _ListView extends StatelessWidget {
   const _ListView({
-    Key? key,
     required this.scrollController,
     required this.sortedStocks,
-  }) : super(key: key);
+  });
 
   final ScrollController scrollController;
   final List<StockEntity> sortedStocks;
@@ -111,10 +109,9 @@ class _ListView extends StatelessWidget {
 /// グリッド形式で表示する場合のView
 class _GridView extends StatelessWidget {
   const _GridView({
-    Key? key,
     required this.scrollController,
     required this.sortedStocks,
-  }) : super(key: key);
+  });
 
   final ScrollController scrollController;
   final List<StockEntity> sortedStocks;
@@ -171,7 +168,9 @@ class _GridView extends StatelessWidget {
 
 /// コンテンツが見つからない時の表示
 class NoFindedView extends StatelessWidget {
-  const NoFindedView({Key? key, required this.label}) : super(key: key);
+  const NoFindedView({
+    required this.label,
+  });
 
   final String label;
 
@@ -196,10 +195,9 @@ class NoFindedView extends StatelessWidget {
 /// コンテンツが空の時に表示するWidget
 class EmptyView extends ConsumerWidget {
   const EmptyView({
-    Key? key,
     required this.index,
     required this.category,
-  }) : super(key: key);
+  });
 
   /// このグループの表示位置
   final int? index;

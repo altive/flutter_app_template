@@ -13,10 +13,10 @@ import '../ranking_detail_page/ranking_detail_page.dart';
 class RankingCard extends ConsumerWidget {
   const RankingCard(
     this.rankingDoc, {
+    super.key,
     required this.isFirst,
     required this.isLast,
-    Key? key,
-  }) : super(key: key);
+  });
 
   final QueryDocumentSnapshot<Ranking> rankingDoc;
   final bool isFirst;

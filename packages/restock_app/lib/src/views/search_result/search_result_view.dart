@@ -10,7 +10,7 @@ import 'search_result_item_card.dart';
 class SearchResultView extends HookConsumerWidget {
   // Constructor
   // ----------------------------------
-  const SearchResultView({Key? key}) : super(key: key);
+  const SearchResultView();
 
   // Field
   // ----------------------------------------
@@ -37,9 +37,7 @@ class SearchResultView extends HookConsumerWidget {
 
 /// 商品がなかったときの画面
 class _EmptyView extends StatelessWidget {
-  const _EmptyView({
-    Key? key,
-  }) : super(key: key);
+  const _EmptyView();
 
   @override
   Widget build(BuildContext context) {
@@ -50,9 +48,8 @@ class _EmptyView extends StatelessWidget {
 /// 検索結果のリストを表示
 class ResultListView extends HookConsumerWidget {
   const ResultListView({
-    Key? key,
     required this.searchResult,
-  }) : super(key: key);
+  });
 
   final PaapiSearchItemsResult? searchResult;
 

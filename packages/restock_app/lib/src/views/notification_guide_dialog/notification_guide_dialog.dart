@@ -7,9 +7,7 @@ import '../../utils/utils.dart';
 
 class NotificationGuideDialog extends ConsumerWidget {
   // Constructor
-  const NotificationGuideDialog({
-    Key? key,
-  }) : super(key: key);
+  const NotificationGuideDialog();
 
   // Field
   static const String routeName = '/notification-guide';

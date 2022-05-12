@@ -11,13 +11,12 @@ import 'web_launcher.dart';
 /// 画像は`File`である[imageFile]か`URL`である[imageUrl]のどちらかで表示させられる。
 class ItemImageDisplay extends StatelessWidget {
   const ItemImageDisplay({
-    Key? key,
     this.imageFile,
     required this.imageUrl,
     required this.pageUrl,
     this.imageSize = 200,
     this.category,
-  }) : super(key: key);
+  });
 
   final File? imageFile;
   final String? imageUrl;

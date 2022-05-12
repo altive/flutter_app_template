@@ -9,7 +9,7 @@ import 'ranking_card.dart';
 
 /// 自分のランキングをリスト表示する画面
 class MyRankingListPage extends StatelessWidget {
-  const MyRankingListPage({Key? key}) : super(key: key);
+  const MyRankingListPage();
 
   static const routeName = 'my-rankings';
 
@@ -25,9 +25,7 @@ class MyRankingListPage extends StatelessWidget {
 
 // タイトルをその場で入力して新規ランキングを追加するためのボタン。
 class _AddButton extends HookConsumerWidget {
-  const _AddButton({
-    Key? key,
-  }) : super(key: key);
+  const _AddButton();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -57,9 +55,7 @@ class _AddButton extends HookConsumerWidget {
 
 /// ランキングを表示するコンテンツエリア。
 class _Body extends ConsumerWidget {
-  const _Body({
-    Key? key,
-  }) : super(key: key);
+  const _Body();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -102,9 +98,7 @@ class _Body extends ConsumerWidget {
 
 /// ランキングが1つも登録されていない時の表示。
 class _EmptyView extends StatelessWidget {
-  const _EmptyView({
-    Key? key,
-  }) : super(key: key);
+  const _EmptyView();
 
   @override
   Widget build(BuildContext context) {
@@ -126,9 +120,7 @@ class _EmptyView extends StatelessWidget {
 
 /// 読み込み中に表示するスケルトン表示。
 class _LoadingView extends HookWidget {
-  const _LoadingView({
-    Key? key,
-  }) : super(key: key);
+  const _LoadingView();
 
   static const _length = 6;
 

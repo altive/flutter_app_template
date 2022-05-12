@@ -17,9 +17,9 @@ import '../../domain/validator/validator.dart';
 
 class RankingEditingSheet extends HookConsumerWidget {
   const RankingEditingSheet({
-    Key? key,
+    super.key,
     required this.doc,
-  }) : super(key: key);
+  });
 
   final DocumentSnapshot<Ranking> doc;
 

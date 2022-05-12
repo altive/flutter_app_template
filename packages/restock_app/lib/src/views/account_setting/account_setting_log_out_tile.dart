@@ -9,7 +9,7 @@ import 'account_setting_page_controller.dart';
 
 /// ログアウトボタン
 class AccountSettingLogOutTile extends HookConsumerWidget {
-  const AccountSettingLogOutTile({Key? key}) : super(key: key);
+  const AccountSettingLogOutTile();
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final user = ref.watch(authControllerProvider);

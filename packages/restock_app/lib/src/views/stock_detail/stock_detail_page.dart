@@ -18,7 +18,7 @@ import 'stock_detail_page_controller.dart';
 
 /// 所有アイテムの詳細情報を閲覧する画面
 class StockDetailPage extends HookWidget {
-  const StockDetailPage({Key? key}) : super(key: key);
+  const StockDetailPage();
 
   static const String routeName = '/item-detail';
 
@@ -40,9 +40,7 @@ class StockDetailPage extends HookWidget {
 }
 
 class ShareButton extends HookConsumerWidget {
-  const ShareButton({
-    Key? key,
-  }) : super(key: key);
+  const ShareButton();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -57,9 +55,7 @@ class ShareButton extends HookConsumerWidget {
 }
 
 class Content extends HookWidget {
-  const Content({
-    Key? key,
-  }) : super(key: key);
+  const Content();
 
   @override
   Widget build(BuildContext context) {
@@ -100,9 +96,7 @@ class Content extends HookWidget {
 }
 
 class MemoCell extends HookConsumerWidget {
-  const MemoCell({
-    Key? key,
-  }) : super(key: key);
+  const MemoCell();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -124,9 +118,7 @@ class MemoCell extends HookConsumerWidget {
 }
 
 class NumberOfItemsCell extends HookConsumerWidget {
-  const NumberOfItemsCell({
-    Key? key,
-  }) : super(key: key);
+  const NumberOfItemsCell();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -151,9 +143,7 @@ class NumberOfItemsCell extends HookConsumerWidget {
 }
 
 class CategoryCell extends HookConsumerWidget {
-  const CategoryCell({
-    Key? key,
-  }) : super(key: key);
+  const CategoryCell();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -174,9 +164,7 @@ class CategoryCell extends HookConsumerWidget {
 }
 
 class ExpirationCell extends HookConsumerWidget {
-  const ExpirationCell({
-    Key? key,
-  }) : super(key: key);
+  const ExpirationCell();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -206,15 +194,14 @@ class ExpirationCell extends HookConsumerWidget {
 
 class _Cell extends StatelessWidget {
   const _Cell({
-    Key? key,
     required this.child,
-  }) : super(key: key);
+  });
 
   final Widget child;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return ColoredBox(
       color: Theme.of(context).canvasColor,
       child: child,
     );

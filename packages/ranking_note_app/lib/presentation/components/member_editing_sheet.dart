@@ -9,14 +9,13 @@ import '../../domain/validator/validator.dart';
 
 class MemberEditingSheet extends HookConsumerWidget {
   const MemberEditingSheet({
-    Key? key,
     required this.formKey,
     required this.sheetTitleLabel,
     this.initialTitleText = '',
     this.initialDescriptionText = '',
     this.imageUrl,
     required this.onDoneButtonPressed,
-  }) : super(key: key);
+  });
 
   final GlobalKey<FormState> formKey;
   final String sheetTitleLabel;

@@ -8,9 +8,7 @@ import 'stock_editor_controller.dart';
 
 /// 期限の種類を選択する
 class StockEditorCategorySelection extends HookConsumerWidget {
-  const StockEditorCategorySelection({
-    Key? key,
-  }) : super(key: key);
+  const StockEditorCategorySelection();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

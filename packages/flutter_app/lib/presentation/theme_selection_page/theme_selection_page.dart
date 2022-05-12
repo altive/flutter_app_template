@@ -4,7 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../domain/theme_selector/theme_selector.dart';
 
 class ThemeSelectionPage extends StatelessWidget {
-  const ThemeSelectionPage({Key? key}) : super(key: key);
+  const ThemeSelectionPage({super.key});
 
   static const String routeName = 'theme-selection';
 
@@ -20,7 +20,7 @@ class ThemeSelectionPage extends StatelessWidget {
 }
 
 class ThemeListView extends ConsumerWidget {
-  const ThemeListView({Key? key}) : super(key: key);
+  const ThemeListView({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

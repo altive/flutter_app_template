@@ -10,9 +10,7 @@ import 'checker_state.dart';
 
 /// 家族の人数を入力するセル
 class CheckerInputCell extends StatelessWidget {
-  const CheckerInputCell({
-    Key? key,
-  }) : super(key: key);
+  const CheckerInputCell();
 
   @override
   Widget build(BuildContext context) {
@@ -31,9 +29,8 @@ class CheckerInputCell extends StatelessWidget {
 /// 人間タイプごとに人数を表示して増減できる
 class HumanTypeBox extends HookConsumerWidget {
   const HumanTypeBox({
-    Key? key,
     required this.type,
-  }) : super(key: key);
+  });
 
   final HumanType type;
 

@@ -7,9 +7,7 @@ import '../../core/revenue/revenue.dart';
 import 'pro_plan_page_controller.dart';
 
 class ProPlanButtonsCard extends HookConsumerWidget {
-  const ProPlanButtonsCard({
-    Key? key,
-  }) : super(key: key);
+  const ProPlanButtonsCard();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

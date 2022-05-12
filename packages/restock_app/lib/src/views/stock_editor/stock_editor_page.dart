@@ -21,7 +21,7 @@ import 'stock_editor_view_component.dart';
 /// ストックアイテムを登録・更新・複製する画面
 class StockEditorPage extends HookConsumerWidget {
   // === Constructor ===
-  StockEditorPage({Key? key}) : super(key: key);
+  StockEditorPage();
 
   // === Field ===
   static const String routeName = '/stock-editor';
@@ -127,9 +127,8 @@ class StockEditorPage extends HookConsumerWidget {
 /// 前の画面へ戻ろうとしたときに確認する
 class _PopHandlingView extends HookConsumerWidget {
   const _PopHandlingView({
-    Key? key,
     required this.child,
-  }) : super(key: key);
+  });
 
   final Widget child;
 
