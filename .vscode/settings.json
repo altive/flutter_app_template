@@ -52,7 +52,8 @@
 	"search.exclude": {
 		"**/.fvm": true,
 		"**/*.freezed.dart": true,
-		"**/*.g.dart": true
+		"**/*.g.dart": true,
+		"**/.symlinks": true,
 	},
 	// Remove from file watching
 	"files.watcherExclude": {
