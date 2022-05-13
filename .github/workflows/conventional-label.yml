@@ -2,7 +2,7 @@ name: Conventional Commits label on pull request
 
 on:
   pull_request:
-    types: [opened, edited]
+    types: [opened, edited, synchronize]
 
 jobs:
   label:
