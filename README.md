@@ -58,7 +58,7 @@ flutter create --org jp.co.altive packages/{app_name}
 
 ## Others
 
-- Use Conventional commits.
+- Use [Conventional commits](https://www.conventionalcommits.org/).
 
 ## Reference list
 [Internationalization User Guild](https://docs.google.com/document/d/10e0saTfAv32OZLRmONy866vnaw0I2jwL8zukykpgWBc/)
