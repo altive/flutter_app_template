@@ -50,9 +50,9 @@ dev, stg, prod
 ## How to add a package
 
 ```shell
-# Package
+# Create a Package
 flutter create -t package packages/{package_name}
-# App
+# Create a App
 flutter create --org jp.co.altive packages/{app_name}
 ```
 
