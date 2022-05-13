@@ -30,7 +30,6 @@ dev, stg, prod
 ## Project structure
 
 - lib/
-    - commons/
     - domain/
     - presentation/
   - main.dart
