@@ -9,17 +9,3 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: bcoe/conventional-release-labels@v1
-        with:
-          type_labels: '{
-            "build": "build",
-            "ci": "ci",
-            "docs": "docs",
-            "feat": "feature",
-            "fix": "fix",
-            "perf": "performance", 
-            "refactor": "refactor",
-            "revert": "revert",
-            "style": "style",
-            "test": "test",
-          }'
-          ignored_types: ["chore"]
