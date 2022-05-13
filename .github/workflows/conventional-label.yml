@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: bcoe/conventional-release-labels@v1
         with:
-          type_labels: {
+          type_labels: '{
             "build": "build",
             "ci": "ci",
             "docs": "docs",
@@ -21,5 +21,5 @@ jobs:
             "revert": "revert",
             "style": "style",
             "test": "test",
-          }
+          }'
           ignored_types: ["chore"]
