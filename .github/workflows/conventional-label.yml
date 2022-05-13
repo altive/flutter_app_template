@@ -1,9 +1,8 @@
 name: Conventional Commits label on pull request
-
 on:
   pull_request:
     types: [opened, edited]
-
+name: conventional-release-labels
 jobs:
   label:
     runs-on: ubuntu-latest
