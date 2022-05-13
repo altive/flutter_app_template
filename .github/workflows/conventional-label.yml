@@ -20,6 +20,5 @@ jobs:
             "refactor": "refactor",
             "revert": "revert",
             "style": "style",
-            "test": "test",
+            "test": "test"
           }'
-          ignored_types: ["chore"]
