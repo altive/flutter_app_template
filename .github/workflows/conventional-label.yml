@@ -1,9 +1,25 @@
+name: Conventional Commits label on pull request
+
 on:
   pull_request:
     types: [opened, edited]
-name: conventional-release-labels
+
 jobs:
   label:
     runs-on: ubuntu-latest
     steps:
       - uses: bcoe/conventional-release-labels@v1
+        with:
+          type_labels: {
+            "build": "build",
+            "ci": "ci",
+            "docs": "docs",
+            "feat": "feature",
+            "fix": "fix",
+            "perf": "performance", 
+            "refactor": "refactor",
+            "revert": "revert",
+            "style": "style",
+            "test": "test",
+          }
+          ignored_types: ["chore"]
