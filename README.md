@@ -25,7 +25,9 @@
 | Dart | Lint / Analyze | [analysis_options.yaml](https://github.com/altive/flutter_app_template/blob/main/analysis_options.yaml) |
 
 ## Environments
-dev, stg, prod
+- dev
+- stg
+- prod
 
 ## Project structure
 
