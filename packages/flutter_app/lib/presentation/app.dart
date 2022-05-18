@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:routemaster/routemaster.dart';
-import 'package:theme/theme.dart';
 
 import '../commons/providers/app_lifecycle_provider.dart';
 import '../commons/providers/locales_provider.dart';
@@ -11,6 +10,7 @@ import '../domain/theme_selector/theme_selector.dart';
 import '../l10n/l10n.dart';
 import 'router/router.dart';
 import 'splash_page.dart';
+import 'theme_data/theme_data.dart';
 
 class App extends ConsumerWidget {
   const App({

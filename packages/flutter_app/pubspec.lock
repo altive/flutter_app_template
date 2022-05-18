@@ -514,7 +514,7 @@ packages:
       name: flutter_riverpod
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.0-dev.5"
+    version: "2.0.0-dev.7"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -608,7 +608,7 @@ packages:
       name: hooks_riverpod
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.0-dev.5"
+    version: "2.0.0-dev.7"
   http:
     dependency: transitive
     description:
@@ -937,7 +937,7 @@ packages:
       name: riverpod
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.0-dev.5"
+    version: "2.0.0-dev.7"
   routemaster:
     dependency: "direct main"
     description:
@@ -1125,13 +1125,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.4.9"
-  theme:
-    dependency: "direct main"
-    description:
-      path: "../theme"
-      relative: true
-    source: path
-    version: "0.0.1"
   time:
     dependency: transitive
     description:
