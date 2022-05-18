@@ -11,13 +11,17 @@ final appLifecycleProvider = Provider<AppLifecycleState>((ref) {
 });
 
 class _AppLifecycleObserver extends WidgetsBindingObserver {
-  _AppLifecycleObserver(this._didChangeAppLifecycle);
+  _AppLifecycleObserver(this._didChangeAppLifecycleState);
 
-  final ValueChanged<AppLifecycleState> _didChangeAppLifecycle;
+  final ValueChanged<AppLifecycleState> _didChangeAppLifecycleState;
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
-    _didChangeAppLifecycle(state);
+    _didChangeAppLifecycleState(state);
     super.didChangeAppLifecycleState(state);
   }
+}
+
+extension AppLifecycleStateExtension on AppLifecycleState {
+  bool get isResumed => this == AppLifecycleState.resumed;
 }

@@ -20,7 +20,7 @@
 |Category|Description|Codes|
 |---|---|---|
 | [FVM](https://github.com/leoafarias/fvm) | Flutter Version Management | [.fvm/fvm_config.json](/.fvm/fvm_config.json) |
-| Dart | Dart version | [pubspec.yaml](/packages/flutter_app/pubspec.yaml#L7) |
+| Dart | Dart version | [pubspec.yaml](/packages/flutter_app/pubspec.yaml) |
 | Dart | Lint / Analyze | [analysis_options.yaml](/packages/flutter_app/analysis_options.yaml) |
 
 ## Environments
