@@ -20,7 +20,6 @@ scripts:
         flutter analyze . --fatal-infos
     description: Analyze in all packages
     select-packages:
-      flutter: true
       dir-exists: lib
 
   fix:
@@ -44,7 +43,7 @@ scripts:
     run: |
       melos exec -c 1 -- \
         flutter pub run build_runner build --delete-conflicting-outputs
-    description: コード生成したいパッケージを選択して実行する
+    description: Generate code files
     select-package:
       flutter: true
       dir-exists: lib
