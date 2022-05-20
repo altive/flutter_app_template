@@ -16,11 +16,30 @@ scripts:
 
   analyze:
     run: |
-      melos exec -- \
+      melos exec --dir-exists="lib" -- \
         flutter analyze . --fatal-infos
     description: Analyze in all packages
-    select-packages:
+
+  format:
+    run: |
+      melos exec --dir-exists="lib" -- \
+        flutter format --dry-run --set-exit-if-changed lib/
+    description: Format in all packages
+
+  test:
+    run: |
+      melos exec --dir-exists="test" --fail-fast -- \
+        flutter test --coverage
+    description: flutter test in all packages
+
+  gen:
+    run: |
+      melos exec -c 1 -- \
+        flutter pub run build_runner build --delete-conflicting-outputs
+    description: Generate code files
+    select-package:
       dir-exists: lib
+      depends-on: "build_runner"
 
   fix:
     run: |
@@ -30,33 +49,7 @@ scripts:
     select-packages:
       dir-exists: lib
 
-  format:
-    run: |
-      melos exec -- \
-        flutter format --dry-run --set-exit-if-changed lib/
-    description: Flutter format
-    select-packages:
-      flutter: true
-      dir-exists: lib
-
-  gen:
-    run: |
-      melos exec -c 1 -- \
-        flutter pub run build_runner build --delete-conflicting-outputs
-    description: Generate code files
-    select-package:
-      flutter: true
-      dir-exists: lib
-      depends-on: "build_runner"
-
-  test:
-    run: |
-      melos exec --dir-exists="test" --fail-fast -- \
-        flutter test --coverage
-    description: flutter test in all packages
-    select-package:
-      dir-exists: test
-
+  # Upload
   upload:ios:prod:
     run: |
       melos exec -c 1 --depends-on="build_runner" --flutter -- \

@@ -128,8 +128,7 @@ class StockFilterPage extends HookConsumerWidget {
 }
 
 class Headline extends StatelessWidget {
-  const Headline(
-    this.label);
+  const Headline(this.label);
 
   final String label;
 

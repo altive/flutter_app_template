@@ -1,6 +1,5 @@
 import 'package:flutter/widgets.dart';
-
-import '../../l10n/l10n.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 /// サインインの方法
 enum SignInMethod {
@@ -11,7 +10,7 @@ enum SignInMethod {
 
 extension SignInMethodExt on SignInMethod {
   String labelText(BuildContext context) {
-    final l10n = L10n.of(context)!;
+    final l10n = AppLocalizations.of(context)!;
     switch (this) {
       case SignInMethod.anonymous:
         return l10n.signInMethodAnonymous;

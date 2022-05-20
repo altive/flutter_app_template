@@ -41,7 +41,8 @@ class StockEditorCountField extends HookConsumerWidget {
               ),
               style: theme.textTheme.bodyText2,
               onChanged: (_) {
-                ref.read(stockEditorPageControllerProvider.notifier)
+                ref
+                    .read(stockEditorPageControllerProvider.notifier)
                     .changeNumberOfItems(controller.text);
               },
             ),
@@ -56,7 +57,8 @@ class StockEditorCountField extends HookConsumerWidget {
                 return;
               }
               controller.text = (int.parse(controller.text) + 1).toString();
-              ref.read(stockEditorPageControllerProvider.notifier)
+              ref
+                  .read(stockEditorPageControllerProvider.notifier)
                   .incrementNumberOfItems();
             },
           ),
@@ -71,7 +73,8 @@ class StockEditorCountField extends HookConsumerWidget {
                 return;
               }
               controller.text = (int.parse(controller.text) - 1).toString();
-              ref.read(stockEditorPageControllerProvider.notifier)
+              ref
+                  .read(stockEditorPageControllerProvider.notifier)
                   .dencrementNumberOfItems();
             },
           ),

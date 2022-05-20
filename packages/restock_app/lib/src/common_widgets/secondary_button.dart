@@ -5,7 +5,7 @@ class SecondaryButton extends StatelessWidget {
     required this.onPressed,
     required this.labelText,
     this.minWidth = 44,
-  })  : iconData = null;
+  }) : iconData = null;
 
   const SecondaryButton.icon({
     required this.onPressed,

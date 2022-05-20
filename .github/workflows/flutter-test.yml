@@ -1,11 +1,11 @@
-name: Flutter tests on pull rquest
+name: Flutter Tests
 
 on:
   pull_request:
     types: [opened, synchronize, reopened]
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,14 +21,13 @@ jobs:
           make
           export PATH="$PATH":"$HOME/.pub-cache/bin"
 
-      - name: Analyze project
-        run: melos run analyze
-
-      - name: Format lib files
-        run: melos run format
+      - name: Create dummy env files
+        run: |
+          touch packages/graphql_playground/.env
+          touch packages/restock_app/.env
 
       - name: Run unit tests
-        run: melos run test
+        run: fvm flutter pub global run melos run test
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v2
