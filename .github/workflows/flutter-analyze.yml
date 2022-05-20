@@ -1,0 +1,33 @@
+name: Flutter Analyze
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Dart
+        uses: dart-lang/setup-dart@v1
+        with:
+          sdk: stable
+
+      - name: Setup Flutter with FVM
+        run: |
+          make
+          export PATH="$PATH":"$HOME/.pub-cache/bin"
+
+      - name: Create dummy env files
+        run: |
+          touch packages/graphql_playground/.env
+          touch packages/restock_app/.env
+
+      - name: Analyze project
+        run: fvm flutter pub global run melos run analyze
+
+      - name: Check for the existence of unformatted files
+        run: fvm flutter pub global run melos run format

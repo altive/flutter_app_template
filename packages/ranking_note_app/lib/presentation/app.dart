@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:routemaster/routemaster.dart';
 
 import '../domain/authenticator/authenticator.dart';
 import '../domain/theme_selector/theme_selector.dart';
-import '../l10n/l10n.dart';
 import 'router/router.dart';
 import 'splash_page.dart';
 import 'theme_data/dark_theme.dart';
@@ -23,14 +23,14 @@ class App extends ConsumerWidget {
 
     if (isSignedIn) {
       return MaterialApp.router(
-        onGenerateTitle: (context) => L10n.of(context)!.title,
+        onGenerateTitle: (context) => AppLocalizations.of(context)!.title,
         routerDelegate: ref.watch(routerDelegateProvider),
         routeInformationParser: const RoutemasterParser(),
         theme: lightTheme,
         darkTheme: darkTheme,
         themeMode: ref.watch(themeSelectorProvider),
-        localizationsDelegates: L10n.localizationsDelegates,
-        supportedLocales: L10n.supportedLocales,
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
       );
     }
     ref.watch(authenticatorProvider).signInAnonymously();

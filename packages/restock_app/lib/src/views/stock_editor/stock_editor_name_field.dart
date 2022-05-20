@@ -38,7 +38,8 @@ class StockEditorNameField extends HookConsumerWidget {
         style: theme.textTheme.bodyText2,
         onChanged: (_) {
           // アイテム名の更新を状態に反映する
-          ref.read(stockEditorPageControllerProvider.notifier)
+          ref
+              .read(stockEditorPageControllerProvider.notifier)
               .changeItemName(controller.text);
         },
         onSubmitted: (_) {

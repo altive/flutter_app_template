@@ -130,7 +130,7 @@ class _Card extends HookWidget {
     this.isFirst = false,
     this.isLast = false,
     required this.onTap,
-  })  : assert(
+  }) : assert(
           needConfirm && confirmOkLabel != null ||
               !needConfirm && confirmMessage == null && confirmOkLabel == null,
         );

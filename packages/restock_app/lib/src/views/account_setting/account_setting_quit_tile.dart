@@ -12,7 +12,8 @@ class AccountSettingQuitTile extends ConsumerWidget {
     return ListTile(
       leading: const Icon(MdiIcons.accountOff),
       title: const Text('アカウントの削除'),
-      onTap: () => ref.read(accountSettingPageControllerProvider.notifier)
+      onTap: () => ref
+          .read(accountSettingPageControllerProvider.notifier)
           .deleteAccount(context),
     );
   }

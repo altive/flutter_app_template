@@ -17,7 +17,7 @@ class PlusButtonsView extends StatelessWidget {
     required this.memberDocs,
     required this.addIconSize,
     required this.addIconPadding,
-  })  : _subScrollController = subScrollController;
+  }) : _subScrollController = subScrollController;
 
   final ScrollController _subScrollController;
   final String rankingId;

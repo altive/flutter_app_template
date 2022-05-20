@@ -69,6 +69,7 @@ flutter_icons:
   ios: true
 
 flutter:
+  generate: true
   uses-material-design: true
 
   assets:

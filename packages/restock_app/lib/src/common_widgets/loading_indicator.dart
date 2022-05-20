@@ -4,7 +4,7 @@ class LoadingIndicator extends StatelessWidget {
   const LoadingIndicator({
     this.child,
     this.loading,
-  })  : assert(
+  }) : assert(
           (child == null && loading == null) ||
               (child != null && loading != null),
         );
