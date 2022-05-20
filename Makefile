@@ -7,7 +7,7 @@ fvm_install:
 	fvm install
 
 melos:
-	fvm flutter pub global activate melos 1.2.2
+	fvm flutter pub global activate melos
 
 melos_bs:
 	fvm flutter pub global run melos bootstrap
