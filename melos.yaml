@@ -17,13 +17,13 @@ scripts:
   analyze:
     run: |
       melos exec --dir-exists="lib" -- \
-        fvm flutter analyze . --fatal-infos
+        flutter analyze . --fatal-infos
     description: Analyze in all packages
 
   format:
     run: |
       melos exec --dir-exists="lib" -- \
-        fvm flutter format --dry-run --set-exit-if-changed lib/
+        flutter format --dry-run --set-exit-if-changed lib/
     description: Format in all packages
 
   test:
