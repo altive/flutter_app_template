@@ -3,6 +3,7 @@ name: Flutter Analyze
 on:
   pull_request:
     types: [opened, synchronize, reopened]
+  workflow_dispatch:
 
 jobs:
   analyze:
@@ -20,6 +21,9 @@ jobs:
         run: |
           make
           export PATH="$PATH":"$HOME/.pub-cache/bin"
+
+      - name: Which
+        run: which flutter && which dart
 
       - name: Create dummy env files
         run: |

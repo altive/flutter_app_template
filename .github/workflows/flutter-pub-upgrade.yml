@@ -1,4 +1,4 @@
-name: Update Dependencies
+name: Flutter pub upgrade
 
 on:
   workflow_dispatch: # 手動実行可能化
@@ -6,7 +6,7 @@ on:
   - cron: '0 8 1 * *' # '分 時 日 月 曜日' (UTC)
 
 jobs:
-  update_dependencies:
+  upgrade:
     runs-on: ubuntu-latest
 
     steps:
@@ -31,10 +31,10 @@ jobs:
         with:
           branch: scheduled/update-packages
           delete-branch: true
-          commit-message: 'build: upgrade pub packages'
-          title: '[Bot] Upgrade pub packages'
+          commit-message: 'build: upgrade Flutter pub packages'
+          title: '[Bot] Upgrade Flutter pub packages'
           body: |
-            ## 概要
+            ## Overview
             パッケージ更新のPull Requestです。
             定期スケジュールに基づいて作成されています。
             
