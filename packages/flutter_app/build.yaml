@@ -15,5 +15,5 @@ targets:
           create_factory: true # xxxFromJson メソッドを生成
           create_to_json: true # toJson メソッドを生成
           disallow_unrecognized_keys: false # 認識できないキーがあった場合、UnrecognizedKeysExceptionをthrowする
-          explicit_to_json: false
+          explicit_to_json: true # ネストされたリストに対してtoJson/fromJsonをメソッド生成
           field_rename: snake
