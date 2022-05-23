@@ -8,7 +8,7 @@ scripts:
   upgrade:
     run: |
       melos exec -- \
-        flutter pub upgrade --major-versions
+        fvm flutter pub upgrade --major-versions
     description: Upgrade the major version of the pub in all packages
     select-packages:
       flutter: true
@@ -17,25 +17,25 @@ scripts:
   analyze:
     run: |
       melos exec --dir-exists="lib" -- \
-        flutter analyze . --fatal-infos
+        fvm flutter analyze . --fatal-infos
     description: Analyze in all packages
 
   format:
     run: |
       melos exec --dir-exists="lib" -- \
-        flutter format --dry-run --set-exit-if-changed lib/
+        fvm flutter format --dry-run --set-exit-if-changed lib/
     description: Format in all packages
 
   test:
     run: |
       melos exec --dir-exists="test" --fail-fast -- \
-        flutter test --coverage
+        fvm flutter test --coverage
     description: flutter test in all packages
 
   gen:
     run: |
       melos exec -c 1 -- \
-        flutter pub run build_runner build --delete-conflicting-outputs
+        fvm flutter pub run build_runner build --delete-conflicting-outputs
     description: Generate code files
     select-package:
       dir-exists: lib
@@ -44,7 +44,7 @@ scripts:
   fix:
     run: |
       melos exec -- \
-        dart fix --apply lib
+        fvm dart fix --apply lib
     description: Dart fix
     select-packages:
       dir-exists: lib

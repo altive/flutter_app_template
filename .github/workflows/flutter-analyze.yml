@@ -27,7 +27,7 @@ jobs:
           touch packages/restock_app/.env
 
       - name: Analyze project
-        run: fvm flutter pub global run melos run analyze
+        run: melos run analyze
 
       - name: Check for the existence of unformatted files
-        run: fvm flutter pub global run melos run format
+        run: melos run format

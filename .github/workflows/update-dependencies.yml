@@ -1,0 +1,46 @@
+name: Update Dependencies
+
+on:
+  workflow_dispatch: # 手動実行可能化
+  schedule: # https://docs.github.com/ja/actions/reference/events-that-trigger-workflows#scheduled
+  - cron: '0 8 1 * *' # '分 時 日 月 曜日' (UTC)
+
+jobs:
+  update_dependencies:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      
+      - name: Setup Dart
+        uses: dart-lang/setup-dart@v1
+        with:
+          sdk: stable
+
+      - name: Setup Flutter with FVM
+        run: |
+          make
+          export PATH="$PATH":"$HOME/.pub-cache/bin"
+          
+      - name: Update Dependencies
+        run: melos run upgrade
+        
+      - name: Create Pull Request
+        id: cpr
+        uses: peter-evans/create-pull-request@v3
+        with:
+          branch: scheduled/update-packages
+          delete-branch: true
+          commit-message: 'build: upgrade pub packages'
+          title: '[Bot] Upgrade pub packages'
+          body: |
+            ## 概要
+            パッケージ更新のPull Requestです。
+            定期スケジュールに基づいて作成されています。
+            
+            レビュアーは動作確認を行い、必要であればコードを修正した上でマージしてください。
+            
+            ---
+            
+            [create-pull-request](https://github.com/peter-evans/create-pull-request)により作成されました。
+          labels: scheduled
