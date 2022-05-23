@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 class IconButtonsOnCell extends StatelessWidget {
@@ -40,7 +41,7 @@ class IconButtonsOnCell extends StatelessWidget {
           iconSize: iconSize,
         ),
         IconButton(
-          icon: const Icon(MdiIcons.amazon),
+          icon: const FaIcon(FontAwesomeIcons.amazon),
           onPressed: onPressedAmazonButton,
           iconSize: iconSize,
         ),

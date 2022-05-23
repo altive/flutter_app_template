@@ -40,6 +40,7 @@ dependencies:
   flutter_local_notifications: ^9.4.0
   flutter_localizations:
     sdk: flutter
+  font_awesome_flutter: ^10.1.0
   freezed_annotation: ^2.0.1
   google_sign_in: ^5.0.4
   hooks_riverpod: ^2.0.0-dev.5
@@ -48,7 +49,7 @@ dependencies:
   image_picker: ^0.8.1+2
   intl: ^0.17.0
   json_annotation: ^4.0.1
-  material_design_icons_flutter: 5.0.5955-rc.1
+  material_design_icons_flutter: ^5.0.6595
   nested: ^1.0.0
   package_info: ^2.0.2
   permission_handler: ^9.2.0
@@ -57,7 +58,7 @@ dependencies:
   recase: ^4.0.0
   share_plus: ^4.0.4
   shared_preferences: ^2.0.6
-  sign_in_with_apple: ^3.2.0
+  sign_in_with_apple: ^4.0.0
   simple_logger: ^1.8.1
   timezone: ^0.8.0
   tuple: ^2.0.0

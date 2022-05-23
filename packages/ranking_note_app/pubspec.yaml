@@ -40,7 +40,7 @@ dependencies:
   routemaster: ^1.0.0
   share_plus: ^4.0.4
   shared_preferences: ^2.0.8
-  sign_in_with_apple: ^3.2.0
+  sign_in_with_apple: ^4.0.0
   sort_key_generator: ^0.2.0+1
   textfield_tags: ^2.0.0+1
   tuple: ^2.0.0

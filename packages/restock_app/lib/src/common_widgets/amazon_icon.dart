@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class AmazonIcon extends StatelessWidget {
   const AmazonIcon({
@@ -19,7 +19,7 @@ class AmazonIcon extends StatelessWidget {
         child: CircleAvatar(
           backgroundColor: theme.colorScheme.primary,
           foregroundColor: theme.backgroundColor,
-          child: const Icon(MdiIcons.amazon),
+          child: const FaIcon(FontAwesomeIcons.amazon),
         ),
       ),
     );

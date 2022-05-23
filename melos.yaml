@@ -8,7 +8,7 @@ scripts:
   upgrade:
     run: |
       melos exec -- \
-        fvm flutter pub upgrade --major-versions
+        "fvm flutter pub upgrade --major-versions && fvm flutter pub upgrade"
     description: Upgrade the major version of the pub in all packages
     select-packages:
       flutter: true
