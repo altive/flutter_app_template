@@ -14,18 +14,14 @@ jobs:
 
       - name: Parse Flutter version
         uses: kuhnroyal/flutter-fvm-config-action@v1
-
-      - name: Install Flutter
-        uses: subosito/flutter-action@v1
+      
+      - name: Setup Flutter with cache
+        uses: ./.github/actions/setup_flutter
         with:
-          flutter-version: ${{ env.FLUTTER_VERSION }}
-          channel: ${{ env.FLUTTER_CHANNEL }}
+          ref: ${{ env.FLUTTER_VERSION }}
 
       - name: Install Melos
         uses: bluefireteam/melos-action@v1
-
-      - name: Which
-        run: which flutter
 
       - name: Create dummy env files
         run: |
@@ -37,3 +33,10 @@ jobs:
 
       - name: Check for the existence of unformatted files
         run: melos run format
+
+      - name: Send notification to Slack
+        if: always()
+        uses: ./.github/actions/send_notification_to_slack
+        with:
+          text: "Finished analyzing"
+          incoming_webhook_url: ${{ secrets.SLACK_INCOMING_WEBHOOK_URL }}
