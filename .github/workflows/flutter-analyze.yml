@@ -14,11 +14,13 @@ jobs:
 
       - name: Parse Flutter version
         uses: kuhnroyal/flutter-fvm-config-action@v1
-      
-      - name: Setup Flutter with cache
-        uses: ./.github/actions/setup_flutter
+
+      - name: Install Flutter
+        uses: subosito/flutter-action@v1
         with:
-          ref: ${{ env.FLUTTER_VERSION }}
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: ${{ env.FLUTTER_CHANNEL }}
+          cache: true
 
       - name: Install Melos
         uses: bluefireteam/melos-action@v1
