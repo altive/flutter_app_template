@@ -12,21 +12,14 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - name: Cache Flutter
-      uses: actions/cache@v2
-      id: flutter-cache
-      with:
-        path: _flutter
-        key: ${{ runner.os }}-${{ inputs.ref }}-${{ inputs.working_directory }}
-
     - name: Install Flutter
-      if: steps.flutter-cache.outputs.cache-hit != 'true'
-      run: git clone https://github.com/flutter/flutter.git --depth 1 -b ${{ inputs.ref }} "$GITHUB_WORKSPACE /_flutter"
-      shell: bash
-
-    - name: Add PATH
-      run: echo "$GITHUB_WORKSPACE/_flutter/bin" >> $GITHUB_PATH
-      shell: bash
+      uses: subosito/flutter-action@v1
+      with:
+        flutter-version: ${{ env.FLUTTER_VERSION }}
+        channel: ${{ env.FLUTTER_CHANNEL }}
+        cache: true
+        cache-key: flutter # optional, change this to force refresh cache
+        cache-path: ${{ runner.tool_cache }}/flutter # optional, change this to specify the cache path
 
     - name: Cache Pub
       uses: actions/cache@v2
