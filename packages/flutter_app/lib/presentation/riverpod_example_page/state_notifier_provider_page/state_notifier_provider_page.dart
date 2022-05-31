@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -61,8 +63,24 @@ class StateNotifierProviderPage extends ConsumerWidget {
     final todoList = ref.watch(todoListNotifierProvider);
     // TodoListNotifier を使用する場合は `.notifier` を付けてProviderを読み取る
     final notifier = ref.watch(todoListNotifierProvider.notifier);
+
+    // 新しいTodoを追加する、プライベートメソッドを定義
+    void addTodo() {
+      final newTodo = Todo(
+        id: Random().nextDouble().toString(),
+        title: DateTime.now().toIso8601String(),
+      );
+      notifier.add(newTodo);
+    }
+
     return Scaffold(
-      appBar: AppBar(title: const Text(title)),
+      appBar: AppBar(
+        title: const Text(title),
+        actions: [
+          // ボタンを押して新しいTodoを追加できる（実際はTodoのタイトル等を入力できるようにすると良い）
+          IconButton(onPressed: addTodo, icon: const Icon(Icons.add))
+        ],
+      ),
       body: ListView.builder(
         itemCount: todoList.length,
         itemBuilder: (context, index) {
