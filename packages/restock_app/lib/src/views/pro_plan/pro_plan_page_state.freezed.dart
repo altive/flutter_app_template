@@ -76,11 +76,11 @@ class _$ProPlanPageStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$ProPlanPageStateCopyWith<$Res>
+abstract class _$$_ProPlanPageStateCopyWith<$Res>
     implements $ProPlanPageStateCopyWith<$Res> {
-  factory _$ProPlanPageStateCopyWith(
-          _ProPlanPageState value, $Res Function(_ProPlanPageState) then) =
-      __$ProPlanPageStateCopyWithImpl<$Res>;
+  factory _$$_ProPlanPageStateCopyWith(
+          _$_ProPlanPageState value, $Res Function(_$_ProPlanPageState) then) =
+      __$$_ProPlanPageStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {bool isLoading,
@@ -89,15 +89,15 @@ abstract class _$ProPlanPageStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$ProPlanPageStateCopyWithImpl<$Res>
+class __$$_ProPlanPageStateCopyWithImpl<$Res>
     extends _$ProPlanPageStateCopyWithImpl<$Res>
-    implements _$ProPlanPageStateCopyWith<$Res> {
-  __$ProPlanPageStateCopyWithImpl(
-      _ProPlanPageState _value, $Res Function(_ProPlanPageState) _then)
-      : super(_value, (v) => _then(v as _ProPlanPageState));
+    implements _$$_ProPlanPageStateCopyWith<$Res> {
+  __$$_ProPlanPageStateCopyWithImpl(
+      _$_ProPlanPageState _value, $Res Function(_$_ProPlanPageState) _then)
+      : super(_value, (v) => _then(v as _$_ProPlanPageState));
 
   @override
-  _ProPlanPageState get _value => super._value as _ProPlanPageState;
+  _$_ProPlanPageState get _value => super._value as _$_ProPlanPageState;
 
   @override
   $Res call({
@@ -105,7 +105,7 @@ class __$ProPlanPageStateCopyWithImpl<$Res>
     Object? monthlyProPlanInformation = freezed,
     Object? annualProPlanInformation = freezed,
   }) {
-    return _then(_ProPlanPageState(
+    return _then(_$_ProPlanPageState(
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -166,7 +166,7 @@ class _$_ProPlanPageState
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ProPlanPageState &&
+            other is _$_ProPlanPageState &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
             const DeepCollectionEquality().equals(
                 other.monthlyProPlanInformation, monthlyProPlanInformation) &&
@@ -183,8 +183,8 @@ class _$_ProPlanPageState
 
   @JsonKey(ignore: true)
   @override
-  _$ProPlanPageStateCopyWith<_ProPlanPageState> get copyWith =>
-      __$ProPlanPageStateCopyWithImpl<_ProPlanPageState>(this, _$identity);
+  _$$_ProPlanPageStateCopyWith<_$_ProPlanPageState> get copyWith =>
+      __$$_ProPlanPageStateCopyWithImpl<_$_ProPlanPageState>(this, _$identity);
 }
 
 abstract class _ProPlanPageState implements ProPlanPageState {
@@ -210,6 +210,6 @@ abstract class _ProPlanPageState implements ProPlanPageState {
       throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ProPlanPageStateCopyWith<_ProPlanPageState> get copyWith =>
+  _$$_ProPlanPageStateCopyWith<_$_ProPlanPageState> get copyWith =>
       throw _privateConstructorUsedError;
 }

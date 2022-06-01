@@ -129,9 +129,10 @@ class _$RankingCopyWithImpl<$Res> implements $RankingCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$RankingCopyWith<$Res> implements $RankingCopyWith<$Res> {
-  factory _$RankingCopyWith(_Ranking value, $Res Function(_Ranking) then) =
-      __$RankingCopyWithImpl<$Res>;
+abstract class _$$_RankingCopyWith<$Res> implements $RankingCopyWith<$Res> {
+  factory _$$_RankingCopyWith(
+          _$_Ranking value, $Res Function(_$_Ranking) then) =
+      __$$_RankingCopyWithImpl<$Res>;
   @override
   $Res call(
       {@TimestampOrNullConverter() DateTime? createdAt,
@@ -146,13 +147,13 @@ abstract class _$RankingCopyWith<$Res> implements $RankingCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$RankingCopyWithImpl<$Res> extends _$RankingCopyWithImpl<$Res>
-    implements _$RankingCopyWith<$Res> {
-  __$RankingCopyWithImpl(_Ranking _value, $Res Function(_Ranking) _then)
-      : super(_value, (v) => _then(v as _Ranking));
+class __$$_RankingCopyWithImpl<$Res> extends _$RankingCopyWithImpl<$Res>
+    implements _$$_RankingCopyWith<$Res> {
+  __$$_RankingCopyWithImpl(_$_Ranking _value, $Res Function(_$_Ranking) _then)
+      : super(_value, (v) => _then(v as _$_Ranking));
 
   @override
-  _Ranking get _value => super._value as _Ranking;
+  _$_Ranking get _value => super._value as _$_Ranking;
 
   @override
   $Res call({
@@ -166,7 +167,7 @@ class __$RankingCopyWithImpl<$Res> extends _$RankingCopyWithImpl<$Res>
     Object? tags = freezed,
     Object? recommendTagsShowing = freezed,
   }) {
-    return _then(_Ranking(
+    return _then(_$_Ranking(
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -196,7 +197,7 @@ class __$RankingCopyWithImpl<$Res> extends _$RankingCopyWithImpl<$Res>
           : pinned // ignore: cast_nullable_to_non_nullable
               as bool,
       tags: tags == freezed
-          ? _value.tags
+          ? _value._tags
           : tags // ignore: cast_nullable_to_non_nullable
               as List<String>,
       recommendTagsShowing: recommendTagsShowing == freezed
@@ -297,7 +298,7 @@ class _$_Ranking extends _Ranking with DiagnosticableTreeMixin {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Ranking &&
+            other is _$_Ranking &&
             const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
             const DeepCollectionEquality().equals(other.updatedAt, updatedAt) &&
             const DeepCollectionEquality().equals(other.title, title) &&
@@ -307,7 +308,7 @@ class _$_Ranking extends _Ranking with DiagnosticableTreeMixin {
             const DeepCollectionEquality()
                 .equals(other.thumbnailUrl, thumbnailUrl) &&
             const DeepCollectionEquality().equals(other.pinned, pinned) &&
-            const DeepCollectionEquality().equals(other.tags, tags) &&
+            const DeepCollectionEquality().equals(other._tags, _tags) &&
             const DeepCollectionEquality()
                 .equals(other.recommendTagsShowing, recommendTagsShowing));
   }
@@ -323,13 +324,13 @@ class _$_Ranking extends _Ranking with DiagnosticableTreeMixin {
       const DeepCollectionEquality().hash(imageUrl),
       const DeepCollectionEquality().hash(thumbnailUrl),
       const DeepCollectionEquality().hash(pinned),
-      const DeepCollectionEquality().hash(tags),
+      const DeepCollectionEquality().hash(_tags),
       const DeepCollectionEquality().hash(recommendTagsShowing));
 
   @JsonKey(ignore: true)
   @override
-  _$RankingCopyWith<_Ranking> get copyWith =>
-      __$RankingCopyWithImpl<_Ranking>(this, _$identity);
+  _$$_RankingCopyWith<_$_Ranking> get copyWith =>
+      __$$_RankingCopyWithImpl<_$_Ranking>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -388,6 +389,6 @@ abstract class _Ranking extends Ranking {
   bool get recommendTagsShowing => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$RankingCopyWith<_Ranking> get copyWith =>
+  _$$_RankingCopyWith<_$_Ranking> get copyWith =>
       throw _privateConstructorUsedError;
 }

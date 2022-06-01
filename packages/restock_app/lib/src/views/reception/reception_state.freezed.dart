@@ -55,31 +55,31 @@ class _$ReceptionStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$ReceptionStateCopyWith<$Res>
+abstract class _$$_ReceptionStateCopyWith<$Res>
     implements $ReceptionStateCopyWith<$Res> {
-  factory _$ReceptionStateCopyWith(
-          _ReceptionState value, $Res Function(_ReceptionState) then) =
-      __$ReceptionStateCopyWithImpl<$Res>;
+  factory _$$_ReceptionStateCopyWith(
+          _$_ReceptionState value, $Res Function(_$_ReceptionState) then) =
+      __$$_ReceptionStateCopyWithImpl<$Res>;
   @override
   $Res call({bool loading});
 }
 
 /// @nodoc
-class __$ReceptionStateCopyWithImpl<$Res>
+class __$$_ReceptionStateCopyWithImpl<$Res>
     extends _$ReceptionStateCopyWithImpl<$Res>
-    implements _$ReceptionStateCopyWith<$Res> {
-  __$ReceptionStateCopyWithImpl(
-      _ReceptionState _value, $Res Function(_ReceptionState) _then)
-      : super(_value, (v) => _then(v as _ReceptionState));
+    implements _$$_ReceptionStateCopyWith<$Res> {
+  __$$_ReceptionStateCopyWithImpl(
+      _$_ReceptionState _value, $Res Function(_$_ReceptionState) _then)
+      : super(_value, (v) => _then(v as _$_ReceptionState));
 
   @override
-  _ReceptionState get _value => super._value as _ReceptionState;
+  _$_ReceptionState get _value => super._value as _$_ReceptionState;
 
   @override
   $Res call({
     Object? loading = freezed,
   }) {
-    return _then(_ReceptionState(
+    return _then(_$_ReceptionState(
       loading: loading == freezed
           ? _value.loading
           : loading // ignore: cast_nullable_to_non_nullable
@@ -107,7 +107,7 @@ class _$_ReceptionState implements _ReceptionState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _ReceptionState &&
+            other is _$_ReceptionState &&
             const DeepCollectionEquality().equals(other.loading, loading));
   }
 
@@ -117,8 +117,8 @@ class _$_ReceptionState implements _ReceptionState {
 
   @JsonKey(ignore: true)
   @override
-  _$ReceptionStateCopyWith<_ReceptionState> get copyWith =>
-      __$ReceptionStateCopyWithImpl<_ReceptionState>(this, _$identity);
+  _$$_ReceptionStateCopyWith<_$_ReceptionState> get copyWith =>
+      __$$_ReceptionStateCopyWithImpl<_$_ReceptionState>(this, _$identity);
 }
 
 abstract class _ReceptionState implements ReceptionState {
@@ -128,6 +128,6 @@ abstract class _ReceptionState implements ReceptionState {
   bool get loading => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ReceptionStateCopyWith<_ReceptionState> get copyWith =>
+  _$$_ReceptionStateCopyWith<_$_ReceptionState> get copyWith =>
       throw _privateConstructorUsedError;
 }

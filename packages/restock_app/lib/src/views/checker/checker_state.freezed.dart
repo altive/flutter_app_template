@@ -84,11 +84,11 @@ class _$CheckerStateCopyWithImpl<$Res> implements $CheckerStateCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$CheckerStateCopyWith<$Res>
+abstract class _$$_CheckerStateCopyWith<$Res>
     implements $CheckerStateCopyWith<$Res> {
-  factory _$CheckerStateCopyWith(
-          _CheckerState value, $Res Function(_CheckerState) then) =
-      __$CheckerStateCopyWithImpl<$Res>;
+  factory _$$_CheckerStateCopyWith(
+          _$_CheckerState value, $Res Function(_$_CheckerState) then) =
+      __$$_CheckerStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {bool loading,
@@ -99,14 +99,15 @@ abstract class _$CheckerStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$CheckerStateCopyWithImpl<$Res> extends _$CheckerStateCopyWithImpl<$Res>
-    implements _$CheckerStateCopyWith<$Res> {
-  __$CheckerStateCopyWithImpl(
-      _CheckerState _value, $Res Function(_CheckerState) _then)
-      : super(_value, (v) => _then(v as _CheckerState));
+class __$$_CheckerStateCopyWithImpl<$Res>
+    extends _$CheckerStateCopyWithImpl<$Res>
+    implements _$$_CheckerStateCopyWith<$Res> {
+  __$$_CheckerStateCopyWithImpl(
+      _$_CheckerState _value, $Res Function(_$_CheckerState) _then)
+      : super(_value, (v) => _then(v as _$_CheckerState));
 
   @override
-  _CheckerState get _value => super._value as _CheckerState;
+  _$_CheckerState get _value => super._value as _$_CheckerState;
 
   @override
   $Res call({
@@ -116,7 +117,7 @@ class __$CheckerStateCopyWithImpl<$Res> extends _$CheckerStateCopyWithImpl<$Res>
     Object? childCount = freezed,
     Object? stockSetList = freezed,
   }) {
-    return _then(_CheckerState(
+    return _then(_$_CheckerState(
       loading: loading == freezed
           ? _value.loading
           : loading // ignore: cast_nullable_to_non_nullable
@@ -134,7 +135,7 @@ class __$CheckerStateCopyWithImpl<$Res> extends _$CheckerStateCopyWithImpl<$Res>
           : childCount // ignore: cast_nullable_to_non_nullable
               as int,
       stockSetList: stockSetList == freezed
-          ? _value.stockSetList
+          ? _value._stockSetList
           : stockSetList // ignore: cast_nullable_to_non_nullable
               as List<RecommendStockSet>?,
     ));
@@ -183,7 +184,7 @@ class _$_CheckerState implements _CheckerState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _CheckerState &&
+            other is _$_CheckerState &&
             const DeepCollectionEquality().equals(other.loading, loading) &&
             const DeepCollectionEquality().equals(other.manCount, manCount) &&
             const DeepCollectionEquality()
@@ -191,7 +192,7 @@ class _$_CheckerState implements _CheckerState {
             const DeepCollectionEquality()
                 .equals(other.childCount, childCount) &&
             const DeepCollectionEquality()
-                .equals(other.stockSetList, stockSetList));
+                .equals(other._stockSetList, _stockSetList));
   }
 
   @override
@@ -201,12 +202,12 @@ class _$_CheckerState implements _CheckerState {
       const DeepCollectionEquality().hash(manCount),
       const DeepCollectionEquality().hash(womanCount),
       const DeepCollectionEquality().hash(childCount),
-      const DeepCollectionEquality().hash(stockSetList));
+      const DeepCollectionEquality().hash(_stockSetList));
 
   @JsonKey(ignore: true)
   @override
-  _$CheckerStateCopyWith<_CheckerState> get copyWith =>
-      __$CheckerStateCopyWithImpl<_CheckerState>(this, _$identity);
+  _$$_CheckerStateCopyWith<_$_CheckerState> get copyWith =>
+      __$$_CheckerStateCopyWithImpl<_$_CheckerState>(this, _$identity);
 }
 
 abstract class _CheckerState implements CheckerState {
@@ -230,6 +231,6 @@ abstract class _CheckerState implements CheckerState {
       throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$CheckerStateCopyWith<_CheckerState> get copyWith =>
+  _$$_CheckerStateCopyWith<_$_CheckerState> get copyWith =>
       throw _privateConstructorUsedError;
 }

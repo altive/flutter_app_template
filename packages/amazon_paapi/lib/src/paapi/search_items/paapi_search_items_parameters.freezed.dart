@@ -87,12 +87,12 @@ class _$PaapiSearchItemsParametersCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$PaapiSearchItemsParametersCopyWith<$Res>
+abstract class _$$_PaapiSearchItemsParametersCopyWith<$Res>
     implements $PaapiSearchItemsParametersCopyWith<$Res> {
-  factory _$PaapiSearchItemsParametersCopyWith(
-          _PaapiSearchItemsParameters value,
-          $Res Function(_PaapiSearchItemsParameters) then) =
-      __$PaapiSearchItemsParametersCopyWithImpl<$Res>;
+  factory _$$_PaapiSearchItemsParametersCopyWith(
+          _$_PaapiSearchItemsParameters value,
+          $Res Function(_$_PaapiSearchItemsParameters) then) =
+      __$$_PaapiSearchItemsParametersCopyWithImpl<$Res>;
   @override
   $Res call(
       {String? keyword,
@@ -103,16 +103,17 @@ abstract class _$PaapiSearchItemsParametersCopyWith<$Res>
 }
 
 /// @nodoc
-class __$PaapiSearchItemsParametersCopyWithImpl<$Res>
+class __$$_PaapiSearchItemsParametersCopyWithImpl<$Res>
     extends _$PaapiSearchItemsParametersCopyWithImpl<$Res>
-    implements _$PaapiSearchItemsParametersCopyWith<$Res> {
-  __$PaapiSearchItemsParametersCopyWithImpl(_PaapiSearchItemsParameters _value,
-      $Res Function(_PaapiSearchItemsParameters) _then)
-      : super(_value, (v) => _then(v as _PaapiSearchItemsParameters));
+    implements _$$_PaapiSearchItemsParametersCopyWith<$Res> {
+  __$$_PaapiSearchItemsParametersCopyWithImpl(
+      _$_PaapiSearchItemsParameters _value,
+      $Res Function(_$_PaapiSearchItemsParameters) _then)
+      : super(_value, (v) => _then(v as _$_PaapiSearchItemsParameters));
 
   @override
-  _PaapiSearchItemsParameters get _value =>
-      super._value as _PaapiSearchItemsParameters;
+  _$_PaapiSearchItemsParameters get _value =>
+      super._value as _$_PaapiSearchItemsParameters;
 
   @override
   $Res call({
@@ -122,13 +123,13 @@ class __$PaapiSearchItemsParametersCopyWithImpl<$Res>
     Object? itemCount = freezed,
     Object? itemPage = freezed,
   }) {
-    return _then(_PaapiSearchItemsParameters(
+    return _then(_$_PaapiSearchItemsParameters(
       keyword: keyword == freezed
           ? _value.keyword
           : keyword // ignore: cast_nullable_to_non_nullable
               as String?,
       resources: resources == freezed
-          ? _value.resources
+          ? _value._resources
           : resources // ignore: cast_nullable_to_non_nullable
               as List<String>,
       searchIndex: searchIndex == freezed
@@ -204,9 +205,10 @@ class _$_PaapiSearchItemsParameters
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _PaapiSearchItemsParameters &&
+            other is _$_PaapiSearchItemsParameters &&
             const DeepCollectionEquality().equals(other.keyword, keyword) &&
-            const DeepCollectionEquality().equals(other.resources, resources) &&
+            const DeepCollectionEquality()
+                .equals(other._resources, _resources) &&
             const DeepCollectionEquality()
                 .equals(other.searchIndex, searchIndex) &&
             const DeepCollectionEquality().equals(other.itemCount, itemCount) &&
@@ -217,16 +219,16 @@ class _$_PaapiSearchItemsParameters
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(keyword),
-      const DeepCollectionEquality().hash(resources),
+      const DeepCollectionEquality().hash(_resources),
       const DeepCollectionEquality().hash(searchIndex),
       const DeepCollectionEquality().hash(itemCount),
       const DeepCollectionEquality().hash(itemPage));
 
   @JsonKey(ignore: true)
   @override
-  _$PaapiSearchItemsParametersCopyWith<_PaapiSearchItemsParameters>
-      get copyWith => __$PaapiSearchItemsParametersCopyWithImpl<
-          _PaapiSearchItemsParameters>(this, _$identity);
+  _$$_PaapiSearchItemsParametersCopyWith<_$_PaapiSearchItemsParameters>
+      get copyWith => __$$_PaapiSearchItemsParametersCopyWithImpl<
+          _$_PaapiSearchItemsParameters>(this, _$identity);
 }
 
 abstract class _PaapiSearchItemsParameters
@@ -250,6 +252,6 @@ abstract class _PaapiSearchItemsParameters
   int? get itemPage => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$PaapiSearchItemsParametersCopyWith<_PaapiSearchItemsParameters>
+  _$$_PaapiSearchItemsParametersCopyWith<_$_PaapiSearchItemsParameters>
       get copyWith => throw _privateConstructorUsedError;
 }

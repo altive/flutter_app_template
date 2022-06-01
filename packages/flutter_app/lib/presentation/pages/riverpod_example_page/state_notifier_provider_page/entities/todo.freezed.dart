@@ -68,21 +68,21 @@ class _$TodoCopyWithImpl<$Res> implements $TodoCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$TodoCopyWith<$Res> implements $TodoCopyWith<$Res> {
-  factory _$TodoCopyWith(_Todo value, $Res Function(_Todo) then) =
-      __$TodoCopyWithImpl<$Res>;
+abstract class _$$_TodoCopyWith<$Res> implements $TodoCopyWith<$Res> {
+  factory _$$_TodoCopyWith(_$_Todo value, $Res Function(_$_Todo) then) =
+      __$$_TodoCopyWithImpl<$Res>;
   @override
   $Res call({String id, String title, bool completed});
 }
 
 /// @nodoc
-class __$TodoCopyWithImpl<$Res> extends _$TodoCopyWithImpl<$Res>
-    implements _$TodoCopyWith<$Res> {
-  __$TodoCopyWithImpl(_Todo _value, $Res Function(_Todo) _then)
-      : super(_value, (v) => _then(v as _Todo));
+class __$$_TodoCopyWithImpl<$Res> extends _$TodoCopyWithImpl<$Res>
+    implements _$$_TodoCopyWith<$Res> {
+  __$$_TodoCopyWithImpl(_$_Todo _value, $Res Function(_$_Todo) _then)
+      : super(_value, (v) => _then(v as _$_Todo));
 
   @override
-  _Todo get _value => super._value as _Todo;
+  _$_Todo get _value => super._value as _$_Todo;
 
   @override
   $Res call({
@@ -90,7 +90,7 @@ class __$TodoCopyWithImpl<$Res> extends _$TodoCopyWithImpl<$Res>
     Object? title = freezed,
     Object? completed = freezed,
   }) {
-    return _then(_Todo(
+    return _then(_$_Todo(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -142,7 +142,7 @@ class _$_Todo with DiagnosticableTreeMixin implements _Todo {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Todo &&
+            other is _$_Todo &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.title, title) &&
             const DeepCollectionEquality().equals(other.completed, completed));
@@ -158,8 +158,8 @@ class _$_Todo with DiagnosticableTreeMixin implements _Todo {
 
   @JsonKey(ignore: true)
   @override
-  _$TodoCopyWith<_Todo> get copyWith =>
-      __$TodoCopyWithImpl<_Todo>(this, _$identity);
+  _$$_TodoCopyWith<_$_Todo> get copyWith =>
+      __$$_TodoCopyWithImpl<_$_Todo>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -183,5 +183,5 @@ abstract class _Todo implements Todo {
   bool get completed => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$TodoCopyWith<_Todo> get copyWith => throw _privateConstructorUsedError;
+  _$$_TodoCopyWith<_$_Todo> get copyWith => throw _privateConstructorUsedError;
 }

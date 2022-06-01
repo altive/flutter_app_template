@@ -86,11 +86,11 @@ class _$SearchResultStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$SearchResultStateCopyWith<$Res>
+abstract class _$$_SearchResultStateCopyWith<$Res>
     implements $SearchResultStateCopyWith<$Res> {
-  factory _$SearchResultStateCopyWith(
-          _SearchResultState value, $Res Function(_SearchResultState) then) =
-      __$SearchResultStateCopyWithImpl<$Res>;
+  factory _$$_SearchResultStateCopyWith(_$_SearchResultState value,
+          $Res Function(_$_SearchResultState) then) =
+      __$$_SearchResultStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {bool fetching,
@@ -102,15 +102,15 @@ abstract class _$SearchResultStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$SearchResultStateCopyWithImpl<$Res>
+class __$$_SearchResultStateCopyWithImpl<$Res>
     extends _$SearchResultStateCopyWithImpl<$Res>
-    implements _$SearchResultStateCopyWith<$Res> {
-  __$SearchResultStateCopyWithImpl(
-      _SearchResultState _value, $Res Function(_SearchResultState) _then)
-      : super(_value, (v) => _then(v as _SearchResultState));
+    implements _$$_SearchResultStateCopyWith<$Res> {
+  __$$_SearchResultStateCopyWithImpl(
+      _$_SearchResultState _value, $Res Function(_$_SearchResultState) _then)
+      : super(_value, (v) => _then(v as _$_SearchResultState));
 
   @override
-  _SearchResultState get _value => super._value as _SearchResultState;
+  _$_SearchResultState get _value => super._value as _$_SearchResultState;
 
   @override
   $Res call({
@@ -118,7 +118,7 @@ class __$SearchResultStateCopyWithImpl<$Res>
     Object? searchResult = freezed,
     Object? searchParams = freezed,
   }) {
-    return _then(_SearchResultState(
+    return _then(_$_SearchResultState(
       fetching: fetching == freezed
           ? _value.fetching
           : fetching // ignore: cast_nullable_to_non_nullable
@@ -159,7 +159,7 @@ class _$_SearchResultState implements _SearchResultState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SearchResultState &&
+            other is _$_SearchResultState &&
             const DeepCollectionEquality().equals(other.fetching, fetching) &&
             const DeepCollectionEquality()
                 .equals(other.searchResult, searchResult) &&
@@ -176,8 +176,9 @@ class _$_SearchResultState implements _SearchResultState {
 
   @JsonKey(ignore: true)
   @override
-  _$SearchResultStateCopyWith<_SearchResultState> get copyWith =>
-      __$SearchResultStateCopyWithImpl<_SearchResultState>(this, _$identity);
+  _$$_SearchResultStateCopyWith<_$_SearchResultState> get copyWith =>
+      __$$_SearchResultStateCopyWithImpl<_$_SearchResultState>(
+          this, _$identity);
 }
 
 abstract class _SearchResultState implements SearchResultState {
@@ -196,6 +197,6 @@ abstract class _SearchResultState implements SearchResultState {
       throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$SearchResultStateCopyWith<_SearchResultState> get copyWith =>
+  _$$_SearchResultStateCopyWith<_$_SearchResultState> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -83,11 +83,11 @@ class _$AppUserModelCopyWithImpl<$Res> implements $AppUserModelCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$AppUserModelCopyWith<$Res>
+abstract class _$$_AppUserModelCopyWith<$Res>
     implements $AppUserModelCopyWith<$Res> {
-  factory _$AppUserModelCopyWith(
-          _AppUserModel value, $Res Function(_AppUserModel) then) =
-      __$AppUserModelCopyWithImpl<$Res>;
+  factory _$$_AppUserModelCopyWith(
+          _$_AppUserModel value, $Res Function(_$_AppUserModel) then) =
+      __$$_AppUserModelCopyWithImpl<$Res>;
   @override
   $Res call(
       {@TimestampConverter() DateTime? createdAt,
@@ -97,14 +97,15 @@ abstract class _$AppUserModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$AppUserModelCopyWithImpl<$Res> extends _$AppUserModelCopyWithImpl<$Res>
-    implements _$AppUserModelCopyWith<$Res> {
-  __$AppUserModelCopyWithImpl(
-      _AppUserModel _value, $Res Function(_AppUserModel) _then)
-      : super(_value, (v) => _then(v as _AppUserModel));
+class __$$_AppUserModelCopyWithImpl<$Res>
+    extends _$AppUserModelCopyWithImpl<$Res>
+    implements _$$_AppUserModelCopyWith<$Res> {
+  __$$_AppUserModelCopyWithImpl(
+      _$_AppUserModel _value, $Res Function(_$_AppUserModel) _then)
+      : super(_value, (v) => _then(v as _$_AppUserModel));
 
   @override
-  _AppUserModel get _value => super._value as _AppUserModel;
+  _$_AppUserModel get _value => super._value as _$_AppUserModel;
 
   @override
   $Res call({
@@ -113,7 +114,7 @@ class __$AppUserModelCopyWithImpl<$Res> extends _$AppUserModelCopyWithImpl<$Res>
     Object? nickname = freezed,
     Object? stockCategories = freezed,
   }) {
-    return _then(_AppUserModel(
+    return _then(_$_AppUserModel(
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -127,7 +128,7 @@ class __$AppUserModelCopyWithImpl<$Res> extends _$AppUserModelCopyWithImpl<$Res>
           : nickname // ignore: cast_nullable_to_non_nullable
               as String?,
       stockCategories: stockCategories == freezed
-          ? _value.stockCategories
+          ? _value._stockCategories
           : stockCategories // ignore: cast_nullable_to_non_nullable
               as List<String>?,
     ));
@@ -158,7 +159,6 @@ class _$_AppUserModel extends _AppUserModel with DiagnosticableTreeMixin {
   @override
   final String? nickname;
 // ストック保管場所
-  @JsonKey(name: 'stockPlaces')
   final List<String>? _stockCategories;
 // ストック保管場所
   @override
@@ -190,12 +190,12 @@ class _$_AppUserModel extends _AppUserModel with DiagnosticableTreeMixin {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _AppUserModel &&
+            other is _$_AppUserModel &&
             const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
             const DeepCollectionEquality().equals(other.updatedAt, updatedAt) &&
             const DeepCollectionEquality().equals(other.nickname, nickname) &&
             const DeepCollectionEquality()
-                .equals(other.stockCategories, stockCategories));
+                .equals(other._stockCategories, _stockCategories));
   }
 
   @JsonKey(ignore: true)
@@ -205,12 +205,12 @@ class _$_AppUserModel extends _AppUserModel with DiagnosticableTreeMixin {
       const DeepCollectionEquality().hash(createdAt),
       const DeepCollectionEquality().hash(updatedAt),
       const DeepCollectionEquality().hash(nickname),
-      const DeepCollectionEquality().hash(stockCategories));
+      const DeepCollectionEquality().hash(_stockCategories));
 
   @JsonKey(ignore: true)
   @override
-  _$AppUserModelCopyWith<_AppUserModel> get copyWith =>
-      __$AppUserModelCopyWithImpl<_AppUserModel>(this, _$identity);
+  _$$_AppUserModelCopyWith<_$_AppUserModel> get copyWith =>
+      __$$_AppUserModelCopyWithImpl<_$_AppUserModel>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -243,6 +243,6 @@ abstract class _AppUserModel extends AppUserModel {
   List<String>? get stockCategories => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$AppUserModelCopyWith<_AppUserModel> get copyWith =>
+  _$$_AppUserModelCopyWith<_$_AppUserModel> get copyWith =>
       throw _privateConstructorUsedError;
 }

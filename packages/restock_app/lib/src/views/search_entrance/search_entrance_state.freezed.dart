@@ -72,11 +72,11 @@ class _$SearchEntranceStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$SearchEntranceStateCopyWith<$Res>
+abstract class _$$_SearchEntranceStateCopyWith<$Res>
     implements $SearchEntranceStateCopyWith<$Res> {
-  factory _$SearchEntranceStateCopyWith(_SearchEntranceState value,
-          $Res Function(_SearchEntranceState) then) =
-      __$SearchEntranceStateCopyWithImpl<$Res>;
+  factory _$$_SearchEntranceStateCopyWith(_$_SearchEntranceState value,
+          $Res Function(_$_SearchEntranceState) then) =
+      __$$_SearchEntranceStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {String searchText,
@@ -85,15 +85,15 @@ abstract class _$SearchEntranceStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$SearchEntranceStateCopyWithImpl<$Res>
+class __$$_SearchEntranceStateCopyWithImpl<$Res>
     extends _$SearchEntranceStateCopyWithImpl<$Res>
-    implements _$SearchEntranceStateCopyWith<$Res> {
-  __$SearchEntranceStateCopyWithImpl(
-      _SearchEntranceState _value, $Res Function(_SearchEntranceState) _then)
-      : super(_value, (v) => _then(v as _SearchEntranceState));
+    implements _$$_SearchEntranceStateCopyWith<$Res> {
+  __$$_SearchEntranceStateCopyWithImpl(_$_SearchEntranceState _value,
+      $Res Function(_$_SearchEntranceState) _then)
+      : super(_value, (v) => _then(v as _$_SearchEntranceState));
 
   @override
-  _SearchEntranceState get _value => super._value as _SearchEntranceState;
+  _$_SearchEntranceState get _value => super._value as _$_SearchEntranceState;
 
   @override
   $Res call({
@@ -101,7 +101,7 @@ class __$SearchEntranceStateCopyWithImpl<$Res>
     Object? searchItemsCategory = freezed,
     Object? recommendProducts = freezed,
   }) {
-    return _then(_SearchEntranceState(
+    return _then(_$_SearchEntranceState(
       searchText: searchText == freezed
           ? _value.searchText
           : searchText // ignore: cast_nullable_to_non_nullable
@@ -111,7 +111,7 @@ class __$SearchEntranceStateCopyWithImpl<$Res>
           : searchItemsCategory // ignore: cast_nullable_to_non_nullable
               as SearchItemsCategory,
       recommendProducts: recommendProducts == freezed
-          ? _value.recommendProducts
+          ? _value._recommendProducts
           : recommendProducts // ignore: cast_nullable_to_non_nullable
               as List<PaapiSearchItem>?,
     ));
@@ -154,13 +154,13 @@ class _$_SearchEntranceState implements _SearchEntranceState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SearchEntranceState &&
+            other is _$_SearchEntranceState &&
             const DeepCollectionEquality()
                 .equals(other.searchText, searchText) &&
             const DeepCollectionEquality()
                 .equals(other.searchItemsCategory, searchItemsCategory) &&
             const DeepCollectionEquality()
-                .equals(other.recommendProducts, recommendProducts));
+                .equals(other._recommendProducts, _recommendProducts));
   }
 
   @override
@@ -168,12 +168,12 @@ class _$_SearchEntranceState implements _SearchEntranceState {
       runtimeType,
       const DeepCollectionEquality().hash(searchText),
       const DeepCollectionEquality().hash(searchItemsCategory),
-      const DeepCollectionEquality().hash(recommendProducts));
+      const DeepCollectionEquality().hash(_recommendProducts));
 
   @JsonKey(ignore: true)
   @override
-  _$SearchEntranceStateCopyWith<_SearchEntranceState> get copyWith =>
-      __$SearchEntranceStateCopyWithImpl<_SearchEntranceState>(
+  _$$_SearchEntranceStateCopyWith<_$_SearchEntranceState> get copyWith =>
+      __$$_SearchEntranceStateCopyWithImpl<_$_SearchEntranceState>(
           this, _$identity);
 }
 
@@ -193,6 +193,6 @@ abstract class _SearchEntranceState implements SearchEntranceState {
       throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$SearchEntranceStateCopyWith<_SearchEntranceState> get copyWith =>
+  _$$_SearchEntranceStateCopyWith<_$_SearchEntranceState> get copyWith =>
       throw _privateConstructorUsedError;
 }

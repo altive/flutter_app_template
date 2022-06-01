@@ -61,32 +61,32 @@ class _$RecommendDetailStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RecommendDetailStateCopyWith<$Res>
+abstract class _$$_RecommendDetailStateCopyWith<$Res>
     implements $RecommendDetailStateCopyWith<$Res> {
-  factory _$RecommendDetailStateCopyWith(_RecommendDetailState value,
-          $Res Function(_RecommendDetailState) then) =
-      __$RecommendDetailStateCopyWithImpl<$Res>;
+  factory _$$_RecommendDetailStateCopyWith(_$_RecommendDetailState value,
+          $Res Function(_$_RecommendDetailState) then) =
+      __$$_RecommendDetailStateCopyWithImpl<$Res>;
   @override
   $Res call({bool fetching, PaapiGetItemsResult? itemResult});
 }
 
 /// @nodoc
-class __$RecommendDetailStateCopyWithImpl<$Res>
+class __$$_RecommendDetailStateCopyWithImpl<$Res>
     extends _$RecommendDetailStateCopyWithImpl<$Res>
-    implements _$RecommendDetailStateCopyWith<$Res> {
-  __$RecommendDetailStateCopyWithImpl(
-      _RecommendDetailState _value, $Res Function(_RecommendDetailState) _then)
-      : super(_value, (v) => _then(v as _RecommendDetailState));
+    implements _$$_RecommendDetailStateCopyWith<$Res> {
+  __$$_RecommendDetailStateCopyWithImpl(_$_RecommendDetailState _value,
+      $Res Function(_$_RecommendDetailState) _then)
+      : super(_value, (v) => _then(v as _$_RecommendDetailState));
 
   @override
-  _RecommendDetailState get _value => super._value as _RecommendDetailState;
+  _$_RecommendDetailState get _value => super._value as _$_RecommendDetailState;
 
   @override
   $Res call({
     Object? fetching = freezed,
     Object? itemResult = freezed,
   }) {
-    return _then(_RecommendDetailState(
+    return _then(_$_RecommendDetailState(
       fetching: fetching == freezed
           ? _value.fetching
           : fetching // ignore: cast_nullable_to_non_nullable
@@ -121,7 +121,7 @@ class _$_RecommendDetailState implements _RecommendDetailState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RecommendDetailState &&
+            other is _$_RecommendDetailState &&
             const DeepCollectionEquality().equals(other.fetching, fetching) &&
             const DeepCollectionEquality()
                 .equals(other.itemResult, itemResult));
@@ -135,8 +135,8 @@ class _$_RecommendDetailState implements _RecommendDetailState {
 
   @JsonKey(ignore: true)
   @override
-  _$RecommendDetailStateCopyWith<_RecommendDetailState> get copyWith =>
-      __$RecommendDetailStateCopyWithImpl<_RecommendDetailState>(
+  _$$_RecommendDetailStateCopyWith<_$_RecommendDetailState> get copyWith =>
+      __$$_RecommendDetailStateCopyWithImpl<_$_RecommendDetailState>(
           this, _$identity);
 }
 
@@ -151,6 +151,6 @@ abstract class _RecommendDetailState implements RecommendDetailState {
   PaapiGetItemsResult? get itemResult => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$RecommendDetailStateCopyWith<_RecommendDetailState> get copyWith =>
+  _$$_RecommendDetailStateCopyWith<_$_RecommendDetailState> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -131,11 +131,11 @@ class _$UserRequestCopyWithImpl<$Res> implements $UserRequestCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$UserRequestCopyWith<$Res>
+abstract class _$$_UserRequestCopyWith<$Res>
     implements $UserRequestCopyWith<$Res> {
-  factory _$UserRequestCopyWith(
-          _UserRequest value, $Res Function(_UserRequest) then) =
-      __$UserRequestCopyWithImpl<$Res>;
+  factory _$$_UserRequestCopyWith(
+          _$_UserRequest value, $Res Function(_$_UserRequest) then) =
+      __$$_UserRequestCopyWithImpl<$Res>;
   @override
   $Res call(
       {@TimestampConverter() DateTime? createdAt,
@@ -152,14 +152,14 @@ abstract class _$UserRequestCopyWith<$Res>
 }
 
 /// @nodoc
-class __$UserRequestCopyWithImpl<$Res> extends _$UserRequestCopyWithImpl<$Res>
-    implements _$UserRequestCopyWith<$Res> {
-  __$UserRequestCopyWithImpl(
-      _UserRequest _value, $Res Function(_UserRequest) _then)
-      : super(_value, (v) => _then(v as _UserRequest));
+class __$$_UserRequestCopyWithImpl<$Res> extends _$UserRequestCopyWithImpl<$Res>
+    implements _$$_UserRequestCopyWith<$Res> {
+  __$$_UserRequestCopyWithImpl(
+      _$_UserRequest _value, $Res Function(_$_UserRequest) _then)
+      : super(_value, (v) => _then(v as _$_UserRequest));
 
   @override
-  _UserRequest get _value => super._value as _UserRequest;
+  _$_UserRequest get _value => super._value as _$_UserRequest;
 
   @override
   $Res call({
@@ -175,7 +175,7 @@ class __$UserRequestCopyWithImpl<$Res> extends _$UserRequestCopyWithImpl<$Res>
     Object? replyFor = freezed,
     Object? text = freezed,
   }) {
-    return _then(_UserRequest(
+    return _then(_$_UserRequest(
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -296,7 +296,7 @@ class _$_UserRequest extends _UserRequest with DiagnosticableTreeMixin {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _UserRequest &&
+            other is _$_UserRequest &&
             const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
             const DeepCollectionEquality().equals(other.updatedAt, updatedAt) &&
             const DeepCollectionEquality().equals(other.uid, uid) &&
@@ -331,8 +331,8 @@ class _$_UserRequest extends _UserRequest with DiagnosticableTreeMixin {
 
   @JsonKey(ignore: true)
   @override
-  _$UserRequestCopyWith<_UserRequest> get copyWith =>
-      __$UserRequestCopyWithImpl<_UserRequest>(this, _$identity);
+  _$$_UserRequestCopyWith<_$_UserRequest> get copyWith =>
+      __$$_UserRequestCopyWithImpl<_$_UserRequest>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -384,6 +384,6 @@ abstract class _UserRequest extends UserRequest {
   String get text => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$UserRequestCopyWith<_UserRequest> get copyWith =>
+  _$$_UserRequestCopyWith<_$_UserRequest> get copyWith =>
       throw _privateConstructorUsedError;
 }

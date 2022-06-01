@@ -54,31 +54,31 @@ class _$AccountSettingStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$AccountSettingStateCopyWith<$Res>
+abstract class _$$_AccountSettingStateCopyWith<$Res>
     implements $AccountSettingStateCopyWith<$Res> {
-  factory _$AccountSettingStateCopyWith(_AccountSettingState value,
-          $Res Function(_AccountSettingState) then) =
-      __$AccountSettingStateCopyWithImpl<$Res>;
+  factory _$$_AccountSettingStateCopyWith(_$_AccountSettingState value,
+          $Res Function(_$_AccountSettingState) then) =
+      __$$_AccountSettingStateCopyWithImpl<$Res>;
   @override
   $Res call({bool loading});
 }
 
 /// @nodoc
-class __$AccountSettingStateCopyWithImpl<$Res>
+class __$$_AccountSettingStateCopyWithImpl<$Res>
     extends _$AccountSettingStateCopyWithImpl<$Res>
-    implements _$AccountSettingStateCopyWith<$Res> {
-  __$AccountSettingStateCopyWithImpl(
-      _AccountSettingState _value, $Res Function(_AccountSettingState) _then)
-      : super(_value, (v) => _then(v as _AccountSettingState));
+    implements _$$_AccountSettingStateCopyWith<$Res> {
+  __$$_AccountSettingStateCopyWithImpl(_$_AccountSettingState _value,
+      $Res Function(_$_AccountSettingState) _then)
+      : super(_value, (v) => _then(v as _$_AccountSettingState));
 
   @override
-  _AccountSettingState get _value => super._value as _AccountSettingState;
+  _$_AccountSettingState get _value => super._value as _$_AccountSettingState;
 
   @override
   $Res call({
     Object? loading = freezed,
   }) {
-    return _then(_AccountSettingState(
+    return _then(_$_AccountSettingState(
       loading: loading == freezed
           ? _value.loading
           : loading // ignore: cast_nullable_to_non_nullable
@@ -105,7 +105,7 @@ class _$_AccountSettingState implements _AccountSettingState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _AccountSettingState &&
+            other is _$_AccountSettingState &&
             const DeepCollectionEquality().equals(other.loading, loading));
   }
 
@@ -115,8 +115,8 @@ class _$_AccountSettingState implements _AccountSettingState {
 
   @JsonKey(ignore: true)
   @override
-  _$AccountSettingStateCopyWith<_AccountSettingState> get copyWith =>
-      __$AccountSettingStateCopyWithImpl<_AccountSettingState>(
+  _$$_AccountSettingStateCopyWith<_$_AccountSettingState> get copyWith =>
+      __$$_AccountSettingStateCopyWithImpl<_$_AccountSettingState>(
           this, _$identity);
 }
 
@@ -128,6 +128,6 @@ abstract class _AccountSettingState implements AccountSettingState {
   bool get loading => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$AccountSettingStateCopyWith<_AccountSettingState> get copyWith =>
+  _$$_AccountSettingStateCopyWith<_$_AccountSettingState> get copyWith =>
       throw _privateConstructorUsedError;
 }

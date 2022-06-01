@@ -74,11 +74,11 @@ class _$HomeStockFilterStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$HomeStockFilterStateCopyWith<$Res>
+abstract class _$$_HomeStockFilterStateCopyWith<$Res>
     implements $HomeStockFilterStateCopyWith<$Res> {
-  factory _$HomeStockFilterStateCopyWith(_HomeStockFilterState value,
-          $Res Function(_HomeStockFilterState) then) =
-      __$HomeStockFilterStateCopyWithImpl<$Res>;
+  factory _$$_HomeStockFilterStateCopyWith(_$_HomeStockFilterState value,
+          $Res Function(_$_HomeStockFilterState) then) =
+      __$$_HomeStockFilterStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {FilteringState inventory,
@@ -87,15 +87,15 @@ abstract class _$HomeStockFilterStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$HomeStockFilterStateCopyWithImpl<$Res>
+class __$$_HomeStockFilterStateCopyWithImpl<$Res>
     extends _$HomeStockFilterStateCopyWithImpl<$Res>
-    implements _$HomeStockFilterStateCopyWith<$Res> {
-  __$HomeStockFilterStateCopyWithImpl(
-      _HomeStockFilterState _value, $Res Function(_HomeStockFilterState) _then)
-      : super(_value, (v) => _then(v as _HomeStockFilterState));
+    implements _$$_HomeStockFilterStateCopyWith<$Res> {
+  __$$_HomeStockFilterStateCopyWithImpl(_$_HomeStockFilterState _value,
+      $Res Function(_$_HomeStockFilterState) _then)
+      : super(_value, (v) => _then(v as _$_HomeStockFilterState));
 
   @override
-  _HomeStockFilterState get _value => super._value as _HomeStockFilterState;
+  _$_HomeStockFilterState get _value => super._value as _$_HomeStockFilterState;
 
   @override
   $Res call({
@@ -103,7 +103,7 @@ class __$HomeStockFilterStateCopyWithImpl<$Res>
     Object? expiration = freezed,
     Object? category = freezed,
   }) {
-    return _then(_HomeStockFilterState(
+    return _then(_$_HomeStockFilterState(
       inventory: inventory == freezed
           ? _value.inventory
           : inventory // ignore: cast_nullable_to_non_nullable
@@ -164,7 +164,7 @@ class _$_HomeStockFilterState extends _HomeStockFilterState
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _HomeStockFilterState &&
+            other is _$_HomeStockFilterState &&
             const DeepCollectionEquality().equals(other.inventory, inventory) &&
             const DeepCollectionEquality()
                 .equals(other.expiration, expiration) &&
@@ -180,8 +180,8 @@ class _$_HomeStockFilterState extends _HomeStockFilterState
 
   @JsonKey(ignore: true)
   @override
-  _$HomeStockFilterStateCopyWith<_HomeStockFilterState> get copyWith =>
-      __$HomeStockFilterStateCopyWithImpl<_HomeStockFilterState>(
+  _$$_HomeStockFilterStateCopyWith<_$_HomeStockFilterState> get copyWith =>
+      __$$_HomeStockFilterStateCopyWithImpl<_$_HomeStockFilterState>(
           this, _$identity);
 }
 
@@ -206,6 +206,6 @@ abstract class _HomeStockFilterState extends HomeStockFilterState {
   FilteringState get category => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$HomeStockFilterStateCopyWith<_HomeStockFilterState> get copyWith =>
+  _$$_HomeStockFilterStateCopyWith<_$_HomeStockFilterState> get copyWith =>
       throw _privateConstructorUsedError;
 }

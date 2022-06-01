@@ -76,25 +76,25 @@ class _$RequestedVersionInfoCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RequestedVersionInfoCopyWith<$Res>
+abstract class _$$_RequestedVersionInfoCopyWith<$Res>
     implements $RequestedVersionInfoCopyWith<$Res> {
-  factory _$RequestedVersionInfoCopyWith(_RequestedVersionInfo value,
-          $Res Function(_RequestedVersionInfo) then) =
-      __$RequestedVersionInfoCopyWithImpl<$Res>;
+  factory _$$_RequestedVersionInfoCopyWith(_$_RequestedVersionInfo value,
+          $Res Function(_$_RequestedVersionInfo) then) =
+      __$$_RequestedVersionInfoCopyWithImpl<$Res>;
   @override
   $Res call({String requiredVersion, bool canCancel, DateTime enabledAt});
 }
 
 /// @nodoc
-class __$RequestedVersionInfoCopyWithImpl<$Res>
+class __$$_RequestedVersionInfoCopyWithImpl<$Res>
     extends _$RequestedVersionInfoCopyWithImpl<$Res>
-    implements _$RequestedVersionInfoCopyWith<$Res> {
-  __$RequestedVersionInfoCopyWithImpl(
-      _RequestedVersionInfo _value, $Res Function(_RequestedVersionInfo) _then)
-      : super(_value, (v) => _then(v as _RequestedVersionInfo));
+    implements _$$_RequestedVersionInfoCopyWith<$Res> {
+  __$$_RequestedVersionInfoCopyWithImpl(_$_RequestedVersionInfo _value,
+      $Res Function(_$_RequestedVersionInfo) _then)
+      : super(_value, (v) => _then(v as _$_RequestedVersionInfo));
 
   @override
-  _RequestedVersionInfo get _value => super._value as _RequestedVersionInfo;
+  _$_RequestedVersionInfo get _value => super._value as _$_RequestedVersionInfo;
 
   @override
   $Res call({
@@ -102,7 +102,7 @@ class __$RequestedVersionInfoCopyWithImpl<$Res>
     Object? canCancel = freezed,
     Object? enabledAt = freezed,
   }) {
-    return _then(_RequestedVersionInfo(
+    return _then(_$_RequestedVersionInfo(
       requiredVersion: requiredVersion == freezed
           ? _value.requiredVersion
           : requiredVersion // ignore: cast_nullable_to_non_nullable
@@ -164,7 +164,7 @@ class _$_RequestedVersionInfo
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RequestedVersionInfo &&
+            other is _$_RequestedVersionInfo &&
             const DeepCollectionEquality()
                 .equals(other.requiredVersion, requiredVersion) &&
             const DeepCollectionEquality().equals(other.canCancel, canCancel) &&
@@ -181,8 +181,8 @@ class _$_RequestedVersionInfo
 
   @JsonKey(ignore: true)
   @override
-  _$RequestedVersionInfoCopyWith<_RequestedVersionInfo> get copyWith =>
-      __$RequestedVersionInfoCopyWithImpl<_RequestedVersionInfo>(
+  _$$_RequestedVersionInfoCopyWith<_$_RequestedVersionInfo> get copyWith =>
+      __$$_RequestedVersionInfoCopyWithImpl<_$_RequestedVersionInfo>(
           this, _$identity);
 
   @override
@@ -214,6 +214,6 @@ abstract class _RequestedVersionInfo implements RequestedVersionInfo {
   DateTime get enabledAt => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$RequestedVersionInfoCopyWith<_RequestedVersionInfo> get copyWith =>
+  _$$_RequestedVersionInfoCopyWith<_$_RequestedVersionInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }

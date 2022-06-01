@@ -114,11 +114,11 @@ class _$RankingMemberCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$RankingMemberCopyWith<$Res>
+abstract class _$$_RankingMemberCopyWith<$Res>
     implements $RankingMemberCopyWith<$Res> {
-  factory _$RankingMemberCopyWith(
-          _RankingMember value, $Res Function(_RankingMember) then) =
-      __$RankingMemberCopyWithImpl<$Res>;
+  factory _$$_RankingMemberCopyWith(
+          _$_RankingMember value, $Res Function(_$_RankingMember) then) =
+      __$$_RankingMemberCopyWithImpl<$Res>;
   @override
   $Res call(
       {@TimestampOrNullConverter() DateTime? createdAt,
@@ -131,15 +131,15 @@ abstract class _$RankingMemberCopyWith<$Res>
 }
 
 /// @nodoc
-class __$RankingMemberCopyWithImpl<$Res>
+class __$$_RankingMemberCopyWithImpl<$Res>
     extends _$RankingMemberCopyWithImpl<$Res>
-    implements _$RankingMemberCopyWith<$Res> {
-  __$RankingMemberCopyWithImpl(
-      _RankingMember _value, $Res Function(_RankingMember) _then)
-      : super(_value, (v) => _then(v as _RankingMember));
+    implements _$$_RankingMemberCopyWith<$Res> {
+  __$$_RankingMemberCopyWithImpl(
+      _$_RankingMember _value, $Res Function(_$_RankingMember) _then)
+      : super(_value, (v) => _then(v as _$_RankingMember));
 
   @override
-  _RankingMember get _value => super._value as _RankingMember;
+  _$_RankingMember get _value => super._value as _$_RankingMember;
 
   @override
   $Res call({
@@ -151,7 +151,7 @@ class __$RankingMemberCopyWithImpl<$Res>
     Object? imageUrl = freezed,
     Object? thumbnailUrl = freezed,
   }) {
-    return _then(_RankingMember(
+    return _then(_$_RankingMember(
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -250,7 +250,7 @@ class _$_RankingMember with DiagnosticableTreeMixin implements _RankingMember {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RankingMember &&
+            other is _$_RankingMember &&
             const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
             const DeepCollectionEquality().equals(other.updatedAt, updatedAt) &&
             const DeepCollectionEquality().equals(other.order, order) &&
@@ -276,8 +276,8 @@ class _$_RankingMember with DiagnosticableTreeMixin implements _RankingMember {
 
   @JsonKey(ignore: true)
   @override
-  _$RankingMemberCopyWith<_RankingMember> get copyWith =>
-      __$RankingMemberCopyWithImpl<_RankingMember>(this, _$identity);
+  _$$_RankingMemberCopyWith<_$_RankingMember> get copyWith =>
+      __$$_RankingMemberCopyWithImpl<_$_RankingMember>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -326,6 +326,6 @@ abstract class _RankingMember implements RankingMember {
   String? get thumbnailUrl => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$RankingMemberCopyWith<_RankingMember> get copyWith =>
+  _$$_RankingMemberCopyWith<_$_RankingMember> get copyWith =>
       throw _privateConstructorUsedError;
 }

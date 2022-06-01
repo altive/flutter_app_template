@@ -162,11 +162,11 @@ class _$EveryonesStockModelCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$EveryonesStockModelCopyWith<$Res>
+abstract class _$$_EveryonesStockModelCopyWith<$Res>
     implements $EveryonesStockModelCopyWith<$Res> {
-  factory _$EveryonesStockModelCopyWith(_EveryonesStockModel value,
-          $Res Function(_EveryonesStockModel) then) =
-      __$EveryonesStockModelCopyWithImpl<$Res>;
+  factory _$$_EveryonesStockModelCopyWith(_$_EveryonesStockModel value,
+          $Res Function(_$_EveryonesStockModel) then) =
+      __$$_EveryonesStockModelCopyWithImpl<$Res>;
   @override
   $Res call(
       {@TimestampConverter() DateTime? createdAt,
@@ -184,15 +184,15 @@ abstract class _$EveryonesStockModelCopyWith<$Res>
 }
 
 /// @nodoc
-class __$EveryonesStockModelCopyWithImpl<$Res>
+class __$$_EveryonesStockModelCopyWithImpl<$Res>
     extends _$EveryonesStockModelCopyWithImpl<$Res>
-    implements _$EveryonesStockModelCopyWith<$Res> {
-  __$EveryonesStockModelCopyWithImpl(
-      _EveryonesStockModel _value, $Res Function(_EveryonesStockModel) _then)
-      : super(_value, (v) => _then(v as _EveryonesStockModel));
+    implements _$$_EveryonesStockModelCopyWith<$Res> {
+  __$$_EveryonesStockModelCopyWithImpl(_$_EveryonesStockModel _value,
+      $Res Function(_$_EveryonesStockModel) _then)
+      : super(_value, (v) => _then(v as _$_EveryonesStockModel));
 
   @override
-  _EveryonesStockModel get _value => super._value as _EveryonesStockModel;
+  _$_EveryonesStockModel get _value => super._value as _$_EveryonesStockModel;
 
   @override
   $Res call({
@@ -209,7 +209,7 @@ class __$EveryonesStockModelCopyWithImpl<$Res>
     Object? imageUrlLarge = freezed,
     Object? nickname = freezed,
   }) {
-    return _then(_EveryonesStockModel(
+    return _then(_$_EveryonesStockModel(
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -363,7 +363,7 @@ class _$_EveryonesStockModel extends _EveryonesStockModel
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _EveryonesStockModel &&
+            other is _$_EveryonesStockModel &&
             const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality()
@@ -403,8 +403,8 @@ class _$_EveryonesStockModel extends _EveryonesStockModel
 
   @JsonKey(ignore: true)
   @override
-  _$EveryonesStockModelCopyWith<_EveryonesStockModel> get copyWith =>
-      __$EveryonesStockModelCopyWithImpl<_EveryonesStockModel>(
+  _$$_EveryonesStockModelCopyWith<_$_EveryonesStockModel> get copyWith =>
+      __$$_EveryonesStockModelCopyWithImpl<_$_EveryonesStockModel>(
           this, _$identity);
 
   @override
@@ -484,6 +484,6 @@ abstract class _EveryonesStockModel extends EveryonesStockModel {
   String get nickname => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$EveryonesStockModelCopyWith<_EveryonesStockModel> get copyWith =>
+  _$$_EveryonesStockModelCopyWith<_$_EveryonesStockModel> get copyWith =>
       throw _privateConstructorUsedError;
 }

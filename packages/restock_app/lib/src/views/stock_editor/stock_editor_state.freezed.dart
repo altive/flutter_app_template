@@ -139,11 +139,11 @@ class _$StockEditorStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$StockEditorStateCopyWith<$Res>
+abstract class _$$_StockEditorStateCopyWith<$Res>
     implements $StockEditorStateCopyWith<$Res> {
-  factory _$StockEditorStateCopyWith(
-          _StockEditorState value, $Res Function(_StockEditorState) then) =
-      __$StockEditorStateCopyWithImpl<$Res>;
+  factory _$$_StockEditorStateCopyWith(
+          _$_StockEditorState value, $Res Function(_$_StockEditorState) then) =
+      __$$_StockEditorStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {bool hasChanged,
@@ -161,15 +161,15 @@ abstract class _$StockEditorStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$StockEditorStateCopyWithImpl<$Res>
+class __$$_StockEditorStateCopyWithImpl<$Res>
     extends _$StockEditorStateCopyWithImpl<$Res>
-    implements _$StockEditorStateCopyWith<$Res> {
-  __$StockEditorStateCopyWithImpl(
-      _StockEditorState _value, $Res Function(_StockEditorState) _then)
-      : super(_value, (v) => _then(v as _StockEditorState));
+    implements _$$_StockEditorStateCopyWith<$Res> {
+  __$$_StockEditorStateCopyWithImpl(
+      _$_StockEditorState _value, $Res Function(_$_StockEditorState) _then)
+      : super(_value, (v) => _then(v as _$_StockEditorState));
 
   @override
-  _StockEditorState get _value => super._value as _StockEditorState;
+  _$_StockEditorState get _value => super._value as _$_StockEditorState;
 
   @override
   $Res call({
@@ -186,7 +186,7 @@ class __$StockEditorStateCopyWithImpl<$Res>
     Object? isNotificationEnabled = freezed,
     Object? stockCategory = freezed,
   }) {
-    return _then(_StockEditorState(
+    return _then(_$_StockEditorState(
       hasChanged: hasChanged == freezed
           ? _value.hasChanged
           : hasChanged // ignore: cast_nullable_to_non_nullable
@@ -310,7 +310,7 @@ class _$_StockEditorState implements _StockEditorState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _StockEditorState &&
+            other is _$_StockEditorState &&
             const DeepCollectionEquality()
                 .equals(other.hasChanged, hasChanged) &&
             const DeepCollectionEquality().equals(other.loading, loading) &&
@@ -350,8 +350,8 @@ class _$_StockEditorState implements _StockEditorState {
 
   @JsonKey(ignore: true)
   @override
-  _$StockEditorStateCopyWith<_StockEditorState> get copyWith =>
-      __$StockEditorStateCopyWithImpl<_StockEditorState>(this, _$identity);
+  _$$_StockEditorStateCopyWith<_$_StockEditorState> get copyWith =>
+      __$$_StockEditorStateCopyWithImpl<_$_StockEditorState>(this, _$identity);
 }
 
 abstract class _StockEditorState implements StockEditorState {
@@ -399,6 +399,6 @@ abstract class _StockEditorState implements StockEditorState {
   String? get stockCategory => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$StockEditorStateCopyWith<_StockEditorState> get copyWith =>
+  _$$_StockEditorStateCopyWith<_$_StockEditorState> get copyWith =>
       throw _privateConstructorUsedError;
 }

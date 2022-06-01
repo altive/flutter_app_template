@@ -62,38 +62,38 @@ class _$TimelineStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$TimelineStateCopyWith<$Res>
+abstract class _$$_TimelineStateCopyWith<$Res>
     implements $TimelineStateCopyWith<$Res> {
-  factory _$TimelineStateCopyWith(
-          _TimelineState value, $Res Function(_TimelineState) then) =
-      __$TimelineStateCopyWithImpl<$Res>;
+  factory _$$_TimelineStateCopyWith(
+          _$_TimelineState value, $Res Function(_$_TimelineState) then) =
+      __$$_TimelineStateCopyWithImpl<$Res>;
   @override
   $Res call({bool loading, List<EveryonesStockModel> displayItems});
 }
 
 /// @nodoc
-class __$TimelineStateCopyWithImpl<$Res>
+class __$$_TimelineStateCopyWithImpl<$Res>
     extends _$TimelineStateCopyWithImpl<$Res>
-    implements _$TimelineStateCopyWith<$Res> {
-  __$TimelineStateCopyWithImpl(
-      _TimelineState _value, $Res Function(_TimelineState) _then)
-      : super(_value, (v) => _then(v as _TimelineState));
+    implements _$$_TimelineStateCopyWith<$Res> {
+  __$$_TimelineStateCopyWithImpl(
+      _$_TimelineState _value, $Res Function(_$_TimelineState) _then)
+      : super(_value, (v) => _then(v as _$_TimelineState));
 
   @override
-  _TimelineState get _value => super._value as _TimelineState;
+  _$_TimelineState get _value => super._value as _$_TimelineState;
 
   @override
   $Res call({
     Object? loading = freezed,
     Object? displayItems = freezed,
   }) {
-    return _then(_TimelineState(
+    return _then(_$_TimelineState(
       loading: loading == freezed
           ? _value.loading
           : loading // ignore: cast_nullable_to_non_nullable
               as bool,
       displayItems: displayItems == freezed
-          ? _value.displayItems
+          ? _value._displayItems
           : displayItems // ignore: cast_nullable_to_non_nullable
               as List<EveryonesStockModel>,
     ));
@@ -141,22 +141,22 @@ class _$_TimelineState with DiagnosticableTreeMixin implements _TimelineState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _TimelineState &&
+            other is _$_TimelineState &&
             const DeepCollectionEquality().equals(other.loading, loading) &&
             const DeepCollectionEquality()
-                .equals(other.displayItems, displayItems));
+                .equals(other._displayItems, _displayItems));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(loading),
-      const DeepCollectionEquality().hash(displayItems));
+      const DeepCollectionEquality().hash(_displayItems));
 
   @JsonKey(ignore: true)
   @override
-  _$TimelineStateCopyWith<_TimelineState> get copyWith =>
-      __$TimelineStateCopyWithImpl<_TimelineState>(this, _$identity);
+  _$$_TimelineStateCopyWith<_$_TimelineState> get copyWith =>
+      __$$_TimelineStateCopyWithImpl<_$_TimelineState>(this, _$identity);
 }
 
 abstract class _TimelineState implements TimelineState {
@@ -171,6 +171,6 @@ abstract class _TimelineState implements TimelineState {
       throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$TimelineStateCopyWith<_TimelineState> get copyWith =>
+  _$$_TimelineStateCopyWith<_$_TimelineState> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -55,31 +55,31 @@ class _$UserRequestStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$UserRequestStateCopyWith<$Res>
+abstract class _$$_UserRequestStateCopyWith<$Res>
     implements $UserRequestStateCopyWith<$Res> {
-  factory _$UserRequestStateCopyWith(
-          _UserRequestState value, $Res Function(_UserRequestState) then) =
-      __$UserRequestStateCopyWithImpl<$Res>;
+  factory _$$_UserRequestStateCopyWith(
+          _$_UserRequestState value, $Res Function(_$_UserRequestState) then) =
+      __$$_UserRequestStateCopyWithImpl<$Res>;
   @override
   $Res call({bool sending});
 }
 
 /// @nodoc
-class __$UserRequestStateCopyWithImpl<$Res>
+class __$$_UserRequestStateCopyWithImpl<$Res>
     extends _$UserRequestStateCopyWithImpl<$Res>
-    implements _$UserRequestStateCopyWith<$Res> {
-  __$UserRequestStateCopyWithImpl(
-      _UserRequestState _value, $Res Function(_UserRequestState) _then)
-      : super(_value, (v) => _then(v as _UserRequestState));
+    implements _$$_UserRequestStateCopyWith<$Res> {
+  __$$_UserRequestStateCopyWithImpl(
+      _$_UserRequestState _value, $Res Function(_$_UserRequestState) _then)
+      : super(_value, (v) => _then(v as _$_UserRequestState));
 
   @override
-  _UserRequestState get _value => super._value as _UserRequestState;
+  _$_UserRequestState get _value => super._value as _$_UserRequestState;
 
   @override
   $Res call({
     Object? sending = freezed,
   }) {
-    return _then(_UserRequestState(
+    return _then(_$_UserRequestState(
       sending: sending == freezed
           ? _value.sending
           : sending // ignore: cast_nullable_to_non_nullable
@@ -107,7 +107,7 @@ class _$_UserRequestState implements _UserRequestState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _UserRequestState &&
+            other is _$_UserRequestState &&
             const DeepCollectionEquality().equals(other.sending, sending));
   }
 
@@ -117,8 +117,8 @@ class _$_UserRequestState implements _UserRequestState {
 
   @JsonKey(ignore: true)
   @override
-  _$UserRequestStateCopyWith<_UserRequestState> get copyWith =>
-      __$UserRequestStateCopyWithImpl<_UserRequestState>(this, _$identity);
+  _$$_UserRequestStateCopyWith<_$_UserRequestState> get copyWith =>
+      __$$_UserRequestStateCopyWithImpl<_$_UserRequestState>(this, _$identity);
 }
 
 abstract class _UserRequestState implements UserRequestState {
@@ -128,6 +128,6 @@ abstract class _UserRequestState implements UserRequestState {
   bool get sending => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$UserRequestStateCopyWith<_UserRequestState> get copyWith =>
+  _$$_UserRequestStateCopyWith<_$_UserRequestState> get copyWith =>
       throw _privateConstructorUsedError;
 }

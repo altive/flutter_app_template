@@ -52,28 +52,29 @@ class _$StockNameCopyWithImpl<$Res> implements $StockNameCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$StockNameCopyWith<$Res> implements $StockNameCopyWith<$Res> {
-  factory _$StockNameCopyWith(
-          _StockName value, $Res Function(_StockName) then) =
-      __$StockNameCopyWithImpl<$Res>;
+abstract class _$$_StockNameCopyWith<$Res> implements $StockNameCopyWith<$Res> {
+  factory _$$_StockNameCopyWith(
+          _$_StockName value, $Res Function(_$_StockName) then) =
+      __$$_StockNameCopyWithImpl<$Res>;
   @override
   $Res call({String value});
 }
 
 /// @nodoc
-class __$StockNameCopyWithImpl<$Res> extends _$StockNameCopyWithImpl<$Res>
-    implements _$StockNameCopyWith<$Res> {
-  __$StockNameCopyWithImpl(_StockName _value, $Res Function(_StockName) _then)
-      : super(_value, (v) => _then(v as _StockName));
+class __$$_StockNameCopyWithImpl<$Res> extends _$StockNameCopyWithImpl<$Res>
+    implements _$$_StockNameCopyWith<$Res> {
+  __$$_StockNameCopyWithImpl(
+      _$_StockName _value, $Res Function(_$_StockName) _then)
+      : super(_value, (v) => _then(v as _$_StockName));
 
   @override
-  _StockName get _value => super._value as _StockName;
+  _$_StockName get _value => super._value as _$_StockName;
 
   @override
   $Res call({
     Object? value = freezed,
   }) {
-    return _then(_StockName(
+    return _then(_$_StockName(
       value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -107,7 +108,7 @@ class _$_StockName with DiagnosticableTreeMixin implements _StockName {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _StockName &&
+            other is _$_StockName &&
             const DeepCollectionEquality().equals(other.value, value));
   }
 
@@ -117,8 +118,8 @@ class _$_StockName with DiagnosticableTreeMixin implements _StockName {
 
   @JsonKey(ignore: true)
   @override
-  _$StockNameCopyWith<_StockName> get copyWith =>
-      __$StockNameCopyWithImpl<_StockName>(this, _$identity);
+  _$$_StockNameCopyWith<_$_StockName> get copyWith =>
+      __$$_StockNameCopyWithImpl<_$_StockName>(this, _$identity);
 }
 
 abstract class _StockName implements StockName {
@@ -128,7 +129,7 @@ abstract class _StockName implements StockName {
   String get value => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$StockNameCopyWith<_StockName> get copyWith =>
+  _$$_StockNameCopyWith<_$_StockName> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -387,11 +388,11 @@ class _$StockEntityCopyWithImpl<$Res> implements $StockEntityCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$StockEntityCopyWith<$Res>
+abstract class _$$_StockEntityCopyWith<$Res>
     implements $StockEntityCopyWith<$Res> {
-  factory _$StockEntityCopyWith(
-          _StockEntity value, $Res Function(_StockEntity) then) =
-      __$StockEntityCopyWithImpl<$Res>;
+  factory _$$_StockEntityCopyWith(
+          _$_StockEntity value, $Res Function(_$_StockEntity) then) =
+      __$$_StockEntityCopyWithImpl<$Res>;
   @override
   $Res call(
       {String? id,
@@ -422,14 +423,14 @@ abstract class _$StockEntityCopyWith<$Res>
 }
 
 /// @nodoc
-class __$StockEntityCopyWithImpl<$Res> extends _$StockEntityCopyWithImpl<$Res>
-    implements _$StockEntityCopyWith<$Res> {
-  __$StockEntityCopyWithImpl(
-      _StockEntity _value, $Res Function(_StockEntity) _then)
-      : super(_value, (v) => _then(v as _StockEntity));
+class __$$_StockEntityCopyWithImpl<$Res> extends _$StockEntityCopyWithImpl<$Res>
+    implements _$$_StockEntityCopyWith<$Res> {
+  __$$_StockEntityCopyWithImpl(
+      _$_StockEntity _value, $Res Function(_$_StockEntity) _then)
+      : super(_value, (v) => _then(v as _$_StockEntity));
 
   @override
-  _StockEntity get _value => super._value as _StockEntity;
+  _$_StockEntity get _value => super._value as _$_StockEntity;
 
   @override
   $Res call({
@@ -456,7 +457,7 @@ class __$StockEntityCopyWithImpl<$Res> extends _$StockEntityCopyWithImpl<$Res>
     Object? memo = freezed,
     Object? stockCategory = freezed,
   }) {
-    return _then(_StockEntity(
+    return _then(_$_StockEntity(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -723,7 +724,7 @@ class _$_StockEntity extends _StockEntity with DiagnosticableTreeMixin {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _StockEntity &&
+            other is _$_StockEntity &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.idNumber, idNumber) &&
             const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
@@ -791,8 +792,8 @@ class _$_StockEntity extends _StockEntity with DiagnosticableTreeMixin {
 
   @JsonKey(ignore: true)
   @override
-  _$StockEntityCopyWith<_StockEntity> get copyWith =>
-      __$StockEntityCopyWithImpl<_StockEntity>(this, _$identity);
+  _$$_StockEntityCopyWith<_$_StockEntity> get copyWith =>
+      __$$_StockEntityCopyWithImpl<_$_StockEntity>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -936,6 +937,6 @@ abstract class _StockEntity extends StockEntity {
   String? get stockCategory => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$StockEntityCopyWith<_StockEntity> get copyWith =>
+  _$$_StockEntityCopyWith<_$_StockEntity> get copyWith =>
       throw _privateConstructorUsedError;
 }

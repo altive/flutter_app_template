@@ -95,11 +95,11 @@ class _$NotificationPayloadCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$NotificationPayloadCopyWith<$Res>
+abstract class _$$_NotificationPayloadCopyWith<$Res>
     implements $NotificationPayloadCopyWith<$Res> {
-  factory _$NotificationPayloadCopyWith(_NotificationPayload value,
-          $Res Function(_NotificationPayload) then) =
-      __$NotificationPayloadCopyWithImpl<$Res>;
+  factory _$$_NotificationPayloadCopyWith(_$_NotificationPayload value,
+          $Res Function(_$_NotificationPayload) then) =
+      __$$_NotificationPayloadCopyWithImpl<$Res>;
   @override
   $Res call(
       {String documentId,
@@ -111,15 +111,15 @@ abstract class _$NotificationPayloadCopyWith<$Res>
 }
 
 /// @nodoc
-class __$NotificationPayloadCopyWithImpl<$Res>
+class __$$_NotificationPayloadCopyWithImpl<$Res>
     extends _$NotificationPayloadCopyWithImpl<$Res>
-    implements _$NotificationPayloadCopyWith<$Res> {
-  __$NotificationPayloadCopyWithImpl(
-      _NotificationPayload _value, $Res Function(_NotificationPayload) _then)
-      : super(_value, (v) => _then(v as _NotificationPayload));
+    implements _$$_NotificationPayloadCopyWith<$Res> {
+  __$$_NotificationPayloadCopyWithImpl(_$_NotificationPayload _value,
+      $Res Function(_$_NotificationPayload) _then)
+      : super(_value, (v) => _then(v as _$_NotificationPayload));
 
   @override
-  _NotificationPayload get _value => super._value as _NotificationPayload;
+  _$_NotificationPayload get _value => super._value as _$_NotificationPayload;
 
   @override
   $Res call({
@@ -130,7 +130,7 @@ class __$NotificationPayloadCopyWithImpl<$Res>
     Object? hour = freezed,
     Object? minute = freezed,
   }) {
-    return _then(_NotificationPayload(
+    return _then(_$_NotificationPayload(
       documentId: documentId == freezed
           ? _value.documentId
           : documentId // ignore: cast_nullable_to_non_nullable
@@ -211,7 +211,7 @@ class _$_NotificationPayload extends _NotificationPayload
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _NotificationPayload &&
+            other is _$_NotificationPayload &&
             const DeepCollectionEquality()
                 .equals(other.documentId, documentId) &&
             const DeepCollectionEquality().equals(other.itemName, itemName) &&
@@ -236,8 +236,8 @@ class _$_NotificationPayload extends _NotificationPayload
 
   @JsonKey(ignore: true)
   @override
-  _$NotificationPayloadCopyWith<_NotificationPayload> get copyWith =>
-      __$NotificationPayloadCopyWithImpl<_NotificationPayload>(
+  _$$_NotificationPayloadCopyWith<_$_NotificationPayload> get copyWith =>
+      __$$_NotificationPayloadCopyWithImpl<_$_NotificationPayload>(
           this, _$identity);
 
   @override
@@ -273,6 +273,6 @@ abstract class _NotificationPayload extends NotificationPayload {
   int get minute => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$NotificationPayloadCopyWith<_NotificationPayload> get copyWith =>
+  _$$_NotificationPayloadCopyWith<_$_NotificationPayload> get copyWith =>
       throw _privateConstructorUsedError;
 }

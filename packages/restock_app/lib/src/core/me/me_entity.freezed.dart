@@ -98,9 +98,10 @@ class _$MeEntityCopyWithImpl<$Res> implements $MeEntityCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$MeEntityCopyWith<$Res> implements $MeEntityCopyWith<$Res> {
-  factory _$MeEntityCopyWith(_MeEntity value, $Res Function(_MeEntity) then) =
-      __$MeEntityCopyWithImpl<$Res>;
+abstract class _$$_MeEntityCopyWith<$Res> implements $MeEntityCopyWith<$Res> {
+  factory _$$_MeEntityCopyWith(
+          _$_MeEntity value, $Res Function(_$_MeEntity) then) =
+      __$$_MeEntityCopyWithImpl<$Res>;
   @override
   $Res call(
       {@TimestampConverter() DateTime? createdAt,
@@ -111,13 +112,14 @@ abstract class _$MeEntityCopyWith<$Res> implements $MeEntityCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$MeEntityCopyWithImpl<$Res> extends _$MeEntityCopyWithImpl<$Res>
-    implements _$MeEntityCopyWith<$Res> {
-  __$MeEntityCopyWithImpl(_MeEntity _value, $Res Function(_MeEntity) _then)
-      : super(_value, (v) => _then(v as _MeEntity));
+class __$$_MeEntityCopyWithImpl<$Res> extends _$MeEntityCopyWithImpl<$Res>
+    implements _$$_MeEntityCopyWith<$Res> {
+  __$$_MeEntityCopyWithImpl(
+      _$_MeEntity _value, $Res Function(_$_MeEntity) _then)
+      : super(_value, (v) => _then(v as _$_MeEntity));
 
   @override
-  _MeEntity get _value => super._value as _MeEntity;
+  _$_MeEntity get _value => super._value as _$_MeEntity;
 
   @override
   $Res call({
@@ -127,7 +129,7 @@ class __$MeEntityCopyWithImpl<$Res> extends _$MeEntityCopyWithImpl<$Res>
     Object? groups = freezed,
     Object? isPrivateMyStock = freezed,
   }) {
-    return _then(_MeEntity(
+    return _then(_$_MeEntity(
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -141,7 +143,7 @@ class __$MeEntityCopyWithImpl<$Res> extends _$MeEntityCopyWithImpl<$Res>
           : nickname // ignore: cast_nullable_to_non_nullable
               as String?,
       groups: groups == freezed
-          ? _value.groups
+          ? _value._groups
           : groups // ignore: cast_nullable_to_non_nullable
               as List<String>?,
       isPrivateMyStock: isPrivateMyStock == freezed
@@ -182,7 +184,6 @@ class _$_MeEntity extends _MeEntity with DiagnosticableTreeMixin {
   final String? nickname;
 
   /// ユーザーが作成したグループリスト
-  @JsonKey(name: MeEntityField.groups)
   final List<String>? _groups;
 
   /// ユーザーが作成したグループリスト
@@ -220,11 +221,11 @@ class _$_MeEntity extends _MeEntity with DiagnosticableTreeMixin {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _MeEntity &&
+            other is _$_MeEntity &&
             const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
             const DeepCollectionEquality().equals(other.updatedAt, updatedAt) &&
             const DeepCollectionEquality().equals(other.nickname, nickname) &&
-            const DeepCollectionEquality().equals(other.groups, groups) &&
+            const DeepCollectionEquality().equals(other._groups, _groups) &&
             const DeepCollectionEquality()
                 .equals(other.isPrivateMyStock, isPrivateMyStock));
   }
@@ -236,13 +237,13 @@ class _$_MeEntity extends _MeEntity with DiagnosticableTreeMixin {
       const DeepCollectionEquality().hash(createdAt),
       const DeepCollectionEquality().hash(updatedAt),
       const DeepCollectionEquality().hash(nickname),
-      const DeepCollectionEquality().hash(groups),
+      const DeepCollectionEquality().hash(_groups),
       const DeepCollectionEquality().hash(isPrivateMyStock));
 
   @JsonKey(ignore: true)
   @override
-  _$MeEntityCopyWith<_MeEntity> get copyWith =>
-      __$MeEntityCopyWithImpl<_MeEntity>(this, _$identity);
+  _$$_MeEntityCopyWith<_$_MeEntity> get copyWith =>
+      __$$_MeEntityCopyWithImpl<_$_MeEntity>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -286,6 +287,6 @@ abstract class _MeEntity extends MeEntity {
   bool? get isPrivateMyStock => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$MeEntityCopyWith<_MeEntity> get copyWith =>
+  _$$_MeEntityCopyWith<_$_MeEntity> get copyWith =>
       throw _privateConstructorUsedError;
 }

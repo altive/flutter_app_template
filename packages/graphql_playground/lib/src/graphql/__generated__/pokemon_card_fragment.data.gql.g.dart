@@ -291,7 +291,7 @@ class _$GNestedFragmentData extends GNestedFragmentData {
 
   factory _$GNestedFragmentData(
           [void Function(GNestedFragmentDataBuilder)? updates]) =>
-      (new GNestedFragmentDataBuilder()..update(updates)).build();
+      (new GNestedFragmentDataBuilder()..update(updates))._build();
 
   _$GNestedFragmentData._(
       {required this.G__typename,
@@ -392,7 +392,9 @@ class GNestedFragmentDataBuilder
   }
 
   @override
-  _$GNestedFragmentData build() {
+  GNestedFragmentData build() => _build();
+
+  _$GNestedFragmentData _build() {
     final _$result = _$v ??
         new _$GNestedFragmentData._(
             G__typename: BuiltValueNullFieldError.checkNotNull(
@@ -424,7 +426,7 @@ class _$GPokemonCardData extends GPokemonCardData {
 
   factory _$GPokemonCardData(
           [void Function(GPokemonCardDataBuilder)? updates]) =>
-      (new GPokemonCardDataBuilder()..update(updates)).build();
+      (new GPokemonCardDataBuilder()..update(updates))._build();
 
   _$GPokemonCardData._(
       {required this.G__typename,
@@ -546,7 +548,9 @@ class GPokemonCardDataBuilder
   }
 
   @override
-  _$GPokemonCardData build() {
+  GPokemonCardData build() => _build();
+
+  _$GPokemonCardData _build() {
     _$GPokemonCardData _$result;
     try {
       _$result = _$v ??
@@ -587,7 +591,7 @@ class _$GPokemonCardData_height extends GPokemonCardData_height {
 
   factory _$GPokemonCardData_height(
           [void Function(GPokemonCardData_heightBuilder)? updates]) =>
-      (new GPokemonCardData_heightBuilder()..update(updates)).build();
+      (new GPokemonCardData_heightBuilder()..update(updates))._build();
 
   _$GPokemonCardData_height._({required this.G__typename, this.in_meter})
       : super._() {
@@ -665,7 +669,9 @@ class GPokemonCardData_heightBuilder
   }
 
   @override
-  _$GPokemonCardData_height build() {
+  GPokemonCardData_height build() => _build();
+
+  _$GPokemonCardData_height _build() {
     final _$result = _$v ??
         new _$GPokemonCardData_height._(
             G__typename: BuiltValueNullFieldError.checkNotNull(
@@ -684,7 +690,7 @@ class _$GPokemonCardData_weight extends GPokemonCardData_weight {
 
   factory _$GPokemonCardData_weight(
           [void Function(GPokemonCardData_weightBuilder)? updates]) =>
-      (new GPokemonCardData_weightBuilder()..update(updates)).build();
+      (new GPokemonCardData_weightBuilder()..update(updates))._build();
 
   _$GPokemonCardData_weight._({required this.G__typename, this.in_kg})
       : super._() {
@@ -762,7 +768,9 @@ class GPokemonCardData_weightBuilder
   }
 
   @override
-  _$GPokemonCardData_weight build() {
+  GPokemonCardData_weight build() => _build();
+
+  _$GPokemonCardData_weight _build() {
     final _$result = _$v ??
         new _$GPokemonCardData_weight._(
             G__typename: BuiltValueNullFieldError.checkNotNull(
@@ -773,4 +781,4 @@ class GPokemonCardData_weightBuilder
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new

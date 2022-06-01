@@ -84,11 +84,11 @@ class _$StockEditorParameterCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$StockEditorParameterCopyWith<$Res>
+abstract class _$$_StockEditorParameterCopyWith<$Res>
     implements $StockEditorParameterCopyWith<$Res> {
-  factory _$StockEditorParameterCopyWith(_StockEditorParameter value,
-          $Res Function(_StockEditorParameter) then) =
-      __$StockEditorParameterCopyWithImpl<$Res>;
+  factory _$$_StockEditorParameterCopyWith(_$_StockEditorParameter value,
+          $Res Function(_$_StockEditorParameter) then) =
+      __$$_StockEditorParameterCopyWithImpl<$Res>;
   @override
   $Res call({StockEditorMode? mode, StockEntity? stock, File? imageFile});
 
@@ -97,15 +97,15 @@ abstract class _$StockEditorParameterCopyWith<$Res>
 }
 
 /// @nodoc
-class __$StockEditorParameterCopyWithImpl<$Res>
+class __$$_StockEditorParameterCopyWithImpl<$Res>
     extends _$StockEditorParameterCopyWithImpl<$Res>
-    implements _$StockEditorParameterCopyWith<$Res> {
-  __$StockEditorParameterCopyWithImpl(
-      _StockEditorParameter _value, $Res Function(_StockEditorParameter) _then)
-      : super(_value, (v) => _then(v as _StockEditorParameter));
+    implements _$$_StockEditorParameterCopyWith<$Res> {
+  __$$_StockEditorParameterCopyWithImpl(_$_StockEditorParameter _value,
+      $Res Function(_$_StockEditorParameter) _then)
+      : super(_value, (v) => _then(v as _$_StockEditorParameter));
 
   @override
-  _StockEditorParameter get _value => super._value as _StockEditorParameter;
+  _$_StockEditorParameter get _value => super._value as _$_StockEditorParameter;
 
   @override
   $Res call({
@@ -113,7 +113,7 @@ class __$StockEditorParameterCopyWithImpl<$Res>
     Object? stock = freezed,
     Object? imageFile = freezed,
   }) {
-    return _then(_StockEditorParameter(
+    return _then(_$_StockEditorParameter(
       mode: mode == freezed
           ? _value.mode
           : mode // ignore: cast_nullable_to_non_nullable
@@ -168,7 +168,7 @@ class _$_StockEditorParameter
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _StockEditorParameter &&
+            other is _$_StockEditorParameter &&
             const DeepCollectionEquality().equals(other.mode, mode) &&
             const DeepCollectionEquality().equals(other.stock, stock) &&
             const DeepCollectionEquality().equals(other.imageFile, imageFile));
@@ -183,8 +183,8 @@ class _$_StockEditorParameter
 
   @JsonKey(ignore: true)
   @override
-  _$StockEditorParameterCopyWith<_StockEditorParameter> get copyWith =>
-      __$StockEditorParameterCopyWithImpl<_StockEditorParameter>(
+  _$$_StockEditorParameterCopyWith<_$_StockEditorParameter> get copyWith =>
+      __$$_StockEditorParameterCopyWithImpl<_$_StockEditorParameter>(
           this, _$identity);
 }
 
@@ -208,6 +208,6 @@ abstract class _StockEditorParameter implements StockEditorParameter {
   File? get imageFile => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$StockEditorParameterCopyWith<_StockEditorParameter> get copyWith =>
+  _$$_StockEditorParameterCopyWith<_$_StockEditorParameter> get copyWith =>
       throw _privateConstructorUsedError;
 }

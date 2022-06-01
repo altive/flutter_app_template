@@ -54,30 +54,30 @@ class _$SplashStateCopyWithImpl<$Res> implements $SplashStateCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$SplashStateCopyWith<$Res>
+abstract class _$$_SplashStateCopyWith<$Res>
     implements $SplashStateCopyWith<$Res> {
-  factory _$SplashStateCopyWith(
-          _SplashState value, $Res Function(_SplashState) then) =
-      __$SplashStateCopyWithImpl<$Res>;
+  factory _$$_SplashStateCopyWith(
+          _$_SplashState value, $Res Function(_$_SplashState) then) =
+      __$$_SplashStateCopyWithImpl<$Res>;
   @override
   $Res call({bool loading});
 }
 
 /// @nodoc
-class __$SplashStateCopyWithImpl<$Res> extends _$SplashStateCopyWithImpl<$Res>
-    implements _$SplashStateCopyWith<$Res> {
-  __$SplashStateCopyWithImpl(
-      _SplashState _value, $Res Function(_SplashState) _then)
-      : super(_value, (v) => _then(v as _SplashState));
+class __$$_SplashStateCopyWithImpl<$Res> extends _$SplashStateCopyWithImpl<$Res>
+    implements _$$_SplashStateCopyWith<$Res> {
+  __$$_SplashStateCopyWithImpl(
+      _$_SplashState _value, $Res Function(_$_SplashState) _then)
+      : super(_value, (v) => _then(v as _$_SplashState));
 
   @override
-  _SplashState get _value => super._value as _SplashState;
+  _$_SplashState get _value => super._value as _$_SplashState;
 
   @override
   $Res call({
     Object? loading = freezed,
   }) {
-    return _then(_SplashState(
+    return _then(_$_SplashState(
       loading: loading == freezed
           ? _value.loading
           : loading // ignore: cast_nullable_to_non_nullable
@@ -105,7 +105,7 @@ class _$_SplashState implements _SplashState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _SplashState &&
+            other is _$_SplashState &&
             const DeepCollectionEquality().equals(other.loading, loading));
   }
 
@@ -115,8 +115,8 @@ class _$_SplashState implements _SplashState {
 
   @JsonKey(ignore: true)
   @override
-  _$SplashStateCopyWith<_SplashState> get copyWith =>
-      __$SplashStateCopyWithImpl<_SplashState>(this, _$identity);
+  _$$_SplashStateCopyWith<_$_SplashState> get copyWith =>
+      __$$_SplashStateCopyWithImpl<_$_SplashState>(this, _$identity);
 }
 
 abstract class _SplashState implements SplashState {
@@ -126,6 +126,6 @@ abstract class _SplashState implements SplashState {
   bool get loading => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$SplashStateCopyWith<_SplashState> get copyWith =>
+  _$$_SplashStateCopyWith<_$_SplashState> get copyWith =>
       throw _privateConstructorUsedError;
 }

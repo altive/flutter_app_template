@@ -369,7 +369,7 @@ class _$GPokemonDetailData extends GPokemonDetailData {
 
   factory _$GPokemonDetailData(
           [void Function(GPokemonDetailDataBuilder)? updates]) =>
-      (new GPokemonDetailDataBuilder()..update(updates)).build();
+      (new GPokemonDetailDataBuilder()..update(updates))._build();
 
   _$GPokemonDetailData._({required this.G__typename, this.pokemon})
       : super._() {
@@ -448,7 +448,9 @@ class GPokemonDetailDataBuilder
   }
 
   @override
-  _$GPokemonDetailData build() {
+  GPokemonDetailData build() => _build();
+
+  _$GPokemonDetailData _build() {
     _$GPokemonDetailData _$result;
     try {
       _$result = _$v ??
@@ -490,7 +492,7 @@ class _$GPokemonDetailData_pokemon extends GPokemonDetailData_pokemon {
 
   factory _$GPokemonDetailData_pokemon(
           [void Function(GPokemonDetailData_pokemonBuilder)? updates]) =>
-      (new GPokemonDetailData_pokemonBuilder()..update(updates)).build();
+      (new GPokemonDetailData_pokemonBuilder()..update(updates))._build();
 
   _$GPokemonDetailData_pokemon._(
       {required this.G__typename,
@@ -631,7 +633,9 @@ class GPokemonDetailData_pokemonBuilder
   }
 
   @override
-  _$GPokemonDetailData_pokemon build() {
+  GPokemonDetailData_pokemon build() => _build();
+
+  _$GPokemonDetailData_pokemon _build() {
     _$GPokemonDetailData_pokemon _$result;
     try {
       _$result = _$v ??
@@ -676,7 +680,8 @@ class _$GPokemonDetailData_pokemon_height
 
   factory _$GPokemonDetailData_pokemon_height(
           [void Function(GPokemonDetailData_pokemon_heightBuilder)? updates]) =>
-      (new GPokemonDetailData_pokemon_heightBuilder()..update(updates)).build();
+      (new GPokemonDetailData_pokemon_heightBuilder()..update(updates))
+          ._build();
 
   _$GPokemonDetailData_pokemon_height._(
       {required this.G__typename, this.in_meter})
@@ -757,7 +762,9 @@ class GPokemonDetailData_pokemon_heightBuilder
   }
 
   @override
-  _$GPokemonDetailData_pokemon_height build() {
+  GPokemonDetailData_pokemon_height build() => _build();
+
+  _$GPokemonDetailData_pokemon_height _build() {
     final _$result = _$v ??
         new _$GPokemonDetailData_pokemon_height._(
             G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
@@ -777,7 +784,8 @@ class _$GPokemonDetailData_pokemon_weight
 
   factory _$GPokemonDetailData_pokemon_weight(
           [void Function(GPokemonDetailData_pokemon_weightBuilder)? updates]) =>
-      (new GPokemonDetailData_pokemon_weightBuilder()..update(updates)).build();
+      (new GPokemonDetailData_pokemon_weightBuilder()..update(updates))
+          ._build();
 
   _$GPokemonDetailData_pokemon_weight._({required this.G__typename, this.in_kg})
       : super._() {
@@ -857,7 +865,9 @@ class GPokemonDetailData_pokemon_weightBuilder
   }
 
   @override
-  _$GPokemonDetailData_pokemon_weight build() {
+  GPokemonDetailData_pokemon_weight build() => _build();
+
+  _$GPokemonDetailData_pokemon_weight _build() {
     final _$result = _$v ??
         new _$GPokemonDetailData_pokemon_weight._(
             G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
@@ -879,7 +889,7 @@ class _$GPokemonDetailData_pokemon_stats
 
   factory _$GPokemonDetailData_pokemon_stats(
           [void Function(GPokemonDetailData_pokemon_statsBuilder)? updates]) =>
-      (new GPokemonDetailData_pokemon_statsBuilder()..update(updates)).build();
+      (new GPokemonDetailData_pokemon_statsBuilder()..update(updates))._build();
 
   _$GPokemonDetailData_pokemon_stats._(
       {required this.G__typename, this.id, this.name})
@@ -967,7 +977,9 @@ class GPokemonDetailData_pokemon_statsBuilder
   }
 
   @override
-  _$GPokemonDetailData_pokemon_stats build() {
+  GPokemonDetailData_pokemon_stats build() => _build();
+
+  _$GPokemonDetailData_pokemon_stats _build() {
     final _$result = _$v ??
         new _$GPokemonDetailData_pokemon_stats._(
             G__typename: BuiltValueNullFieldError.checkNotNull(
@@ -979,4 +991,4 @@ class GPokemonDetailData_pokemon_statsBuilder
   }
 }
 
-// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new
+// ignore_for_file: always_put_control_body_on_new_line,always_specify_types,annotate_overrides,avoid_annotating_with_dynamic,avoid_as,avoid_catches_without_on_clauses,avoid_returning_this,deprecated_member_use_from_same_package,lines_longer_than_80_chars,no_leading_underscores_for_local_identifiers,omit_local_variable_types,prefer_expression_function_bodies,sort_constructors_first,test_types_in_equals,unnecessary_const,unnecessary_new

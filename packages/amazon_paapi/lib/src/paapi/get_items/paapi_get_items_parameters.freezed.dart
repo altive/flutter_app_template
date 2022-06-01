@@ -61,39 +61,39 @@ class _$PaapiGetItemsParametersCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$PaapiGetItemsParametersCopyWith<$Res>
+abstract class _$$_PaapiGetItemsParametersCopyWith<$Res>
     implements $PaapiGetItemsParametersCopyWith<$Res> {
-  factory _$PaapiGetItemsParametersCopyWith(_PaapiGetItemsParameters value,
-          $Res Function(_PaapiGetItemsParameters) then) =
-      __$PaapiGetItemsParametersCopyWithImpl<$Res>;
+  factory _$$_PaapiGetItemsParametersCopyWith(_$_PaapiGetItemsParameters value,
+          $Res Function(_$_PaapiGetItemsParameters) then) =
+      __$$_PaapiGetItemsParametersCopyWithImpl<$Res>;
   @override
   $Res call({List<String> asin, List<String> resources});
 }
 
 /// @nodoc
-class __$PaapiGetItemsParametersCopyWithImpl<$Res>
+class __$$_PaapiGetItemsParametersCopyWithImpl<$Res>
     extends _$PaapiGetItemsParametersCopyWithImpl<$Res>
-    implements _$PaapiGetItemsParametersCopyWith<$Res> {
-  __$PaapiGetItemsParametersCopyWithImpl(_PaapiGetItemsParameters _value,
-      $Res Function(_PaapiGetItemsParameters) _then)
-      : super(_value, (v) => _then(v as _PaapiGetItemsParameters));
+    implements _$$_PaapiGetItemsParametersCopyWith<$Res> {
+  __$$_PaapiGetItemsParametersCopyWithImpl(_$_PaapiGetItemsParameters _value,
+      $Res Function(_$_PaapiGetItemsParameters) _then)
+      : super(_value, (v) => _then(v as _$_PaapiGetItemsParameters));
 
   @override
-  _PaapiGetItemsParameters get _value =>
-      super._value as _PaapiGetItemsParameters;
+  _$_PaapiGetItemsParameters get _value =>
+      super._value as _$_PaapiGetItemsParameters;
 
   @override
   $Res call({
     Object? asin = freezed,
     Object? resources = freezed,
   }) {
-    return _then(_PaapiGetItemsParameters(
+    return _then(_$_PaapiGetItemsParameters(
       asin: asin == freezed
-          ? _value.asin
+          ? _value._asin
           : asin // ignore: cast_nullable_to_non_nullable
               as List<String>,
       resources: resources == freezed
-          ? _value.resources
+          ? _value._resources
           : resources // ignore: cast_nullable_to_non_nullable
               as List<String>,
     ));
@@ -149,22 +149,24 @@ class _$_PaapiGetItemsParameters
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _PaapiGetItemsParameters &&
-            const DeepCollectionEquality().equals(other.asin, asin) &&
-            const DeepCollectionEquality().equals(other.resources, resources));
+            other is _$_PaapiGetItemsParameters &&
+            const DeepCollectionEquality().equals(other._asin, _asin) &&
+            const DeepCollectionEquality()
+                .equals(other._resources, _resources));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(asin),
-      const DeepCollectionEquality().hash(resources));
+      const DeepCollectionEquality().hash(_asin),
+      const DeepCollectionEquality().hash(_resources));
 
   @JsonKey(ignore: true)
   @override
-  _$PaapiGetItemsParametersCopyWith<_PaapiGetItemsParameters> get copyWith =>
-      __$PaapiGetItemsParametersCopyWithImpl<_PaapiGetItemsParameters>(
-          this, _$identity);
+  _$$_PaapiGetItemsParametersCopyWith<_$_PaapiGetItemsParameters>
+      get copyWith =>
+          __$$_PaapiGetItemsParametersCopyWithImpl<_$_PaapiGetItemsParameters>(
+              this, _$identity);
 }
 
 abstract class _PaapiGetItemsParameters implements PaapiGetItemsParameters {
@@ -178,6 +180,6 @@ abstract class _PaapiGetItemsParameters implements PaapiGetItemsParameters {
   List<String> get resources => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$PaapiGetItemsParametersCopyWith<_PaapiGetItemsParameters> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$_PaapiGetItemsParametersCopyWith<_$_PaapiGetItemsParameters>
+      get copyWith => throw _privateConstructorUsedError;
 }

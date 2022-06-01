@@ -73,28 +73,29 @@ class _$ResultCopyWithImpl<S, F, $Res> implements $ResultCopyWith<S, F, $Res> {
 }
 
 /// @nodoc
-abstract class $SuccessCopyWith<S, F, $Res> {
-  factory $SuccessCopyWith(
-          Success<S, F> value, $Res Function(Success<S, F>) then) =
-      _$SuccessCopyWithImpl<S, F, $Res>;
+abstract class _$$SuccessCopyWith<S, F, $Res> {
+  factory _$$SuccessCopyWith(
+          _$Success<S, F> value, $Res Function(_$Success<S, F>) then) =
+      __$$SuccessCopyWithImpl<S, F, $Res>;
   $Res call({S value});
 }
 
 /// @nodoc
-class _$SuccessCopyWithImpl<S, F, $Res> extends _$ResultCopyWithImpl<S, F, $Res>
-    implements $SuccessCopyWith<S, F, $Res> {
-  _$SuccessCopyWithImpl(
-      Success<S, F> _value, $Res Function(Success<S, F>) _then)
-      : super(_value, (v) => _then(v as Success<S, F>));
+class __$$SuccessCopyWithImpl<S, F, $Res>
+    extends _$ResultCopyWithImpl<S, F, $Res>
+    implements _$$SuccessCopyWith<S, F, $Res> {
+  __$$SuccessCopyWithImpl(
+      _$Success<S, F> _value, $Res Function(_$Success<S, F>) _then)
+      : super(_value, (v) => _then(v as _$Success<S, F>));
 
   @override
-  Success<S, F> get _value => super._value as Success<S, F>;
+  _$Success<S, F> get _value => super._value as _$Success<S, F>;
 
   @override
   $Res call({
     Object? value = freezed,
   }) {
-    return _then(Success<S, F>(
+    return _then(_$Success<S, F>(
       value == freezed
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -128,7 +129,7 @@ class _$Success<S, F> extends Success<S, F> with DiagnosticableTreeMixin {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is Success<S, F> &&
+            other is _$Success<S, F> &&
             const DeepCollectionEquality().equals(other.value, value));
   }
 
@@ -138,8 +139,8 @@ class _$Success<S, F> extends Success<S, F> with DiagnosticableTreeMixin {
 
   @JsonKey(ignore: true)
   @override
-  $SuccessCopyWith<S, F, Success<S, F>> get copyWith =>
-      _$SuccessCopyWithImpl<S, F, Success<S, F>>(this, _$identity);
+  _$$SuccessCopyWith<S, F, _$Success<S, F>> get copyWith =>
+      __$$SuccessCopyWithImpl<S, F, _$Success<S, F>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -210,33 +211,34 @@ abstract class Success<S, F> extends Result<S, F> {
 
   S get value => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SuccessCopyWith<S, F, Success<S, F>> get copyWith =>
+  _$$SuccessCopyWith<S, F, _$Success<S, F>> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $FailureCopyWith<S, F, $Res> {
-  factory $FailureCopyWith(
-          Failure<S, F> value, $Res Function(Failure<S, F>) then) =
-      _$FailureCopyWithImpl<S, F, $Res>;
+abstract class _$$FailureCopyWith<S, F, $Res> {
+  factory _$$FailureCopyWith(
+          _$Failure<S, F> value, $Res Function(_$Failure<S, F>) then) =
+      __$$FailureCopyWithImpl<S, F, $Res>;
   $Res call({F exception});
 }
 
 /// @nodoc
-class _$FailureCopyWithImpl<S, F, $Res> extends _$ResultCopyWithImpl<S, F, $Res>
-    implements $FailureCopyWith<S, F, $Res> {
-  _$FailureCopyWithImpl(
-      Failure<S, F> _value, $Res Function(Failure<S, F>) _then)
-      : super(_value, (v) => _then(v as Failure<S, F>));
+class __$$FailureCopyWithImpl<S, F, $Res>
+    extends _$ResultCopyWithImpl<S, F, $Res>
+    implements _$$FailureCopyWith<S, F, $Res> {
+  __$$FailureCopyWithImpl(
+      _$Failure<S, F> _value, $Res Function(_$Failure<S, F>) _then)
+      : super(_value, (v) => _then(v as _$Failure<S, F>));
 
   @override
-  Failure<S, F> get _value => super._value as Failure<S, F>;
+  _$Failure<S, F> get _value => super._value as _$Failure<S, F>;
 
   @override
   $Res call({
     Object? exception = freezed,
   }) {
-    return _then(Failure<S, F>(
+    return _then(_$Failure<S, F>(
       exception == freezed
           ? _value.exception
           : exception // ignore: cast_nullable_to_non_nullable
@@ -270,7 +272,7 @@ class _$Failure<S, F> extends Failure<S, F> with DiagnosticableTreeMixin {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is Failure<S, F> &&
+            other is _$Failure<S, F> &&
             const DeepCollectionEquality().equals(other.exception, exception));
   }
 
@@ -280,8 +282,8 @@ class _$Failure<S, F> extends Failure<S, F> with DiagnosticableTreeMixin {
 
   @JsonKey(ignore: true)
   @override
-  $FailureCopyWith<S, F, Failure<S, F>> get copyWith =>
-      _$FailureCopyWithImpl<S, F, Failure<S, F>>(this, _$identity);
+  _$$FailureCopyWith<S, F, _$Failure<S, F>> get copyWith =>
+      __$$FailureCopyWithImpl<S, F, _$Failure<S, F>>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -352,6 +354,6 @@ abstract class Failure<S, F> extends Result<S, F> {
 
   F get exception => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $FailureCopyWith<S, F, Failure<S, F>> get copyWith =>
+  _$$FailureCopyWith<S, F, _$Failure<S, F>> get copyWith =>
       throw _privateConstructorUsedError;
 }

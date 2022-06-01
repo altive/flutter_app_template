@@ -73,11 +73,11 @@ class _$RevenueStateCopyWithImpl<$Res> implements $RevenueStateCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$RevenueStateCopyWith<$Res>
+abstract class _$$_RevenueStateCopyWith<$Res>
     implements $RevenueStateCopyWith<$Res> {
-  factory _$RevenueStateCopyWith(
-          _RevenueState value, $Res Function(_RevenueState) then) =
-      __$RevenueStateCopyWithImpl<$Res>;
+  factory _$$_RevenueStateCopyWith(
+          _$_RevenueState value, $Res Function(_$_RevenueState) then) =
+      __$$_RevenueStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {bool isSubscriber,
@@ -86,14 +86,15 @@ abstract class _$RevenueStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$RevenueStateCopyWithImpl<$Res> extends _$RevenueStateCopyWithImpl<$Res>
-    implements _$RevenueStateCopyWith<$Res> {
-  __$RevenueStateCopyWithImpl(
-      _RevenueState _value, $Res Function(_RevenueState) _then)
-      : super(_value, (v) => _then(v as _RevenueState));
+class __$$_RevenueStateCopyWithImpl<$Res>
+    extends _$RevenueStateCopyWithImpl<$Res>
+    implements _$$_RevenueStateCopyWith<$Res> {
+  __$$_RevenueStateCopyWithImpl(
+      _$_RevenueState _value, $Res Function(_$_RevenueState) _then)
+      : super(_value, (v) => _then(v as _$_RevenueState));
 
   @override
-  _RevenueState get _value => super._value as _RevenueState;
+  _$_RevenueState get _value => super._value as _$_RevenueState;
 
   @override
   $Res call({
@@ -101,7 +102,7 @@ class __$RevenueStateCopyWithImpl<$Res> extends _$RevenueStateCopyWithImpl<$Res>
     Object? updatedDateString = freezed,
     Object? latestExpirationDateString = freezed,
   }) {
-    return _then(_RevenueState(
+    return _then(_$_RevenueState(
       isSubscriber: isSubscriber == freezed
           ? _value.isSubscriber
           : isSubscriber // ignore: cast_nullable_to_non_nullable
@@ -159,7 +160,7 @@ class _$_RevenueState with DiagnosticableTreeMixin implements _RevenueState {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _RevenueState &&
+            other is _$_RevenueState &&
             const DeepCollectionEquality()
                 .equals(other.isSubscriber, isSubscriber) &&
             const DeepCollectionEquality()
@@ -177,8 +178,8 @@ class _$_RevenueState with DiagnosticableTreeMixin implements _RevenueState {
 
   @JsonKey(ignore: true)
   @override
-  _$RevenueStateCopyWith<_RevenueState> get copyWith =>
-      __$RevenueStateCopyWithImpl<_RevenueState>(this, _$identity);
+  _$$_RevenueStateCopyWith<_$_RevenueState> get copyWith =>
+      __$$_RevenueStateCopyWithImpl<_$_RevenueState>(this, _$identity);
 }
 
 abstract class _RevenueState implements RevenueState {
@@ -201,6 +202,6 @@ abstract class _RevenueState implements RevenueState {
   String? get latestExpirationDateString => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$RevenueStateCopyWith<_RevenueState> get copyWith =>
+  _$$_RevenueStateCopyWith<_$_RevenueState> get copyWith =>
       throw _privateConstructorUsedError;
 }

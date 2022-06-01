@@ -143,11 +143,11 @@ class _$FavoriteItemCopyWithImpl<$Res> implements $FavoriteItemCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$FavoriteItemCopyWith<$Res>
+abstract class _$$_FavoriteItemCopyWith<$Res>
     implements $FavoriteItemCopyWith<$Res> {
-  factory _$FavoriteItemCopyWith(
-          _FavoriteItem value, $Res Function(_FavoriteItem) then) =
-      __$FavoriteItemCopyWithImpl<$Res>;
+  factory _$$_FavoriteItemCopyWith(
+          _$_FavoriteItem value, $Res Function(_$_FavoriteItem) then) =
+      __$$_FavoriteItemCopyWithImpl<$Res>;
   @override
   $Res call(
       {@TimestampConverter() DateTime? createdAt,
@@ -163,14 +163,15 @@ abstract class _$FavoriteItemCopyWith<$Res>
 }
 
 /// @nodoc
-class __$FavoriteItemCopyWithImpl<$Res> extends _$FavoriteItemCopyWithImpl<$Res>
-    implements _$FavoriteItemCopyWith<$Res> {
-  __$FavoriteItemCopyWithImpl(
-      _FavoriteItem _value, $Res Function(_FavoriteItem) _then)
-      : super(_value, (v) => _then(v as _FavoriteItem));
+class __$$_FavoriteItemCopyWithImpl<$Res>
+    extends _$FavoriteItemCopyWithImpl<$Res>
+    implements _$$_FavoriteItemCopyWith<$Res> {
+  __$$_FavoriteItemCopyWithImpl(
+      _$_FavoriteItem _value, $Res Function(_$_FavoriteItem) _then)
+      : super(_value, (v) => _then(v as _$_FavoriteItem));
 
   @override
-  _FavoriteItem get _value => super._value as _FavoriteItem;
+  _$_FavoriteItem get _value => super._value as _$_FavoriteItem;
 
   @override
   $Res call({
@@ -185,7 +186,7 @@ class __$FavoriteItemCopyWithImpl<$Res> extends _$FavoriteItemCopyWithImpl<$Res>
     Object? imageUrlMedium = freezed,
     Object? imageUrlLarge = freezed,
   }) {
-    return _then(_FavoriteItem(
+    return _then(_$_FavoriteItem(
       createdAt: createdAt == freezed
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -317,7 +318,7 @@ class _$_FavoriteItem extends _FavoriteItem with DiagnosticableTreeMixin {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _FavoriteItem &&
+            other is _$_FavoriteItem &&
             const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.asin, asin) &&
@@ -352,8 +353,8 @@ class _$_FavoriteItem extends _FavoriteItem with DiagnosticableTreeMixin {
 
   @JsonKey(ignore: true)
   @override
-  _$FavoriteItemCopyWith<_FavoriteItem> get copyWith =>
-      __$FavoriteItemCopyWithImpl<_FavoriteItem>(this, _$identity);
+  _$$_FavoriteItemCopyWith<_$_FavoriteItem> get copyWith =>
+      __$$_FavoriteItemCopyWithImpl<_$_FavoriteItem>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
@@ -422,6 +423,6 @@ abstract class _FavoriteItem extends FavoriteItem {
   String? get imageUrlLarge => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$FavoriteItemCopyWith<_FavoriteItem> get copyWith =>
+  _$$_FavoriteItemCopyWith<_$_FavoriteItem> get copyWith =>
       throw _privateConstructorUsedError;
 }
