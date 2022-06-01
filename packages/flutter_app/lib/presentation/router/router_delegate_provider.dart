@@ -4,6 +4,7 @@ import 'package:routemaster/routemaster.dart';
 import 'general_route_observer.dart';
 import 'route_map_provider.dart';
 
+// TODO(Riscait): Migrate to `go_router`
 final routerDelegateProvider = Provider(
   (ref) => RoutemasterDelegate(
     observers: [GeneralRouteObserver()],

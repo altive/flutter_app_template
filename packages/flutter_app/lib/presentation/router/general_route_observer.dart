@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-
 import 'package:routemaster/routemaster.dart';
 
+// TODO(Riscait): Migrate to `go_router`
 class GeneralRouteObserver extends RoutemasterObserver {
   @override
   void didChangeRoute(RouteData routeData, Page<Object?> page) {

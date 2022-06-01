@@ -2,6 +2,9 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../commons/providers/firebase_auth_provider.dart';
 
+export 'auth_user_provider.dart';
+export 'sign_in_method.dart';
+
 final authenticatorProvider = Provider<Authenticator>((ref) {
   return Authenticator(ref.read);
 });

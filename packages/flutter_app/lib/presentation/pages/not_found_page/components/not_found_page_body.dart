@@ -1,0 +1,36 @@
+import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:routemaster/routemaster.dart';
+
+import '../../../../commons/hooks/hooks.dart';
+
+class NotFoundPageBody extends HookConsumerWidget {
+  const NotFoundPageBody({
+    super.key,
+    required this.path,
+  });
+
+  final String path;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final l10n = useL10n();
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(l10n.notFoundPageHeaderLabel),
+        const Gap(32),
+        Text(path, style: Theme.of(context).textTheme.headline6),
+        const Gap(32),
+        Text(l10n.notFoundPageDescription),
+        Center(
+          child: ElevatedButton(
+            onPressed: () => Routemaster.of(context).replace('/'),
+            child: Text(l10n.notFoundPageReturnButtonLabel),
+          ),
+        ),
+      ],
+    );
+  }
+}

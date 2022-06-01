@@ -3,6 +3,7 @@ import 'package:routemaster/routemaster.dart';
 
 import 'router_delegate_provider.dart';
 
+// TODO(Riscait): Migrate to `go_router`
 final routerProvider = Provider<Router>((ref) {
   return Router(ref.read);
 });
