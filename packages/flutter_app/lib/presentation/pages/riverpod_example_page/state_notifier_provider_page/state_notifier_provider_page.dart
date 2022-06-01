@@ -81,24 +81,32 @@ class StateNotifierProviderPage extends ConsumerWidget {
           IconButton(onPressed: addTodo, icon: const Icon(Icons.add))
         ],
       ),
-      body: ListView.builder(
-        itemCount: todoList.length,
-        itemBuilder: (context, index) {
-          final todo = todoList[index];
-          return ListTile(
-            // TodoのタイトルをTextで表示
-            title: Text(todo.title),
-            leading: Icon(
-              todo.completed ? Icons.check_box : Icons.check_box_outline_blank,
-            ),
-            trailing: TextButton(
-              onPressed: () => notifier.remove(todo.id),
-              child: const Text('Delete'),
-            ),
-            // タップでTODOの完了状態を切り替える
-            onTap: () => notifier.toggle(todo.id),
-          );
-        },
+      body: SafeArea(
+        child: ListView.separated(
+          padding: const EdgeInsets.all(16),
+          itemCount: todoList.length,
+          separatorBuilder: (_, __) => const SizedBox(height: 4),
+          itemBuilder: (context, index) {
+            final todo = todoList[index];
+            return Card(
+              child: ListTile(
+                // TodoのタイトルをTextで表示
+                title: Text(todo.title),
+                leading: Icon(
+                  todo.completed
+                      ? Icons.check_box
+                      : Icons.check_box_outline_blank,
+                ),
+                trailing: TextButton(
+                  onPressed: () => notifier.remove(todo.id),
+                  child: const Text('Delete'),
+                ),
+                // タップでTODOの完了状態を切り替える
+                onTap: () => notifier.toggle(todo.id),
+              ),
+            );
+          },
+        ),
       ),
     );
   }

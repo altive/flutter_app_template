@@ -38,10 +38,9 @@ class ListenProviderPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(title: Text(title)),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(16),
+        child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // counterProviderの状態（カウント数）をTextで表示
               Text(
