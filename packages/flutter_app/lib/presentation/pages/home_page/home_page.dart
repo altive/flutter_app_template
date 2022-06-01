@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'components/home_app_bar.dart';
-import 'components/home_body.dart';
+import 'components/home_page_app_bar.dart';
+import 'components/home_page_body.dart';
 
 /// デモ機能をリスト表示する
 class HomePage extends StatelessWidget {
@@ -12,8 +12,8 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      appBar: HomeAppBar(),
-      body: HomeBody(),
+      appBar: HomePageAppBar(),
+      body: HomePageBody(),
     );
   }
 }

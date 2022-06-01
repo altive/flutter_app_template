@@ -4,8 +4,8 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import '../../../../commons/hooks/hooks.dart';
 import '../../../style/style.dart';
 
-class HomeAppBar extends HookWidget implements PreferredSizeWidget {
-  const HomeAppBar({super.key});
+class HomePageAppBar extends HookWidget implements PreferredSizeWidget {
+  const HomePageAppBar({super.key});
 
   @override
   Size get preferredSize => appbarSize;
