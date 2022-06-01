@@ -36,9 +36,6 @@ final routeMapProvider = Provider((ref) {
       // Home / App info
       '/${HomePage.routeName}/${AppInfoPage.routeName}': (route) =>
           const MaterialPage<void>(child: AppInfoPage()),
-      // Home / Theme selector
-      '/${HomePage.routeName}/${ThemeSelectionPage.routeName}': (route) =>
-          const MaterialPage<void>(child: ThemeSelectionPage()),
       // Riverpod example
       '/${RiverpodExamplePage.routeName}': (route) =>
           const MaterialPage<void>(child: RiverpodExamplePage()),
@@ -58,6 +55,9 @@ final routeMapProvider = Provider((ref) {
       // Settings
       '/${SettingsPage.routeName}': (route) =>
           const MaterialPage<void>(child: SettingsPage()),
+      // Home / Theme selector
+      '/${SettingsPage.routeName}/${ThemeSelectionPage.routeName}': (route) =>
+          const MaterialPage<void>(child: ThemeSelectionPage()),
     },
   );
 });
