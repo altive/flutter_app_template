@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../pages/account/account_page.dart';
 import '../pages/app_info_page/app_info_page.dart';
 import '../pages/riverpod_example_page/listen_provider_page/listen_provider_page.dart';
 import '../pages/riverpod_example_page/provider_page/provider_page.dart';
 import '../pages/riverpod_example_page/state_notifier_provider_page/state_notifier_provider_page.dart';
 import '../pages/riverpod_example_page/state_provider_page/state_provider_page.dart';
+import '../pages/signin/signin_page.dart';
 import '../pages/splash/splash_page.dart';
 import '../pages/theme_selection_page/theme_selection_page.dart';
 import '../pages/top_level_tab/top_level_tab_page.dart';
@@ -13,7 +15,8 @@ import '../pages/top_level_tab/top_level_tab_page.dart';
 part 'app_routes.g.dart';
 
 // NOTE:
-// サブルートでは使用しないパスパラメータでも、必ずGoRouteDataを継承したクラスでフィールドに定義しないとコード生成に失敗するので注意
+// Top-levelのRouteで受け取るが、サブルートでは使用しないパスパラメータでも、
+// 必ずGoRouteDataを継承したクラスでフィールドに定義しないとコード生成に失敗するので注意
 
 @TypedGoRoute<SplashRoute>(
   path: '/',
@@ -25,7 +28,17 @@ class SplashRoute extends GoRouteData {
   Widget build(BuildContext context) => const SplashPage();
 }
 
-@TypedGoRoute<TabScafflodRoute>(
+@TypedGoRoute<SigninRoute>(
+  path: '/signin',
+)
+class SigninRoute extends GoRouteData {
+  const SigninRoute();
+
+  @override
+  Widget build(BuildContext context) => const SigninPage();
+}
+
+@TypedGoRoute<TopLevelTabRoute>(
   path: '/:tabid',
   routes: [
     TypedGoRoute<AppInfoRoute>(path: 'app-info'),
@@ -34,10 +47,11 @@ class SplashRoute extends GoRouteData {
     TypedGoRoute<StateNotifierProviderRoute>(path: 'state-notifier-provider'),
     TypedGoRoute<ListenProviderRoute>(path: 'listen-provider'),
     TypedGoRoute<ThemeSelectionRoute>(path: 'theme-selection'),
+    TypedGoRoute<AccountRoute>(path: 'account'),
   ],
 )
-class TabScafflodRoute extends GoRouteData {
-  const TabScafflodRoute({required this.tabid});
+class TopLevelTabRoute extends GoRouteData {
+  const TopLevelTabRoute({required this.tabid});
 
   final String tabid;
 
@@ -97,4 +111,13 @@ class ThemeSelectionRoute extends GoRouteData {
 
   @override
   Widget build(BuildContext context) => const ThemeSelectionPage();
+}
+
+class AccountRoute extends GoRouteData {
+  const AccountRoute({required this.tabid});
+
+  final String tabid;
+
+  @override
+  Widget build(BuildContext context) => const AccountPage();
 }

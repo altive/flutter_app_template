@@ -8,7 +8,8 @@ part of 'app_routes.dart';
 
 List<GoRoute> get $appRoutes => [
       $splashRoute,
-      $tabScafflodRoute,
+      $signinRoute,
+      $topLevelTabRoute,
     ];
 
 GoRoute get $splashRoute => GoRouteData.$route(
@@ -28,9 +29,26 @@ extension $SplashRouteExtension on SplashRoute {
   void push(BuildContext context) => context.push(location, extra: this);
 }
 
-GoRoute get $tabScafflodRoute => GoRouteData.$route(
+GoRoute get $signinRoute => GoRouteData.$route(
+      path: '/signin',
+      factory: $SigninRouteExtension._fromState,
+    );
+
+extension $SigninRouteExtension on SigninRoute {
+  static SigninRoute _fromState(GoRouterState state) => const SigninRoute();
+
+  String get location => GoRouteData.$location(
+        '/signin',
+      );
+
+  void go(BuildContext context) => context.go(location, extra: this);
+
+  void push(BuildContext context) => context.push(location, extra: this);
+}
+
+GoRoute get $topLevelTabRoute => GoRouteData.$route(
       path: '/:tabid',
-      factory: $TabScafflodRouteExtension._fromState,
+      factory: $TopLevelTabRouteExtension._fromState,
       routes: [
         GoRouteData.$route(
           path: 'app-info',
@@ -56,11 +74,15 @@ GoRoute get $tabScafflodRoute => GoRouteData.$route(
           path: 'theme-selection',
           factory: $ThemeSelectionRouteExtension._fromState,
         ),
+        GoRouteData.$route(
+          path: 'account',
+          factory: $AccountRouteExtension._fromState,
+        ),
       ],
     );
 
-extension $TabScafflodRouteExtension on TabScafflodRoute {
-  static TabScafflodRoute _fromState(GoRouterState state) => TabScafflodRoute(
+extension $TopLevelTabRouteExtension on TopLevelTabRoute {
+  static TopLevelTabRoute _fromState(GoRouterState state) => TopLevelTabRoute(
         tabid: state.params['tabid']!,
       );
 
@@ -154,6 +176,20 @@ extension $ThemeSelectionRouteExtension on ThemeSelectionRoute {
 
   String get location => GoRouteData.$location(
         '/${Uri.encodeComponent(tabid)}/theme-selection',
+      );
+
+  void go(BuildContext context) => context.go(location, extra: this);
+
+  void push(BuildContext context) => context.push(location, extra: this);
+}
+
+extension $AccountRouteExtension on AccountRoute {
+  static AccountRoute _fromState(GoRouterState state) => AccountRoute(
+        tabid: state.params['tabid']!,
+      );
+
+  String get location => GoRouteData.$location(
+        '/${Uri.encodeComponent(tabid)}/account',
       );
 
   void go(BuildContext context) => context.go(location, extra: this);
