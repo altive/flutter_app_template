@@ -17,7 +17,8 @@ enum TopLevelTab {
   settings(
     iconData: Icons.settings,
     page: SettingsPage(),
-  );
+  ),
+  ;
 
   const TopLevelTab({
     required this.iconData,

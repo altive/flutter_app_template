@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -10,16 +11,24 @@ import 'top_level_tab_provider.dart';
 class TopLevelTabPage extends HookConsumerWidget {
   const TopLevelTabPage({
     super.key,
-    required this.tabName,
+    required this.tabid,
   });
 
-  final String tabName;
+  final String tabid;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = useL10n();
     final tabController = ref.watch(topLevelTabProvider.notifier);
     final currentTab = ref.watch(topLevelTabProvider);
+
+    useEffect(
+      () {
+        tabController.update((_) => TopLevelTab.values.byName(tabid));
+        return null;
+      },
+      [tabid],
+    );
 
     void changeTab(int index) {
       tabController.update((_) => TopLevelTab.values[index]);

@@ -29,7 +29,7 @@ extension $SplashRouteExtension on SplashRoute {
 }
 
 GoRoute get $tabScafflodRoute => GoRouteData.$route(
-      path: '/:tabName',
+      path: '/:tabid',
       factory: $TabScafflodRouteExtension._fromState,
       routes: [
         GoRouteData.$route(
@@ -61,11 +61,11 @@ GoRoute get $tabScafflodRoute => GoRouteData.$route(
 
 extension $TabScafflodRouteExtension on TabScafflodRoute {
   static TabScafflodRoute _fromState(GoRouterState state) => TabScafflodRoute(
-        tabName: state.params['tabName']!,
+        tabid: state.params['tabid']!,
       );
 
   String get location => GoRouteData.$location(
-        '/${Uri.encodeComponent(tabName)}',
+        '/${Uri.encodeComponent(tabid)}',
       );
 
   void go(BuildContext context) => context.go(location, extra: this);
@@ -75,11 +75,11 @@ extension $TabScafflodRouteExtension on TabScafflodRoute {
 
 extension $AppInfoRouteExtension on AppInfoRoute {
   static AppInfoRoute _fromState(GoRouterState state) => AppInfoRoute(
-        tabName: state.params['tabName']!,
+        tabid: state.params['tabid']!,
       );
 
   String get location => GoRouteData.$location(
-        '/${Uri.encodeComponent(tabName)}/app-info',
+        '/${Uri.encodeComponent(tabid)}/app-info',
       );
 
   void go(BuildContext context) => context.go(location, extra: this);
@@ -89,11 +89,11 @@ extension $AppInfoRouteExtension on AppInfoRoute {
 
 extension $ProviderRouteExtension on ProviderRoute {
   static ProviderRoute _fromState(GoRouterState state) => ProviderRoute(
-        tabName: state.params['tabName']!,
+        tabid: state.params['tabid']!,
       );
 
   String get location => GoRouteData.$location(
-        '/${Uri.encodeComponent(tabName)}/provider',
+        '/${Uri.encodeComponent(tabid)}/provider',
       );
 
   void go(BuildContext context) => context.go(location, extra: this);
@@ -104,11 +104,11 @@ extension $ProviderRouteExtension on ProviderRoute {
 extension $StateProviderRouteExtension on StateProviderRoute {
   static StateProviderRoute _fromState(GoRouterState state) =>
       StateProviderRoute(
-        tabName: state.params['tabName']!,
+        tabid: state.params['tabid']!,
       );
 
   String get location => GoRouteData.$location(
-        '/${Uri.encodeComponent(tabName)}/state-provider',
+        '/${Uri.encodeComponent(tabid)}/state-provider',
       );
 
   void go(BuildContext context) => context.go(location, extra: this);
@@ -119,11 +119,11 @@ extension $StateProviderRouteExtension on StateProviderRoute {
 extension $StateNotifierProviderRouteExtension on StateNotifierProviderRoute {
   static StateNotifierProviderRoute _fromState(GoRouterState state) =>
       StateNotifierProviderRoute(
-        tabName: state.params['tabName']!,
+        tabid: state.params['tabid']!,
       );
 
   String get location => GoRouteData.$location(
-        '/${Uri.encodeComponent(tabName)}/state-notifier-provider',
+        '/${Uri.encodeComponent(tabid)}/state-notifier-provider',
       );
 
   void go(BuildContext context) => context.go(location, extra: this);
@@ -134,11 +134,11 @@ extension $StateNotifierProviderRouteExtension on StateNotifierProviderRoute {
 extension $ListenProviderRouteExtension on ListenProviderRoute {
   static ListenProviderRoute _fromState(GoRouterState state) =>
       ListenProviderRoute(
-        tabName: state.params['tabName']!,
+        tabid: state.params['tabid']!,
       );
 
   String get location => GoRouteData.$location(
-        '/${Uri.encodeComponent(tabName)}/listen-provider',
+        '/${Uri.encodeComponent(tabid)}/listen-provider',
       );
 
   void go(BuildContext context) => context.go(location, extra: this);
@@ -149,11 +149,11 @@ extension $ListenProviderRouteExtension on ListenProviderRoute {
 extension $ThemeSelectionRouteExtension on ThemeSelectionRoute {
   static ThemeSelectionRoute _fromState(GoRouterState state) =>
       ThemeSelectionRoute(
-        tabName: state.params['tabName']!,
+        tabid: state.params['tabid']!,
       );
 
   String get location => GoRouteData.$location(
-        '/${Uri.encodeComponent(tabName)}/theme-selection',
+        '/${Uri.encodeComponent(tabid)}/theme-selection',
       );
 
   void go(BuildContext context) => context.go(location, extra: this);

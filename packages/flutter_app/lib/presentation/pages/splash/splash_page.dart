@@ -22,7 +22,7 @@ class SplashPage extends HookConsumerWidget {
             counter.update((state) => state - 1);
           }
           // Tab画面に遷移
-          TabScafflodRoute(tabName: TopLevelTab.home.name).go(context);
+          TabScafflodRoute(tabid: TopLevelTab.home.name).go(context);
         });
         return null;
       },

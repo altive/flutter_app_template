@@ -26,7 +26,7 @@ class SplashRoute extends GoRouteData {
 }
 
 @TypedGoRoute<TabScafflodRoute>(
-  path: '/:tabName',
+  path: '/:tabid',
   routes: [
     TypedGoRoute<AppInfoRoute>(path: 'app-info'),
     TypedGoRoute<ProviderRoute>(path: 'provider'),
@@ -37,63 +37,63 @@ class SplashRoute extends GoRouteData {
   ],
 )
 class TabScafflodRoute extends GoRouteData {
-  const TabScafflodRoute({required this.tabName});
+  const TabScafflodRoute({required this.tabid});
 
-  final String tabName;
+  final String tabid;
 
   @override
-  Widget build(BuildContext context) => TopLevelTabPage(tabName: tabName);
+  Widget build(BuildContext context) => TopLevelTabPage(tabid: tabid);
 }
 
 class AppInfoRoute extends GoRouteData {
-  const AppInfoRoute({required this.tabName});
+  const AppInfoRoute({required this.tabid});
 
-  final String tabName;
+  final String tabid;
 
   @override
   Widget build(BuildContext context) => const AppInfoPage();
 }
 
 class ProviderRoute extends GoRouteData {
-  const ProviderRoute({required this.tabName});
+  const ProviderRoute({required this.tabid});
 
-  final String tabName;
+  final String tabid;
 
   @override
   Widget build(BuildContext context) => const ProviderPage();
 }
 
 class StateProviderRoute extends GoRouteData {
-  const StateProviderRoute({required this.tabName});
+  const StateProviderRoute({required this.tabid});
 
-  final String tabName;
+  final String tabid;
 
   @override
   Widget build(BuildContext context) => const StateProviderPage();
 }
 
 class StateNotifierProviderRoute extends GoRouteData {
-  const StateNotifierProviderRoute({required this.tabName});
+  const StateNotifierProviderRoute({required this.tabid});
 
-  final String tabName;
+  final String tabid;
 
   @override
   Widget build(BuildContext context) => const StateNotifierProviderPage();
 }
 
 class ListenProviderRoute extends GoRouteData {
-  const ListenProviderRoute({required this.tabName});
+  const ListenProviderRoute({required this.tabid});
 
-  final String tabName;
+  final String tabid;
 
   @override
   Widget build(BuildContext context) => const ListenProviderPage();
 }
 
 class ThemeSelectionRoute extends GoRouteData {
-  const ThemeSelectionRoute({required this.tabName});
+  const ThemeSelectionRoute({required this.tabid});
 
-  final String tabName;
+  final String tabid;
 
   @override
   Widget build(BuildContext context) => const ThemeSelectionPage();
