@@ -6,7 +6,7 @@ part of 'todo.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Todo _$$_TodoFromJson(Map<String, dynamic> json) => _$_Todo(
+_$_Todo _$$_TodoFromJson(Map json) => _$_Todo(
       id: json['id'] as String,
       title: json['title'] as String,
       completed: json['completed'] as bool? ?? false,

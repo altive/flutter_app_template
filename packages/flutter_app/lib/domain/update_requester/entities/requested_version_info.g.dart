@@ -6,8 +6,7 @@ part of 'requested_version_info.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_RequestedVersionInfo _$$_RequestedVersionInfoFromJson(
-        Map<String, dynamic> json) =>
+_$_RequestedVersionInfo _$$_RequestedVersionInfoFromJson(Map json) =>
     _$_RequestedVersionInfo(
       requiredVersion: json['required_version'] as String,
       canCancel: json['can_cancel'] as bool? ?? false,
