@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:routemaster/routemaster.dart';
 
 import '../../../../commons/hooks/hooks.dart';
+import '../../../router/router.dart';
 
 class NotFoundPageBody extends HookConsumerWidget {
   const NotFoundPageBody({
@@ -26,7 +26,7 @@ class NotFoundPageBody extends HookConsumerWidget {
         Text(l10n.notFoundPageDescription),
         Center(
           child: ElevatedButton(
-            onPressed: () => Routemaster.of(context).replace('/'),
+            onPressed: () => const SplashRoute().go(context),
             child: Text(l10n.notFoundPageReturnButtonLabel),
           ),
         ),

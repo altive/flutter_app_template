@@ -19,7 +19,6 @@ class ProviderPage extends ConsumerWidget {
   });
 
   static const String title = 'ProviderPage';
-  static const String routeName = 'provider-page';
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

@@ -6,8 +6,6 @@ import 'components/theme_selection_page_body.dart';
 class ThemeSelectionPage extends StatelessWidget {
   const ThemeSelectionPage({super.key});
 
-  static const String routeName = 'theme-selection';
-
   @override
   Widget build(BuildContext context) {
     return const Scaffold(

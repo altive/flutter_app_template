@@ -54,7 +54,6 @@ class StateNotifierProviderPage extends ConsumerWidget {
   });
 
   static const String title = 'StateNotifierProvider';
-  static const String routeName = 'state-notifier-provider';
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

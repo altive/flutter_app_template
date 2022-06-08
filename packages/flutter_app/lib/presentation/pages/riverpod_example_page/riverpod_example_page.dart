@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:routemaster/routemaster.dart';
 
+import '../../router/router.dart';
+import '../top_level_tab/top_level_tab.dart';
 import 'listen_provider_page/listen_provider_page.dart';
 import 'provider_page/provider_page.dart';
 import 'state_notifier_provider_page/state_notifier_provider_page.dart';
@@ -12,7 +13,6 @@ class RiverpodExamplePage extends StatelessWidget {
   });
 
   static const String title = 'Riverpod Examples';
-  static const String routeName = 'riverpod-example';
 
   @override
   Widget build(BuildContext context) {
@@ -24,22 +24,24 @@ class RiverpodExamplePage extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         children: [
           _FeatureCard(
-            onTap: () => Routemaster.of(context).push(ProviderPage.routeName),
+            onTap: () =>
+                ProviderRoute(tabName: TopLevelTab.riverpod.name).go(context),
             label: ProviderPage.title,
           ),
           _FeatureCard(
-            onTap: () =>
-                Routemaster.of(context).push(StateProviderPage.routeName),
+            onTap: () => StateProviderRoute(tabName: TopLevelTab.riverpod.name)
+                .go(context),
             label: StateProviderPage.title,
           ),
           _FeatureCard(
-            onTap: () => Routemaster.of(context)
-                .push(StateNotifierProviderPage.routeName),
+            onTap: () =>
+                StateNotifierProviderRoute(tabName: TopLevelTab.riverpod.name)
+                    .go(context),
             label: StateNotifierProviderPage.title,
           ),
           _FeatureCard(
-            onTap: () =>
-                Routemaster.of(context).push(ListenProviderPage.routeName),
+            onTap: () => ListenProviderRoute(tabName: TopLevelTab.riverpod.name)
+                .go(context),
             label: ListenProviderPage.title,
           ),
         ],

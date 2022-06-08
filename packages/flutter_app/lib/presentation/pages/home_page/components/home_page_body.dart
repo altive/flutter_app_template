@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
-import 'package:routemaster/routemaster.dart';
 
 import '../../../../commons/hooks/hooks.dart';
-import '../../app_info_page/app_info_page.dart';
+import '../../../router/router.dart';
+import '../../top_level_tab/top_level_tab.dart';
 import 'home_list_card.dart';
 
 class HomePageBody extends HookWidget {
@@ -18,12 +18,8 @@ class HomePageBody extends HookWidget {
       padding: const EdgeInsets.all(16),
       children: [
         HomeListCard(
-          onTap: () => Routemaster.of(context).push(AppInfoPage.routeName),
+          onTap: () => AppInfoRoute(tabName: TopLevelTab.home.name).go(context),
           label: l10n.homePageListAppInfoLabel,
-        ),
-        HomeListCard(
-          onTap: () => Routemaster.of(context).push('unavailable-path'),
-          label: l10n.homePageListTo404Label,
         ),
       ],
     );

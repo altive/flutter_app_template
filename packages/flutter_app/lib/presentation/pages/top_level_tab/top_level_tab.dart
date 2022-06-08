@@ -1,22 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import '../home_page/home_page.dart';
+import '../riverpod_example_page/riverpod_example_page.dart';
+import '../settings_page/settings_page.dart';
+
 enum TopLevelTab {
   home(
     iconData: Icons.home,
+    page: HomePage(),
   ),
-  riverpodExample(
+  riverpod(
     iconData: Icons.stream,
+    page: RiverpodExamplePage(),
   ),
   settings(
     iconData: Icons.settings,
+    page: SettingsPage(),
   );
 
   const TopLevelTab({
     required this.iconData,
+    required this.page,
   });
 
   final IconData iconData;
+  final Widget page;
 }
 
 extension TopLevelTabExt on TopLevelTab {
@@ -26,7 +35,7 @@ extension TopLevelTabExt on TopLevelTab {
         return l10n.topLevelTabHomeLabel;
       case TopLevelTab.settings:
         return l10n.topLevelTabSettingsLabel;
-      case TopLevelTab.riverpodExample:
+      case TopLevelTab.riverpod:
         return l10n.topLevelTabRiverpodExampleLabel;
     }
   }

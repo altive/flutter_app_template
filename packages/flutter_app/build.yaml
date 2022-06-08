@@ -1,6 +1,10 @@
 targets:
   $default:
     builders:
+      TypedGoRoute:
+        generate_for:
+          include:
+            - lib/router/app_routes.dart
       freezed:
         generate_for:
           include:
@@ -10,7 +14,7 @@ targets:
           include:
             - lib/**/entities/*.dart
         options:
-          any_map: false
+          any_map: true
           # checked: true # 例外発生時にCheckedFromJsonExceptionをthrowする
           create_factory: true # xxxFromJson メソッドを生成
           create_to_json: true # toJson メソッドを生成

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:routemaster/routemaster.dart';
 
 import '../commons/providers/app_lifecycle_provider.dart';
 import '../commons/providers/locales_provider.dart';
@@ -24,10 +23,12 @@ class App extends ConsumerWidget {
         (previous, next) => debugPrint('Previous: $previous, Next: $next'),
       );
 
+    final router = ref.watch(routerProvider);
+
     return MaterialApp.router(
       onGenerateTitle: (context) => AppLocalizations.of(context)!.title,
-      routerDelegate: ref.watch(routerDelegateProvider),
-      routeInformationParser: const RoutemasterParser(),
+      routerDelegate: router.routerDelegate,
+      routeInformationParser: router.routeInformationParser,
       theme: lightThemeData,
       darkTheme: darkThemeData,
       themeMode: ref.watch(themeSelectorProvider),

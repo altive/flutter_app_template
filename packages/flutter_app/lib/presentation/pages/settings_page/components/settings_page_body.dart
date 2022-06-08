@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:routemaster/routemaster.dart';
 
 import '../../../../commons/hooks/hooks.dart';
-import '../../theme_selection_page/theme_selection_page.dart';
+import '../../../router/router.dart';
+import '../../top_level_tab/top_level_tab.dart';
 
 class SettingsPageBody extends HookConsumerWidget {
   const SettingsPageBody({super.key});
@@ -16,8 +16,8 @@ class SettingsPageBody extends HookConsumerWidget {
       children: [
         Card(
           child: ListTile(
-            onTap: () =>
-                Routemaster.of(context).push(ThemeSelectionPage.routeName),
+            onTap: () => ThemeSelectionRoute(tabName: TopLevelTab.settings.name)
+                .go(context),
             title: Text(l10n.homePageListThemeSelectorLabel),
           ),
         ),

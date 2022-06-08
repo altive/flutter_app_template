@@ -8,8 +8,6 @@ class AppInfoPage extends StatelessWidget {
     super.key,
   });
 
-  static const String routeName = 'app-info';
-
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
