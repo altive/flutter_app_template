@@ -24,7 +24,9 @@ class TopLevelTabPage extends HookConsumerWidget {
 
     useEffect(
       () {
-        tabController.update((_) => TopLevelTab.values.byName(tabid));
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          tabController.update((_) => TopLevelTab.values.byName(tabid));
+        });
         return null;
       },
       [tabid],

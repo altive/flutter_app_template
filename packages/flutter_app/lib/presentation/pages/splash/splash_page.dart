@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../../domain/authenticator/authenticator.dart';
 import '../../router/router.dart';
 import '../top_level_tab/top_level_tab.dart';
 import 'components/providers.dart';
@@ -21,8 +22,12 @@ class SplashPage extends HookConsumerWidget {
             await Future<void>.delayed(const Duration(seconds: 1));
             counter.update((state) => state - 1);
           }
-          // Tab画面に遷移
-          TabScafflodRoute(tabid: TopLevelTab.home.name).go(context);
+          final signedIn = await ref.read(isSignedInProvider.future);
+          if (signedIn) {
+            TopLevelTabRoute(tabid: TopLevelTab.home.name).go(context);
+            return;
+          }
+          const SigninRoute().go(context);
         });
         return null;
       },
