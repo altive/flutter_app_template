@@ -7,16 +7,22 @@
 
 "Flutter App Template" is a project that introduces an approach to architecture and project structure for developing Flutter apps.
 
+`packages/flutter_app`
+
 ## State Management
-[Riverpod](https://riverpod.dev/)
+- [Riverpod](https://riverpod.dev/)
 
 ## Code Generation
-[freezed](https://pub.dev/packages/freezed)
+- [freezed](https://pub.dev/packages/freezed)
+- [json_serializable](https://pub.dev/packages/json_serializable)
 
 ## Hooks
-[Flutter Hooks](https://pub.dev/packages/flutter_hooks)
+- [Flutter Hooks](https://pub.dev/packages/flutter_hooks)
 
-## Project settings
+## Router
+- [go_router](https://pub.dev/packages/go_router)
+
+## `flutter_app` Project settings
 |Category|Description|Codes|
 |---|---|---|
 | [FVM](https://github.com/leoafarias/fvm) | Flutter Version Management | [.fvm/fvm_config.json](/.fvm/fvm_config.json) |
@@ -26,6 +32,13 @@
 ## Environments
 dev, stg, prod
 
+## Get started
+```shell
+make
+```
+
+FVM and Melos are now installed.
+
 ## Project structure
 
 - lib/
@@ -34,7 +47,7 @@ dev, stg, prod
     - presentation/
   - main.dart
 
-## Setup for using the template
+## What to do in a new repository using this template
 1. Replace App ID with your App ID.
   `jp.co.altive.fat` -> `your.domain.id`
 1. Change `CFBundleName` and `CFBundleDisplayName` in `ios/Runner/info.plist` to your app name.
