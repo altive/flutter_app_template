@@ -14,10 +14,6 @@ import '../pages/top_level_tab/top_level_tab_page.dart';
 
 part 'app_routes.g.dart';
 
-// NOTE:
-// Top-levelのRouteで受け取るが、サブルートでは使用しないパスパラメータでも、
-// 必ずGoRouteDataを継承したクラスでフィールドに定義しないとコード生成に失敗するので注意
-
 @TypedGoRoute<SplashRoute>(
   path: '/',
 )
@@ -53,6 +49,8 @@ class SigninRoute extends GoRouteData {
 class TopLevelTabRoute extends GoRouteData {
   const TopLevelTabRoute({required this.tabid});
 
+  // TODO(Riscait): 本当はenumを使いたかったが、
+  // go_router_builderがEnhanced Enumに対応していないためStringにしている
   final String tabid;
 
   @override
@@ -62,6 +60,9 @@ class TopLevelTabRoute extends GoRouteData {
 class AppInfoRoute extends GoRouteData {
   const AppInfoRoute({required this.tabid});
 
+  // NOTE:
+  // Top-levelのRouteで受け取るが、サブルートでは使用しないパスパラメータでも、
+  // 必ずGoRouteDataを継承したクラスでフィールドに定義しないとコード生成に失敗するので注意
   final String tabid;
 
   @override
