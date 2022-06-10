@@ -1,0 +1,33 @@
+{
+    "@TypedGoRoute(top-level)": {
+        "prefix": "goRoute(top-level)",
+        "description": "Top-level @TypedGoRoute and GoRouteData extended class",
+        "body": [
+            "@TypedGoRoute<$1Route>(",
+            "  path: '/$2',",
+            "  routes: [$3],",
+            ")",
+            "class $1Route extends GoRouteData {",
+            "  const $1Route();",
+            "",
+            "  @override",
+            "  Widget build(BuildContext context) => const $1Page();",
+            "}",
+            "",
+        ],
+    },
+    "TypedGoRoute(child-route)": {
+        "prefix": "goRoute(child)",
+        "description": "Child TypedGoRoute and GoRouteData extended class",
+        "body": [
+            "TypedGoRoute<$1Route>(path: '$2'),",
+            "class $1Route extends GoRouteData {",
+            "  const $1Route();",
+            "",
+            "  @override",
+            "  Widget build(BuildContext context) => const $1Page();",
+            "}",
+            "",
+        ],
+    },
+}
