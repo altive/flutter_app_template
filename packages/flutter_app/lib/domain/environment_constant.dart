@@ -1,25 +1,31 @@
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../commons/providers/flavor_provider.dart';
 
-final environmentalConstantProvider = Provider<EnvironmentalConstant>((ref) {
-  return EnvironmentalConstant(ref.read);
-});
+final environmentProvider =
+    Provider<Environment>((ref) => throw UnimplementedError());
 
-class EnvironmentalConstant {
-  const EnvironmentalConstant(this._read);
-
-  final Reader _read;
-  Flavor get _flavor => _read(flavorProvider);
-
-  String get apiBaseUrl {
-    switch (_flavor) {
-      case Flavor.dev:
-        return 'https://api-dev.example.com';
-      case Flavor.stg:
-        return 'https://api-stg.example.com';
-      case Flavor.prod:
-        return 'https://api.example.com';
-    }
+class Environment {
+  Environment(this._flavor) {
+    _load();
   }
+
+  final Flavor _flavor;
+
+  Future<void> _load() async {
+    final fileName = () {
+      switch (_flavor) {
+        case Flavor.dev:
+          return '.env.dev';
+        case Flavor.stg:
+          return '.env.stg';
+        case Flavor.prod:
+          return '.env.prod';
+      }
+    }();
+    await dotenv.load(fileName: fileName);
+  }
+
+  String get apiBaseUrl => dotenv.get('API_BASE_URL');
 }

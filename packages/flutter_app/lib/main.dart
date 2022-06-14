@@ -7,12 +7,14 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'commons/providers/flavor_provider.dart';
 import 'commons/providers/package_info_provider.dart';
 import 'commons/providers/shared_preferences_provider.dart';
+import 'domain/environment_constant.dart';
 import 'presentation/app.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  const flavor = String.fromEnvironment('FLAVOR');
+  const flavorName = String.fromEnvironment('FLAVOR');
+  final flavor = Flavor.values.byName(flavorName);
 
   late final SharedPreferences sp;
   late final PackageInfo pi;
@@ -25,7 +27,8 @@ Future<void> main() async {
   runApp(
     ProviderScope(
       overrides: [
-        flavorProvider.overrideWithValue(Flavor.values.byName(flavor)),
+        flavorProvider.overrideWithValue(flavor),
+        environmentProvider.overrideWithValue(Environment(flavor)),
         sharedPreferencesProvider.overrideWithValue(sp),
         packageInfoProvider.overrideWithValue(pi),
       ],
