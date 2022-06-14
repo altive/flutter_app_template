@@ -16,7 +16,7 @@ class SettingsPageBody extends HookConsumerWidget {
       children: [
         Card(
           child: ListTile(
-            onTap: () => ThemeSelectionRoute(tabid: TopLevelTab.settings.name)
+            onTap: () => const ThemeSelectionRoute(tab: TopLevelTab.settings)
                 .go(context),
             title: Text(l10n.settingsPageListThemeSelectorLabel),
           ),
@@ -24,7 +24,7 @@ class SettingsPageBody extends HookConsumerWidget {
         Card(
           child: ListTile(
             onTap: () =>
-                AccountRoute(tabid: TopLevelTab.settings.name).go(context),
+                const AccountRoute(tab: TopLevelTab.settings).go(context),
             title: Text(l10n.settingsPageListAccountLabel),
           ),
         ),

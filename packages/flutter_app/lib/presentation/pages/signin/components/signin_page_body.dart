@@ -42,7 +42,7 @@ class SigninPageBody extends HookConsumerWidget {
           AwaitableTextButton<void>(
             onPressed: authenticator.signInAnonymously,
             whenComplete: (_) =>
-                TopLevelTabRoute(tabid: TopLevelTab.home.name).go(context),
+                const TopLevelTabRoute(tab: TopLevelTab.home).go(context),
             child: Text(l10n.signInPageAnonymouseButton),
           ),
         ],

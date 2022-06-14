@@ -24,7 +24,7 @@ class SplashPage extends HookConsumerWidget {
           }
           final signedIn = await ref.read(isSignedInProvider.future);
           if (signedIn) {
-            TopLevelTabRoute(tabid: TopLevelTab.home.name).go(context);
+            const TopLevelTabRoute(tab: TopLevelTab.home).go(context);
             return;
           }
           const SigninRoute().go(context);

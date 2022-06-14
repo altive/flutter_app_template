@@ -47,7 +47,7 @@ extension $SigninRouteExtension on SigninRoute {
 }
 
 GoRoute get $topLevelTabRoute => GoRouteData.$route(
-      path: '/:tabid',
+      path: '/:tab',
       factory: $TopLevelTabRouteExtension._fromState,
       routes: [
         GoRouteData.$route(
@@ -83,11 +83,11 @@ GoRoute get $topLevelTabRoute => GoRouteData.$route(
 
 extension $TopLevelTabRouteExtension on TopLevelTabRoute {
   static TopLevelTabRoute _fromState(GoRouterState state) => TopLevelTabRoute(
-        tabid: state.params['tabid']!,
+        tab: _$TopLevelTabEnumMap._$fromName(state.params['tab']!),
       );
 
   String get location => GoRouteData.$location(
-        '/${Uri.encodeComponent(tabid)}',
+        '/${Uri.encodeComponent(_$TopLevelTabEnumMap[tab]!)}',
       );
 
   void go(BuildContext context) => context.go(location, extra: this);
@@ -97,11 +97,11 @@ extension $TopLevelTabRouteExtension on TopLevelTabRoute {
 
 extension $AppInfoRouteExtension on AppInfoRoute {
   static AppInfoRoute _fromState(GoRouterState state) => AppInfoRoute(
-        tabid: state.params['tabid']!,
+        tab: _$TopLevelTabEnumMap._$fromName(state.params['tab']!),
       );
 
   String get location => GoRouteData.$location(
-        '/${Uri.encodeComponent(tabid)}/app-info',
+        '/${Uri.encodeComponent(_$TopLevelTabEnumMap[tab]!)}/app-info',
       );
 
   void go(BuildContext context) => context.go(location, extra: this);
@@ -111,11 +111,11 @@ extension $AppInfoRouteExtension on AppInfoRoute {
 
 extension $ProviderRouteExtension on ProviderRoute {
   static ProviderRoute _fromState(GoRouterState state) => ProviderRoute(
-        tabid: state.params['tabid']!,
+        tab: _$TopLevelTabEnumMap._$fromName(state.params['tab']!),
       );
 
   String get location => GoRouteData.$location(
-        '/${Uri.encodeComponent(tabid)}/provider',
+        '/${Uri.encodeComponent(_$TopLevelTabEnumMap[tab]!)}/provider',
       );
 
   void go(BuildContext context) => context.go(location, extra: this);
@@ -126,11 +126,11 @@ extension $ProviderRouteExtension on ProviderRoute {
 extension $StateProviderRouteExtension on StateProviderRoute {
   static StateProviderRoute _fromState(GoRouterState state) =>
       StateProviderRoute(
-        tabid: state.params['tabid']!,
+        tab: _$TopLevelTabEnumMap._$fromName(state.params['tab']!),
       );
 
   String get location => GoRouteData.$location(
-        '/${Uri.encodeComponent(tabid)}/state-provider',
+        '/${Uri.encodeComponent(_$TopLevelTabEnumMap[tab]!)}/state-provider',
       );
 
   void go(BuildContext context) => context.go(location, extra: this);
@@ -141,11 +141,11 @@ extension $StateProviderRouteExtension on StateProviderRoute {
 extension $StateNotifierProviderRouteExtension on StateNotifierProviderRoute {
   static StateNotifierProviderRoute _fromState(GoRouterState state) =>
       StateNotifierProviderRoute(
-        tabid: state.params['tabid']!,
+        tab: _$TopLevelTabEnumMap._$fromName(state.params['tab']!),
       );
 
   String get location => GoRouteData.$location(
-        '/${Uri.encodeComponent(tabid)}/state-notifier-provider',
+        '/${Uri.encodeComponent(_$TopLevelTabEnumMap[tab]!)}/state-notifier-provider',
       );
 
   void go(BuildContext context) => context.go(location, extra: this);
@@ -156,11 +156,11 @@ extension $StateNotifierProviderRouteExtension on StateNotifierProviderRoute {
 extension $ListenProviderRouteExtension on ListenProviderRoute {
   static ListenProviderRoute _fromState(GoRouterState state) =>
       ListenProviderRoute(
-        tabid: state.params['tabid']!,
+        tab: _$TopLevelTabEnumMap._$fromName(state.params['tab']!),
       );
 
   String get location => GoRouteData.$location(
-        '/${Uri.encodeComponent(tabid)}/listen-provider',
+        '/${Uri.encodeComponent(_$TopLevelTabEnumMap[tab]!)}/listen-provider',
       );
 
   void go(BuildContext context) => context.go(location, extra: this);
@@ -171,11 +171,11 @@ extension $ListenProviderRouteExtension on ListenProviderRoute {
 extension $ThemeSelectionRouteExtension on ThemeSelectionRoute {
   static ThemeSelectionRoute _fromState(GoRouterState state) =>
       ThemeSelectionRoute(
-        tabid: state.params['tabid']!,
+        tab: _$TopLevelTabEnumMap._$fromName(state.params['tab']!),
       );
 
   String get location => GoRouteData.$location(
-        '/${Uri.encodeComponent(tabid)}/theme-selection',
+        '/${Uri.encodeComponent(_$TopLevelTabEnumMap[tab]!)}/theme-selection',
       );
 
   void go(BuildContext context) => context.go(location, extra: this);
@@ -185,14 +185,25 @@ extension $ThemeSelectionRouteExtension on ThemeSelectionRoute {
 
 extension $AccountRouteExtension on AccountRoute {
   static AccountRoute _fromState(GoRouterState state) => AccountRoute(
-        tabid: state.params['tabid']!,
+        tab: _$TopLevelTabEnumMap._$fromName(state.params['tab']!),
       );
 
   String get location => GoRouteData.$location(
-        '/${Uri.encodeComponent(tabid)}/account',
+        '/${Uri.encodeComponent(_$TopLevelTabEnumMap[tab]!)}/account',
       );
 
   void go(BuildContext context) => context.go(location, extra: this);
 
   void push(BuildContext context) => context.push(location, extra: this);
+}
+
+const _$TopLevelTabEnumMap = {
+  TopLevelTab.home: 'home',
+  TopLevelTab.riverpod: 'riverpod',
+  TopLevelTab.settings: 'settings',
+};
+
+extension<T extends Enum> on Map<T, String> {
+  T _$fromName(String value) =>
+      entries.singleWhere((element) => element.value == value).key;
 }

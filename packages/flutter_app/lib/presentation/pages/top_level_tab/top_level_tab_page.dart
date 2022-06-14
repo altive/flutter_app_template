@@ -11,10 +11,10 @@ import 'top_level_tab_provider.dart';
 class TopLevelTabPage extends HookConsumerWidget {
   const TopLevelTabPage({
     super.key,
-    required this.tabid,
+    required this.tab,
   });
 
-  final String tabid;
+  final TopLevelTab tab;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -25,11 +25,11 @@ class TopLevelTabPage extends HookConsumerWidget {
     useEffect(
       () {
         WidgetsBinding.instance.addPostFrameCallback((_) {
-          tabController.update((_) => TopLevelTab.values.byName(tabid));
+          tabController.update((_) => TopLevelTab.values.byName(tab.name));
         });
         return null;
       },
-      [tabid],
+      [tab],
     );
 
     void changeTab(int index) {

@@ -18,7 +18,7 @@ class HomePageBody extends HookWidget {
       padding: const EdgeInsets.all(16),
       children: [
         HomeListCard(
-          onTap: () => AppInfoRoute(tabid: TopLevelTab.home.name).go(context),
+          onTap: () => const AppInfoRoute(tab: TopLevelTab.home).go(context),
           label: l10n.homePageListAppInfoLabel,
         ),
       ],

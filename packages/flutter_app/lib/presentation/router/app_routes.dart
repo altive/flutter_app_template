@@ -10,6 +10,7 @@ import '../pages/riverpod_example_page/state_provider_page/state_provider_page.d
 import '../pages/signin/signin_page.dart';
 import '../pages/splash/splash_page.dart';
 import '../pages/theme_selection_page/theme_selection_page.dart';
+import '../pages/top_level_tab/top_level_tab.dart';
 import '../pages/top_level_tab/top_level_tab_page.dart';
 
 part 'app_routes.g.dart';
@@ -35,7 +36,7 @@ class SigninRoute extends GoRouteData {
 }
 
 @TypedGoRoute<TopLevelTabRoute>(
-  path: '/:tabid',
+  path: '/:tab',
   routes: [
     TypedGoRoute<AppInfoRoute>(path: 'app-info'),
     TypedGoRoute<ProviderRoute>(path: 'provider'),
@@ -47,77 +48,72 @@ class SigninRoute extends GoRouteData {
   ],
 )
 class TopLevelTabRoute extends GoRouteData {
-  const TopLevelTabRoute({required this.tabid});
+  const TopLevelTabRoute({required this.tab});
 
-  // TODO(Riscait): 本当はenumを使いたかったが、
-  // go_router_builderがEnhanced Enumに対応していないためStringにしている
-  final String tabid;
+  final TopLevelTab tab;
 
   @override
-  Widget build(BuildContext context) => TopLevelTabPage(tabid: tabid);
+  Widget build(BuildContext context) => TopLevelTabPage(tab: tab);
 }
 
 class AppInfoRoute extends GoRouteData {
-  const AppInfoRoute({required this.tabid});
+  const AppInfoRoute({required this.tab});
 
-  // NOTE:
-  // Top-levelのRouteで受け取るが、サブルートでは使用しないパスパラメータでも、
-  // 必ずGoRouteDataを継承したクラスでフィールドに定義しないとコード生成に失敗するので注意
-  final String tabid;
+  final TopLevelTab tab;
 
   @override
   Widget build(BuildContext context) => const AppInfoPage();
 }
 
 class ProviderRoute extends GoRouteData {
-  const ProviderRoute({required this.tabid});
+  const ProviderRoute({required this.tab});
 
-  final String tabid;
+  final TopLevelTab tab;
 
   @override
   Widget build(BuildContext context) => const ProviderPage();
 }
 
 class StateProviderRoute extends GoRouteData {
-  const StateProviderRoute({required this.tabid});
+  const StateProviderRoute({required this.tab});
 
-  final String tabid;
+  final TopLevelTab tab;
 
   @override
   Widget build(BuildContext context) => const StateProviderPage();
 }
 
 class StateNotifierProviderRoute extends GoRouteData {
-  const StateNotifierProviderRoute({required this.tabid});
+  const StateNotifierProviderRoute({required this.tab});
 
-  final String tabid;
+  final TopLevelTab tab;
 
   @override
   Widget build(BuildContext context) => const StateNotifierProviderPage();
 }
 
 class ListenProviderRoute extends GoRouteData {
-  const ListenProviderRoute({required this.tabid});
+  const ListenProviderRoute({required this.tab});
 
-  final String tabid;
+  final TopLevelTab tab;
 
   @override
   Widget build(BuildContext context) => const ListenProviderPage();
 }
 
 class ThemeSelectionRoute extends GoRouteData {
-  const ThemeSelectionRoute({required this.tabid});
+  const ThemeSelectionRoute({required this.tab});
 
-  final String tabid;
+  final TopLevelTab tab;
 
   @override
   Widget build(BuildContext context) => const ThemeSelectionPage();
 }
 
 class AccountRoute extends GoRouteData {
-  const AccountRoute({required this.tabid});
+  const AccountRoute({required this.tab});
 
-  final String tabid;
+  final TopLevelTab tab;
 
   @override
   Widget build(BuildContext context) => const AccountPage();

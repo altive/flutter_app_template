@@ -25,22 +25,22 @@ class RiverpodExamplePage extends StatelessWidget {
         children: [
           _FeatureCard(
             onTap: () =>
-                ProviderRoute(tabid: TopLevelTab.riverpod.name).go(context),
+                const ProviderRoute(tab: TopLevelTab.riverpod).go(context),
             label: ProviderPage.title,
           ),
           _FeatureCard(
-            onTap: () => StateProviderRoute(tabid: TopLevelTab.riverpod.name)
-                .go(context),
+            onTap: () =>
+                const StateProviderRoute(tab: TopLevelTab.riverpod).go(context),
             label: StateProviderPage.title,
           ),
           _FeatureCard(
             onTap: () =>
-                StateNotifierProviderRoute(tabid: TopLevelTab.riverpod.name)
+                const StateNotifierProviderRoute(tab: TopLevelTab.riverpod)
                     .go(context),
             label: StateNotifierProviderPage.title,
           ),
           _FeatureCard(
-            onTap: () => ListenProviderRoute(tabid: TopLevelTab.riverpod.name)
+            onTap: () => const ListenProviderRoute(tab: TopLevelTab.riverpod)
                 .go(context),
             label: ListenProviderPage.title,
           ),
