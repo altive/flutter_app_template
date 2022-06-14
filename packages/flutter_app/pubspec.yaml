@@ -26,6 +26,7 @@ dependencies:
   firebase_storage: ^10.2.14
   flutter:
     sdk: flutter
+  flutter_dotenv: ^5.0.2
   flutter_hooks: ^0.18.3
   flutter_localizations:
     sdk: flutter
@@ -78,15 +79,3 @@ flutter:
 
   assets:
     - assets/sample_images/
-
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
