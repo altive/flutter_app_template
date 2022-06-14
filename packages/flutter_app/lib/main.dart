@@ -7,7 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'commons/providers/flavor_provider.dart';
 import 'commons/providers/package_info_provider.dart';
 import 'commons/providers/shared_preferences_provider.dart';
-import 'domain/environment_constant.dart';
+import 'domain/environment.dart';
 import 'presentation/app.dart';
 
 Future<void> main() async {
