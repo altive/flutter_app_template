@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../../commons/hooks/hooks.dart';
+import '../../../../commons/localizer/localizer.dart';
 import '../../../router/router.dart';
 import '../../top_level_tab/top_level_tab.dart';
 
@@ -10,7 +10,7 @@ class SettingsPageBody extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final l10n = useL10n();
+    final l10n = L10n.of(context);
     return ListView(
       padding: const EdgeInsets.all(16),
       children: [

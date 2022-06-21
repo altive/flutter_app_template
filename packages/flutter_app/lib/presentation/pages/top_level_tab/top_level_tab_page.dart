@@ -3,7 +3,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../commons/hooks/hooks.dart';
+import '../../../commons/localizer/localizer.dart';
 import '../../../commons/widgets/unfocus_on_tap.dart';
 import 'top_level_tab.dart';
 import 'top_level_tab_provider.dart';
@@ -18,7 +18,7 @@ class TopLevelTabPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final l10n = useL10n();
+    final l10n = L10n.of(context);
     final tabController = ref.watch(topLevelTabProvider.notifier);
     final currentTab = ref.watch(topLevelTabProvider);
 

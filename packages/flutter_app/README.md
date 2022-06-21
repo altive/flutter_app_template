@@ -31,3 +31,9 @@ Required only `--release` mode.
 
 - android/key.properties
 - android/app/upload-keystore.jks
+
+## How to use
+### Localizations
+```dart
+final l10n = L10n.of(context);
+```

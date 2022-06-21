@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:image_picker/image_picker.dart';
 
-import '../hooks/use_localization.dart';
+import '../localizer/localizer.dart';
 
 class ImagePickerButton extends HookWidget {
   const ImagePickerButton({
@@ -23,7 +23,7 @@ class ImagePickerButton extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = useL10n();
+    final l10n = L10n.of(context);
     return InkWell(
       onTap: () async {
         final source = await showModalBottomSheet<ImageSource>(

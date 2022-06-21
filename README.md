@@ -39,13 +39,12 @@ make
 
 FVM and Melos are now installed.
 
-## Project structure
+## Projects
+### App template
 
-- lib/
-    - commons/
-    - domain/
-    - presentation/
-  - main.dart
+Also check the README.md for `flutter_app`.
+
+[packages/flutter_app/README.md](/packages/flutter_app/README.md)
 
 ## What to do in a new repository using this template
 1. Replace App ID with your App ID.

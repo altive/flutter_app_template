@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-import '../../../../commons/hooks/hooks.dart';
+import '../../../../commons/localizer/localizer.dart';
 import '../../../router/router.dart';
 import '../../top_level_tab/top_level_tab.dart';
 import 'home_list_card.dart';
@@ -13,7 +13,7 @@ class HomePageBody extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = useL10n();
+    final l10n = L10n.of(context);
     return ListView(
       padding: const EdgeInsets.all(16),
       children: [

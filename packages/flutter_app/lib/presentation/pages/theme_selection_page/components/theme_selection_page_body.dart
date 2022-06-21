@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../../commons/hooks/hooks.dart';
+import '../../../../commons/localizer/localizer.dart';
 import '../../../../domain/theme_selector/theme_selector.dart';
 
 class ThemeSelectionPageBody extends HookConsumerWidget {
@@ -9,9 +9,9 @@ class ThemeSelectionPageBody extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final l10n = useL10n();
     final themeSelector = ref.watch(themeSelectorProvider.notifier);
     final currentThemeMode = ref.watch(themeSelectorProvider);
+    final l10n = L10n.of(context);
     return ListView.builder(
       padding: const EdgeInsets.symmetric(vertical: 16),
       itemCount: ThemeMode.values.length,

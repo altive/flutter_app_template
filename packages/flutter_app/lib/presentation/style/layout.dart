@@ -1,3 +1,3 @@
 import 'package:flutter/material.dart';
 
-const appbarSize = Size(double.infinity, kToolbarHeight);
+const appBarSize = Size(double.infinity, kToolbarHeight);

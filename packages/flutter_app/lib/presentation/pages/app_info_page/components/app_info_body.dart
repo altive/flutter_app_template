@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../../commons/hooks/hooks.dart';
+import '../../../../commons/localizer/localizer.dart';
 import '../../../../commons/providers/flavor_provider.dart';
 import '../../../../commons/providers/package_info_provider.dart';
 
@@ -11,8 +11,8 @@ class AppInfoBody extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final l10n = useL10n();
-    final textTheme = useTextTheme();
+    final l10n = L10n.of(context);
+    final textTheme = Theme.of(context).textTheme;
     final flavor = ref.watch(flavorProvider);
     final packageInfo = ref.watch(packageInfoProvider);
     return Column(

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../../commons/hooks/hooks.dart';
+import '../../../../commons/localizer/localizer.dart';
 import '../../../../domain/authenticator/authenticator.dart';
 import '../../../../gen/assets.gen.dart';
 import '../../../router/router.dart';
@@ -14,7 +14,7 @@ class SigninPageBody extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final l10n = useL10n();
+    final l10n = L10n.of(context);
     final authenticator = ref.watch(authenticatorProvider);
     return Container(
       decoration: BoxDecoration(
