@@ -587,7 +587,7 @@ packages:
       name: go_router
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.1.1"
+    version: "4.1.0"
   go_router_builder:
     dependency: "direct dev"
     description:
