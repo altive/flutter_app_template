@@ -19,7 +19,7 @@ dependencies:
   firebase_auth: ^3.3.16
   firebase_core: ^1.15.0
   firebase_crashlytics: ^2.7.1
-  firebase_dynamic_links: ^4.2.1
+  firebase_dynamic_links: ^4.2.6
   firebase_messaging: ^11.2.15
   firebase_performance: ^0.8.0+10
   firebase_remote_config: ^2.0.5
