@@ -46,7 +46,7 @@ dependencies:
   sort_key_generator: ^0.2.0+1
   tuple: ^2.0.0
   uuid: ^3.0.4
-  version: ^2.0.0
+  version: ^3.0.2
 
 dev_dependencies:
   altive_lints: ^1.2.0
