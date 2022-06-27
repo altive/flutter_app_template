@@ -37,7 +37,7 @@ dependencies:
   flutter_barcode_scanner: ^2.0.0
   flutter_dotenv: ^5.0.2
   flutter_hooks: ^0.18.0
-  flutter_local_notifications: ^9.4.0
+  flutter_local_notifications: ^9.6.1
   flutter_localizations:
     sdk: flutter
   font_awesome_flutter: ^10.1.0
