@@ -29,7 +29,7 @@ dependencies:
   firebase_dynamic_links: ^4.0.8
   firebase_messaging: ^11.2.8
   firebase_performance: ^0.8.0+7
-  firebase_remote_config: ^2.0.2
+  firebase_remote_config: ^2.0.9
   firebase_storage: ^10.0.7
   firestore_ref: ^0.13.3
   flutter:
