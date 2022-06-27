@@ -27,7 +27,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_dotenv: ^5.0.2
-  flutter_hooks: ^0.18.3
+  flutter_hooks: ^0.18.5+1
   flutter_localizations:
     sdk: flutter
   flutter_svg: ^1.1.0
