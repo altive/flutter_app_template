@@ -79,7 +79,5 @@ flutter:
 
   assets:
     - assets/sample_images/
-    - .env.dev
-    - .env.stg
-    - .env.prod
+    - env/
     
