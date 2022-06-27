@@ -14,17 +14,7 @@ class Environment {
   final Flavor _flavor;
 
   Future<void> _load() async {
-    final fileName = () {
-      switch (_flavor) {
-        case Flavor.dev:
-          return '.env.dev';
-        case Flavor.stg:
-          return '.env.stg';
-        case Flavor.prod:
-          return '.env.prod';
-      }
-    }();
-    await dotenv.load(fileName: fileName);
+    await dotenv.load(fileName: 'env/.env.${_flavor.name}');
   }
 
   String get apiBaseUrl => dotenv.get('API_BASE_URL');

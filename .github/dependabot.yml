@@ -1,0 +1,17 @@
+# https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+
+version: 2
+enable-beta-ecosystems: true
+updates:
+  - package-ecosystem: "pub"
+    directory: "/packages/flutter_app" # Location of package manifests
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "08:00"
+      timezone: "Asia/Tokyo"
+      
+  - package-ecosystem: "pub"
+    directory: "/packages/restock_app" # Location of package manifests
+    schedule:
+      interval: "monthly"
