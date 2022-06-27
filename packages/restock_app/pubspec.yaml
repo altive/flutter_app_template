@@ -56,7 +56,7 @@ dependencies:
   purchases_flutter: ^3.3.0
   quiver: ^3.0.1
   recase: ^4.0.0
-  share_plus: ^4.0.4
+  share_plus: ^4.0.10
   shared_preferences: ^2.0.6
   sign_in_with_apple: ^4.0.0
   simple_logger: ^1.8.1
