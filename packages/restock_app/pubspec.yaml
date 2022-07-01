@@ -20,7 +20,7 @@ dependencies:
   convenient_widgets:
     path: ../convenient_widgets/
   crypto: ^3.0.1
-  cupertino_icons: ^1.0.3
+  cupertino_icons: ^1.0.5
   device_info: ^2.0.2
   enum_to_string: ^2.0.1
   extended_image: ^6.0.1
