@@ -52,7 +52,7 @@ dependencies:
   material_design_icons_flutter: ^5.0.6595
   nested: ^1.0.0
   package_info: ^2.0.2
-  permission_handler: ^9.2.0
+  permission_handler: ^10.0.0
   purchases_flutter: ^3.3.0
   quiver: ^3.0.1
   recase: ^4.0.0
@@ -64,7 +64,7 @@ dependencies:
   tuple: ^2.0.0
   url_launcher: ^6.0.20
   uuid: ^3.0.4
-  version: ^2.0.0
+  version: ^3.0.2
 
 dev_dependencies:
   altive_lints: ^1.0.0
