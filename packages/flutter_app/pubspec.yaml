@@ -40,7 +40,7 @@ dependencies:
   intl: ^0.17.0
   json_annotation: ^4.5.0
   linked_scroll_controller: ^0.2.0
-  modal_bottom_sheet: ^2.0.1
+  modal_bottom_sheet: ^2.1.0
   package_info_plus: ^1.4.2
   shared_preferences: ^2.0.8
   sort_key_generator: ^0.2.0+1
