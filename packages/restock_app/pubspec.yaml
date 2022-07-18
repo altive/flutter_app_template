@@ -74,6 +74,7 @@ dev_dependencies:
     sdk: flutter
   freezed: ^2.0.2
   json_serializable: ^6.1.5
+  mockito: ^5.2.0
 
 dependency_overrides:
 
