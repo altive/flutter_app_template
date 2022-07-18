@@ -1,0 +1,5 @@
+bricks:
+  page:
+    git:
+      url: "https://github.com/altive/bricks"
+      path: page
