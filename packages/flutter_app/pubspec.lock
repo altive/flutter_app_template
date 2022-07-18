@@ -1174,6 +1174,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.4.9"
+  themes:
+    dependency: "direct main"
+    description:
+      path: "../themes"
+      relative: true
+    source: path
+    version: "0.0.1"
   time:
     dependency: transitive
     description:
@@ -1322,5 +1329,5 @@ packages:
     source: hosted
     version: "3.1.1"
 sdks:
-  dart: ">=2.17.0 <3.0.0"
+  dart: ">=2.17.3 <3.0.0"
   flutter: ">=3.0.0"

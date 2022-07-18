@@ -44,6 +44,8 @@ dependencies:
   package_info_plus: ^1.4.2
   shared_preferences: ^2.0.8
   sort_key_generator: ^0.2.0+1
+  themes:
+    path: ../themes/
   tuple: ^2.0.0
   url_launcher: ^6.1.4
   uuid: ^3.0.4

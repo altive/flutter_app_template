@@ -29,7 +29,7 @@
     "signInMethodAnonymous": "Anonymous",
     "signInMethodApple": "Apple",
     "signInMethodGoogle": "Google",
-    "signInPageAnonymouseButton": "Continue with Guest",
+    "signInPageAnonymousButton": "Continue with Guest",
     "signInPageAppleButton": "Continue with Apple",
     "signInPageGoogleButton": "Continue with Google",
     "themeModeTitleSystem": "System",

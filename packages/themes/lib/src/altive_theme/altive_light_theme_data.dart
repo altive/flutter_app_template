@@ -7,7 +7,7 @@ import 'theme_description.dart';
 final _defaultThemeData = ThemeData.light();
 const _colorScheme = ColorScheme.light();
 
-ThemeData get lightThemeData {
+ThemeData get altiveLightThemeData {
   return _defaultThemeData.copyWith(
     useMaterial3: true,
     colorScheme: _colorScheme,

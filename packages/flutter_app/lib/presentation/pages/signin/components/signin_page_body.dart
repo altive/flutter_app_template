@@ -43,7 +43,7 @@ class SigninPageBody extends HookConsumerWidget {
             onPressed: authenticator.signInAnonymously,
             whenComplete: (_) =>
                 const TopLevelTabRoute(tab: TopLevelTab.home).go(context),
-            child: Text(l10n.signInPageAnonymouseButton),
+            child: Text(l10n.signInPageAnonymousButton),
           ),
         ],
       ),
