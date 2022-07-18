@@ -74,11 +74,4 @@
 			"",
 		],
 	},
-	"Use L10n hooks with final": {
-		"prefix": "useL10n",
-		"description": "Flutter Localizations",
-		"body": [
-			"final l10n = useL10n();",
-		],
-	},
 }
