@@ -29,7 +29,7 @@
     "signInMethodAnonymous": "匿名",
     "signInMethodApple": "Apple",
     "signInMethodGoogle": "Google",
-    "signInPageAnonymouseButton": "ゲストではじめる",
+    "signInPageAnonymousButton": "ゲストではじめる",
     "signInPageAppleButton": "Appleではじめる",
     "signInPageGoogleButton": "Googleではじめる",
     "themeModeTitleSystem": "System",

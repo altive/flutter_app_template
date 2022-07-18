@@ -45,6 +45,8 @@
 			"source.fixAll",
 		],
 	},
+	// arbファイルが保存されるたびにLocalizationファイルを再生成させる
+	"dart.flutterGenerateLocalizationsOnSave": "all",
 	// 使用するFlutter SDKのパスを指定
 	"dart.flutterSdkPath": ".fvm/flutter_sdk",
 	// 外部パッケージをデバッグ可能としてマークし、デバッグ中のステップインを可能にするなら`true`
@@ -74,4 +76,8 @@
 		"**/*.freezed.dart": true,
 		"**/*.g.dart": true
 	},
+	"cSpell.words": [
+		"Configurator",
+		"notificator"
+	],
 }

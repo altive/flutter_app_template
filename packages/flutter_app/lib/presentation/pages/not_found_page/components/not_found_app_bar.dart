@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:themes/themes.dart';
 
 import '../../../../commons/localizer/localizer.dart';
-import '../../../style/style.dart';
 
 class NotFoundAppBar extends HookWidget implements PreferredSizeWidget {
   const NotFoundAppBar({super.key});
 
   @override
-  Size get preferredSize => appBarSize;
+  Size get preferredSize => appBarDefaultSize;
 
   @override
   Widget build(BuildContext context) {
