@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 
-import '../../../../commons/localizer/localizer.dart';
+import '../../../../util/localizer/localizer.dart';
 import '../../../router/router.dart';
 import '../../top_level_tab/top_level_tab.dart';
 import 'home_list_card.dart';

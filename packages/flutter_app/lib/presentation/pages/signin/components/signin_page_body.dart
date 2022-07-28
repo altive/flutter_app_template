@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../../commons/localizer/localizer.dart';
 import '../../../../domain/authenticator/authenticator.dart';
 import '../../../../gen/assets.gen.dart';
+import '../../../../util/localizer/localizer.dart';
 import '../../../router/router.dart';
 import '../../top_level_tab/top_level_tab.dart';
 

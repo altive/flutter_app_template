@@ -2,8 +2,8 @@ import 'package:awaitable_button/awaitable_button.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../../commons/localizer/localizer.dart';
 import '../../../../domain/authenticator/authenticator.dart';
+import '../../../../util/localizer/localizer.dart';
 import '../../../router/router.dart';
 
 class AccountPageBody extends HookConsumerWidget {

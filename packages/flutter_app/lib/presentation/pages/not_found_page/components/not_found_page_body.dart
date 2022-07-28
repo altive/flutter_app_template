@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../../commons/localizer/localizer.dart';
+import '../../../../util/localizer/localizer.dart';
 import '../../../router/router.dart';
 
 class NotFoundPageBody extends HookConsumerWidget {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../../commons/localizer/localizer.dart';
 import '../../../../domain/theme_selector/theme_selector.dart';
+import '../../../../util/localizer/localizer.dart';
 
 class ThemeSelectionPageBody extends HookConsumerWidget {
   const ThemeSelectionPageBody({super.key});

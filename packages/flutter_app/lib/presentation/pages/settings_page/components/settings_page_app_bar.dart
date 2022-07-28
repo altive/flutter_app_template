@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:themes/themes.dart';
 
-import '../../../../commons/localizer/localizer.dart';
+import '../../../../util/localizer/localizer.dart';
 
-class SettingsPageAppBar extends HookWidget implements PreferredSizeWidget {
+class SettingsPageAppBar extends StatelessWidget
+    implements PreferredSizeWidget {
   const SettingsPageAppBar({super.key});
 
   @override

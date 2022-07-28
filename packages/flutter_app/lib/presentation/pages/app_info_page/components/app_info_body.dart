@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../../commons/localizer/localizer.dart';
 import '../../../../commons/providers/flavor_provider.dart';
 import '../../../../commons/providers/package_info_provider.dart';
+import '../../../../util/localizer/localizer.dart';
 
 class AppInfoBody extends HookConsumerWidget {
   const AppInfoBody({super.key});

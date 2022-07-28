@@ -3,10 +3,10 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:themes/themes.dart';
 
-import '../commons/localizer/localizer.dart';
 import '../commons/providers/app_lifecycle_provider.dart';
 import '../commons/providers/locales_provider.dart';
 import '../domain/theme_selector/theme_selector.dart';
+import '../util/localizer/localizer.dart';
 import 'router/router.dart';
 
 class App extends ConsumerWidget {
