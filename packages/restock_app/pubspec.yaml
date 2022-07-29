@@ -27,7 +27,7 @@ dependencies:
   firebase_auth: ^3.1.5
   firebase_core: ^1.14.0
   firebase_dynamic_links: ^4.0.8
-  firebase_messaging: ^11.2.8
+  firebase_messaging: ^12.0.0
   firebase_performance: ^0.8.0+7
   firebase_remote_config: ^2.0.9
   firebase_storage: ^10.0.7
@@ -51,6 +51,8 @@ dependencies:
   json_annotation: ^4.0.1
   material_design_icons_flutter: ^5.0.6595
   nested: ^1.0.0
+  notificator:
+    path: ../notificator/
   package_info: ^2.0.2
   permission_handler: ^9.2.0
   purchases_flutter: ^3.3.0
@@ -60,6 +62,8 @@ dependencies:
   shared_preferences: ^2.0.6
   sign_in_with_apple: ^4.0.0
   simple_logger: ^1.8.1
+  themes:
+    path: ../themes/
   timezone: ^0.8.0
   tuple: ^2.0.0
   url_launcher: ^6.1.4

@@ -2,12 +2,12 @@ import 'package:convenient_widgets/convenient_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:notificator/notificator.dart';
 
 import '../../common_widgets/loading_indicator.dart';
 import '../../common_widgets/unfocus_on_tap.dart';
 import '../../core/dynamic_links/dynamic_links.dart';
 import '../../models/authenticator/auth_controller.dart';
-import '../../util/notification_configurator/notification_configurator.dart';
 import 'bottom_tab.dart';
 import 'overlay_indicator_state_provider.dart';
 
@@ -31,7 +31,7 @@ class MainStackView extends HookConsumerWidget {
         dynamicLinks.navigateDynamicLinksIfNeeded();
 
         // 通知の権限をリクエストする（iOSではシステムダイアログが表示される）
-        ref.read(notificationConfiguratorProvider.notifier).requestPermission();
+        ref.read(notificationSettingsProvider.notifier).requestPermission();
         return null;
       },
       const [],

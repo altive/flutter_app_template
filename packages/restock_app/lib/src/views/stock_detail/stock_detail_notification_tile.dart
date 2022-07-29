@@ -1,10 +1,10 @@
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:notificator/notificator.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import '../../core/local_notification_controller/local_notification_controller.dart';
-import '../../util/notification_configurator/notification_configurator.dart';
 import 'stock_detail_page_controller.dart';
 
 /// 通知をON/OFFするセル
@@ -90,7 +90,8 @@ class StockDetailNotificationTile extends HookConsumerWidget {
       return;
     }
 
-    if (ref.read(notificationConfiguratorProvider).isNotAuthorized) {
+    final settings = await ref.read(notificationSettingsProvider.future);
+    if (settings.isNotAuthorized) {
       // ③通知の権限が拒否されている場合は、設定画面へ促す
       return _showSettingDialog(context);
     }
