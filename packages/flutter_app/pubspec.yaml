@@ -33,7 +33,7 @@ dependencies:
   flutter_svg: ^1.1.1+1
   freezed_annotation: ^2.1.0
   gap: ^2.0.0
-  go_router: ^4.1.0
+  go_router: ^4.2.2
   google_sign_in: ^5.4.0
   hooks_riverpod: ^2.0.0-dev.9
   image_picker: ^0.8.5
