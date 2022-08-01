@@ -1,7 +1,7 @@
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:notificator/notificator.dart';
+import 'package:notification_receiver/notification_receiver.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import '../../core/local_notification_controller/local_notification_controller.dart';

@@ -2,8 +2,8 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:notificator/notificator.dart';
-import 'package:notificator/src/firebase_messaging_provider.dart';
+import 'package:notification_receiver/notification_receiver.dart';
+import 'package:notification_receiver/src/firebase_messaging_provider.dart';
 import 'package:riverpod/riverpod.dart';
 
 import 'notification_configurator_test.mocks.dart';

@@ -2,7 +2,7 @@ import 'package:convenient_widgets/convenient_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:notificator/notificator.dart';
+import 'package:notification_receiver/notification_receiver.dart';
 
 import '../../common_widgets/loading_indicator.dart';
 import '../../common_widgets/unfocus_on_tap.dart';

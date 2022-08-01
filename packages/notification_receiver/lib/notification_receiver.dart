@@ -1,4 +1,4 @@
-library notificator;
+library notification_receiver;
 
 export 'package:firebase_messaging/firebase_messaging.dart'
     show NotificationSettings;

@@ -50,8 +50,8 @@ dependencies:
   json_annotation: ^4.0.1
   material_design_icons_flutter: ^5.0.6595
   nested: ^1.0.0
-  notificator:
-    path: ../notificator/
+  notification_receiver:
+    path: ../notification_receiver/
   package_info: ^2.0.2
   permission_handler: ^9.2.0
   purchases_flutter: ^3.3.0

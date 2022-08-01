@@ -1,5 +1,5 @@
-name: notificator
-description: Notificator.
+name: notification_receiver
+description: Notification Receiver.
 version: 0.0.1
 homepage:
 

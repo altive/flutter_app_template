@@ -875,10 +875,10 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.0"
-  notificator:
+  notification_receiver:
     dependency: "direct main"
     description:
-      path: "../notificator"
+      path: "../notification_receiver"
       relative: true
     source: path
     version: "0.0.1"
