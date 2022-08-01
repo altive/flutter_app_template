@@ -1,0 +1,19 @@
+# Custom Dictionary Words
+appbundle
+codecov
+codeowners
+cupertino
+dotenv
+draggable
+fullscreen
+gcov
+iframe
+lerp
+mockito
+nullsafety
+pubspec
+riverpod
+unawaited
+unfocus
+vsync
+xcconfig

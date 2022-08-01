@@ -1,5 +1,40 @@
 // Dart Recommended Settings: https://dartcode.org/docs/recommended-settings/
 {
+	// スペルチェックから除外する単語をまとめたテキストファイルを指定する
+	"cSpell.customDictionaries": {
+		"altive-words": {
+			"name": "altive-words",
+			"path": "${workspaceRoot}/.cspell/altive-words.txt",
+			"description": "Altive Words",
+			"addWords": true,
+			"scope": "workspace"
+		},
+		"flutter-words": {
+			"name": "flutter-words",
+			"path": "${workspaceRoot}/.cspell/flutter-words.txt",
+			"description": "Flutter App Development Words",
+			"addWords": true,
+			"scope": "workspace"
+		},
+		"app-words": {
+			"name": "app-words",
+			"path": "${workspaceRoot}/.cspell/app-words.txt",
+			"description": "Words specific to this application",
+			"addWords": true,
+			"scope": "workspace"
+		}
+	},
+	// スペルチェックを行わないファイルパスを指定する
+	"cSpell.ignorePaths": [
+		"node_modules",
+		"package-lock.json",
+		"vscode-extension",
+		"*.gen.dart",
+		"*.lock",
+		".git/objects",
+		".vscode",
+		".vscode-insiders",
+	],
 	// ONLY GLOBAL: Breakpointに到達した時、デバッグビューが自動的に表示される
 	"debug.openDebug": "openOnDebugBreak",
 	// 保存時にフォーマットを実行するなら`true`
@@ -75,9 +110,5 @@
 		"**/.fvm": true,
 		"**/*.freezed.dart": true,
 		"**/*.g.dart": true
-	},
-	"cSpell.words": [
-		"Configurator",
-		"notificator"
-	],
+	}
 }
