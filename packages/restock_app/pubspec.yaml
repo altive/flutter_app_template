@@ -71,7 +71,7 @@ dependencies:
 
 dev_dependencies:
   altive_lints: ^1.2.0
-  build_runner: ^2.0.5
+  build_runner: ^2.2.0
   flutter_launcher_icons: ^0.9.3
   flutter_test:
     sdk: flutter
