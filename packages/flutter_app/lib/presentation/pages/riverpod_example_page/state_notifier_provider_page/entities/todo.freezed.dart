@@ -163,7 +163,9 @@ class _$_Todo with DiagnosticableTreeMixin implements _Todo {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_TodoToJson(this);
+    return _$$_TodoToJson(
+      this,
+    );
   }
 }
 
@@ -176,11 +178,11 @@ abstract class _Todo implements Todo {
   factory _Todo.fromJson(Map<String, dynamic> json) = _$_Todo.fromJson;
 
   @override
-  String get id => throw _privateConstructorUsedError;
+  String get id;
   @override
-  String get title => throw _privateConstructorUsedError;
+  String get title;
   @override
-  bool get completed => throw _privateConstructorUsedError;
+  bool get completed;
   @override
   @JsonKey(ignore: true)
   _$$_TodoCopyWith<_$_Todo> get copyWith => throw _privateConstructorUsedError;

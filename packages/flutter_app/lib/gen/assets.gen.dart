@@ -9,6 +9,13 @@
 
 import 'package:flutter/widgets.dart';
 
+class $EnvGen {
+  const $EnvGen();
+
+  /// File path: env/.env.sample
+  String get env => 'env/.env.sample';
+}
+
 class $AssetsSampleImagesGen {
   const $AssetsSampleImagesGen();
 
@@ -21,6 +28,7 @@ class Assets {
   Assets._();
 
   static const $AssetsSampleImagesGen sampleImages = $AssetsSampleImagesGen();
+  static const $EnvGen env = $EnvGen();
 }
 
 class AssetGenImage {
@@ -35,7 +43,7 @@ class AssetGenImage {
     ImageErrorWidgetBuilder? errorBuilder,
     String? semanticLabel,
     bool excludeFromSemantics = false,
-    double? scale = 1.0,
+    double? scale,
     double? width,
     double? height,
     Color? color,
@@ -82,4 +90,6 @@ class AssetGenImage {
   }
 
   String get path => _assetName;
+
+  String get keyName => _assetName;
 }

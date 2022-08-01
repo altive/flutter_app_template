@@ -187,7 +187,9 @@ class _$_RequestedVersionInfo
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RequestedVersionInfoToJson(this);
+    return _$$_RequestedVersionInfoToJson(
+      this,
+    );
   }
 }
 
@@ -203,15 +205,15 @@ abstract class _RequestedVersionInfo implements RequestedVersionInfo {
   @override
 
   /// 要求バージョン e.g., '1.0.0'
-  String get requiredVersion => throw _privateConstructorUsedError;
+  String get requiredVersion;
   @override
 
   /// アップデートをキャンセルして利用可能にするかどうか
-  bool get canCancel => throw _privateConstructorUsedError;
+  bool get canCancel;
   @override
 
   /// アップデート要求を有強化する日時
-  DateTime get enabledAt => throw _privateConstructorUsedError;
+  DateTime get enabledAt;
   @override
   @JsonKey(ignore: true)
   _$$_RequestedVersionInfoCopyWith<_$_RequestedVersionInfo> get copyWith =>
