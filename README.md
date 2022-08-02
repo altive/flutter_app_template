@@ -29,22 +29,29 @@
 | Dart | Dart version | [pubspec.yaml](/packages/flutter_app/pubspec.yaml) |
 | Dart | Lint / Analyze | [analysis_options.yaml](/packages/flutter_app/analysis_options.yaml) |
 
-## Environments
-dev, stg, prod
+## Packages overview
 
-## Get started
+### `flutter_app`
+
+This is a template package for Flutter apps with dev, stg, and prod environments.
+
+Also check the [`flutter_app/README.md`](/packages/flutter_app/README.md).
+
+### `notification_receiver`
+
+This package takes care of functions (responsibilities) related to setting notification permissions and receiving push notifications for the application.
+
+### `themes`
+
+This package is responsible for the appearance of ThemeData and other appearance-related data used in Flutter apps.
+
+## How to start development
+
 ```shell
 make
 ```
 
 FVM and Melos are now installed.
-
-## Projects
-### App template
-
-Also check the README.md for `flutter_app`.
-
-[packages/flutter_app/README.md](/packages/flutter_app/README.md)
 
 ## What to do in a new repository using this template
 1. Replace App ID with your App ID.
@@ -58,7 +65,7 @@ Also check the README.md for `flutter_app`.
   1. Create a Web app and modify the parameters in `firebaseConfig` in `web/index.html` according to the Firebase SDK additions.
     - apiKey, authDomain, databaseURL, projectId, storageBucket, messagingSenderId, appId, measurementId
     
-## How to add a package
+## How to create a new package
 
 ```shell
 # Package
@@ -67,7 +74,7 @@ flutter create -t package packages/{package_name}
 flutter create --org jp.co.altive packages/{app_name}
 ```
 
-## Reference list
+## References
 [Internationalization User Guild](https://docs.google.com/document/d/10e0saTfAv32OZLRmONy866vnaw0I2jwL8zukykpgWBc/)
 [PresentationDomainSeparation](https://martinfowler.com/bliki/PresentationDomainSeparation.html)
 [Flutter Architecture Blueprints](https://github.com/wasabeef/flutter-architecture-blueprints)
