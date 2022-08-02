@@ -1,0 +1,67 @@
+@startuml reactive-sequence
+title Rivderpodを介した、UIとデータソースの往復処理内容
+
+box Presentation層 #AntiqueWhite
+participant page [
+    =Page
+    ----
+    Page and components
+]
+end box
+
+box Domain層 #FloralWhite
+participant provider [
+    =Provider
+    ----
+    FutureProvider, StreamProvider
+]
+participant domain [
+    =Domain Class
+    ----
+    ex) Counter, Authenticator
+]
+end box
+
+box Infrastructure層 #GhostWhite
+participant dataSource[
+    =Data Source
+    ----
+    API, Device storage and more
+]
+end box
+
+== Riverpodを使用した、Data Sourceが持つデータの取得・購読 (Query, Subscription, GET...) ==
+page -> provider: **ref.watch** or **ref.listen**
+provider -> provider: キャッシュがあるか確認
+alt キャッシュあり
+  provider --> page: キャッシュ済みのデータを返却、画面を構築する\nこれ以上の処理は行わない
+end
+provider -> domain: データ取得に必要なドメインのメソッドを呼び出す
+domain  -> dataSource: 各データソースからデータを取得する
+dataSource --> domain: レスポンスを返却
+domain --> domain: 必要に応じたドメインロジック
+domain --> provider: Providerが必要なデータを返却
+provider --> page: データを提供する
+page --> page: Widgetが構築・描画される
+... **〜〜 購読中のProviderがリフレッシュされたり、新しい値が流れてきた〜〜 ** ...
+provider --> page: 新しいデータを提供する
+page --> page: Widgetが再構築され、必要に応じて再描画される
+== Riverpodを使った値のリフレッシュ ==
+page -> provider: **ref.refresh** or **ref.invalidate**
+provider -> domain: データ取得に必要なドメインのメソッドを呼び出す
+domain  -> dataSource: 各データソースからデータを取得する
+dataSource --> domain: レスポンスを返却
+domain --> domain: 必要に応じたドメインロジック
+domain --> provider: Providerが必要なデータを返却
+provider --> page:データを提供する
+page --> page: Widgetが再構築され、必要に応じて再描画される
+== Riverpodを使用した、Data Sourceが持つデータの変更 (Mutation, POST, UPDATE, DELETE...) ==
+page -> provider: **ref.read**（必要なパラメータを渡してコール）
+provider -> domain: 必要なドメインのメソッドを呼び出す
+domain  -> dataSource: 各データソースへの変更処理を実行する
+dataSource --> domain: レスポンスを返却
+domain --> domain: 必要に応じたドメインロジック
+domain --> provider: 非同期による完了報告 or Exception
+provider --> page: 非同期による完了報告 or Exception
+page --> page: 必要に応じてリフレッシュやエラーハンドリングを実行
+@enduml
