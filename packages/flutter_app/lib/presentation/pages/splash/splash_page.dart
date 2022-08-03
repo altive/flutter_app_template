@@ -13,6 +13,7 @@ class SplashPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final isMounted = useIsMounted();
     final counter = ref.watch(splashCountdownProvider.notifier);
 
     useEffect(
@@ -23,10 +24,15 @@ class SplashPage extends HookConsumerWidget {
             counter.update((state) => state - 1);
           }
           final signedIn = await ref.read(isSignedInProvider.future);
+          if (isMounted()) {
+            return;
+          }
           if (signedIn) {
+            // ignore: use_build_context_synchronously
             const TopLevelTabRoute(tab: TopLevelTab.home).go(context);
             return;
           }
+          // ignore: use_build_context_synchronously
           const SigninRoute().go(context);
         });
         return null;
