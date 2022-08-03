@@ -1,5 +1,6 @@
 import 'package:awaitable_button/awaitable_button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../../domain/authenticator/authenticator.dart';
@@ -11,10 +12,11 @@ class AccountPageBody extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final isMounted = useIsMounted();
     final l10n = L10n.of(context);
     final authenticator = ref.watch(authenticatorProvider);
     Future<void> signOut() async {
-      final isbool = await showDialog<bool>(
+      final isBool = await showDialog<bool>(
         context: context,
         builder: (context) {
           return AlertDialog(
@@ -33,11 +35,12 @@ class AccountPageBody extends HookConsumerWidget {
           );
         },
       );
-      if (isbool != true) {
+      if (isBool != true) {
         return;
       }
       final signedOut = await authenticator.signOut();
-      if (signedOut) {
+      if (signedOut && isMounted()) {
+        // ignore: use_build_context_synchronously
         const SigninRoute().go(context);
       } else {
         await showDialog<void>(
