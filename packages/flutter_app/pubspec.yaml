@@ -21,7 +21,7 @@ dependencies:
   firebase_dynamic_links: ^4.3.3
   firebase_performance: ^0.8.2
   firebase_remote_config: ^2.0.5
-  firebase_storage: ^10.3.1
+  firebase_storage: ^10.3.4
   flutter:
     sdk: flutter
   flutter_dotenv: ^5.0.2
