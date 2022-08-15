@@ -10,7 +10,7 @@ scripts:
       melos exec -- \
         "flutter pub upgrade --major-versions && flutter pub upgrade"
     description: Upgrade the major version of the pub in all packages
-    select-packages:
+    select-package:
       flutter: true
       dir-exists: lib
 
@@ -46,7 +46,7 @@ scripts:
       melos exec -- \
         dart fix --apply lib
     description: Dart fix
-    select-packages:
+    select-package:
       dir-exists: lib
 
   # Upload
