@@ -31,6 +31,7 @@
 		"vscode-extension",
 		"*.gen.dart",
 		"*.lock",
+		"*.xcconfig",
 		".git/objects",
 		".vscode",
 		".vscode-insiders",

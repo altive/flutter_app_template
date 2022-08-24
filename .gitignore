@@ -124,6 +124,7 @@ unlinked_spec.ds
 
 # macOS
 **/macos/Flutter/GeneratedPluginRegistrant.swift
+**/macos/Flutter/DartDefines.xcconfig
 
 # Web related
 lib/generated_plugin_registrant.dart

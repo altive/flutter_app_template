@@ -1,0 +1,4 @@
+FLAVOR=stg
+APP_ID_SUFFIX=.stg
+PROVISIONING_PROFILE_NAME=AppStore jp.co.altive.fat.stg
+GOOGLE_REVERSED_CLIENT_ID=com.googleusercontent.apps.502626918852-9h1ius8m1asenmeu9a770orn23jsmbh1
