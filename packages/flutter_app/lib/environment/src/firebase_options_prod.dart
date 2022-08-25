@@ -4,10 +4,12 @@ import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
 
-/// [FirebaseOptions] for use with your Firebase apps.
+/// Default [FirebaseOptions] for use with your Firebase apps.
 ///
 /// Example:
 /// ```dart
+/// import 'firebase_options_prod.dart';
+/// // ...
 /// await Firebase.initializeApp(
 ///   options: DefaultFirebaseOptions.currentPlatform,
 /// );
@@ -34,10 +36,9 @@ class DefaultFirebaseOptions {
           'DefaultFirebaseOptions have not been configured for linux - '
           'you can reconfigure this by running the FlutterFire CLI again.',
         );
-      case TargetPlatform.fuchsia:
+      default:
         throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for fuchsia - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
+          'DefaultFirebaseOptions are not supported for this platform.',
         );
     }
   }
@@ -47,7 +48,7 @@ class DefaultFirebaseOptions {
     appId: '1:1007652573613:web:95b16cd22289abbfbb1124',
     messagingSenderId: '1007652573613',
     projectId: 'altive-fat',
-    authDomain: 'flutter-app-template-dev.firebaseapp.com',
+    authDomain: 'altive-fat.firebaseapp.com',
     storageBucket: 'altive-fat.appspot.com',
     measurementId: 'G-P8N1PB7S1Y',
   );
@@ -65,7 +66,7 @@ class DefaultFirebaseOptions {
     appId: '1:1007652573613:ios:bf46ce3fca7af889bb1124',
     messagingSenderId: '1007652573613',
     projectId: 'altive-fat',
-    storageBucket: 'altive-fat',
+    storageBucket: 'altive-fat.appspot.com',
     iosClientId:
         '1007652573613-2ggi30iortpdb6gilpfli5ouk6ruckhg.apps.googleusercontent.com',
     iosBundleId: 'jp.co.altive.fat',
@@ -76,7 +77,7 @@ class DefaultFirebaseOptions {
     appId: '1:1007652573613:ios:bf46ce3fca7af889bb1124',
     messagingSenderId: '1007652573613',
     projectId: 'altive-fat',
-    storageBucket: 'altive-fat',
+    storageBucket: 'altive-fat.appspot.com',
     iosClientId:
         '1007652573613-2ggi30iortpdb6gilpfli5ouk6ruckhg.apps.googleusercontent.com',
     iosBundleId: 'jp.co.altive.fat',

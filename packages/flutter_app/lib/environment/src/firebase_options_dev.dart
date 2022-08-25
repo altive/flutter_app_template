@@ -4,10 +4,12 @@ import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
 
-/// [FirebaseOptions] for use with your Firebase apps.
+/// Default [FirebaseOptions] for use with your Firebase apps.
 ///
 /// Example:
 /// ```dart
+/// import 'firebase_options_dev.dart';
+/// // ...
 /// await Firebase.initializeApp(
 ///   options: DefaultFirebaseOptions.currentPlatform,
 /// );
@@ -54,7 +56,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBTOem4kiPZwfqvrfMYFJKP8Qnt8zG-_jM',
-    appId: '1:1068511233454:android:94ea25ca7d0b0e71a6f43f',
+    appId: '1:1068511233454:android:340e7bfd9b8e50c0a6f43f',
     messagingSenderId: '1068511233454',
     projectId: 'flutter-app-template-dev',
     storageBucket: 'flutter-app-template-dev.appspot.com',
