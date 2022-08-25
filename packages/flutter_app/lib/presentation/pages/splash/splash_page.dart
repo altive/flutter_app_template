@@ -24,7 +24,7 @@ class SplashPage extends HookConsumerWidget {
             counter.update((state) => state - 1);
           }
           final signedIn = await ref.read(isSignedInProvider.future);
-          if (isMounted()) {
+          if (!isMounted()) {
             return;
           }
           if (signedIn) {
