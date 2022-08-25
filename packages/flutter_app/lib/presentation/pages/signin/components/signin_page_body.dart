@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../../../commons/providers/package_info_provider.dart';
 import '../../../../domain/authenticator/authenticator.dart';
+import '../../../../environment/environment.dart';
 import '../../../../util/localizer/localizer.dart';
 import '../../../router/router.dart';
 import '../../top_level_tab/top_level_tab.dart';
@@ -15,6 +17,8 @@ class SigninPageBody extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = L10n.of(context);
     final authenticator = ref.watch(authenticatorProvider);
+    final flavor = ref.watch(flavorProvider);
+    final packageInfo = ref.watch(packageInfoProvider);
     return SliverList(
       delegate: SliverChildListDelegate.fixed(
         [
@@ -33,6 +37,19 @@ class SigninPageBody extends HookConsumerWidget {
             whenComplete: (_) =>
                 const TopLevelTabRoute(tab: TopLevelTab.home).go(context),
             child: Text(l10n.signInPageAnonymousButton),
+          ),
+          const Divider(),
+          ListTile(
+            title: const Text('Version:'),
+            subtitle: Text('${packageInfo.version}+${packageInfo.buildNumber}'),
+          ),
+          ListTile(
+            title: const Text('Environment:'),
+            subtitle: Text(flavor.name),
+          ),
+          ListTile(
+            title: const Text('Bundle ID (Package name):'),
+            subtitle: Text(packageInfo.packageName),
           ),
         ],
       ),
