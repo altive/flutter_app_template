@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "flutter_app (dev)",
+            "name": "flutter_app",
             "cwd": "packages/flutter_app",
             "program": "lib/main.dart",
             "request": "launch",
@@ -16,7 +16,7 @@
             ]
         },
         {
-            "name": "Ranking note (dev)",
+            "name": "ranking_note_app",
             "cwd": "packages/ranking_note_app",
             "program": "lib/main.dart",
             "request": "launch",
@@ -27,19 +27,7 @@
             ]
         },
         {
-            "name": "Ranking note (dev, web)",
-            "cwd": "packages/ranking_note_app",
-            "program": "lib/main.dart",
-            "request": "launch",
-            "type": "dart",
-            "deviceId": "chrome",
-            "flutterMode": "debug",
-            "args": [
-                "--dart-define=FLAVOR=dev"
-            ]
-        },
-        {
-            "name": "ReStock (dev)",
+            "name": "restock_app",
             "cwd": "packages/restock_app",
             "program": "lib/main.dart",
             "request": "launch",
