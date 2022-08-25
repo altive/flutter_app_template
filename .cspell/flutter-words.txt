@@ -6,6 +6,7 @@ cupertino
 dotenv
 draggable
 fastlane
+flutterfire
 fullscreen
 gcov
 iframe
