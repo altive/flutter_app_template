@@ -4,10 +4,9 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'commons/providers/flavor_provider.dart';
 import 'commons/providers/package_info_provider.dart';
 import 'commons/providers/shared_preferences_provider.dart';
-import 'domain/environment.dart';
+import 'environment/environment.dart';
 import 'presentation/app.dart';
 
 Future<void> main() async {
@@ -28,7 +27,7 @@ Future<void> main() async {
     ProviderScope(
       overrides: [
         flavorProvider.overrideWithValue(flavor),
-        environmentProvider.overrideWithValue(Environment(flavor)),
+        envProvider.overrideWithValue(Env(flavor)),
         sharedPreferencesProvider.overrideWithValue(sp),
         packageInfoProvider.overrideWithValue(pi),
       ],
