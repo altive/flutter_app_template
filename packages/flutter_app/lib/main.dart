@@ -18,7 +18,11 @@ Future<void> main() async {
   late final SharedPreferences sp;
   late final PackageInfo pi;
   await Future.wait([
-    Future(Firebase.initializeApp),
+    Future(
+      () async => Firebase.initializeApp(
+        options: firebaseOptionsWithFlavor(flavor),
+      ),
+    ),
     Future(() async => sp = await SharedPreferences.getInstance()),
     Future(() async => pi = await PackageInfo.fromPlatform()),
   ]);
