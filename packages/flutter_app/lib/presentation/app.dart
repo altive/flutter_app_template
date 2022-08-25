@@ -30,6 +30,7 @@ class App extends ConsumerWidget {
       onGenerateTitle: (context) => L10n.of(context).title,
       routerDelegate: router.routerDelegate,
       routeInformationParser: router.routeInformationParser,
+      routeInformationProvider: router.routeInformationProvider,
       theme: altiveLightThemeData,
       darkTheme: altiveDarkThemeData,
       themeMode: ref.watch(themeSelectorProvider),
