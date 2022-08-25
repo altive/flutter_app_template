@@ -1,6 +1,6 @@
 name: restock
 description: ReStock
-publish_to: 'none'
+publish_to: "none"
 version: 2.9.2+89
 
 environment:
@@ -78,8 +78,6 @@ dev_dependencies:
   freezed: ^2.0.2
   json_serializable: ^6.3.1
   mockito: ^5.2.0
-
-dependency_overrides:
 
 flutter:
   uses-material-design: true
