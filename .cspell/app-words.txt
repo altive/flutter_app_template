@@ -20,8 +20,10 @@ lcount
 levelup
 linkify
 manabelleinfo
+MPLUS
 mypage
 notoSansjp
+paapi
 pascalcase
 recase
 remoteconfig

@@ -5,10 +5,12 @@ codeowners
 cupertino
 dotenv
 draggable
+fastlane
 fullscreen
 gcov
 iframe
 lerp
+ltrb
 mockito
 nullsafety
 pubspec

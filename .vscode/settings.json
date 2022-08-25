@@ -26,12 +26,14 @@
 	},
 	// スペルチェックを行わないファイルパスを指定する
 	"cSpell.ignorePaths": [
+		"firebase_options.dart",
 		"node_modules",
 		"package-lock.json",
 		"vscode-extension",
 		"*.gen.dart",
 		"*.lock",
 		"*.xcconfig",
+		"**/fvm",
 		".git/objects",
 		".vscode",
 		".vscode-insiders",
