@@ -3,3 +3,4 @@ analyzer:
   exclude:
     - "**/l10n/*.dart"
     - "**/gen/*.dart"
+    - "lib/environment/src/firebase_options*.dart"
