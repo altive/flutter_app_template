@@ -1,4 +1,4 @@
-all: fvm fvm_install melos melos_bs
+all: fvm fvm_install melos melos_bs flutterfire_cli
 
 fvm:
 	dart pub global activate fvm
@@ -11,3 +11,6 @@ melos:
 
 melos_bs:
 	fvm flutter pub global run melos bootstrap
+
+flutterfire_cli:
+	fvm dart pub global activate flutterfire_cli
