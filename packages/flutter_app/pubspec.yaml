@@ -16,7 +16,7 @@ dependencies:
   cupertino_icons: ^1.0.5
   firebase_analytics: ^9.3.2
   firebase_auth: ^3.6.4
-  firebase_core: ^1.21.0
+  firebase_core: ^1.21.1
   firebase_crashlytics: ^2.8.8
   firebase_dynamic_links: ^4.3.5
   firebase_performance: ^0.8.2+3
