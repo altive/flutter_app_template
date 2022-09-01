@@ -53,7 +53,7 @@ class NotificationSchedulesPage extends HookConsumerWidget {
     final stockList = tuple?.item2;
 
     /// 確認後、すべての通知をキャンセルする
-    Future<void> _cancelAllNotifications() async {
+    Future<void> cancelAllNotifications() async {
       final result = await showOkCancelAlertDialog(
         context: context,
         title: '通知をすべて削除',
@@ -66,7 +66,7 @@ class NotificationSchedulesPage extends HookConsumerWidget {
         case OkCancelResult.ok:
           await ref
               .read(localNotificationControllerProvider.notifier)
-              .canceleAll();
+              .cancelAll();
           Navigator.of(context).pop();
           break;
         case OkCancelResult.cancel:
@@ -79,7 +79,7 @@ class NotificationSchedulesPage extends HookConsumerWidget {
         title: const Text('通知予定'),
         actions: <Widget>[
           TextButton(
-            onPressed: _cancelAllNotifications,
+            onPressed: cancelAllNotifications,
             child: const Text('すべて削除'),
           ),
         ],

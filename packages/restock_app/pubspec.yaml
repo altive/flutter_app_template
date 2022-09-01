@@ -4,7 +4,7 @@ publish_to: "none"
 version: 2.9.2+89
 
 environment:
-  sdk: ">=2.17.6 <3.0.0"
+  sdk: ">=2.18.0 <3.0.0"
 
 dependencies:
   adaptive_dialog: ^1.0.1

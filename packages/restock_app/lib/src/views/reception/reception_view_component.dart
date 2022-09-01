@@ -31,7 +31,7 @@ class GoogleSignInButton extends HookConsumerWidget {
           ),
           style: ElevatedButton.styleFrom(
             elevation: 0,
-            primary: Colors.white,
+            backgroundColor: Colors.white,
             shape: StadiumBorder(
               side: isLightTheme ? const BorderSide() : BorderSide.none,
             ),

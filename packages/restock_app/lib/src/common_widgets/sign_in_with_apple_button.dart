@@ -29,7 +29,7 @@ class SignInWithAppleButton extends HookConsumerWidget {
               child: ElevatedButton.icon(
                 style: ElevatedButton.styleFrom(
                   elevation: 0,
-                  primary: isLightTheme ? Colors.black : Colors.white,
+                  backgroundColor: isLightTheme ? Colors.black : Colors.white,
                   shape: StadiumBorder(
                     side: isLightTheme ? const BorderSide() : BorderSide.none,
                   ),

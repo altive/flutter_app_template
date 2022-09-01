@@ -28,7 +28,7 @@ class LogoutUsecase {
       // RevenueCatのユーザーをリセット
       await _revenueController.reset();
       // ローカル通知を全てキャンセル
-      await _notificationController.canceleAll();
+      await _notificationController.cancelAll();
 
       return Result.value(null);
     } on Exception catch (_) {

@@ -31,7 +31,7 @@ class DeleteMeUsecase {
       // RevenueCatのユーザーをリセット
       await _revenueController.reset();
       // ローカル通知を全てキャンセル
-      await _notificationController.canceleAll();
+      await _notificationController.cancelAll();
       // ローカルの設定を削除
       await _prefsController.clearAll();
 

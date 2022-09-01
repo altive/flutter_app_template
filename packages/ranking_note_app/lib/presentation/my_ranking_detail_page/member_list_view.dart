@@ -26,7 +26,7 @@ class MemberListView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     /// ドラッグで並び替えされた時の処理
     /// 新しい順序をランキングに反映させる
-    void _onReorder(
+    void onReorder(
       int oldIndex,
       int droppedIndex,
     ) {
@@ -56,7 +56,7 @@ class MemberListView extends ConsumerWidget {
           (addIconSize + addIconPadding * 2),
       child: ReorderableListView.builder(
         scrollController: mainScrollController,
-        onReorder: _onReorder,
+        onReorder: onReorder,
         padding: const EdgeInsets.only(
           left: 16,
           right: 16,

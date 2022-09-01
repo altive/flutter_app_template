@@ -69,7 +69,6 @@ class MyRankingDetailPage extends ConsumerWidget {
                   case _AppBarActionMenu.edit:
                     showCupertinoModalBottomSheet<void>(
                       context: context,
-                      expand: false,
                       useRootNavigator: true,
                       // bounce: true,
                       builder: (context) {

@@ -21,7 +21,7 @@ class ISO8601Converter implements JsonConverter<DateTime?, String?> {
 
   @override
   DateTime? fromJson(String? json) =>
-      json == null ? null : DateTime?.parse(json);
+      json == null ? null : DateTime.parse(json);
 
   @override
   String? toJson(DateTime? object) => object?.toIso8601String();

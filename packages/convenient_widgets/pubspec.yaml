@@ -1,11 +1,11 @@
 name: convenient_widgets
 description: A new Flutter package project.
-publish_to: 'none'
+publish_to: "none"
 version: 0.0.1
 homepage: https://altive.co.jp
 
 environment:
-  sdk: ">=2.17.6 <3.0.0"
+  sdk: ">=2.18.0 <3.0.0"
 
 dependencies:
   flutter:

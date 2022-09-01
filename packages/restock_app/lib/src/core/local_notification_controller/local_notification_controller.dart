@@ -77,7 +77,7 @@ class LocalNotificationController extends StateNotifier<List<int>> {
   }
 
   /// すべての通知をキャンセル/削除
-  Future<void> canceleAll() async {
+  Future<void> cancelAll() async {
     state = [];
     return _plugin.cancelAll();
   }
