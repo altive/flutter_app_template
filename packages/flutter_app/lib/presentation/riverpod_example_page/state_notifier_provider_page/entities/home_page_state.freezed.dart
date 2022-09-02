@@ -103,7 +103,7 @@ class __$$_HomePageStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_HomePageState with DiagnosticableTreeMixin implements _HomePageState {
+class _$_HomePageState implements _HomePageState {
   const _$_HomePageState({this.mainCount = 0, this.subCount = 0});
 
   /// Main Count
@@ -117,17 +117,8 @@ class _$_HomePageState with DiagnosticableTreeMixin implements _HomePageState {
   final int subCount;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'HomePageState(mainCount: $mainCount, subCount: $subCount)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'HomePageState'))
-      ..add(DiagnosticsProperty('mainCount', mainCount))
-      ..add(DiagnosticsProperty('subCount', subCount));
   }
 
   @override
@@ -158,11 +149,11 @@ abstract class _HomePageState implements HomePageState {
   @override
 
   /// Main Count
-  int get mainCount => throw _privateConstructorUsedError;
+  int get mainCount;
   @override
 
   /// Sub Count
-  int get subCount => throw _privateConstructorUsedError;
+  int get subCount;
   @override
   @JsonKey(ignore: true)
   _$$_HomePageStateCopyWith<_$_HomePageState> get copyWith =>

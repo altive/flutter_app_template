@@ -109,7 +109,7 @@ class __$$_TodoCopyWithImpl<$Res> extends _$TodoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Todo with DiagnosticableTreeMixin implements _Todo {
+class _$_Todo implements _Todo {
   const _$_Todo(
       {required this.id, required this.title, this.completed = false});
 
@@ -124,18 +124,8 @@ class _$_Todo with DiagnosticableTreeMixin implements _Todo {
   final bool completed;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'Todo(id: $id, title: $title, completed: $completed)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'Todo'))
-      ..add(DiagnosticsProperty('id', id))
-      ..add(DiagnosticsProperty('title', title))
-      ..add(DiagnosticsProperty('completed', completed));
   }
 
   @override

@@ -80,11 +80,11 @@ class _$StockDetailStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$_ItemDetailStateCopyWith<$Res>
+abstract class _$$_StockDetailStateCopyWith<$Res>
     implements $StockDetailStateCopyWith<$Res> {
-  factory _$$_ItemDetailStateCopyWith(
-          _$_ItemDetailState value, $Res Function(_$_ItemDetailState) then) =
-      __$$_ItemDetailStateCopyWithImpl<$Res>;
+  factory _$$_StockDetailStateCopyWith(
+          _$_StockDetailState value, $Res Function(_$_StockDetailState) then) =
+      __$$_StockDetailStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {bool isNotificationEnabled,
@@ -94,15 +94,15 @@ abstract class _$$_ItemDetailStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ItemDetailStateCopyWithImpl<$Res>
+class __$$_StockDetailStateCopyWithImpl<$Res>
     extends _$StockDetailStateCopyWithImpl<$Res>
-    implements _$$_ItemDetailStateCopyWith<$Res> {
-  __$$_ItemDetailStateCopyWithImpl(
-      _$_ItemDetailState _value, $Res Function(_$_ItemDetailState) _then)
-      : super(_value, (v) => _then(v as _$_ItemDetailState));
+    implements _$$_StockDetailStateCopyWith<$Res> {
+  __$$_StockDetailStateCopyWithImpl(
+      _$_StockDetailState _value, $Res Function(_$_StockDetailState) _then)
+      : super(_value, (v) => _then(v as _$_StockDetailState));
 
   @override
-  _$_ItemDetailState get _value => super._value as _$_ItemDetailState;
+  _$_StockDetailState get _value => super._value as _$_StockDetailState;
 
   @override
   $Res call({
@@ -111,7 +111,7 @@ class __$$_ItemDetailStateCopyWithImpl<$Res>
     Object? notificationDurationDays = freezed,
     Object? notificationTime = freezed,
   }) {
-    return _then(_$_ItemDetailState(
+    return _then(_$_StockDetailState(
       isNotificationEnabled: isNotificationEnabled == freezed
           ? _value.isNotificationEnabled
           : isNotificationEnabled // ignore: cast_nullable_to_non_nullable
@@ -134,10 +134,10 @@ class __$$_ItemDetailStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ItemDetailState
+class _$_StockDetailState
     with DiagnosticableTreeMixin
-    implements _ItemDetailState {
-  const _$_ItemDetailState(
+    implements _StockDetailState {
+  const _$_StockDetailState(
       {this.isNotificationEnabled = false,
       this.notificationDate,
       this.notificationDurationDays,
@@ -178,7 +178,7 @@ class _$_ItemDetailState
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ItemDetailState &&
+            other is _$_StockDetailState &&
             const DeepCollectionEquality()
                 .equals(other.isNotificationEnabled, isNotificationEnabled) &&
             const DeepCollectionEquality()
@@ -199,16 +199,16 @@ class _$_ItemDetailState
 
   @JsonKey(ignore: true)
   @override
-  _$$_ItemDetailStateCopyWith<_$_ItemDetailState> get copyWith =>
-      __$$_ItemDetailStateCopyWithImpl<_$_ItemDetailState>(this, _$identity);
+  _$$_StockDetailStateCopyWith<_$_StockDetailState> get copyWith =>
+      __$$_StockDetailStateCopyWithImpl<_$_StockDetailState>(this, _$identity);
 }
 
-abstract class _ItemDetailState implements StockDetailState {
-  const factory _ItemDetailState(
+abstract class _StockDetailState implements StockDetailState {
+  const factory _StockDetailState(
       {final bool isNotificationEnabled,
       final DateTime? notificationDate,
       final int? notificationDurationDays,
-      final TimeOfDay? notificationTime}) = _$_ItemDetailState;
+      final TimeOfDay? notificationTime}) = _$_StockDetailState;
 
   @override // 通知のON/OFF
   bool get isNotificationEnabled => throw _privateConstructorUsedError;
@@ -220,6 +220,6 @@ abstract class _ItemDetailState implements StockDetailState {
   TimeOfDay? get notificationTime => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$_ItemDetailStateCopyWith<_$_ItemDetailState> get copyWith =>
+  _$$_StockDetailStateCopyWith<_$_StockDetailState> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,3 +1,4 @@
+// ignore: unused_import
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -15,5 +16,5 @@ class StockDetailState with _$StockDetailState {
     int? notificationDurationDays,
     // 通知する時刻
     TimeOfDay? notificationTime,
-  }) = _ItemDetailState;
+  }) = _StockDetailState;
 }

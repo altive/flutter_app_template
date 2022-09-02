@@ -47,7 +47,7 @@ dependencies:
   image_cropper: ^2.0.0
   image_picker: ^0.8.1+2
   intl: ^0.17.0
-  json_annotation: ^4.0.1
+  json_annotation: ^4.6.0
   material_design_icons_flutter: ^5.0.6595
   nested: ^1.0.0
   notification_receiver:
