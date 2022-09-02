@@ -40,7 +40,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   font_awesome_flutter: ^10.1.0
-  freezed_annotation: ^2.0.1
+  freezed_annotation: ^2.1.0
   google_sign_in: ^5.4.1
   hooks_riverpod: ^2.0.0-dev.5
   http: ^0.13.3
@@ -75,7 +75,7 @@ dev_dependencies:
   flutter_launcher_icons: ^0.9.3
   flutter_test:
     sdk: flutter
-  freezed: ^2.0.2
+  freezed: ^2.1.0+1
   json_serializable: ^6.3.1
   mockito: ^5.2.0
 
