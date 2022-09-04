@@ -1042,7 +1042,7 @@ packages:
       name: purchases_flutter
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.8.0"
+    version: "4.2.1"
   quiver:
     dependency: "direct main"
     description:

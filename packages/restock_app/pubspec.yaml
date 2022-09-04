@@ -54,7 +54,7 @@ dependencies:
     path: ../notification_receiver/
   package_info: ^2.0.2
   permission_handler: ^9.2.0
-  purchases_flutter: ^3.3.0
+  purchases_flutter: ^4.2.1
   quiver: ^3.0.1
   recase: ^4.0.0
   share_plus: ^4.0.10
