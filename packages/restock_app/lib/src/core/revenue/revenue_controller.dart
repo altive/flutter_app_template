@@ -1,6 +1,5 @@
 import 'dart:core';
 
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
@@ -20,7 +19,7 @@ final revenueControllerProvider =
     // userのnull判定が必要
     Purchases.logIn(user.uid);
   }
-  return RevenueController(ref.read, user);
+  return RevenueController(ref.read);
 });
 
 /// アプリ内課金を制御する
@@ -28,7 +27,6 @@ class RevenueController extends StateNotifier<RevenueState> {
   // ----- Constructor ----- //
   RevenueController(
     this._read,
-    this._user,
   ) : super(const RevenueState()) {
     initialSetup();
   }
@@ -36,8 +34,6 @@ class RevenueController extends StateNotifier<RevenueState> {
   final Reader _read;
 
   AnalysisLogger get _logger => _read(analysisLoggerProvider);
-
-  final User? _user;
 
   /// 提供情報
   late Offerings _offerings;
@@ -57,51 +53,50 @@ class RevenueController extends StateNotifier<RevenueState> {
       }
     }();
     // APIキーを使用してセットアップ
-    await Purchases.setup(
-      // RevenueCat - Copnfiguration - API Keys - Public SDK Key's Key
+    final configuration = PurchasesConfiguration(
+      // RevenueCat - Configuration - API Keys - Public SDK Key's Key
       apiKey,
-      // ユーザーを識別する一意のID（FirebaseAuthのUIDを使用）
-      appUserId: _user?.uid,
     );
+    await Purchases.configure(configuration);
     // デバッグログを有効化（開発環境のみ）
     const isDebug = !bool.fromEnvironment('dart.vm.product');
     await Purchases.setDebugLogsEnabled(isDebug);
     // リスナー登録
-    Purchases.addPurchaserInfoUpdateListener(_updatePurchaserState);
+    Purchases.addCustomerInfoUpdateListener(_updatePurchaserState);
 
     // iOSでアプリ再起動時にリスナー判定してくれなかった。手動で呼び出す必要ある
-    final purchaserInfo = await Purchases.getPurchaserInfo();
-    _updatePurchaserState(purchaserInfo);
+    final customerInfo = await Purchases.getCustomerInfo();
+    _updatePurchaserState(customerInfo);
   }
 
-  /// [purchaserInfo]の情報をもとに状態 [state] を更新する
-  void _updatePurchaserState(PurchaserInfo purchaserInfo) {
-    final isSubscriber = _shouldSubscriber(purchaserInfo);
+  /// [customerInfo]の情報をもとに状態 [state] を更新する
+  void _updatePurchaserState(CustomerInfo customerInfo) {
+    final isSubscriber = _shouldSubscriber(customerInfo);
     if (mounted) {
       state = state.copyWith(
         // サブスクリプション契約判定
         isSubscriber: isSubscriber,
         // 情報更新日時
-        updatedDateString: purchaserInfo.requestDate,
+        updatedDateString: customerInfo.requestDate,
         // 有効期限
-        latestExpirationDateString: purchaserInfo.latestExpirationDate,
+        latestExpirationDateString: customerInfo.latestExpirationDate,
       );
       logger.info('update purchaseState: $state');
     }
   }
 
   /// 現在利用可能な月間アプリ内課金プロダクトを取得
-  Future<Product?> getMonthlyProduct() async {
+  Future<StoreProduct?> getMonthlyProduct() async {
     return _getProduct(packageType: PackageType.monthly);
   }
 
   /// 現在利用可能な年間アプリ内課金プロダクトを取得
-  Future<Product?> getAnnualProduct() async {
+  Future<StoreProduct?> getAnnualProduct() async {
     return _getProduct(packageType: PackageType.annual);
   }
 
   /// 現在利用可能なアプリ内課金プロダクトを取得
-  Future<Product?> _getProduct({required PackageType packageType}) async {
+  Future<StoreProduct?> _getProduct({required PackageType packageType}) async {
     try {
       // Offering 情報
       _offerings = await Purchases.getOfferings();
@@ -110,7 +105,7 @@ class RevenueController extends StateNotifier<RevenueState> {
       }
       return _offerings.current!.availablePackages
           .firstWhere((e) => e.packageType == packageType)
-          .product;
+          .storeProduct;
     } on PlatformException catch (e) {
       // error
       logger.warning(e);
@@ -129,7 +124,7 @@ class RevenueController extends StateNotifier<RevenueState> {
     if (currentOffering == null) {
       logger.warning('Current が設定されていない');
       // TODO(Aimiee): RevenueExceptionを作成して使う
-      throw const FormatException('Not Found Curren offerings');
+      throw const FormatException('Not Found Current offerings');
     }
     // Offering の 中から、引数で指定したパッケージタイプに合致したものを選ぶ
     final package = packageType == PackageType.monthly
@@ -141,14 +136,14 @@ class RevenueController extends StateNotifier<RevenueState> {
       return;
     }
     // Packageを引数で指定して、購入実行
-    // [UpgradeInfo] パラメータは、Androidでのみ任意で追加できる
+    // [UpgradeInfo] パラメータは、Androidでのみ任意で追加できる
     final purchaserInfo = await Purchases.purchasePackage(package);
 
     _updatePurchaserState(purchaserInfo);
 
     _logger.purchase(
-      currencyCode: package.product.currencyCode,
-      price: package.product.price,
+      currencyCode: package.storeProduct.currencyCode,
+      price: package.storeProduct.price,
     );
   }
 
@@ -159,11 +154,11 @@ class RevenueController extends StateNotifier<RevenueState> {
     // ユーザーの過去の購入履歴を復元し、appUserIDを、購入履歴を使用しているユーザーにリンク。
     // トランザクションの復元に問題があった場合は [PlatformException] をスローする。
     try {
-      final purchaserInfo = await Purchases.restoreTransactions();
-      final isSubscriber = _shouldSubscriber(purchaserInfo);
-      // すべての Entitlemets が見つからなかった＝購入情報はない
+      final customerInfo = await Purchases.restorePurchases();
+      final isSubscriber = _shouldSubscriber(customerInfo);
+      // すべての Entitlements が見つからなかった＝購入情報はない
       // Entitlements が一つでも一致すれば有効
-      _updatePurchaserState(purchaserInfo);
+      _updatePurchaserState(customerInfo);
       return isSubscriber;
     } on PlatformException catch (e) {
       // エラーコードを取得
@@ -175,7 +170,7 @@ class RevenueController extends StateNotifier<RevenueState> {
 
   /// 保存されたappUserIDをクリアしてPurchasesクライアントをリセットします。
   /// これにより、ランダムなユーザーIDが生成され、キャッシュに保存されます。
-  /// [PurchaserInfo] オブジェクトを返すか、トランザクションの復元に問題があった場合は
+  /// [CustomerInfo] オブジェクトを返すか、トランザクションの復元に問題があった場合は
   /// [PlatformException] をスローします。
   Future<void> reset() async {
     await Purchases.logOut();
@@ -183,7 +178,7 @@ class RevenueController extends StateNotifier<RevenueState> {
 
   /// Proプラン契約中かどうかを判定して結果を返す
   /// `true` なら契約中、 `false` なら未契約
-  bool _shouldSubscriber(PurchaserInfo purchaserInfo) {
+  bool _shouldSubscriber(CustomerInfo purchaserInfo) {
     final isSubscriber =
         purchaserInfo.entitlements.active.containsKey('pro_plan');
     return isSubscriber;
