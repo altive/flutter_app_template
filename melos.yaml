@@ -1,10 +1,12 @@
 name: flutter_app_template
 repository: https://github.com/altive/flutter_app_template
-
+sdkPath: .fvm/flutter_sdk
 packages:
   - packages/**
 
 scripts:
+  postclean: >
+    melos exec --flutter --concurrency=3 -- "flutter clean"
   upgrade:
     run: |
       melos exec -- \
@@ -16,21 +18,30 @@ scripts:
 
   analyze:
     run: |
-      melos exec --dir-exists="lib" -- \
+      melos exec -- \
         flutter analyze . --fatal-infos
     description: Analyze in all packages
+    select-package:
+      flutter: true
+      dir-exists: lib
 
   format:
     run: |
-      melos exec --dir-exists="lib" -- \
+      melos exec -- \
         flutter format --dry-run --set-exit-if-changed lib/
     description: Format in all packages
+    select-package:
+      flutter: true
+      dir-exists: lib
 
   test:
     run: |
-      melos exec --dir-exists="test" --fail-fast -- \
+      melos exec --fail-fast -- \
         flutter test --coverage
     description: flutter test in all packages
+    select-package:
+      flutter: true
+      dir-exists: test
 
   gen:
     run: |
@@ -67,7 +78,7 @@ scripts:
     run: |
       melos run submit:ios:restock
       melos run submit:android:restock
-      
+
   submit:ios:restock:
     run: |
       melos exec -c 1 --scope="restock" --flutter --private -- \
