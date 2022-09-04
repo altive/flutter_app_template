@@ -15,7 +15,7 @@ Future<void> main() async {
 
   final flavor = Flavor.values.byName(const String.fromEnvironment('FLAVOR'));
 
-  const environment = Environment();
+  final environment = Environment(flavor);
 
   await Future.wait<void>([
     Firebase.initializeApp(),

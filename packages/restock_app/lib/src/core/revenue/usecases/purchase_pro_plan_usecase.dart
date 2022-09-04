@@ -128,7 +128,7 @@ class PurchaseProPlanUsecase {
     } on FormatException catch (e) {
       logger.warning(e);
       switch (e.message) {
-        case 'Not Found Curren offerings':
+        case 'Not Found Current offerings':
           return const Result.failure(
             PurchaseProPlanException.notFoundOfferings,
           );

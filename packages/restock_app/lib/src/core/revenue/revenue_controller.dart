@@ -1,9 +1,11 @@
 import 'dart:core';
+import 'dart:io';
 
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
 
+import '../../environment.dart';
 import '../../models/authenticator/auth_controller.dart';
 import '../../utils/utils.dart';
 import '../analytics/analytics.dart';
@@ -40,18 +42,16 @@ class RevenueController extends StateNotifier<RevenueState> {
 
   // 初期化処理
   Future<void> initialSetup() async {
-    final flavor = _read(flavorProvider);
     // 環境ごとに違う API Key
-    final apiKey = () {
-      switch (flavor) {
-        case Flavor.development:
-          return 'DOFQSwHPHrIwGfDzREMYQgpiWMzQYYID';
-        case Flavor.staging:
-          return '';
-        case Flavor.production:
-          return 'DxFJJFwrfHVcneugajYfiBUTlpjoexWN';
-      }
-    }();
+    final environment = _read(environmentProvider);
+    final String apiKey;
+    if (Platform.isAndroid) {
+      apiKey = environment.revenuecatPublicApiAndroidKey;
+    } else if (Platform.isIOS) {
+      apiKey = environment.revenuecatPublicApiIosKey;
+    } else {
+      throw Exception('未対応のプラットフォームです');
+    }
     // APIキーを使用してセットアップ
     final configuration = PurchasesConfiguration(
       // RevenueCat - Configuration - API Keys - Public SDK Key's Key

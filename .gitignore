@@ -150,6 +150,7 @@ coverage/
 # ENV
 .envrc
 .env*
+*.env
 !.env.sample
 
 # Exceptions to above rules.
