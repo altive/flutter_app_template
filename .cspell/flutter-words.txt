@@ -15,8 +15,10 @@ ltrb
 LTWH
 mockito
 nullsafety
+postclean
 pubspec
 Reorderable
+revenuecat
 riverpod
 unawaited
 unfocus
