@@ -34,10 +34,10 @@ jobs:
           touch packages/restock_app/.env
 
       - name: Analyze project
-        run: melos run analyze
+        run: melos run analyze --no-select
 
       - name: Check for the existence of unformatted files
-        run: melos run format
+        run: melos run format --no-select
 
       - name: Send notification to Slack
         if: always()

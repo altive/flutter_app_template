@@ -34,7 +34,7 @@ jobs:
           touch packages/restock_app/.env
 
       - name: Run unit tests
-        run: melos run test
+        run: melos run test --no-select
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v2
