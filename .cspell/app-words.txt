@@ -1,6 +1,7 @@
 # Custom Dictionary Words
 autofetch
 autofocus
+bluefireteam
 btype
 charas
 checkin
@@ -17,6 +18,7 @@ gokou
 helveticaNeue
 informations
 kanban
+kuhnroyal
 lcount
 levelup
 linkify
@@ -35,3 +37,4 @@ signin
 su_tuapuri
 su-tuapuri
 subloc
+subosito
