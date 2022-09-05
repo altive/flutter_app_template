@@ -13,7 +13,7 @@ class Environment {
   final Flavor flavor;
 
   Future<void> initialize() async {
-    await dotenv.load(fileName: '${flavor.name}.env');
+    await dotenv.load(fileName: 'env/${flavor.name}.env');
   }
 
   String get paapiAccessKey {
