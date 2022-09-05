@@ -30,9 +30,8 @@ class AboutThisAppPage extends HookConsumerWidget {
               leading: const Icon(Icons.mail),
               title: const Text('要望・不具合報告を送る'),
               trailing: const Icon(Icons.chevron_right),
-              onTap: () {
-                Navigator.of(context).pushNamed(UserRequestPage.routeName);
-              },
+              onTap: () async =>
+                  Navigator.of(context).pushNamed(UserRequestPage.routeName),
             ),
             ListCell(
               leading: const Icon(Icons.stars),

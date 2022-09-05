@@ -5,5 +5,5 @@ analyzer:
 linter:
   rules:
     # 数が多いため一時的に無効
+    discarded_futures: false
     use_key_in_widget_constructors: false
-    

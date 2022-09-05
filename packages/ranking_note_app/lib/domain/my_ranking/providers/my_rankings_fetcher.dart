@@ -54,9 +54,9 @@ class MyRankingsFetcher
   }
 
   @override
-  void dispose() {
+  Future<void> dispose() async {
     for (final subscription in _subscriptions) {
-      subscription.cancel();
+      await subscription.cancel();
     }
     super.dispose();
   }

@@ -38,7 +38,7 @@ class ProPlanNoticeCard extends StatelessWidget {
                 ),
               ],
             );
-          }).toList(),
+          }),
         ],
       ),
     );

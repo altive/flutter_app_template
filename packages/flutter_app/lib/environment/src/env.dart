@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -15,7 +17,7 @@ final envProvider = Provider<Env>(
 /// Example: .env.dev, .env.stg, .env.prod
 class Env {
   Env(this._flavor) {
-    _load();
+    unawaited(_load());
   }
 
   final Flavor _flavor;

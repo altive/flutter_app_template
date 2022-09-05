@@ -15,8 +15,8 @@ enum AnalyticsPurchaseEvent {
 
 /// アナリティクス
 extension EventLogger on AnalysisLogger {
-  void logCustomEvent() {
-    analytics.logEvent(name: 'event_name', parameters: {'key': 'value'});
+  Future<void> logCustomEvent() async {
+    await analytics.logEvent(name: 'event_name', parameters: {'key': 'value'});
   }
 
   /// サインアップログを送信する

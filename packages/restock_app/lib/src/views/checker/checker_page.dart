@@ -78,7 +78,7 @@ class CheckerPage extends HookConsumerWidget {
                         ),
                     ],
                   );
-                }).toList(),
+                }),
             ],
           ),
         ),

@@ -70,7 +70,7 @@ dependencies:
   version: ^3.0.2
 
 dev_dependencies:
-  altive_lints: ^1.2.0
+  altive_lints: ^1.4.0
   build_runner: ^2.2.0
   flutter_launcher_icons: ^0.9.3
   flutter_test:

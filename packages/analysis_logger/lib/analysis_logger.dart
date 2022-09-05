@@ -1,5 +1,7 @@
 library analysis_logger;
 
+import 'dart:async';
+
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 
@@ -31,32 +33,37 @@ class AnalysisLogger {
   final FirebaseAnalyticsObserver observer;
 
   /// Not supported on web
-  void setDefaultEventParameters(Map<String, Object> defaultParameters) {
-    analytics.setDefaultEventParameters(defaultParameters);
+  Future<void> setDefaultEventParameters(
+    Map<String, Object> defaultParameters,
+  ) async {
+    await analytics.setDefaultEventParameters(defaultParameters);
   }
 
   /// ユーザー情報をセットする。新規登録やログイン時の使用を想定。
-  void setUser({required String id, Map<String, String?>? properties}) {
-    analytics.setUserId(id: id);
+  Future<void> setUser({
+    required String id,
+    Map<String, String?>? properties,
+  }) async {
+    await analytics.setUserId(id: id);
     properties?.forEach((key, value) {
       analytics.setUserProperty(name: key, value: value);
     });
-    crashlytics.setUserIdentifier(id);
+    unawaited(crashlytics.setUserIdentifier(id));
   }
 
   /// ユーザー固有情報をリセットする。ログアウトや退会時の使用を想定。
-  void resetUser() {
-    analytics.setUserId();
-    crashlytics.setUserIdentifier('');
+  Future<void> resetUser() async {
+    await analytics.setUserId();
+    await crashlytics.setUserIdentifier('');
   }
 
   /// チュートリアルをどの程度のユーザーが開始し、完了しているかの指標を取るためのログ送信。
-  void logTutorialBegin() {
-    analytics.logTutorialBegin();
+  Future<void> logTutorialBegin() async {
+    await analytics.logTutorialBegin();
   }
 
   /// チュートリアルをどの程度のユーザーが開始し、完了しているかの指標を取るためのログ送信。
-  void logTutorialComplete() {
-    analytics.logTutorialComplete();
+  Future<void> logTutorialComplete() async {
+    await analytics.logTutorialComplete();
   }
 }

@@ -59,7 +59,7 @@ class SplashPageController extends StateNotifier<SplashState> {
       // サインインしていることが確定
       logger.fine('Signed User ID: ${user.uid}');
       // ユーザーのIDを設定
-      _logger.setUser(id: user.uid);
+      await _logger.setUser(id: user.uid);
 
       // バージョンアップの要求が必要かチェック、（不要・必要・必要だが後回し可能）
       final versionUpdateStatus = await shouldRequestVersionUp(

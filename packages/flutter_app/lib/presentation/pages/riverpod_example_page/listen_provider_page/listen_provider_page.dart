@@ -17,12 +17,12 @@ class ListenProviderPage extends ConsumerWidget {
     // Providerを購読する
     ref.listen<int>(
       counterProvider,
-      (previous, next) {
+      (previous, next) async {
         // Counterの数値が偶数になったときにだけダイアログを表示する
         if (next.isEven) {
           return;
         }
-        showDialog<void>(
+        await showDialog<void>(
           context: context,
           builder: (context) {
             return const AlertDialog(

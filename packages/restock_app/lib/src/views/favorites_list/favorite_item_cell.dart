@@ -112,7 +112,7 @@ class FavoriteItemCell extends HookConsumerWidget {
     final scaffold = ScaffoldMessenger.of(context);
     // Providerにドキュメントをセット
     ref.read(stockEditorParameterProvider.state).state =
-        StockEditorParameter.createrWithAmazon(
+        StockEditorParameter.creatorWithAmazon(
       stock: StockEntity.fromFavoriteItem(item),
     );
     // 詳細画面へ遷移

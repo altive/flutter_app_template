@@ -28,14 +28,12 @@ class ProPlanComparisonCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const _NormalCell(label: ' '),
-                ...ProPlanBenefit.values
-                    .map(
-                      (e) => Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 8),
-                        child: _HeadCell(label: e.title),
-                      ),
-                    )
-                    .toList(),
+                ...ProPlanBenefit.values.map(
+                  (e) => Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8),
+                    child: _HeadCell(label: e.title),
+                  ),
+                ),
               ],
             ),
             const SizedBox(width: 16),
@@ -49,14 +47,12 @@ class ProPlanComparisonCard extends StatelessWidget {
               child: Column(
                 children: [
                   const _NormalCell(label: '無料'),
-                  ...ProPlanBenefit.values
-                      .map(
-                        (e) => Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 8),
-                          child: _NormalCell(label: e.forFree),
-                        ),
-                      )
-                      .toList(),
+                  ...ProPlanBenefit.values.map(
+                    (e) => Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8),
+                      child: _NormalCell(label: e.forFree),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -71,14 +67,12 @@ class ProPlanComparisonCard extends StatelessWidget {
               child: Column(
                 children: [
                   const _PremiumCell(label: 'Pro'),
-                  ...ProPlanBenefit.values
-                      .map(
-                        (e) => Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 8),
-                          child: _PremiumCell(label: e.forPremium),
-                        ),
-                      )
-                      .toList(),
+                  ...ProPlanBenefit.values.map(
+                    (e) => Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8),
+                      child: _PremiumCell(label: e.forPremium),
+                    ),
+                  ),
                 ],
               ),
             ),

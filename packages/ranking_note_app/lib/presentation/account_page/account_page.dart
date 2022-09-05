@@ -20,15 +20,15 @@ class AccountPage extends HookConsumerWidget {
     final l10n = useL10n();
     final isAnonymous = ref.watch(isAnonymousSignedInProvider);
     final googleEmail = ref.watch(googleEmailProvider);
-    final isGoogleSigneIn = googleEmail != null;
+    final isGoogleSignedIn = googleEmail != null;
     final canSignInWithApple =
         ref.watch(canSignInWithAppleProvider).value ?? false;
     final appleEmail = ref.watch(appleEmailProvider);
-    final isAppleSigneIn = ref.watch(isAppleSignedInProvider);
+    final isAppleSignedIn = ref.watch(isAppleSignedInProvider);
 
-    final googleSignInVisibled = !isGoogleSigneIn;
-    final appleSignInVisibled = canSignInWithApple && !isAppleSigneIn;
-    final signOutVisibled = !isAnonymous;
+    final googleSignInEnabled = !isGoogleSignedIn;
+    final appleSignInEnabled = canSignInWithApple && !isAppleSignedIn;
+    final signOutEnabled = !isAnonymous;
 
     return Scaffold(
       appBar: AppBar(
@@ -40,17 +40,17 @@ class AccountPage extends HookConsumerWidget {
           children: [
             // 匿名ユーザーのみ各Providerでサインインが可能
             if (isAnonymous) ...[
-              if (googleSignInVisibled)
+              if (googleSignInEnabled)
                 _Card(
                   isFirst: true,
-                  isLast: !appleSignInVisibled,
+                  isLast: !appleSignInEnabled,
                   titleLabel: 'Sign in with Google',
                   icon: const Icon(MdiIcons.google),
                   onTap: ref.read(authenticatorProvider).signInWithGoogle,
                 ),
-              if (appleSignInVisibled)
+              if (appleSignInEnabled)
                 _Card(
-                  isFirst: isGoogleSigneIn,
+                  isFirst: isGoogleSignedIn,
                   isLast: true,
                   titleLabel: 'Sign in with Apple',
                   icon: const Icon(MdiIcons.apple),
@@ -69,7 +69,7 @@ class AccountPage extends HookConsumerWidget {
             _ProviderLinkCard(
               isFirst: true,
               isLast: !canSignInWithApple,
-              isSigneIn: isGoogleSigneIn,
+              isSignedIn: isGoogleSignedIn,
               email: googleEmail,
               titleLabel: SignInMethod.google.label(context),
               link: ref.read(authenticatorProvider).linkGoogleAccount,
@@ -79,7 +79,7 @@ class AccountPage extends HookConsumerWidget {
             if (canSignInWithApple)
               _ProviderLinkCard(
                 isLast: true,
-                isSigneIn: isAppleSigneIn,
+                isSignedIn: isAppleSignedIn,
                 email: appleEmail,
                 titleLabel: SignInMethod.apple.label(context),
                 link: ref.read(authenticatorProvider).linkAppleAccount,
@@ -87,7 +87,7 @@ class AccountPage extends HookConsumerWidget {
               ),
             const Gap(8),
             // 匿名ユーザーはサインアウトできない。
-            if (signOutVisibled)
+            if (signOutEnabled)
               _Card(
                 isFirst: true,
                 titleLabel: 'Sign out',
@@ -98,7 +98,7 @@ class AccountPage extends HookConsumerWidget {
               ),
             // アカウント削除は常に可能。
             _Card(
-              isFirst: !signOutVisibled,
+              isFirst: !signOutEnabled,
               isLast: true,
               titleLabel: 'Delete account',
               icon: const Icon(Icons.delete),
@@ -148,9 +148,9 @@ class _Card extends HookWidget {
   Widget build(BuildContext context) {
     final l10n = useL10n();
 
-    void showConfirm() {
+    Future<void> showConfirm() async {
       final confirmMessage = this.confirmMessage;
-      showDialog<void>(
+      await showDialog<void>(
         context: context,
         builder: (context) {
           return AlertDialog(
@@ -188,7 +188,7 @@ class _Card extends HookWidget {
 
 class _ProviderLinkCard extends HookWidget {
   const _ProviderLinkCard({
-    required this.isSigneIn,
+    required this.isSignedIn,
     required this.titleLabel,
     required this.email,
     required this.link,
@@ -197,7 +197,7 @@ class _ProviderLinkCard extends HookWidget {
     this.isLast = false,
   });
 
-  final bool isSigneIn;
+  final bool isSignedIn;
   final String titleLabel;
   final String? email;
   final bool isFirst;
@@ -209,8 +209,8 @@ class _ProviderLinkCard extends HookWidget {
   Widget build(BuildContext context) {
     final l10n = useL10n();
 
-    void showConfirm() {
-      showDialog<void>(
+    Future<void> showConfirm() async {
+      await showDialog<void>(
         context: context,
         builder: (context) {
           return AlertDialog(
@@ -239,9 +239,9 @@ class _ProviderLinkCard extends HookWidget {
       isFirst: isFirst,
       isLast: isLast,
       child: ListTile(
-        leading: Icon(isSigneIn ? Icons.check : Icons.add_link),
+        leading: Icon(isSignedIn ? Icons.check : Icons.add_link),
         title: Text(titleLabel),
-        trailing: isSigneIn
+        trailing: isSignedIn
             ? TextButton(
                 style: TextButton.styleFrom(
                   minimumSize: const Size(44, 44),
@@ -256,7 +256,7 @@ class _ProviderLinkCard extends HookWidget {
                 onPressed: link,
                 child: const Text('連携する'),
               ),
-        onTap: isSigneIn ? null : link,
+        onTap: isSignedIn ? null : link,
       ),
     );
   }

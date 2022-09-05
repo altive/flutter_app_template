@@ -28,7 +28,8 @@ class ApiClient {
   Stream<OperationResponse<TData, TVars>> request<TData, TVars>(
     OperationRequest<TData, TVars> request, [
     Stream<OperationResponse<TData, TVars>> Function(
-            OperationRequest<TData, TVars>)?
+      OperationRequest<TData, TVars>,
+    )?
         forward,
   ]) {
     return _executor.request(request, forward);

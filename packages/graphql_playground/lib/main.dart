@@ -12,10 +12,12 @@ Future<void> main() async {
     environment.load(),
   ]);
 
-  runApp(ProviderScope(
-    overrides: [
-      environmentProvider.overrideWithValue(environment),
-    ],
-    child: const App(),
-  ));
+  runApp(
+    ProviderScope(
+      overrides: [
+        environmentProvider.overrideWithValue(environment),
+      ],
+      child: const App(),
+    ),
+  );
 }

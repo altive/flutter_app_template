@@ -38,7 +38,7 @@ class SignInWithAppleButton extends HookConsumerWidget {
                 // 不自然な表現になってしまう。回避策としてタップ時の色変更を透明（なし）にしている
                 // highlightColor: Colors.transparent,
                 // splashColor: Colors.transparent,
-                onPressed: () => ref
+                onPressed: () async => ref
                     .read(receptionProvider.notifier)
                     .onPressedAppleButton(context),
                 icon: Image.asset(

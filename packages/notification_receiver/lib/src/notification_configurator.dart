@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:riverpod/riverpod.dart';
 
@@ -8,7 +10,7 @@ class NotificationConfigurator
     required FirebaseMessaging messaging,
   })  : _messaging = messaging,
         super(const AsyncLoading()) {
-    _fetchSettings();
+    unawaited(_fetchSettings());
   }
 
   final FirebaseMessaging _messaging;

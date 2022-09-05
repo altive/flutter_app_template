@@ -77,7 +77,7 @@ class SearchResultController extends StateNotifier<SearchResultState> {
     final stock = StockEntity.fromSearchedAmazonItem(item);
     // 編集画面で必要なParameterをセット
     ref.read(stockEditorParameterProvider.state).state =
-        StockEditorParameter.createrWithAmazon(stock: stock);
+        StockEditorParameter.creatorWithAmazon(stock: stock);
     return Navigator.of(context).pushNamed(
       StockEditorPage.routeName,
     );

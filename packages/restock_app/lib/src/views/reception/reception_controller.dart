@@ -112,7 +112,7 @@ class ReceptionController extends StateNotifier<ReceptionState> {
     final result = await _authController.signInWithAnonymous();
 
     // 匿名アカウントにサインアップ成功
-    _logger.setUser(id: result.user!.uid);
+    await _logger.setUser(id: result.user!.uid);
     // ユーザーデータ作成
     await _createUserData();
     // Log送信
@@ -154,7 +154,7 @@ class ReceptionController extends StateNotifier<ReceptionState> {
       );
     }
     // ユーザーのIDを設定
-    _logger.setUser(id: userCredential.user!.uid);
+    await _logger.setUser(id: userCredential.user!.uid);
     // 初めての登録か否か
     if (userCredential.additionalUserInfo!.isNewUser) {
       // （初めての）登録の場合

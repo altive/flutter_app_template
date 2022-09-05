@@ -32,14 +32,14 @@ class MemberCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final member = memberDoc.data();
 
-    void onDismissed(DismissDirection direction) {
+    Future<void> onDismissed(DismissDirection direction) async {
       if (direction == DismissDirection.endToStart) {
-        memberDoc.reference.delete();
+        await memberDoc.reference.delete();
       }
     }
 
-    void onCardTapped() {
-      showModalBottomSheet<void>(
+    Future<void> onCardTapped() async {
+      await showModalBottomSheet<void>(
         context: context,
         backgroundColor: Colors.transparent,
         builder: (context) {
@@ -103,16 +103,18 @@ class _UpdateMemberModalBottomSheet extends HookConsumerWidget {
 
     final member = memberDoc.data();
 
-    void onUpdateButtonPressed({
+    Future<void> onUpdateButtonPressed({
       required String titleText,
       required String descriptionText,
       XFile? pickedXFile,
       required bool imageRemoved,
-    }) {
+    }) async {
       if (!formKey.currentState!.validate()) {
         return;
       }
-      ref.read(overwriteRankingMember)(
+      final messenger = ScaffoldMessenger.of(context);
+      final navigator = Navigator.of(context);
+      await ref.read(overwriteRankingMember)(
         rankingId: rankingId,
         title: titleText,
         description: descriptionText,
@@ -122,11 +124,11 @@ class _UpdateMemberModalBottomSheet extends HookConsumerWidget {
       );
       if (pickedXFile != null) {
         // 写真のアップロードは時間がかかるので表示
-        ScaffoldMessenger.of(context).showSnackBar(
+        messenger.showSnackBar(
           const SnackBar(content: Text('画像の追加に時間がかかる場合があります。')),
         );
       }
-      Navigator.of(context).pop();
+      navigator.pop();
     }
 
     return MemberEditingSheet(

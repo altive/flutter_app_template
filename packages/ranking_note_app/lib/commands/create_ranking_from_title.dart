@@ -15,11 +15,11 @@ class CreateRankingFromTitle {
   CollectionReference<Ranking> get _myRankingColRef =>
       _read(myRankingColRefProvider);
 
-  void call(String title) {
+  Future<void> call(String title) async {
     if (title.isEmpty) {
       return;
     }
     final ranking = Ranking(title: title);
-    _myRankingColRef.add(ranking);
+    await _myRankingColRef.add(ranking);
   }
 }

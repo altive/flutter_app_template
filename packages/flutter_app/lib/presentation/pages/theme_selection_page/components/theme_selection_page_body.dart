@@ -20,7 +20,7 @@ class ThemeSelectionPageBody extends HookConsumerWidget {
         return RadioListTile<ThemeMode>(
           value: themeMode,
           groupValue: currentThemeMode,
-          onChanged: (newTheme) => themeSelector.changeAndSave(newTheme!),
+          onChanged: (newTheme) async => themeSelector.changeAndSave(newTheme!),
           title: Text(themeMode.title(l10n)),
           subtitle: Text(themeMode.subtitle(l10n)),
           secondary: Icon(themeMode.iconData),

@@ -79,8 +79,7 @@ class _ListView extends HookConsumerWidget {
                 ),
               ),
             )
-            .values
-            .toList(),
+            .values,
       ],
     );
   }
@@ -188,7 +187,7 @@ class RecommendCell extends HookConsumerWidget {
     required PaapiSearchItem searchItem,
   }) {
     final stock = StockEntity.fromSearchedAmazonItem(searchItem);
-    final param = StockEditorParameter.createrWithAmazon(stock: stock);
+    final param = StockEditorParameter.creatorWithAmazon(stock: stock);
     ref.read(stockEditorParameterProvider.state).state = param;
     Navigator.of(context).pushNamed(StockEditorPage.routeName);
   }

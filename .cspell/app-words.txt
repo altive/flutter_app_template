@@ -18,6 +18,7 @@ gokou
 helveticaNeue
 informations
 kanban
+kihon
 kuhnroyal
 lcount
 levelup

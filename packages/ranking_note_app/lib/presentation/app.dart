@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -33,7 +35,7 @@ class App extends ConsumerWidget {
         supportedLocales: AppLocalizations.supportedLocales,
       );
     }
-    ref.watch(authenticatorProvider).signInAnonymously();
+    unawaited(ref.watch(authenticatorProvider).signInAnonymously());
     return const SplashPage();
   }
 }

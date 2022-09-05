@@ -22,7 +22,7 @@ class StockEditorParameter with _$StockEditorParameter {
   }) = _StockEditorParameter;
 
   /// Amazon商品から作成用のコンストラクタ
-  factory StockEditorParameter.createrWithAmazon({
+  factory StockEditorParameter.creatorWithAmazon({
     required StockEntity stock,
   }) =>
       StockEditorParameter(

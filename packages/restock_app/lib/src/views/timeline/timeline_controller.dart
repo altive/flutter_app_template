@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:collection/collection.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -12,7 +14,7 @@ final timelineProvider =
 class TimelineController extends StateNotifier<TimelineState> {
   // ----- Constructor ----- //
   TimelineController(this._ref) : super(const TimelineState()) {
-    loadItems();
+    unawaited(loadItems());
   }
 
   // ignore: unused_field
