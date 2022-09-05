@@ -17,7 +17,7 @@ final revenueControllerProvider =
   final user = ref.watch(authControllerProvider);
   // AppUserIDを更新する
   if (user != null) {
-    // user == null の時に実行すると `Purchases.setup` の前に実行してしまうことがあるため
+    // user == null の時に実行すると `Purchases.configure` の前に実行してしまうことがあるため
     // userのnull判定が必要
     Purchases.logIn(user.uid);
   }
