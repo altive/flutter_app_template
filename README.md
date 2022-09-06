@@ -41,6 +41,14 @@ Also check the [`flutter_app/README.md`](/packages/flutter_app/README.md).
 
 This package takes care of functions (responsibilities) related to setting notification permissions and receiving push notifications for the application.
 
+Currently using Firebase Cloud Messaging.
+
+### `remote_parameter_fetcher`
+
+This package is responsible for the function (responsibility) of retrieving remotely configured parameters and providing them in a specified type.
+
+Currently using Firebase Remote Config.
+
 ### `themes`
 
 This package is responsible for the appearance of ThemeData and other appearance-related data used in Flutter apps.
