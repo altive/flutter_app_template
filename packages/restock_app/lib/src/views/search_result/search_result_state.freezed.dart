@@ -188,13 +188,11 @@ abstract class _SearchResultState implements SearchResultState {
       final PaapiSearchItemsParameters? searchParams}) = _$_SearchResultState;
 
   @override // ローディング中かどうか
-  bool get fetching => throw _privateConstructorUsedError;
+  bool get fetching;
   @override
-  PaapiSearchItemsResult? get searchResult =>
-      throw _privateConstructorUsedError;
+  PaapiSearchItemsResult? get searchResult;
   @override
-  PaapiSearchItemsParameters? get searchParams =>
-      throw _privateConstructorUsedError;
+  PaapiSearchItemsParameters? get searchParams;
   @override
   @JsonKey(ignore: true)
   _$$_SearchResultStateCopyWith<_$_SearchResultState> get copyWith =>

@@ -146,9 +146,9 @@ abstract class _RecommendDetailState implements RecommendDetailState {
       final PaapiGetItemsResult? itemResult}) = _$_RecommendDetailState;
 
   @override // ローディング中かどうか
-  bool get fetching => throw _privateConstructorUsedError;
+  bool get fetching;
   @override // 商品検索結果
-  PaapiGetItemsResult? get itemResult => throw _privateConstructorUsedError;
+  PaapiGetItemsResult? get itemResult;
   @override
   @JsonKey(ignore: true)
   _$$_RecommendDetailStateCopyWith<_$_RecommendDetailState> get copyWith =>

@@ -219,16 +219,15 @@ abstract class _CheckerState implements CheckerState {
       final List<RecommendStockSet>? stockSetList}) = _$_CheckerState;
 
   @override // 読み込み中かどうか
-  bool get loading => throw _privateConstructorUsedError;
+  bool get loading;
   @override
-  int get manCount => throw _privateConstructorUsedError;
+  int get manCount;
   @override
-  int get womanCount => throw _privateConstructorUsedError;
+  int get womanCount;
   @override
-  int get childCount => throw _privateConstructorUsedError;
+  int get childCount;
   @override
-  List<RecommendStockSet>? get stockSetList =>
-      throw _privateConstructorUsedError;
+  List<RecommendStockSet>? get stockSetList;
   @override
   @JsonKey(ignore: true)
   _$$_CheckerStateCopyWith<_$_CheckerState> get copyWith =>

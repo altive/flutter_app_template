@@ -125,7 +125,7 @@ abstract class _UserRequestState implements UserRequestState {
   const factory _UserRequestState({final bool sending}) = _$_UserRequestState;
 
   @override //
-  bool get sending => throw _privateConstructorUsedError;
+  bool get sending;
   @override
   @JsonKey(ignore: true)
   _$$_UserRequestStateCopyWith<_$_UserRequestState> get copyWith =>

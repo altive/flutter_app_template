@@ -123,7 +123,7 @@ abstract class _SplashState implements SplashState {
   const factory _SplashState({final bool loading}) = _$_SplashState;
 
   @override // 読み込み中かどうか
-  bool get loading => throw _privateConstructorUsedError;
+  bool get loading;
   @override
   @JsonKey(ignore: true)
   _$$_SplashStateCopyWith<_$_SplashState> get copyWith =>

@@ -85,23 +85,15 @@ class __$$_StockNameCopyWithImpl<$Res> extends _$StockNameCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_StockName with DiagnosticableTreeMixin implements _StockName {
+class _$_StockName implements _StockName {
   const _$_StockName(this.value);
 
   @override
   final String value;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'StockName(value: $value)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'StockName'))
-      ..add(DiagnosticsProperty('value', value));
   }
 
   @override
@@ -126,7 +118,7 @@ abstract class _StockName implements StockName {
   const factory _StockName(final String value) = _$_StockName;
 
   @override
-  String get value => throw _privateConstructorUsedError;
+  String get value;
   @override
   @JsonKey(ignore: true)
   _$$_StockNameCopyWith<_$_StockName> get copyWith =>
@@ -552,7 +544,7 @@ class __$$_StockEntityCopyWithImpl<$Res> extends _$StockEntityCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_StockEntity extends _StockEntity with DiagnosticableTreeMixin {
+class _$_StockEntity extends _StockEntity {
   const _$_StockEntity(
       {required this.id,
       required this.idNumber,
@@ -687,37 +679,8 @@ class _$_StockEntity extends _StockEntity with DiagnosticableTreeMixin {
   final String? stockCategory;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'StockEntity(id: $id, idNumber: $idNumber, createdAt: $createdAt, updatedAt: $updatedAt, name: $name, originalName: $originalName, numberOfItems: $numberOfItems, asin: $asin, itemId: $itemId, productCategory: $productCategory, expirationDateTypeInt: $expirationDateTypeInt, expirationAt: $expirationAt, amazonUrl: $amazonUrl, imageUrlSmall: $imageUrlSmall, imageUrlMedium: $imageUrlMedium, imageUrlLarge: $imageUrlLarge, imagePathSmall: $imagePathSmall, imagePathMedium: $imagePathMedium, imagePathLarge: $imagePathLarge, imagePathOriginal: $imagePathOriginal, memo: $memo, stockCategory: $stockCategory)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'StockEntity'))
-      ..add(DiagnosticsProperty('id', id))
-      ..add(DiagnosticsProperty('idNumber', idNumber))
-      ..add(DiagnosticsProperty('createdAt', createdAt))
-      ..add(DiagnosticsProperty('updatedAt', updatedAt))
-      ..add(DiagnosticsProperty('name', name))
-      ..add(DiagnosticsProperty('originalName', originalName))
-      ..add(DiagnosticsProperty('numberOfItems', numberOfItems))
-      ..add(DiagnosticsProperty('asin', asin))
-      ..add(DiagnosticsProperty('itemId', itemId))
-      ..add(DiagnosticsProperty('productCategory', productCategory))
-      ..add(DiagnosticsProperty('expirationDateTypeInt', expirationDateTypeInt))
-      ..add(DiagnosticsProperty('expirationAt', expirationAt))
-      ..add(DiagnosticsProperty('amazonUrl', amazonUrl))
-      ..add(DiagnosticsProperty('imageUrlSmall', imageUrlSmall))
-      ..add(DiagnosticsProperty('imageUrlMedium', imageUrlMedium))
-      ..add(DiagnosticsProperty('imageUrlLarge', imageUrlLarge))
-      ..add(DiagnosticsProperty('imagePathSmall', imagePathSmall))
-      ..add(DiagnosticsProperty('imagePathMedium', imagePathMedium))
-      ..add(DiagnosticsProperty('imagePathLarge', imagePathLarge))
-      ..add(DiagnosticsProperty('imagePathOriginal', imagePathOriginal))
-      ..add(DiagnosticsProperty('memo', memo))
-      ..add(DiagnosticsProperty('stockCategory', stockCategory));
   }
 
   @override
@@ -797,7 +760,9 @@ class _$_StockEntity extends _StockEntity with DiagnosticableTreeMixin {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_StockEntityToJson(this);
+    return _$$_StockEntityToJson(
+      this,
+    );
   }
 }
 
@@ -840,101 +805,101 @@ abstract class _StockEntity extends StockEntity {
 
   /// 古いバージョンのアプリでは `id` を入れていなかった。
   /// そもそも入れなくて良い運用が良さそうだが、現時点では取得時点で補完した上で使用している
-  String? get id => throw _privateConstructorUsedError;
+  String? get id;
   @override
 
   /// 通知で使用する一位の数列
-  int get idNumber => throw _privateConstructorUsedError;
+  int get idNumber;
   @override
 
   /// 作成日時
   @TimestampConverter()
-  DateTime? get createdAt => throw _privateConstructorUsedError;
+  DateTime? get createdAt;
   @override
 
   /// 更新日時
   @TimestampConverter()
-  DateTime? get updatedAt => throw _privateConstructorUsedError;
+  DateTime? get updatedAt;
   @override
 
   /// アイテムの名前
   @StockNameConverter()
-  StockName get name => throw _privateConstructorUsedError;
+  StockName get name;
   @override
 
   /// アイテムの名前（Amazon商品の編集されていない名前）
   /// みんなのストックなどの表示に使う @nullable
-  String? get originalName => throw _privateConstructorUsedError;
+  String? get originalName;
   @override
 
   /// アイテムのストック数
-  double get numberOfItems => throw _privateConstructorUsedError;
+  double get numberOfItems;
   @override
 
   /// Amazonの商品コード @nullable
-  String? get asin => throw _privateConstructorUsedError;
+  String? get asin;
   @override
 
   /// 手動で登録したアイテムのID。複製した場合はこのIDを引き継ぐ @nullable
-  String? get itemId => throw _privateConstructorUsedError;
+  String? get itemId;
   @override
 
   /// 商品の種類（食品・その他など）
   /// v2.2.1: ローカルでは `productCategory` に変更
   @JsonKey(name: StockEntityField.productCategory)
-  String get productCategory => throw _privateConstructorUsedError;
+  String get productCategory;
   @override
 
   /// 期限の種類
-  int get expirationDateTypeInt => throw _privateConstructorUsedError;
+  int get expirationDateTypeInt;
   @override
 
   /// 消費期限 or 賞味期限 @nullable
   @TimestampConverter()
-  DateTime? get expirationAt => throw _privateConstructorUsedError;
+  DateTime? get expirationAt;
   @override
 
   /// Amazonの商品Url @nullable
-  String? get amazonUrl => throw _privateConstructorUsedError;
+  String? get amazonUrl;
   @override
 
   /// Amazonの商品画像（小） @nullable
-  String? get imageUrlSmall => throw _privateConstructorUsedError;
+  String? get imageUrlSmall;
   @override
 
   /// Amazonの商品画像（中） @nullable
-  String? get imageUrlMedium => throw _privateConstructorUsedError;
+  String? get imageUrlMedium;
   @override
 
   /// Amazonの商品画像（大） @nullable
-  String? get imageUrlLarge => throw _privateConstructorUsedError;
+  String? get imageUrlLarge;
   @override
 
   /// 商品写真のStorage保存パス（200x200） @nullable
-  String? get imagePathSmall => throw _privateConstructorUsedError;
+  String? get imagePathSmall;
   @override
 
   /// 商品写真のStorage保存パス（400x400） @nullable
-  String? get imagePathMedium => throw _privateConstructorUsedError;
+  String? get imagePathMedium;
   @override
 
   /// 商品写真のStorage保存パス（600x600） @nullable
-  String? get imagePathLarge => throw _privateConstructorUsedError;
+  String? get imagePathLarge;
   @override
 
   /// 商品写真のStorage保存パス（600x600） @nullable
-  String? get imagePathOriginal => throw _privateConstructorUsedError;
+  String? get imagePathOriginal;
   @override
 
   /// メモ @nullable
-  String? get memo => throw _privateConstructorUsedError;
+  String? get memo;
   @override
 
   /// グループ @nullable
   /// added: v1.9.0
   /// v2.2.1: ローカルでは `stockCategory` に変更
   @JsonKey(name: StockEntityField.stockCategory)
-  String? get stockCategory => throw _privateConstructorUsedError;
+  String? get stockCategory;
   @override
   @JsonKey(ignore: true)
   _$$_StockEntityCopyWith<_$_StockEntity> get copyWith =>

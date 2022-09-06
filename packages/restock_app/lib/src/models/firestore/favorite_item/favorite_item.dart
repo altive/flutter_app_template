@@ -1,6 +1,5 @@
 import 'package:amazon_paapi/amazon_paapi.dart';
 import 'package:firestore_ref/firestore_ref.dart';
-import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';

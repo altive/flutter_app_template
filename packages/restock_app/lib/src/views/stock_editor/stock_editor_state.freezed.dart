@@ -371,32 +371,31 @@ abstract class _StockEditorState implements StockEditorState {
       _$_StockEditorState;
 
   @override // 編集されたかどうか
-  bool get hasChanged => throw _privateConstructorUsedError;
+  bool get hasChanged;
   @override // 読み込み中かどうか
-  bool get loading => throw _privateConstructorUsedError;
+  bool get loading;
   @override // アイテムの名前
-  String get itemName => throw _privateConstructorUsedError;
+  String get itemName;
   @override // アイテムの個数
-  int get numberOfItems => throw _privateConstructorUsedError;
+  int get numberOfItems;
   @override // 期限の種類
-  ExpirationDateType get expirationDateType =>
-      throw _privateConstructorUsedError;
+  ExpirationDateType get expirationDateType;
   @override // 期限の日付
-  DateTime? get expirationDate => throw _privateConstructorUsedError;
+  DateTime? get expirationDate;
   @override // アマゾンの商品URL@nullable
-  String? get amazonUrl => throw _privateConstructorUsedError;
+  String? get amazonUrl;
   @override // 商品画像（大）
-  String? get imageUrl => throw _privateConstructorUsedError;
+  String? get imageUrl;
   @override // アイテムのジャンル
   @JsonKey(name: 'category')
-  MyStockCategory get productCategory => throw _privateConstructorUsedError;
+  MyStockCategory get productCategory;
   @override // メモ@nullable
-  String? get memo => throw _privateConstructorUsedError;
+  String? get memo;
   @override // 通知するか
-  bool get isNotificationEnabled => throw _privateConstructorUsedError;
+  bool get isNotificationEnabled;
   @override // グループ@nullable
   @JsonKey(name: 'place')
-  String? get stockCategory => throw _privateConstructorUsedError;
+  String? get stockCategory;
   @override
   @JsonKey(ignore: true)
   _$$_StockEditorStateCopyWith<_$_StockEditorState> get copyWith =>

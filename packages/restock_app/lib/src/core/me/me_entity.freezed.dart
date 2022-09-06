@@ -156,7 +156,7 @@ class __$$_MeEntityCopyWithImpl<$Res> extends _$MeEntityCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_MeEntity extends _MeEntity with DiagnosticableTreeMixin {
+class _$_MeEntity extends _MeEntity {
   const _$_MeEntity(
       {@TimestampConverter() this.createdAt,
       @TimestampConverter() this.updatedAt,
@@ -201,20 +201,8 @@ class _$_MeEntity extends _MeEntity with DiagnosticableTreeMixin {
   final bool? isPrivateMyStock;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'MeEntity(createdAt: $createdAt, updatedAt: $updatedAt, nickname: $nickname, groups: $groups, isPrivateMyStock: $isPrivateMyStock)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'MeEntity'))
-      ..add(DiagnosticsProperty('createdAt', createdAt))
-      ..add(DiagnosticsProperty('updatedAt', updatedAt))
-      ..add(DiagnosticsProperty('nickname', nickname))
-      ..add(DiagnosticsProperty('groups', groups))
-      ..add(DiagnosticsProperty('isPrivateMyStock', isPrivateMyStock));
   }
 
   @override
@@ -247,7 +235,9 @@ class _$_MeEntity extends _MeEntity with DiagnosticableTreeMixin {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_MeEntityToJson(this);
+    return _$$_MeEntityToJson(
+      this,
+    );
   }
 }
 
@@ -266,25 +256,25 @@ abstract class _MeEntity extends MeEntity {
 
   /// 作成日時
   @TimestampConverter()
-  DateTime? get createdAt => throw _privateConstructorUsedError;
+  DateTime? get createdAt;
   @override
 
   /// 更新日時
   @TimestampConverter()
-  DateTime? get updatedAt => throw _privateConstructorUsedError;
+  DateTime? get updatedAt;
   @override
 
   /// ニックネーム
-  String? get nickname => throw _privateConstructorUsedError;
+  String? get nickname;
   @override
 
   /// ユーザーが作成したグループリスト
   @JsonKey(name: MeEntityField.groups)
-  List<String>? get groups => throw _privateConstructorUsedError;
+  List<String>? get groups;
   @override
 
   /// マイストックを非公開にするか
-  bool? get isPrivateMyStock => throw _privateConstructorUsedError;
+  bool? get isPrivateMyStock;
   @override
   @JsonKey(ignore: true)
   _$$_MeEntityCopyWith<_$_MeEntity> get copyWith =>

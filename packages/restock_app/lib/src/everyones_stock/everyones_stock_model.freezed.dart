@@ -264,8 +264,7 @@ class __$$_EveryonesStockModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_EveryonesStockModel extends _EveryonesStockModel
-    with DiagnosticableTreeMixin {
+class _$_EveryonesStockModel extends _EveryonesStockModel {
   const _$_EveryonesStockModel(
       {@TimestampConverter() this.createdAt,
       required this.name,
@@ -336,27 +335,8 @@ class _$_EveryonesStockModel extends _EveryonesStockModel
   final String nickname;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'EveryonesStockModel(createdAt: $createdAt, name: $name, numberOfItems: $numberOfItems, asin: $asin, category: $category, expirationDateTypeInt: $expirationDateTypeInt, expirationAt: $expirationAt, amazonUrl: $amazonUrl, imageUrlSmall: $imageUrlSmall, imageUrlMedium: $imageUrlMedium, imageUrlLarge: $imageUrlLarge, nickname: $nickname)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'EveryonesStockModel'))
-      ..add(DiagnosticsProperty('createdAt', createdAt))
-      ..add(DiagnosticsProperty('name', name))
-      ..add(DiagnosticsProperty('numberOfItems', numberOfItems))
-      ..add(DiagnosticsProperty('asin', asin))
-      ..add(DiagnosticsProperty('category', category))
-      ..add(DiagnosticsProperty('expirationDateTypeInt', expirationDateTypeInt))
-      ..add(DiagnosticsProperty('expirationAt', expirationAt))
-      ..add(DiagnosticsProperty('amazonUrl', amazonUrl))
-      ..add(DiagnosticsProperty('imageUrlSmall', imageUrlSmall))
-      ..add(DiagnosticsProperty('imageUrlMedium', imageUrlMedium))
-      ..add(DiagnosticsProperty('imageUrlLarge', imageUrlLarge))
-      ..add(DiagnosticsProperty('nickname', nickname));
   }
 
   @override
@@ -409,7 +389,9 @@ class _$_EveryonesStockModel extends _EveryonesStockModel
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EveryonesStockModelToJson(this);
+    return _$$_EveryonesStockModelToJson(
+      this,
+    );
   }
 }
 
@@ -436,52 +418,52 @@ abstract class _EveryonesStockModel extends EveryonesStockModel {
 
   /// 作成日時
   @TimestampConverter()
-  DateTime? get createdAt => throw _privateConstructorUsedError;
+  DateTime? get createdAt;
   @override
 
   /// アイテムの名前
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @override
 
   /// アイテムのストック数
-  double get numberOfItems => throw _privateConstructorUsedError;
+  double get numberOfItems;
   @override
 
   /// Amazonの商品コード @nullable
-  String get asin => throw _privateConstructorUsedError;
+  String get asin;
   @override
 
   /// 商品カテゴリ
-  String get category => throw _privateConstructorUsedError;
+  String get category;
   @override
 
   /// 期限の種類
-  int get expirationDateTypeInt => throw _privateConstructorUsedError;
+  int get expirationDateTypeInt;
   @override
 
   /// 消費期限 or 賞味期限 @nullable
   @TimestampConverter()
-  DateTime? get expirationAt => throw _privateConstructorUsedError;
+  DateTime? get expirationAt;
   @override
 
   /// Amazonの商品Url @nullable
-  String get amazonUrl => throw _privateConstructorUsedError;
+  String get amazonUrl;
   @override
 
   /// Amazonの商品画像（小） @nullable
-  String? get imageUrlSmall => throw _privateConstructorUsedError;
+  String? get imageUrlSmall;
   @override
 
   /// Amazonの商品画像（中） @nullable
-  String? get imageUrlMedium => throw _privateConstructorUsedError;
+  String? get imageUrlMedium;
   @override
 
   /// Amazonの商品画像（大） @nullable
-  String? get imageUrlLarge => throw _privateConstructorUsedError;
+  String? get imageUrlLarge;
   @override
 
   /// ニックネーム @nullable
-  String get nickname => throw _privateConstructorUsedError;
+  String get nickname;
   @override
   @JsonKey(ignore: true)
   _$$_EveryonesStockModelCopyWith<_$_EveryonesStockModel> get copyWith =>

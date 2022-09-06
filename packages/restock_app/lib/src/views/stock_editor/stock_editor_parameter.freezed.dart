@@ -132,9 +132,7 @@ class __$$_StockEditorParameterCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_StockEditorParameter
-    with DiagnosticableTreeMixin
-    implements _StockEditorParameter {
+class _$_StockEditorParameter implements _StockEditorParameter {
   const _$_StockEditorParameter({this.mode, this.stock, this.imageFile});
 
   /// @nullable
@@ -150,18 +148,8 @@ class _$_StockEditorParameter
   final File? imageFile;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'StockEditorParameter(mode: $mode, stock: $stock, imageFile: $imageFile)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'StockEditorParameter'))
-      ..add(DiagnosticsProperty('mode', mode))
-      ..add(DiagnosticsProperty('stock', stock))
-      ..add(DiagnosticsProperty('imageFile', imageFile));
   }
 
   @override
@@ -197,15 +185,15 @@ abstract class _StockEditorParameter implements StockEditorParameter {
   @override
 
   /// @nullable
-  StockEditorMode? get mode => throw _privateConstructorUsedError;
+  StockEditorMode? get mode;
   @override
 
   /// @nullable
-  StockEntity? get stock => throw _privateConstructorUsedError;
+  StockEntity? get stock;
   @override
 
   /// @nullable
-  File? get imageFile => throw _privateConstructorUsedError;
+  File? get imageFile;
   @override
   @JsonKey(ignore: true)
   _$$_StockEditorParameterCopyWith<_$_StockEditorParameter> get copyWith =>

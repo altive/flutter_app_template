@@ -106,23 +106,15 @@ class __$$SuccessCopyWithImpl<S, F, $Res>
 
 /// @nodoc
 
-class _$Success<S, F> extends Success<S, F> with DiagnosticableTreeMixin {
+class _$Success<S, F> extends Success<S, F> {
   const _$Success(this.value) : super._();
 
   @override
   final S value;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'Result<$S, $F>.success(value: $value)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'Result<$S, $F>.success'))
-      ..add(DiagnosticsProperty('value', value));
   }
 
   @override
@@ -209,7 +201,7 @@ abstract class Success<S, F> extends Result<S, F> {
   const factory Success(final S value) = _$Success<S, F>;
   const Success._() : super._();
 
-  S get value => throw _privateConstructorUsedError;
+  S get value;
   @JsonKey(ignore: true)
   _$$SuccessCopyWith<S, F, _$Success<S, F>> get copyWith =>
       throw _privateConstructorUsedError;
@@ -249,23 +241,15 @@ class __$$FailureCopyWithImpl<S, F, $Res>
 
 /// @nodoc
 
-class _$Failure<S, F> extends Failure<S, F> with DiagnosticableTreeMixin {
+class _$Failure<S, F> extends Failure<S, F> {
   const _$Failure(this.exception) : super._();
 
   @override
   final F exception;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'Result<$S, $F>.failure(exception: $exception)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'Result<$S, $F>.failure'))
-      ..add(DiagnosticsProperty('exception', exception));
   }
 
   @override
@@ -352,7 +336,7 @@ abstract class Failure<S, F> extends Result<S, F> {
   const factory Failure(final F exception) = _$Failure<S, F>;
   const Failure._() : super._();
 
-  F get exception => throw _privateConstructorUsedError;
+  F get exception;
   @JsonKey(ignore: true)
   _$$FailureCopyWith<S, F, _$Failure<S, F>> get copyWith =>
       throw _privateConstructorUsedError;

@@ -121,7 +121,7 @@ class __$$_RevenueStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_RevenueState with DiagnosticableTreeMixin implements _RevenueState {
+class _$_RevenueState implements _RevenueState {
   const _$_RevenueState(
       {this.isSubscriber = false,
       this.updatedDateString,
@@ -141,19 +141,8 @@ class _$_RevenueState with DiagnosticableTreeMixin implements _RevenueState {
   final String? latestExpirationDateString;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'RevenueState(isSubscriber: $isSubscriber, updatedDateString: $updatedDateString, latestExpirationDateString: $latestExpirationDateString)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'RevenueState'))
-      ..add(DiagnosticsProperty('isSubscriber', isSubscriber))
-      ..add(DiagnosticsProperty('updatedDateString', updatedDateString))
-      ..add(DiagnosticsProperty(
-          'latestExpirationDateString', latestExpirationDateString));
   }
 
   @override
@@ -191,15 +180,15 @@ abstract class _RevenueState implements RevenueState {
   @override
 
   /// サブスクリプション契約中かどうか default: false
-  bool get isSubscriber => throw _privateConstructorUsedError;
+  bool get isSubscriber;
   @override
 
   /// 情報更新日時
-  String? get updatedDateString => throw _privateConstructorUsedError;
+  String? get updatedDateString;
   @override
 
   /// 最新の有効期限日
-  String? get latestExpirationDateString => throw _privateConstructorUsedError;
+  String? get latestExpirationDateString;
   @override
   @JsonKey(ignore: true)
   _$$_RevenueStateCopyWith<_$_RevenueState> get copyWith =>
