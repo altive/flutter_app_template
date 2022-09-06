@@ -1,7 +1,4 @@
 include: package:altive_lints/altive_lints.yaml
-analyzer:
-  exclude:
-    - "**/*.freezed.dart"
 linter:
   rules:
     # 数が多いため一時的に無効
