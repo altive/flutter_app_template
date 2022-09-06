@@ -164,7 +164,6 @@
 				3B06AD1E1E4923F5004D2608 /* Thin Binary */,
 				9FC67AFF7B014B05DBBEA3A4 /* [CP] Embed Pods Frameworks */,
 				A35CF69EAB4954763640673D /* [CP] Copy Pods Resources */,
-				8D90773726C9335A00657C7D /* Crashlytics */,
 				8D90774926C9CA2300657C7D /* Embed App Extensions */,
 			);
 			buildRules = (
@@ -280,24 +279,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\\cp -f ${SRCROOT}/${FLAVOR}/GoogleService-Info.plist ${SRCROOT}/GoogleService-Info.plist\n";
-		};
-		8D90773726C9335A00657C7D /* Crashlytics */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = Crashlytics;
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "${PODS_ROOT}/FirebaseCrashlytics/run\n";
 		};
 		9740EEB61CF901F6004384FC /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
