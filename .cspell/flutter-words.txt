@@ -10,6 +10,7 @@ flutterfire
 fullscreen
 gcov
 iframe
+lcov
 lerp
 ltrb
 LTWH
