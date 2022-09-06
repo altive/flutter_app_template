@@ -1,3 +1,4 @@
+import 'package:authenticator/authenticator.dart';
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
@@ -6,7 +7,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../utils/utils.dart';
 import 'auth_error_code.dart';
-import 'auth_method.dart';
 import 'sign_with_apple_service.dart';
 
 /// 現在のUser
@@ -61,7 +61,7 @@ class AuthController extends StateNotifier<User?> {
       return false;
     }
     final appleUserInfo = state.providerData.firstWhereOrNull(
-      (userInfo) => userInfo.providerId == AuthMethod.apple.id,
+      (userInfo) => userInfo.providerId == SigningMethod.apple.providerId,
     );
     return appleUserInfo != null;
   }
@@ -73,7 +73,7 @@ class AuthController extends StateNotifier<User?> {
       return false;
     }
     final googleUserInfo = state.providerData.firstWhereOrNull(
-      (userInfo) => userInfo.providerId == AuthMethod.google.id,
+      (userInfo) => userInfo.providerId == SigningMethod.google.providerId,
     );
     return googleUserInfo != null;
   }
@@ -88,7 +88,7 @@ class AuthController extends StateNotifier<User?> {
       return null;
     }
     return user.providerData.firstWhereOrNull(
-      (userInfo) => userInfo.providerId == AuthMethod.apple.id,
+      (userInfo) => userInfo.providerId == SigningMethod.apple.providerId,
     );
   }
 
@@ -99,7 +99,7 @@ class AuthController extends StateNotifier<User?> {
       return null;
     }
     return user.providerData.firstWhereOrNull(
-      (userInfo) => userInfo.providerId == AuthMethod.google.id,
+      (userInfo) => userInfo.providerId == SigningMethod.google.providerId,
     );
   }
 
@@ -197,7 +197,7 @@ class AuthController extends StateNotifier<User?> {
       return false;
     }
     try {
-      await state.unlink(AuthMethod.apple.id!);
+      await state.unlink(SigningMethod.apple.providerId);
       // 新しいユーザー情報で更新（不要かも？）
       this.state = _auth.currentUser;
       return true;
@@ -207,7 +207,7 @@ class AuthController extends StateNotifier<User?> {
           // 再認証が必要なことを示す例外
           await _reauthenticate();
           // 再度、リンク解除を実行
-          await state.unlink(AuthMethod.apple.id!);
+          await state.unlink(SigningMethod.apple.providerId);
           // 新しいユーザー情報で更新（不要かも？）
           this.state = _auth.currentUser;
           return true;
@@ -268,7 +268,7 @@ class AuthController extends StateNotifier<User?> {
       return false;
     }
     try {
-      await state.unlink(AuthMethod.google.id!);
+      await state.unlink(SigningMethod.google.providerId);
       // 新しいユーザー情報で更新（不要かも？）
       this.state = _auth.currentUser;
       return true;
@@ -278,7 +278,7 @@ class AuthController extends StateNotifier<User?> {
           // 再認証が必要なことを示す例外
           await _reauthenticate();
           // 再度、リンク解除を実行
-          await state.unlink(AuthMethod.google.id!);
+          await state.unlink(SigningMethod.google.providerId);
           // 新しいユーザー情報で更新（不要かも？）
           this.state = _auth.currentUser;
           return true;

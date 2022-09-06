@@ -1,10 +1,10 @@
 import 'dart:io';
 
+import 'package:authenticator/authenticator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 import '../../utils/utils.dart';
-import 'auth_method.dart';
 
 /// Sign in with Apple を許可するかどうか
 /// - iOS 13 and higher
@@ -57,7 +57,7 @@ Future<AuthCredential?> requestAppleAuthCredential() async {
     case CredentialState.authorized:
       logger.fine('Sign in with Apple authorized');
       // 成功！クレデンシャルを返却する
-      final oAuthProvider = OAuthProvider(AuthMethod.apple.id!);
+      final oAuthProvider = OAuthProvider(SigningMethod.apple.providerId);
       final oAuthCredential = oAuthProvider.credential(
         idToken: credential.identityToken,
         accessToken: credential.authorizationCode,

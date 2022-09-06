@@ -1,6 +1,7 @@
 import 'dart:core';
 import 'dart:io';
 
+import 'package:analysis_logger/analysis_logger.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
@@ -8,7 +9,6 @@ import 'package:purchases_flutter/purchases_flutter.dart';
 import '../../environment.dart';
 import '../../models/authenticator/auth_controller.dart';
 import '../../utils/utils.dart';
-import '../analytics/analytics.dart';
 import 'revenue_error_handler.dart';
 import 'revenue_state.dart';
 
@@ -141,8 +141,8 @@ class RevenueController extends StateNotifier<RevenueState> {
 
     _updatePurchaserState(purchaserInfo);
 
-    _logger.purchase(
-      currencyCode: package.storeProduct.currencyCode,
+    await _logger.sendPurchaseLog(
+      currency: package.storeProduct.currencyCode,
       price: package.storeProduct.price,
     );
   }

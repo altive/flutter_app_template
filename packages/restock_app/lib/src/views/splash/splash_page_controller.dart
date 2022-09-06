@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:adaptive_dialog/adaptive_dialog.dart';
+import 'package:analysis_logger/analysis_logger.dart';
 import 'package:app_review/app_review.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/widgets.dart';
@@ -9,7 +10,6 @@ import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 import 'package:package_info/package_info.dart';
 
-import '../../core/analytics/analytics.dart';
 import '../../core/revenue/revenue.dart';
 import '../../models/authenticator/auth_controller.dart';
 import '../../models/remote_config/remote_config_provider.dart';
@@ -59,7 +59,7 @@ class SplashPageController extends StateNotifier<SplashState> {
       // サインインしていることが確定
       logger.fine('Signed User ID: ${user.uid}');
       // ユーザーのIDを設定
-      await _logger.setUser(id: user.uid);
+      await _logger.setUserId(id: user.uid);
 
       // バージョンアップの要求が必要かチェック、（不要・必要・必要だが後回し可能）
       final versionUpdateStatus = await shouldRequestVersionUp(

@@ -1,8 +1,8 @@
+import 'package:analysis_logger/analysis_logger.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import 'core/analytics/analytics.dart';
 import 'core/app_constant/app_info.dart';
 import 'providers/navigator.dart';
 import 'router.dart';

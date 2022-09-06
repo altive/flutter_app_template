@@ -1,6 +1,5 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../core/analytics/analytics.dart';
 import '../shared_preferences_service.dart';
 import 'ex_theme.dart';
 
@@ -15,8 +14,6 @@ class ThemeController extends StateNotifier<ExTheme> {
   }
 
   final Reader _read;
-
-  AnalysisLogger get _logger => _read(analysisLoggerProvider);
 
   SharedPreferencesService get _prefsController =>
       _read(sharedPreferencesServiceProvider);
@@ -34,6 +31,5 @@ class ThemeController extends StateNotifier<ExTheme> {
   Future<void> change(ExTheme theme) async {
     state = theme;
     await _prefsController.saveTheme(theme);
-    _logger.sendChangeTheme(theme);
   }
 }

@@ -4,7 +4,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../../common_widgets/list_cell.dart';
-import '../../core/analytics/analytics.dart';
 import '../../models/remote_config/remote_config_provider.dart';
 import '../../providers/package_info.dart';
 import '../../util/web_launcher.dart';
@@ -17,7 +16,6 @@ class AboutThisAppPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final analyticsSender = ref.watch(analysisLoggerProvider);
     final packageInfo = ref.watch(packageInfoProvider);
     return Scaffold(
       appBar: AppBar(
@@ -38,8 +36,7 @@ class AboutThisAppPage extends HookConsumerWidget {
               title: const Text('アプリを評価して応援'),
               trailing: const Icon(Icons.open_in_browser),
               onTap: () async {
-                final result = await AppReview.writeReview;
-                analyticsSender.reviewWrited(result);
+                await AppReview.writeReview;
               },
             ),
             ListCell(
@@ -51,7 +48,6 @@ class AboutThisAppPage extends HookConsumerWidget {
                   'twitter://user?screen_name=ReStockApp',
                   secondUrl: 'https://twitter.com/ReStockApp',
                 );
-                analyticsSender.twitterLinkOpened();
               },
             ),
             ListCell(
@@ -63,7 +59,6 @@ class AboutThisAppPage extends HookConsumerWidget {
                   'twitter://user?screen_name=riscait',
                   secondUrl: 'https://twitter.com/riscait',
                 );
-                analyticsSender.twitterLinkOpened();
               },
             ),
             ListCell(
@@ -77,7 +72,6 @@ class AboutThisAppPage extends HookConsumerWidget {
                   return;
                 }
                 await launchUrl(remoteConfig.termsUrl);
-                analyticsSender.webLinkOpened(remoteConfig.termsUrl);
               },
             ),
             ListCell(
@@ -91,7 +85,6 @@ class AboutThisAppPage extends HookConsumerWidget {
                   return;
                 }
                 await launchUrl(remoteConfig.privacyPoliciesUrl);
-                analyticsSender.webLinkOpened(remoteConfig.privacyPoliciesUrl);
               },
             ),
             ListCell(
