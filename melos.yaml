@@ -63,10 +63,12 @@ scripts:
   # Upload
   upload:ios:prod:
     run: |
-      melos exec -c 1 --depends-on="build_runner" --flutter -- \
+      melos exec -c 1 -- \
         flutter build ipa --dart-define=FLAVOR=prod --export-options-plist="ios/prod/ExportOptions.plist"
     select-package:
-      dir-exists: lib
+      flutter: true
+      dir-exists: [lib, ios]
+      depends-on: build_runner
 
   upload:ios:prod:restock:
     run: |
