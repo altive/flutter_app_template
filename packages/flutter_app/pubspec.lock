@@ -357,14 +357,14 @@ packages:
       name: firebase_dynamic_links
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.3.5"
+    version: "4.3.6"
   firebase_dynamic_links_platform_interface:
     dependency: transitive
     description:
       name: firebase_dynamic_links_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.2.3+10"
+    version: "0.2.3+11"
   firebase_performance:
     dependency: "direct main"
     description:
