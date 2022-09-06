@@ -1,5 +1,5 @@
 all: fvm fvm_install melos melos_bs flutterfire_cli
-ci: fvm fvm_install melos melos_bs dummy_env
+ci: dummy_env
 
 fvm:
 	dart pub global activate fvm

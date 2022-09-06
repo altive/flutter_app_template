@@ -1,16 +1,19 @@
-name: Flutter Analyze
+name: Flutter app code check
 
 on:
+  workflow_dispatch:
   pull_request:
     types: [opened, synchronize, reopened]
-  workflow_dispatch:
 
 jobs:
-  analyze:
+  check:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v3
+
+      - name: Setup for CI
+        run: make ci
 
       - name: Parse Flutter version
         uses: kuhnroyal/flutter-fvm-config-action@v1
@@ -22,24 +25,31 @@ jobs:
           channel: ${{ env.FLUTTER_CHANNEL }}
           cache: true
 
-      - name: Set MELOS_SDK_PATH
+      - name: Prepare Melos
         run: echo "MELOS_SDK_PATH=${{ env.FLUTTER_ROOT }}" >> $GITHUB_ENV
 
       - name: Install Melos
         uses: bluefireteam/melos-action@v1
 
-      - name: Create dummy env files
-        run: make dummy_env
-
-      - name: Analyze project
+      - name: Analyze packages
         run: melos run analyze --no-select
 
       - name: Check for the existence of unformatted files
         run: melos run format --no-select
 
+      - name: Run package tests
+        run: melos run test --no-select
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v2
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ~/coverage/lcov.info
+          fail_ci_if_error: false
+
       - name: Send notification to Slack
         if: always()
         uses: ./.github/actions/send_notification_to_slack
         with:
-          text: "Finished analyzing on : ${{ github.event.pull_request.html_url }}"
+          text: "Flutter app code check done! : ${{ github.event.pull_request.html_url }}"
           incoming_webhook_url: ${{ secrets.SLACK_INCOMING_WEBHOOK_URL }}
