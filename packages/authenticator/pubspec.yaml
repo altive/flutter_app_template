@@ -1,0 +1,19 @@
+name: authenticator
+description: A new Flutter package project.
+version: 1.0.0
+publish_to: "none"
+
+environment:
+  sdk: ">=2.18.0 <3.0.0"
+
+dependencies:
+  firebase_auth: ^3.7.0
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  altive_lints: ^1.5.0
+  flutter_test:
+    sdk: flutter
+
+flutter:

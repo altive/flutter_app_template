@@ -49,6 +49,18 @@ This package is responsible for the function (responsibility) of retrieving remo
 
 Currently using Firebase Remote Config.
 
+### `analysis_logger`
+
+This package is responsible for the function (responsibility) of event logging and sending crash reports.
+
+Currently using Firebase Analytics and Crashlytics.
+
+### `authenticator`
+
+This package is responsible for the function (responsibility) of authenticating users, such as logging in.
+
+Currently using Firebase Authentication.
+
 ### `themes`
 
 This package is responsible for the appearance of ThemeData and other appearance-related data used in Flutter apps.
