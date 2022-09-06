@@ -769,7 +769,7 @@ packages:
       name: modal_bottom_sheet
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.0"
+    version: "2.1.2"
   octo_image:
     dependency: transitive
     description:
