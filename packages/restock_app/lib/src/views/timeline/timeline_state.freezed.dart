@@ -102,7 +102,7 @@ class __$$_TimelineStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_TimelineState with DiagnosticableTreeMixin implements _TimelineState {
+class _$_TimelineState implements _TimelineState {
   const _$_TimelineState(
       {this.loading = false,
       final List<EveryonesStockModel> displayItems =
@@ -124,17 +124,8 @@ class _$_TimelineState with DiagnosticableTreeMixin implements _TimelineState {
   }
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'TimelineState(loading: $loading, displayItems: $displayItems)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'TimelineState'))
-      ..add(DiagnosticsProperty('loading', loading))
-      ..add(DiagnosticsProperty('displayItems', displayItems));
   }
 
   @override
@@ -165,10 +156,9 @@ abstract class _TimelineState implements TimelineState {
       final List<EveryonesStockModel> displayItems}) = _$_TimelineState;
 
   @override // 読み込み中かどうか
-  bool get loading => throw _privateConstructorUsedError;
+  bool get loading;
   @override // 表示しているアイテムリスト
-  List<EveryonesStockModel> get displayItems =>
-      throw _privateConstructorUsedError;
+  List<EveryonesStockModel> get displayItems;
   @override
   @JsonKey(ignore: true)
   _$$_TimelineStateCopyWith<_$_TimelineState> get copyWith =>

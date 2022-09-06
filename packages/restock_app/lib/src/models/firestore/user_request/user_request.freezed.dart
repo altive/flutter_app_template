@@ -226,7 +226,7 @@ class __$$_UserRequestCopyWithImpl<$Res> extends _$UserRequestCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_UserRequest extends _UserRequest with DiagnosticableTreeMixin {
+class _$_UserRequest extends _UserRequest {
   const _$_UserRequest(
       {@TimestampConverter() this.createdAt,
       @TimestampConverter() this.updatedAt,
@@ -270,26 +270,8 @@ class _$_UserRequest extends _UserRequest with DiagnosticableTreeMixin {
   final String text;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'UserRequest(createdAt: $createdAt, updatedAt: $updatedAt, uid: $uid, deviceName: $deviceName, deviceOS: $deviceOS, appName: $appName, packageName: $packageName, version: $version, buildNumber: $buildNumber, replyFor: $replyFor, text: $text)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'UserRequest'))
-      ..add(DiagnosticsProperty('createdAt', createdAt))
-      ..add(DiagnosticsProperty('updatedAt', updatedAt))
-      ..add(DiagnosticsProperty('uid', uid))
-      ..add(DiagnosticsProperty('deviceName', deviceName))
-      ..add(DiagnosticsProperty('deviceOS', deviceOS))
-      ..add(DiagnosticsProperty('appName', appName))
-      ..add(DiagnosticsProperty('packageName', packageName))
-      ..add(DiagnosticsProperty('version', version))
-      ..add(DiagnosticsProperty('buildNumber', buildNumber))
-      ..add(DiagnosticsProperty('replyFor', replyFor))
-      ..add(DiagnosticsProperty('text', text));
   }
 
   @override
@@ -336,7 +318,9 @@ class _$_UserRequest extends _UserRequest with DiagnosticableTreeMixin {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_UserRequestToJson(this);
+    return _$$_UserRequestToJson(
+      this,
+    );
   }
 }
 
@@ -360,28 +344,28 @@ abstract class _UserRequest extends UserRequest {
 
   @override
   @TimestampConverter()
-  DateTime? get createdAt => throw _privateConstructorUsedError;
+  DateTime? get createdAt;
   @override
   @TimestampConverter()
-  DateTime? get updatedAt => throw _privateConstructorUsedError;
+  DateTime? get updatedAt;
   @override
-  String get uid => throw _privateConstructorUsedError;
+  String get uid;
   @override
-  String? get deviceName => throw _privateConstructorUsedError;
+  String? get deviceName;
   @override
-  String? get deviceOS => throw _privateConstructorUsedError;
+  String? get deviceOS;
   @override
-  String get appName => throw _privateConstructorUsedError;
+  String get appName;
   @override
-  String? get packageName => throw _privateConstructorUsedError;
+  String? get packageName;
   @override
-  String get version => throw _privateConstructorUsedError;
+  String get version;
   @override
-  String get buildNumber => throw _privateConstructorUsedError;
+  String get buildNumber;
   @override
-  String get replyFor => throw _privateConstructorUsedError;
+  String get replyFor;
   @override
-  String get text => throw _privateConstructorUsedError;
+  String get text;
   @override
   @JsonKey(ignore: true)
   _$$_UserRequestCopyWith<_$_UserRequest> get copyWith =>

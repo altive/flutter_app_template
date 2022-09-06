@@ -137,7 +137,7 @@ class __$$_AppUserModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_AppUserModel extends _AppUserModel with DiagnosticableTreeMixin {
+class _$_AppUserModel extends _AppUserModel {
   const _$_AppUserModel(
       {@TimestampConverter() this.createdAt,
       @TimestampConverter() this.updatedAt,
@@ -171,19 +171,8 @@ class _$_AppUserModel extends _AppUserModel with DiagnosticableTreeMixin {
   }
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'AppUserModel(createdAt: $createdAt, updatedAt: $updatedAt, nickname: $nickname, stockCategories: $stockCategories)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'AppUserModel'))
-      ..add(DiagnosticsProperty('createdAt', createdAt))
-      ..add(DiagnosticsProperty('updatedAt', updatedAt))
-      ..add(DiagnosticsProperty('nickname', nickname))
-      ..add(DiagnosticsProperty('stockCategories', stockCategories));
   }
 
   @override
@@ -214,7 +203,9 @@ class _$_AppUserModel extends _AppUserModel with DiagnosticableTreeMixin {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_AppUserModelToJson(this);
+    return _$$_AppUserModelToJson(
+      this,
+    );
   }
 }
 
@@ -232,15 +223,15 @@ abstract class _AppUserModel extends AppUserModel {
 
   @override
   @TimestampConverter()
-  DateTime? get createdAt => throw _privateConstructorUsedError;
+  DateTime? get createdAt;
   @override
   @TimestampConverter()
-  DateTime? get updatedAt => throw _privateConstructorUsedError;
+  DateTime? get updatedAt;
   @override // ニックネーム
-  String? get nickname => throw _privateConstructorUsedError;
+  String? get nickname;
   @override // ストック保管場所
   @JsonKey(name: 'stockPlaces')
-  List<String>? get stockCategories => throw _privateConstructorUsedError;
+  List<String>? get stockCategories;
   @override
   @JsonKey(ignore: true)
   _$$_AppUserModelCopyWith<_$_AppUserModel> get copyWith =>

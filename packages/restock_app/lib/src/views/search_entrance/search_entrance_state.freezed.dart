@@ -184,13 +184,11 @@ abstract class _SearchEntranceState implements SearchEntranceState {
       final List<PaapiSearchItem>? recommendProducts}) = _$_SearchEntranceState;
 
   @override // 検索フィールド用文字列
-  String get searchText => throw _privateConstructorUsedError;
+  String get searchText;
   @override
-  SearchItemsCategory get searchItemsCategory =>
-      throw _privateConstructorUsedError;
+  SearchItemsCategory get searchItemsCategory;
   @override // ASINによる商品検索の結果
-  List<PaapiSearchItem>? get recommendProducts =>
-      throw _privateConstructorUsedError;
+  List<PaapiSearchItem>? get recommendProducts;
   @override
   @JsonKey(ignore: true)
   _$$_SearchEntranceStateCopyWith<_$_SearchEntranceState> get copyWith =>

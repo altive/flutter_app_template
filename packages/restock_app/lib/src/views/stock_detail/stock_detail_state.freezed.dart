@@ -134,9 +134,7 @@ class __$$_StockDetailStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_StockDetailState
-    with DiagnosticableTreeMixin
-    implements _StockDetailState {
+class _$_StockDetailState implements _StockDetailState {
   const _$_StockDetailState(
       {this.isNotificationEnabled = false,
       this.notificationDate,
@@ -158,20 +156,8 @@ class _$_StockDetailState
   final TimeOfDay? notificationTime;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'StockDetailState(isNotificationEnabled: $isNotificationEnabled, notificationDate: $notificationDate, notificationDurationDays: $notificationDurationDays, notificationTime: $notificationTime)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'StockDetailState'))
-      ..add(DiagnosticsProperty('isNotificationEnabled', isNotificationEnabled))
-      ..add(DiagnosticsProperty('notificationDate', notificationDate))
-      ..add(DiagnosticsProperty(
-          'notificationDurationDays', notificationDurationDays))
-      ..add(DiagnosticsProperty('notificationTime', notificationTime));
   }
 
   @override
@@ -211,13 +197,13 @@ abstract class _StockDetailState implements StockDetailState {
       final TimeOfDay? notificationTime}) = _$_StockDetailState;
 
   @override // 通知のON/OFF
-  bool get isNotificationEnabled => throw _privateConstructorUsedError;
+  bool get isNotificationEnabled;
   @override // 通知する日時
-  DateTime? get notificationDate => throw _privateConstructorUsedError;
+  DateTime? get notificationDate;
   @override // 何日前に通知するか
-  int? get notificationDurationDays => throw _privateConstructorUsedError;
+  int? get notificationDurationDays;
   @override // 通知する時刻
-  TimeOfDay? get notificationTime => throw _privateConstructorUsedError;
+  TimeOfDay? get notificationTime;
   @override
   @JsonKey(ignore: true)
   _$$_StockDetailStateCopyWith<_$_StockDetailState> get copyWith =>

@@ -233,7 +233,7 @@ class __$$_FavoriteItemCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_FavoriteItem extends _FavoriteItem with DiagnosticableTreeMixin {
+class _$_FavoriteItem extends _FavoriteItem {
   const _$_FavoriteItem(
       {@TimestampConverter() this.createdAt,
       required this.name,
@@ -293,25 +293,8 @@ class _$_FavoriteItem extends _FavoriteItem with DiagnosticableTreeMixin {
   final String? imageUrlLarge;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'FavoriteItem(createdAt: $createdAt, name: $name, asin: $asin, category: $category, expirationDateTypeInt: $expirationDateTypeInt, expirationAt: $expirationAt, amazonUrl: $amazonUrl, imageUrlSmall: $imageUrlSmall, imageUrlMedium: $imageUrlMedium, imageUrlLarge: $imageUrlLarge)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'FavoriteItem'))
-      ..add(DiagnosticsProperty('createdAt', createdAt))
-      ..add(DiagnosticsProperty('name', name))
-      ..add(DiagnosticsProperty('asin', asin))
-      ..add(DiagnosticsProperty('category', category))
-      ..add(DiagnosticsProperty('expirationDateTypeInt', expirationDateTypeInt))
-      ..add(DiagnosticsProperty('expirationAt', expirationAt))
-      ..add(DiagnosticsProperty('amazonUrl', amazonUrl))
-      ..add(DiagnosticsProperty('imageUrlSmall', imageUrlSmall))
-      ..add(DiagnosticsProperty('imageUrlMedium', imageUrlMedium))
-      ..add(DiagnosticsProperty('imageUrlLarge', imageUrlLarge));
   }
 
   @override
@@ -358,7 +341,9 @@ class _$_FavoriteItem extends _FavoriteItem with DiagnosticableTreeMixin {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_FavoriteItemToJson(this);
+    return _$$_FavoriteItemToJson(
+      this,
+    );
   }
 }
 
@@ -383,44 +368,44 @@ abstract class _FavoriteItem extends FavoriteItem {
 
   /// 作成日時
   @TimestampConverter()
-  DateTime? get createdAt => throw _privateConstructorUsedError;
+  DateTime? get createdAt;
   @override
 
   /// アイテムの名前
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @override
 
   /// Amazonの商品コード @nullable
-  String? get asin => throw _privateConstructorUsedError;
+  String? get asin;
   @override
 
   /// 商品カテゴリ
-  String get category => throw _privateConstructorUsedError;
+  String get category;
   @override
 
   /// 期限の種類
-  int get expirationDateTypeInt => throw _privateConstructorUsedError;
+  int get expirationDateTypeInt;
   @override
 
   /// 消費期限 or 賞味期限 @nullable
   @TimestampConverter()
-  DateTime? get expirationAt => throw _privateConstructorUsedError;
+  DateTime? get expirationAt;
   @override
 
   /// Amazonの商品Url @nullable
-  String? get amazonUrl => throw _privateConstructorUsedError;
+  String? get amazonUrl;
   @override
 
   /// Amazonの商品画像（小） @nullable
-  String? get imageUrlSmall => throw _privateConstructorUsedError;
+  String? get imageUrlSmall;
   @override
 
   /// Amazonの商品画像（中） @nullable
-  String? get imageUrlMedium => throw _privateConstructorUsedError;
+  String? get imageUrlMedium;
   @override
 
   /// Amazonの商品画像（大） @nullable
-  String? get imageUrlLarge => throw _privateConstructorUsedError;
+  String? get imageUrlLarge;
   @override
   @JsonKey(ignore: true)
   _$$_FavoriteItemCopyWith<_$_FavoriteItem> get copyWith =>

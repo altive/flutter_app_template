@@ -2,7 +2,6 @@ import 'dart:math';
 
 import 'package:amazon_paapi/amazon_paapi.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:intl/intl.dart';
 import 'package:uuid/uuid.dart';

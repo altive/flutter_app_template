@@ -161,8 +161,7 @@ class __$$_NotificationPayloadCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_NotificationPayload extends _NotificationPayload
-    with DiagnosticableTreeMixin {
+class _$_NotificationPayload extends _NotificationPayload {
   const _$_NotificationPayload(
       {required this.documentId,
       required this.itemName,
@@ -189,22 +188,8 @@ class _$_NotificationPayload extends _NotificationPayload
   final int minute;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'NotificationPayload(documentId: $documentId, itemName: $itemName, expirationDate: $expirationDate, notificationDurationDays: $notificationDurationDays, hour: $hour, minute: $minute)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'NotificationPayload'))
-      ..add(DiagnosticsProperty('documentId', documentId))
-      ..add(DiagnosticsProperty('itemName', itemName))
-      ..add(DiagnosticsProperty('expirationDate', expirationDate))
-      ..add(DiagnosticsProperty(
-          'notificationDurationDays', notificationDurationDays))
-      ..add(DiagnosticsProperty('hour', hour))
-      ..add(DiagnosticsProperty('minute', minute));
   }
 
   @override
@@ -242,7 +227,9 @@ class _$_NotificationPayload extends _NotificationPayload
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_NotificationPayloadToJson(this);
+    return _$$_NotificationPayloadToJson(
+      this,
+    );
   }
 }
 
@@ -260,17 +247,17 @@ abstract class _NotificationPayload extends NotificationPayload {
       _$_NotificationPayload.fromJson;
 
   @override
-  String get documentId => throw _privateConstructorUsedError;
+  String get documentId;
   @override
-  String get itemName => throw _privateConstructorUsedError;
+  String get itemName;
   @override
-  DateTime get expirationDate => throw _privateConstructorUsedError;
+  DateTime get expirationDate;
   @override
-  int get notificationDurationDays => throw _privateConstructorUsedError;
+  int get notificationDurationDays;
   @override
-  int get hour => throw _privateConstructorUsedError;
+  int get hour;
   @override
-  int get minute => throw _privateConstructorUsedError;
+  int get minute;
   @override
   @JsonKey(ignore: true)
   _$$_NotificationPayloadCopyWith<_$_NotificationPayload> get copyWith =>

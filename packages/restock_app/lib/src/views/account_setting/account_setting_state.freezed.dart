@@ -125,7 +125,7 @@ abstract class _AccountSettingState implements AccountSettingState {
       _$_AccountSettingState;
 
   @override
-  bool get loading => throw _privateConstructorUsedError;
+  bool get loading;
   @override
   @JsonKey(ignore: true)
   _$$_AccountSettingStateCopyWith<_$_AccountSettingState> get copyWith =>

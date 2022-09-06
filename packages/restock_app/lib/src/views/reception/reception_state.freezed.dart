@@ -125,7 +125,7 @@ abstract class _ReceptionState implements ReceptionState {
   const factory _ReceptionState({final bool loading}) = _$_ReceptionState;
 
   @override // 読み込み中かどうか
-  bool get loading => throw _privateConstructorUsedError;
+  bool get loading;
   @override
   @JsonKey(ignore: true)
   _$$_ReceptionStateCopyWith<_$_ReceptionState> get copyWith =>

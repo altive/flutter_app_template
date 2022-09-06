@@ -122,8 +122,7 @@ class __$$_HomeStockFilterStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_HomeStockFilterState extends _HomeStockFilterState
-    with DiagnosticableTreeMixin {
+class _$_HomeStockFilterState extends _HomeStockFilterState {
   const _$_HomeStockFilterState(
       {this.inventory = FilteringState.notSelected,
       this.expiration = FilteringState.notSelected,
@@ -146,18 +145,8 @@ class _$_HomeStockFilterState extends _HomeStockFilterState
   final FilteringState category;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'HomeStockFilterState(inventory: $inventory, expiration: $expiration, category: $category)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'HomeStockFilterState'))
-      ..add(DiagnosticsProperty('inventory', inventory))
-      ..add(DiagnosticsProperty('expiration', expiration))
-      ..add(DiagnosticsProperty('category', category));
   }
 
   @override
@@ -195,15 +184,15 @@ abstract class _HomeStockFilterState extends HomeStockFilterState {
   @override
 
   /// 在庫
-  FilteringState get inventory => throw _privateConstructorUsedError;
+  FilteringState get inventory;
   @override
 
   /// 期限
-  FilteringState get expiration => throw _privateConstructorUsedError;
+  FilteringState get expiration;
   @override
 
   /// 種類
-  FilteringState get category => throw _privateConstructorUsedError;
+  FilteringState get category;
   @override
   @JsonKey(ignore: true)
   _$$_HomeStockFilterStateCopyWith<_$_HomeStockFilterState> get copyWith =>

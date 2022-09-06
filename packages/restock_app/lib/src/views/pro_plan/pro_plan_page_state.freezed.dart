@@ -124,9 +124,7 @@ class __$$_ProPlanPageStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ProPlanPageState
-    with DiagnosticableTreeMixin
-    implements _ProPlanPageState {
+class _$_ProPlanPageState implements _ProPlanPageState {
   const _$_ProPlanPageState(
       {this.isLoading = false,
       this.monthlyProPlanInformation,
@@ -146,20 +144,8 @@ class _$_ProPlanPageState
   final ProPlanInformation? annualProPlanInformation;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'ProPlanPageState(isLoading: $isLoading, monthlyProPlanInformation: $monthlyProPlanInformation, annualProPlanInformation: $annualProPlanInformation)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'ProPlanPageState'))
-      ..add(DiagnosticsProperty('isLoading', isLoading))
-      ..add(DiagnosticsProperty(
-          'monthlyProPlanInformation', monthlyProPlanInformation))
-      ..add(DiagnosticsProperty(
-          'annualProPlanInformation', annualProPlanInformation));
   }
 
   @override
@@ -197,17 +183,15 @@ abstract class _ProPlanPageState implements ProPlanPageState {
   @override
 
   /// ローディング
-  bool get isLoading => throw _privateConstructorUsedError;
+  bool get isLoading;
   @override
 
   /// 月契約のProプラン情報@nullable
-  ProPlanInformation? get monthlyProPlanInformation =>
-      throw _privateConstructorUsedError;
+  ProPlanInformation? get monthlyProPlanInformation;
   @override
 
   /// 年契約のProプラン情報@nullable
-  ProPlanInformation? get annualProPlanInformation =>
-      throw _privateConstructorUsedError;
+  ProPlanInformation? get annualProPlanInformation;
   @override
   @JsonKey(ignore: true)
   _$$_ProPlanPageStateCopyWith<_$_ProPlanPageState> get copyWith =>
