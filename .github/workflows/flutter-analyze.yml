@@ -22,16 +22,14 @@ jobs:
           channel: ${{ env.FLUTTER_CHANNEL }}
           cache: true
 
+      - name: Set MELOS_SDK_PATH
+        run: echo "MELOS_SDK_PATH=${{ env.FLUTTER_ROOT }}" >> $GITHUB_ENV
+
       - name: Install Melos
         uses: bluefireteam/melos-action@v1
 
       - name: Create dummy env files
-        run: |
-          touch packages/flutter_app/env/.env.dev
-          touch packages/flutter_app/env/.env.stg
-          touch packages/flutter_app/env/.env.prod
-          touch packages/graphql_playground/.env
-          touch packages/restock_app/.env
+        run: make dummy_env
 
       - name: Analyze project
         run: melos run analyze --no-select
