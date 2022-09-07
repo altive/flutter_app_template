@@ -21,7 +21,7 @@ final myRankingMemberColRefProvider =
       .collection('members')
       .withConverter(
         fromFirestore: (doc, _) => RankingMember.fromJson(doc.data()!),
-        toFirestore: (entity, _) => entity.toJson().suppelementTimestamp(),
+        toFirestore: (entity, _) => entity.toJson().supplementTimestamp(),
       );
 });
 
@@ -38,7 +38,7 @@ final myRankingMemberDocRefProvider =
       .doc(rankingIdAndMemberId.item2)
       .withConverter(
         fromFirestore: (doc, _) => RankingMember.fromJson(doc.data()!),
-        toFirestore: (entity, _) => entity.toJson().suppelementTimestamp(),
+        toFirestore: (entity, _) => entity.toJson().supplementTimestamp(),
       );
 });
 

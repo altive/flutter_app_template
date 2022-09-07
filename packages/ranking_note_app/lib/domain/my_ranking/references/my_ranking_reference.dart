@@ -17,7 +17,7 @@ final myRankingColRefProvider = Provider((ref) {
       .collection('users/$uid/rankings')
       .withConverter(
         fromFirestore: (doc, _) => Ranking.fromJson(doc.data()!),
-        toFirestore: (entity, _) => entity.toJson().suppelementTimestamp(),
+        toFirestore: (entity, _) => entity.toJson().supplementTimestamp(),
       );
 });
 
@@ -34,7 +34,7 @@ final myRankingDocRefProvider =
       .doc(rankingId)
       .withConverter(
         fromFirestore: (doc, _) => Ranking.fromJson(doc.data()!),
-        toFirestore: (entity, _) => entity.toJson().suppelementTimestamp(),
+        toFirestore: (entity, _) => entity.toJson().supplementTimestamp(),
       );
 });
 
