@@ -54,7 +54,7 @@ class MainStackView extends HookConsumerWidget {
                 .map(
                   (tab) => BottomNavigationBarItem(
                     activeIcon: Icon(tab.activeIconData),
-                    icon: Icon(tab.deactiveIconData),
+                    icon: Icon(tab.inactiveIconData),
                     label: tab.label,
                   ),
                 )

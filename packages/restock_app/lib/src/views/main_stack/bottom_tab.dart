@@ -31,7 +31,7 @@ extension Ex on BottomTab {
         }
       }();
 
-  IconData get deactiveIconData => () {
+  IconData get inactiveIconData => () {
         switch (this) {
           case BottomTab.home:
             return Icons.inventory;
