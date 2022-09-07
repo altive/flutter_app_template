@@ -29,7 +29,7 @@ dependencies:
   hooks_riverpod: ^2.0.0-dev.9
   image_picker: ^0.8.4
   intl: ^0.17.0
-  json_annotation: ^4.3.0
+  json_annotation: ^4.6.0
   linked_scroll_controller: ^0.2.0
   material_design_icons_flutter: ^5.0.5955-rc.1
   modal_bottom_sheet: ^2.0.0
@@ -52,7 +52,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   freezed: ^2.0.2
-  json_serializable: ^6.0.1
+  json_serializable: ^6.3.1
 
 flutter_gen:
   output: lib/gen/
