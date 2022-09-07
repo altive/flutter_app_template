@@ -7,6 +7,7 @@ packages:
 scripts:
   postclean: >
     melos exec --flutter --concurrency=3 -- "flutter clean"
+
   upgrade:
     run: |
       melos exec -- \
@@ -34,6 +35,14 @@ scripts:
       flutter: true
       dir-exists: lib
 
+  fix:
+    run: |
+      melos exec -- \
+        dart fix --apply lib
+    description: Dart fix
+    select-package:
+      dir-exists: lib
+
   test:
     run: |
       melos exec --fail-fast -- \
@@ -51,14 +60,6 @@ scripts:
     select-package:
       dir-exists: lib
       depends-on: "build_runner"
-
-  fix:
-    run: |
-      melos exec -- \
-        dart fix --apply lib
-    description: Dart fix
-    select-package:
-      dir-exists: lib
 
   # Upload
   upload:ios:prod:
