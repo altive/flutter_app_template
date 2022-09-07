@@ -16,9 +16,7 @@ dependencies:
   cloud_firestore: ^3.4.6
   collection: ^1.16.0
   cupertino_icons: ^1.0.5
-  firebase_analytics: ^9.3.2
   firebase_core: ^1.21.1
-  firebase_crashlytics: ^2.8.8
   firebase_dynamic_links: ^4.3.6
   firebase_performance: ^0.8.2+3
   firebase_remote_config: ^2.0.16
