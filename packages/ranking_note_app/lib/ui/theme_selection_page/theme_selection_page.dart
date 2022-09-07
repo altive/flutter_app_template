@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../domain/theme_selector/theme_selector.dart';
+import '../../feature/theme_selector/theme_selector.dart';
 import '../components/rounded_card.dart';
 
 class ThemeSelectionPage extends StatelessWidget {

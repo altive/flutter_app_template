@@ -4,8 +4,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../domain/my_ranking/entities/ranking.dart';
-import '../domain/my_ranking/references/my_ranking_reference.dart';
+import '../feature/my_ranking/entities/ranking.dart';
+import '../feature/my_ranking/references/my_ranking_reference.dart';
 
 final overwriteRankingProvider = Provider<OverwriteRanking>((ref) {
   return OverwriteRanking(ref.read);

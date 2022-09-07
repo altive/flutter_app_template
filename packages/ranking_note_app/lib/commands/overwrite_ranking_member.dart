@@ -5,8 +5,8 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:tuple/tuple.dart';
 
-import '../domain/my_ranking/entities/ranking_member.dart';
-import '../domain/my_ranking/references/my_ranking_member_reference.dart';
+import '../feature/my_ranking/entities/ranking_member.dart';
+import '../feature/my_ranking/references/my_ranking_member_reference.dart';
 
 final overwriteRankingMember =
     Provider((ref) => OverwriteRankingMember(ref.read));

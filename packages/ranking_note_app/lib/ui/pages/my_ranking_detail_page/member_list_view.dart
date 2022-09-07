@@ -4,7 +4,7 @@ import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../commands/update_ranking_member_order.dart';
-import '../../../domain/my_ranking/entities/ranking_member.dart';
+import '../../../feature/my_ranking/entities/ranking_member.dart';
 import 'member_card.dart';
 
 class MemberListView extends ConsumerWidget {

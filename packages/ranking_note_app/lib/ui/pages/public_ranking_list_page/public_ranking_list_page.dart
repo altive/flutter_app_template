@@ -3,7 +3,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../domain/my_ranking/providers/my_rankings_fetcher.dart';
+import '../../../feature/my_ranking/providers/my_rankings_fetcher.dart';
 import 'ranking_card.dart';
 
 /// 自分以外のランキングをリスト表示する画面

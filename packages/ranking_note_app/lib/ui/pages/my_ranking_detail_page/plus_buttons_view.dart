@@ -7,7 +7,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../../commands/add_ranking_member.dart';
-import '../../../domain/my_ranking/entities/ranking_member.dart';
+import '../../../feature/my_ranking/entities/ranking_member.dart';
 import '../../components/member_editing_sheet.dart';
 
 class PlusButtonsView extends StatelessWidget {

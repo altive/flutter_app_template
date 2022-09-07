@@ -6,9 +6,9 @@ import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:routemaster/routemaster.dart';
 
-import '../../../domain/my_ranking/entities/ranking.dart';
-import '../../../domain/my_ranking/providers/my_ranking_members_fetcher.dart';
-import '../../../domain/my_ranking/providers/my_ranking_provider.dart';
+import '../../../feature/my_ranking/entities/ranking.dart';
+import '../../../feature/my_ranking/providers/my_ranking_members_fetcher.dart';
+import '../../../feature/my_ranking/providers/my_ranking_provider.dart';
 import '../../components/rounded_card.dart';
 import 'member_card.dart';
 

@@ -6,7 +6,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:routemaster/routemaster.dart';
 
-import '../domain/theme_selector/theme_selector.dart';
+import '../feature/theme_selector/theme_selector.dart';
 import 'pages/splash_page/splash_page.dart';
 import 'router/router.dart';
 import 'theme_data/dark_theme.dart';

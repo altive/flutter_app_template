@@ -7,8 +7,8 @@ import 'package:sort_key_generator/sort_key_generator.dart';
 import 'package:tuple/tuple.dart';
 import 'package:uuid/uuid.dart';
 
-import '../domain/my_ranking/entities/ranking_member.dart';
-import '../domain/my_ranking/references/my_ranking_member_reference.dart';
+import '../feature/my_ranking/entities/ranking_member.dart';
+import '../feature/my_ranking/references/my_ranking_member_reference.dart';
 
 final createRankingMember = Provider((ref) => CreateRankingMember(ref.read));
 

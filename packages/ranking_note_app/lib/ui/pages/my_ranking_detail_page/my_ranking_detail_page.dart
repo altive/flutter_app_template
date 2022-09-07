@@ -8,10 +8,10 @@ import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 
 import '../../../commands/append_ranking_tag.dart';
 import '../../../commands/remove_ranking_tag.dart';
-import '../../../domain/my_ranking/entities/ranking.dart';
-import '../../../domain/my_ranking/entities/ranking_member.dart';
-import '../../../domain/my_ranking/providers/my_ranking_members_fetcher.dart';
-import '../../../domain/my_ranking/providers/my_ranking_provider.dart';
+import '../../../feature/my_ranking/entities/ranking.dart';
+import '../../../feature/my_ranking/entities/ranking_member.dart';
+import '../../../feature/my_ranking/providers/my_ranking_members_fetcher.dart';
+import '../../../feature/my_ranking/providers/my_ranking_provider.dart';
 import '../../components/ranking_tags.dart';
 import '../../components/rounded_card.dart';
 import '../../router/router.dart';

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:ranking_note_app/commons/providers/shared_preferences_provider.dart';
-import 'package:ranking_note_app/domain/theme_selector/theme_selector.dart';
+import 'package:ranking_note_app/feature/theme_selector/theme_selector.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {

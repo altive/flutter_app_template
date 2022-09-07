@@ -3,8 +3,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:sort_key_generator/sort_key_generator.dart';
 import 'package:tuple/tuple.dart';
 
-import '../domain/my_ranking/entities/ranking_member.dart';
-import '../domain/my_ranking/references/my_ranking_member_reference.dart';
+import '../feature/my_ranking/entities/ranking_member.dart';
+import '../feature/my_ranking/references/my_ranking_member_reference.dart';
 
 final updateRankingMemberOrder =
     Provider((ref) => UpdateRankingMemberOrder(ref.read));

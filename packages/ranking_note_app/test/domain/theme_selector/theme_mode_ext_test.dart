@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:ranking_note_app/domain/theme_selector/theme_mode_ext.dart';
+import 'package:ranking_note_app/feature/theme_selector/theme_mode_ext.dart';
 
 void main() {
   test('title', () {

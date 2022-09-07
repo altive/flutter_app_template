@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../commons/widgets/dismissible_background.dart';
-import '../../../domain/my_ranking/entities/ranking.dart';
+import '../../../feature/my_ranking/entities/ranking.dart';
 import '../../components/image_thumbnail.dart';
 import '../../components/rounded_card.dart';
 import '../../router/router.dart';

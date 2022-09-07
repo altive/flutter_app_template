@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:ranking_note_app/domain/update_requester/entities/requested_version_info.dart';
+import 'package:ranking_note_app/feature/update_requester/entities/requested_version_info.dart';
 
 void main() {
   // 日本時間を想定した日時
