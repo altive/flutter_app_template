@@ -1,5 +1,5 @@
 /// 認証エラーのコード
-class AuthErrorCode {
+class FirebaseAuthExceptionCode {
   static const emailAlreadyInUse = 'email-already-in-use';
   static const providerAlreadyLinked = 'provider-already-linked';
 

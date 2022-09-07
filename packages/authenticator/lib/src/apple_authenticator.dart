@@ -16,17 +16,18 @@ class AppleAuthenticator {
   Future<UserCredential> signIn() async {
     final appleProvider = AppleAuthProvider();
     if (kIsWeb) {
-      return _auth.signInWithPopup(appleProvider);
+      final userCredential = await _auth.signInWithPopup(appleProvider);
+      return userCredential;
     } else {
-      return _auth.signInWithAuthProvider(appleProvider);
+      final userCredential = await _auth.signInWithAuthProvider(appleProvider);
+      return userCredential;
     }
   }
 
   Future<UserCredential> link() async {
     final user = _auth.currentUser!;
-    final token = await user.getIdToken();
-    final credential = AppleAuthProvider.credential(token);
-    return user.linkWithCredential(credential);
+    final userCredential = await signIn();
+    return user.linkWithCredential(userCredential.credential!);
   }
 
   /// Apple IDをリンク解除
@@ -35,22 +36,21 @@ class AppleAuthenticator {
   /// エラーハンドリングは上位に任せるためここではキャッチしない
   /// 連携成功で`true`キャンセルの場合は`false`を返却する
   Future<void> unlink() async {
-    // final user = _auth.currentUser!;
-    // try {
-    //   await user.unlink(SigningMethod.apple.providerId);
-    //   return true;
-    // } on FirebaseAuthException catch (exception) {
-    //   switch (exception.code) {
-    //     case AuthErrorCode.requiresRecentLogin:
-    //       // 再認証が必要なことを示す例外
-    //       await _reauthenticate();
-    //       // 再度、リンク解除を実行
-    //       await user.unlink(SigningMethod.apple.providerId);
-    //       return true;
-    //     default:
-    //       // 再認証必須以外の認証例外
-    //       rethrow;
-    //   }
-    // }
+    final user = _auth.currentUser!;
+    try {
+      await user.unlink(SigningMethod.apple.providerId);
+    } on FirebaseAuthException catch (_) {
+      //   switch (exception.code) {
+      //   case FirebaseAuthExceptionCode.requiresRecentLogin:
+      //       // 再認証が必要なことを示す例外
+      //       await _reauthenticate();
+      //       // 再度、リンク解除を実行
+      //       await user.unlink(SigningMethod.apple.providerId);
+      //       return true;
+      //     default:
+      //       // 再認証必須以外の認証例外
+      //       rethrow;
+      //   }
+    }
   }
 }

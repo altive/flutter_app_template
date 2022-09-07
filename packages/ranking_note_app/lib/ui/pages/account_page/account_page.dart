@@ -5,7 +5,6 @@ import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-import '../../../feature/authenticator/sign_in_method.dart';
 import '../../../util/localizer/localizer.dart';
 import '../../components/rounded_card.dart';
 
@@ -68,7 +67,7 @@ class AccountPage extends HookConsumerWidget {
               isLast: !appleSignInEnabled,
               isSignedIn: isGoogleSignedIn,
               email: googleEmail,
-              titleLabel: SignInMethod.google.label(context),
+              titleLabel: 'Link with Apple',
               link: ref.read(authenticatorProvider).linkWithGoogle,
               unLink: ref.read(authenticatorProvider).unlinkFromGoogle,
             ),
@@ -78,7 +77,7 @@ class AccountPage extends HookConsumerWidget {
                 isLast: true,
                 isSignedIn: isAppleSignedIn,
                 email: appleEmail,
-                titleLabel: SignInMethod.apple.label(context),
+                titleLabel: 'Link with Google',
                 link: ref.read(authenticatorProvider).linkWithApple,
                 unLink: ref.read(authenticatorProvider).unlinkFromApple,
               ),
