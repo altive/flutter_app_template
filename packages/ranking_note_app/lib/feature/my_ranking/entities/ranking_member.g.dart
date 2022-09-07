@@ -14,10 +14,14 @@ _$_RankingMember _$$_RankingMemberFromJson(Map<String, dynamic> json) =>
       json,
       ($checkedConvert) {
         final val = _$_RankingMember(
-          createdAt: $checkedConvert('created_at',
-              (v) => v == null ? null : DateTime.parse(v as String)),
-          updatedAt: $checkedConvert('updated_at',
-              (v) => v == null ? null : DateTime.parse(v as String)),
+          createdAt: $checkedConvert(
+              'created_at',
+              (v) => _$JsonConverterFromJson<Timestamp, DateTime>(
+                  v, const TimestampConverter().fromJson)),
+          updatedAt: $checkedConvert(
+              'updated_at',
+              (v) => _$JsonConverterFromJson<Timestamp, DateTime>(
+                  v, const TimestampConverter().fromJson)),
           order: $checkedConvert('order', (v) => (v as num).toDouble()),
           title: $checkedConvert('title', (v) => v as String),
           description:
@@ -37,11 +41,25 @@ _$_RankingMember _$$_RankingMemberFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_RankingMemberToJson(_$_RankingMember instance) =>
     <String, dynamic>{
-      'created_at': instance.createdAt?.toIso8601String(),
-      'updated_at': instance.updatedAt?.toIso8601String(),
+      'created_at': _$JsonConverterToJson<Timestamp, DateTime>(
+          instance.createdAt, const TimestampConverter().toJson),
+      'updated_at': _$JsonConverterToJson<Timestamp, DateTime>(
+          instance.updatedAt, const TimestampConverter().toJson),
       'order': instance.order,
       'title': instance.title,
       'description': instance.description,
       'image_url': instance.imageUrl,
       'thumbnail_url': instance.thumbnailUrl,
     };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);

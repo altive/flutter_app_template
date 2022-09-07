@@ -1,6 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import '../../../util/json_converter/json_converter.dart';
 import '../../../util/json_converter/timestamp_converter.dart';
 
 part 'ranking_member.freezed.dart';
@@ -16,9 +18,10 @@ class RankingMemberField {
 
 @freezed
 class RankingMember with _$RankingMember {
+  @allJsonConvertersSerializable
   const factory RankingMember({
-    @TimestampConverter() DateTime? createdAt,
-    @TimestampConverter() DateTime? updatedAt,
+    DateTime? createdAt,
+    DateTime? updatedAt,
 
     /// 順番
     required double order,

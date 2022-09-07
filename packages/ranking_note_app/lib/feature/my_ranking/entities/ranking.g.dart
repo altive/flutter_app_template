@@ -13,10 +13,14 @@ _$_Ranking _$$_RankingFromJson(Map<String, dynamic> json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$_Ranking(
-          createdAt: $checkedConvert('created_at',
-              (v) => v == null ? null : DateTime.parse(v as String)),
-          updatedAt: $checkedConvert('updated_at',
-              (v) => v == null ? null : DateTime.parse(v as String)),
+          createdAt: $checkedConvert(
+              'created_at',
+              (v) => _$JsonConverterFromJson<Timestamp, DateTime>(
+                  v, const TimestampConverter().fromJson)),
+          updatedAt: $checkedConvert(
+              'updated_at',
+              (v) => _$JsonConverterFromJson<Timestamp, DateTime>(
+                  v, const TimestampConverter().fromJson)),
           title: $checkedConvert('title', (v) => v as String? ?? ''),
           description:
               $checkedConvert('description', (v) => v as String? ?? ''),
@@ -44,8 +48,10 @@ _$_Ranking _$$_RankingFromJson(Map<String, dynamic> json) => $checkedCreate(
 
 Map<String, dynamic> _$$_RankingToJson(_$_Ranking instance) =>
     <String, dynamic>{
-      'created_at': instance.createdAt?.toIso8601String(),
-      'updated_at': instance.updatedAt?.toIso8601String(),
+      'created_at': _$JsonConverterToJson<Timestamp, DateTime>(
+          instance.createdAt, const TimestampConverter().toJson),
+      'updated_at': _$JsonConverterToJson<Timestamp, DateTime>(
+          instance.updatedAt, const TimestampConverter().toJson),
       'title': instance.title,
       'description': instance.description,
       'image_url': instance.imageUrl,
@@ -54,3 +60,15 @@ Map<String, dynamic> _$$_RankingToJson(_$_Ranking instance) =>
       'tags': instance.tags,
       'recommend_tags_showing': instance.recommendTagsShowing,
     };
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);
