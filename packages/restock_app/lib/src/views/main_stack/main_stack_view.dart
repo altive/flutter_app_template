@@ -5,7 +5,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:notification_receiver/notification_receiver.dart';
 
 import '../../common_widgets/loading_indicator.dart';
-import '../../common_widgets/unfocus_on_tap.dart';
 import '../../core/dynamic_links/dynamic_links.dart';
 import '../../models/authenticator/auth_controller.dart';
 import 'bottom_tab.dart';

@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:convenient_widgets/convenient_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -8,7 +9,6 @@ import 'package:image_picker/image_picker.dart';
 
 import '../../../commands/overwrite_ranking_member.dart';
 import '../../../feature/my_ranking/entities/ranking_member.dart';
-import '../../../util/widgets/dismissible_background.dart';
 import '../../components/image_thumbnail.dart';
 import '../../components/member_editing_sheet.dart';
 import '../../components/rounded_card.dart';

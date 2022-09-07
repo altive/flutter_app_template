@@ -133,7 +133,7 @@ class NotificationTile extends ConsumerWidget {
       child: Dismissible(
         key: Key(notificationPayload.documentId),
         direction: DismissDirection.startToEnd,
-        background: const DeletableBackground(label: '削除'),
+        background: const DismissibleBackground(child: Text('削除')),
         confirmDismiss: (direction) => _confirm(
           context: context,
           direction: direction,

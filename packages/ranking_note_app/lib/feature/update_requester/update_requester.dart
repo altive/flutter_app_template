@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:version/version.dart';
 
-import '../../commons/providers/package_info_provider.dart';
-import '../../commons/providers/remote_config_provider.dart';
+import '../../util/providers/package_info_provider.dart';
+import '../../util/providers/remote_config_provider.dart';
 import 'entities/requested_version_info.dart';
 
 enum UpdateRequestType {

@@ -1,7 +1,7 @@
+import 'package:convenient_widgets/convenient_widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:routemaster/routemaster.dart';
 
-import '../../../commons/widgets/unfocus_on_tap.dart';
 import 'top_level_tab.dart';
 
 class TabScaffoldPage extends StatelessWidget {

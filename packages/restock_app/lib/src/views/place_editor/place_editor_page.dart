@@ -72,9 +72,9 @@ class PlaceEditorPage extends HookConsumerWidget {
                         Dismissible(
                           key: Key(place),
                           direction: DismissDirection.startToEnd,
-                          background: const DeletableBackground(
-                            label: '削除',
+                          background: const DismissibleBackground(
                             margin: EdgeInsets.all(4),
+                            child: Text('削除'),
                           ),
                           confirmDismiss: (direction) => _confirm(
                             context: context,

@@ -6,7 +6,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../../../feature/authenticator/sign_in_method.dart';
-import '../../../localizer/localizer.dart';
+import '../../../util/localizer/localizer.dart';
 import '../../components/rounded_card.dart';
 
 class AccountPage extends HookConsumerWidget {

@@ -2,9 +2,9 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../commons/providers/firebase_messaging_provider.dart';
-import '../../commons/providers/firestore_provider.dart';
-import '../../commons/providers/navigator_key_provider.dart';
+import '../../util/providers/firebase_messaging_provider.dart';
+import '../../util/providers/firestore_provider.dart';
+import '../../util/providers/navigator_key_provider.dart';
 
 final pushMessageReceiverProvider = Provider<PushMessageReceiver>((ref) {
   return PushMessageReceiver(ref.read);

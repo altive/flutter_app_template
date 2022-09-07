@@ -1,6 +1,6 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../commons/providers/flavor_provider.dart';
+import '../util/providers/flavor_provider.dart';
 
 final environmentalConstantProvider = Provider<EnvironmentalConstant>((ref) {
   return EnvironmentalConstant(ref.read);

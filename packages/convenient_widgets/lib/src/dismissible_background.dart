@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 /// スワイプで削除できるアイテムのWidget
 class DismissibleBackground extends StatelessWidget {
-  // Constructor
   const DismissibleBackground({
+    super.key,
     required this.child,
     this.backgroundColor = Colors.red,
     this.margin = EdgeInsets.zero,

@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../../../commons/json_converter/timestamp_converter.dart';
+import '../../../util/json_converter/timestamp_converter.dart';
 
 part 'ranking_member.freezed.dart';
 part 'ranking_member.g.dart';

@@ -4,7 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:tuple/tuple.dart';
 import 'package:uuid/uuid.dart';
 
-import '../../../commons/json_converter/timestamp_supplementer.dart';
+import '../../../util/json_converter/timestamp_supplementer.dart';
 import '../entities/ranking_member.dart';
 import 'my_ranking_reference.dart';
 

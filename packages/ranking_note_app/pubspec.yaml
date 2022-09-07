@@ -12,6 +12,8 @@ dependencies:
   cached_network_image: ^3.1.0
   cloud_firestore: ^3.4.6
   collection: ^1.15.0
+  convenient_widgets:
+    path: ../convenient_widgets
   firebase_core: ^1.21.1
   firebase_messaging: ^12.0.3
   firebase_remote_config: ^2.0.16

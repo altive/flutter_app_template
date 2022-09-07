@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class UnfocusOnTap extends StatelessWidget {
   const UnfocusOnTap({
+    super.key,
     required this.child,
   });
 
@@ -10,9 +11,8 @@ class UnfocusOnTap extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      // Padding等でも反応するように指定
-      behavior: HitTestBehavior.opaque,
-      onTap: () => FocusScope.of(context).unfocus(),
+      behavior: HitTestBehavior.opaque, // Padding等でも反応させるために必要
+      onTap: FocusScope.of(context).unfocus,
       child: child,
     );
   }
