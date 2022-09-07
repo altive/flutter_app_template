@@ -6,7 +6,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
 
-import '../../commands/add_renking_member.dart';
+import '../../commands/add_ranking_member.dart';
 import '../../domain/my_ranking/entities/ranking_member.dart';
 import '../components/member_editing_sheet.dart';
 

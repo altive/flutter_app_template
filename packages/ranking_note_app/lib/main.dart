@@ -7,7 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'commons/providers/flavor_provider.dart';
 import 'commons/providers/package_info_provider.dart';
 import 'commons/providers/shared_preferences_provider.dart';
-import 'presentation/app.dart';
+import 'ui/app.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
