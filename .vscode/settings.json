@@ -35,6 +35,7 @@
 		"*.lock",
 		"*.xcconfig",
 		"**/fvm",
+		"**/.pub-cache",
 		".git/objects",
 		".vscode",
 		".vscode-insiders",
@@ -95,7 +96,7 @@
 	// スキップしたテストをテストツリーに表示させるなら`true`
 	"dart.showSkippedTests": false,
 	// pubspec.yamlが保存されるたびにpub getするなら`true`
-	"dart.runPubGetOnPubspecChanges": true,
+	"dart.runPubGetOnPubspecChanges": "always",
 	// クラス名を変更するとファイル名も自動で変更される。always, prompt, never
 	"dart.renameFilesWithClasses": "always",
 	// エクスプローラでファイルやフォルダをドラッグ＆ドロップした時に確認を求めるなら`true`
