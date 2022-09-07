@@ -1,4 +1,3 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -18,8 +17,8 @@ class RankingMemberField {
 @freezed
 class RankingMember with _$RankingMember {
   const factory RankingMember({
-    @TimestampOrNullConverter() DateTime? createdAt,
-    @TimestampOrNullConverter() DateTime? updatedAt,
+    @TimestampConverter() DateTime? createdAt,
+    @TimestampConverter() DateTime? updatedAt,
 
     /// 順番
     required double order,

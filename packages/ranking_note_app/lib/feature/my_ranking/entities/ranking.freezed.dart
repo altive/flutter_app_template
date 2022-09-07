@@ -20,9 +20,9 @@ Ranking _$RankingFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Ranking {
-  @TimestampOrNullConverter()
+  @TimestampConverter()
   DateTime? get createdAt => throw _privateConstructorUsedError;
-  @TimestampOrNullConverter()
+  @TimestampConverter()
   DateTime? get updatedAt => throw _privateConstructorUsedError;
 
   /// ランキングタイトル
@@ -56,8 +56,8 @@ abstract class $RankingCopyWith<$Res> {
   factory $RankingCopyWith(Ranking value, $Res Function(Ranking) then) =
       _$RankingCopyWithImpl<$Res>;
   $Res call(
-      {@TimestampOrNullConverter() DateTime? createdAt,
-      @TimestampOrNullConverter() DateTime? updatedAt,
+      {@TimestampConverter() DateTime? createdAt,
+      @TimestampConverter() DateTime? updatedAt,
       String title,
       String description,
       String? imageUrl,
@@ -135,8 +135,8 @@ abstract class _$$_RankingCopyWith<$Res> implements $RankingCopyWith<$Res> {
       __$$_RankingCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@TimestampOrNullConverter() DateTime? createdAt,
-      @TimestampOrNullConverter() DateTime? updatedAt,
+      {@TimestampConverter() DateTime? createdAt,
+      @TimestampConverter() DateTime? updatedAt,
       String title,
       String description,
       String? imageUrl,
@@ -212,8 +212,8 @@ class __$$_RankingCopyWithImpl<$Res> extends _$RankingCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Ranking extends _Ranking with DiagnosticableTreeMixin {
   const _$_Ranking(
-      {@TimestampOrNullConverter() this.createdAt,
-      @TimestampOrNullConverter() this.updatedAt,
+      {@TimestampConverter() this.createdAt,
+      @TimestampConverter() this.updatedAt,
       this.title = '',
       this.description = '',
       this.imageUrl,
@@ -228,10 +228,10 @@ class _$_Ranking extends _Ranking with DiagnosticableTreeMixin {
       _$$_RankingFromJson(json);
 
   @override
-  @TimestampOrNullConverter()
+  @TimestampConverter()
   final DateTime? createdAt;
   @override
-  @TimestampOrNullConverter()
+  @TimestampConverter()
   final DateTime? updatedAt;
 
   /// ランキングタイトル
@@ -340,8 +340,8 @@ class _$_Ranking extends _Ranking with DiagnosticableTreeMixin {
 
 abstract class _Ranking extends Ranking {
   const factory _Ranking(
-      {@TimestampOrNullConverter() final DateTime? createdAt,
-      @TimestampOrNullConverter() final DateTime? updatedAt,
+      {@TimestampConverter() final DateTime? createdAt,
+      @TimestampConverter() final DateTime? updatedAt,
       final String title,
       final String description,
       final String? imageUrl,
@@ -354,10 +354,10 @@ abstract class _Ranking extends Ranking {
   factory _Ranking.fromJson(Map<String, dynamic> json) = _$_Ranking.fromJson;
 
   @override
-  @TimestampOrNullConverter()
+  @TimestampConverter()
   DateTime? get createdAt => throw _privateConstructorUsedError;
   @override
-  @TimestampOrNullConverter()
+  @TimestampConverter()
   DateTime? get updatedAt => throw _privateConstructorUsedError;
   @override
 

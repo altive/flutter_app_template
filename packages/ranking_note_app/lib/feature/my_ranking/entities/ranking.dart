@@ -21,8 +21,8 @@ class RankingField {
 @freezed
 class Ranking with _$Ranking {
   const factory Ranking({
-    @TimestampOrNullConverter() DateTime? createdAt,
-    @TimestampOrNullConverter() DateTime? updatedAt,
+    @TimestampConverter() DateTime? createdAt,
+    @TimestampConverter() DateTime? updatedAt,
 
     /// ランキングタイトル
     @Default('') String title,

@@ -20,9 +20,9 @@ RankingMember _$RankingMemberFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RankingMember {
-  @TimestampOrNullConverter()
+  @TimestampConverter()
   DateTime? get createdAt => throw _privateConstructorUsedError;
-  @TimestampOrNullConverter()
+  @TimestampConverter()
   DateTime? get updatedAt => throw _privateConstructorUsedError;
 
   /// 順番
@@ -52,8 +52,8 @@ abstract class $RankingMemberCopyWith<$Res> {
           RankingMember value, $Res Function(RankingMember) then) =
       _$RankingMemberCopyWithImpl<$Res>;
   $Res call(
-      {@TimestampOrNullConverter() DateTime? createdAt,
-      @TimestampOrNullConverter() DateTime? updatedAt,
+      {@TimestampConverter() DateTime? createdAt,
+      @TimestampConverter() DateTime? updatedAt,
       double order,
       String title,
       String description,
@@ -121,8 +121,8 @@ abstract class _$$_RankingMemberCopyWith<$Res>
       __$$_RankingMemberCopyWithImpl<$Res>;
   @override
   $Res call(
-      {@TimestampOrNullConverter() DateTime? createdAt,
-      @TimestampOrNullConverter() DateTime? updatedAt,
+      {@TimestampConverter() DateTime? createdAt,
+      @TimestampConverter() DateTime? updatedAt,
       double order,
       String title,
       String description,
@@ -188,8 +188,8 @@ class __$$_RankingMemberCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_RankingMember with DiagnosticableTreeMixin implements _RankingMember {
   const _$_RankingMember(
-      {@TimestampOrNullConverter() this.createdAt,
-      @TimestampOrNullConverter() this.updatedAt,
+      {@TimestampConverter() this.createdAt,
+      @TimestampConverter() this.updatedAt,
       required this.order,
       required this.title,
       this.description = '',
@@ -200,10 +200,10 @@ class _$_RankingMember with DiagnosticableTreeMixin implements _RankingMember {
       _$$_RankingMemberFromJson(json);
 
   @override
-  @TimestampOrNullConverter()
+  @TimestampConverter()
   final DateTime? createdAt;
   @override
-  @TimestampOrNullConverter()
+  @TimestampConverter()
   final DateTime? updatedAt;
 
   /// 順番
@@ -287,8 +287,8 @@ class _$_RankingMember with DiagnosticableTreeMixin implements _RankingMember {
 
 abstract class _RankingMember implements RankingMember {
   const factory _RankingMember(
-      {@TimestampOrNullConverter() final DateTime? createdAt,
-      @TimestampOrNullConverter() final DateTime? updatedAt,
+      {@TimestampConverter() final DateTime? createdAt,
+      @TimestampConverter() final DateTime? updatedAt,
       required final double order,
       required final String title,
       final String description,
@@ -299,10 +299,10 @@ abstract class _RankingMember implements RankingMember {
       _$_RankingMember.fromJson;
 
   @override
-  @TimestampOrNullConverter()
+  @TimestampConverter()
   DateTime? get createdAt => throw _privateConstructorUsedError;
   @override
-  @TimestampOrNullConverter()
+  @TimestampConverter()
   DateTime? get updatedAt => throw _privateConstructorUsedError;
   @override
 

@@ -10,14 +10,3 @@ class TimestampConverter implements JsonConverter<DateTime, Timestamp> {
   @override
   Timestamp toJson(DateTime object) => Timestamp.fromDate(object);
 }
-
-class TimestampOrNullConverter implements JsonConverter<DateTime?, Timestamp?> {
-  const TimestampOrNullConverter();
-
-  @override
-  DateTime? fromJson(Timestamp? json) => json?.toDate();
-
-  @override
-  Timestamp? toJson(DateTime? object) =>
-      object == null ? null : Timestamp.fromDate(object);
-}

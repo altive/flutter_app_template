@@ -9,10 +9,12 @@ part of 'ranking.dart';
 // **************************************************************************
 
 _$_Ranking _$$_RankingFromJson(Map<String, dynamic> json) => _$_Ranking(
-      createdAt: const TimestampOrNullConverter()
-          .fromJson(json['created_at'] as Timestamp?),
-      updatedAt: const TimestampOrNullConverter()
-          .fromJson(json['updated_at'] as Timestamp?),
+      createdAt: json['created_at'] == null
+          ? null
+          : DateTime.parse(json['created_at'] as String),
+      updatedAt: json['updated_at'] == null
+          ? null
+          : DateTime.parse(json['updated_at'] as String),
       title: json['title'] as String? ?? '',
       description: json['description'] as String? ?? '',
       imageUrl: json['image_url'] as String?,
@@ -26,8 +28,8 @@ _$_Ranking _$$_RankingFromJson(Map<String, dynamic> json) => _$_Ranking(
 
 Map<String, dynamic> _$$_RankingToJson(_$_Ranking instance) =>
     <String, dynamic>{
-      'created_at': const TimestampOrNullConverter().toJson(instance.createdAt),
-      'updated_at': const TimestampOrNullConverter().toJson(instance.updatedAt),
+      'created_at': instance.createdAt?.toIso8601String(),
+      'updated_at': instance.updatedAt?.toIso8601String(),
       'title': instance.title,
       'description': instance.description,
       'image_url': instance.imageUrl,
