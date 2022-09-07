@@ -26,19 +26,9 @@ class Authenticator {
   final GoogleAuthenticator _googleAuth;
 
   /// 匿名サインイン
-  Future<void> signInAnonymously() async {
-    await _auth.signInAnonymously();
-  }
-
-  /// サインアウト
-  Future<bool> signOut() async {
-    try {
-      await _auth.signOut();
-      return true;
-    } on Exception catch (e) {
-      debugPrint(e.toString());
-      return false;
-    }
+  Future<UserCredential> signInAnonymously() async {
+    final userCredential = await _auth.signInAnonymously();
+    return userCredential;
   }
 
   /// Sign in with Apple
@@ -72,6 +62,17 @@ class Authenticator {
   /// Unlink from Google.
   Future<void> unlinkFromGoogle() async {
     return _googleAuth.unlink();
+  }
+
+  /// サインアウト
+  Future<bool> signOut() async {
+    try {
+      await _auth.signOut();
+      return true;
+    } on Exception catch (e) {
+      debugPrint(e.toString());
+      return false;
+    }
   }
 
   /// アカウントを削除する
