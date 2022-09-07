@@ -10,10 +10,10 @@ import 'package:routemaster/routemaster.dart';
 
 import '../../../commands/delete_ranking.dart';
 import '../../../commands/overwrite_ranking.dart';
-import '../../../commons/widgets/image_picker_button.dart';
 import '../../../feature/my_ranking/entities/ranking.dart';
 import '../../../feature/validator/validator.dart';
-import '../../../localizer/localizer.dart';
+import '../../../util/localizer/localizer.dart';
+import '../../../util/widgets/image_picker_button.dart';
 import '../../components/ranking_tags.dart';
 
 class RankingEditingSheet extends HookConsumerWidget {

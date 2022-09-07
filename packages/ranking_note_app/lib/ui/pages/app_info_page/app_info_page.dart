@@ -3,9 +3,9 @@ import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:routemaster/routemaster.dart';
 
-import '../../../commons/providers/flavor_provider.dart';
-import '../../../commons/providers/package_info_provider.dart';
-import '../../../localizer/localizer.dart';
+import '../../../util/localizer/localizer.dart';
+import '../../../util/providers/flavor_provider.dart';
+import '../../../util/providers/package_info_provider.dart';
 
 class AppInfoPage extends HookConsumerWidget {
   const AppInfoPage();

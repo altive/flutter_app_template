@@ -4,8 +4,8 @@ import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
 
-import '../../commons/widgets/image_picker_button.dart';
 import '../../feature/validator/validator.dart';
+import '../../util/widgets/image_picker_button.dart';
 
 class MemberEditingSheet extends HookConsumerWidget {
   const MemberEditingSheet({

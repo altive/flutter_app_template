@@ -7,8 +7,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../../commands/overwrite_ranking_member.dart';
-import '../../../commons/widgets/dismissible_background.dart';
 import '../../../feature/my_ranking/entities/ranking_member.dart';
+import '../../../util/widgets/dismissible_background.dart';
 import '../../components/image_thumbnail.dart';
 import '../../components/member_editing_sheet.dart';
 import '../../components/rounded_card.dart';
