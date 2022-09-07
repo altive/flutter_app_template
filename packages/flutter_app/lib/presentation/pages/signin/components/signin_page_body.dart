@@ -1,10 +1,10 @@
+import 'package:authenticator/authenticator.dart';
 import 'package:awaitable_button/awaitable_button.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../../commons/providers/package_info_provider.dart';
-import '../../../../domain/authenticator/authenticator.dart';
 import '../../../../environment/environment.dart';
 import '../../../../util/localizer/localizer.dart';
 import '../../../router/router.dart';

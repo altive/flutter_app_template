@@ -1,12 +1,19 @@
+import 'package:firebase_auth/firebase_auth.dart';
+
 enum SigningMethod {
-  anonymous(providerId: 'firebase'),
-  apple(providerId: 'apple.com'),
-  google(providerId: 'google.com'),
+  anonymous,
+  apple,
+  google,
   ;
 
-  const SigningMethod({
-    required this.providerId,
-  });
-
-  final String providerId;
+  String get providerId {
+    switch (this) {
+      case SigningMethod.anonymous:
+        return 'firebase';
+      case SigningMethod.apple:
+        return AppleAuthProvider.PROVIDER_ID;
+      case SigningMethod.google:
+        return GoogleAuthProvider.PROVIDER_ID;
+    }
+  }
 }

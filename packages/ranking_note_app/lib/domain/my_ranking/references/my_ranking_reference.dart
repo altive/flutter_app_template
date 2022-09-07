@@ -1,3 +1,4 @@
+import 'package:authenticator/authenticator.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -6,7 +7,6 @@ import 'package:uuid/uuid.dart';
 import '../../../commons/json_converter/timestamp_supplementer.dart';
 import '../../../commons/providers/firebase_storage_provider.dart';
 import '../../../commons/providers/firestore_provider.dart';
-import '../../authenticator/auth_user_provider.dart';
 import '../entities/ranking.dart';
 
 /// Provide a Collection reference.

@@ -43,6 +43,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.9.0"
+  authenticator:
+    dependency: "direct main"
+    description:
+      path: "../authenticator"
+      relative: true
+    source: path
+    version: "1.0.0"
   awaitable_button:
     dependency: "direct main"
     description:
@@ -296,7 +303,7 @@ packages:
     source: hosted
     version: "0.4.2+2"
   firebase_auth:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: firebase_auth
       url: "https://pub.dartlang.org"

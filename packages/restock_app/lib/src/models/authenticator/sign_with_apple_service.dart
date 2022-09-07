@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:authenticator/authenticator.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 import '../../utils/utils.dart';

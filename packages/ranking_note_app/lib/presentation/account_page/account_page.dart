@@ -1,3 +1,4 @@
+import 'package:authenticator/authenticator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
@@ -5,8 +6,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
 import '../../commons/hooks/use_localization.dart';
-import '../../domain/authenticator/apple_authenticator.dart';
-import '../../domain/authenticator/authenticator.dart';
 import '../../domain/authenticator/sign_in_method.dart';
 import '../components/rounded_card.dart';
 
@@ -21,13 +20,11 @@ class AccountPage extends HookConsumerWidget {
     final isAnonymous = ref.watch(isAnonymousSignedInProvider);
     final googleEmail = ref.watch(googleEmailProvider);
     final isGoogleSignedIn = googleEmail != null;
-    final canSignInWithApple =
-        ref.watch(canSignInWithAppleProvider).value ?? false;
     final appleEmail = ref.watch(appleEmailProvider);
     final isAppleSignedIn = ref.watch(isAppleSignedInProvider);
 
     final googleSignInEnabled = !isGoogleSignedIn;
-    final appleSignInEnabled = canSignInWithApple && !isAppleSignedIn;
+    final appleSignInEnabled = !isAppleSignedIn;
     final signOutEnabled = !isAnonymous;
 
     return Scaffold(
@@ -68,22 +65,22 @@ class AccountPage extends HookConsumerWidget {
             // Google Linkは常に表示する。
             _ProviderLinkCard(
               isFirst: true,
-              isLast: !canSignInWithApple,
+              isLast: !appleSignInEnabled,
               isSignedIn: isGoogleSignedIn,
               email: googleEmail,
               titleLabel: SignInMethod.google.label(context),
-              link: ref.read(authenticatorProvider).linkGoogleAccount,
-              unLink: ref.read(authenticatorProvider).unlinkGoogleAccount,
+              link: ref.read(authenticatorProvider).linkWithGoogle,
+              unLink: ref.read(authenticatorProvider).unlinkFromGoogle,
             ),
             // Apple LinkはiOSかつ匿名ユーザー以外であれば表示する。
-            if (canSignInWithApple)
+            if (appleSignInEnabled)
               _ProviderLinkCard(
                 isLast: true,
                 isSignedIn: isAppleSignedIn,
                 email: appleEmail,
                 titleLabel: SignInMethod.apple.label(context),
-                link: ref.read(authenticatorProvider).linkAppleAccount,
-                unLink: ref.read(authenticatorProvider).unlinkAppleAccount,
+                link: ref.read(authenticatorProvider).linkWithApple,
+                unLink: ref.read(authenticatorProvider).unlinkFromApple,
               ),
             const Gap(8),
             // 匿名ユーザーはサインアウトできない。

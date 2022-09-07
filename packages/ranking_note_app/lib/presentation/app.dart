@@ -1,11 +1,11 @@
 import 'dart:async';
 
+import 'package:authenticator/authenticator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:routemaster/routemaster.dart';
 
-import '../domain/authenticator/authenticator.dart';
 import '../domain/theme_selector/theme_selector.dart';
 import 'router/router.dart';
 import 'splash_page.dart';

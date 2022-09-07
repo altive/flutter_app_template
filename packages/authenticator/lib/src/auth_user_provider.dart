@@ -1,9 +1,8 @@
 import 'package:collection/collection.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:riverpod/riverpod.dart';
 
-import '../../commons/providers/firebase_auth_provider.dart';
-import 'sign_in_method.dart';
+import '../authenticator.dart';
 
 /// Return FirebaseAuth [User] as [AsyncValue]
 final authUserProvider = StreamProvider<User?>(
@@ -28,34 +27,23 @@ final isAnonymousSignedInProvider = Provider(
   },
 );
 
+/// Returns whether [User] is a user who is signed in to Google or not.
+final isGoogleSignedInProvider = Provider(
+  (ref) {
+    final user = ref.watch(authUserProvider).value;
+    return user?.providerData.any(
+          (userInfo) => userInfo.providerId == SigningMethod.google.providerId,
+        ) ??
+        false;
+  },
+);
+
 /// Returns whether Email of Google [User] or null.
 final googleEmailProvider = Provider(
   (ref) {
     final user = ref.watch(authUserProvider).value;
     final userInfo = user?.providerData.firstWhereOrNull(
-      (userInfo) => userInfo.providerId == SignInMethod.google.id,
-    );
-    return userInfo?.email;
-  },
-);
-
-/// Returns whether [User] is a user who is signed in to Google or not.
-final isGoogleSignedInProvider = Provider(
-  (ref) {
-    final user = ref.watch(authUserProvider).value;
-    final userInfo = user?.providerData.firstWhereOrNull(
-      (userInfo) => userInfo.providerId == SignInMethod.google.id,
-    );
-    return userInfo != null;
-  },
-);
-
-/// Returns whether [User] is a user who is signed in to Apple or not.
-final appleEmailProvider = Provider(
-  (ref) {
-    final user = ref.watch(authUserProvider).value;
-    final userInfo = user?.providerData.firstWhereOrNull(
-      (userInfo) => userInfo.providerId == SignInMethod.apple.id,
+      (userInfo) => userInfo.providerId == SigningMethod.google.providerId,
     );
     return userInfo?.email;
   },
@@ -65,9 +53,20 @@ final appleEmailProvider = Provider(
 final isAppleSignedInProvider = Provider(
   (ref) {
     final user = ref.watch(authUserProvider).value;
+    return user?.providerData.any(
+          (userInfo) => userInfo.providerId == SigningMethod.apple.providerId,
+        ) ??
+        false;
+  },
+);
+
+/// Returns whether [User] is a user who is signed in to Apple or not.
+final appleEmailProvider = Provider(
+  (ref) {
+    final user = ref.watch(authUserProvider).value;
     final userInfo = user?.providerData.firstWhereOrNull(
-      (userInfo) => userInfo.providerId == SignInMethod.apple.id,
+      (userInfo) => userInfo.providerId == SigningMethod.apple.providerId,
     );
-    return userInfo != null;
+    return userInfo?.email;
   },
 );
