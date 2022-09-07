@@ -7,8 +7,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:routemaster/routemaster.dart';
 
 import '../domain/theme_selector/theme_selector.dart';
+import 'pages/splash_page/splash_page.dart';
 import 'router/router.dart';
-import 'splash_page.dart';
 import 'theme_data/dark_theme.dart';
 import 'theme_data/light_theme.dart';
 

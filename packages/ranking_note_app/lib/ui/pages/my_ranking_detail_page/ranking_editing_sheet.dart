@@ -8,13 +8,13 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:routemaster/routemaster.dart';
 
-import '../../commands/delete_ranking.dart';
-import '../../commands/overwrite_ranking.dart';
-import '../../commons/hooks/use_localization.dart';
-import '../../commons/widgets/image_picker_button.dart';
-import '../../domain/my_ranking/entities/ranking.dart';
-import '../../domain/validator/validator.dart';
-import '../components/ranking_tags.dart';
+import '../../../commands/delete_ranking.dart';
+import '../../../commands/overwrite_ranking.dart';
+import '../../../commons/hooks/use_localization.dart';
+import '../../../commons/widgets/image_picker_button.dart';
+import '../../../domain/my_ranking/entities/ranking.dart';
+import '../../../domain/validator/validator.dart';
+import '../../components/ranking_tags.dart';
 
 class RankingEditingSheet extends HookConsumerWidget {
   const RankingEditingSheet({

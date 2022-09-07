@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:routemaster/routemaster.dart';
 
-import '../account_page/account_page.dart';
-import '../my_ranking_detail_page/my_ranking_detail_page.dart';
-import '../my_ranking_list_page/my_ranking_list_page.dart';
-import '../not_found_page/not_found_page.dart';
-import '../public_ranking_detail_page/public_ranking_detail_page.dart';
-import '../public_ranking_list_page/public_ranking_list_page.dart';
-import '../settings_page/settings_page.dart';
-import '../tab_scaffold_page/tab_scaffold_page.dart';
+import '../pages/account_page/account_page.dart';
+import '../pages/my_ranking_detail_page/my_ranking_detail_page.dart';
+import '../pages/my_ranking_list_page/my_ranking_list_page.dart';
+import '../pages/not_found_page/not_found_page.dart';
+import '../pages/public_ranking_detail_page/public_ranking_detail_page.dart';
+import '../pages/public_ranking_list_page/public_ranking_list_page.dart';
+import '../pages/settings_page/settings_page.dart';
+import '../pages/tab_scaffold_page/tab_scaffold_page.dart';
 import '../theme_selection_page/theme_selection_page.dart';
 
 final routeMapProvider = Provider((ref) {

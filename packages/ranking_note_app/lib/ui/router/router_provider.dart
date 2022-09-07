@@ -1,9 +1,9 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:routemaster/routemaster.dart';
 
-import '../account_page/account_page.dart';
-import '../my_ranking_detail_page/my_ranking_detail_page.dart';
-import '../public_ranking_detail_page/public_ranking_detail_page.dart';
+import '../pages/account_page/account_page.dart';
+import '../pages/my_ranking_detail_page/my_ranking_detail_page.dart';
+import '../pages/public_ranking_detail_page/public_ranking_detail_page.dart';
 import '../theme_selection_page/theme_selection_page.dart';
 import 'router_delegate_provider.dart';
 

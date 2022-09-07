@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../components/rounded_card.dart';
-import '../router/router.dart';
+import '../../components/rounded_card.dart';
+import '../../router/router.dart';
 
 class SettingsPage extends ConsumerWidget {
   const SettingsPage();

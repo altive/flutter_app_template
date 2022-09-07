@@ -3,20 +3,52 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../domain/my_ranking/providers/my_rankings_fetcher.dart';
+import '../../../commands/create_ranking_from_title.dart';
+import '../../../domain/my_ranking/providers/my_rankings_fetcher.dart';
 import 'ranking_card.dart';
 
-/// 自分以外のランキングをリスト表示する画面
-class PublicRankingListPage extends StatelessWidget {
-  const PublicRankingListPage();
+/// 自分のランキングをリスト表示する画面
+class MyRankingListPage extends StatelessWidget {
+  const MyRankingListPage();
 
-  static const routeName = 'rankings';
+  static const routeName = 'my-rankings';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('New Rankings')),
+      appBar: AppBar(title: const Text('My Rankings')),
       body: const _Body(),
+      persistentFooterButtons: const [_AddButton()],
+    );
+  }
+}
+
+// タイトルをその場で入力して新規ランキングを追加するためのボタン。
+class _AddButton extends HookConsumerWidget {
+  const _AddButton();
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final titleTextEditingController = useTextEditingController();
+    return Card(
+      margin: const EdgeInsets.symmetric(horizontal: 8),
+      child: ListTile(
+        leading: const CircleAvatar(
+          child: Icon(Icons.add),
+        ),
+        title: TextField(
+          controller: titleTextEditingController,
+          onSubmitted: (value) {
+            titleTextEditingController.clear();
+            ref.read(createRankingFromTitle)(value);
+          },
+          decoration: const InputDecoration(
+            filled: false,
+            contentPadding: EdgeInsets.zero,
+            hintText: '何のランキングを追加しますか？',
+          ),
+        ),
+      ),
     );
   }
 }
@@ -70,21 +102,18 @@ class _EmptyView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: Column(
-        children: [
-          Text(
-            '😢',
-            style: Theme.of(context).textTheme.headline1,
-          ),
-          const Gap(16),
-          Text(
-            '条件に一致するランキングがありませんでした。。',
-            style: Theme.of(context).textTheme.headline6,
-          ),
-        ],
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Text(
+          'ランキングを追加しましょう',
+          textAlign: TextAlign.center,
+          style: Theme.of(context).textTheme.headline6,
+        ),
+        const Gap(16),
+        const Icon(Icons.arrow_drop_down_circle_outlined),
+      ],
     );
   }
 }

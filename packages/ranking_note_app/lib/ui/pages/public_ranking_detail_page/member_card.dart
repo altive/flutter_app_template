@@ -2,9 +2,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-import '../../domain/my_ranking/entities/ranking_member.dart';
-import '../components/image_thumbnail.dart';
-import '../components/rounded_card.dart';
+import '../../../domain/my_ranking/entities/ranking_member.dart';
+import '../../components/image_thumbnail.dart';
+import '../../components/rounded_card.dart';
 
 class MemberCard extends StatelessWidget {
   const MemberCard(
