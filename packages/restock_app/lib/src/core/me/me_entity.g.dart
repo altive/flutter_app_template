@@ -8,16 +8,24 @@ part of 'me_entity.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_MeEntity _$$_MeEntityFromJson(Map json) => _$_MeEntity(
-      createdAt:
-          const TimestampConverter().fromJson(json['createdAt'] as Timestamp?),
-      updatedAt:
-          const TimestampConverter().fromJson(json['updatedAt'] as Timestamp?),
-      nickname: json['nickname'] as String?,
-      groups: (json['stockPlaces'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList(),
-      isPrivateMyStock: json['isPrivateMyStock'] as bool?,
+_$_MeEntity _$$_MeEntityFromJson(Map<String, dynamic> json) => $checkedCreate(
+      r'_$_MeEntity',
+      json,
+      ($checkedConvert) {
+        final val = _$_MeEntity(
+          createdAt: $checkedConvert('createdAt',
+              (v) => const TimestampConverter().fromJson(v as Timestamp?)),
+          updatedAt: $checkedConvert('updatedAt',
+              (v) => const TimestampConverter().fromJson(v as Timestamp?)),
+          nickname: $checkedConvert('nickname', (v) => v as String?),
+          groups: $checkedConvert('stockPlaces',
+              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
+          isPrivateMyStock:
+              $checkedConvert('isPrivateMyStock', (v) => v as bool?),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'groups': 'stockPlaces'},
     );
 
 Map<String, dynamic> _$$_MeEntityToJson(_$_MeEntity instance) =>

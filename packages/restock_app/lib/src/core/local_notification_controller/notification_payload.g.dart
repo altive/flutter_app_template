@@ -8,14 +8,24 @@ part of 'notification_payload.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_NotificationPayload _$$_NotificationPayloadFromJson(Map json) =>
-    _$_NotificationPayload(
-      documentId: json['documentId'] as String,
-      itemName: json['itemName'] as String,
-      expirationDate: DateTime.parse(json['expirationDate'] as String),
-      notificationDurationDays: json['notificationDurationDays'] as int,
-      hour: json['hour'] as int,
-      minute: json['minute'] as int,
+_$_NotificationPayload _$$_NotificationPayloadFromJson(
+        Map<String, dynamic> json) =>
+    $checkedCreate(
+      r'_$_NotificationPayload',
+      json,
+      ($checkedConvert) {
+        final val = _$_NotificationPayload(
+          documentId: $checkedConvert('documentId', (v) => v as String),
+          itemName: $checkedConvert('itemName', (v) => v as String),
+          expirationDate: $checkedConvert(
+              'expirationDate', (v) => DateTime.parse(v as String)),
+          notificationDurationDays:
+              $checkedConvert('notificationDurationDays', (v) => v as int),
+          hour: $checkedConvert('hour', (v) => v as int),
+          minute: $checkedConvert('minute', (v) => v as int),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_NotificationPayloadToJson(

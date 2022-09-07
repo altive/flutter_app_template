@@ -8,11 +8,21 @@ part of 'required_version_parameter.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-RequiredVersion _$RequiredVersionFromJson(Map json) => RequiredVersion(
-      requiredBuildNumber: json['requiredBuildNumber'] as int,
-      canCancel: json['canCancel'] as bool,
-      enabledAt: DateTime.parse(json['enabledAt'] as String),
-      isEnabled: json['isEnabled'] as bool,
+RequiredVersion _$RequiredVersionFromJson(Map<String, dynamic> json) =>
+    $checkedCreate(
+      'RequiredVersion',
+      json,
+      ($checkedConvert) {
+        final val = RequiredVersion(
+          requiredBuildNumber:
+              $checkedConvert('requiredBuildNumber', (v) => v as int),
+          canCancel: $checkedConvert('canCancel', (v) => v as bool),
+          enabledAt:
+              $checkedConvert('enabledAt', (v) => DateTime.parse(v as String)),
+          isEnabled: $checkedConvert('isEnabled', (v) => v as bool),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$RequiredVersionToJson(RequiredVersion instance) =>

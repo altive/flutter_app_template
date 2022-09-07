@@ -8,20 +8,28 @@ part of 'user_request.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_UserRequest _$$_UserRequestFromJson(Map json) => _$_UserRequest(
-      createdAt:
-          const TimestampConverter().fromJson(json['createdAt'] as Timestamp?),
-      updatedAt:
-          const TimestampConverter().fromJson(json['updatedAt'] as Timestamp?),
-      uid: json['uid'] as String,
-      deviceName: json['deviceName'] as String?,
-      deviceOS: json['deviceOS'] as String?,
-      appName: json['appName'] as String,
-      packageName: json['packageName'] as String?,
-      version: json['version'] as String,
-      buildNumber: json['buildNumber'] as String,
-      replyFor: json['replyFor'] as String,
-      text: json['text'] as String,
+_$_UserRequest _$$_UserRequestFromJson(Map<String, dynamic> json) =>
+    $checkedCreate(
+      r'_$_UserRequest',
+      json,
+      ($checkedConvert) {
+        final val = _$_UserRequest(
+          createdAt: $checkedConvert('createdAt',
+              (v) => const TimestampConverter().fromJson(v as Timestamp?)),
+          updatedAt: $checkedConvert('updatedAt',
+              (v) => const TimestampConverter().fromJson(v as Timestamp?)),
+          uid: $checkedConvert('uid', (v) => v as String),
+          deviceName: $checkedConvert('deviceName', (v) => v as String?),
+          deviceOS: $checkedConvert('deviceOS', (v) => v as String?),
+          appName: $checkedConvert('appName', (v) => v as String),
+          packageName: $checkedConvert('packageName', (v) => v as String?),
+          version: $checkedConvert('version', (v) => v as String),
+          buildNumber: $checkedConvert('buildNumber', (v) => v as String),
+          replyFor: $checkedConvert('replyFor', (v) => v as String),
+          text: $checkedConvert('text', (v) => v as String),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_UserRequestToJson(_$_UserRequest instance) =>

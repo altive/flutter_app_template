@@ -15,10 +15,8 @@ targets:
             - lib/**/entities/*.dart
       json_serializable:
         options:
-          any_map: false
-          # checked: true # 例外発生時にCheckedFromJsonExceptionをthrowする
-          create_factory: true # xxxFromJson メソッドを生成
-          create_to_json: true # toJson メソッドを生成
-          disallow_unrecognized_keys: false # 認識できないキーがあった場合、UnrecognizedKeysExceptionをthrowする
-          explicit_to_json: true # ネストされたリストに対してtoJson/fromJsonをメソッド生成
+          # 例外発生時にCheckedFromJsonExceptionをthrowする
+          checked: true
+          # ネストされたリストに対してtoJson/fromJsonをメソッド生成する
+          explicit_to_json: true
           field_rename: snake

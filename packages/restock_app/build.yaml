@@ -31,5 +31,7 @@ targets:
             - lib/**/*_payload.dart
             - lib/**/*_parameter.dart
         options:
-          any_map: true
+          # 例外発生時にCheckedFromJsonExceptionをthrowする
+          checked: true
+          # ネストされたリストに対してtoJson/fromJsonをメソッド生成する
           explicit_to_json: true

@@ -18,7 +18,8 @@ targets:
           include:
             - lib/**/model/*.dart
         options:
-          any_map: false
-          disallow_unrecognized_keys: false # 認識できないキーがあった場合、UnrecognizedKeysExceptionをthrowする
-          explicit_to_json: true # ネストされたリストに対してtoJson/fromJsonをメソッド生成
+          # 例外発生時にCheckedFromJsonExceptionをthrowする
+          checked: true
+          # ネストされたリストに対してtoJson/fromJsonをメソッド生成する
+          explicit_to_json: true
           field_rename: snake

@@ -8,21 +8,29 @@ part of 'recommend_stock_set_parameter.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-RecommendStockSet _$RecommendStockSetFromJson(Map json) => RecommendStockSet(
-      createdAt: json['createdAt'] == null
-          ? null
-          : DateTime.parse(json['createdAt'] as String),
-      updatedAt: json['updatedAt'] == null
-          ? null
-          : DateTime.parse(json['updatedAt'] as String),
-      title: json['title'] as String,
-      subtitle: json['subtitle'] as String,
-      description: json['description'] as String,
-      iconName: json['iconName'] as String,
-      itemList: (json['itemList'] as List<dynamic>)
-          .map((e) => RecommendStockSetItem.fromJson(
-              Map<String, dynamic>.from(e as Map)))
-          .toList(),
+RecommendStockSet _$RecommendStockSetFromJson(Map<String, dynamic> json) =>
+    $checkedCreate(
+      'RecommendStockSet',
+      json,
+      ($checkedConvert) {
+        final val = RecommendStockSet(
+          createdAt: $checkedConvert('createdAt',
+              (v) => v == null ? null : DateTime.parse(v as String)),
+          updatedAt: $checkedConvert('updatedAt',
+              (v) => v == null ? null : DateTime.parse(v as String)),
+          title: $checkedConvert('title', (v) => v as String),
+          subtitle: $checkedConvert('subtitle', (v) => v as String),
+          description: $checkedConvert('description', (v) => v as String),
+          iconName: $checkedConvert('iconName', (v) => v as String),
+          itemList: $checkedConvert(
+              'itemList',
+              (v) => (v as List<dynamic>)
+                  .map((e) =>
+                      RecommendStockSetItem.fromJson(e as Map<String, dynamic>))
+                  .toList()),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$RecommendStockSetToJson(RecommendStockSet instance) =>
@@ -36,10 +44,18 @@ Map<String, dynamic> _$RecommendStockSetToJson(RecommendStockSet instance) =>
       'itemList': instance.itemList.map((e) => e.toJson()).toList(),
     };
 
-RecommendStockSetItem _$RecommendStockSetItemFromJson(Map json) =>
-    RecommendStockSetItem(
-      asin: json['asin'] as String,
-      description: json['description'] as String,
+RecommendStockSetItem _$RecommendStockSetItemFromJson(
+        Map<String, dynamic> json) =>
+    $checkedCreate(
+      'RecommendStockSetItem',
+      json,
+      ($checkedConvert) {
+        final val = RecommendStockSetItem(
+          asin: $checkedConvert('asin', (v) => v as String),
+          description: $checkedConvert('description', (v) => v as String),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$RecommendStockSetItemToJson(

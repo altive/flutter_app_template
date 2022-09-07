@@ -10,10 +10,24 @@ part of 'requested_version_info.dart';
 
 _$_RequestedVersionInfo _$$_RequestedVersionInfoFromJson(
         Map<String, dynamic> json) =>
-    _$_RequestedVersionInfo(
-      requiredVersion: json['required_version'] as String,
-      canCancel: json['can_cancel'] as bool? ?? false,
-      enabledAt: DateTime.parse(json['enabled_at'] as String),
+    $checkedCreate(
+      r'_$_RequestedVersionInfo',
+      json,
+      ($checkedConvert) {
+        final val = _$_RequestedVersionInfo(
+          requiredVersion:
+              $checkedConvert('required_version', (v) => v as String),
+          canCancel: $checkedConvert('can_cancel', (v) => v as bool? ?? false),
+          enabledAt:
+              $checkedConvert('enabled_at', (v) => DateTime.parse(v as String)),
+        );
+        return val;
+      },
+      fieldKeyMap: const {
+        'requiredVersion': 'required_version',
+        'canCancel': 'can_cancel',
+        'enabledAt': 'enabled_at'
+      },
     );
 
 Map<String, dynamic> _$$_RequestedVersionInfoToJson(

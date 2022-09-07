@@ -8,22 +8,33 @@ part of 'everyones_stock_model.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_EveryonesStockModel _$$_EveryonesStockModelFromJson(Map json) =>
-    _$_EveryonesStockModel(
-      createdAt:
-          const TimestampConverter().fromJson(json['createdAt'] as Timestamp?),
-      name: json['name'] as String,
-      numberOfItems: (json['numberOfItems'] as num).toDouble(),
-      asin: json['asin'] as String,
-      category: json['category'] as String,
-      expirationDateTypeInt: json['expirationDateTypeInt'] as int,
-      expirationAt: const TimestampConverter()
-          .fromJson(json['expirationAt'] as Timestamp?),
-      amazonUrl: json['amazonUrl'] as String,
-      imageUrlSmall: json['imageUrlSmall'] as String?,
-      imageUrlMedium: json['imageUrlMedium'] as String?,
-      imageUrlLarge: json['imageUrlLarge'] as String?,
-      nickname: json['nickname'] as String,
+_$_EveryonesStockModel _$$_EveryonesStockModelFromJson(
+        Map<String, dynamic> json) =>
+    $checkedCreate(
+      r'_$_EveryonesStockModel',
+      json,
+      ($checkedConvert) {
+        final val = _$_EveryonesStockModel(
+          createdAt: $checkedConvert('createdAt',
+              (v) => const TimestampConverter().fromJson(v as Timestamp?)),
+          name: $checkedConvert('name', (v) => v as String),
+          numberOfItems:
+              $checkedConvert('numberOfItems', (v) => (v as num).toDouble()),
+          asin: $checkedConvert('asin', (v) => v as String),
+          category: $checkedConvert('category', (v) => v as String),
+          expirationDateTypeInt:
+              $checkedConvert('expirationDateTypeInt', (v) => v as int),
+          expirationAt: $checkedConvert('expirationAt',
+              (v) => const TimestampConverter().fromJson(v as Timestamp?)),
+          amazonUrl: $checkedConvert('amazonUrl', (v) => v as String),
+          imageUrlSmall: $checkedConvert('imageUrlSmall', (v) => v as String?),
+          imageUrlMedium:
+              $checkedConvert('imageUrlMedium', (v) => v as String?),
+          imageUrlLarge: $checkedConvert('imageUrlLarge', (v) => v as String?),
+          nickname: $checkedConvert('nickname', (v) => v as String),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$_EveryonesStockModelToJson(
