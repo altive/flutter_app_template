@@ -5,8 +5,8 @@ import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-import '../../../commons/hooks/use_localization.dart';
 import '../../../feature/authenticator/sign_in_method.dart';
+import '../../../localizer/localizer.dart';
 import '../../components/rounded_card.dart';
 
 class AccountPage extends HookConsumerWidget {
@@ -16,7 +16,7 @@ class AccountPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final l10n = useL10n();
+    final l10n = L10n.of(context);
     final isAnonymous = ref.watch(isAnonymousSignedInProvider);
     final googleEmail = ref.watch(googleEmailProvider);
     final isGoogleSignedIn = googleEmail != null;
@@ -143,7 +143,7 @@ class _Card extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = useL10n();
+    final l10n = L10n.of(context);
 
     Future<void> showConfirm() async {
       final confirmMessage = this.confirmMessage;
@@ -204,7 +204,7 @@ class _ProviderLinkCard extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = useL10n();
+    final l10n = L10n.of(context);
 
     Future<void> showConfirm() async {
       await showDialog<void>(

@@ -3,16 +3,16 @@ import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:routemaster/routemaster.dart';
 
-import '../../../commons/hooks/use_localization.dart';
 import '../../../commons/providers/flavor_provider.dart';
 import '../../../commons/providers/package_info_provider.dart';
+import '../../../localizer/localizer.dart';
 
 class AppInfoPage extends HookConsumerWidget {
   const AppInfoPage();
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final l10n = useL10n();
+    final l10n = L10n.of(context);
     final textTheme = Theme.of(context).textTheme;
     final flavor = ref.watch(flavorProvider);
     final packageInfo = ref.watch(packageInfoProvider);
