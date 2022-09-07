@@ -3,10 +3,17 @@ repository: https://github.com/altive/flutter_app_template
 sdkPath: .fvm/flutter_sdk
 packages:
   - packages/**
-
+command:
+  bootstrap:
+    usePubspecOverrides: true
+    runPubGetInParallel: true
+  version:
+    branch: main
 scripts:
   postclean: >
-    melos exec --flutter --concurrency=3 -- "flutter clean"
+    melos exec --flutter -- "flutter clean"
+  postbootstrap: >
+    melos exec --flutter --dir-exists=lib/l10n -- "flutter gen-l10n"
 
   upgrade:
     run: |
