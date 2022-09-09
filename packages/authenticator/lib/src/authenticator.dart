@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:riverpod/riverpod.dart';
 
 import 'apple_authenticator.dart';
+import 'firebase_auth_exception_code.dart';
 import 'google_authenticator.dart';
 
 final authenticatorProvider = Provider<Authenticator>((ref) {
@@ -55,12 +56,12 @@ class Authenticator {
   }
 
   /// Unlink from Apple.
-  Future<void> unlinkFromApple() async {
+  Future<User> unlinkFromApple() async {
     return _appleAuth.unlink();
   }
 
   /// Unlink from Google.
-  Future<void> unlinkFromGoogle() async {
+  Future<User> unlinkFromGoogle() async {
     return _googleAuth.unlink();
   }
 
@@ -76,45 +77,40 @@ class Authenticator {
   }
 
   /// アカウントを削除する
-  /// [FirebaseAuthException], [Exception] が発生する可能性がある
   Future<void> deleteAccount() async {
-    //   final user = _auth.currentUser!;
-    //   try {
-    //     // アカウントを削除実行
-    //     await user.delete();
-    //   } on FirebaseAuthException catch (exception) {
-    //     switch (exception.code) {
-    //       case AuthErrorCode.requiresRecentLogin:
-    //         // 再認証が必要なことを示す例外
-    //         await _reauthenticate();
-    //         // 再度、アカウント削除を実行
-    //         await user.delete();
-    //         break;
-    //       default:
-    //         // 再認証必須以外の認証例外
-    //         rethrow;
-    //     }
-    //   }
+    final user = _auth.currentUser!;
+    try {
+      // アカウントを削除実行
+      await user.delete();
+    } on FirebaseAuthException catch (exception) {
+      switch (exception.code) {
+        case FirebaseAuthExceptionCode.requiresRecentLogin:
+          // 再認証の後、再度実行する
+          await _reauthenticate();
+          await user.delete();
+          break;
+        default:
+          // 再認証必須以外の例外はRethrowする
+          rethrow;
+      }
+    }
   }
 
   /// 再認証を実施する
-  // Future<UserCredential> _reauthenticate() async {
-  //   final user = _user!;
+  Future<UserCredential> _reauthenticate() async {
+    final user = _auth.currentUser!;
 
-  //   // 匿名認証ユーザーの場合
-  //   if (_isAnonymousSignedIn) {
-  //     return FirebaseAuth.instance.signInAnonymously();
-  //   }
+    AuthCredential credential;
 
-  //   AuthCredential? authCredential;
+    if (_googleAuth.alreadySigned) {
+      credential = await _googleAuth.retrieveCredential();
+    } else if (_appleAuth.alreadySigned) {
+      final userCredential = await _appleAuth.signIn();
+      credential = userCredential.credential!;
+    } else {
+      throw Exception('未対応のSigningMethodがあります。');
+    }
 
-  //   if (_isGoogleSignedIn) {
-  //     // Google連携済みの場合
-  //     authCredential = await _googleAuth.requestGoogleAuthCredential();
-  //   } else if (_isAppleSignedIn) {
-  //     // Apple連携済みの場合
-  //     authCredential = await _appleAuth.requestAppleAuthCredential();
-  //   }
-  //   return user.reauthenticateWithCredential(authCredential!);
-  // }
+    return user.reauthenticateWithCredential(credential);
+  }
 }

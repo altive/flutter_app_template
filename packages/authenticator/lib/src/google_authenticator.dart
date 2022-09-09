@@ -16,20 +16,23 @@ class GoogleAuthenticator {
   final FirebaseAuth _auth;
   final GoogleSignIn _googleSignIn = GoogleSignIn();
 
+  /// 既にGoogleでサインイン済みなら`true`
+  bool get alreadySigned => _auth.currentUser?.hasGoogleSigning ?? false;
+
   Future<UserCredential> signIn() async {
-    final credential = await _retrieveCredential();
+    final credential = await retrieveCredential();
     final userCredential = await _auth.signInWithCredential(credential);
     return userCredential;
   }
 
   Future<UserCredential> link() async {
     final currentUser = _auth.currentUser!;
-    final credential = await _retrieveCredential();
+    final credential = await retrieveCredential();
     final userCredential = await currentUser.linkWithCredential(credential);
     return userCredential;
   }
 
-  Future<OAuthCredential> _retrieveCredential() async {
+  Future<OAuthCredential> retrieveCredential() async {
     final googleUser = await _googleSignIn.signIn();
     if (googleUser == null) {
       throw FirebaseAuthException(code: 'cancel');
@@ -43,21 +46,8 @@ class GoogleAuthenticator {
   }
 
   /// Googleアカウントをリンク解除
-  Future<void> unlink() async {
+  Future<User> unlink() async {
     final user = _auth.currentUser!;
-    try {
-      await user.unlink(SigningMethod.google.providerId);
-    } on FirebaseAuthException catch (_) {
-      // switch (exception.code) {
-      //   case FirebaseAuthExceptionCode.requiresRecentLogin:
-      //     // 再認証が必要なことを示す例外
-      //     await _reauthenticate();
-      //     // 再度、リンク解除を実行
-      //     await user.unlink(SigningMethod.google.providerId);
-      //   default:
-      //     // 再認証必須以外の認証例外
-      //     rethrow;
-      // }
-    }
+    return user.unlink(SigningMethod.google.providerId);
   }
 }
