@@ -1,1 +1,0 @@
-#　GraphQL API playground app
