@@ -47,12 +47,6 @@ Currently using Firebase Authentication.
 
 A generic widget placement location that can be used in multiple packages.
 
-### `flutter_app`
-
-This is a template package for Flutter apps with dev, stg, and prod environments.
-
-Also check the [`flutter_app/README.md`](/packages/flutter_app/README.md).
-
 ### `notification_receiver`
 
 This package takes care of functions (responsibilities) related to setting notification permissions and receiving push notifications for the application.
@@ -68,6 +62,22 @@ Currently using Firebase Remote Config.
 ### `themes`
 
 This package is responsible for the appearance of ThemeData and other appearance-related data used in Flutter apps.
+
+All packages: analysis_logger, authenticator, convenient_widgets, notification_receiver, remote_parameter_fetcher, themes
+
+## App overview
+
+### `flutter_app`
+
+This is a template package for Flutter apps with dev, stg, and prod environments.
+
+Also check the [`flutter_app/README.md`](/packages/flutter_app/README.md).
+
+### `restock_app`
+
+### `ranking_note_app`
+
+### `onetaplog_app`
 
 ## How to start development
 
@@ -91,11 +101,14 @@ FVM and Melos are now installed.
     
 ## How to create a new package
 
+If the project name and the output directory name of the package are the same,
+`--project-name` can be omitted.
+
 ```shell
 # Package
-flutter create -t package packages/{package_name}
+flutter create -t package packages/{directory_name} --project-name {project_name}
 # App
-flutter create --org jp.co.altive packages/{app_name}
+flutter create --org jp.co.altive packages/{directory_name} --project-name {project_name}
 ```
 
 ## References

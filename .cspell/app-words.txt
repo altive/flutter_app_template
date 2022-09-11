@@ -27,6 +27,7 @@ manabelleinfo
 MPLUS
 mypage
 notoSansjp
+onetaplog
 paapi
 pascalcase
 prefs
