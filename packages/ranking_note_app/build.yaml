@@ -3,20 +3,31 @@ targets:
     builders:
       source_gen|combining_builder:
         options:
+          # 生成ファイルでは無視させたい項目
           ignore_for_file:
             - type=lint
             - implicit_dynamic_parameter
             - implicit_dynamic_type
             - implicit_dynamic_method
             - strict_raw_type
+      cloud_firestore_odm_generator:
+        generate_for:
+          include:
+            - lib/**/entities/*.dart
       freezed:
         generate_for:
           include:
             - lib/**/entities/*.dart
       json_serializable:
+        generate_for:
+          include:
+            - lib/**/entities/*.dart
         options:
           # 例外発生時にCheckedFromJsonExceptionをthrowする
           checked: true
           # ネストされたリストに対してtoJson/fromJsonをメソッド生成する
           explicit_to_json: true
+          # cloud_firestore_odm_generatorで必要
+          create_field_map: true
+          # サーバー側のフィールド名は、snake_case で定義されており変換させたいため指定
           field_rename: snake
