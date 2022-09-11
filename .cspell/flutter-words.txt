@@ -1,4 +1,5 @@
 # Custom Dictionary Words
+appbar
 appbundle
 codecov
 codeowners
@@ -27,4 +28,5 @@ Schyler
 unawaited
 unfocus
 vsync
+wireframe
 xcconfig
