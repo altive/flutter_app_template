@@ -9,7 +9,6 @@ import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import '../../../commands/append_ranking_tag.dart';
 import '../../../commands/remove_ranking_tag.dart';
 import '../../../feature/my_ranking/entities/ranking.dart';
-import '../../../feature/my_ranking/entities/ranking_member.dart';
 import '../../../feature/my_ranking/providers/my_ranking_members_fetcher.dart';
 import '../../../feature/my_ranking/providers/my_ranking_provider.dart';
 import '../../components/ranking_tags.dart';
@@ -123,7 +122,7 @@ class __BodyState extends ConsumerState<_Body> {
   late ScrollController _mainScrollController;
   late ScrollController _subScrollController;
 
-  List<QueryDocumentSnapshot<RankingMember>> _memberDocs = [];
+  List<RankingMemberQueryDocumentSnapshot> _memberDocs = [];
 
   @override
   void initState() {

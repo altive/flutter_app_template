@@ -1,13 +1,12 @@
 import 'dart:io';
 
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../../commands/add_ranking_member.dart';
-import '../../../feature/my_ranking/entities/ranking_member.dart';
+import '../../../feature/my_ranking/entities/ranking.dart';
 import '../../components/member_editing_sheet.dart';
 
 class PlusButtonsView extends StatelessWidget {
@@ -21,7 +20,7 @@ class PlusButtonsView extends StatelessWidget {
 
   final ScrollController _subScrollController;
   final String rankingId;
-  final List<QueryDocumentSnapshot<RankingMember>> memberDocs;
+  final List<RankingMemberQueryDocumentSnapshot> memberDocs;
   final double addIconSize;
   final double addIconPadding;
 
@@ -81,7 +80,7 @@ class _AddMemberModalBottomSheet extends HookConsumerWidget {
 
   final String rankingId;
   final int targetIndex;
-  final List<QueryDocumentSnapshot<RankingMember>> memberDocs;
+  final List<RankingMemberQueryDocumentSnapshot> memberDocs;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

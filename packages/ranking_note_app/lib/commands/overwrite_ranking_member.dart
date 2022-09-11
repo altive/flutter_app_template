@@ -1,17 +1,15 @@
 import 'dart:io';
 
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:tuple/tuple.dart';
 
-import '../feature/my_ranking/entities/ranking_member.dart';
-import '../feature/my_ranking/references/my_ranking_member_reference.dart';
+import '../feature/my_ranking/entities/ranking.dart';
+import '../feature/my_ranking/references/new_ranking_member_image_reference.dart';
 
 final overwriteRankingMember =
     Provider((ref) => OverwriteRankingMember(ref.read));
 
-/// Overwtire ranking member document.
 class OverwriteRankingMember {
   const OverwriteRankingMember(this._read);
 
@@ -35,14 +33,14 @@ class OverwriteRankingMember {
     required String description,
     File? imageFile,
     required bool imageRemoved,
-    required QueryDocumentSnapshot<RankingMember> doc,
+    required RankingMemberQueryDocumentSnapshot doc,
   }) async {
     assert(title.isNotEmpty);
 
-    var newData = doc.data().copyWith(
-          title: title.trim(),
-          description: description.trim(),
-        );
+    var newData = doc.data.copyWith(
+      title: title.trim(),
+      description: description.trim(),
+    );
 
     if (imageFile != null) {
       // 写真ファイルがある＝写真を上書き保存する必要がある

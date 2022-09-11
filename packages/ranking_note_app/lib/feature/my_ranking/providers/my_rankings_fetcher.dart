@@ -19,7 +19,7 @@ class MyRankingsFetcher
   MyRankingsFetcher(this._read) : super(const AsyncValue.loading()) {
     // 初回データ取得
     final subscription = _myRankingColRef
-        .orderBy(RankingField.pinned, descending: true)
+        .orderBy(Ranking.pinnedField, descending: true)
         .orderBy(TimestampField.updatedAt, descending: true)
         .limit(15)
         .snapshots()
@@ -38,7 +38,7 @@ class MyRankingsFetcher
   /// 最後に取得したドキュメントを渡し、それ以降のドキュメントのスナップショットを取得する。
   void next(DocumentSnapshot<Ranking> lastDoc) {
     final subscription = _myRankingColRef
-        .orderBy(RankingField.pinned, descending: true)
+        .orderBy(Ranking.pinnedField, descending: true)
         .orderBy(TimestampField.updatedAt, descending: true)
         .limit(10)
         .startAfterDocument(lastDoc)

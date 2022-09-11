@@ -120,10 +120,9 @@ class __$$_RequestedVersionInfoCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$_RequestedVersionInfo
-    with DiagnosticableTreeMixin
-    implements _RequestedVersionInfo {
+
+@JsonSerializable(createFieldMap: false)
+class _$_RequestedVersionInfo implements _RequestedVersionInfo {
   const _$_RequestedVersionInfo(
       {required this.requiredVersion,
       this.canCancel = false,
@@ -146,18 +145,8 @@ class _$_RequestedVersionInfo
   final DateTime enabledAt;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'RequestedVersionInfo(requiredVersion: $requiredVersion, canCancel: $canCancel, enabledAt: $enabledAt)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'RequestedVersionInfo'))
-      ..add(DiagnosticsProperty('requiredVersion', requiredVersion))
-      ..add(DiagnosticsProperty('canCancel', canCancel))
-      ..add(DiagnosticsProperty('enabledAt', enabledAt));
   }
 
   @override
@@ -187,7 +176,9 @@ class _$_RequestedVersionInfo
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RequestedVersionInfoToJson(this);
+    return _$$_RequestedVersionInfoToJson(
+      this,
+    );
   }
 }
 
@@ -203,15 +194,15 @@ abstract class _RequestedVersionInfo implements RequestedVersionInfo {
   @override
 
   /// 要求バージョン e.g., '1.0.0'
-  String get requiredVersion => throw _privateConstructorUsedError;
+  String get requiredVersion;
   @override
 
   /// アップデートをキャンセルして利用可能にするかどうか
-  bool get canCancel => throw _privateConstructorUsedError;
+  bool get canCancel;
   @override
 
   /// アップデート要求を有強化する日時
-  DateTime get enabledAt => throw _privateConstructorUsedError;
+  DateTime get enabledAt;
   @override
   @JsonKey(ignore: true)
   _$$_RequestedVersionInfoCopyWith<_$_RequestedVersionInfo> get copyWith =>

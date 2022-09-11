@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:convenient_widgets/convenient_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -8,7 +7,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../../commands/overwrite_ranking_member.dart';
-import '../../../feature/my_ranking/entities/ranking_member.dart';
+import '../../../feature/my_ranking/entities/ranking.dart';
 import '../../components/image_thumbnail.dart';
 import '../../components/member_editing_sheet.dart';
 import '../../components/rounded_card.dart';
@@ -23,14 +22,14 @@ class MemberCard extends StatelessWidget {
   });
 
   final String rankingId;
-  final QueryDocumentSnapshot<RankingMember> memberDoc;
+  final RankingMemberQueryDocumentSnapshot memberDoc;
   final int rank;
   final bool isFirst;
   final bool isLast;
 
   @override
   Widget build(BuildContext context) {
-    final member = memberDoc.data();
+    final member = memberDoc.data;
 
     Future<void> onDismissed(DismissDirection direction) async {
       if (direction == DismissDirection.endToStart) {
@@ -95,13 +94,13 @@ class _UpdateMemberModalBottomSheet extends HookConsumerWidget {
   });
 
   final String rankingId;
-  final QueryDocumentSnapshot<RankingMember> memberDoc;
+  final RankingMemberQueryDocumentSnapshot memberDoc;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final formKey = useMemoized(GlobalKey<FormState>.new);
 
-    final member = memberDoc.data();
+    final member = memberDoc.data;
 
     Future<void> onUpdateButtonPressed({
       required String titleText,

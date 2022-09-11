@@ -1,8 +1,7 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-import '../../../feature/my_ranking/entities/ranking_member.dart';
+import '../../../feature/my_ranking/entities/ranking.dart';
 import '../../components/image_thumbnail.dart';
 import '../../components/rounded_card.dart';
 
@@ -16,14 +15,14 @@ class MemberCard extends StatelessWidget {
   });
 
   final String rankingId;
-  final QueryDocumentSnapshot<RankingMember> memberDoc;
+  final RankingMemberQueryDocumentSnapshot memberDoc;
   final int rank;
   final bool isFirst;
   final bool isLast;
 
   @override
   Widget build(BuildContext context) {
-    final member = memberDoc.data();
+    final member = memberDoc.data;
 
     return RoundedCard(
       isFirst: isFirst,

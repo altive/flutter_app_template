@@ -1,19 +1,19 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../entities/ranking_member.dart';
-import '../references/my_ranking_member_reference.dart';
+import '../entities/ranking.dart';
 
 // Provide multiple documents.
 
 /// `rankingId` を渡し、ランク順に並び替えられているランキングメンバーを提供する。
 final myRankingMembersProvider =
-    StreamProvider.family<QuerySnapshot<RankingMember>, String>((
+    StreamProvider.family<RankingMemberQuerySnapshot, String>((
   ref,
   rankingId,
 ) {
-  return ref
-      .watch(myRankingMemberColRefProvider(rankingId))
-      .orderBy(RankingMemberField.order)
+  return rankingsRef
+      .doc(rankingId)
+      .members
+      .orderByFieldPath(FieldPath.fromString(RankingMember.orderField))
       .snapshots();
 });

@@ -1,10 +1,9 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../commands/update_ranking_member_order.dart';
-import '../../../feature/my_ranking/entities/ranking_member.dart';
+import '../../../feature/my_ranking/entities/ranking.dart';
 import 'member_card.dart';
 
 class MemberListView extends ConsumerWidget {
@@ -18,7 +17,7 @@ class MemberListView extends ConsumerWidget {
 
   final ScrollController mainScrollController;
   final String rankingId;
-  final List<QueryDocumentSnapshot<RankingMember>> memberDocs;
+  final List<RankingMemberQueryDocumentSnapshot> memberDocs;
   final double addIconSize;
   final double addIconPadding;
 
@@ -42,7 +41,7 @@ class MemberListView extends ConsumerWidget {
         rankingId: rankingId,
         memberId: movingDoc.id,
         memberDocs: memberDocs,
-        oldMember: movingDoc.data(),
+        oldMember: movingDoc.data,
         newIndex: newIndex,
       );
     }

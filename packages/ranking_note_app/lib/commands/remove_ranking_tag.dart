@@ -20,7 +20,7 @@ class RemoveRankingTag {
     required String tag,
   }) async {
     await _myRankingDocRef(rankingId).update({
-      RankingField.tags: FieldValue.arrayRemove(<String>[tag]),
+      Ranking.tagsField: FieldValue.arrayRemove(<String>[tag]),
     });
   }
 }

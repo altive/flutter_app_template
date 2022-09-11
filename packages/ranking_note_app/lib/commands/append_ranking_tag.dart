@@ -20,7 +20,7 @@ class AppendRankingTag {
     required String tag,
   }) async {
     await _myRankingDocRef(rankingId).update({
-      RankingField.tags: FieldValue.arrayUnion(<String>[tag]),
+      Ranking.tagsField: FieldValue.arrayUnion(<String>[tag]),
     });
   }
 }
