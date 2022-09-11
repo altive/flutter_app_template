@@ -63,6 +63,10 @@ Currently using Firebase Remote Config.
 
 This package is responsible for the appearance of ThemeData and other appearance-related data used in Flutter apps.
 
+### `util`
+
+This package stores general-purpose functions that are too small to be cut out into a stand-alone package.
+
 ---
 
 ```shell
