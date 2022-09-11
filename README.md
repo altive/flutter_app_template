@@ -63,7 +63,15 @@ Currently using Firebase Remote Config.
 
 This package is responsible for the appearance of ThemeData and other appearance-related data used in Flutter apps.
 
-All packages: analysis_logger, authenticator, convenient_widgets, notification_receiver, remote_parameter_fetcher, themes
+---
+
+```shell
+flutter pub add analysis_logger --path ../analysis_logger
+flutter pub add authenticator --path ../authenticator
+flutter pub add convenient_widgets --path ../convenient_widgets
+flutter pub add notification_receiver --path ../notification_receiver
+flutter pub add remote_parameter_fetcher --path ../remote_parameter_fetcher
+```
 
 ## App overview
 

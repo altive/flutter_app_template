@@ -8,15 +8,23 @@ environment:
   sdk: ">=2.18.0 <3.0.0"
 
 dependencies:
+  analysis_logger:
+    path: ../analysis_logger
   authenticator:
     path: ../authenticator
   awaitable_button: ^1.2.0
   cached_network_image: ^3.1.0
+  convenient_widgets:
+    path: ../convenient_widgets
   flutter:
     sdk: flutter
   flutter_riverpod: ^2.0.0-dev.9
   freezed_annotation: ^2.1.0
   json_annotation: ^4.6.0
+  notification_receiver:
+    path: ../notification_receiver
+  remote_parameter_fetcher:
+    path: ../remote_parameter_fetcher
 
 dev_dependencies:
   altive_lints: ^1.5.0
