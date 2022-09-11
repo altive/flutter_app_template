@@ -31,6 +31,22 @@
 
 ## Packages overview
 
+### `analysis_logger`
+
+This package is responsible for the function (responsibility) of event logging and sending crash reports.
+
+Currently using Firebase Analytics and Crashlytics.
+
+### `authenticator`
+
+This package is responsible for the function (responsibility) of authenticating users, such as logging in.
+
+Currently using Firebase Authentication.
+
+### `convenient_widgets`
+
+A generic widget placement location that can be used in multiple packages.
+
 ### `flutter_app`
 
 This is a template package for Flutter apps with dev, stg, and prod environments.
@@ -48,18 +64,6 @@ Currently using Firebase Cloud Messaging.
 This package is responsible for the function (responsibility) of retrieving remotely configured parameters and providing them in a specified type.
 
 Currently using Firebase Remote Config.
-
-### `analysis_logger`
-
-This package is responsible for the function (responsibility) of event logging and sending crash reports.
-
-Currently using Firebase Analytics and Crashlytics.
-
-### `authenticator`
-
-This package is responsible for the function (responsibility) of authenticating users, such as logging in.
-
-Currently using Firebase Authentication.
 
 ### `themes`
 
