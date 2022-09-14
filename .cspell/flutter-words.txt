@@ -10,6 +10,7 @@ fastlane
 flutterfire
 fullscreen
 gcov
+horiz
 iframe
 lcov
 lerp
