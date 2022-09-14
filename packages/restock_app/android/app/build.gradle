@@ -45,6 +45,8 @@ android {
 
     defaultConfig {
         applicationId "jp.altive.restock"
+        // Firebase requires 19 or higher,
+        // but `flutter.minSdkVersion` cannot be used because 16 was specified.
         minSdkVersion 23
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()

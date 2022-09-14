@@ -64,7 +64,9 @@ android {
         if (dartEnvironmentVariables.FLAVOR != 'prod') {
             applicationIdSuffix ".${dartEnvironmentVariables.FLAVOR}"
         }
-        minSdkVersion 19
+        // Firebase requires 19 or higher,
+        // but `flutter.minSdkVersion` cannot be used because 16 was specified.
+        minSdkVersion 23
         targetSdkVersion 30
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
