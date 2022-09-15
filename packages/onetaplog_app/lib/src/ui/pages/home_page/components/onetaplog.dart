@@ -1,6 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:util/util.dart';
 
@@ -19,8 +21,16 @@ class OTLog with _$OTLog {
 
   const OTLog._();
 
+  // FIXME: SharedPreferences
+  static final bool needAbsoluteNotation = Random().nextBool();
+
   String get lastUpdatedText {
     final now = DateTime.now();
+
+    if (needAbsoluteNotation) {
+      // 設定で絶対時間表記の場合
+      return DateFormat.MMMEd('ja').add_Hm().format(lastUpdatedAt);
+    }
     final difference = now.difference(lastUpdatedAt);
     if (difference.inHours < 1) {
       return '${difference.inMinutes}分前';
@@ -38,7 +48,6 @@ class OTLog with _$OTLog {
       return '${difference.inDays}日前';
     }
     return '${difference.inDays ~/ 365}年前';
-    return DateFormat.MMMEd('ja').add_Hm().format(lastUpdatedAt);
   }
 }
 
