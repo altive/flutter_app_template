@@ -27,6 +27,7 @@ manabelleinfo
 MPLUS
 mypage
 notoSansjp
+Onetap
 onetaplog
 paapi
 pascalcase

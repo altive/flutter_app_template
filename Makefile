@@ -1,4 +1,4 @@
-all: fvm fvm_install melos melos_bs flutterfire_cli
+all: fvm fvm_install melos melos_bs flutterfire_cli mason mason_get
 ci: dummy_env
 
 fvm:
