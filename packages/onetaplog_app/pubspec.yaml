@@ -19,10 +19,12 @@ dependencies:
   cupertino_icons: ^1.0.5
   flutter:
     sdk: flutter
+  flutter_hooks: ^0.18.5+1
   flutter_localizations:
     sdk: flutter
-  flutter_riverpod: ^2.0.0-dev.9
   freezed_annotation: ^2.1.0
+  go_router: ^4.4.1
+  hooks_riverpod: ^2.0.0-dev.9
   intl: ^0.17.0
   json_annotation: ^4.6.0
   notification_receiver:
