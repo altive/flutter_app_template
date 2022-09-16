@@ -22,15 +22,15 @@ class AppleAuthenticator {
       final userCredential = await _auth.signInWithPopup(appleProvider);
       return userCredential;
     } else {
-      final userCredential = await _auth.signInWithAuthProvider(appleProvider);
+      final userCredential = await _auth.signInWithProvider(appleProvider);
       return userCredential;
     }
   }
 
   Future<UserCredential> link() async {
     final user = _auth.currentUser!;
-    final userCredential = await signIn();
-    return user.linkWithCredential(userCredential.credential!);
+    final provider = AppleAuthProvider();
+    return user.linkWithProvider(provider);
   }
 
   /// Apple IDをリンク解除

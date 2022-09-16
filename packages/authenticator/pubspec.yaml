@@ -1,14 +1,14 @@
 name: authenticator
 description: Authenticator.
-publish_to: none
-version: 0.1.0
+publish_to: "none"
+version: 1.0.0
 
 environment:
   sdk: ">=2.18.0 <3.0.0"
 
 dependencies:
   collection: ^1.16.0
-  firebase_auth: ^3.7.0
+  firebase_auth: ^3.9.0
   flutter:
     sdk: flutter
   google_sign_in: ^5.4.1

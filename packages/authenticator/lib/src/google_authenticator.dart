@@ -26,10 +26,15 @@ class GoogleAuthenticator {
   }
 
   Future<UserCredential> link() async {
-    final currentUser = _auth.currentUser!;
-    final credential = await retrieveCredential();
-    final userCredential = await currentUser.linkWithCredential(credential);
-    return userCredential;
+    final user = _auth.currentUser!;
+    final provider = GoogleAuthProvider();
+    return user.linkWithProvider(provider);
+  }
+
+  /// Googleアカウントをリンク解除
+  Future<User> unlink() async {
+    final user = _auth.currentUser!;
+    return user.unlink(SigningMethod.google.providerId);
   }
 
   Future<OAuthCredential> retrieveCredential() async {
@@ -43,11 +48,5 @@ class GoogleAuthenticator {
       idToken: googleAuth.idToken,
     );
     return credential;
-  }
-
-  /// Googleアカウントをリンク解除
-  Future<User> unlink() async {
-    final user = _auth.currentUser!;
-    return user.unlink(SigningMethod.google.providerId);
   }
 }
