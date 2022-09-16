@@ -1,5 +1,6 @@
 import 'package:flutter_app/domain/update_requester/entities/requested_version_info.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 void main() {
   // 日本時間を想定した日時
@@ -48,7 +49,7 @@ void main() {
             'can_cancel': true,
             'enabled_at': '2018年4月4日',
           }),
-          throwsFormatException,
+          throwsA(isA<CheckedFromJsonException>()),
         );
       });
     });
