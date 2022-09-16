@@ -34,14 +34,14 @@ class LogCard extends ConsumerWidget {
         },
         child: Container(
           padding: const EdgeInsets.only(bottom: 8),
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             borderRadius: borderRadius,
             gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                log.color.withOpacity(0.8),
-                log.color,
+                Colors.black26,
+                Colors.black54,
               ],
             ),
           ),

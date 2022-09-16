@@ -10,24 +10,28 @@ class OnetapPageBody extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final existingLogs = ref.watch(existingLgsProvider);
-
-    return GridView.builder(
-      padding: const EdgeInsets.all(16),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        mainAxisSpacing: 12,
-        crossAxisSpacing: 12,
-        childAspectRatio: 1.2,
+    return SliverPadding(
+      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16)
+          .add(EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom)),
+      sliver: SliverGrid(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          mainAxisSpacing: 12,
+          crossAxisSpacing: 12,
+          childAspectRatio: 1.2,
+        ),
+        delegate: SliverChildBuilderDelegate(
+          childCount: existingLogs.length,
+          (context, index) {
+            return ProviderScope(
+              overrides: [
+                logProvider.overrideWithValue(existingLogs[index]),
+              ],
+              child: const LogCard(),
+            );
+          },
+        ),
       ),
-      itemCount: existingLogs.length,
-      itemBuilder: (context, index) {
-        return ProviderScope(
-          overrides: [
-            logProvider.overrideWithValue(existingLogs[index]),
-          ],
-          child: const LogCard(),
-        );
-      },
     );
   }
 }

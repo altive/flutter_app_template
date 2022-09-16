@@ -33,9 +33,26 @@ class SplashPage extends HookConsumerWidget {
       },
       const [],
     );
-    return const Scaffold(
-      appBar: SplashPageAppBar(),
-      body: SplashPageBody(),
+    return Scaffold(
+      body: const SafeArea(
+        child: CustomScrollView(
+          slivers: [
+            SplashPageAppBar(),
+            SplashPageBody(),
+          ],
+        ),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.grey,
+        unselectedItemColor: Colors.grey,
+        items: [
+          for (final tab in TopLevelTab.values)
+            BottomNavigationBarItem(
+              icon: Icon(tab.activeIconData),
+              label: tab.labelText(),
+            ),
+        ],
+      ),
     );
   }
 }

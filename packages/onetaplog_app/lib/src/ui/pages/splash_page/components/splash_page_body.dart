@@ -6,23 +6,27 @@ class SplashPageBody extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return GridView.builder(
+    return SliverPadding(
       padding: const EdgeInsets.all(16),
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-        mainAxisSpacing: 12,
-        crossAxisSpacing: 12,
-        childAspectRatio: 1.2,
+      sliver: SliverGrid(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: 2,
+          mainAxisSpacing: 12,
+          crossAxisSpacing: 12,
+          childAspectRatio: 1.2,
+        ),
+        delegate: SliverChildBuilderDelegate(
+          childCount: 10,
+          (context, index) {
+            return DecoratedBox(
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.all(Radius.circular(16)),
+                color: Colors.grey.shade200,
+              ),
+            );
+          },
+        ),
       ),
-      itemCount: 10,
-      itemBuilder: (context, index) {
-        return DecoratedBox(
-          decoration: BoxDecoration(
-            borderRadius: const BorderRadius.all(Radius.circular(16)),
-            color: Colors.grey.shade200,
-          ),
-        );
-      },
     );
   }
 }

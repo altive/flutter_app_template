@@ -13,7 +13,7 @@ class MyApp extends ConsumerWidget {
     final router = ref.watch(routerProvider);
     return MaterialApp.router(
       onGenerateTitle: (context) => 'One Tap Log',
-      theme: altiveLightThemeData,
+      theme: onetapLogLightTheme,
       darkTheme: altiveDarkThemeData,
       routerDelegate: router.routerDelegate,
       routeInformationParser: router.routeInformationParser,
@@ -30,3 +30,9 @@ class MyApp extends ConsumerWidget {
     );
   }
 }
+
+ThemeData get onetapLogLightTheme => altiveLightThemeData.copyWith(
+      appBarTheme: const AppBarTheme(
+        backgroundColor: Colors.transparent,
+      ),
+    );

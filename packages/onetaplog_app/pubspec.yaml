@@ -32,6 +32,7 @@ dependencies:
   pull_down_button: ^0.1.0-beta.8
   remote_parameter_fetcher:
     path: ../remote_parameter_fetcher
+  shimmer: ^2.0.0
   themes:
     path: ../themes
   util:

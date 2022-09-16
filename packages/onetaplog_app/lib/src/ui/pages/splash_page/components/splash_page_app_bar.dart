@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shimmer/shimmer.dart';
 
 class SplashPageAppBar extends StatelessWidget implements PreferredSizeWidget {
   const SplashPageAppBar({super.key});
@@ -8,8 +9,13 @@ class SplashPageAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      title: const Text('One Taps'),
+    final colorScheme = Theme.of(context).colorScheme;
+    return SliverAppBar.medium(
+      title: Shimmer.fromColors(
+        baseColor: colorScheme.primary,
+        highlightColor: colorScheme.secondary,
+        child: const Text('One Taps'),
+      ),
     );
   }
 }

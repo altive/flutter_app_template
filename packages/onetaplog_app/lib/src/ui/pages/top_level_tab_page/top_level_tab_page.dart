@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:convenient_widgets/convenient_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
@@ -38,18 +40,36 @@ class TopLevelTabPage extends HookConsumerWidget {
 
     return UnfocusOnTap(
       child: Scaffold(
+        extendBody: true,
         body: currentTab.page,
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: currentTab.index,
-          items: [
-            for (final tab in TopLevelTab.values)
-              BottomNavigationBarItem(
-                icon: Icon(tab.inactiveIconData),
-                activeIcon: Icon(tab.activeIconData),
-                label: tab.labelText(),
+        // Because ThemeData is not reflected in Flutter 3.3.
+        // https://github.com/flutter/flutter/issues/110878
+        bottomNavigationBar: BottomNavigationBarTheme(
+          data: const BottomNavigationBarThemeData(
+            backgroundColor: Colors.black54,
+            selectedItemColor: Colors.white,
+            unselectedItemColor: Colors.grey,
+          ),
+          child: ClipRect(
+            child: BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
+              child: BottomNavigationBar(
+                currentIndex: currentTab.index,
+                showSelectedLabels: false,
+                showUnselectedLabels: false,
+                iconSize: 26,
+                items: [
+                  for (final tab in TopLevelTab.values)
+                    BottomNavigationBarItem(
+                      icon: Icon(tab.inactiveIconData),
+                      activeIcon: Icon(tab.activeIconData),
+                      label: tab.labelText(),
+                    ),
+                ],
+                onTap: changeTab,
               ),
-          ],
-          onTap: changeTab,
+            ),
+          ),
         ),
       ),
     );

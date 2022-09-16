@@ -7,7 +7,7 @@ CustomTransitionPage<void> fadeTransitionPage({
   bool fullscreenDialog = false,
   bool opaque = false,
   bool barrierDismissible = false,
-  Duration transitionDuration = const Duration(milliseconds: 300),
+  Duration transitionDuration = const Duration(milliseconds: 1500),
   required Widget child,
 }) {
   return CustomTransitionPage(
