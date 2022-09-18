@@ -49,7 +49,7 @@ packages:
       path: "../authenticator"
       relative: true
     source: path
-    version: "0.1.0"
+    version: "1.0.0"
   awaitable_button:
     dependency: "direct main"
     description:
@@ -287,28 +287,28 @@ packages:
       name: firebase_auth
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.7.0"
+    version: "3.9.0"
   firebase_auth_platform_interface:
     dependency: transitive
     description:
       name: firebase_auth_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.6.0"
+    version: "6.8.0"
   firebase_auth_web:
     dependency: transitive
     description:
       name: firebase_auth_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.3.0"
+    version: "4.4.1"
   firebase_core:
     dependency: "direct main"
     description:
       name: firebase_core
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.21.1"
+    version: "1.22.0"
   firebase_core_platform_interface:
     dependency: transitive
     description:
