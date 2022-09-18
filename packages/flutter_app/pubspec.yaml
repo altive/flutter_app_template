@@ -27,7 +27,7 @@ dependencies:
   flutter_hooks: ^0.18.5+1
   flutter_localizations:
     sdk: flutter
-  flutter_svg: ^1.1.4
+  flutter_svg: ^1.1.5
   freezed_annotation: ^2.1.0
   gap: ^2.0.0
   go_router: ^4.3.0
