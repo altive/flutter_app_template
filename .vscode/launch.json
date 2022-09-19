@@ -50,14 +50,5 @@
                 "--dart-define=FLAVOR=development"
             ]
         },
-        {
-            "name": "graphql_playground",
-            "cwd": "packages/graphql_playground",
-            "program": "lib/main.dart",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "debug",
-            "args": []
-        },
     ]
 }
