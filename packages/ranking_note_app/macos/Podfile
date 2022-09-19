@@ -1,4 +1,4 @@
-platform :osx, '10.11'
+platform :osx, '10.12'
 
 # CocoaPods analytics sends network stats synchronously affecting flutter build latency.
 ENV['COCOAPODS_DISABLE_STATS'] = 'true'
@@ -31,6 +31,11 @@ target 'Runner' do
   use_modular_headers!
 
   flutter_install_all_macos_pods File.dirname(File.realpath(__FILE__))
+
+  pod 'FirebaseFirestore',
+    :git => 'https://github.com/invertase/firestore-ios-sdk-frameworks.git',
+    :tag => File.read(File.join(File.expand_path('../../..').split('packages').first,
+      'FirebaseSDKVersionTag.txt')).chomp
 end
 
 post_install do |installer|

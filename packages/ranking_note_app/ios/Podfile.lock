@@ -26,7 +26,7 @@ PODS:
   - Firebase/Storage (9.4.0):
     - Firebase/CoreOnly
     - FirebaseStorage (~> 9.4.0)
-  - firebase_auth (3.7.0):
+  - firebase_auth (3.9.0):
     - Firebase/Auth (= 9.4.0)
     - firebase_core
     - Flutter
@@ -251,7 +251,7 @@ SPEC CHECKSUMS:
   AppAuth: 80317d99ac7ff2801a2f18ff86b48cd315ed465d
   cloud_firestore: cd0fa0c33c9396471474fc678b1d0fc6b938bf30
   Firebase: 7703fc4022824b6d6db1bf7bea58d13b8e17ec46
-  firebase_auth: 74cfbf7be1e3e7fdaac9e7f117cefd89155251a9
+  firebase_auth: be7aadf714780bfb559e9088a1d4329b1c569761
   firebase_core: 8e500850dd138c269d197c8dfca3ae886fa3b6f2
   firebase_messaging: b65dacd4de1b469893dea0d754b1947f45ef4f7a
   firebase_remote_config: 0122ca8cf8aef19eb8666ad4aa8d0f811b619762
@@ -288,6 +288,6 @@ SPEC CHECKSUMS:
   sqflite: 6d358c025f5b867b29ed92fc697fd34924e11904
   url_launcher_ios: 839c58cdb4279282219f5e248c3321761ff3c4de
 
-PODFILE CHECKSUM: 77ba735ec7a35c04d538fafd06d73e5b3e4f2af7
+PODFILE CHECKSUM: 356c52cf1a24b50c19bcc0656e015843317ebe55
 
 COCOAPODS: 1.11.3

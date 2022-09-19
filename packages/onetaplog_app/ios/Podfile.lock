@@ -28,7 +28,7 @@ PODS:
     - Firebase/Analytics (= 9.5.0)
     - firebase_core
     - Flutter
-  - firebase_auth (3.8.0):
+  - firebase_auth (3.9.0):
     - Firebase/Auth (= 9.5.0)
     - firebase_core
     - Flutter
@@ -91,6 +91,14 @@ PODS:
     - GoogleUtilities/Environment (~> 7.7)
     - nanopb (< 2.30910.0, >= 2.30908.0)
     - PromisesObjC (~> 2.1)
+  - FirebaseFirestore (9.5.0):
+    - FirebaseFirestore/AutodetectLeveldb (= 9.5.0)
+  - FirebaseFirestore/AutodetectLeveldb (9.5.0):
+    - FirebaseFirestore/Base
+    - FirebaseFirestore/WithLeveldb
+  - FirebaseFirestore/Base (9.5.0)
+  - FirebaseFirestore/WithLeveldb (9.5.0):
+    - FirebaseFirestore/Base
   - FirebaseInstallations (9.5.0):
     - FirebaseCore (~> 9.0)
     - GoogleUtilities/Environment (~> 7.7)
@@ -190,6 +198,7 @@ DEPENDENCIES:
   - firebase_crashlytics (from `.symlinks/plugins/firebase_crashlytics/ios`)
   - firebase_messaging (from `.symlinks/plugins/firebase_messaging/ios`)
   - firebase_remote_config (from `.symlinks/plugins/firebase_remote_config/ios`)
+  - FirebaseFirestore (from `https://github.com/invertase/firestore-ios-sdk-frameworks.git`, tag `9.5.0`)
   - Flutter (from `Flutter`)
   - google_sign_in_ios (from `.symlinks/plugins/google_sign_in_ios/ios`)
   - path_provider_ios (from `.symlinks/plugins/path_provider_ios/ios`)
@@ -233,6 +242,9 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/firebase_messaging/ios"
   firebase_remote_config:
     :path: ".symlinks/plugins/firebase_remote_config/ios"
+  FirebaseFirestore:
+    :git: https://github.com/invertase/firestore-ios-sdk-frameworks.git
+    :tag: 9.5.0
   Flutter:
     :path: Flutter
   google_sign_in_ios:
@@ -244,11 +256,16 @@ EXTERNAL SOURCES:
   sqflite:
     :path: ".symlinks/plugins/sqflite/ios"
 
+CHECKOUT OPTIONS:
+  FirebaseFirestore:
+    :git: https://github.com/invertase/firestore-ios-sdk-frameworks.git
+    :tag: 9.5.0
+
 SPEC CHECKSUMS:
   AppAuth: 80317d99ac7ff2801a2f18ff86b48cd315ed465d
   Firebase: 800f16f07af493d98d017446a315c27af0552f41
   firebase_analytics: 350f8b25c613a64e64b90d1207f41cb7c529a62c
-  firebase_auth: 1d54a31ac7ff6585fe50fd26f679e934e1a471a1
+  firebase_auth: c070c7e5b66037cddb73a68ca4bf4728b063680b
   firebase_core: 31872a49ffe0bf6f834e7044c7334e433536735a
   firebase_crashlytics: 1d9af2a9b4c0a3d4ed3ee61c7b4d053484d1a476
   firebase_messaging: 481127341dc6e4e437e08ff4f2451c1c59d61c4d
@@ -260,6 +277,7 @@ SPEC CHECKSUMS:
   FirebaseCoreDiagnostics: 17cbf4e72b1dbd64bfdc33d4b1f07bce4f16f1d8
   FirebaseCoreInternal: 50a8e39cae8abf72d5145d07ea34c3244f70862b
   FirebaseCrashlytics: d20fa38bb8c88cb0f1c9211286bc23ab58c1b464
+  FirebaseFirestore: e83d2906874871b21c1dae3ea7ad56efcb9de943
   FirebaseInstallations: 41f811b530c41dd90973d0174381cdb3fcb5e839
   FirebaseMessaging: 732623518591384f61c287e3d8f65294beb7ffb3
   FirebaseRemoteConfig: 97ccd1b58f26d756f86d071330f00856e51022a2
@@ -278,6 +296,6 @@ SPEC CHECKSUMS:
   shared_preferences_ios: 548a61f8053b9b8a49ac19c1ffbc8b92c50d68ad
   sqflite: 6d358c025f5b867b29ed92fc697fd34924e11904
 
-PODFILE CHECKSUM: 985e5b058f26709dc81f9ae74ea2b2775bdbcefe
+PODFILE CHECKSUM: 356c52cf1a24b50c19bcc0656e015843317ebe55
 
 COCOAPODS: 1.11.3

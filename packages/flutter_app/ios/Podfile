@@ -3,10 +3,6 @@ platform :ios, '11.0'
 # CocoaPods analytics sends network stats synchronously affecting flutter build latency.
 ENV['COCOAPODS_DISABLE_STATS'] = 'true'
 
-# https://github.com/invertase/firestore-ios-sdk-frameworks/releases
-# 最新の `9.5.0-1` にしたかったが、pub.devの `firebase_storage` パッケージが未対応のようだったので`9.4.0`を使用
-$FirebaseSDKVersion = '9.4.0'
-
 project 'Runner', {
   'Debug' => :debug,
   'Profile' => :release,
@@ -35,7 +31,11 @@ target 'Runner' do
   use_modular_headers!
 
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
-  pod 'FirebaseFirestore', :git => 'https://github.com/invertase/firestore-ios-sdk-frameworks.git', :tag => $FirebaseSDKVersion
+
+  pod 'FirebaseFirestore',
+    :git => 'https://github.com/invertase/firestore-ios-sdk-frameworks.git',
+    :tag => File.read(File.join(File.expand_path('../../..').split('packages').first,
+      'FirebaseSDKVersionTag.txt')).chomp
 end
 
 post_install do |installer|

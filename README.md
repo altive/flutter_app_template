@@ -123,6 +123,14 @@ flutter create -t package packages/{directory_name} --project-name {project_name
 flutter create --org jp.co.altive packages/{directory_name} --project-name {project_name}
 ```
 
+## Firebase SDK version for iOS and macOS
+
+[FirebaseSDKVersionTag.txt](FirebaseSDKVersionTag.txt)
+
+https://github.com/invertase/firestore-ios-sdk-frameworks/releases
+
+* I wanted to use the latest `9.5.0-1` or higher, but the `cloud_firestore 3.4.8` package in pub.dev seemed to be unsupported, so I used `9.4.0`.
+
 ## References
 [Internationalization User Guild](https://docs.google.com/document/d/10e0saTfAv32OZLRmONy866vnaw0I2jwL8zukykpgWBc/)
 [PresentationDomainSeparation](https://martinfowler.com/bliki/PresentationDomainSeparation.html)
