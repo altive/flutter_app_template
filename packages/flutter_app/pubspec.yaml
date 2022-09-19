@@ -12,7 +12,7 @@ dependencies:
   authenticator:
     path: ../authenticator
   awaitable_button: ^1.2.0
-  cached_network_image: ^3.1.0
+  cached_network_image: ^3.2.2
   cloud_firestore: ^3.4.8
   collection: ^1.16.0
   cupertino_icons: ^1.0.5
