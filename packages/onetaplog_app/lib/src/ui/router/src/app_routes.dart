@@ -74,6 +74,13 @@ class NewOnetapLogRoute extends GoRouteData {
 
   @override
   Widget build(BuildContext context) => const NewOnetapLogPage();
+  @override
+  Page<void> buildPageWithState(BuildContext context, GoRouterState state) {
+    return const MaterialPage(
+      fullscreenDialog: true,
+      child: NewOnetapLogPage(),
+    );
+  }
 }
 
 class HistoriesRoute extends GoRouteData {
