@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../../router/router.dart';
+import '../../top_level_tab_page/top_level_tab.dart';
+
 class OnetapPageAppBar extends StatelessWidget implements PreferredSizeWidget {
   const OnetapPageAppBar({super.key});
 
@@ -20,7 +23,8 @@ class OnetapPageAppBar extends StatelessWidget implements PreferredSizeWidget {
       ),
       actions: [
         IconButton(
-          onPressed: () {},
+          onPressed: () =>
+              const NewOnetapLogRoute(tab: TopLevelTab.onetap).go(context),
           color: Colors.white,
           icon: const Icon(Icons.add_outlined),
         ),

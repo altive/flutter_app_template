@@ -37,6 +37,12 @@ GoRoute get $topLevelTabRoute => GoRouteData.$route(
         GoRouteData.$route(
           path: 'onetap',
           factory: $OnetapRouteExtension._fromState,
+          routes: [
+            GoRouteData.$route(
+              path: 'new',
+              factory: $NewOnetapLogRouteExtension._fromState,
+            ),
+          ],
         ),
         GoRouteData.$route(
           path: 'histories',
@@ -70,6 +76,20 @@ extension $OnetapRouteExtension on OnetapRoute {
 
   String get location => GoRouteData.$location(
         '/${Uri.encodeComponent(_$TopLevelTabEnumMap[tab]!)}/onetap',
+      );
+
+  void go(BuildContext context) => context.go(location, extra: this);
+
+  void push(BuildContext context) => context.push(location, extra: this);
+}
+
+extension $NewOnetapLogRouteExtension on NewOnetapLogRoute {
+  static NewOnetapLogRoute _fromState(GoRouterState state) => NewOnetapLogRoute(
+        tab: _$TopLevelTabEnumMap._$fromName(state.params['tab']!),
+      );
+
+  String get location => GoRouteData.$location(
+        '/${Uri.encodeComponent(_$TopLevelTabEnumMap[tab]!)}/onetap/new',
       );
 
   void go(BuildContext context) => context.go(location, extra: this);

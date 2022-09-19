@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../pages/histories_page/histories_page.dart';
+import '../../pages/new_onetap_log_page/new_onetap_log_page.dart';
 import '../../pages/onetap_page/onetap_page.dart';
 import '../../pages/settings_page/settings_page.dart';
 import '../../pages/splash_page/splash_page.dart';
@@ -34,7 +35,12 @@ class SplashRoute extends GoRouteData {
 @TypedGoRoute<TopLevelTabRoute>(
   path: '/:tab',
   routes: [
-    TypedGoRoute<OnetapRoute>(path: 'onetap'),
+    TypedGoRoute<OnetapRoute>(
+      path: 'onetap',
+      routes: [
+        TypedGoRoute<NewOnetapLogRoute>(path: 'new'),
+      ],
+    ),
     TypedGoRoute<HistoriesRoute>(path: 'histories'),
     TypedGoRoute<SettingsRoute>(path: 'settings'),
   ],
@@ -59,6 +65,15 @@ class OnetapRoute extends GoRouteData {
 
   @override
   Widget build(BuildContext context) => const OnetapPage();
+}
+
+class NewOnetapLogRoute extends GoRouteData {
+  const NewOnetapLogRoute({required this.tab});
+
+  final TopLevelTab tab;
+
+  @override
+  Widget build(BuildContext context) => const NewOnetapLogPage();
 }
 
 class HistoriesRoute extends GoRouteData {
