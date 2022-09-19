@@ -3,54 +3,54 @@
 [![melos](https://img.shields.io/badge/maintained%20with-melos-f700ff.svg?style=flat-square)](https://github.com/invertase/melos)
 [![codecov](https://codecov.io/gh/altive/flutter_app_template/branch/main/graph/badge.svg?token=NUHMSLBULE)](https://codecov.io/gh/altive/flutter_app_template)
 
-README in other languages
-- [日本語](README-ja.md)
+他言語でのREADME
+- [English](README.md)
 
 # Flutter App Template
 
-"Flutter App Template" is a project to template and introduce an approach to developing Flutter apps, including architecture and project structure.
+"Flutter App Template "は、Flutterアプリを開発するためのアーキテクチャやプロジェクト構成などのアプローチをテンプレート化し紹介するプロジェクトです。
 
-"Flutter App Template" repository employs a mono-repo and consists of several internal packages and apps.
+"Flutter App Template” リポジトリはモノレポを採用しており、いくつかの内部パッケージとアプリで構成されています。
 
-## Packages overview
+## 内部パッケージの概要
 
 ### `analysis_logger`
 
-This package is responsible for the function (responsibility) of event logging and sending crash reports.
+イベントロギングとクラッシュレポート送信の機能(責任)を担当するパッケージです。
 
-Currently using Firebase Analytics and Crashlytics.
+現在、Firebase AnalyticsとCrashlyticsを使用しています。
 
-### `authenticator`
+### `authenticator` (オーセンティケーター)
 
-This package is responsible for the function (responsibility) of authenticating users, such as logging in.
+ログインなどのユーザー認証の機能(責任)を担うパッケージです。
 
-Currently using Firebase Authentication.
+現在、Firebase Authenticationを使用しています。
 
 ### `convenient_widgets`
 
-A generic widget placement location that can be used in multiple packages.
+複数のパッケージで使用できる汎用的なウィジェット配置場所です。
 
 ### `notification_receiver`
 
-This package takes care of functions (responsibilities) related to setting notification permissions and receiving push notifications for the application.
+アプリケーションの通知権限設定やプッシュ通知の受信に関する機能（責務）を担うパッケージです。
 
-Currently using Firebase Cloud Messaging.
+現在、Firebase Cloud Messaging を使用しています。
 
-### `remote_parameter_fetcher`
+### `remote_parameter_fetcher` (リモートパラメータフェッチャー)
 
-This package is responsible for the function (responsibility) of retrieving remotely configured parameters and providing them in a specified type.
+本パッケージは、リモートで設定されたパラメータを取得し、指定された型で提供する機能(責任)を担当します。
 
-Currently using Firebase Remote Config.
+現在、Firebase Remote Config を使用しています。
 
 ### `themes`
 
-This package is responsible for the appearance of ThemeData and other appearance-related data used in Flutter apps.
+Flutterアプリで使用されるThemeDataなどの外観関連データを担当するパッケージです。
 
 ### `util`
 
-This package stores general-purpose functions that are too small to be cut out into a stand-alone package.
+独立したパッケージに切り出すには小さすぎる、汎用的な機能を格納するパッケージです。
 
-## App overview
+## アプリ概要
 
 ### `flutter_app`
 
@@ -64,12 +64,12 @@ Also check the [`flutter_app/README.md`](/packages/flutter_app/README.md).
 
 ### `onetaplog_app`
 
-## Dependency Package Summary
+## 依存パッケージ概要
 
-### State Management
+### 状態管理
 - [Riverpod](https://riverpod.dev/)
 
-## Code Generation
+### コード生成
 - [freezed](https://pub.dev/packages/freezed)
 - [json_serializable](https://pub.dev/packages/json_serializable)
 
@@ -79,34 +79,28 @@ Also check the [`flutter_app/README.md`](/packages/flutter_app/README.md).
 ## Router
 - [go_router](https://pub.dev/packages/go_router)
 
-## `flutter_app` Project settings
-|Category|Description|Codes|
+## `flutter_app` プロジェクト設定
+|カテゴリ|説明|設定ファイル|
 |---|---|---|
 | [FVM](https://github.com/leoafarias/fvm) | Flutter Version Management | [.fvm/fvm_config.json](/.fvm/fvm_config.json) |
 | Dart | Dart version | [pubspec.yaml](/packages/flutter_app/pubspec.yaml) |
 | Dart | Lint / Analyze | [analysis_options.yaml](/packages/flutter_app/analysis_options.yaml) |
 
-```shell
-flutter pub add analysis_logger --path ../analysis_logger
-flutter pub add authenticator --path ../authenticator
-flutter pub add convenient_widgets --path ../convenient_widgets
-flutter pub add notification_receiver --path ../notification_receiver
-flutter pub add remote_parameter_fetcher --path ../remote_parameter_fetcher
-```
 
-## How to start development
+## 開発セットアップ方法
 
 ```shell
 make
 ```
 
-The `make` command will install the required Dart packages, such as FVM and Melos.
+`make` コマンドを実行すると、FVM や Melos等の、必要なDartパッケージがインストールされます。
 
-## ToDo list required after creating a new repository using this template
-1. Replace Bundle ID (Package name) with your App ID.
+## このテンプレートを使って新しいリポジトリを作成した後にやること
+
+1. Bundle ID(Package name)をあなたのアプリのIDに適宜変更する。
   `jp.co.altive.fat` -> `your.domain.id`
-1. Change `CFBundleName` and `CFBundleDisplayName` in `ios/Runner/info.plist` to your app name.
-1. Change `FlutterAT` in `defaultConfig/resValue` of `android/app/build.gradle` to your app name.
+1. `ios/Runner/info.plist` の `CFBundleName` と `CFBundleDisplayName` を、あなたのアプリ名に変更する。
+1. Change `FlutterAT` in `defaultConfig/resValue` of `android/app/build.gradle` ファイルの `defaultConfig/resValue` に指定されている `FlutterAT` をあなたのアプリ名に変更する。
 1. Create a project in Firebase.
   1. Create an Android app, download `google-services.json`, and place it in `android/app/src/{dev or stg or prod}`.
   1. Create an iOS app, download `GoogleService-Info.plist`, and place it in `ios/{dev or stg or prod}`.
@@ -114,10 +108,9 @@ The `make` command will install the required Dart packages, such as FVM and Melo
   1. Create a Web app and modify the parameters in `firebaseConfig` in `web/index.html` according to the Firebase SDK additions.
     - apiKey, authDomain, databaseURL, projectId, storageBucket, messagingSenderId, appId, measurementId
     
-## How to create a new package
+## 当モノレポで新しいパッケージ（orアプリ）を作成する方法
 
-If the project name and the output directory name of the package are the same,
-`--project-name` can be omitted.
+プロジェクト名とパッケージの出力ディレクトリ名が同じ場合、 `--project-name` は省略可能です。
 
 ```shell
 # Package
@@ -136,14 +129,14 @@ flutter pub add notification_receiver --path ../notification_receiver
 flutter pub add remote_parameter_fetcher --path ../remote_parameter_fetcher
 ```
 
-## Firebase SDK version for iOS and macOS
+## iOS and macOS向けのFirebase SDK のバージョン指定について
 
-[FirebaseSDKVersionTag.txt](FirebaseSDKVersionTag.txt) manages the SDK version you wish to specify.
+[FirebaseSDKVersionTag.txt](FirebaseSDKVersionTag.txt)で指定したいSDKバージョンを管理しています。
 
-↓ For the latest version, click here.
+最新バージョンについてはこちら↓
 https://github.com/invertase/firestore-ios-sdk-frameworks/releases
 
-* I wanted to use the latest `9.5.0-1` or higher, but the `cloud_firestore 3.4.8` package in pub.dev seemed to be unsupported, so I used `9.4.0`.
+* 最新の `9.5.0-1` 以上を使用したかったが、pub.dev にある `cloud_firestore 3.4.8` パッケージは最新バージョンに未対応のようなので、`9.4.0` を使用。
 
 ## References
 [Internationalization User Guild](https://docs.google.com/document/d/10e0saTfAv32OZLRmONy866vnaw0I2jwL8zukykpgWBc/)
