@@ -16,7 +16,7 @@ dependencies:
   cloud_firestore: ^3.4.8
   collection: ^1.16.0
   cupertino_icons: ^1.0.5
-  firebase_core: ^1.21.1
+  firebase_core: ^1.22.0
   firebase_dynamic_links: ^4.3.6
   firebase_performance: ^0.8.2+3
   firebase_remote_config: ^2.0.16
@@ -27,10 +27,10 @@ dependencies:
   flutter_hooks: ^0.18.5+1
   flutter_localizations:
     sdk: flutter
-  flutter_svg: ^1.1.4
+  flutter_svg: ^1.1.5
   freezed_annotation: ^2.1.0
   gap: ^2.0.0
-  go_router: ^4.3.0
+  go_router: ^4.5.0
   google_sign_in: ^5.4.1
   hooks_riverpod: ^2.0.0-dev.9
   image_picker: ^0.8.5
