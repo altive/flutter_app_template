@@ -54,15 +54,27 @@ Flutterアプリで使用されるThemeDataなどの外観関連データを担�
 
 ### `flutter_app`
 
-This is a template package for Flutter apps with dev, stg, and prod environments.
+Flutterアプリのテンプレートアプリパッケージです。
+dev, stg, prod環境がセットアップされています。
 
-Also check the [`flutter_app/README.md`](/packages/flutter_app/README.md).
+アプリIDやアプリ名を変更して、すぐに別のアプリとして作り始めるためのアプリです。
+
+[`flutter_app/README.md`](/packages/flutter_app/README.md).
+
+こちらのREADMEも確認してください。
 
 ### `restock_app`
 
+備蓄管理アプリです。Amazon.co.jpを利用する日本向け。
+少し古いので、多少レガシーコードがあります。
+
 ### `ranking_note_app`
 
+ランキングを作成、共有できるアプリ。未リリース。
+
 ### `onetaplog_app`
+
+ワンタップで生活の様々な記録のログを残すことができるアプリ。
 
 ## 依存パッケージ概要
 
@@ -85,7 +97,6 @@ Also check the [`flutter_app/README.md`](/packages/flutter_app/README.md).
 | [FVM](https://github.com/leoafarias/fvm) | Flutter Version Management | [.fvm/fvm_config.json](/.fvm/fvm_config.json) |
 | Dart | Dart version | [pubspec.yaml](/packages/flutter_app/pubspec.yaml) |
 | Dart | Lint / Analyze | [analysis_options.yaml](/packages/flutter_app/analysis_options.yaml) |
-
 
 ## 開発セットアップ方法
 

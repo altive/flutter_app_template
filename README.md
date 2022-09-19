@@ -54,17 +54,29 @@ This package stores general-purpose functions that are too small to be cut out i
 
 ### `flutter_app`
 
-This is a template package for Flutter apps with dev, stg, and prod environments.
+This is a template app package for Flutter apps.
+It comes with dev, stg, and prod environments set up.
+
+Change the app ID or app name to start building it as a separate app right away.
 
 Also check the [`flutter_app/README.md`](/packages/flutter_app/README.md).
 
 ### `restock_app`
 
+Stockpile management app. for Japan using Amazon.co.jp.
+Slightly older, so some legacy code.
+
 ### `ranking_note_app`
+
+An application to create and share rankings.
+Not yet released.
 
 ### `onetaplog_app`
 
-## Dependency Package Summary
+An application that allows you to log various records of your life with a single tap.
+Not yet released.
+
+## Dependency Package Overview
 
 ### State Management
 - [Riverpod](https://riverpod.dev/)
