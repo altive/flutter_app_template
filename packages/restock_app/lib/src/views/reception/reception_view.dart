@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../common_widgets/apple_auth_button.dart';
+import '../../common_widgets/google_auth_button.dart';
 import '../../common_widgets/loading_indicator.dart';
-import '../../common_widgets/sign_in_with_apple_button.dart';
 import '../../core/app_constant/app_info.dart';
 import 'reception_controller.dart';
 import 'reception_view_component.dart';
@@ -47,15 +49,31 @@ class ReceptionPage extends HookConsumerWidget {
                 height: 212,
               ),
               const SizedBox(height: 32),
-              const SignInWithAppleButton(),
-              const GoogleSignInButton(),
-              // 匿名認証ではじめるボタン
-              TextButton(
-                onPressed: () => ref
-                    .read(receptionProvider.notifier)
-                    .onPressedAnonymousButton(context),
-                child: const Text('ゲストではじめる'),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 32),
+                child: AppleAuthButton(
+                  labelText: 'Appleでサインイン',
+                ),
               ),
+              const Gap(16),
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 32),
+                child: GoogleAuthButton(
+                  labelText: 'Googleでサインイン',
+                ),
+              ),
+              const Gap(16),
+              // 匿名認証ではじめるボタン
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 32),
+                child: OutlinedButton(
+                  onPressed: () => ref
+                      .read(receptionProvider.notifier)
+                      .onPressedAnonymousButton(context),
+                  child: const Text('ゲストではじめる'),
+                ),
+              ),
+              const Gap(24),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: const [
