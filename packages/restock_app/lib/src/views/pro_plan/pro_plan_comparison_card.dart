@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../../gen/fonts.gen.dart';
 import 'pro_plan_benefit.dart';
 
 class ProPlanComparisonCard extends StatelessWidget {
@@ -14,7 +15,7 @@ class ProPlanComparisonCard extends StatelessWidget {
           '無料プラン・Proプランの比較',
           textAlign: TextAlign.center,
           style: Theme.of(context).textTheme.subtitle1!.copyWith(
-                fontFamily: 'M_PLUS_Rounded_1c',
+                fontFamily: FontFamily.mPLUSRounded1c,
                 fontWeight: FontWeight.bold,
               ),
         ),

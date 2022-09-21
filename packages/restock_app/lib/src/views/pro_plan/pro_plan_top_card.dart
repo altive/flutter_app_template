@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../../gen/fonts.gen.dart';
 import '../../core/revenue/revenue.dart';
 
 class ProPlanTopCard extends HookConsumerWidget {
@@ -23,7 +24,7 @@ class ProPlanTopCard extends HookConsumerWidget {
                 Text(
                   'リストック Pro',
                   style: theme.textTheme.headline6!.copyWith(
-                    fontFamily: 'M_PLUS_Rounded_1c',
+                    fontFamily: FontFamily.mPLUSRounded1c,
                   ),
                 ),
                 const SizedBox(height: 16),
@@ -31,7 +32,7 @@ class ProPlanTopCard extends HookConsumerWidget {
                   'Proプランありがとうございます🎉',
                   textAlign: TextAlign.center,
                   style: theme.textTheme.headline4!.copyWith(
-                    fontFamily: 'M_PLUS_Rounded_1c',
+                    fontFamily: FontFamily.mPLUSRounded1c,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -40,7 +41,7 @@ class ProPlanTopCard extends HookConsumerWidget {
                 Text(
                   'リストック Pro',
                   style: theme.textTheme.headline6!.copyWith(
-                    fontFamily: 'M_PLUS_Rounded_1c',
+                    fontFamily: FontFamily.mPLUSRounded1c,
                   ),
                 ),
                 const SizedBox(height: 16),
@@ -48,7 +49,7 @@ class ProPlanTopCard extends HookConsumerWidget {
                   '30日間無料\nトライアル',
                   textAlign: TextAlign.center,
                   style: theme.textTheme.headline4!.copyWith(
-                    fontFamily: 'M_PLUS_Rounded_1c',
+                    fontFamily: FontFamily.mPLUSRounded1c,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
