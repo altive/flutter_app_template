@@ -26,13 +26,15 @@ class App extends ConsumerWidget {
 
     final router = ref.watch(routerProvider);
 
+    const themeData = AltiveThemeData();
+
     return MaterialApp.router(
       onGenerateTitle: (context) => L10n.of(context).title,
       routerDelegate: router.routerDelegate,
       routeInformationParser: router.routeInformationParser,
       routeInformationProvider: router.routeInformationProvider,
-      theme: altiveLightThemeData,
-      darkTheme: altiveDarkThemeData,
+      theme: themeData.light(),
+      darkTheme: themeData.dark(),
       themeMode: ref.watch(themeSelectorProvider),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const textTheme = TextTheme(
+const altiveTextTheme = TextTheme(
   titleLarge: TextStyle(
     fontWeight: FontWeight.bold,
   ),

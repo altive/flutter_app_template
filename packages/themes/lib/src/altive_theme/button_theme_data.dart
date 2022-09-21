@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 
-ElevatedButtonThemeData get elevatedButtonTheme => ElevatedButtonThemeData(
+ElevatedButtonThemeData elevatedButtonTheme(ColorScheme colorScheme) =>
+    ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
+        elevation: 0,
+        foregroundColor: colorScheme.onPrimary,
+        backgroundColor: colorScheme.primary,
         minimumSize: const Size.fromHeight(44),
       ),
     );

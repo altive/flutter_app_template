@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 
-import 'dark_theme_data.dart';
-import 'light_theme_data.dart';
+import 'restock_dark_theme_data.dart';
+import 'restock_light_theme_data.dart';
 
 /// 独自のテーマモード
 // 順序を変更すると表示される順番も変わる
@@ -13,9 +13,6 @@ enum ExTheme {
 }
 
 extension Extension on ExTheme {
-  /// enumの文字列を返却
-  String get key => toString().split('.').last;
-
   /// ID：変更不可
   int get id {
     switch (this) {
@@ -75,13 +72,13 @@ extension Extension on ExTheme {
   ThemeData? get themeData {
     switch (this) {
       case ExTheme.system:
-        return defaultLightTheme;
+        return restockLightThemeData;
 
       case ExTheme.defaultLight:
-        return defaultLightTheme;
+        return restockLightThemeData;
 
       case ExTheme.defaultDark:
-        return defaultDarkTheme;
+        return restockDarkThemeData;
     }
   }
 
@@ -89,7 +86,7 @@ extension Extension on ExTheme {
   ThemeData? get darkThemeData {
     switch (this) {
       case ExTheme.system:
-        return defaultDarkTheme;
+        return restockDarkThemeData;
 
       case ExTheme.defaultLight:
         return null;
