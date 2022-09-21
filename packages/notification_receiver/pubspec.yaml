@@ -1,7 +1,7 @@
 name: notification_receiver
 description: Notification Receiver.
-version: 0.0.1
-publish_to: none
+version: 1.0.0
+publish_to: "none"
 
 environment:
   sdk: ">=2.18.0 <3.0.0"

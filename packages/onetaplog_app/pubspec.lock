@@ -189,7 +189,7 @@ packages:
       path: "../convenient_widgets"
       relative: true
     source: path
-    version: "0.0.1"
+    version: "1.0.0"
   convert:
     dependency: transitive
     description:
@@ -622,7 +622,7 @@ packages:
       path: "../notification_receiver"
       relative: true
     source: path
-    version: "0.0.1"
+    version: "1.0.0"
   octo_image:
     dependency: transitive
     description:
@@ -977,7 +977,7 @@ packages:
       path: "../themes"
       relative: true
     source: path
-    version: "0.0.1"
+    version: "1.0.0"
   time:
     dependency: transitive
     description:

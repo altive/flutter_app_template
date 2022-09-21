@@ -217,7 +217,7 @@ packages:
       path: "../convenient_widgets"
       relative: true
     source: path
-    version: "0.0.1"
+    version: "1.0.0"
   convert:
     dependency: transitive
     description:
