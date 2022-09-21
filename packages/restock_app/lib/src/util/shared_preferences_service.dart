@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../core/local_notification_controller/local_notification_controller.dart';
+import '../core/local_notification_controller/notification_date.dart';
 import '../views/stock_list_page/stock_display_mode.dart';
 import '../views/stock_list_page/stock_list_filter_state.dart';
 import '../views/stock_list_page/stock_list_sort_selection.dart';

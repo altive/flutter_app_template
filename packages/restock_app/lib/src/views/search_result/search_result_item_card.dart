@@ -139,7 +139,7 @@ class _IconButtons extends HookConsumerWidget {
                 ) !=
                 null;
             return IconButtonsOnCell(
-              isFavorited: isFavorited,
+              isFavored: isFavorited,
               onPressedAddButton: () => _didTapCreateButton(
                 ref: ref,
                 context: context,

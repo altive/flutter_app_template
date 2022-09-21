@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../common_widgets/loading_indicator.dart';
-import '../../../common_widgets/primary_button.dart';
-import '../../../common_widgets/secondary_button.dart';
 import '../../../core/stock/stock_entity.dart';
 import '../../../core/stock/stock_repository.dart';
 import '../../../util/web_launcher.dart';
@@ -152,15 +150,14 @@ class RecommendCell extends HookConsumerWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Expanded(
-              child: SecondaryButton(
-                labelText: 'Amazon',
+              child: OutlinedButton(
+                child: const Text('Amazon'),
                 onPressed: () => showAmazonPage(item!.detailPageUrl),
               ),
             ),
             Expanded(
-              child: PrimaryButton(
-                labelText: '登録',
-                padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
+              child: ElevatedButton(
+                child: const Text('登録'),
                 onPressed: () => navigateToStockEditPage(
                   ref,
                   context,

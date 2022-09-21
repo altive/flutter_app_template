@@ -1,10 +1,11 @@
 import 'package:adaptive_dialog/adaptive_dialog.dart';
+import 'package:app_settings/app_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:notification_receiver/notification_receiver.dart';
-import 'package:permission_handler/permission_handler.dart';
+import 'package:notification_sender/notification_sender.dart';
 
-import '../../core/local_notification_controller/local_notification_controller.dart';
+import '../../core/local_notification_controller/notification_payload.dart';
 import 'stock_detail_page_controller.dart';
 
 /// 通知をON/OFFするセル
@@ -24,8 +25,8 @@ class StockDetailNotificationTile extends HookConsumerWidget {
       stockForStockDetailProvider.select<int?>((value) => value?.idNumber),
     );
     final isOn = ref.watch(
-      localNotificationControllerProvider
-          .select<bool>((value) => value.contains(idNumber)),
+      notificationSenderProvider
+          .select<bool>((value) => value.any((e) => e.id == idNumber)),
     );
 
     final controller = ref.watch(stockDetailPageControllerProvider.notifier);
@@ -120,7 +121,7 @@ class StockDetailNotificationTile extends HookConsumerWidget {
     );
     switch (result) {
       case OkCancelResult.ok:
-        await openAppSettings();
+        await AppSettings.openAppSettings();
         return;
       case OkCancelResult.cancel:
         return;

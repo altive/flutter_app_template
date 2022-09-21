@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:authenticator/authenticator.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:sign_in_with_apple/sign_in_with_apple.dart';
 
 import '../../utils/utils.dart';
@@ -18,6 +19,20 @@ Future<bool> get canSignInWithApple async {
   }
   return true;
 }
+
+/// Sign in with Apple を許可するかどうか
+/// - iOS 13 and higher
+/// - macOS 10.15 and higher
+/// - (Android: Not implemented)
+final canSignInWithAppleProvider = FutureProvider<bool>((ref) async {
+  if (!await SignInWithApple.isAvailable()) {
+    return false;
+  }
+  if (!Platform.isIOS && !Platform.isMacOS) {
+    return false;
+  }
+  return true;
+});
 
 /// Apple認証のクレデンシャルを要求する
 /// [SignInWithAppleException], [SignInWithAppleException]

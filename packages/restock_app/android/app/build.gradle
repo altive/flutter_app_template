@@ -33,7 +33,9 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    compileSdkVersion flutter.compileSdkVersion
+    // flutter_local_notifications requires 33 or higher,
+    // but `flutter.compileSdkVersion` cannot be used because 32? was specified.
+    compileSdkVersion 33
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'

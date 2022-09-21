@@ -14,7 +14,7 @@ class StockDetailNameTile extends HookConsumerWidget {
     );
     final theme = Theme.of(context);
     return Container(
-      color: theme.backgroundColor,
+      color: theme.colorScheme.background,
       padding: const EdgeInsets.symmetric(vertical: 32, horizontal: 16),
       child: Text(
         name ?? '',

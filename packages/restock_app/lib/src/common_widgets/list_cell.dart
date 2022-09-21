@@ -17,14 +17,11 @@ class ListCell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Ink(
-      color: Theme.of(context).backgroundColor,
-      child: ListTile(
-        leading: leading,
-        title: title,
-        trailing: trailing,
-        onTap: onTap,
-      ),
+    return ListTile(
+      leading: leading,
+      title: title,
+      trailing: trailing,
+      onTap: onTap,
     );
   }
 }

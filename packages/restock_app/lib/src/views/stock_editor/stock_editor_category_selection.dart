@@ -16,7 +16,7 @@ class StockEditorCategorySelection extends HookConsumerWidget {
     final currentCategory =
         ref.watch(stockEditorPageControllerProvider).productCategory;
     return ColoredBox(
-      color: Theme.of(context).backgroundColor,
+      color: Theme.of(context).colorScheme.background,
       child: ListTile(
         dense: true,
         leading: Text(

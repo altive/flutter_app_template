@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../common_widgets/loading_indicator.dart';
-import '../../common_widgets/primary_button.dart';
 import '../../everyones_stock/expiration_date_type.dart';
 import '../../util/item_image_display.dart';
 import 'stock_editor_category_selection.dart';
@@ -82,8 +81,7 @@ class StockEditorPage extends HookConsumerWidget {
                   const MemoForm(),
                   spacer,
                   const StockEditorNotificationTile(),
-                  PrimaryButton(
-                    labelText: '保存',
+                  ElevatedButton(
                     onPressed: validate(state)
                         ? () => _popAndSave(
                               ref: ref,
@@ -91,6 +89,7 @@ class StockEditorPage extends HookConsumerWidget {
                               isDuplicater: mode.isDuplicater,
                             )
                         : null,
+                    child: const Text('保存'),
                   ),
                 ],
               ),

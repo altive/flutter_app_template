@@ -5,19 +5,18 @@ import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:convenient_widgets/convenient_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:notification_sender/notification_sender.dart';
 import 'package:tuple/tuple.dart';
 
 import '../../common_widgets/loading_indicator.dart';
-import '../../core/local_notification_controller/local_notification_controller.dart';
+import '../../core/local_notification_controller/notification_payload.dart';
 import '../../core/stock/stock_entity.dart';
 import '../../core/stock/stock_repository.dart';
 
-final notificationScheduleListProvider = FutureProvider.autoDispose<
+/// 遷移のたびに新しい情報を取得し直してほしいのでautoDispose。
+final _notificationScheduleListProvider = FutureProvider.autoDispose<
     Tuple2<List<NotificationPayload>, List<StockEntity>>>((ref) async {
-  //
-  final pendingList = await ref
-      .watch(localNotificationControllerProvider.notifier)
-      .getAndStorePendingNotificationRequests;
+  final pendingList = ref.watch(notificationSenderProvider);
 
   final payloadList = pendingList.map((e) {
     final json = jsonDecode(e.payload!) as LinkedHashMap<String, Object?>;
@@ -37,16 +36,13 @@ final notificationScheduleListProvider = FutureProvider.autoDispose<
 });
 
 class NotificationSchedulesPage extends HookConsumerWidget {
-  // Constructor
   const NotificationSchedulesPage();
 
-  // Field
   static const String routeName = '/notification-requests';
 
-  // Methods
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final list = ref.watch(notificationScheduleListProvider);
+    final list = ref.watch(_notificationScheduleListProvider);
 
     final tuple = list.value;
     final payloadList = tuple?.item1;
@@ -64,9 +60,7 @@ class NotificationSchedulesPage extends HookConsumerWidget {
       );
       switch (result) {
         case OkCancelResult.ok:
-          await ref
-              .read(localNotificationControllerProvider.notifier)
-              .cancelAll();
+          await ref.read(notificationSenderProvider.notifier).cancelAll();
           Navigator.of(context).pop();
           break;
         case OkCancelResult.cancel:
@@ -87,19 +81,21 @@ class NotificationSchedulesPage extends HookConsumerWidget {
       body: SafeArea(
         child: tuple == null
             ? const LoadingIndicator()
-            : ListView.separated(
-                separatorBuilder: (_, __) => const Divider(height: 1),
-                itemCount: payloadList!.length,
-                itemBuilder: (context, index) {
-                  final payload = payloadList[index];
-                  final stock = stockList![index];
-                  return NotificationTile(
-                    idNumber: stock.idNumber,
-                    notificationPayload: payload,
-                    stock: stock,
-                  );
-                },
-              ),
+            : payloadList!.isEmpty
+                ? const Center(child: Text('通知予定がありません。'))
+                : ListView.separated(
+                    separatorBuilder: (_, __) => const Divider(height: 1),
+                    itemCount: payloadList.length,
+                    itemBuilder: (context, index) {
+                      final payload = payloadList[index];
+                      final stock = stockList![index];
+                      return NotificationTile(
+                        idNumber: stock.idNumber,
+                        notificationPayload: payload,
+                        stock: stock,
+                      );
+                    },
+                  ),
       ),
     );
   }
@@ -128,28 +124,24 @@ class NotificationTile extends ConsumerWidget {
         '$notificationDaysStringの$notificationTimeString';
 
     final expirationString = '期限：${stock.displayExpirationDate}';
-    return ColoredBox(
-      color: Theme.of(context).backgroundColor,
-      child: Dismissible(
-        key: Key(notificationPayload.documentId),
-        direction: DismissDirection.startToEnd,
-        background: const DismissibleBackground(child: Text('削除')),
-        confirmDismiss: (direction) => _confirm(
-          context: context,
-          direction: direction,
-        ),
-        onDismissed: (direction) => _onDismissed(
-          ref: ref,
-          direction: direction,
-          context: context,
-          notificationIdNumber: idNumber!,
-        ),
-        child: ListTile(
-          // leading: Text(item.id.toString()),
-          title: Text(stock.name.value),
-          subtitle: Text('$expirationString\n通知：$notificationDateText'),
-          // trailing: Text(item.payload),
-        ),
+    return Dismissible(
+      key: Key(notificationPayload.documentId),
+      direction: DismissDirection.startToEnd,
+      background: const DismissibleBackground(child: Text('削除')),
+      confirmDismiss: (direction) => _confirm(
+        context: context,
+        direction: direction,
+      ),
+      onDismissed: (direction) => _onDismissed(
+        ref: ref,
+        direction: direction,
+        notificationIdNumber: idNumber!,
+      ),
+      child: ListTile(
+        // leading: Text(item.id.toString()),
+        title: Text(stock.name.value),
+        subtitle: Text('$expirationString\n通知：$notificationDateText'),
+        // trailing: Text(item.payload),
       ),
     );
   }
@@ -173,12 +165,9 @@ class NotificationTile extends ConsumerWidget {
   void _onDismissed({
     required WidgetRef ref,
     DismissDirection? direction,
-    required BuildContext context,
     required int notificationIdNumber,
   }) {
     // 対象の通知をキャンセル
-    ref
-        .read(localNotificationControllerProvider.notifier)
-        .cancel(id: notificationIdNumber);
+    ref.read(notificationSenderProvider.notifier).cancel(notificationIdNumber);
   }
 }

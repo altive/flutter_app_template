@@ -1,7 +1,7 @@
 name: restock
 description: ReStock
 publish_to: "none"
-version: 2.9.2+89
+version: 2.10.0+90
 
 environment:
   sdk: ">=2.18.0 <3.0.0"
@@ -13,6 +13,7 @@ dependencies:
   analysis_logger:
     path: ../analysis_logger/
   app_review: ^2.1.1+1
+  app_settings: ^4.1.8
   async: ^2.6.1
   authenticator:
     path: ../authenticator
@@ -38,7 +39,6 @@ dependencies:
   flutter_barcode_scanner: ^2.0.0
   flutter_dotenv: ^5.0.2
   flutter_hooks: ^0.18.5+1
-  flutter_local_notifications: ^9.6.1
   flutter_localizations:
     sdk: flutter
   font_awesome_flutter: ^10.1.0
@@ -54,8 +54,9 @@ dependencies:
   nested: ^1.0.0
   notification_receiver:
     path: ../notification_receiver/
+  notification_sender:
+    path: ../notification_sender/
   package_info: ^2.0.2
-  permission_handler: ^9.2.0
   purchases_flutter: ^4.2.1
   quiver: ^3.0.1
   recase: ^4.0.0
@@ -65,7 +66,7 @@ dependencies:
   simple_logger: ^1.8.1
   themes:
     path: ../themes/
-  timezone: ^0.8.0
+  timezone: ^0.9.0
   tuple: ^2.0.0
   url_launcher: ^6.1.4
   uuid: ^3.0.4

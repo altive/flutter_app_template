@@ -3,7 +3,7 @@ default_platform(:android)
 platform :android do
   desc "Build"
   private_lane :build do
-    sh "cd ../../ && fvm flutter build appbundle --release --flavor production --dart-define=FLAVOR=production --no-tree-shake-icons"
+    sh "cd ../../ && fvm flutter build appbundle --flavor production --dart-define=FLAVOR=production"
   end
 
   desc "Submit a new Beta Build to Crashlytics Beta"

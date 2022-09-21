@@ -24,7 +24,7 @@ class ExpirationDateForm extends HookConsumerWidget {
     return Visibility(
       visible: dateType != ExpirationDateType.none,
       child: ColoredBox(
-        color: Theme.of(context).backgroundColor,
+        color: Theme.of(context).colorScheme.background,
         child: ListTile(
           dense: true,
           leading: Text(
@@ -80,7 +80,7 @@ class MemoForm extends HookConsumerWidget {
     final memo = ref.watch(stockEditorPageControllerProvider).memo;
 
     return ColoredBox(
-      color: theme.backgroundColor,
+      color: Theme.of(context).colorScheme.background,
       child: ListTile(
         dense: true,
         leading: Text(

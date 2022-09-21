@@ -22,7 +22,7 @@ class StockEditorCountField extends HookConsumerWidget {
         ref.watch(stockEditorPageControllerProvider).numberOfItems;
     final controller = useTextEditingController(text: numberOfItems.toString());
     return Container(
-      color: Theme.of(context).backgroundColor,
+      color: Theme.of(context).colorScheme.background,
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.end,

@@ -39,7 +39,7 @@ class TimelineItemCell extends HookConsumerWidget {
       itemNameLength > itemNameMaxLength ? itemNameMaxLength : itemNameLength,
     );
     final itemCount = '${item.numberOfItems.toInt()}';
-    final storongStyle = theme.textTheme.bodyText2!.copyWith(
+    final strongStyle = theme.textTheme.bodyText2!.copyWith(
       fontSize: 14,
       fontWeight: FontWeight.bold,
     );
@@ -47,7 +47,7 @@ class TimelineItemCell extends HookConsumerWidget {
       loading: () => const LoadingIndicator(),
       error: (error, stack) => ErrorWidget(error),
       data: (favoriteItems) {
-        final isFavorited = favoriteItems.firstWhereOrNull(
+        final isFavored = favoriteItems.firstWhereOrNull(
               (doc) => doc.entity!.asin == item.asin,
             ) !=
             null;
@@ -94,7 +94,7 @@ class TimelineItemCell extends HookConsumerWidget {
                                   TextSpan(
                                     text:
                                         '''${item.expirationAt!.difference(DateTime.now()).inDays}''',
-                                    style: storongStyle,
+                                    style: strongStyle,
                                   ),
                                   const TextSpan(
                                     text: ' 日の',
@@ -106,14 +106,14 @@ class TimelineItemCell extends HookConsumerWidget {
                             ),
                             TextSpan(
                               text: itemName,
-                              style: storongStyle,
+                              style: strongStyle,
                             ),
                             const TextSpan(
                               text: '」 が ',
                             ),
                             TextSpan(
                               text: itemCount,
-                              style: storongStyle,
+                              style: strongStyle,
                             ),
                             const TextSpan(
                               text: ' 個 ストックされました！',
@@ -124,7 +124,7 @@ class TimelineItemCell extends HookConsumerWidget {
                       ),
                       // アイコンボタン
                       IconButtonsOnCell(
-                        isFavorited: isFavorited,
+                        isFavored: isFavored,
                         onPressedAddButton: () => _didTapCreateButton(
                           ref: ref,
                           context: context,
@@ -135,7 +135,7 @@ class TimelineItemCell extends HookConsumerWidget {
                           context: context,
                           timelineItem: item,
                           favoritesCount: favoriteItems.length,
-                          isFavorited: isFavorited,
+                          isFavored: isFavored,
                         ),
                         onPressedAmazonButton: () => _didTapAmazonButton(
                           url: item.amazonUrl,
@@ -190,12 +190,12 @@ class TimelineItemCell extends HookConsumerWidget {
     required BuildContext context,
     required EveryonesStockModel timelineItem,
     required int favoritesCount,
-    required bool isFavorited,
+    required bool isFavored,
   }) async {
     var snackText = '';
     // ignore: unawaited_futures
     HapticFeedback.selectionClick();
-    if (isFavorited) {
+    if (isFavored) {
       // お気に入り解除
       snackText =
           await ref.read(favoriteProvider).removeFavorite(timelineItem.asin);

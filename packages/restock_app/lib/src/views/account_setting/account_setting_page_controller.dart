@@ -5,8 +5,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../core/me/me.dart';
 import '../../core/revenue/revenue.dart';
 import '../../models/authenticator/auth_controller.dart';
-import '../../models/authenticator/delete_me_usecase.dart';
-import '../../models/authenticator/logout_usecase.dart';
+import '../../models/authenticator/delete_me_use_case.dart';
+import '../../models/authenticator/logout_use_case.dart';
 import '../../views/reception/reception_view.dart';
 import 'account_setting_state.dart';
 
@@ -22,7 +22,7 @@ class AccountSettingPageController extends StateNotifier<AccountSettingState> {
   final Reader _read;
 
   AuthController get _authController => _read(authControllerProvider.notifier);
-  LogoutUsecase get _logoutUsecase => _read(logoutUsecase);
+  LogoutUseCase get _logoutUsecase => _read(logoutUseCase);
   RevenueState get _revenueState => _read(revenueControllerProvider);
   MeRepository? get _meRepository => _read(meRepositoryProvider);
 
@@ -62,7 +62,7 @@ class AccountSettingPageController extends StateNotifier<AccountSettingState> {
     if (await _presentConfirmDeletionDialog(context)) {
       // 状態更新：削除開始
       state = state.copyWith(loading: true);
-      final result = await _read(deleteMeUsecase)();
+      final result = await _read(deleteMeUseCase)();
       // 状態更新：削除終了
       state = state.copyWith(loading: false);
 

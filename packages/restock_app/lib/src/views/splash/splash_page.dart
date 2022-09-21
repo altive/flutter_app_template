@@ -17,7 +17,7 @@ class SplashPage extends HookConsumerWidget {
     // 起動処理中に表示させておくもの。LaunchImageと同じにしているが、
     // 本来はHomeを模したデザインで起動を早く見せたい
     return Container(
-      color: Theme.of(context).backgroundColor,
+      color: Theme.of(context).colorScheme.background,
       constraints: const BoxConstraints.expand(),
       child: FractionallySizedBox(
         widthFactor: 0.5,

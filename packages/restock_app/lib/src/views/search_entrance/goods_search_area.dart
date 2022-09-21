@@ -21,12 +21,11 @@ class GoodsSearchArea extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final searchFieldController = TextEditingController();
     final searchEntranceController = ref.watch(searchEntranceProvider.notifier);
-    return Container(
-      color: Theme.of(context).backgroundColor,
+    return Padding(
       padding: const EdgeInsets.all(16),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
+        children: [
           Row(
             children: <Widget>[
               const SizedBox(width: 8),
@@ -44,7 +43,7 @@ class GoodsSearchArea extends HookConsumerWidget {
           ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
+            children: [
               Form(
                 key: _formKey,
                 child: Expanded(
@@ -96,7 +95,6 @@ class GoodsSearchArea extends HookConsumerWidget {
                 style: ElevatedButton.styleFrom(
                   visualDensity: VisualDensity.compact,
                   padding: const EdgeInsets.symmetric(vertical: 20),
-                  elevation: 0,
                   shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(
                       Radius.circular(8),

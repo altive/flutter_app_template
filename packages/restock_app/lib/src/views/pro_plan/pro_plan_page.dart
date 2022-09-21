@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../common_widgets/loading_indicator.dart';
-import '../../common_widgets/secondary_button.dart';
 import 'pro_plan_buttons_card.dart';
 import 'pro_plan_comparison_card.dart';
 import 'pro_plan_notice_card.dart';
@@ -80,17 +79,17 @@ class ProPlanStoreLinkCard extends HookConsumerWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        SecondaryButton.icon(
-          iconData: Icons.launch,
-          labelText: 'お支払い方法の管理',
+        OutlinedButton.icon(
+          icon: const Icon(Icons.launch),
+          label: const Text('お支払い方法の管理'),
           onPressed: () => ref
               .read(proPlanPageControllerProvider.notifier)
               .openBillingPage(),
         ),
         const SizedBox(height: 16),
-        SecondaryButton.icon(
-          iconData: Icons.launch,
-          labelText: 'サブスクリプションの管理',
+        OutlinedButton.icon(
+          icon: const Icon(Icons.launch),
+          label: const Text('サブスクリプションの管理'),
           onPressed: () => ref
               .read(proPlanPageControllerProvider.notifier)
               .openSubscriptionManagingPage(),

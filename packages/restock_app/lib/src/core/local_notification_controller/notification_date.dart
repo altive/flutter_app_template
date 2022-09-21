@@ -1,11 +1,11 @@
+/// 何日前にローカル通知を表示するかの選択肢
 enum NotificationDate {
   oneDay,
   threeDay,
   oneWeek,
   oneMonth,
-}
+  ;
 
-extension NotificationDateExt on NotificationDate {
   String get label {
     switch (this) {
       case NotificationDate.oneDay:
@@ -34,13 +34,6 @@ extension NotificationDateExt on NotificationDate {
 }
 
 extension NotificationDateNullableExt on NotificationDate? {
-  String? get label {
-    if (this == null) {
-      return null;
-    }
-    return this!.label;
-  }
-
   int get count {
     if (this == null) {
       return 0;

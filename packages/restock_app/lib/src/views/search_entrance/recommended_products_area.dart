@@ -28,7 +28,7 @@ class RecommendedProductsArea extends HookConsumerWidget {
       return const SizedBox();
     }
     return Container(
-      color: Theme.of(context).backgroundColor,
+      color: Theme.of(context).colorScheme.background,
       padding: const EdgeInsets.symmetric(
         vertical: 8,
         horizontal: horizontalPadding,
@@ -43,7 +43,7 @@ class RecommendedProductsArea extends HookConsumerWidget {
           Wrap(
             spacing: cellSpacing,
             runSpacing: 20,
-            children: <Widget>[
+            children: [
               for (final item in items)
                 ProductCell(
                   size: flooredCellWidth,
@@ -71,7 +71,7 @@ class ProductCell extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     // 再背面に背景色を設定
     return Material(
-      color: Theme.of(context).backgroundColor,
+      color: Theme.of(context).colorScheme.background,
       child: InkWell(
         onTap: () {
           ref

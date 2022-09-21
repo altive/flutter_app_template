@@ -19,7 +19,7 @@ class StockEditorExpirationSelection extends HookConsumerWidget {
     final deviceSize = ref.watch(deviceSizeProvider(MediaQuery.of(context)));
 
     return ColoredBox(
-      color: theme.backgroundColor,
+      color: Theme.of(context).colorScheme.background,
       child: ListTile(
         dense: true,
         leading: deviceSize.isSmallPhone

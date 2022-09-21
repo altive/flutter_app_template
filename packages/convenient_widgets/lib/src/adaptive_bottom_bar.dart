@@ -20,7 +20,7 @@ class AdaptiveBottomBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Platform.isIOS
+    return Platform.isIOS || Platform.isMacOS
         ? CupertinoTabBar(
             items: items,
             backgroundColor: backgroundColor,
@@ -35,8 +35,6 @@ class AdaptiveBottomBar extends StatelessWidget {
             onTap: onTap,
             selectedFontSize: 10,
             unselectedFontSize: 10,
-            selectedItemColor: Theme.of(context).primaryColorDark,
-            unselectedItemColor: Colors.grey,
             type: BottomNavigationBarType.fixed,
           );
   }

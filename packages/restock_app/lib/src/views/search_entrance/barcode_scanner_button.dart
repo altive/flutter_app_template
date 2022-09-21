@@ -1,9 +1,9 @@
 import 'package:adaptive_dialog/adaptive_dialog.dart';
 import 'package:amazon_paapi/amazon_paapi.dart';
+import 'package:app_settings/app_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:permission_handler/permission_handler.dart';
 
 import '../../util/barcode_scanner_service.dart';
 import '../search_result/search_result_controller.dart';
@@ -32,7 +32,7 @@ class BarcodeScannerButton extends HookConsumerWidget {
         );
         switch (result) {
           case OkCancelResult.ok:
-            await openAppSettings();
+            await AppSettings.openAppSettings();
             return;
           case OkCancelResult.cancel:
             return;

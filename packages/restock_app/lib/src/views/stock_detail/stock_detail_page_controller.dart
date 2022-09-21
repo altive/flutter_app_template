@@ -1,7 +1,9 @@
+import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:notification_sender/notification_sender.dart';
 
-import '../../core/local_notification_controller/local_notification_controller.dart';
+import '../../core/local_notification_controller/expiration_notification.dart';
 import '../../core/revenue/revenue.dart';
 import '../../core/stock/stock_entity.dart';
 import '../../core/stock/stock_repository.dart';
@@ -39,13 +41,19 @@ class StockDetailPageController extends StateNotifier<bool> {
   SharedPreferencesService get _prefsController =>
       _read(sharedPreferencesServiceProvider);
 
-  LocalNotificationController get _notificationController =>
-      _read(localNotificationControllerProvider.notifier);
+  NotificationSender get _notificationSender =>
+      _read(notificationSenderProvider.notifier);
+
+  List<PendingNotificationRequest> get _pendingList =>
+      _read(notificationSenderProvider);
+
+  ExpirationNotificationRegistrar get _expirationNotificationRegistrar =>
+      _read(expirationNotificationRegistrarProvider);
 
   /// Payload取得
   Future<NotificationPayload?> fetchNotificationPayload() async {
     final notification =
-        await _notificationController.firstWhere(idNumber: _stock?.idNumber);
+        _pendingList.firstWhereOrNull((e) => e.id == _stock?.idNumber);
     if (notification == null) {
       return null;
     }
@@ -108,15 +116,13 @@ class StockDetailPageController extends StateNotifier<bool> {
       return '通知予定日を過ぎている、または当日のため通知をONにできません。';
     }
     // 通知個数のチェックを行う
-    final pendingList =
-        await _notificationController.getAndStorePendingNotificationRequests;
     final isProUser = _read(revenueControllerProvider).isSubscriber;
-    if (!isProUser && pendingList.length >= 10) {
+    if (!isProUser && _pendingList.length >= 10) {
       // 非Proユーザーは10を超えて登録できない
       return '通知は10件までとなります。';
     }
     // 通知追加
-    await _notificationController.addStockExpirationNotice(
+    await _expirationNotificationRegistrar.addStockExpirationNotice(
       documentId: stock.id!,
       idNumber: stock.idNumber,
       itemName: stock.name.value,
@@ -132,7 +138,7 @@ class StockDetailPageController extends StateNotifier<bool> {
       return;
     }
     // このアイテムの通知をキャンセル
-    await _notificationController.cancel(id: stock.idNumber);
+    await _notificationSender.cancel(stock.idNumber);
   }
 
   /// ストックアイテムを削除する

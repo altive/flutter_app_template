@@ -1,9 +1,10 @@
 import 'dart:math';
 
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:notification_sender/notification_sender.dart';
 import 'package:uuid/uuid.dart';
 
-import '../../core/local_notification_controller/local_notification_controller.dart';
+import '../../core/local_notification_controller/expiration_notification.dart';
 import '../../core/me/me.dart';
 import '../../core/revenue/revenue.dart';
 import '../../core/stock/stock_entity.dart';
@@ -44,8 +45,13 @@ class StockEditorPageController extends StateNotifier<StockEditorState> {
   final Reader _read;
 
   StockRepository? get _stockRepository => _read(stockRepositoryProvider);
-  LocalNotificationController get _notificationController =>
-      _read(localNotificationControllerProvider.notifier);
+
+  NotificationSender get _notificationSender =>
+      _read(notificationSenderProvider.notifier);
+
+  ExpirationNotificationRegistrar get _expirationNotificationRegistrar =>
+      _read(expirationNotificationRegistrarProvider);
+
   SharedPreferencesService get _prefsController =>
       _read(sharedPreferencesServiceProvider);
 
@@ -92,8 +98,7 @@ class StockEditorPageController extends StateNotifier<StockEditorState> {
     }
 
     /// 通知のON/OFF
-    final isOn =
-        _notificationController.containsNotification(stockItem.idNumber);
+    final isOn = _notificationSender.containsNotification(stockItem.idNumber);
     // 状態を初期値でセット
     state = state.copyWith(
       imageUrl: imageUrl,
@@ -194,8 +199,7 @@ class StockEditorPageController extends StateNotifier<StockEditorState> {
   /// 通知のON/OFFが変更された
   Future<String?> toggleNotification({required bool isEnabled}) async {
     final isProUser = _read(revenueControllerProvider).isSubscriber;
-    final pendingList =
-        await _notificationController.getAndStorePendingNotificationRequests;
+    final pendingList = _read(notificationSenderProvider);
     if (!isProUser && pendingList.length >= 10) {
       // 非Proユーザーは10を超えて登録できない
       return '通知は10件までとなります。';
@@ -339,11 +343,11 @@ class StockEditorPageController extends StateNotifier<StockEditorState> {
     if (expirationDateType == ExpirationDateType.none ||
         !state.isNotificationEnabled) {
       // 通知をキャンセルする
-      await _notificationController.cancel(id: idNumber!);
+      await _notificationSender.cancel(idNumber!);
       return;
     }
     // 通知追加
-    await _notificationController.addStockExpirationNotice(
+    await _expirationNotificationRegistrar.addStockExpirationNotice(
       documentId: documentId!,
       idNumber: idNumber!,
       itemName: itemName,

@@ -82,20 +82,18 @@ class AccountSettingAppleTile extends HookConsumerWidget {
       }
     }
 
-    return FutureBuilder<bool>(
-      future: canSignInWithApple,
-      builder: (_, snapshot) {
-        if (!snapshot.hasData || !snapshot.data!) {
-          return const SizedBox();
-        }
-        return ListTile(
-          leading: const Icon(MdiIcons.apple),
-          title: Text(userInfo == null ? 'Apple IDと連携する' : 'Apple IDと連携済み'),
-          onTap: () => presentConfirmDialog(
-            hasAppleLinked: userInfo != null,
-          ),
-        );
-      },
+    final canSignInWithApple =
+        ref.watch(canSignInWithAppleProvider).valueOrNull;
+
+    if (canSignInWithApple == null) {
+      return const SizedBox.shrink();
+    }
+    return ListTile(
+      leading: const Icon(MdiIcons.apple),
+      title: Text(userInfo == null ? 'Apple IDと連携する' : 'Apple IDと連携済み'),
+      onTap: () => presentConfirmDialog(
+        hasAppleLinked: userInfo != null,
+      ),
     );
   }
 }

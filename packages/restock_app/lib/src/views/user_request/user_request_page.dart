@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../common_widgets/loading_indicator.dart';
-import '../../common_widgets/primary_button.dart';
 import '../../core/app_constant/app_info.dart';
 import 'user_request_controller.dart';
 
@@ -62,10 +61,9 @@ class _UserRequestPageState extends State<UserRequestPage> {
                           _buildCommentTextForm(),
                           const SizedBox(height: 16),
                           _buildReplyForTextForm(),
-                          PrimaryButton(
-                            iconData: Icons.mail,
-                            labelText: '送信',
-                            padding: const EdgeInsets.symmetric(vertical: 16),
+                          ElevatedButton.icon(
+                            icon: const Icon(Icons.mail),
+                            label: const Text('送信'),
                             onPressed: () async {
                               if (_formKey.currentState!.validate()) {
                                 _formKey.currentState!.save();

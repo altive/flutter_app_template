@@ -1,6 +1,8 @@
 PODS:
   - app_review (1.0.1):
     - Flutter
+  - "app_settings (3.0.0+1)":
+    - Flutter
   - AppAuth (1.5.0):
     - AppAuth/Core (= 1.5.0)
     - AppAuth/ExternalUserAgent (= 1.5.0)
@@ -249,8 +251,6 @@ PODS:
     - Flutter
   - path_provider_ios (0.0.1):
     - Flutter
-  - permission_handler_apple (9.0.4):
-    - Flutter
   - PromisesObjC (2.1.1)
   - purchases_flutter (4.2.1):
     - Flutter
@@ -270,6 +270,7 @@ PODS:
 
 DEPENDENCIES:
   - app_review (from `.symlinks/plugins/app_review/ios`)
+  - app_settings (from `.symlinks/plugins/app_settings/ios`)
   - cloud_firestore (from `.symlinks/plugins/cloud_firestore/ios`)
   - device_info (from `.symlinks/plugins/device_info/ios`)
   - firebase_analytics (from `.symlinks/plugins/firebase_analytics/ios`)
@@ -290,7 +291,6 @@ DEPENDENCIES:
   - image_picker_ios (from `.symlinks/plugins/image_picker_ios/ios`)
   - package_info (from `.symlinks/plugins/package_info/ios`)
   - path_provider_ios (from `.symlinks/plugins/path_provider_ios/ios`)
-  - permission_handler_apple (from `.symlinks/plugins/permission_handler_apple/ios`)
   - purchases_flutter (from `.symlinks/plugins/purchases_flutter/ios`)
   - share_plus (from `.symlinks/plugins/share_plus/ios`)
   - shared_preferences_ios (from `.symlinks/plugins/shared_preferences_ios/ios`)
@@ -333,6 +333,8 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   app_review:
     :path: ".symlinks/plugins/app_review/ios"
+  app_settings:
+    :path: ".symlinks/plugins/app_settings/ios"
   cloud_firestore:
     :path: ".symlinks/plugins/cloud_firestore/ios"
   device_info:
@@ -374,8 +376,6 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/package_info/ios"
   path_provider_ios:
     :path: ".symlinks/plugins/path_provider_ios/ios"
-  permission_handler_apple:
-    :path: ".symlinks/plugins/permission_handler_apple/ios"
   purchases_flutter:
     :path: ".symlinks/plugins/purchases_flutter/ios"
   share_plus:
@@ -394,6 +394,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   app_review: 6f51001269c59a2f4a5b5ae68b7d106401152764
+  app_settings: d103828c9f5d515c4df9ee754dabd443f7cedcf3
   AppAuth: 80317d99ac7ff2801a2f18ff86b48cd315ed465d
   cloud_firestore: 6448075c9bac372319e7f025fdfa6f1d382644d7
   device_info: d7d233b645a32c40dfdc212de5cf646ca482f175
@@ -440,7 +441,6 @@ SPEC CHECKSUMS:
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   package_info: 873975fc26034f0b863a300ad47e7f1ac6c7ec62
   path_provider_ios: 14f3d2fd28c4fdb42f44e0f751d12861c43cee02
-  permission_handler_apple: 44366e37eaf29454a1e7b1b7d736c2cceaeb17ce
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
   purchases_flutter: 13f561706580dccea79396d9cfb02c7d88185d6e
   PurchasesHybridCommon: 99e50f0429cd2a7f7495c867945b4f6ec3cd3f47
@@ -451,6 +451,6 @@ SPEC CHECKSUMS:
   TOCropViewController: edfd4f25713d56905ad1e0b9f5be3fbe0f59c863
   url_launcher_ios: 839c58cdb4279282219f5e248c3321761ff3c4de
 
-PODFILE CHECKSUM: 30079dcddeafeb215d19017d741909006bf795a0
+PODFILE CHECKSUM: 924a155a4209f93a53728c88061111334cafe9cf
 
 COCOAPODS: 1.11.3

@@ -44,8 +44,7 @@ class _ContainerTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Theme.of(context).backgroundColor,
+    return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8),
       child: child,
     );

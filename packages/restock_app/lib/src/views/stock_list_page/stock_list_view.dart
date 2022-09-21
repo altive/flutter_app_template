@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../common_widgets/primary_button.dart';
 import '../../core/stock/stock_entity.dart';
 import '../components/loading_view.dart';
 import 'stock_display_mode.dart';
@@ -96,7 +95,7 @@ class _ListView extends StatelessWidget {
       padding: const EdgeInsets.fromLTRB(16, 110, 16, 16),
       itemCount: sortedStocks.length,
       itemBuilder: (context, index) {
-        return HomeItemCard(
+        return StockListItemCard(
           stock: sortedStocks[index],
           isFirstItem: index == 0,
           isLastItem: index == sortedStocks.length - 1,
@@ -183,7 +182,7 @@ class NoFindedView extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
         alignment: Alignment.topCenter,
         decoration: BoxDecoration(
-          color: Theme.of(context).backgroundColor,
+          color: Theme.of(context).colorScheme.background,
           borderRadius: BorderRadius.circular(16),
         ),
         child: Text(label),
@@ -231,8 +230,8 @@ class EmptyView extends ConsumerWidget {
           const SizedBox(height: 32),
           Text(isCategory ? 'このグループにストックはありません' : 'まだストックがありません'),
           if (isCategory)
-            PrimaryButton(
-              labelText: 'グループの名前を変更する',
+            ElevatedButton(
+              child: const Text('グループの名前を変更する'),
               onPressed: () => ref
                   .read(stockListPageControllerProvider.notifier)
                   .updageCategory(

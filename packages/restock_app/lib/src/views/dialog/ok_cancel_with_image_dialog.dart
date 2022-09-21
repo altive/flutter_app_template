@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../common_widgets/primary_button.dart';
-import '../../common_widgets/secondary_button.dart';
-
 class OkCancelWithImageDialog extends StatelessWidget {
   // Constructor
   const OkCancelWithImageDialog({
@@ -70,15 +67,14 @@ class OkCancelWithImageDialog extends StatelessWidget {
         ),
       ),
       actions: <Widget>[
-        SecondaryButton.icon(
-          iconData: secondaryButtonIconData,
-          labelText: secondaryButtonLabel,
+        OutlinedButton.icon(
+          icon: Icon(secondaryButtonIconData),
+          label: Text(secondaryButtonLabel),
           onPressed: secondaryButtonOnPressed,
         ),
-        PrimaryButton(
-          iconData: primaryButtonIconData,
-          labelText: primaryButtonLabel,
-          padding: const EdgeInsets.fromLTRB(8, 0, 16, 8),
+        ElevatedButton.icon(
+          icon: Icon(primaryButtonIconData),
+          label: Text(primaryButtonLabel),
           onPressed: primaryButtonOnPressed,
         ),
       ],

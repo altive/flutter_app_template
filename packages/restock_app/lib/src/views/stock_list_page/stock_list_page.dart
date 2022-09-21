@@ -23,7 +23,7 @@ class StockListPage extends HookConsumerWidget {
     final scrollController = useScrollController();
     final isSearchFieldVisible = ref.watch(stockListTopAreaVisibleProvider);
 
-    void scrollListner() {
+    void scrollListener() {
       // 表示・非表示を切り替えるスクロール位置の割合閾値
       const threshold = 0.1;
       // offset: 現在位置、 maxScrollExtent: スクロール可能最大位置
@@ -49,8 +49,8 @@ class StockListPage extends HookConsumerWidget {
 
     useEffect(
       () {
-        scrollController.addListener(scrollListner);
-        return () => scrollController.removeListener(scrollListner);
+        scrollController.addListener(scrollListener);
+        return () => scrollController.removeListener(scrollListener);
       },
       [scrollController],
     );
@@ -73,19 +73,16 @@ class StockListPage extends HookConsumerWidget {
         appBar: AppBar(
           flexibleSpace: Align(
             alignment: Alignment.bottomCenter,
-            child: ColoredBox(
-              color: Theme.of(context).bottomAppBarColor,
-              child: TabBar(
-                isScrollable: true,
-                indicatorColor: Theme.of(context).colorScheme.primary,
-                tabs: <Widget>[
-                  const Tab(child: Text('すべて')),
-                  for (final category in stockCategories)
-                    Tab(
-                      child: Text(category),
-                    ),
-                ],
-              ),
+            child: TabBar(
+              isScrollable: true,
+              indicatorColor: Theme.of(context).colorScheme.primary,
+              tabs: <Widget>[
+                const Tab(child: Text('すべて')),
+                for (final category in stockCategories)
+                  Tab(
+                    child: Text(category),
+                  ),
+              ],
             ),
           ),
         ),

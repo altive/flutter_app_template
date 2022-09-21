@@ -28,8 +28,7 @@ class ItemImageDisplay extends StatelessWidget {
   Widget build(BuildContext context) {
     // どちらの画像もnullだった場合
     if (imageFile == null && imageUrl == null) {
-      return Container(
-        color: Theme.of(context).backgroundColor,
+      return Padding(
         padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
         child: Image.asset(
           'assets/images/no_image_gray.png',
@@ -40,8 +39,7 @@ class ItemImageDisplay extends StatelessWidget {
     }
     return GestureDetector(
       onTap: () => launchUrl(pageUrl),
-      child: Container(
-        color: Theme.of(context).backgroundColor,
+      child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
         child: Stack(
           alignment: Alignment.topCenter,

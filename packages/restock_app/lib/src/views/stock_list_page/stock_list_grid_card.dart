@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:intl/intl.dart';
+import 'package:notification_sender/notification_sender.dart';
 
-import '../../core/local_notification_controller/local_notification_controller.dart';
 import '../../core/stock/stock_entity.dart';
 import '../stock_detail/stock_detail_page.dart';
 import '../stock_detail/stock_detail_page_controller.dart';
@@ -239,12 +239,12 @@ class _NotificationIcon extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final notificationList = ref.watch(localNotificationControllerProvider);
-    if (!notificationList.contains(stock.idNumber)) {
+    final notificationList = ref.watch(notificationSenderProvider);
+    if (!notificationList.any((e) => e.id == stock.idNumber)) {
       return const SizedBox();
     }
     return CircleAvatar(
-      foregroundColor: Theme.of(context).backgroundColor,
+      foregroundColor: Theme.of(context).colorScheme.background,
       backgroundColor: Theme.of(context).colorScheme.primary,
       radius: 14,
       child: const Icon(

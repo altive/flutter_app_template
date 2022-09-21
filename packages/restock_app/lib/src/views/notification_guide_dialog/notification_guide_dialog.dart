@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:notification_sender/notification_sender.dart';
 
-import '../../common_widgets/primary_button.dart';
-import '../../core/local_notification_controller/local_notification_controller.dart';
 import '../../utils/utils.dart';
 
 class NotificationGuideDialog extends ConsumerWidget {
@@ -51,15 +50,14 @@ class NotificationGuideDialog extends ConsumerWidget {
           },
           child: const Text('あとで'),
         ),
-        PrimaryButton(
-          labelText: '受け取る',
-          padding: const EdgeInsets.fromLTRB(8, 0, 16, 8),
+        ElevatedButton(
+          child: const Text('受け取る'),
           onPressed: () async {
             logger.finest('訴求ダイアログの通知を受け取るアクションが選択されました');
             // iOSの通知の許可を得るためのOS標準ダイアログを表示する
             final result = await ref
-                .read(localNotificationControllerProvider.notifier)
-                .requestLocalNotificationPermission();
+                .read(notificationSenderProvider.notifier)
+                .requestPermissionForApple();
             logger.fine('通知の許可： $result');
             // ダイアログを閉じて、許可/拒否の結果を伝える
             Navigator.of(context).pop(result);

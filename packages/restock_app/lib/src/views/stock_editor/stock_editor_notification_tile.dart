@@ -1,10 +1,10 @@
 import 'package:adaptive_dialog/adaptive_dialog.dart';
+import 'package:app_settings/app_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:notification_receiver/notification_receiver.dart';
-import 'package:permission_handler/permission_handler.dart';
 
-import '../../core/local_notification_controller/local_notification_controller.dart';
+import '../../core/local_notification_controller/notification_date.dart';
 import '../../everyones_stock/expiration_date_type.dart';
 import '../../util/shared_preferences_service.dart';
 import 'stock_editor_controller.dart';
@@ -34,7 +34,7 @@ class StockEditorNotificationTile extends HookConsumerWidget {
     return Visibility(
       visible: expirationType != ExpirationDateType.none,
       child: Ink(
-        color: theme.backgroundColor,
+        color: Theme.of(context).colorScheme.background,
         child: SwitchListTile.adaptive(
           dense: true,
           secondary: Text(
@@ -44,7 +44,7 @@ class StockEditorNotificationTile extends HookConsumerWidget {
             ),
           ),
           activeColor: Theme.of(context).colorScheme.primary,
-          title: Text('期限の${durationDays.label}にお知らせ'),
+          title: Text('期限の${durationDays?.label}にお知らせ'),
           value: stockEditorState.isNotificationEnabled,
           onChanged: (isOn) => isOn
               ? _onNotificationEnabled(
@@ -135,7 +135,7 @@ class StockEditorNotificationTile extends HookConsumerWidget {
     );
     switch (result) {
       case OkCancelResult.ok:
-        await openAppSettings();
+        await AppSettings.openAppSettings();
         return;
       case OkCancelResult.cancel:
         return;

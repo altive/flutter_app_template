@@ -18,7 +18,7 @@ class AmazonIcon extends StatelessWidget {
         alignment: alignment,
         child: CircleAvatar(
           backgroundColor: theme.colorScheme.primary,
-          foregroundColor: theme.backgroundColor,
+          foregroundColor: Theme.of(context).colorScheme.background,
           child: const FaIcon(FontAwesomeIcons.amazon),
         ),
       ),

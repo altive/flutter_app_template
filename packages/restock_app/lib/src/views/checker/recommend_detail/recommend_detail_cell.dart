@@ -78,7 +78,7 @@ class RecommendDetailCell extends HookConsumerWidget {
                             ),
                           // アイコンボタン
                           IconButtonsOnCell(
-                            isFavorited: isFavorited,
+                            isFavored: isFavorited,
                             onPressedAddButton: () => _didTapCreateButton(
                               ref: ref,
                               context: context,

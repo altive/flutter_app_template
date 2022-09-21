@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../common_widgets/primary_button.dart';
-import '../../common_widgets/secondary_button.dart';
 import '../../core/revenue/revenue.dart';
 import 'pro_plan_page_controller.dart';
 
@@ -28,20 +26,18 @@ class ProPlanButtonsCard extends HookConsumerWidget {
         ),
         const SizedBox(height: 16),
         if (pageState.monthlyProPlanInformation != null)
-          PrimaryButton.circular(
-            labelText: '${pageState.monthlyProPlanInformation!.price} / 月',
-            padding: const EdgeInsets.symmetric(vertical: 8),
+          ElevatedButton(
             onPressed:
                 // すでにProプランの場合はボタン非活性
                 isProPlanUser ? null : () => _purchaseMonthly(ref, context),
+            child: Text('${pageState.monthlyProPlanInformation!.price} / 月'),
           ),
         if (pageState.annualProPlanInformation != null)
-          PrimaryButton.circular(
-            labelText: '${pageState.annualProPlanInformation!.price} / 年',
-            padding: const EdgeInsets.symmetric(vertical: 8),
+          ElevatedButton(
             onPressed:
                 // すでにProプランの場合はボタン非活性
                 isProPlanUser ? null : () => _purchaseAnnual(ref, context),
+            child: Text('${pageState.annualProPlanInformation!.price} / 年'),
           ),
         const SizedBox(height: 16),
         Text(
@@ -49,8 +45,8 @@ class ProPlanButtonsCard extends HookConsumerWidget {
           textAlign: TextAlign.center,
           style: theme.textTheme.caption,
         ),
-        SecondaryButton(
-          labelText: '購入情報を復元',
+        OutlinedButton(
+          child: const Text('購入情報を復元'),
           onPressed: () => _restore(ref, context),
         ),
       ],

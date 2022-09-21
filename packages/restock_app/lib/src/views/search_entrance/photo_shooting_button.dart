@@ -1,11 +1,11 @@
 import 'dart:io';
 
 import 'package:adaptive_dialog/adaptive_dialog.dart';
+import 'package:app_settings/app_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
-import 'package:permission_handler/permission_handler.dart';
 
 import '../../util/image_cropper_service.dart';
 import '../../util/image_picker_helper.dart';
@@ -36,7 +36,7 @@ class PhotoShootingButton extends HookConsumerWidget {
           );
           switch (result) {
             case OkCancelResult.ok:
-              await openAppSettings();
+              await AppSettings.openAppSettings();
               return;
             case OkCancelResult.cancel:
               return;

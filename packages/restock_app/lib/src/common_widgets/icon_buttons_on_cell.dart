@@ -6,14 +6,14 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 
 class IconButtonsOnCell extends StatelessWidget {
   const IconButtonsOnCell({
-    required this.isFavorited,
+    required this.isFavored,
     required this.onPressedAddButton,
     required this.onPressedFavoriteButton,
     required this.onPressedAmazonButton,
     required this.onPressedShareButton,
   });
 
-  final bool isFavorited;
+  final bool isFavored;
   final void Function() onPressedAddButton;
   final void Function() onPressedFavoriteButton;
   final void Function() onPressedAmazonButton;
@@ -29,9 +29,10 @@ class IconButtonsOnCell extends StatelessWidget {
           icon: const Icon(MdiIcons.plusBox),
           onPressed: onPressedAddButton,
           iconSize: iconSize,
+          color: Theme.of(context).colorScheme.primary,
         ),
         IconButton(
-          icon: isFavorited
+          icon: isFavored
               ? const Icon(
                   MdiIcons.heart,
                   color: Colors.red,
@@ -39,16 +40,19 @@ class IconButtonsOnCell extends StatelessWidget {
               : const Icon(MdiIcons.heartOutline),
           onPressed: onPressedFavoriteButton,
           iconSize: iconSize,
+          color: Theme.of(context).colorScheme.primary,
         ),
         IconButton(
           icon: const FaIcon(FontAwesomeIcons.amazon),
           onPressed: onPressedAmazonButton,
           iconSize: iconSize,
+          color: Theme.of(context).colorScheme.primary,
         ),
         IconButton(
           icon: Icon(Platform.isIOS ? Icons.ios_share : Icons.share),
           onPressed: onPressedShareButton,
           iconSize: iconSize,
+          color: Theme.of(context).colorScheme.primary,
         ),
       ],
     );

@@ -41,7 +41,7 @@ class MypagePage extends HookConsumerWidget {
       ),
       body: SafeArea(
         child: ListView(
-          children: <Widget>[
+          children: [
             ListCell(
               leading: const Icon(MdiIcons.diamondStone),
               title: Text(isSubscriber ? 'あなたはProユーザーです🎉' : 'Proプランの特典と価格'),
@@ -120,21 +120,18 @@ class _ThemeSelectionTile extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final currentTheme = ref.watch(themeColorProvider);
-    return Ink(
-      color: Theme.of(context).backgroundColor,
-      child: ListTile(
-        leading: Icon(currentTheme.icon),
-        title: const Text('テーマカラー'),
-        trailing: Wrap(
-          crossAxisAlignment: WrapCrossAlignment.center,
-          children: <Widget>[
-            FittedBox(child: Text(currentTheme.name!)),
-            const FittedBox(child: Icon(Icons.chevron_right)),
-          ],
-        ),
-        onTap: () =>
-            Navigator.of(context).pushNamed(ThemeSelectionPage.routeName),
+    return ListTile(
+      leading: Icon(currentTheme.icon),
+      title: const Text('テーマカラー'),
+      trailing: Wrap(
+        crossAxisAlignment: WrapCrossAlignment.center,
+        children: <Widget>[
+          FittedBox(child: Text(currentTheme.name!)),
+          const FittedBox(child: Icon(Icons.chevron_right)),
+        ],
       ),
+      onTap: () =>
+          Navigator.of(context).pushNamed(ThemeSelectionPage.routeName),
     );
   }
 }
@@ -145,21 +142,17 @@ class _NotificationSettingTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    return Ink(
-      color: theme.backgroundColor,
-      child: ListTile(
-        leading: const Icon(Icons.notifications_active),
-        title: const Text('期限の通知'),
-        trailing: Wrap(
-          crossAxisAlignment: WrapCrossAlignment.center,
-          children: const [
-            FittedBox(child: Icon(Icons.chevron_right)),
-          ],
-        ),
-        onTap: () =>
-            Navigator.of(context).pushNamed(NotificationSettingPage.routeName),
+    return ListTile(
+      leading: const Icon(Icons.notifications_active),
+      title: const Text('期限の通知'),
+      trailing: Wrap(
+        crossAxisAlignment: WrapCrossAlignment.center,
+        children: const [
+          FittedBox(child: Icon(Icons.chevron_right)),
+        ],
       ),
+      onTap: () =>
+          Navigator.of(context).pushNamed(NotificationSettingPage.routeName),
     );
   }
 }

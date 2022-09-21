@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../common_widgets/primary_button.dart';
 import '../../util/shared_preferences_service.dart';
 import 'stock_display_mode.dart';
 import 'stock_filter_page/stock_filter_page.dart';
@@ -72,15 +71,14 @@ class StockListTopArea extends HookConsumerWidget {
                   ),
                 ),
                 const SizedBox(width: 8),
-                PrimaryButton(
-                  padding: EdgeInsets.zero,
-                  iconData: Icons.filter_alt,
-                  labelText: '表示条件',
+                ElevatedButton.icon(
+                  icon: const Icon(Icons.filter_alt),
+                  label: const Text('表示条件'),
                   onPressed: () => showModalBottomSheet<void>(
                     context: context,
                     builder: (_) => const StockFilterPage(),
                     elevation: 3,
-                    backgroundColor: Theme.of(context).backgroundColor,
+                    backgroundColor: Theme.of(context).colorScheme.background,
                     shape: const RoundedRectangleBorder(
                       borderRadius:
                           BorderRadius.vertical(top: Radius.circular(32)),
@@ -138,7 +136,9 @@ class _ChoiceChip extends HookConsumerWidget {
         displayMode.iconData,
         color: Theme.of(context).colorScheme.onPrimary,
       ),
+      side: BorderSide.none,
       selectedColor: Theme.of(context).colorScheme.primary,
+      backgroundColor: Theme.of(context).colorScheme.primary.withOpacity(0.5),
       selected: currentMode == displayMode,
       onSelected: (isOn) {
         if (isOn) {

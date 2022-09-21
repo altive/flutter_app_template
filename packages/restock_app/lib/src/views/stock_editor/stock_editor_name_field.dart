@@ -21,7 +21,7 @@ class StockEditorNameField extends HookConsumerWidget {
     final initialName = ref.watch(stockEditorPageControllerProvider).itemName;
     final controller = useTextEditingController(text: initialName);
     return Container(
-      color: Theme.of(context).backgroundColor,
+      color: Theme.of(context).colorScheme.background,
       padding: const EdgeInsets.symmetric(horizontal: 16),
       child: TextField(
         controller: controller,

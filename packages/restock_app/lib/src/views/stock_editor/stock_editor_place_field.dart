@@ -15,7 +15,7 @@ class StockEditorPlaceField extends HookConsumerWidget {
         ref.watch(stockEditorPageControllerProvider).stockCategory;
 
     return ColoredBox(
-      color: theme.backgroundColor,
+      color: Theme.of(context).colorScheme.background,
       child: ListTile(
         dense: true,
         leading: Text(

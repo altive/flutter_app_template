@@ -107,7 +107,7 @@ class MemoCell extends HookConsumerWidget {
       return const SizedBox();
     }
     return Container(
-      color: Theme.of(context).backgroundColor,
+      color: Theme.of(context).colorScheme.background,
       padding: const EdgeInsets.symmetric(
         vertical: 16,
         horizontal: 16,
