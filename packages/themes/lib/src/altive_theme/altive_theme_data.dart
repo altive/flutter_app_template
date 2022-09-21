@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'altive_dark_color_scheme.dart';
@@ -52,6 +53,10 @@ class AltiveThemeData {
           icon: const Icon(Icons.nightlife, color: Colors.red),
         ),
       ],
+      // ダイアログ内のTextFieldColorがBlackで視認できない問題のWorkaround
+      cupertinoOverrideTheme: const CupertinoThemeData(
+        textTheme: CupertinoTextThemeData(),
+      ),
     );
   }
 }
