@@ -95,7 +95,7 @@
 	"dart.debugSdkLibraries": false,
 	// スキップしたテストをテストツリーに表示させるなら`true`
 	"dart.showSkippedTests": false,
-	// pubspec.yamlが保存されるたびにpub getするなら`true`
+	// pubspec.yamlが保存されるたびにpub getするなら`always`
 	"dart.runPubGetOnPubspecChanges": "always",
 	// クラス名を変更するとファイル名も自動で変更される。always, prompt, never
 	"dart.renameFilesWithClasses": "always",
