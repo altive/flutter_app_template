@@ -78,10 +78,6 @@ class $AssetsImagesGen {
   AssetGenImage get boxMountain =>
       const AssetGenImage('assets/images/box_mountain.png');
 
-  /// File path: assets/images/btn_google_light_normal.png
-  AssetGenImage get btnGoogleLightNormal =>
-      const AssetGenImage('assets/images/btn_google_light_normal.png');
-
   /// File path: assets/images/cart_and_woman.png
   AssetGenImage get cartAndWoman =>
       const AssetGenImage('assets/images/cart_and_woman.png');

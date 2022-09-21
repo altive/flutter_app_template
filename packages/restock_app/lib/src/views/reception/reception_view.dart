@@ -1,11 +1,11 @@
+import 'package:convenient_widgets/convenient_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../common_widgets/apple_auth_button.dart';
-import '../../common_widgets/google_auth_button.dart';
 import '../../common_widgets/loading_indicator.dart';
 import '../../core/app_constant/app_info.dart';
+import '../../models/authenticator/sign_with_apple_service.dart';
 import 'reception_controller.dart';
 import 'reception_view_component.dart';
 
@@ -49,17 +49,26 @@ class ReceptionPage extends HookConsumerWidget {
                 height: 212,
               ),
               const SizedBox(height: 32),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 32),
-                child: AppleAuthButton(
-                  labelText: 'Appleでサインイン',
+              if (ref.watch(canSignInWithAppleProvider).valueOrNull ??
+                  false) ...[
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 32),
+                  child: AppleAuthButton(
+                    labelText: 'Appleでサインイン',
+                    onPressed: () => ref
+                        .read(receptionProvider.notifier)
+                        .onPressedAppleButton(context),
+                  ),
                 ),
-              ),
-              const Gap(16),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 32),
+                const Gap(16),
+              ],
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 32),
                 child: GoogleAuthButton(
                   labelText: 'Googleでサインイン',
+                  onPressed: () => ref
+                      .read(receptionProvider.notifier)
+                      .onPressedGoogleButton(context),
                 ),
               ),
               const Gap(16),
