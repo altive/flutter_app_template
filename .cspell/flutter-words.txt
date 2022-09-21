@@ -26,6 +26,7 @@ revenuecat
 riverpod
 Routemaster
 Schyler
+toggleable
 unawaited
 unfocus
 vsync
