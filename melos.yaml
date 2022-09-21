@@ -91,6 +91,7 @@ scripts:
       dir-exists: [lib, ios]
       depends-on: flutter_test
 
+  # for ReStock app
   deploy:prod:restock:
     run: |
       melos run build:prod:android:restock:

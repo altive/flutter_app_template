@@ -53,7 +53,9 @@ class AltiveThemeData {
           icon: const Icon(Icons.nightlife, color: Colors.red),
         ),
       ],
-      // ダイアログ内のTextFieldColorがBlackで視認できない問題のWorkaround
+      // Workaround for: CupertinoTextInputDialog input text color and
+      // background color are the same.
+      // https://pub.dev/packages/adaptive_dialog#the-input-text-color-same-with-backgound-when-using-cupertinotextinputdialog
       cupertinoOverrideTheme: const CupertinoThemeData(
         textTheme: CupertinoTextThemeData(),
       ),
