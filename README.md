@@ -36,6 +36,12 @@ This package takes care of functions (responsibilities) related to setting notif
 
 Currently using Firebase Cloud Messaging.
 
+### `notification_sender`
+
+This package is responsible for functions (responsibilities) related to local notification display and schedule registration.
+
+Currently using `flutter_local_notifications`.
+
 ### `remote_parameter_fetcher`
 
 This package is responsible for the function (responsibility) of retrieving remotely configured parameters and providing them in a specified type.

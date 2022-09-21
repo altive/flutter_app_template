@@ -36,6 +36,12 @@
 
 現在、Firebase Cloud Messaging を使用しています。
 
+### `notification_sender`
+
+ローカル通知の表示・スケジュール登録に関する機能（責務）を担うパッケージです。
+
+現在、 `flutter_local_notifications` を使用しています。
+
 ### `remote_parameter_fetcher` (リモートパラメータフェッチャー)
 
 本パッケージは、リモートで設定されたパラメータを取得し、指定された型で提供する機能(責任)を担当します。
