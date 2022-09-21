@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class ThemeDescription extends ThemeExtension<ThemeDescription> {
@@ -47,7 +49,10 @@ class ThemeDescription extends ThemeExtension<ThemeDescription> {
   }) {
     final substringLength = prev.length - (prev.length * t).round();
     final left = prev.substring(0, substringLength);
-    final right = next.substring(substringLength, next.length);
+    final right = next.substring(
+      min(next.length, substringLength),
+      next.length,
+    );
 
     return '$left$right';
   }
