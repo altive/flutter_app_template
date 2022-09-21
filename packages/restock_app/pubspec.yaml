@@ -41,8 +41,10 @@ dependencies:
   flutter_hooks: ^0.18.5+1
   flutter_localizations:
     sdk: flutter
+  flutter_svg: ^1.1.5
   font_awesome_flutter: ^10.1.0
   freezed_annotation: ^2.1.0
+  gap: ^2.0.0
   google_sign_in: ^5.4.1
   hooks_riverpod: ^2.0.0-dev.5
   http: ^0.13.3
@@ -74,13 +76,24 @@ dependencies:
 
 dev_dependencies:
   altive_lints: ^1.5.0
-  build_runner: ^2.2.0
+  build_runner: ^2.2.1
+  flutter_gen_runner: ^4.3.0
   flutter_launcher_icons: ^0.9.3
   flutter_test:
     sdk: flutter
   freezed: ^2.1.0+1
   json_serializable: ^6.3.1
   mockito: ^5.2.0
+
+flutter_gen:
+  output: lib/gen/
+  line_length: 80
+  integrations:
+    flutter_svg: true
+    flare_flutter: false
+    rive: false
+  assets:
+    style: dot-delimiter
 
 flutter:
   uses-material-design: true
@@ -89,12 +102,6 @@ flutter:
     - env/
     - assets/app_icons/
     - assets/images/
-    - assets/images/2x/
-    - assets/images/3x/
-    - assets/images/apple_logo_black.png
-    - assets/images/apple_logo_white.png
-    - assets/images/apple_logo_white.png
-    - assets/images/btn_google_light_normal.png
     - assets/images/reception_featured_dark.png
     - assets/images/reception_featured_light.png
 
