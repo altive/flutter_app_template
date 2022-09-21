@@ -21,7 +21,7 @@ class AltiveThemeData {
       textTheme: defaultThemeData.textTheme.merge(tt),
       primaryTextTheme: defaultThemeData.textTheme.merge(tt),
       elevatedButtonTheme: elevatedButtonTheme(cs),
-      outlinedButtonTheme: outlinedButtonTheme,
+      outlinedButtonTheme: outlinedButtonTheme(cs),
       textButtonTheme: textButtonTheme,
       cardTheme: const CardTheme(elevation: 0),
       extensions: [
@@ -44,7 +44,7 @@ class AltiveThemeData {
       colorScheme: colorScheme,
       textTheme: defaultThemeData.textTheme.merge(tt),
       elevatedButtonTheme: elevatedButtonTheme(cs),
-      outlinedButtonTheme: outlinedButtonTheme,
+      outlinedButtonTheme: outlinedButtonTheme(cs),
       textButtonTheme: textButtonTheme,
       extensions: [
         ThemeDescription(

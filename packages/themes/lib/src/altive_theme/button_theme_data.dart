@@ -10,8 +10,10 @@ ElevatedButtonThemeData elevatedButtonTheme(ColorScheme colorScheme) =>
       ),
     );
 
-OutlinedButtonThemeData get outlinedButtonTheme => OutlinedButtonThemeData(
+OutlinedButtonThemeData outlinedButtonTheme(ColorScheme colorScheme) =>
+    OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
+        side: BorderSide(color: colorScheme.primary),
         minimumSize: const Size.fromHeight(44),
       ),
     );
