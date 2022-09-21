@@ -164,7 +164,7 @@ class FavoriteItemCell extends HookConsumerWidget {
     // ignore: unawaited_futures
     HapticFeedback.selectionClick();
     // URLを開く
-    await launchUrl(url);
+    await launchWeb(url);
   }
 
   /// シェアボタンが押された

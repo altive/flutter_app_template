@@ -44,7 +44,7 @@ class AboutThisAppPage extends HookConsumerWidget {
               title: const Text('サポートのTwitter'),
               trailing: const Icon(Icons.open_in_browser),
               onTap: () {
-                launchUrl(
+                launchWeb(
                   'twitter://user?screen_name=ReStockApp',
                   secondUrl: 'https://twitter.com/ReStockApp',
                 );
@@ -55,7 +55,7 @@ class AboutThisAppPage extends HookConsumerWidget {
               title: const Text('開発者のTwitter'),
               trailing: const Icon(Icons.open_in_browser),
               onTap: () {
-                launchUrl(
+                launchWeb(
                   'twitter://user?screen_name=riscait',
                   secondUrl: 'https://twitter.com/riscait',
                 );
@@ -71,7 +71,7 @@ class AboutThisAppPage extends HookConsumerWidget {
                 if (remoteConfig == null) {
                   return;
                 }
-                await launchUrl(remoteConfig.termsUrl);
+                await launchWeb(remoteConfig.termsUrl);
               },
             ),
             ListCell(
@@ -84,7 +84,7 @@ class AboutThisAppPage extends HookConsumerWidget {
                 if (remoteConfig == null) {
                   return;
                 }
-                await launchUrl(remoteConfig.privacyPoliciesUrl);
+                await launchWeb(remoteConfig.privacyPoliciesUrl);
               },
             ),
             ListCell(

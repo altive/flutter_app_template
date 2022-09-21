@@ -174,7 +174,7 @@ class RecommendCell extends HookConsumerWidget {
 
   /// Amazonで商品ページを開く
   void showAmazonPage(String? url) {
-    launchUrl(url);
+    launchWeb(url);
   }
 
   /// ストック編集（登録）ページに遷移する

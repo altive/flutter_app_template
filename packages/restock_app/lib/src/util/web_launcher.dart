@@ -1,19 +1,22 @@
+import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 import '../utils/utils.dart';
 
 /// 対象のURLをWebViewで開きPushする。セカンドURLも設定できる
-Future<bool> launchUrl(String? url, {String? secondUrl}) async {
-  if (url == null && secondUrl == null) {
+Future<bool> launchWeb(String? url, {String? secondUrl}) async {
+  if (url == null) {
     logger.finer('URLがnullです');
     return false;
   }
-  if (await canLaunchUrlString(url!)) {
-    return launchUrlString(url);
+  final uri = Uri.parse(url);
+  if (await canLaunchUrl(uri)) {
+    return launchUrl(uri);
   } else if (secondUrl != null && await canLaunchUrlString(secondUrl)) {
-    return launchUrlString(secondUrl);
+    final secondUri = Uri.parse(secondUrl);
+    return launchUrl(secondUri);
   } else {
-    logger.warning('開けないURLです：$url, $secondUrl');
+    logger.warning('開けないURLです: $url, $secondUrl');
     return false;
   }
 }

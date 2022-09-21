@@ -14,7 +14,7 @@ class TermsButton extends ConsumerWidget {
       onPressed: () {
         ref
             .read(remoteConfigProvider)
-            .whenData((value) => launchUrl(value!.termsUrl));
+            .whenData((value) => launchWeb(value!.termsUrl));
       },
       child: const Text(
         '利用規約',
@@ -34,7 +34,7 @@ class PrivacyButton extends ConsumerWidget {
       onPressed: () {
         ref
             .read(remoteConfigProvider)
-            .whenData((value) => launchUrl(value!.privacyPoliciesUrl));
+            .whenData((value) => launchWeb(value!.privacyPoliciesUrl));
       },
       child: const Text(
         'プライバシーポリシー',

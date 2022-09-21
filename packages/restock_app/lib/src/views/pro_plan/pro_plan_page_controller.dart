@@ -138,12 +138,12 @@ class ProPlanPageController extends StateNotifier<ProPlanPageState> {
   /// 支払い情報ページを開く
   /// 現在、Appleのみ対応
   Future<void> openBillingPage() async {
-    await launchUrl('https://apps.apple.com/account/billing');
+    await launchWeb('https://apps.apple.com/account/billing');
   }
 
   /// サブスクリプション管理ページを開く
   /// 現在、Appleのみ対応
   Future<void> openSubscriptionManagingPage() async {
-    await launchUrl('https://apps.apple.com/account/subscriptions');
+    await launchWeb('https://apps.apple.com/account/subscriptions');
   }
 }
