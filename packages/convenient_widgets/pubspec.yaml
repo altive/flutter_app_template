@@ -1,5 +1,5 @@
 name: convenient_widgets
-description: A new Flutter package project.
+description: Convenient Widgets.
 publish_to: "none"
 version: 1.0.0
 
@@ -9,11 +9,26 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_svg: ^1.1.5
   simple_logger: ^1.8.0+1
 
 dev_dependencies:
   altive_lints: ^1.5.0
+  build_runner: ^2.2.1
+  flutter_gen_runner: ^4.3.0
   flutter_test:
     sdk: flutter
 
+flutter_gen:
+  output: lib/gen/
+  line_length: 80
+  integrations:
+    flutter_svg: true
+    flare_flutter: false
+    rive: false
+  assets:
+    style: dot-delimiter
+
 flutter:
+  assets:
+    - assets/
