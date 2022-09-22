@@ -67,11 +67,11 @@ class PlaceEditorCard extends HookConsumerWidget {
       return;
     }
     // 保管場所名を更新
-    stockCategories[index] = results.first;
+    final newCategories = List.of(stockCategories)
+      ..removeAt(index)
+      ..insert(index, results.first);
     // 新しいリストで全置換え
-    ref
-        .read(placeEditorPageProvider.notifier)
-        .updateCategories(stockCategories);
+    ref.read(placeEditorPageProvider.notifier).updateCategories(newCategories);
     ScaffoldMessenger.of(context)
       ..removeCurrentSnackBar()
       ..showSnackBar(

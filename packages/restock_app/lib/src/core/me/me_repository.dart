@@ -127,17 +127,18 @@ class MeRepository {
       // 現在のMeドキュメントを取得する
       final snapshot = await transaction.get(meRef);
       // グループ情報を更新したMeEntityを準備する
-      final categories =
+      final currentGroups =
           MeEntity.fromJson(snapshot.data()! as Map<String, Object?>).groups ??
-              []
-            ..insert(position!, newCategory)
-            ..remove(oldCategory);
+              [];
+      final newGroups = List.of(currentGroups)
+        ..insert(position!, newCategory)
+        ..remove(oldCategory);
       // 新しいグループ情報でドキュメントを更新する
       transaction.update(
         meRef,
         updateTimestamp(
           json: <String, Object?>{
-            MeEntityField.groups: categories,
+            MeEntityField.groups: newGroups,
           },
         ),
       );

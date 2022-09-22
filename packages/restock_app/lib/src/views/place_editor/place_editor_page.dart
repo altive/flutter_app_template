@@ -142,8 +142,9 @@ class PlaceEditorPage extends HookConsumerWidget {
     required int newIndex,
     required List<String> categories,
   }) {
+    final newCategories = List.of(categories);
     // 移動前の位置から取り出す
-    final category = categories.removeAt(oldIndex);
+    final category = newCategories.removeAt(oldIndex);
 
     if (oldIndex < newIndex) {
       // 移動前のインデックスより移動後のインデックスが大きい場合、アイテムの長さがリストの保有数よりも1大きくなってしまうため、
@@ -151,13 +152,13 @@ class PlaceEditorPage extends HookConsumerWidget {
       // 例えば、[0]のアイテムを[2]に移動した場合、oldIndex = 0, newIndex = 3となります。
       // newIndexを1引いて[2]とします。
       // 移動後の位置に挿入する
-      categories.insert(newIndex - 1, category);
+      newCategories.insert(newIndex - 1, category);
     } else {
       // 移動後の位置に挿入する
-      categories.insert(newIndex, category);
+      newCategories.insert(newIndex, category);
     }
     // 新しい保管場所リストで更新する
-    ref.read(placeEditorPageProvider.notifier).updateCategories(categories);
+    ref.read(placeEditorPageProvider.notifier).updateCategories(newCategories);
   }
 
   void _pushToProPlanPage(BuildContext context) {
