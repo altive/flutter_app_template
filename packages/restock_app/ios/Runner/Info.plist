@@ -52,9 +52,9 @@
 		<key>LSRequiresIPhoneOS</key>
 		<true/>
 		<key>NSCameraUsageDescription</key>
-		<string>商品やバーコードを撮影するために使用します。</string>
+		<string>ストックや商品バーコードを撮影するために使用します。</string>
 		<key>NSPhotoLibraryUsageDescription</key>
-		<string>写真にアクセスするために必要です。</string>
+		<string>撮影済みのストックの写真を選択するために使用します。</string>
 		<key>UILaunchStoryboardName</key>
 		<string>LaunchScreen</string>
 		<key>UIMainStoryboardFile</key>
