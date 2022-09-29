@@ -26,6 +26,8 @@ class Authenticator {
   final AppleAuthenticator _appleAuth;
   final GoogleAuthenticator _googleAuth;
 
+  User get _user => _auth.currentUser!;
+
   /// 匿名サインイン
   Future<UserCredential> signInAnonymously() async {
     final userCredential = await _auth.signInAnonymously();
@@ -78,16 +80,15 @@ class Authenticator {
 
   /// アカウントを削除する
   Future<void> deleteAccount() async {
-    final user = _auth.currentUser!;
     try {
       // アカウントを削除実行
-      await user.delete();
+      await _user.delete();
     } on FirebaseAuthException catch (exception) {
       switch (exception.code) {
         case FirebaseAuthExceptionCode.requiresRecentLogin:
           // 再認証の後、再度実行する
           await _reauthenticate();
-          await user.delete();
+          await _user.delete();
           break;
         default:
           // 再認証必須以外の例外はRethrowする
@@ -98,19 +99,12 @@ class Authenticator {
 
   /// 再認証を実施する
   Future<UserCredential> _reauthenticate() async {
-    final user = _auth.currentUser!;
-
-    AuthCredential credential;
-
     if (_googleAuth.alreadySigned) {
-      credential = await _googleAuth.retrieveCredential();
+      return _googleAuth.reauthenticate();
     } else if (_appleAuth.alreadySigned) {
-      final userCredential = await _appleAuth.signIn();
-      credential = userCredential.credential!;
+      return _appleAuth.reauthenticate();
     } else {
-      throw Exception('未対応のSigningMethodがあります。');
+      throw UnimplementedError('未対応のSigningMethodがあります。');
     }
-
-    return user.reauthenticateWithCredential(credential);
   }
 }

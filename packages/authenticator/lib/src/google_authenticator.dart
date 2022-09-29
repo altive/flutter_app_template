@@ -3,6 +3,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:riverpod/riverpod.dart';
 
 import '../authenticator.dart';
+import 'authenticatable.dart';
 
 export 'auth_user_provider.dart';
 
@@ -10,39 +11,48 @@ final googleAuthenticatorProvider = Provider<GoogleAuthenticator>((ref) {
   return GoogleAuthenticator(ref.watch(firebaseAuthProvider));
 });
 
-class GoogleAuthenticator {
+class GoogleAuthenticator implements Authenticatable {
   GoogleAuthenticator(this._auth);
 
   final FirebaseAuth _auth;
+
   final GoogleSignIn _googleSignIn = GoogleSignIn();
 
-  /// 既にGoogleでサインイン済みなら`true`
+  User get _user => _auth.currentUser!;
+
+  @override
   bool get alreadySigned => _auth.currentUser?.hasGoogleSigning ?? false;
 
+  @override
   Future<UserCredential> signIn() async {
-    final credential = await retrieveCredential();
+    final credential = await _retrieveCredential();
     final userCredential = await _auth.signInWithCredential(credential);
     return userCredential;
   }
 
+  @override
+  Future<UserCredential> reauthenticate() async {
+    final credential = await _retrieveCredential();
+    return _user.reauthenticateWithCredential(credential);
+  }
+
+  @override
   Future<UserCredential> link() async {
-    final user = _auth.currentUser!;
     final provider = GoogleAuthProvider();
-    return user.linkWithProvider(provider);
+    return _user.linkWithProvider(provider);
   }
 
-  /// Googleアカウントをリンク解除
+  @override
   Future<User> unlink() async {
-    final user = _auth.currentUser!;
-    return user.unlink(SigningMethod.google.providerId);
+    return _user.unlink(SigningMethod.google.providerId);
   }
 
-  Future<OAuthCredential> retrieveCredential() async {
-    final googleUser = await _googleSignIn.signIn();
-    if (googleUser == null) {
+  Future<OAuthCredential> _retrieveCredential() async {
+    final googleAccount = await _googleSignIn.signIn();
+    if (googleAccount == null) {
       throw FirebaseAuthException(code: 'cancel');
     }
-    final googleAuth = await googleUser.authentication;
+    final googleAuth = await googleAccount.authentication;
     final credential = GoogleAuthProvider.credential(
       accessToken: googleAuth.accessToken,
       idToken: googleAuth.idToken,

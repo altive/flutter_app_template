@@ -3,39 +3,48 @@ import 'package:flutter/foundation.dart';
 import 'package:riverpod/riverpod.dart';
 
 import '../authenticator.dart';
+import 'authenticatable.dart';
 
 final appleAuthenticatorProvider = Provider<AppleAuthenticator>((ref) {
   return AppleAuthenticator(ref.watch(firebaseAuthProvider));
 });
 
-class AppleAuthenticator {
+class AppleAuthenticator implements Authenticatable {
   AppleAuthenticator(this._auth);
 
   final FirebaseAuth _auth;
 
+  final authProvider = AppleAuthProvider();
+
+  User get _user => _auth.currentUser!;
+
   /// 既にAppleでサインイン済みなら`true`
+  @override
   bool get alreadySigned => _auth.currentUser?.hasAppleSigning ?? false;
 
+  @override
   Future<UserCredential> signIn() async {
-    final appleProvider = AppleAuthProvider();
     if (kIsWeb) {
-      final userCredential = await _auth.signInWithPopup(appleProvider);
+      final userCredential = await _auth.signInWithPopup(authProvider);
       return userCredential;
     } else {
-      final userCredential = await _auth.signInWithProvider(appleProvider);
+      final userCredential = await _auth.signInWithProvider(authProvider);
       return userCredential;
     }
   }
 
-  Future<UserCredential> link() async {
-    final user = _auth.currentUser!;
-    final provider = AppleAuthProvider();
-    return user.linkWithProvider(provider);
+  @override
+  Future<UserCredential> reauthenticate() async {
+    return _auth.currentUser!.reauthenticateWithProvider(authProvider);
   }
 
-  /// Apple IDをリンク解除
+  @override
+  Future<UserCredential> link() async {
+    return _user.linkWithProvider(authProvider);
+  }
+
+  @override
   Future<User> unlink() async {
-    final user = _auth.currentUser!;
-    return user.unlink(SigningMethod.apple.providerId);
+    return _user.unlink(SigningMethod.apple.providerId);
   }
 }
