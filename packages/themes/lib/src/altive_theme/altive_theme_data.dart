@@ -24,6 +24,15 @@ class AltiveThemeData {
       outlinedButtonTheme: outlinedButtonTheme(cs),
       textButtonTheme: textButtonTheme,
       cardTheme: const CardTheme(elevation: 0),
+      inputDecorationTheme: const InputDecorationTheme(
+        contentPadding: EdgeInsets.symmetric(horizontal: 12),
+        border: OutlineInputBorder(
+          borderSide: BorderSide.none,
+          borderRadius: BorderRadius.all(Radius.circular(12)),
+        ),
+        filled: true,
+        fillColor: Colors.white54,
+      ),
       extensions: [
         ThemeDescription(
           title: 'Light',
