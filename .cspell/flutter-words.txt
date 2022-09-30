@@ -1,6 +1,7 @@
 # Custom Dictionary Words
 appbar
 appbundle
+Checkmark
 codecov
 codeowners
 cupertino

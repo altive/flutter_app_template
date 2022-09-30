@@ -1,7 +1,7 @@
 name: restock
 description: ReStock
 publish_to: "none"
-version: 2.10.1+92
+version: 2.10.2+93
 
 environment:
   sdk: ">=2.18.0 <3.0.0"
