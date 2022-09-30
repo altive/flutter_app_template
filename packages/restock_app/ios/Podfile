@@ -6,8 +6,10 @@ ENV['COCOAPODS_DISABLE_STATS'] = 'true'
 
 project 'Runner', {
   'Debug' => :debug,
-  # Flavor対応で追加指定
+  # Flavor対応で追加
   'Debug-Development' => :debug,
+  'Debug-Production' => :debug,
+  # 追加ここまで
   'Profile' => :release,
   'Release' => :release,
 }
