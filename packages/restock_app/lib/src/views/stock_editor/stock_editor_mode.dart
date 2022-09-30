@@ -26,7 +26,7 @@ extension StockEditorModeExt on StockEditorMode {
   bool get isCreaterFromAmazon => this == StockEditorMode.creationWithAmazon;
   bool get isCreaterFromPhoto => this == StockEditorMode.creationWithPhoto;
   bool get isUpdater => this == StockEditorMode.update;
-  bool get isDuplicater => this == StockEditorMode.duplicate;
+  bool get isDuplicator => this == StockEditorMode.duplicate;
 }
 
 extension StockEditorModeNullableExt on StockEditorMode? {

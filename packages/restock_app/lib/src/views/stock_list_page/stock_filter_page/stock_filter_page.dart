@@ -168,7 +168,7 @@ class _SorterChips extends StatelessWidget {
   final String firstSelectionLabel;
   final String secondSelectionLabel;
 
-  static const spaser = SizedBox(width: 32);
+  static const spacer = SizedBox(width: 32);
 
   @override
   Widget build(BuildContext context) {
@@ -182,14 +182,14 @@ class _SorterChips extends StatelessWidget {
             title,
             style: Theme.of(context).textTheme.caption,
           ),
-          spaser,
-          _FiterChip(
+          spacer,
+          _FilterChip(
             isSelected: is1stSelected,
             label: firstSelectionLabel,
             onSelected: on1stSelected,
           ),
           const SizedBox(width: 8),
-          _FiterChip(
+          _FilterChip(
             isSelected: is2ndSelected,
             label: secondSelectionLabel,
             onSelected: on2ndSelected,
@@ -235,13 +235,13 @@ class _FilterChips extends StatelessWidget {
             style: Theme.of(context).textTheme.caption,
           ),
           gap,
-          _FiterChip(
+          _FilterChip(
             isSelected: state == FilteringState.yes,
             label: yesText,
             onSelected: onYesSelected,
           ),
           const SizedBox(width: 8),
-          _FiterChip(
+          _FilterChip(
             isSelected: state == FilteringState.no,
             label: noText,
             onSelected: onNoSelected,
@@ -252,8 +252,8 @@ class _FilterChips extends StatelessWidget {
   }
 }
 
-class _FiterChip extends StatelessWidget {
-  const _FiterChip({
+class _FilterChip extends StatelessWidget {
+  const _FilterChip({
     required this.isSelected,
     required this.label,
     required this.onSelected,
@@ -269,13 +269,9 @@ class _FiterChip extends StatelessWidget {
       selected: isSelected,
       avatar: Icon(
         Icons.circle,
-        color: isSelected
-            ? Theme.of(context).colorScheme.primary
-            : Theme.of(context).scaffoldBackgroundColor,
+        color: Theme.of(context).colorScheme.primary,
       ),
       label: Text(label),
-      selectedColor: Theme.of(context).colorScheme.primary,
-      backgroundColor: Theme.of(context).colorScheme.onBackground.withAlpha(40),
       onSelected: onSelected,
     );
   }

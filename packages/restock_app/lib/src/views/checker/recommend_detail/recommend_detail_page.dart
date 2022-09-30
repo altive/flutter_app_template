@@ -1,6 +1,7 @@
 import 'package:amazon_paapi/amazon_paapi.dart';
 import 'package:convenient_widgets/convenient_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../common_widgets/loading_indicator.dart';
@@ -155,6 +156,7 @@ class RecommendCell extends HookConsumerWidget {
                 onPressed: () => showAmazonPage(item!.detailPageUrl),
               ),
             ),
+            const Gap(16),
             Expanded(
               child: ElevatedButton(
                 child: const Text('登録'),

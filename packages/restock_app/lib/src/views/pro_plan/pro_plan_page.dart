@@ -54,18 +54,12 @@ class _Card extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-      child: DecoratedBox(
-        decoration: BoxDecoration(
-          color: Theme.of(context).cardColor,
-          borderRadius: BorderRadius.circular(16),
-        ),
-        child: Card(
-          elevation: 0,
-          margin: const EdgeInsets.symmetric(vertical: 32, horizontal: 16),
-          child: child,
-        ),
+    return Card(
+      margin: const EdgeInsets.all(16),
+      color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: child,
       ),
     );
   }

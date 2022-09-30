@@ -55,16 +55,10 @@ class WordChip extends HookConsumerWidget {
         label,
         style: const TextStyle(fontSize: 12),
       ),
-      backgroundColor: Theme.of(context).cardColor,
-      shape: const StadiumBorder(
-        side: BorderSide(
-          color: Colors.black12,
-        ),
-      ),
       onPressed: () async {
         final searchEntranceController =
             ref.read(searchEntranceProvider.notifier)..editSearchText(label);
-        final params = searchEntranceController.genetateParams(
+        final params = searchEntranceController.generateParams(
           category: isGlossary
               ? SearchItemsCategory.grocery
               : SearchItemsCategory.all,

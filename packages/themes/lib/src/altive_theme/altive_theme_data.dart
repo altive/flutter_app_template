@@ -17,21 +17,28 @@ class AltiveThemeData {
     final defaultThemeData = ThemeData.light();
     return defaultThemeData.copyWith(
       useMaterial3: true,
-      colorScheme: colorScheme,
+      colorScheme: cs,
       textTheme: defaultThemeData.textTheme.merge(tt),
       primaryTextTheme: defaultThemeData.textTheme.merge(tt),
       elevatedButtonTheme: elevatedButtonTheme(cs),
       outlinedButtonTheme: outlinedButtonTheme(cs),
       textButtonTheme: textButtonTheme,
       cardTheme: const CardTheme(elevation: 0),
-      inputDecorationTheme: const InputDecorationTheme(
-        contentPadding: EdgeInsets.symmetric(horizontal: 12),
-        border: OutlineInputBorder(
+      inputDecorationTheme: InputDecorationTheme(
+        contentPadding: const EdgeInsets.symmetric(horizontal: 12),
+        border: const OutlineInputBorder(
           borderSide: BorderSide.none,
           borderRadius: BorderRadius.all(Radius.circular(12)),
         ),
         filled: true,
-        fillColor: Colors.white54,
+        fillColor: cs.onBackground.withOpacity(0.1),
+      ),
+      chipTheme: ChipThemeData(
+        side: const BorderSide(color: Colors.black12),
+        shape: const StadiumBorder(),
+        backgroundColor: cs.primary.withOpacity(0.2),
+        checkmarkColor: cs.onPrimary,
+        selectedColor: cs.primary,
       ),
       extensions: [
         ThemeDescription(
@@ -50,11 +57,27 @@ class AltiveThemeData {
     final defaultThemeData = ThemeData.dark();
     return defaultThemeData.copyWith(
       useMaterial3: true,
-      colorScheme: colorScheme,
+      colorScheme: cs,
       textTheme: defaultThemeData.textTheme.merge(tt),
       elevatedButtonTheme: elevatedButtonTheme(cs),
       outlinedButtonTheme: outlinedButtonTheme(cs),
       textButtonTheme: textButtonTheme,
+      inputDecorationTheme: InputDecorationTheme(
+        contentPadding: const EdgeInsets.symmetric(horizontal: 12),
+        border: const OutlineInputBorder(
+          borderSide: BorderSide.none,
+          borderRadius: BorderRadius.all(Radius.circular(12)),
+        ),
+        filled: true,
+        fillColor: cs.onBackground.withOpacity(0.1),
+      ),
+      chipTheme: ChipThemeData(
+        side: const BorderSide(color: Colors.black12),
+        shape: const StadiumBorder(),
+        backgroundColor: cs.primary.withOpacity(0.2),
+        checkmarkColor: cs.onPrimary,
+        selectedColor: cs.primary,
+      ),
       extensions: [
         ThemeDescription(
           title: 'Dark',

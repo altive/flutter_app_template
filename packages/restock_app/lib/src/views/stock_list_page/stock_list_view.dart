@@ -51,11 +51,11 @@ class StockListView extends HookConsumerWidget {
     }
 
     if (filteredStocks.isEmpty) {
-      return const NoFindedView(label: '該当するストックがありません。\n表示条件を変えてお試しください。');
+      return const NotFoundView(label: '該当するストックがありません。\n表示条件を変えてお試しください。');
     }
 
     if (searchedStocks.isEmpty) {
-      return const NoFindedView(label: '該当するストックがありません。\n検索ワードを変えてお試しください。');
+      return const NotFoundView(label: '該当するストックがありません。\n検索ワードを変えてお試しください。');
     }
 
     switch (displayMode) {
@@ -166,8 +166,8 @@ class _GridView extends StatelessWidget {
 }
 
 /// コンテンツが見つからない時の表示
-class NoFindedView extends StatelessWidget {
-  const NoFindedView({
+class NotFoundView extends StatelessWidget {
+  const NotFoundView({
     required this.label,
   });
 
@@ -230,15 +230,18 @@ class EmptyView extends ConsumerWidget {
           const SizedBox(height: 32),
           Text(isCategory ? 'このグループにストックはありません' : 'まだストックがありません'),
           if (isCategory)
-            ElevatedButton(
-              child: const Text('グループの名前を変更する'),
-              onPressed: () => ref
-                  .read(stockListPageControllerProvider.notifier)
-                  .updateCategory(
-                    context: context,
-                    currentCategory: category,
-                    position: index,
-                  ),
+            Padding(
+              padding: const EdgeInsets.only(top: 16),
+              child: ElevatedButton(
+                child: const Text('グループの名前を変更する'),
+                onPressed: () => ref
+                    .read(stockListPageControllerProvider.notifier)
+                    .updateCategory(
+                      context: context,
+                      currentCategory: category,
+                      position: index,
+                    ),
+              ),
             ),
         ],
       ),

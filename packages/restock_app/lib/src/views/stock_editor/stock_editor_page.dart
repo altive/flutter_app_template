@@ -64,32 +64,35 @@ class StockEditorPage extends HookConsumerWidget {
                   StockEditorCountField(numberFocus: _numberFocus),
                   spacer,
                   // 複製モード時は期限の種類を再選択させない
-                  if (!mode.isDuplicater)
+                  if (!mode.isDuplicator)
                     const StockEditorExpirationSelection(),
                   Visibility(
                     visible:
                         state.expirationDateType != ExpirationDateType.none &&
-                            !mode.isDuplicater,
+                            !mode.isDuplicator,
                     child: divider,
                   ),
                   const ExpirationDateForm(),
                   // 複製モード時はカテゴリーを再選択させない
-                  if (!mode.isDuplicater) spacer,
-                  if (!mode.isDuplicater) const StockEditorCategorySelection(),
+                  if (!mode.isDuplicator) spacer,
+                  if (!mode.isDuplicator) const StockEditorCategorySelection(),
                   const StockEditorPlaceField(),
                   divider,
                   const MemoForm(),
                   spacer,
                   const StockEditorNotificationTile(),
-                  ElevatedButton(
-                    onPressed: validate(state)
-                        ? () => _popAndSave(
-                              ref: ref,
-                              context: context,
-                              isDuplicater: mode.isDuplicater,
-                            )
-                        : null,
-                    child: const Text('保存'),
+                  Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: ElevatedButton(
+                      onPressed: validate(state)
+                          ? () => _popAndSave(
+                                ref: ref,
+                                context: context,
+                                isDuplicator: mode.isDuplicator,
+                              )
+                          : null,
+                      child: const Text('保存'),
+                    ),
                   ),
                 ],
               ),
@@ -110,10 +113,10 @@ class StockEditorPage extends HookConsumerWidget {
   Future<void> _popAndSave({
     required WidgetRef ref,
     required BuildContext context,
-    required bool isDuplicater,
+    required bool isDuplicator,
   }) async {
     await ref.read(stockEditorPageControllerProvider.notifier).saveStockItem();
-    if (isDuplicater) {
+    if (isDuplicator) {
       // ストックリスト画面まで一気に戻る
       Navigator.of(context).pop();
       return Navigator.of(context).pop();

@@ -13,6 +13,7 @@ ElevatedButtonThemeData elevatedButtonTheme(ColorScheme colorScheme) =>
 OutlinedButtonThemeData outlinedButtonTheme(ColorScheme colorScheme) =>
     OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
+        backgroundColor: colorScheme.background,
         side: BorderSide(color: colorScheme.primary),
         minimumSize: const Size.fromHeight(44),
       ),

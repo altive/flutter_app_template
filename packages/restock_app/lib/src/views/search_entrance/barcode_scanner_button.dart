@@ -44,7 +44,7 @@ class BarcodeScannerButton extends HookConsumerWidget {
       final controller = ref.read(searchEntranceProvider.notifier)
         ..editSearchText(barcodeString);
       final params =
-          controller.genetateParams(category: SearchItemsCategory.all);
+          controller.generateParams(category: SearchItemsCategory.all);
       // 検索結果画面へ遷移
       ref.read(searchParamProvider.state).state = params;
       await Navigator.of(context).pushNamed(

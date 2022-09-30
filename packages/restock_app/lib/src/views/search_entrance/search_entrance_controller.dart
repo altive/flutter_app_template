@@ -78,7 +78,7 @@ class SearchEntranceController extends StateNotifier<SearchEntranceState> {
   }
 
   /// 商品検索のためのParametersを返却する
-  PaapiSearchItemsParameters genetateParams({
+  PaapiSearchItemsParameters generateParams({
     /// 検索対象カテゴリの指定（外部から指定された場合はstateを使用しない）
     SearchItemsCategory? category,
   }) {

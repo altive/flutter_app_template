@@ -42,7 +42,6 @@ class GoodsSearchArea extends HookConsumerWidget {
             ],
           ),
           Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Form(
                 key: _formKey,
@@ -94,7 +93,7 @@ class GoodsSearchArea extends HookConsumerWidget {
                 ),
                 style: ElevatedButton.styleFrom(
                   visualDensity: VisualDensity.compact,
-                  padding: const EdgeInsets.symmetric(vertical: 20),
+                  padding: const EdgeInsets.all(16),
                   shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(
                       Radius.circular(8),
@@ -120,7 +119,7 @@ class GoodsSearchArea extends HookConsumerWidget {
   }) async {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
-      final params = searchEntranceController.genetateParams();
+      final params = searchEntranceController.generateParams();
       // 検索結果画面へ遷移
       ref.read(searchParamProvider.state).state = params;
       await Navigator.of(context).pushNamed(

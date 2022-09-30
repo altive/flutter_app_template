@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../core/revenue/revenue.dart';
@@ -25,20 +26,24 @@ class ProPlanButtonsCard extends HookConsumerWidget {
           ),
         ),
         const SizedBox(height: 16),
-        if (pageState.monthlyProPlanInformation != null)
+        if (pageState.monthlyProPlanInformation != null) ...[
+          const Gap(8),
           ElevatedButton(
             onPressed:
                 // すでにProプランの場合はボタン非活性
                 isProPlanUser ? null : () => _purchaseMonthly(ref, context),
             child: Text('${pageState.monthlyProPlanInformation!.price} / 月'),
           ),
-        if (pageState.annualProPlanInformation != null)
+        ],
+        if (pageState.annualProPlanInformation != null) ...[
+          const Gap(8),
           ElevatedButton(
             onPressed:
                 // すでにProプランの場合はボタン非活性
                 isProPlanUser ? null : () => _purchaseAnnual(ref, context),
             child: Text('${pageState.annualProPlanInformation!.price} / 年'),
           ),
+        ],
         const SizedBox(height: 16),
         Text(
           '購入済の方はこちら',
