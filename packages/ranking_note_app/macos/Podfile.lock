@@ -21,7 +21,7 @@ PODS:
   - Firebase/Storage (9.4.0):
     - Firebase/CoreOnly
     - FirebaseStorage (~> 9.4.0)
-  - firebase_auth (3.9.0):
+  - firebase_auth (3.10.0):
     - Firebase/Auth (~> 9.4.0)
     - Firebase/CoreOnly (~> 9.4.0)
     - firebase_core
@@ -228,7 +228,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   cloud_firestore: c949115df4939293e6e1371b24bc7e7e426e6e51
   Firebase: 7703fc4022824b6d6db1bf7bea58d13b8e17ec46
-  firebase_auth: a77f136d11fc138ebba6a2cbca4f75f2f4648df2
+  firebase_auth: 822c312d6dd2fe4b1b312483d17563ad6a6bd1c2
   firebase_core: 822a1076483bf9764284322c9310daa98e1e6817
   firebase_messaging: b76079f26d7a22470b2de423198a0cabf98ebf03
   firebase_remote_config: 141003b7fc98bfa8012f6f5279420c08c5776feb

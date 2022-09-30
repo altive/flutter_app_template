@@ -50,7 +50,7 @@ PODS:
     - Firebase/Analytics (= 9.4.0)
     - firebase_core
     - Flutter
-  - firebase_auth (3.9.0):
+  - firebase_auth (3.10.0):
     - Firebase/Auth (= 9.4.0)
     - firebase_core
     - Flutter
@@ -400,7 +400,7 @@ SPEC CHECKSUMS:
   device_info: d7d233b645a32c40dfdc212de5cf646ca482f175
   Firebase: 7703fc4022824b6d6db1bf7bea58d13b8e17ec46
   firebase_analytics: 63825a37b8ebabd44189b2c04f44ecd864554ebc
-  firebase_auth: be7aadf714780bfb559e9088a1d4329b1c569761
+  firebase_auth: 6fd4ee7cf84c121348fa34df22a07b64706cdf4d
   firebase_core: 8e500850dd138c269d197c8dfca3ae886fa3b6f2
   firebase_crashlytics: 4414603468b8f1514eb246de097f9101c36448db
   firebase_dynamic_links: 96a1892d35fcbc04e62dd77b2700dbe74a33110a
@@ -451,6 +451,6 @@ SPEC CHECKSUMS:
   TOCropViewController: edfd4f25713d56905ad1e0b9f5be3fbe0f59c863
   url_launcher_ios: 839c58cdb4279282219f5e248c3321761ff3c4de
 
-PODFILE CHECKSUM: 924a155a4209f93a53728c88061111334cafe9cf
+PODFILE CHECKSUM: 9ac46e67c306a5caa7fc715c3020c0b552b19766
 
 COCOAPODS: 1.11.3

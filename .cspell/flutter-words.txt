@@ -18,6 +18,7 @@ ltrb
 LTWH
 mockito
 nullsafety
+Podfile
 postbootstrap
 postclean
 pubspec

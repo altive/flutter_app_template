@@ -13,14 +13,14 @@ dependencies:
     path: ../authenticator
   awaitable_button: ^1.2.0
   cached_network_image: ^3.2.2
-  cloud_firestore: ^3.4.9
+  cloud_firestore: ^3.4.6
   collection: ^1.16.0
   cupertino_icons: ^1.0.5
-  firebase_core: ^1.22.0
+  firebase_core: ^1.21.1
   firebase_dynamic_links: ^4.3.6
   firebase_performance: ^0.8.3
   firebase_remote_config: ^2.0.17
-  firebase_storage: ^10.3.9
+  firebase_storage: ^10.3.7
   flutter:
     sdk: flutter
   flutter_dotenv: ^5.0.2
