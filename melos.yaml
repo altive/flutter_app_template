@@ -1,17 +1,21 @@
 name: flutter_app_template
 repository: https://github.com/altive/flutter_app_template
 sdkPath: .fvm/flutter_sdk
+
 packages:
   - packages/**
+
 command:
   bootstrap:
     usePubspecOverrides: true
     runPubGetInParallel: true
   version:
     branch: main
+
 scripts:
   postclean: >
     melos exec --flutter -- "flutter clean"
+
   postbootstrap: >
     melos exec --flutter --dir-exists=lib/l10n -- "flutter gen-l10n"
 
@@ -68,10 +72,29 @@ scripts:
       dir-exists: lib
       depends-on: "build_runner"
 
-  deploy:prod:
+  pod:all:
     run: |
-      melos run build:prod:android
-      melos run upload:prod:ios
+      melos run pod:ios --no-select
+      melos run pod:macos --no-select
+    description: Run all pod install.
+
+  pod:ios:
+    run: |
+      melos exec -- \
+        "cd ios && pod install"
+    description: Run pod install on iOS.
+    select-package:
+      dir-exists: [lib, ios]
+      file-exists: "ios/Podfile"
+
+  pod:macos:
+    run: |
+      melos exec -- \
+        "cd macos && pod install"
+    description: Run pod install on macOS.
+    select-package:
+      dir-exists: [lib, macos]
+      file-exists: "macos/Podfile"
 
   build:prod:android:
     run: |
@@ -106,19 +129,3 @@ scripts:
     run: |
       melos exec -c 1 --scope="restock" --flutter --private -- \
         flutter build ipa --flavor production --dart-define=FLAVOR=production --export-options-plist="ios/prod/ExportOptions.plist" --no-tree-shake-icons
-
-  # use fastlane
-  submit:all:restock:
-    run: |
-      melos run submit:ios:restock
-      melos run submit:android:restock
-
-  submit:android:restock:
-    run: |
-      melos exec -c 1 --scope="restock" --flutter --private -- \
-        "cd android && rbenv exec bundle update && rbenv exec bundle install && bundle exec fastlane submit"
-
-  submit:ios:restock:
-    run: |
-      melos exec -c 1 --scope="restock" --flutter --private -- \
-        "cd ios && rbenv exec bundle update && rbenv exec bundle install && bundle exec fastlane submit"
