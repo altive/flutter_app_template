@@ -55,17 +55,24 @@ class StockListPage extends HookConsumerWidget {
       [scrollController],
     );
 
+    useEffect(
+      () {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          // 必要なダイアログを表示させる
+          ref
+              .read(stockListPageControllerProvider.notifier)
+              .showDialogsIfNeeded(context);
+        });
+        return null;
+      },
+      const [],
+    );
+
     final stockCategories = ref.watch(stockCategoriesProvider);
 
     if (stockCategories == null) {
       return const SizedBox();
     }
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      // 必要なダイアログを表示させる
-      ref
-          .read(stockListPageControllerProvider.notifier)
-          .showDialogsIfNeeded(context);
-    });
 
     return DefaultTabController(
       length: stockCategories.length + 1,

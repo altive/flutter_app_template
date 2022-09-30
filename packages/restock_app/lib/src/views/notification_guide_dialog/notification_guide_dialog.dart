@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:notification_sender/notification_sender.dart';
+import 'package:notification_receiver/notification_receiver.dart';
 
 import '../../utils/utils.dart';
 
@@ -55,12 +55,11 @@ class NotificationGuideDialog extends ConsumerWidget {
           onPressed: () async {
             logger.finest('訴求ダイアログの通知を受け取るアクションが選択されました');
             // iOSの通知の許可を得るためのOS標準ダイアログを表示する
-            final result = await ref
-                .read(notificationSenderProvider.notifier)
-                .requestPermissionForApple();
-            logger.fine('通知の許可： $result');
+            await ref
+                .read(notificationSettingsProvider.notifier)
+                .requestPermission();
             // ダイアログを閉じて、許可/拒否の結果を伝える
-            Navigator.of(context).pop(result);
+            Navigator.of(context).pop();
           },
         ),
       ],

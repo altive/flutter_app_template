@@ -184,7 +184,7 @@ class StockListPageController extends StateNotifier<bool> {
     logger.info('評価された！$message');
   }
 
-  Future<void> updageCategory({
+  Future<void> updateCategory({
     required BuildContext context,
     required String? currentCategory,
     required int? position,

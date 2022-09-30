@@ -2,7 +2,6 @@ import 'package:convenient_widgets/convenient_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:notification_receiver/notification_receiver.dart';
 import 'package:notification_sender/notification_sender.dart';
 
 import '../../common_widgets/loading_indicator.dart';
@@ -29,8 +28,6 @@ class MainStackView extends HookConsumerWidget {
       () {
         // 初回表示時のみ実行
         dynamicLinks.navigateDynamicLinksIfNeeded();
-        // 通知の権限をリクエストする（iOSではシステムダイアログが表示される）
-        ref.read(notificationSettingsProvider.notifier).requestPermission();
         // ローカル通知の初期化を行う。
         ref.read(notificationSenderProvider.notifier).initialize(
               androidDefaultIcon: 'app_icon',

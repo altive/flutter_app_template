@@ -234,7 +234,7 @@ class EmptyView extends ConsumerWidget {
               child: const Text('グループの名前を変更する'),
               onPressed: () => ref
                   .read(stockListPageControllerProvider.notifier)
-                  .updageCategory(
+                  .updateCategory(
                     context: context,
                     currentCategory: category,
                     position: index,
