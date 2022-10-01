@@ -15,8 +15,11 @@ final uidProvider = Provider(
 );
 
 /// Return whether the [User] is a signed-in user or not as [AsyncValue]
-final isSignedInProvider = Provider(
-  (ref) => ref.watch(authUserProvider).whenData((user) => user != null),
+final isSignedInProvider = FutureProvider(
+  (ref) async {
+    final user = await ref.watch(authUserProvider.future);
+    return user != null;
+  },
 );
 
 /// Returns whether or not [User] is an anonymous authenticated user.

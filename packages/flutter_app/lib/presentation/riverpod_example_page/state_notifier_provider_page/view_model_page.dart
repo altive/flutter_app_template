@@ -7,15 +7,15 @@ import 'entities/home_page_state.dart';
 
 final homePageNotifierProvider =
     StateNotifierProvider.autoDispose<HomePageNotifier, HomePageState>((ref) {
-  // Reader を渡しています（不要なら省略可能）
-  return HomePageNotifier(ref.read);
+  // 他のProviderにアクセスするためのRef（参照）を渡しています（不要なら省略可能）
+  return HomePageNotifier(ref);
 });
 
 class HomePageNotifier extends StateNotifier<HomePageState> {
-  HomePageNotifier(this._read) : super(const HomePageState());
+  HomePageNotifier(this._ref) : super(const HomePageState());
 
-  // Reader 型をフィールドに持っておくことで、HomePageNotifierから他のProviderを読み取ることができるようになります
-  final Reader _read;
+  // Refをフィールドに持っておくことで、HomePageNotifierから他のProviderにアクセスできる
+  final Ref _ref;
 
   // メインカウントを+1する
   void increaseMainCount() {
