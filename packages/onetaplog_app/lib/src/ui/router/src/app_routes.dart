@@ -73,9 +73,9 @@ class NewOnetapLogRoute extends GoRouteData {
   final TopLevelTab tab;
 
   @override
-  Widget build(BuildContext context) => const NewOnetapLogPage();
-  @override
   Page<void> buildPageWithState(BuildContext context, GoRouterState state) {
+    // `showModalBottomSheet` を再現できる方法が実装されたら置き換えたい
+    // https://github.com/flutter/flutter/issues/104193
     return const MaterialPage(
       fullscreenDialog: true,
       child: NewOnetapLogPage(),

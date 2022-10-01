@@ -10,7 +10,8 @@ class NewOnetapLogPageAppBar extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: const Text('NewOnetapLog'),
+      title: const Text('New log'),
+      actions: [TextButton(onPressed: () {}, child: const Text('完了'))],
     );
   }
 }
