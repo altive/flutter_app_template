@@ -7,11 +7,11 @@ import '../../util/providers/shared_preferences_provider.dart';
 const _themePrefsKey = 'selectedThemeKey';
 
 final themeSelectorProvider = StateNotifierProvider<ThemeSelector, ThemeMode>(
-  (ref) => ThemeSelector(ref.read),
+  ThemeSelector.new,
 );
 
 class ThemeSelector extends StateNotifier<ThemeMode> {
-  ThemeSelector(this._read) : super(ThemeMode.system) {
+  ThemeSelector(this._ref) : super(ThemeMode.system) {
     /// `SharedPreferences` を使用して、記憶しているテーマがあれば取得して反映する。
     final themeIndex = _prefs.getInt(_themePrefsKey);
     if (themeIndex == null) {
@@ -24,10 +24,10 @@ class ThemeSelector extends StateNotifier<ThemeMode> {
     state = themeMode;
   }
 
-  final Reader _read;
+  final Ref _ref;
 
   /// 選択したテーマを保存するためのローカル保存領域
-  late final _prefs = _read(sharedPreferencesProvider);
+  late final _prefs = _ref.read(sharedPreferencesProvider);
 
   /// テーマの変更と保存を行う
   Future<void> changeAndSave(ThemeMode theme) async {

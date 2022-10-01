@@ -20,22 +20,22 @@ import 'stock_list_sort_selection.dart';
 
 final stockListPageControllerProvider =
     StateNotifierProvider<StockListPageController, bool>(
-  (ref) => StockListPageController(ref.read),
+  StockListPageController.new,
 );
 
 class StockListPageController extends StateNotifier<bool> {
   // ----- Constructor ----- //
-  StockListPageController(this._read) : super(false) {
+  StockListPageController(this._ref) : super(false) {
     migrate();
   }
 
-  final Reader _read;
+  final Ref _ref;
 
   SharedPreferencesService get _prefsController =>
-      _read(sharedPreferencesServiceProvider);
+      _ref.read(sharedPreferencesServiceProvider);
 
-  MeRepository? get _meRepository => _read(meRepositoryProvider);
-  MeValidator get _meValidator => _read(meValidatorProvider);
+  MeRepository? get _meRepository => _ref.read(meRepositoryProvider);
+  MeValidator get _meValidator => _ref.read(meValidatorProvider);
 
   Future<void> migrate() async {
     // 既存ユーザー向けのマイグレーション処理
@@ -64,37 +64,38 @@ class StockListPageController extends StateNotifier<bool> {
   /// 並び替えの方法を記憶する
   void saveSelectedSorting(StockSortSelection sorting) {
     _prefsController.saveStockSorting(sorting: sorting);
-    _read(stockSortingProvider.notifier).state = sorting;
+    _ref.read(stockSortingProvider.notifier).state = sorting;
   }
 
   /// 在庫の絞り込みを記憶する
   void saveFilteringInventory(FilteringState value) {
-    final currentState = _read(stockFilterProvider);
+    final currentState = _ref.read(stockFilterProvider);
     _prefsController.saveStockFilteringInventory(value);
-    _read(stockFilterProvider.notifier).state =
+    _ref.read(stockFilterProvider.notifier).state =
         currentState.copyWith(inventory: value);
   }
 
   /// 期限の絞り込みを記憶する
   void saveFilteringExpiration(FilteringState value) {
-    final currentState = _read(stockFilterProvider);
+    final currentState = _ref.read(stockFilterProvider);
     _prefsController.saveStockFilteringExpiration(value);
-    _read(stockFilterProvider.notifier).state =
+    _ref.read(stockFilterProvider.notifier).state =
         currentState.copyWith(expiration: value);
   }
 
   /// 商品の種類の絞り込みを記憶する
   void saveFilteringCategory(FilteringState value) {
-    final currentState = _read(stockFilterProvider);
+    final currentState = _ref.read(stockFilterProvider);
     _prefsController.saveStockFilteringCategory(value);
-    _read(stockFilterProvider.notifier).state =
+    _ref.read(stockFilterProvider.notifier).state =
         currentState.copyWith(category: value);
   }
 
   /// 絞り込み設定をリセットする
   void resetFilter() {
     _prefsController.resetStockFilter();
-    _read(stockFilterProvider.notifier).state = const HomeStockFilterState();
+    _ref.read(stockFilterProvider.notifier).state =
+        const HomeStockFilterState();
   }
 
   /// 複数のダイアログの表示を制御する

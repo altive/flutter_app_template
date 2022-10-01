@@ -19,6 +19,10 @@ void main() {
         final firebaseMessaging = MockFirebaseMessaging();
         final container = _createContainer(messaging: firebaseMessaging);
 
+        when(firebaseMessaging.getNotificationSettings()).thenAnswer(
+          (_) async => _notificationSettings00,
+        );
+
         when(firebaseMessaging.requestPermission()).thenAnswer(
           (_) async => _notificationSettings01,
         );
@@ -28,7 +32,7 @@ void main() {
 
         // given
         expect(
-          configurator.debugState,
+          container.read(notificationSettingsProvider),
           const AsyncLoading<NotificationSettings>(),
         );
 
@@ -39,7 +43,7 @@ void main() {
         verify(firebaseMessaging.getNotificationSettings()).called(1);
         verify(firebaseMessaging.requestPermission()).called(1);
         expect(
-          configurator.debugState,
+          container.read(notificationSettingsProvider),
           const AsyncData(_notificationSettings01),
         );
       },
@@ -55,16 +59,20 @@ void main() {
         final firebaseMessaging = MockFirebaseMessaging();
         final container = _createContainer(messaging: firebaseMessaging);
 
-        final configurator =
-            container.read(notificationSettingsProvider.notifier);
+        when(firebaseMessaging.getNotificationSettings()).thenAnswer(
+          (_) async => _notificationSettings00,
+        );
 
         when(firebaseMessaging.getNotificationSettings()).thenAnswer(
           (_) async => _notificationSettings01,
         );
 
+        final configurator =
+            container.read(notificationSettingsProvider.notifier);
+
         // given
         expect(
-          configurator.debugState,
+          container.read(notificationSettingsProvider),
           const AsyncLoading<NotificationSettings>(),
         );
 
@@ -78,7 +86,7 @@ void main() {
         // then
         verify(firebaseMessaging.getNotificationSettings()).called(2);
         expect(
-          configurator.debugState,
+          container.read(notificationSettingsProvider),
           const AsyncData(_notificationSettings02),
         );
       },
@@ -99,6 +107,20 @@ ProviderContainer _createContainer({
   addTearDown(container.dispose);
   return container;
 }
+
+const _notificationSettings00 = NotificationSettings(
+  alert: AppleNotificationSetting.enabled,
+  announcement: AppleNotificationSetting.enabled,
+  authorizationStatus: AuthorizationStatus.denied,
+  badge: AppleNotificationSetting.enabled,
+  carPlay: AppleNotificationSetting.enabled,
+  lockScreen: AppleNotificationSetting.enabled,
+  notificationCenter: AppleNotificationSetting.enabled,
+  showPreviews: AppleShowPreviewSetting.never,
+  timeSensitive: AppleNotificationSetting.enabled,
+  sound: AppleNotificationSetting.enabled,
+  criticalAlert: AppleNotificationSetting.enabled,
+);
 
 const _notificationSettings01 = NotificationSettings(
   alert: AppleNotificationSetting.disabled,

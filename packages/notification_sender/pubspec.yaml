@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_local_notifications: ^11.0.0
-  riverpod: ^2.0.0-dev.9
+  riverpod: ^2.0.0
   timezone: ^0.9.0
 
 dev_dependencies:

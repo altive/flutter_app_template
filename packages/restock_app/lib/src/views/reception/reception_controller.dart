@@ -15,17 +15,18 @@ import 'reception_state.dart';
 
 final receptionProvider =
     StateNotifierProvider<ReceptionController, ReceptionState>(
-  (ref) => ReceptionController(ref.read),
+  ReceptionController.new,
 );
 
 class ReceptionController extends StateNotifier<ReceptionState> {
   // ----- Constructor ----- //
-  ReceptionController(this._read) : super(const ReceptionState());
+  ReceptionController(this._ref) : super(const ReceptionState());
 
-  final Reader _read;
+  final Ref _ref;
 
-  AuthController get _authController => _read(authControllerProvider.notifier);
-  AnalysisLogger get _logger => _read(analysisLoggerProvider);
+  AuthController get _authController =>
+      _ref.read(authControllerProvider.notifier);
+  AnalysisLogger get _logger => _ref.read(analysisLoggerProvider);
 
   // Methods
   // ----------------------------------------

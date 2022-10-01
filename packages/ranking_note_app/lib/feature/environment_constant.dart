@@ -3,14 +3,14 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../util/providers/flavor_provider.dart';
 
 final environmentalConstantProvider = Provider<EnvironmentalConstant>((ref) {
-  return EnvironmentalConstant(ref.read);
+  return EnvironmentalConstant(ref);
 });
 
 class EnvironmentalConstant {
-  const EnvironmentalConstant(this._read);
+  const EnvironmentalConstant(this._ref);
 
-  final Reader _read;
-  Flavor get _flavor => _read(flavorProvider);
+  final Ref _ref;
+  Flavor get _flavor => _ref.read(flavorProvider);
 
   String get apiBaseUrl {
     switch (_flavor) {

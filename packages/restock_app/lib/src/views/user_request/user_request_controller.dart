@@ -12,15 +12,16 @@ import 'user_request_state.dart';
 
 final userRequestProvider =
     StateNotifierProvider.autoDispose<UserRequestController, UserRequestState>(
-  (ref) => UserRequestController(ref.read),
+  UserRequestController.new,
 );
 
 class UserRequestController extends StateNotifier<UserRequestState> {
-  UserRequestController(this._read) : super(const UserRequestState());
+  UserRequestController(this._ref) : super(const UserRequestState());
 
-  final Reader _read;
-  AuthController get _authController => _read(authControllerProvider.notifier);
-  PackageInfo get _packageInfo => _read(packageInfoProvider);
+  final Ref _ref;
+  AuthController get _authController =>
+      _ref.read(authControllerProvider.notifier);
+  PackageInfo get _packageInfo => _ref.read(packageInfoProvider);
 
 // ----------------------------------------
 // Public Methods

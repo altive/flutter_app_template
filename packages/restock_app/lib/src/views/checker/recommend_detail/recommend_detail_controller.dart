@@ -19,7 +19,7 @@ final recommendDetailProvider =
         (ref) {
   final setList = ref.watch(recommendDetailParameterProvider);
   return RecommendDetailController(
-    ref.read,
+    ref,
     setList,
   );
 });
@@ -29,17 +29,17 @@ class RecommendDetailController extends StateNotifier<RecommendDetailState> {
   // Constructor
   // ----------------------------------------
   RecommendDetailController(
-    this._read,
+    this._ref,
     this.setList,
   ) : super(const RecommendDetailState()) {
     executeSearch();
   }
 
-  final Reader _read;
+  final Ref _ref;
   final RecommendStockSet? setList;
 
-  FavoriteController get favoriteController => _read(favoriteProvider);
-  PaapiClient get _paapiClient => _read(paapiClientProvider);
+  FavoriteController get favoriteController => _ref.read(favoriteProvider);
+  PaapiClient get _paapiClient => _ref.read(paapiClientProvider);
 
   // Methods
   // ----------------------------------------

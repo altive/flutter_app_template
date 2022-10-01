@@ -5,15 +5,15 @@ import '../feature/my_ranking/entities/ranking.dart';
 import '../feature/my_ranking/references/my_ranking_reference.dart';
 
 final appendRankingTagProvider = Provider((ref) {
-  return AppendRankingTag(ref.read);
+  return AppendRankingTag(ref);
 });
 
 class AppendRankingTag {
-  AppendRankingTag(this._read);
+  AppendRankingTag(this._ref);
 
-  final Reader _read;
+  final Ref _ref;
   DocumentReference<Ranking> _myRankingDocRef(String rankingId) =>
-      _read(myRankingDocRefProvider(rankingId));
+      _ref.read(myRankingDocRefProvider(rankingId));
 
   Future<void> call({
     required String rankingId,

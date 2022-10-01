@@ -7,19 +7,20 @@ import '../../core/revenue/revenue.dart';
 import 'auth_controller.dart';
 
 /// ログアウト機能を提供する
-final logoutUseCase = Provider((ref) => LogoutUseCase(ref.read));
+final logoutUseCase = Provider(LogoutUseCase.new);
 
 /// ログアウトを行う
 class LogoutUseCase {
-  const LogoutUseCase(this._read);
+  const LogoutUseCase(this._ref);
 
-  final Reader _read;
+  final Ref _ref;
 
-  AuthController get _authController => _read(authControllerProvider.notifier);
+  AuthController get _authController =>
+      _ref.read(authControllerProvider.notifier);
   RevenueController get _revenueController =>
-      _read(revenueControllerProvider.notifier);
+      _ref.read(revenueControllerProvider.notifier);
   NotificationSender get _notificationController =>
-      _read(notificationSenderProvider.notifier);
+      _ref.read(notificationSenderProvider.notifier);
 
   Future<Result<void>> call() async {
     try {

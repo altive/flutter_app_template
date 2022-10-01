@@ -7,11 +7,11 @@ import '../../util/providers/firestore_provider.dart';
 import '../../util/providers/navigator_key_provider.dart';
 
 final pushMessageReceiverProvider = Provider<PushMessageReceiver>((ref) {
-  return PushMessageReceiver(ref.read);
+  return PushMessageReceiver(ref);
 });
 
 class PushMessageReceiver {
-  PushMessageReceiver(this._read) {
+  PushMessageReceiver(this._ref) {
     // Subscribe to the latest FCM Token.
     // The FCM Token will be updated when the app is installed, the device is
     // changed, the app is reinstalled, or the app's data is deleted.
@@ -22,19 +22,19 @@ class PushMessageReceiver {
     FirebaseMessaging.onMessage.listen(handleMessage);
   }
 
-  final Reader _read;
-  late final _messaging = _read(firebaseMessagingProvider);
+  final Ref _ref;
+  late final _messaging = _ref.read(firebaseMessagingProvider);
 
   /// Save the FCM Token in Firestore.
   Future<void> saveLatestToken(String token) async {
-    _read(firestoreProvider);
+    _ref.read(firestoreProvider);
   }
 
   /// Foreground messages.
   Future<void> handleMessage(RemoteMessage message) async {
     final notification = message.notification;
     if (notification != null) {
-      ScaffoldMessenger.of(_read(navigatorKeyProvider).currentContext!)
+      ScaffoldMessenger.of(_ref.read(navigatorKeyProvider).currentContext!)
           .showSnackBar(
         SnackBar(
           content: Text('${notification.title ?? ''} ${notification.body}'),

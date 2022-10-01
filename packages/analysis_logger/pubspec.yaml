@@ -13,7 +13,7 @@ dependencies:
   firebase_crashlytics: ^2.8.9
   flutter:
     sdk: flutter
-  riverpod: ^2.0.0-dev.9
+  riverpod: ^2.0.0
 
 dev_dependencies:
   altive_lints: ^1.5.0

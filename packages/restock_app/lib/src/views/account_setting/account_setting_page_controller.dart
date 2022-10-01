@@ -12,19 +12,20 @@ import 'account_setting_state.dart';
 
 final accountSettingPageControllerProvider = StateNotifierProvider.autoDispose<
     AccountSettingPageController, AccountSettingState>(
-  (ref) => AccountSettingPageController(ref.read),
+  AccountSettingPageController.new,
 );
 
 class AccountSettingPageController extends StateNotifier<AccountSettingState> {
   // ----- Constructor ----- //
-  AccountSettingPageController(this._read) : super(const AccountSettingState());
+  AccountSettingPageController(this._ref) : super(const AccountSettingState());
 
-  final Reader _read;
+  final Ref _ref;
 
-  AuthController get _authController => _read(authControllerProvider.notifier);
-  LogoutUseCase get _logoutUsecase => _read(logoutUseCase);
-  RevenueState get _revenueState => _read(revenueControllerProvider);
-  MeRepository? get _meRepository => _read(meRepositoryProvider);
+  AuthController get _authController =>
+      _ref.read(authControllerProvider.notifier);
+  LogoutUseCase get _logoutUsecase => _ref.read(logoutUseCase);
+  RevenueState get _revenueState => _ref.read(revenueControllerProvider);
+  MeRepository? get _meRepository => _ref.read(meRepositoryProvider);
 
   // Methods
   // ----------------------------------------
@@ -62,7 +63,7 @@ class AccountSettingPageController extends StateNotifier<AccountSettingState> {
     if (await _presentConfirmDeletionDialog(context)) {
       // 状態更新：削除開始
       state = state.copyWith(loading: true);
-      final result = await _read(deleteMeUseCase)();
+      final result = await _ref.read(deleteMeUseCase)();
       // 状態更新：削除終了
       state = state.copyWith(loading: false);
 

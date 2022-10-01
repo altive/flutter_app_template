@@ -10,24 +10,24 @@ import 'pro_plan_page_state.dart';
 
 final proPlanPageControllerProvider =
     StateNotifierProvider<ProPlanPageController, ProPlanPageState>(
-  (ref) => ProPlanPageController(ref.read),
+  ProPlanPageController.new,
 );
 
 // Proプラン案内ページのロジック
 class ProPlanPageController extends StateNotifier<ProPlanPageState> {
   // ----- Constructor ----- //
-  ProPlanPageController(this._read) : super(const ProPlanPageState()) {
+  ProPlanPageController(this._ref) : super(const ProPlanPageState()) {
     _updateProducts();
   }
 
-  final Reader _read;
+  final Ref _ref;
 
   RevenueController get _revenueController =>
-      _read(revenueControllerProvider.notifier);
+      _ref.read(revenueControllerProvider.notifier);
   PurchaseProPlanUsecase get _purchaseProPlan =>
-      _read(purchaseProPlanUsecaseProvider);
+      _ref.read(purchaseProPlanUsecaseProvider);
   RestorePurchasesUsecase get _restore =>
-      _read(restorePurchasesUsecaseProvider);
+      _ref.read(restorePurchasesUsecaseProvider);
 
   /// 表示可能なアプリ内課金の商品情報を取得する
   Future<void> _updateProducts() async {

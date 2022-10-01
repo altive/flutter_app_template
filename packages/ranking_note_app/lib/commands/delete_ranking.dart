@@ -5,15 +5,15 @@ import '../feature/my_ranking/entities/ranking.dart';
 import '../feature/my_ranking/references/my_ranking_reference.dart';
 
 final deleteRankingProvider = Provider<DeleteRanking>((ref) {
-  return DeleteRanking(ref.read);
+  return DeleteRanking(ref);
 });
 
 class DeleteRanking {
-  DeleteRanking(this._read);
+  DeleteRanking(this._ref);
 
-  final Reader _read;
+  final Ref _ref;
   DocumentReference<Ranking> _myRankingDocRef(String rankingId) =>
-      _read(myRankingDocRefProvider(rankingId));
+      _ref.read(myRankingDocRefProvider(rankingId));
 
   // TODO(Riscait): Delete storage images.
   Future<void> call({required String rankingId}) async {

@@ -16,7 +16,7 @@ final currentUserProvider = StateProvider<User?>((ref) => null);
 final authControllerProvider =
     StateNotifierProvider<AuthController, User?>((ref) {
   return AuthController(
-    ref.read,
+    ref,
     user: ref.watch(currentUserProvider),
   );
 });
@@ -26,7 +26,7 @@ final authControllerProvider =
 class AuthController extends StateNotifier<User?> {
   // ----- Constructor ----- //
   AuthController(
-    this._read, {
+    this._ref, {
     User? user,
   }) : super(user) {
     _auth.userChanges().listen((user) {
@@ -36,7 +36,7 @@ class AuthController extends StateNotifier<User?> {
   }
 
   // ignore: unused_field
-  final Reader _read;
+  final Ref _ref;
 
   final _auth = FirebaseAuth.instance;
 

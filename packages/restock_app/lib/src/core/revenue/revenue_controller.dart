@@ -21,21 +21,21 @@ final revenueControllerProvider =
     // userのnull判定が必要
     Purchases.logIn(user.uid);
   }
-  return RevenueController(ref.read);
+  return RevenueController(ref);
 });
 
 /// アプリ内課金を制御する
 class RevenueController extends StateNotifier<RevenueState> {
   // ----- Constructor ----- //
   RevenueController(
-    this._read,
+    this._ref,
   ) : super(const RevenueState()) {
     initialSetup();
   }
 
-  final Reader _read;
+  final Ref _ref;
 
-  AnalysisLogger get _logger => _read(analysisLoggerProvider);
+  AnalysisLogger get _logger => _ref.read(analysisLoggerProvider);
 
   /// 提供情報
   late Offerings _offerings;
@@ -43,7 +43,7 @@ class RevenueController extends StateNotifier<RevenueState> {
   // 初期化処理
   Future<void> initialSetup() async {
     // 環境ごとに違う API Key
-    final environment = _read(environmentProvider);
+    final environment = _ref.read(environmentProvider);
     final String apiKey;
     if (Platform.isAndroid) {
       apiKey = environment.revenuecatPublicApiAndroidKey;

@@ -8,7 +8,7 @@ final favoriteProvider = Provider<FavoriteController>((ref) {
   final user = ref.watch(authControllerProvider);
   final revenueState = ref.watch(revenueControllerProvider);
   return FavoriteController(
-    ref.read,
+    ref,
     user?.uid,
     revenueState,
   );
@@ -16,13 +16,13 @@ final favoriteProvider = Provider<FavoriteController>((ref) {
 
 class FavoriteController {
   FavoriteController(
-    this._read,
+    this._ref,
     this._uid,
     this._revenueState,
   );
 
   // ignore: unused_field
-  final Reader _read;
+  final Ref _ref;
   late final String? _uid;
   final RevenueState _revenueState;
 

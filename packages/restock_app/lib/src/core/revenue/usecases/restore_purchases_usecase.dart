@@ -9,8 +9,7 @@ import '../../../utils/utils.dart';
 import '../revenue.dart';
 
 /// 購入の復元機能を提供する
-final restorePurchasesUsecaseProvider =
-    Provider((ref) => RestorePurchasesUsecase(ref.read));
+final restorePurchasesUsecaseProvider = Provider(RestorePurchasesUsecase.new);
 
 enum RestorePurchasesException {
   userCancel,
@@ -39,12 +38,12 @@ extension RestorePurchasesExceptionExt on RestorePurchasesException {
 
 /// 購入の復元を行う
 class RestorePurchasesUsecase {
-  const RestorePurchasesUsecase(this._read);
+  const RestorePurchasesUsecase(this._ref);
 
-  final Reader _read;
+  final Ref _ref;
 
   RevenueController get _revenueController =>
-      _read(revenueControllerProvider.notifier);
+      _ref.read(revenueControllerProvider.notifier);
 
   Future<Result<bool, RestorePurchasesException>> call() async {
     try {

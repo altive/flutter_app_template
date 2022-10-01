@@ -11,19 +11,20 @@ export 'notification_date.dart';
 export 'notification_payload.dart';
 
 final expirationNotificationRegistrarProvider = Provider(
-  (ref) => ExpirationNotificationRegistrar(ref.read),
+  ExpirationNotificationRegistrar.new,
 );
 
 class ExpirationNotificationRegistrar {
-  ExpirationNotificationRegistrar(this._read);
+  ExpirationNotificationRegistrar(this._ref);
 
-  final Reader _read;
+  final Ref _ref;
 
-  NotificationSender get _sender => _read(notificationSenderProvider.notifier);
+  NotificationSender get _sender =>
+      _ref.read(notificationSenderProvider.notifier);
 
   /// アプリ設定を取得するために使用する
   SharedPreferencesService get _prefsController =>
-      _read(sharedPreferencesServiceProvider);
+      _ref.read(sharedPreferencesServiceProvider);
 
   /// Channel ID（通知のカテゴライズID）
   static const String _androidChannelId = 'jp.altive.restock.stock-expiration';

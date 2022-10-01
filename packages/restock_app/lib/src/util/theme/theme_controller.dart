@@ -5,18 +5,18 @@ import 'ex_theme.dart';
 
 final themeColorProvider =
     StateNotifierProvider<ThemeController, ExTheme>((ref) {
-  return ThemeController(ref.read);
+  return ThemeController(ref);
 });
 
 class ThemeController extends StateNotifier<ExTheme> {
-  ThemeController(this._read) : super(ExTheme.system) {
+  ThemeController(this._ref) : super(ExTheme.system) {
     initialize();
   }
 
-  final Reader _read;
+  final Ref _ref;
 
   SharedPreferencesService get _prefsController =>
-      _read(sharedPreferencesServiceProvider);
+      _ref.read(sharedPreferencesServiceProvider);
 
   /// テーマの初期値
   void initialize() {

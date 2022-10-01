@@ -5,14 +5,14 @@ import '../../providers/navigator.dart';
 import '../../utils/utils.dart';
 
 final dynamicLinksControllerProvider = Provider<DynamicLinksController>((ref) {
-  return DynamicLinksController(ref.read);
+  return DynamicLinksController(ref);
 });
 
 class DynamicLinksController {
   // ----- Constructor ----- //
-  DynamicLinksController(this._read);
+  DynamicLinksController(this._ref);
 
-  final Reader _read;
+  final Ref _ref;
 
   final FirebaseDynamicLinks _dynamicLinks = FirebaseDynamicLinks.instance;
 
@@ -49,7 +49,8 @@ class DynamicLinksController {
         final asin = deepLink.queryParameters['page'];
         if (asin != null) {
           // 画面へ遷移する
-          await _read(navigatorKeyProvider)
+          await _ref
+              .read(navigatorKeyProvider)
               .currentState!
               .pushNamed(deepLink.path);
         }

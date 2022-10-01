@@ -3,17 +3,18 @@ import 'dart:async';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:riverpod/riverpod.dart';
 
-/// 通知の設定を担当する。[state]にを通知設定状態を持つ
-class NotificationConfigurator
-    extends StateNotifier<AsyncValue<NotificationSettings>> {
-  NotificationConfigurator({
-    required FirebaseMessaging messaging,
-  })  : _messaging = messaging,
-        super(const AsyncLoading()) {
-    unawaited(_fetchSettings());
-  }
+import 'firebase_messaging_provider.dart';
 
-  final FirebaseMessaging _messaging;
+/// 通知の設定を担当する。[state]にを通知設定状態を持つ
+class NotificationConfigurator extends AsyncNotifier<NotificationSettings> {
+  NotificationConfigurator();
+
+  FirebaseMessaging get _messaging => ref.watch(firebaseMessagingProvider);
+
+  @override
+  FutureOr<NotificationSettings> build() {
+    return _messaging.getNotificationSettings();
+  }
 
   /// [NotificationSettings]を取得して[state]を更新する
   Future<void> _fetchSettings() async {

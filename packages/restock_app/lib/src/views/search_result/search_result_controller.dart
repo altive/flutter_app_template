@@ -20,7 +20,7 @@ final searchResultControllerProvider =
     StateNotifierProvider<SearchResultController, SearchResultState>((ref) {
   final searchParam = ref.watch(searchParamProvider);
   return SearchResultController(
-    ref.read,
+    ref,
     searchParams: searchParam,
   );
 });
@@ -28,15 +28,15 @@ final searchResultControllerProvider =
 class SearchResultController extends StateNotifier<SearchResultState> {
   // ----- Constructor ----- //
   SearchResultController(
-    this._read, {
+    this._ref, {
     required PaapiSearchItemsParameters? searchParams,
   }) : super(SearchResultState(searchParams: searchParams)) {
     executeSearch();
   }
 
-  final Reader _read;
+  final Ref _ref;
 
-  PaapiClient get _paapiClient => _read(paapiClientProvider);
+  PaapiClient get _paapiClient => _ref.read(paapiClientProvider);
 
   // ----------------------------------------
   // Methods

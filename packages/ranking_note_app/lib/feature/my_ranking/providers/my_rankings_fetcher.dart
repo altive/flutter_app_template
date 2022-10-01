@@ -11,12 +11,12 @@ import '../references/my_ranking_reference.dart';
 
 final myRankingsFetcher = StateNotifierProvider<MyRankingsFetcher,
     AsyncValue<List<QueryDocumentSnapshot<Ranking>>>>((ref) {
-  return MyRankingsFetcher(ref.read);
+  return MyRankingsFetcher(ref);
 });
 
 class MyRankingsFetcher
     extends StateNotifier<AsyncValue<List<QueryDocumentSnapshot<Ranking>>>> {
-  MyRankingsFetcher(this._read) : super(const AsyncValue.loading()) {
+  MyRankingsFetcher(this._ref) : super(const AsyncValue.loading()) {
     // 初回データ取得
     final subscription = _myRankingColRef
         .orderBy(Ranking.pinnedField, descending: true)
@@ -29,9 +29,9 @@ class MyRankingsFetcher
     _subscriptions.add(subscription);
   }
 
-  final Reader _read;
+  final Ref _ref;
   late final CollectionReference<Ranking> _myRankingColRef =
-      _read(myRankingColRefProvider);
+      _ref.read(myRankingColRefProvider);
 
   final List<StreamSubscription<QuerySnapshot<Ranking>>> _subscriptions = [];
 

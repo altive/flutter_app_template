@@ -9,19 +9,19 @@ import 'package:uuid/uuid.dart';
 import '../feature/my_ranking/entities/ranking.dart';
 import '../feature/my_ranking/references/new_ranking_member_image_reference.dart';
 
-final createRankingMember = Provider((ref) => CreateRankingMember(ref.read));
+final createRankingMember = Provider(CreateRankingMember.new);
 
 /// Create new ranking member document by title.
 class CreateRankingMember {
-  const CreateRankingMember(this._read);
+  const CreateRankingMember(this._ref);
 
-  final Reader _read;
+  final Ref _ref;
 
   Reference _newRankingMemberImageRef({
     required String rankingId,
     required String memberId,
   }) {
-    return _read(
+    return _ref.read(
       newRankingMemberImageRefProvider(
         Tuple2(rankingId, memberId),
       ),

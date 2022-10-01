@@ -13,7 +13,7 @@ final meRepositoryProvider = Provider<MeRepository?>((ref) {
   if (user == null) {
     return null;
   }
-  return MeRepository(ref.read, user);
+  return MeRepository(ref, user);
 });
 
 /// Streamを提供
@@ -32,10 +32,10 @@ final meEntityProvider = Provider<MeEntity?>((ref) {
 
 /// Meのリポジトリ
 class MeRepository {
-  MeRepository(this._read, this._user);
+  MeRepository(this._ref, this._user);
 
   // ignore: unused_field
-  final Reader _read;
+  final Ref _ref;
   final User _user;
 
   final _firestore = FirebaseFirestore.instance;

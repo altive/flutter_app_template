@@ -12,7 +12,7 @@ final stockRepositoryProvider = Provider<StockRepository?>((ref) {
   if (user == null) {
     return null;
   }
-  return StockRepository(ref.read, user);
+  return StockRepository(ref, user);
 });
 
 /// ストックリストのStreamを提供
@@ -66,10 +66,10 @@ final stockEntityFilteredAsinListProvider =
 
 /// Meのリポジトリ
 class StockRepository {
-  StockRepository(this._read, this._user);
+  StockRepository(this._ref, this._user);
 
   // ignore: unused_field
-  final Reader _read;
+  final Ref _ref;
   final User _user;
 
   final firestore = FirebaseFirestore.instance;

@@ -5,16 +5,16 @@ import '../../core/me/me.dart';
 /// ストック保管場所ページのViewModel
 final placeEditorPageProvider =
     StateNotifierProvider<PlaceEditorPageController, bool>(
-  (ref) => PlaceEditorPageController(ref.read),
+  PlaceEditorPageController.new,
 );
 
 class PlaceEditorPageController extends StateNotifier<bool> {
   // ----- Constructor ----- //
-  PlaceEditorPageController(this._read) : super(false);
+  PlaceEditorPageController(this._ref) : super(false);
 
-  final Reader _read;
+  final Ref _ref;
 
-  MeRepository? get _meRepository => _read(meRepositoryProvider);
+  MeRepository? get _meRepository => _ref.read(meRepositoryProvider);
 
   /// 新しいリストで保管場所を上書き
   void updateCategories(List<String> categories) {

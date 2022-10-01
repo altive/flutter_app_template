@@ -8,14 +8,14 @@ import '../theme_selection_page/theme_selection_page.dart';
 import 'router_delegate_provider.dart';
 
 final routerProvider = Provider<Router>((ref) {
-  return Router(ref.read);
+  return Router(ref);
 });
 
 class Router {
-  const Router(this._read);
+  const Router(this._ref);
 
-  final Reader _read;
-  RoutemasterDelegate get _router => _read(routerDelegateProvider);
+  final Ref _ref;
+  RoutemasterDelegate get _router => _ref.read(routerDelegateProvider);
 
   void navigateToMyRankingDetailPage({required String rankingId}) {
     _router.push('${MyRankingDetailPage.routeName}/$rankingId');

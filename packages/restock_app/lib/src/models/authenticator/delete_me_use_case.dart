@@ -8,21 +8,22 @@ import '../../util/shared_preferences_service.dart';
 import 'auth_controller.dart';
 
 /// アカウントの削除機能を提供する
-final deleteMeUseCase = Provider((ref) => DeleteMeUseCase(ref.read));
+final deleteMeUseCase = Provider(DeleteMeUseCase.new);
 
 /// アカウントの削除を行う
 class DeleteMeUseCase {
-  const DeleteMeUseCase(this._read);
+  const DeleteMeUseCase(this._ref);
 
-  final Reader _read;
+  final Ref _ref;
 
-  AuthController get _authController => _read(authControllerProvider.notifier);
+  AuthController get _authController =>
+      _ref.read(authControllerProvider.notifier);
   RevenueController get _revenueController =>
-      _read(revenueControllerProvider.notifier);
+      _ref.read(revenueControllerProvider.notifier);
   NotificationSender get _notificationController =>
-      _read(notificationSenderProvider.notifier);
+      _ref.read(notificationSenderProvider.notifier);
   SharedPreferencesService get _prefsController =>
-      _read(sharedPreferencesServiceProvider);
+      _ref.read(sharedPreferencesServiceProvider);
 
   Future<Result<void>> call() async {
     try {

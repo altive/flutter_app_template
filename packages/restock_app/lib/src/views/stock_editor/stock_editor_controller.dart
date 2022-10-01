@@ -25,16 +25,14 @@ final stockEditorParameterProvider =
 final stockEditorPageControllerProvider =
     StateNotifierProvider<StockEditorPageController, StockEditorState>(
   (ref) => StockEditorPageController(
-    ref.read,
+    ref,
     param: ref.watch(stockEditorParameterProvider.state).state,
   ),
 );
 
 class StockEditorPageController extends StateNotifier<StockEditorState> {
-  // Constructor
-
   StockEditorPageController(
-    this._read, {
+    this._ref, {
     required this.param,
   }) : super(const StockEditorState()) {
     _initializeState();
@@ -42,18 +40,18 @@ class StockEditorPageController extends StateNotifier<StockEditorState> {
 
   // Providers
 
-  final Reader _read;
+  final Ref _ref;
 
-  StockRepository? get _stockRepository => _read(stockRepositoryProvider);
+  StockRepository? get _stockRepository => _ref.read(stockRepositoryProvider);
 
   NotificationSender get _notificationSender =>
-      _read(notificationSenderProvider.notifier);
+      _ref.read(notificationSenderProvider.notifier);
 
   ExpirationNotificationRegistrar get _expirationNotificationRegistrar =>
-      _read(expirationNotificationRegistrarProvider);
+      _ref.read(expirationNotificationRegistrarProvider);
 
   SharedPreferencesService get _prefsController =>
-      _read(sharedPreferencesServiceProvider);
+      _ref.read(sharedPreferencesServiceProvider);
 
   /// パラメーター
   final StockEditorParameter? param;
@@ -198,8 +196,8 @@ class StockEditorPageController extends StateNotifier<StockEditorState> {
 
   /// 通知のON/OFFが変更された
   Future<String?> toggleNotification({required bool isEnabled}) async {
-    final isProUser = _read(revenueControllerProvider).isSubscriber;
-    final pendingList = _read(notificationSenderProvider);
+    final isProUser = _ref.read(revenueControllerProvider).isSubscriber;
+    final pendingList = _ref.read(notificationSenderProvider);
     if (!isProUser && pendingList.length >= 10) {
       // 非Proユーザーは10を超えて登録できない
       return '通知は10件までとなります。';
@@ -370,7 +368,7 @@ class StockEditorPageController extends StateNotifier<StockEditorState> {
 
   /// ストック保管場所の最新選択肢を取得
   Future<List<String>?> getPlaces() async {
-    final me = await _read(meEntityStreamProvider.future);
+    final me = await _ref.read(meEntityStreamProvider.future);
     return me.groups;
   }
 }

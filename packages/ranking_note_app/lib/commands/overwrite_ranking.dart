@@ -8,17 +8,17 @@ import '../feature/my_ranking/entities/ranking.dart';
 import '../feature/my_ranking/references/my_ranking_reference.dart';
 
 final overwriteRankingProvider = Provider<OverwriteRanking>((ref) {
-  return OverwriteRanking(ref.read);
+  return OverwriteRanking(ref);
 });
 
 /// Overwtire ranking document.
 class OverwriteRanking {
-  const OverwriteRanking(this._read);
+  const OverwriteRanking(this._ref);
 
-  final Reader _read;
+  final Ref _ref;
 
   Reference _newRankingImageRef({required String rankingId}) {
-    return _read(newRankingImageRefProvider(rankingId));
+    return _ref.read(newRankingImageRefProvider(rankingId));
   }
 
   /// タイトル・説明・画像を変更できる

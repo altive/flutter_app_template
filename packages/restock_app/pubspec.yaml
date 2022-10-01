@@ -46,7 +46,7 @@ dependencies:
   freezed_annotation: ^2.1.0
   gap: ^2.0.0
   google_sign_in: ^5.4.1
-  hooks_riverpod: ^2.0.0-dev.5
+  hooks_riverpod: ^2.0.0
   http: ^0.13.3
   image_cropper: ^2.0.0
   image_picker: ^0.8.1+2

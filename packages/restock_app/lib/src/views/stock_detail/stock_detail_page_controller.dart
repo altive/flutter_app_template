@@ -23,32 +23,32 @@ final stockForStockDetailProvider = Provider<StockEntity?>((ref) {
 
 final stockDetailPageControllerProvider =
     StateNotifierProvider<StockDetailPageController, bool>((ref) {
-  return StockDetailPageController(ref.read);
+  return StockDetailPageController(ref);
 });
 
 /// ストック詳細画面のロジック担当
 class StockDetailPageController extends StateNotifier<bool> {
   // ----- Constructor ----- //
-  StockDetailPageController(this._read) : super(false);
+  StockDetailPageController(this._ref) : super(false);
 
-  final Reader _read;
+  final Ref _ref;
 
-  StockRepository? get _stockRepository => _read(stockRepositoryProvider);
+  StockRepository? get _stockRepository => _ref.read(stockRepositoryProvider);
 
   /// ストック情報（readなので更新は追従されない）
-  StockEntity? get _stock => _read(stockForStockDetailProvider);
+  StockEntity? get _stock => _ref.read(stockForStockDetailProvider);
 
   SharedPreferencesService get _prefsController =>
-      _read(sharedPreferencesServiceProvider);
+      _ref.read(sharedPreferencesServiceProvider);
 
   NotificationSender get _notificationSender =>
-      _read(notificationSenderProvider.notifier);
+      _ref.read(notificationSenderProvider.notifier);
 
   List<PendingNotificationRequest> get _pendingList =>
-      _read(notificationSenderProvider);
+      _ref.read(notificationSenderProvider);
 
   ExpirationNotificationRegistrar get _expirationNotificationRegistrar =>
-      _read(expirationNotificationRegistrarProvider);
+      _ref.read(expirationNotificationRegistrarProvider);
 
   /// Payload取得
   Future<NotificationPayload?> fetchNotificationPayload() async {
@@ -116,7 +116,7 @@ class StockDetailPageController extends StateNotifier<bool> {
       return '通知予定日を過ぎている、または当日のため通知をONにできません。';
     }
     // 通知個数のチェックを行う
-    final isProUser = _read(revenueControllerProvider).isSubscriber;
+    final isProUser = _ref.read(revenueControllerProvider).isSubscriber;
     if (!isProUser && _pendingList.length >= 10) {
       // 非Proユーザーは10を超えて登録できない
       return '通知は10件までとなります。';

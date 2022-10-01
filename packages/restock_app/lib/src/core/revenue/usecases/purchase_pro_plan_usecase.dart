@@ -9,8 +9,7 @@ import '../../../utils/utils.dart';
 import '../revenue.dart';
 
 /// 購入機能を提供する
-final purchaseProPlanUsecaseProvider =
-    Provider((ref) => PurchaseProPlanUsecase(ref.read));
+final purchaseProPlanUsecaseProvider = Provider(PurchaseProPlanUsecase.new);
 
 enum PurchaseProPlanException {
   userCancel,
@@ -42,12 +41,12 @@ extension PurchaseProPlanExceptionExt on PurchaseProPlanException {
 
 /// 購入を行う
 class PurchaseProPlanUsecase {
-  const PurchaseProPlanUsecase(this._read);
+  const PurchaseProPlanUsecase(this._ref);
 
-  final Reader _read;
+  final Ref _ref;
 
   RevenueController get _revenueController =>
-      _read(revenueControllerProvider.notifier);
+      _ref.read(revenueControllerProvider.notifier);
 
   Future<Result<void, PurchaseProPlanException>> call({
     required PackageType packageType,

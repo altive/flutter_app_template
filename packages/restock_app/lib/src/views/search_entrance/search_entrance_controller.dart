@@ -14,19 +14,19 @@ import 'search_entrance_state.dart';
 
 final searchEntranceProvider =
     StateNotifierProvider<SearchEntranceController, SearchEntranceState>(
-  (ref) => SearchEntranceController(ref.read),
+  SearchEntranceController.new,
 );
 
 /// ストックを追加するためにアイテムを色々探すための最初の画面
 class SearchEntranceController extends StateNotifier<SearchEntranceState> {
   // Construct
-  SearchEntranceController(this._read) : super(const SearchEntranceState()) {
+  SearchEntranceController(this._ref) : super(const SearchEntranceState()) {
     getItems();
   }
 
-  final Reader _read;
+  final Ref _ref;
 
-  PaapiClient get _paapiClient => _read(paapiClientProvider);
+  PaapiClient get _paapiClient => _ref.read(paapiClientProvider);
 
   // 編集された検索文字列で更新する
   void editSearchText(String? text) =>
@@ -35,7 +35,7 @@ class SearchEntranceController extends StateNotifier<SearchEntranceState> {
   /// ASINで単独商品を検索し、検索成功なら検索結果を返却する
   /// ASINリストは上限10個なので注意
   Future<void> getItems() async {
-    final remoteConfig = await _read(remoteConfigProvider.future);
+    final remoteConfig = await _ref.read(remoteConfigProvider.future);
     if (remoteConfig == null) {
       return;
     }
