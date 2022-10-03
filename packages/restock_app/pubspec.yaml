@@ -42,7 +42,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   flutter_svg: ^1.1.5
-  font_awesome_flutter: ^10.1.0
+  font_awesome_flutter: ^10.2.1
   freezed_annotation: ^2.1.0
   gap: ^2.0.0
   google_sign_in: ^5.4.1
