@@ -4,10 +4,10 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'environment/environment.dart';
-import 'presentation/app.dart';
-import 'util/providers/package_info_provider.dart';
-import 'util/providers/shared_preferences_provider.dart';
+import 'src/environment/environment.dart';
+import 'src/flutter_app.dart';
+import 'src/util/providers/package_info_provider.dart';
+import 'src/util/providers/shared_preferences_provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,7 +35,7 @@ Future<void> main() async {
         sharedPreferencesProvider.overrideWithValue(sp),
         packageInfoProvider.overrideWithValue(pi),
       ],
-      child: const App(),
+      child: const FlutterApp(),
     ),
   );
 }

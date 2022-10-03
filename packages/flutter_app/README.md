@@ -21,7 +21,7 @@
 
 - lib/
     - commons/
-    - domain/
+    - features/
     - presentation/
   - main.dart
 
