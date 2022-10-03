@@ -1,10 +1,14 @@
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'app_routes.dart';
 
-final routerProvider = Provider<GoRouter>(
-  (ref) => GoRouter(
+part 'router_provider.g.dart';
+
+@Riverpod(keepAlive: true)
+GoRouter router(RouterRef ref) {
+  return GoRouter(
     routes: $appRoutes,
-  ),
-);
+  );
+}
