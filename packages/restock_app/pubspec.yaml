@@ -42,7 +42,7 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   flutter_svg: ^1.1.5
-  font_awesome_flutter: ^10.1.0
+  font_awesome_flutter: ^10.2.1
   freezed_annotation: ^2.1.0
   gap: ^2.0.0
   google_sign_in: ^5.4.1
@@ -79,7 +79,7 @@ dev_dependencies:
   altive_lints: ^1.5.0
   build_runner: ^2.2.1
   flutter_gen_runner: ^4.3.0
-  flutter_launcher_icons: ^0.9.3
+  flutter_launcher_icons: ^0.10.0
   flutter_test:
     sdk: flutter
   freezed: ^2.1.0+1
