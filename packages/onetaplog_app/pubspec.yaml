@@ -63,8 +63,7 @@ flutter_gen:
     style: dot-delimiter
 
 flutter:
-  # build_runnerが失敗するため
-  # generate: true
+  generate: true
   uses-material-design: true
 
   # assets:
