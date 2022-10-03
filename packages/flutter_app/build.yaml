@@ -21,6 +21,8 @@ targets:
         generate_for:
           include:
             - lib/**/entities/*.dart
+            - lib/**/providers/*.dart
+            - lib/**/*_provider.dart
         options:
           # 例外発生時にCheckedFromJsonExceptionをthrowする
           checked: true

@@ -4,10 +4,10 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'commons/providers/package_info_provider.dart';
-import 'commons/providers/shared_preferences_provider.dart';
 import 'environment/environment.dart';
 import 'presentation/app.dart';
+import 'util/providers/package_info_provider.dart';
+import 'util/providers/shared_preferences_provider.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

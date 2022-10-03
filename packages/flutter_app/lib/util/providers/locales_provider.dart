@@ -2,15 +2,19 @@ import 'dart:ui';
 
 import 'package:flutter/widgets.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-final localesProvider = Provider<List<Locale>?>((ref) {
+part 'locales_provider.g.dart';
+
+@Riverpod(keepAlive: true)
+List<Locale>? locales(LocalesRef ref) {
   final observer = _LocaleObserver((value) => ref.state = value);
 
   final binding = WidgetsBinding.instance..addObserver(observer);
   ref.onDispose(() => binding.removeObserver(observer));
 
   return window.locales;
-});
+}
 
 class _LocaleObserver extends WidgetsBindingObserver {
   _LocaleObserver(this._didChangeLocales);

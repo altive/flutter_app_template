@@ -34,6 +34,7 @@ dependencies:
   pull_down_button: ^0.1.0-beta.8
   remote_parameter_fetcher:
     path: ../remote_parameter_fetcher
+  riverpod_annotation: ^1.0.0
   shimmer: ^2.0.0
   themes:
     path: ../themes
@@ -49,6 +50,7 @@ dev_dependencies:
   freezed: ^2.1.0+1
   go_router_builder: ^1.0.10
   json_serializable: ^6.3.1
+  riverpod_generator: ^1.0.1
 
 flutter_gen:
   output: lib/gen/

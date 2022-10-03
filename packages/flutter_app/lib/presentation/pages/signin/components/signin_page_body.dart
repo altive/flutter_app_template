@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../../commons/providers/package_info_provider.dart';
 import '../../../../environment/environment.dart';
 import '../../../../util/localizer/localizer.dart';
+import '../../../../util/providers/package_info_provider.dart';
 import '../../../router/router.dart';
 import '../../top_level_tab/top_level_tab.dart';
 

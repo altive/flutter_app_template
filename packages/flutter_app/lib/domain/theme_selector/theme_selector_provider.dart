@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../commons/providers/shared_preferences_provider.dart';
+import '../../util/providers/shared_preferences_provider.dart';
 
 /// SharedPreferences で使用するテーマ保存用のキー
 const _themePrefsKey = 'selectedThemeKey';

@@ -14,10 +14,12 @@ dependencies:
   flutter:
     sdk: flutter
   riverpod: ^2.0.0
+  riverpod_annotation: ^1.0.0
 
 dev_dependencies:
   altive_lints: ^1.5.0
   flutter_test:
     sdk: flutter
+  riverpod_generator: ^1.0.1
 
 flutter:

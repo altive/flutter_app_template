@@ -62,6 +62,7 @@ dependencies:
   purchases_flutter: ^4.2.1
   quiver: ^3.0.1
   recase: ^4.0.0
+  riverpod_annotation: ^1.0.0
   share_plus: ^4.0.10
   shared_preferences: ^2.0.6
   sign_in_with_apple: ^4.0.0
@@ -84,6 +85,7 @@ dev_dependencies:
   freezed: ^2.1.0+1
   json_serializable: ^6.3.1
   mockito: ^5.2.0
+  riverpod_generator: ^1.0.1
 
 flutter_gen:
   output: lib/gen/

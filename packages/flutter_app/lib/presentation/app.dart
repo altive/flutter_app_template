@@ -3,10 +3,10 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:themes/themes.dart';
 
-import '../commons/providers/app_lifecycle_provider.dart';
-import '../commons/providers/locales_provider.dart';
 import '../domain/theme_selector/theme_selector.dart';
 import '../util/localizer/localizer.dart';
+import '../util/providers/app_lifecycle_state_provider.dart';
+import '../util/providers/locales_provider.dart';
 import 'router/router.dart';
 
 class App extends ConsumerWidget {
@@ -20,7 +20,7 @@ class App extends ConsumerWidget {
         (previous, next) => debugPrint('Previous: $previous, Next: $next'),
       )
       ..listen<AppLifecycleState>(
-        appLifecycleProvider,
+        appLifecycleStateProvider,
         (previous, next) => debugPrint('Previous: $previous, Next: $next'),
       );
 
