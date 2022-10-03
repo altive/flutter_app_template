@@ -45,7 +45,7 @@ dependencies:
   font_awesome_flutter: ^10.1.0
   freezed_annotation: ^2.1.0
   gap: ^2.0.0
-  google_sign_in: ^5.4.1
+  google_sign_in: ^5.4.2
   hooks_riverpod: ^2.0.0
   http: ^0.13.3
   image_cropper: ^2.0.0
