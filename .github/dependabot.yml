@@ -3,15 +3,42 @@
 version: 2
 enable-beta-ecosystems: true
 updates:
-  - package-ecosystem: "pub"
-    directory: "/packages/flutter_app" # Location of package manifests
+  - package-ecosystem: "github-actions"
+    directory: "/"
     schedule:
-      interval: "weekly"
-      day: "monday"
-      time: "08:00"
-      timezone: "Asia/Tokyo"
+      interval: "monthly"
       
   - package-ecosystem: "pub"
-    directory: "/packages/restock_app" # Location of package manifests
+    directory: "/packages/authenticator" # Location of package manifests
+    schedule:
+      interval: "monthly"
+      
+  - package-ecosystem: "pub"
+    directory: "/packages/convenient_widgets" # Location of package manifests
+    schedule:
+      interval: "monthly"
+
+- package-ecosystem: "pub"
+    directory: "/packages/flutter_app" # Location of package manifests
+    schedule:
+      interval: "monthly"
+      
+  - package-ecosystem: "pub"
+    directory: "/packages/notification_receiver" # Location of package manifests
+    schedule:
+      interval: "monthly"
+      
+  - package-ecosystem: "pub"
+    directory: "/packages/notification_sender" # Location of package manifests
+    schedule:
+      interval: "monthly"
+      
+  - package-ecosystem: "pub"
+    directory: "/packages/remote_parameter_fetcher" # Location of package manifests
+    schedule:
+      interval: "monthly"
+      
+  - package-ecosystem: "pub"
+    directory: "/packages/util" # Location of package manifests
     schedule:
       interval: "monthly"

@@ -13,16 +13,16 @@ dependencies:
     path: ../authenticator
   awaitable_button: ^1.2.0
   cached_network_image: ^3.2.2
-  cloud_firestore: ^3.4.6
+  cloud_firestore: ^3.5.0
   collection: ^1.16.0
   convenient_widgets:
     path: ../convenient_widgets
   cupertino_icons: ^1.0.5
   firebase_core: ^1.21.1
-  firebase_dynamic_links: ^4.3.6
+  firebase_dynamic_links: ^4.3.9
   firebase_performance: ^0.8.3
   firebase_remote_config: ^2.0.17
-  firebase_storage: ^10.3.7
+  firebase_storage: ^10.3.10
   flutter:
     sdk: flutter
   flutter_dotenv: ^5.0.2
@@ -54,7 +54,7 @@ dependencies:
 dev_dependencies:
   altive_lints: ^1.5.0
   build_runner: ^2.2.1
-  flutter_gen_runner: ^4.3.0
+  flutter_gen_runner: ^5.0.1
   flutter_launcher_icons: ^0.10.0
   flutter_test:
     sdk: flutter
