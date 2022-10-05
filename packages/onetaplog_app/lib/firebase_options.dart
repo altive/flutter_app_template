@@ -63,7 +63,8 @@ class DefaultFirebaseOptions {
     messagingSenderId: '539806019361',
     projectId: 'one-tap-log',
     storageBucket: 'one-tap-log.appspot.com',
-    iosClientId: '539806019361-mcbceio1ho7eipmg0bqbgqm51mfm589n.apps.googleusercontent.com',
+    iosClientId:
+        '539806019361-mcbceio1ho7eipmg0bqbgqm51mfm589n.apps.googleusercontent.com',
     iosBundleId: 'jp.co.altive.onetaplog',
   );
 }
