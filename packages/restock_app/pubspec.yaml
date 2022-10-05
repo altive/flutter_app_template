@@ -26,7 +26,7 @@ dependencies:
   device_info: ^2.0.2
   enum_to_string: ^2.0.1
   extended_image: ^6.0.1
-  firebase_auth: ^3.7.0
+  firebase_auth: ^3.11.1
   firebase_core: ^1.21.1
   firebase_dynamic_links: ^4.3.6
   firebase_messaging: ^12.0.3
@@ -45,7 +45,7 @@ dependencies:
   font_awesome_flutter: ^10.2.1
   freezed_annotation: ^2.1.0
   gap: ^2.0.0
-  google_sign_in: ^5.4.1
+  google_sign_in: ^5.4.2
   hooks_riverpod: ^2.0.0
   http: ^0.13.3
   image_cropper: ^2.0.0
@@ -79,7 +79,7 @@ dev_dependencies:
   altive_lints: ^1.5.0
   build_runner: ^2.2.1
   flutter_gen_runner: ^4.3.0
-  flutter_launcher_icons: ^0.9.3
+  flutter_launcher_icons: ^0.10.0
   flutter_test:
     sdk: flutter
   freezed: ^2.1.0+1
