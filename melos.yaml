@@ -23,7 +23,7 @@ scripts:
     run: |
       melos exec -- \
         "flutter pub upgrade --major-versions && flutter pub upgrade"
-    description: Upgrade the major version of the pub in all packages
+    description: Run upgrade the major version of the pub.
     select-package:
       flutter: true
       dir-exists: lib
@@ -32,7 +32,7 @@ scripts:
     run: |
       melos exec -- \
         flutter analyze . --fatal-infos
-    description: Analyze in all packages
+    description: Run analyze.
     select-package:
       flutter: true
       dir-exists: lib
@@ -41,7 +41,7 @@ scripts:
     run: |
       melos exec -- \
         flutter format --dry-run --set-exit-if-changed lib/
-    description: Format in all packages
+    description: Run format.
     select-package:
       flutter: true
       dir-exists: lib
@@ -50,27 +50,27 @@ scripts:
     run: |
       melos exec -- \
         dart fix --apply lib
-    description: Dart fix
+    description: Run dart fix.
     select-package:
       dir-exists: lib
-
-  test:
-    run: |
-      melos exec --fail-fast -- \
-        flutter test --coverage
-    description: flutter test in all packages
-    select-package:
-      flutter: true
-      dir-exists: test
 
   gen:
     run: |
       melos exec -c 1 -- \
         flutter pub run build_runner build --delete-conflicting-outputs
-    description: Generate code files
+    description: Run generate code.
     select-package:
       dir-exists: lib
       depends-on: "build_runner"
+
+  test:
+    run: |
+      melos exec --fail-fast -- \
+        flutter test --coverage
+    description: Run flutter test.
+    select-package:
+      flutter: true
+      dir-exists: test
 
   pod:all:
     run: |
@@ -96,36 +96,36 @@ scripts:
       dir-exists: [lib, macos]
       file-exists: "macos/Podfile"
 
-  build:prod:android:
+  build:android:prod:
     run: |
       melos exec -c 1 -- \
         flutter build appbundle --dart-define=FLAVOR=prod
+    description: Build the AppBundle for the production app.
     select-package:
       flutter: true
       dir-exists: [lib, android]
-      depends-on: flutter_test
 
-  upload:prod:ios:
+  upload:ios:prod:
     run: |
       melos exec -c 1 -- \
         flutter build ipa --dart-define=FLAVOR=prod --export-options-plist="ios/prod/ExportOptions.plist"
+    description: Upload the IPA for the production app.
     select-package:
       flutter: true
       dir-exists: [lib, ios]
-      depends-on: flutter_test
 
   # for ReStock app
-  deploy:prod:restock:
+  deploy:restock:prod:
     run: |
-      melos run build:prod:android:restock
-      melos run upload:prod:ios:restock
+      melos run build:android:prod:restock
+      melos run upload:ios:prod:restock
 
-  build:prod:android:restock:
+  build:android:prod:restock:
     run: |
       melos exec -c 1 --scope="restock" --flutter --private -- \
         flutter build appbundle --flavor production --dart-define=FLAVOR=production --no-tree-shake-icons
 
-  upload:prod:ios:restock:
+  upload:ios:prod:restock:
     run: |
       melos exec -c 1 --scope="restock" --flutter --private -- \
         flutter build ipa --flavor production --dart-define=FLAVOR=production --export-options-plist="ios/prod/ExportOptions.plist" --no-tree-shake-icons
