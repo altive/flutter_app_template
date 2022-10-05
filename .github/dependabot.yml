@@ -18,7 +18,7 @@ updates:
     schedule:
       interval: "monthly"
 
-- package-ecosystem: "pub"
+  - package-ecosystem: "pub"
     directory: "/packages/flutter_app" # Location of package manifests
     schedule:
       interval: "monthly"
