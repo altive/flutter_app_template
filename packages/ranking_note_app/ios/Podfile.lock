@@ -17,9 +17,6 @@ PODS:
   - Firebase/Firestore (9.4.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (~> 9.4.0)
-  - Firebase/Messaging (9.4.0):
-    - Firebase/CoreOnly
-    - FirebaseMessaging (~> 9.4.0)
   - Firebase/RemoteConfig (9.4.0):
     - Firebase/CoreOnly
     - FirebaseRemoteConfig (~> 9.4.0)
@@ -32,10 +29,6 @@ PODS:
     - Flutter
   - firebase_core (1.21.1):
     - Firebase/CoreOnly (= 9.4.0)
-    - Flutter
-  - firebase_messaging (12.0.3):
-    - Firebase/Messaging (= 9.4.0)
-    - firebase_core
     - Flutter
   - firebase_remote_config (2.0.16):
     - Firebase/RemoteConfig (= 9.4.0)
@@ -76,20 +69,11 @@ PODS:
   - FirebaseFirestore/Base (9.4.0)
   - FirebaseFirestore/WithLeveldb (9.4.0):
     - FirebaseFirestore/Base
-  - FirebaseInstallations (9.5.0):
+  - FirebaseInstallations (9.6.0):
     - FirebaseCore (~> 9.0)
     - GoogleUtilities/Environment (~> 7.7)
     - GoogleUtilities/UserDefaults (~> 7.7)
     - PromisesObjC (~> 2.1)
-  - FirebaseMessaging (9.4.0):
-    - FirebaseCore (~> 9.0)
-    - FirebaseInstallations (~> 9.0)
-    - GoogleDataTransport (< 10.0.0, >= 9.1.4)
-    - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
-    - GoogleUtilities/Environment (~> 7.7)
-    - GoogleUtilities/Reachability (~> 7.7)
-    - GoogleUtilities/UserDefaults (~> 7.7)
-    - nanopb (< 2.30910.0, >= 2.30908.0)
   - FirebaseRemoteConfig (9.4.0):
     - FirebaseABTesting (~> 9.0)
     - FirebaseCore (~> 9.0)
@@ -167,7 +151,6 @@ DEPENDENCIES:
   - cloud_firestore (from `.symlinks/plugins/cloud_firestore/ios`)
   - firebase_auth (from `.symlinks/plugins/firebase_auth/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
-  - firebase_messaging (from `.symlinks/plugins/firebase_messaging/ios`)
   - firebase_remote_config (from `.symlinks/plugins/firebase_remote_config/ios`)
   - firebase_storage (from `.symlinks/plugins/firebase_storage/ios`)
   - FirebaseFirestore (from `https://github.com/invertase/firestore-ios-sdk-frameworks.git`, tag `9.4.0`)
@@ -194,7 +177,6 @@ SPEC REPOS:
     - FirebaseCoreExtension
     - FirebaseCoreInternal
     - FirebaseInstallations
-    - FirebaseMessaging
     - FirebaseRemoteConfig
     - FirebaseStorage
     - FirebaseStorageInternal
@@ -214,8 +196,6 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/firebase_auth/ios"
   firebase_core:
     :path: ".symlinks/plugins/firebase_core/ios"
-  firebase_messaging:
-    :path: ".symlinks/plugins/firebase_messaging/ios"
   firebase_remote_config:
     :path: ".symlinks/plugins/firebase_remote_config/ios"
   firebase_storage:
@@ -253,7 +233,6 @@ SPEC CHECKSUMS:
   Firebase: 7703fc4022824b6d6db1bf7bea58d13b8e17ec46
   firebase_auth: 6fd4ee7cf84c121348fa34df22a07b64706cdf4d
   firebase_core: 8e500850dd138c269d197c8dfca3ae886fa3b6f2
-  firebase_messaging: b65dacd4de1b469893dea0d754b1947f45ef4f7a
   firebase_remote_config: 0122ca8cf8aef19eb8666ad4aa8d0f811b619762
   firebase_storage: 846832b7f2d22238678dc9abc513f2151f102462
   FirebaseABTesting: 8122e553ba229b557acc4659f3c3615538fd9448
@@ -265,8 +244,7 @@ SPEC CHECKSUMS:
   FirebaseCoreExtension: 2904492b693a6871ddbd1088c9d1fe6e54384050
   FirebaseCoreInternal: 50a8e39cae8abf72d5145d07ea34c3244f70862b
   FirebaseFirestore: 3044b77f9d32c07d4536eace25b4c759fd820ba0
-  FirebaseInstallations: 41f811b530c41dd90973d0174381cdb3fcb5e839
-  FirebaseMessaging: 4e220eddd356181469ba2ec5f7d5fafbc2312841
+  FirebaseInstallations: 0a115432c4e223c5ab20b0dbbe4cbefa793a0e8e
   FirebaseRemoteConfig: 6d9982bc64548a6e3c1b497b9fa53938ad135f2d
   FirebaseStorage: 160ba975dd3452d9c59a3bf5ea9bf70ff96bd3c2
   FirebaseStorageInternal: 4f8a9e27391a99ac0692adbbd072fe0e5c4125fe
