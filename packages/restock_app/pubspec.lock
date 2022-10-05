@@ -539,7 +539,7 @@ packages:
       name: firestore_ref
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.13.3"
+    version: "0.14.0"
   fixnum:
     dependency: transitive
     description:
@@ -868,6 +868,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.6.0"
+  json_converter_helper:
+    dependency: transitive
+    description:
+      name: json_converter_helper
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.1"
   json_serializable:
     dependency: "direct dev"
     description:

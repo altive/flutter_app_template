@@ -32,7 +32,7 @@ dependencies:
   firebase_performance: ^0.8.3+2
   firebase_remote_config: ^2.0.16
   firebase_storage: ^10.3.7
-  firestore_ref: ^0.13.3
+  firestore_ref: ^0.14.0
   flutter:
     sdk: flutter
   flutter_barcode_scanner: ^2.0.0
