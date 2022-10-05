@@ -32,7 +32,7 @@ dependencies:
   flutter_svg: ^1.1.5
   freezed_annotation: ^2.1.0
   gap: ^2.0.0
-  go_router: ^4.5.0
+  go_router: ^5.0.5
   google_sign_in: ^5.4.2
   hooks_riverpod: ^2.0.0
   image_picker: ^0.8.5
@@ -59,7 +59,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   freezed: ^2.1.0+1
-  go_router_builder: ^1.0.10
+  go_router_builder: ^1.0.14
   json_serializable: ^6.3.2
   mockito: ^5.2.0
   riverpod_generator: ^1.0.1
