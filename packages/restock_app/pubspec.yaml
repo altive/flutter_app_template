@@ -29,7 +29,7 @@ dependencies:
   firebase_auth: ^3.11.1
   firebase_core: ^1.21.1
   firebase_dynamic_links: ^4.3.6
-  firebase_performance: ^0.8.2+3
+  firebase_performance: ^0.8.3+2
   firebase_remote_config: ^2.0.16
   firebase_storage: ^10.3.7
   firestore_ref: ^0.13.3
