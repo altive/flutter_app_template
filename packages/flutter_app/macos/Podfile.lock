@@ -1,92 +1,92 @@
 PODS:
-  - cloud_firestore (3.4.6):
-    - Firebase/CoreOnly (~> 9.4.0)
-    - Firebase/Firestore (~> 9.4.0)
+  - cloud_firestore (3.5.0):
+    - Firebase/CoreOnly (~> 9.6.0)
+    - Firebase/Firestore (~> 9.6.0)
     - firebase_core
     - FlutterMacOS
-  - Firebase/Auth (9.4.0):
+  - Firebase/Auth (9.6.0):
     - Firebase/CoreOnly
-    - FirebaseAuth (~> 9.4.0)
-  - Firebase/CoreOnly (9.4.0):
-    - FirebaseCore (= 9.4.0)
-  - Firebase/Firestore (9.4.0):
+    - FirebaseAuth (~> 9.6.0)
+  - Firebase/CoreOnly (9.6.0):
+    - FirebaseCore (= 9.6.0)
+  - Firebase/Firestore (9.6.0):
     - Firebase/CoreOnly
-    - FirebaseFirestore (~> 9.4.0)
-  - Firebase/RemoteConfig (9.4.0):
+    - FirebaseFirestore (~> 9.6.0)
+  - Firebase/RemoteConfig (9.6.0):
     - Firebase/CoreOnly
-    - FirebaseRemoteConfig (~> 9.4.0)
-  - Firebase/Storage (9.4.0):
+    - FirebaseRemoteConfig (~> 9.6.0)
+  - Firebase/Storage (9.6.0):
     - Firebase/CoreOnly
-    - FirebaseStorage (~> 9.4.0)
+    - FirebaseStorage (~> 9.6.0)
   - firebase_auth (3.10.0):
-    - Firebase/Auth (~> 9.4.0)
-    - Firebase/CoreOnly (~> 9.4.0)
+    - Firebase/Auth (~> 9.6.0)
+    - Firebase/CoreOnly (~> 9.6.0)
     - firebase_core
     - FlutterMacOS
-  - firebase_core (1.21.1):
-    - Firebase/CoreOnly (~> 9.4.0)
+  - firebase_core (1.24.0):
+    - Firebase/CoreOnly (~> 9.6.0)
     - FlutterMacOS
-  - firebase_remote_config (2.0.18):
-    - Firebase/CoreOnly (~> 9.4.0)
-    - Firebase/RemoteConfig (~> 9.4.0)
+  - firebase_remote_config (2.0.19):
+    - Firebase/CoreOnly (~> 9.6.0)
+    - Firebase/RemoteConfig (~> 9.6.0)
     - firebase_core
     - FlutterMacOS
-  - firebase_storage (10.3.9):
-    - Firebase/CoreOnly (~> 9.4.0)
-    - Firebase/Storage (~> 9.4.0)
+  - firebase_storage (10.3.10):
+    - Firebase/CoreOnly (~> 9.6.0)
+    - Firebase/Storage (~> 9.6.0)
     - firebase_core
     - FlutterMacOS
-  - FirebaseABTesting (9.5.0):
+  - FirebaseABTesting (9.6.0):
     - FirebaseCore (~> 9.0)
-  - FirebaseAppCheckInterop (9.5.0)
-  - FirebaseAuth (9.4.0):
+  - FirebaseAppCheckInterop (9.6.0)
+  - FirebaseAuth (9.6.0):
     - FirebaseCore (~> 9.0)
     - GoogleUtilities/AppDelegateSwizzler (~> 7.7)
     - GoogleUtilities/Environment (~> 7.7)
     - GTMSessionFetcher/Core (< 3.0, >= 1.7)
-  - FirebaseAuthInterop (9.5.0)
-  - FirebaseCore (9.4.0):
+  - FirebaseAuthInterop (9.6.0)
+  - FirebaseCore (9.6.0):
     - FirebaseCoreDiagnostics (~> 9.0)
     - FirebaseCoreInternal (~> 9.0)
     - GoogleUtilities/Environment (~> 7.7)
     - GoogleUtilities/Logger (~> 7.7)
-  - FirebaseCoreDiagnostics (9.5.0):
+  - FirebaseCoreDiagnostics (9.6.0):
     - GoogleDataTransport (< 10.0.0, >= 9.1.4)
     - GoogleUtilities/Environment (~> 7.7)
     - GoogleUtilities/Logger (~> 7.7)
     - nanopb (< 2.30910.0, >= 2.30908.0)
-  - FirebaseCoreExtension (9.5.0):
+  - FirebaseCoreExtension (9.6.0):
     - FirebaseCore (~> 9.0)
-  - FirebaseCoreInternal (9.5.0):
+  - FirebaseCoreInternal (9.6.0):
     - "GoogleUtilities/NSData+zlib (~> 7.7)"
-  - FirebaseFirestore (9.4.0):
-    - FirebaseFirestore/AutodetectLeveldb (= 9.4.0)
-  - FirebaseFirestore/AutodetectLeveldb (9.4.0):
+  - FirebaseFirestore (9.6.0):
+    - FirebaseFirestore/AutodetectLeveldb (= 9.6.0)
+  - FirebaseFirestore/AutodetectLeveldb (9.6.0):
     - FirebaseFirestore/Base
     - FirebaseFirestore/WithLeveldb
-  - FirebaseFirestore/Base (9.4.0)
-  - FirebaseFirestore/WithLeveldb (9.4.0):
+  - FirebaseFirestore/Base (9.6.0)
+  - FirebaseFirestore/WithLeveldb (9.6.0):
     - FirebaseFirestore/Base
-  - FirebaseInstallations (9.5.0):
+  - FirebaseInstallations (9.6.0):
     - FirebaseCore (~> 9.0)
     - GoogleUtilities/Environment (~> 7.7)
     - GoogleUtilities/UserDefaults (~> 7.7)
     - PromisesObjC (~> 2.1)
-  - FirebaseRemoteConfig (9.4.0):
+  - FirebaseRemoteConfig (9.6.0):
     - FirebaseABTesting (~> 9.0)
     - FirebaseCore (~> 9.0)
     - FirebaseInstallations (~> 9.0)
     - GoogleUtilities/Environment (~> 7.7)
     - "GoogleUtilities/NSData+zlib (~> 7.7)"
-  - FirebaseStorage (9.4.0):
+  - FirebaseStorage (9.6.0):
     - FirebaseAppCheckInterop (~> 9.0)
     - FirebaseAuthInterop (~> 9.0)
     - FirebaseCore (~> 9.0)
     - FirebaseCoreExtension (~> 9.0)
     - FirebaseStorageInternal (~> 9.0)
-  - FirebaseStorageInternal (9.5.0):
+  - FirebaseStorageInternal (9.6.0):
     - FirebaseCore (~> 9.0)
-    - GTMSessionFetcher/Core (< 2.1, >= 1.7)
+    - GTMSessionFetcher/Core (< 3.0, >= 1.7)
   - FlutterMacOS (1.0.0)
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
@@ -95,24 +95,24 @@ PODS:
     - GoogleUtilities/Environment (~> 7.7)
     - nanopb (< 2.30910.0, >= 2.30908.0)
     - PromisesObjC (< 3.0, >= 1.2)
-  - GoogleUtilities/AppDelegateSwizzler (7.7.0):
+  - GoogleUtilities/AppDelegateSwizzler (7.8.0):
     - GoogleUtilities/Environment
     - GoogleUtilities/Logger
     - GoogleUtilities/Network
-  - GoogleUtilities/Environment (7.7.0):
+  - GoogleUtilities/Environment (7.8.0):
     - PromisesObjC (< 3.0, >= 1.2)
-  - GoogleUtilities/Logger (7.7.0):
+  - GoogleUtilities/Logger (7.8.0):
     - GoogleUtilities/Environment
-  - GoogleUtilities/Network (7.7.0):
+  - GoogleUtilities/Network (7.8.0):
     - GoogleUtilities/Logger
     - "GoogleUtilities/NSData+zlib"
     - GoogleUtilities/Reachability
-  - "GoogleUtilities/NSData+zlib (7.7.0)"
-  - GoogleUtilities/Reachability (7.7.0):
+  - "GoogleUtilities/NSData+zlib (7.8.0)"
+  - GoogleUtilities/Reachability (7.8.0):
     - GoogleUtilities/Logger
-  - GoogleUtilities/UserDefaults (7.7.0):
+  - GoogleUtilities/UserDefaults (7.8.0):
     - GoogleUtilities/Logger
-  - GTMSessionFetcher/Core (2.0.0)
+  - GTMSessionFetcher/Core (2.1.0)
   - nanopb (2.30909.0):
     - nanopb/decode (= 2.30909.0)
     - nanopb/encode (= 2.30909.0)
@@ -137,7 +137,7 @@ DEPENDENCIES:
   - firebase_core (from `Flutter/ephemeral/.symlinks/plugins/firebase_core/macos`)
   - firebase_remote_config (from `Flutter/ephemeral/.symlinks/plugins/firebase_remote_config/macos`)
   - firebase_storage (from `Flutter/ephemeral/.symlinks/plugins/firebase_storage/macos`)
-  - FirebaseFirestore (from `https://github.com/invertase/firestore-ios-sdk-frameworks.git`, tag `9.4.0`)
+  - FirebaseFirestore (from `https://github.com/invertase/firestore-ios-sdk-frameworks.git`, tag `9.6.0`)
   - FlutterMacOS (from `Flutter/ephemeral`)
   - package_info_plus_macos (from `Flutter/ephemeral/.symlinks/plugins/package_info_plus_macos/macos`)
   - path_provider_macos (from `Flutter/ephemeral/.symlinks/plugins/path_provider_macos/macos`)
@@ -180,7 +180,7 @@ EXTERNAL SOURCES:
     :path: Flutter/ephemeral/.symlinks/plugins/firebase_storage/macos
   FirebaseFirestore:
     :git: https://github.com/invertase/firestore-ios-sdk-frameworks.git
-    :tag: 9.4.0
+    :tag: 9.6.0
   FlutterMacOS:
     :path: Flutter/ephemeral
   package_info_plus_macos:
@@ -197,33 +197,33 @@ EXTERNAL SOURCES:
 CHECKOUT OPTIONS:
   FirebaseFirestore:
     :git: https://github.com/invertase/firestore-ios-sdk-frameworks.git
-    :tag: 9.4.0
+    :tag: 9.6.0
 
 SPEC CHECKSUMS:
-  cloud_firestore: 6479648a330d9432356d3e84418a0b5312233631
-  Firebase: 7703fc4022824b6d6db1bf7bea58d13b8e17ec46
-  firebase_auth: 822c312d6dd2fe4b1b312483d17563ad6a6bd1c2
-  firebase_core: 822a1076483bf9764284322c9310daa98e1e6817
-  firebase_remote_config: 13443e7f0da94ce5cd3c30e834237a79b645419a
-  firebase_storage: 1cc37469d98b476a48774ba5d248ccbe670ba689
-  FirebaseABTesting: 8122e553ba229b557acc4659f3c3615538fd9448
-  FirebaseAppCheckInterop: 8e95b4329809e3c06fb425acb3839dcadfe23673
-  FirebaseAuth: ae5d4402e1516497357d909162b091b3ca2a2e9c
-  FirebaseAuthInterop: c5aa97b55a87785e22c60c73996c1ad32e5f7ac9
-  FirebaseCore: 9a2b10270a854731c4d4d8a97d0aa8380ec3458d
-  FirebaseCoreDiagnostics: 17cbf4e72b1dbd64bfdc33d4b1f07bce4f16f1d8
-  FirebaseCoreExtension: 2904492b693a6871ddbd1088c9d1fe6e54384050
-  FirebaseCoreInternal: 50a8e39cae8abf72d5145d07ea34c3244f70862b
-  FirebaseFirestore: 3044b77f9d32c07d4536eace25b4c759fd820ba0
-  FirebaseInstallations: 41f811b530c41dd90973d0174381cdb3fcb5e839
-  FirebaseRemoteConfig: 6d9982bc64548a6e3c1b497b9fa53938ad135f2d
-  FirebaseStorage: 160ba975dd3452d9c59a3bf5ea9bf70ff96bd3c2
-  FirebaseStorageInternal: 4f8a9e27391a99ac0692adbbd072fe0e5c4125fe
+  cloud_firestore: 507abc60df3e9181b69e5821d0b344960602a191
+  Firebase: 5ae8b7cf8efce559a653aef0ad95bab3f427c351
+  firebase_auth: aa3ff4f1ae0f4a94acedbc3921ea7c25cdfe0a9d
+  firebase_core: 970bc7db019f0985976324d90cdc370527c31461
+  firebase_remote_config: ca3262e09bb5b84c44da2231248a7cbf9daa35a9
+  firebase_storage: 9aa89d5574284483e12efde95a2aa8b1507be837
+  FirebaseABTesting: 61826730ce9eee8781ba99a2b3420e9bce148dc9
+  FirebaseAppCheckInterop: d5ecda0c09f8069406643d6e0fa12c09d1b736e3
+  FirebaseAuth: e4a5d3c36e778e41141b91cc861103a441d80bcc
+  FirebaseAuthInterop: b6cf02117f13a8400c8c8b4421e12c6e850bcaf3
+  FirebaseCore: 2082fffcd855f95f883c0a1641133eb9bbe76d40
+  FirebaseCoreDiagnostics: 99a495094b10a57eeb3ae8efa1665700ad0bdaa6
+  FirebaseCoreExtension: e83465d1236b166d1d445bbf0e82b65acb30b73b
+  FirebaseCoreInternal: bca76517fe1ed381e989f5e7d8abb0da8d85bed3
+  FirebaseFirestore: 56251017e7fb2530d39d42724a6772fd78fd734e
+  FirebaseInstallations: 0a115432c4e223c5ab20b0dbbe4cbefa793a0e8e
+  FirebaseRemoteConfig: ee09d77a7d7c7e31da6a0d1cf956cd611c85609c
+  FirebaseStorage: 1fead543a1f441c3b434c1c9f12560dd82f8b568
+  FirebaseStorageInternal: 81d8a597324ccd06c41a43c5700bc1185a2fc328
   FlutterMacOS: ae6af50a8ea7d6103d888583d46bd8328a7e9811
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   GoogleDataTransport: 1c8145da7117bd68bbbed00cf304edb6a24de00f
-  GoogleUtilities: e0913149f6b0625b553d70dae12b49fc62914fd1
-  GTMSessionFetcher: 681175626052e03fdde7952f7e9c7a9785719506
+  GoogleUtilities: 1d20a6ad97ef46f67bbdec158ce00563a671ebb7
+  GTMSessionFetcher: ffbb25ec00ebcb5201adab0a56d808f6f1902d9f
   nanopb: b552cce312b6c8484180ef47159bc0f65a1f0431
   package_info_plus_macos: f010621b07802a241d96d01876d6705f15e77c1c
   path_provider_macos: 3c0c3b4b0d4a76d2bf989a913c2de869c5641a19
@@ -232,6 +232,6 @@ SPEC CHECKSUMS:
   sqflite: a5789cceda41d54d23f31d6de539d65bb14100ea
   url_launcher_macos: 597e05b8e514239626bcf4a850fcf9ef5c856ec3
 
-PODFILE CHECKSUM: 8e98a260eefa030570fe266d08ee134de224ec0d
+PODFILE CHECKSUM: 1d685769c5f77726c904abd174c3f76f19244d69
 
 COCOAPODS: 1.11.3

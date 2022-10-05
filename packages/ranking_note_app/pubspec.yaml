@@ -15,7 +15,7 @@ dependencies:
   collection: ^1.15.0
   convenient_widgets:
     path: ../convenient_widgets
-  firebase_core: ^1.21.1
+  firebase_core: ^1.24.0
   firebase_remote_config: ^2.0.16
   firebase_storage: ^10.3.7
   flutter:
