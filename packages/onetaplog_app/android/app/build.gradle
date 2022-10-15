@@ -29,7 +29,9 @@ apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
-    compileSdkVersion flutter.compileSdkVersion
+    // The plugin `firebase_messaging` requires Android SDK version 33,
+    // but `flutter.compileSdkVersion` cannot be used because 32? was specified.
+    compileSdkVersion 33
     ndkVersion flutter.ndkVersion
 
     compileOptions {
