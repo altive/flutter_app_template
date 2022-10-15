@@ -427,14 +427,14 @@ packages:
       name: firebase_crashlytics
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.8.9"
+    version: "2.8.12"
   firebase_crashlytics_platform_interface:
     dependency: transitive
     description:
       name: firebase_crashlytics_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.2.15"
+    version: "3.2.18"
   firebase_dynamic_links:
     dependency: "direct main"
     description:
