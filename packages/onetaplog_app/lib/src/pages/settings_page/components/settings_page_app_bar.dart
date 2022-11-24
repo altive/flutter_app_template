@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SettingsPageAppBar extends StatelessWidget
@@ -9,8 +10,23 @@ class SettingsPageAppBar extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
-    return AppBar(
-      title: const Text('Settings'),
+    return SliverAppBar.large(
+      backgroundColor: Colors.transparent,
+      title: Text(
+        'Settings',
+        // Because ThemeData is not reflected in Flutter 3.3.
+        // https://github.com/flutter/flutter/issues/110878
+        style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+              color: Theme.of(context).colorScheme.onPrimary,
+            ),
+      ),
+      actions: [
+        IconButton(
+          onPressed: () {},
+          color: Colors.white,
+          icon: const Icon(CupertinoIcons.ellipsis_circle),
+        ),
+      ],
     );
   }
 }

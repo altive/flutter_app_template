@@ -3,6 +3,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../router/router.dart';
+import '../../util/localizer/localizer.dart';
 import '../top_level_tab_page/top_level_tab.dart';
 import 'components/splash_page_app_bar.dart';
 import 'components/splash_page_body.dart';
@@ -49,7 +50,7 @@ class SplashPage extends HookConsumerWidget {
           for (final tab in TopLevelTab.values)
             BottomNavigationBarItem(
               icon: Icon(tab.activeIconData),
-              label: tab.labelText(),
+              label: tab.labelText(L10n.of(context)),
             ),
         ],
       ),

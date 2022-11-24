@@ -1,4 +1,8 @@
 {
     "@@locale": "en",
-    "title": "One Tap Log"
+    "title": "One Tap Log",
+    "topLevelTabTasks": "Tasks",
+    "topLevelTabHistories": "Histories",
+    "topLevelTabTeam": "Team",
+    "topLevelTabSettings": "Settings"
 }

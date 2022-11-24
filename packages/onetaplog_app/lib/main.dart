@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import 'src/one_tap_log_app.dart';
+import 'src/onetaplog_app.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

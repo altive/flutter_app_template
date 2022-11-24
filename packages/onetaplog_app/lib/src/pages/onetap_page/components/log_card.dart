@@ -15,9 +15,10 @@ class LogCard extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final log = ref.watch(logProvider);
-    final onPrimary = Theme.of(context).colorScheme.onPrimary;
+    final colorScheme = Theme.of(context).colorScheme;
+
     const borderRadius = BorderRadius.all(Radius.circular(16));
+    final log = ref.watch(logProvider);
 
     final editMenuItem = LogCardContextMenuItem.edit(onTap: () {});
     final duplicateMenuItem = LogCardContextMenuItem.duplicate(onTap: () {});
@@ -34,14 +35,14 @@ class LogCard extends ConsumerWidget {
         },
         child: Container(
           padding: const EdgeInsets.only(bottom: 8),
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             borderRadius: borderRadius,
             gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                Colors.black26,
-                Colors.black54,
+                colorScheme.background.withOpacity(0.25),
+                colorScheme.background.withOpacity(0.5),
               ],
             ),
           ),
@@ -56,7 +57,6 @@ class LogCard extends ConsumerWidget {
                     Icon(
                       log.iconData,
                       size: 32,
-                      color: onPrimary,
                     ),
                     PullDownButton(
                       position: PullDownMenuPosition.under,
@@ -74,7 +74,6 @@ class LogCard extends ConsumerWidget {
                         return IconButton(
                           onPressed: showMenu,
                           padding: EdgeInsets.zero,
-                          color: onPrimary,
                           icon: const Icon(CupertinoIcons.ellipsis_circle),
                         );
                       },
@@ -89,7 +88,6 @@ class LogCard extends ConsumerWidget {
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   style: Theme.of(context).textTheme.subtitle2!.copyWith(
-                        color: onPrimary,
                         fontWeight: FontWeight.bold,
                       ),
                 ),
@@ -98,9 +96,7 @@ class LogCard extends ConsumerWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 8),
                 child: Text(
                   log.lastUpdatedText,
-                  style: Theme.of(context).textTheme.caption!.copyWith(
-                        color: onPrimary,
-                      ),
+                  style: Theme.of(context).textTheme.caption!.copyWith(),
                 ),
               ),
             ],

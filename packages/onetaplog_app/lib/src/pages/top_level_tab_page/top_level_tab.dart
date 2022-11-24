@@ -1,40 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../histories_page/histories_page.dart';
 import '../onetap_page/onetap_page.dart';
 import '../settings_page/settings_page.dart';
 
-// TODO(Riscait): 本当はEnhanced enumにしたかったが、
-// go_router_builderがEnhanced Enumに対応していないため使用できず
-// Issue: https://github.com/flutter/flutter/issues/105876
 enum TopLevelTab {
-  onetap,
-  histories,
-  settings,
-}
+  onetap(
+    activeIconData: Icons.touch_app_rounded,
+    inactiveIconData: Icons.touch_app_outlined,
+  ),
+  histories(
+    activeIconData: Icons.history_rounded,
+    inactiveIconData: Icons.history_outlined,
+  ),
+  team(
+    activeIconData: Icons.people,
+    inactiveIconData: Icons.people_outline,
+  ),
+  settings(
+    activeIconData: Icons.settings_rounded,
+    inactiveIconData: Icons.settings_outlined,
+  ),
+  ;
 
-extension TopLevelTabExt on TopLevelTab {
-  IconData get activeIconData {
-    switch (this) {
-      case TopLevelTab.onetap:
-        return Icons.touch_app_rounded;
-      case TopLevelTab.histories:
-        return Icons.history_rounded;
-      case TopLevelTab.settings:
-        return Icons.settings_rounded;
-    }
-  }
+  const TopLevelTab({
+    required this.activeIconData,
+    required this.inactiveIconData,
+  });
 
-  IconData get inactiveIconData {
-    switch (this) {
-      case TopLevelTab.onetap:
-        return Icons.touch_app_outlined;
-      case TopLevelTab.histories:
-        return Icons.history_outlined;
-      case TopLevelTab.settings:
-        return Icons.settings_outlined;
-    }
-  }
+  final IconData activeIconData;
+  final IconData inactiveIconData;
 
   Widget get page {
     switch (this) {
@@ -44,17 +40,21 @@ extension TopLevelTabExt on TopLevelTab {
         return const HistoriesPage();
       case TopLevelTab.settings:
         return const SettingsPage();
+      case TopLevelTab.team:
+        return const SettingsPage();
     }
   }
 
-  String labelText() {
+  String labelText(AppLocalizations l10n) {
     switch (this) {
       case TopLevelTab.onetap:
-        return 'OneTap';
+        return l10n.topLevelTabTasks;
       case TopLevelTab.histories:
-        return 'Histories';
+        return l10n.topLevelTabHistories;
+      case TopLevelTab.team:
+        return l10n.topLevelTabTeam;
       case TopLevelTab.settings:
-        return 'Settings';
+        return l10n.topLevelTabSettings;
     }
   }
 }

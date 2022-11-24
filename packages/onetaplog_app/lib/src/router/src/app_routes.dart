@@ -92,6 +92,15 @@ class HistoriesRoute extends GoRouteData {
   Widget build(BuildContext context) => const HistoriesPage();
 }
 
+class TeamRoute extends GoRouteData {
+  const TeamRoute({required this.tab});
+
+  final TopLevelTab tab;
+
+  @override
+  Widget build(BuildContext context) => const SettingsPage();
+}
+
 class SettingsRoute extends GoRouteData {
   const SettingsRoute({required this.tab});
 

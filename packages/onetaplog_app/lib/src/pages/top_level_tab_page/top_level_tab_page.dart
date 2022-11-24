@@ -6,6 +6,7 @@ import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../util/localizer/localizer.dart';
 import 'top_level_tab.dart';
 import 'top_level_tab_provider.dart';
 
@@ -44,30 +45,27 @@ class TopLevelTabPage extends HookConsumerWidget {
         body: currentTab.page,
         // Because ThemeData is not reflected in Flutter 3.3.
         // https://github.com/flutter/flutter/issues/110878
-        bottomNavigationBar: BottomNavigationBarTheme(
-          data: const BottomNavigationBarThemeData(
-            backgroundColor: Colors.black54,
-            selectedItemColor: Colors.white,
-            unselectedItemColor: Colors.grey,
-          ),
-          child: ClipRect(
-            child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
-              child: BottomNavigationBar(
-                currentIndex: currentTab.index,
-                showSelectedLabels: false,
-                showUnselectedLabels: false,
-                iconSize: 26,
-                items: [
-                  for (final tab in TopLevelTab.values)
-                    BottomNavigationBarItem(
-                      icon: Icon(tab.inactiveIconData),
-                      activeIcon: Icon(tab.activeIconData),
-                      label: tab.labelText(),
-                    ),
-                ],
-                onTap: changeTab,
-              ),
+        bottomNavigationBar: ClipRect(
+          child: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 3, sigmaY: 3),
+            child: BottomNavigationBar(
+              currentIndex: currentTab.index,
+              showSelectedLabels: false,
+              showUnselectedLabels: false,
+              iconSize: 26,
+              items: [
+                for (final tab in TopLevelTab.values)
+                  BottomNavigationBarItem(
+                    icon: Icon(tab.inactiveIconData),
+                    activeIcon: Icon(tab.activeIconData),
+                    label: tab.labelText(L10n.of(context)),
+                    backgroundColor: Theme.of(context)
+                        .colorScheme
+                        .background
+                        .withOpacity(0.3),
+                  ),
+              ],
+              onTap: changeTab,
             ),
           ),
         ),

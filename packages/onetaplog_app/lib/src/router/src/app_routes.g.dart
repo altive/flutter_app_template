@@ -128,6 +128,7 @@ extension $SettingsRouteExtension on SettingsRoute {
 const _$TopLevelTabEnumMap = {
   TopLevelTab.onetap: 'onetap',
   TopLevelTab.histories: 'histories',
+  TopLevelTab.team: 'team',
   TopLevelTab.settings: 'settings',
 };
 
