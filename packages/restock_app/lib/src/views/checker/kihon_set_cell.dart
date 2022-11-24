@@ -26,7 +26,7 @@ class KihonSetCell extends HookConsumerWidget {
       subtitle: 'まずはこれから始めましょう♪',
       description: '''
 家族$familyCount人分に必要な無洗米は${rice}kg、
-水は$waterℓ、2Lのミネラルウォーター${water ~/ 2}本分です。
+水は${water}L、2Lのミネラルウォーター${water ~/ 2}本分です。
       ''',
       iconName: 'rice',
       itemList: const [
@@ -41,22 +41,23 @@ class KihonSetCell extends HookConsumerWidget {
         ),
       ],
     );
+
+    /// お勧め商品セットの詳細説明ページへ遷移
+    void navigateDetailPage({
+      required RecommendStockSet kihonSet,
+    }) {
+      ref
+          .read(recommendDetailParameterProvider.notifier)
+          .update((state) => kihonSet);
+      Navigator.of(context).pushNamed(RecommendDetailPage.routeName);
+    }
+
     return ListTile(
       leading: Icon(MdiIcons.fromString(kihonSet.iconName)),
       title: Text(kihonSet.title),
       subtitle: Text(kihonSet.subtitle),
       trailing: const Icon(MdiIcons.chevronRight),
-      onTap: () => navigateDetailPage(ref, context, kihonSet: kihonSet),
+      onTap: () => navigateDetailPage(kihonSet: kihonSet),
     );
-  }
-
-  /// お勧め商品セットの詳細説明ページへ遷移
-  void navigateDetailPage(
-    WidgetRef ref,
-    BuildContext context, {
-    required RecommendStockSet kihonSet,
-  }) {
-    ref.read(recommendDetailParameterProvider.state).state = kihonSet;
-    Navigator.of(context).pushNamed(RecommendDetailPage.routeName);
   }
 }

@@ -35,7 +35,7 @@ class RecommendDetailCell extends HookConsumerWidget {
       loading: () => const LoadingIndicator(),
       error: (error, stack) => ErrorWidget(error),
       data: (favoriteItems) {
-        final isFavorited = favoriteItems.firstWhereOrNull(
+        final isFavored = favoriteItems.firstWhereOrNull(
               (doc) => doc.entity!.asin == item!.asin,
             ) !=
             null;
@@ -78,7 +78,7 @@ class RecommendDetailCell extends HookConsumerWidget {
                             ),
                           // アイコンボタン
                           IconButtonsOnCell(
-                            isFavored: isFavorited,
+                            isFavored: isFavored,
                             onPressedAddButton: () => _didTapCreateButton(
                               ref: ref,
                               context: context,
@@ -90,7 +90,7 @@ class RecommendDetailCell extends HookConsumerWidget {
                               context: context,
                               item: item,
                               favoritesCount: favoriteItems.length,
-                              isFavorited: isFavorited,
+                              isFavored: isFavored,
                             ),
                             onPressedAmazonButton: () => _didTapAmazonButton(
                               url: item!.detailPageUrl,
@@ -148,12 +148,12 @@ class RecommendDetailCell extends HookConsumerWidget {
     required BuildContext context,
     required PaapiSearchItem? item,
     required int favoritesCount,
-    required bool isFavorited,
+    required bool isFavored,
   }) async {
     var snackText = '';
     // ignore: unawaited_futures
     HapticFeedback.selectionClick();
-    if (isFavorited) {
+    if (isFavored) {
       // お気に入り解除
       snackText = await ref.read(favoriteProvider).removeFavorite(item!.asin);
     } else {
