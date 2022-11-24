@@ -15,6 +15,8 @@ command:
 scripts:
   postclean: >
     melos exec --flutter -- "flutter clean"
+    melos exec --flutter --file-exists="ios/Podfile.lock" -- "cd ios && rm Podfile.lock"
+    melos exec --flutter --file-exists="macos/Podfile.lock" -- "cd macos && rm Podfile.lock"
 
   postbootstrap: >
     melos exec --flutter --dir-exists=lib/l10n -- "flutter gen-l10n"
