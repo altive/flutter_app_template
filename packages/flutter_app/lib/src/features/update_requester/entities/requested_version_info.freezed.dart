@@ -121,7 +121,9 @@ class __$$_RequestedVersionInfoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_RequestedVersionInfo implements _RequestedVersionInfo {
+class _$_RequestedVersionInfo
+    with DiagnosticableTreeMixin
+    implements _RequestedVersionInfo {
   const _$_RequestedVersionInfo(
       {required this.requiredVersion,
       this.canCancel = false,
@@ -144,8 +146,18 @@ class _$_RequestedVersionInfo implements _RequestedVersionInfo {
   final DateTime enabledAt;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'RequestedVersionInfo(requiredVersion: $requiredVersion, canCancel: $canCancel, enabledAt: $enabledAt)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'RequestedVersionInfo'))
+      ..add(DiagnosticsProperty('requiredVersion', requiredVersion))
+      ..add(DiagnosticsProperty('canCancel', canCancel))
+      ..add(DiagnosticsProperty('enabledAt', enabledAt));
   }
 
   @override

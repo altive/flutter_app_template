@@ -5,7 +5,7 @@
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
-// ignore_for_file: directives_ordering,unnecessary_import
+// ignore_for_file: directives_ordering,unnecessary_import,implicit_dynamic_list_literal
 
 import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -21,6 +21,10 @@ class Assets {
   static const SvgGenImage appleLogoWhite =
       SvgGenImage('assets/apple_logo_white.svg');
   static const SvgGenImage googleLogo = SvgGenImage('assets/google_logo.svg');
+
+  /// List of all assets
+  List<SvgGenImage> get values =>
+      [appleLogoBlack, appleLogoGrey, appleLogoWhite, googleLogo];
 }
 
 class AssetGenImage {
@@ -80,6 +84,8 @@ class AssetGenImage {
       cacheHeight: cacheHeight,
     );
   }
+
+  ImageProvider provider() => AssetImage(_assetName);
 
   String get path => _assetName;
 
