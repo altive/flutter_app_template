@@ -33,6 +33,10 @@ class AltiveThemeData {
         filled: true,
         fillColor: cs.onBackground.withOpacity(0.1),
       ),
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: cs.background.withOpacity(0.5),
+      ),
       chipTheme: ChipThemeData(
         side: const BorderSide(color: Colors.black12),
         shape: const StadiumBorder(),
@@ -70,6 +74,10 @@ class AltiveThemeData {
         ),
         filled: true,
         fillColor: cs.onBackground.withOpacity(0.1),
+      ),
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: cs.background.withOpacity(0.5),
       ),
       chipTheme: ChipThemeData(
         side: const BorderSide(color: Colors.black12),
