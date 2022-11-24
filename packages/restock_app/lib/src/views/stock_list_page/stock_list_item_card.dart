@@ -100,7 +100,7 @@ class _Card extends ConsumerWidget {
         dense: true,
         onTap: () async {
           // 詳細画面へ遷移
-          ref.read(selectedStockIdForStockDetailProvider.state).state =
+          ref.read(selectedStockIdForStockDetailProvider.notifier).state =
               stock.id!;
           final result =
               await Navigator.of(context).pushNamed(StockDetailPage.routeName);

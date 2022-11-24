@@ -26,7 +26,7 @@ final stockEditorPageControllerProvider =
     StateNotifierProvider<StockEditorPageController, StockEditorState>(
   (ref) => StockEditorPageController(
     ref,
-    param: ref.watch(stockEditorParameterProvider.state).state,
+    param: ref.watch(stockEditorParameterProvider.notifier).state,
   ),
 );
 

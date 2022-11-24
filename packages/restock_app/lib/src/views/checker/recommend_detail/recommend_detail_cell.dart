@@ -124,7 +124,7 @@ class RecommendDetailCell extends HookConsumerWidget {
     HapticFeedback.selectionClick();
     final scaffold = ScaffoldMessenger.of(context);
     // Providerにドキュメントをセット
-    ref.read(stockEditorParameterProvider.state).state =
+    ref.read(stockEditorParameterProvider.notifier).state =
         StockEditorParameter.creatorWithAmazon(
       stock: StockEntity.fromSearchedAmazonItem(item),
     );

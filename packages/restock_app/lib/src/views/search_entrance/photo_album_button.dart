@@ -40,7 +40,7 @@ Future<void> _pickPhotoFromAlbum(WidgetRef ref, BuildContext context) async {
     return;
   }
   // この時点ではStockItemは作成せず、画像ファイルだけ渡す
-  ref.read(stockEditorParameterProvider.state).state =
+  ref.read(stockEditorParameterProvider.notifier).state =
       StockEditorParameter.createrWithPhoto(imageFile: croppedFile);
   // ストック作成結果画面へ遷移
   await Navigator.of(context).pushNamed(

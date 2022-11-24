@@ -38,13 +38,13 @@ class MainStackView extends HookConsumerWidget {
     );
 
     void switchBottomTab(int index) {
-      ref.read(_bottomTabIndexProvider.state).state = index;
+      ref.read(_bottomTabIndexProvider.notifier).state = index;
     }
 
     final selectedIndex = ref.watch(_bottomTabIndexProvider);
     return UnfocusOnTap(
       child: LoadingIndicator(
-        loading: ref.watch(overlayIndicatorStateProvider.state).state,
+        loading: ref.watch(overlayIndicatorStateProvider.notifier).state,
         child: Scaffold(
           body: IndexedStack(
             index: selectedIndex,

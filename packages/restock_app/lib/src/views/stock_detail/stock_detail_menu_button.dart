@@ -98,7 +98,7 @@ class StockDetailMenuButton extends HookConsumerWidget {
     required StockEntity stock,
   }) async {
     // 編集画面で必要なParameterをセット
-    ref.read(stockEditorParameterProvider.state).state =
+    ref.read(stockEditorParameterProvider.notifier).state =
         StockEditorParameter.updater(stock: stock);
     final result = await Navigator.of(context).pushNamed(
       StockEditorPage.routeName,
@@ -142,7 +142,7 @@ class StockDetailMenuButton extends HookConsumerWidget {
     required StockEntity stock,
   }) async {
     // 複製画面で必要なParameterをセット
-    ref.read(stockEditorParameterProvider.state).state =
+    ref.read(stockEditorParameterProvider.notifier).state =
         StockEditorParameter.duplicater(stock: stock);
     await Navigator.of(context).pushNamed(StockEditorPage.routeName);
   }

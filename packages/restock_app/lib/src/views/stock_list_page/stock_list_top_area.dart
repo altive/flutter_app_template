@@ -18,7 +18,7 @@ class StockListTopArea extends HookConsumerWidget {
 
     void tabControllerListener() {
       if (tabController != null) {
-        ref.read(selectedTabIndexProvider.state).state = tabController.index;
+        ref.read(selectedTabIndexProvider.notifier).state = tabController.index;
       }
     }
 
@@ -46,7 +46,7 @@ class StockListTopArea extends HookConsumerWidget {
                     controller: textEditingController,
                     textInputAction: TextInputAction.done,
                     onChanged: (text) =>
-                        ref.read(searchTextProvider.state).state = text,
+                        ref.read(searchTextProvider.notifier).state = text,
                     style: Theme.of(context).textTheme.subtitle2,
                     decoration: InputDecoration(
                       hintText: '検索',
@@ -59,7 +59,8 @@ class StockListTopArea extends HookConsumerWidget {
                           : IconButton(
                               icon: const Icon(Icons.clear),
                               onPressed: () {
-                                ref.read(searchTextProvider.state).state = '';
+                                ref.read(searchTextProvider.notifier).state =
+                                    '';
                                 textEditingController.clear();
                               },
                             ),
@@ -142,7 +143,7 @@ class _ChoiceChip extends HookConsumerWidget {
       selected: currentMode == displayMode,
       onSelected: (isOn) {
         if (isOn) {
-          ref.read(displayModeProvider.state).state = displayMode;
+          ref.read(displayModeProvider.notifier).state = displayMode;
           ref
               .read(sharedPreferencesServiceProvider)
               .saveStockDisplayMode(mode: displayMode);

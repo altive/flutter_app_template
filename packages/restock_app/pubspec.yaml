@@ -45,7 +45,7 @@ dependencies:
   freezed_annotation: ^2.1.0
   gap: ^2.0.0
   google_sign_in: ^5.4.2
-  hooks_riverpod: ^2.0.0
+  hooks_riverpod: ^2.1.1
   http: ^0.13.3
   image_cropper: ^2.0.0
   image_picker: ^0.8.1+2
@@ -61,7 +61,7 @@ dependencies:
   purchases_flutter: ^4.2.1
   quiver: ^3.0.1
   recase: ^4.0.0
-  riverpod_annotation: ^1.0.0
+  riverpod_annotation: ^1.0.6
   share_plus: ^4.0.10
   shared_preferences: ^2.0.6
   sign_in_with_apple: ^4.0.0
@@ -84,7 +84,7 @@ dev_dependencies:
   freezed: ^2.1.0+1
   json_serializable: ^6.3.1
   mockito: ^5.2.0
-  riverpod_generator: ^1.0.1
+  riverpod_generator: ^1.0.6
 
 flutter_gen:
   output: lib/gen/

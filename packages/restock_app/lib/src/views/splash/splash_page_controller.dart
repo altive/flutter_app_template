@@ -49,7 +49,7 @@ class SplashPageController extends StateNotifier<SplashState> {
     // サインイン状態を取得
     final user = FirebaseAuth.instance.currentUser;
     // ProviderのStateに反映
-    _ref.read(currentUserProvider.state).state = user;
+    _ref.read(currentUserProvider.notifier).state = user;
     if (user == null) {
       // 未サインインなら、受付画面へ遷移する
       return Navigator.of(context).pushReplacementNamed(

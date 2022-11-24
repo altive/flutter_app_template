@@ -31,7 +31,7 @@ class StockSetCell extends HookConsumerWidget {
     BuildContext context, {
     required RecommendStockSet stockSet,
   }) {
-    ref.read(recommendDetailParameterProvider.state).state = stockSet;
+    ref.read(recommendDetailParameterProvider.notifier).state = stockSet;
     Navigator.of(context).pushNamed(RecommendDetailPage.routeName);
   }
 }

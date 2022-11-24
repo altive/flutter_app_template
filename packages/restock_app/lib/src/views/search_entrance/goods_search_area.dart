@@ -121,7 +121,7 @@ class GoodsSearchArea extends HookConsumerWidget {
       _formKey.currentState!.save();
       final params = searchEntranceController.generateParams();
       // 検索結果画面へ遷移
-      ref.read(searchParamProvider.state).state = params;
+      ref.read(searchParamProvider.notifier).state = params;
       await Navigator.of(context).pushNamed(
         SearchResultView.routeName,
       );

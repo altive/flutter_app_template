@@ -34,14 +34,14 @@ dependencies:
   gap: ^2.0.0
   go_router: ^5.0.5
   google_sign_in: ^5.4.2
-  hooks_riverpod: ^2.0.2
+  hooks_riverpod: ^2.1.1
   image_picker: ^0.8.5
   intl: ^0.17.0
   json_annotation: ^4.7.0
   linked_scroll_controller: ^0.2.0
   modal_bottom_sheet: ^2.1.2
   package_info_plus: ^1.4.3
-  riverpod_annotation: ^1.0.0
+  riverpod_annotation: ^1.0.4
   shared_preferences: ^2.0.8
   sort_key_generator: ^0.2.0+1
   themes:
@@ -62,7 +62,7 @@ dev_dependencies:
   go_router_builder: ^1.0.14
   json_serializable: ^6.3.2
   mockito: ^5.2.0
-  riverpod_generator: ^1.0.1
+  riverpod_generator: ^1.0.6
 
 flutter_gen:
   output: lib/gen/

@@ -187,7 +187,7 @@ class RecommendCell extends HookConsumerWidget {
   }) {
     final stock = StockEntity.fromSearchedAmazonItem(searchItem);
     final param = StockEditorParameter.creatorWithAmazon(stock: stock);
-    ref.read(stockEditorParameterProvider.state).state = param;
+    ref.read(stockEditorParameterProvider.notifier).state = param;
     Navigator.of(context).pushNamed(StockEditorPage.routeName);
   }
 }

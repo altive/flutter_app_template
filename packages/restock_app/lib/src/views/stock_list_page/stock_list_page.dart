@@ -37,13 +37,13 @@ class StockListPage extends HookConsumerWidget {
           scrollController.position.userScrollDirection ==
               ScrollDirection.reverse) {
         // 現在表示中かつ、スクロールを進めて閾値を越えたら非表示にする
-        ref.read(stockListTopAreaVisibleProvider.state).state = false;
+        ref.read(stockListTopAreaVisibleProvider.notifier).state = false;
       }
       if (!fieldVisible &&
           scrollController.position.userScrollDirection ==
               ScrollDirection.forward) {
         // 現在非表示かつ、上方向にスクロールしたら再表示する
-        ref.read(stockListTopAreaVisibleProvider.state).state = true;
+        ref.read(stockListTopAreaVisibleProvider.notifier).state = true;
       }
     }
 

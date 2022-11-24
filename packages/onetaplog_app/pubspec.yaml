@@ -26,7 +26,7 @@ dependencies:
   freezed_annotation: ^2.1.0
   gap: ^2.0.0
   go_router: ^5.0.5
-  hooks_riverpod: ^2.0.0
+  hooks_riverpod: ^2.1.1
   intl: ^0.17.0
   json_annotation: ^4.6.0
   notification_receiver:
@@ -34,7 +34,7 @@ dependencies:
   pull_down_button: ^0.1.0-beta.8
   remote_parameter_fetcher:
     path: ../remote_parameter_fetcher
-  riverpod_annotation: ^1.0.0
+  riverpod_annotation: ^1.0.6
   shimmer: ^2.0.0
   themes:
     path: ../themes
@@ -50,7 +50,7 @@ dev_dependencies:
   freezed: ^2.1.0+1
   go_router_builder: ^1.0.14
   json_serializable: ^6.3.1
-  riverpod_generator: ^1.0.1
+  riverpod_generator: ^1.0.6
 
 flutter_gen:
   output: lib/gen/
