@@ -19,7 +19,7 @@ dependencies:
     path: ../convenient_widgets
   cupertino_icons: ^1.0.5
   firebase_core: ^1.24.0
-  firebase_dynamic_links: ^4.3.9
+  firebase_dynamic_links: ^4.3.11
   firebase_performance: ^0.8.3
   firebase_remote_config: ^2.0.19
   firebase_storage: ^10.3.10
