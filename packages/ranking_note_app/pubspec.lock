@@ -8,6 +8,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "47.0.0"
+  _flutterfire_internals:
+    dependency: transitive
+    description:
+      name: _flutterfire_internals
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.10"
   altive_lints:
     dependency: "direct dev"
     description:
@@ -161,35 +168,35 @@ packages:
       name: cloud_firestore
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.4.7"
+    version: "4.2.0"
   cloud_firestore_odm:
     dependency: "direct main"
     description:
       name: cloud_firestore_odm
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.0-dev.29"
+    version: "1.0.0-dev.43"
   cloud_firestore_odm_generator:
     dependency: "direct dev"
     description:
       name: cloud_firestore_odm_generator
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.0-dev.29"
+    version: "1.0.0-dev.43"
   cloud_firestore_platform_interface:
     dependency: transitive
     description:
       name: cloud_firestore_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.7.4"
+    version: "5.9.2"
   cloud_firestore_web:
     dependency: transitive
     description:
       name: cloud_firestore_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.8.7"
+    version: "3.1.1"
   code_builder:
     dependency: transitive
     description:
@@ -280,84 +287,84 @@ packages:
       name: firebase_auth
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.10.0"
+    version: "4.2.1"
   firebase_auth_platform_interface:
     dependency: transitive
     description:
       name: firebase_auth_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "6.9.0"
+    version: "6.11.5"
   firebase_auth_web:
     dependency: transitive
     description:
       name: firebase_auth_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.5.0"
+    version: "5.2.1"
   firebase_core:
     dependency: "direct main"
     description:
       name: firebase_core
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.24.0"
+    version: "2.4.0"
   firebase_core_platform_interface:
     dependency: transitive
     description:
       name: firebase_core_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.5.1"
+    version: "4.5.2"
   firebase_core_web:
     dependency: transitive
     description:
       name: firebase_core_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.7.3"
+    version: "2.0.2"
   firebase_remote_config:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: firebase_remote_config
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.16"
+    version: "3.0.7"
   firebase_remote_config_platform_interface:
     dependency: transitive
     description:
       name: firebase_remote_config_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.15"
+    version: "1.1.27"
   firebase_remote_config_web:
     dependency: transitive
     description:
       name: firebase_remote_config_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.4"
+    version: "1.1.16"
   firebase_storage:
     dependency: "direct main"
     description:
       name: firebase_storage
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "10.3.7"
+    version: "11.0.8"
   firebase_storage_platform_interface:
     dependency: transitive
     description:
       name: firebase_storage_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.1.15"
+    version: "4.1.25"
   firebase_storage_web:
     dependency: transitive
     description:
       name: firebase_storage_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.3.5"
+    version: "3.3.17"
   fixnum:
     dependency: transitive
     description:
@@ -839,7 +846,7 @@ packages:
       name: plugin_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.1.2"
+    version: "2.1.3"
   pool:
     dependency: transitive
     description:
@@ -882,6 +889,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "4.0.0"
+  remote_parameter_fetcher:
+    dependency: "direct main"
+    description:
+      path: "../remote_parameter_fetcher"
+      relative: true
+    source: path
+    version: "1.0.0"
   riverpod:
     dependency: transitive
     description:
@@ -1245,12 +1259,12 @@ packages:
     source: hosted
     version: "2.1.2"
   version:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: version
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.0"
+    version: "3.0.2"
   watcher:
     dependency: transitive
     description:

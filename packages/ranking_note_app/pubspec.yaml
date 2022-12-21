@@ -10,14 +10,13 @@ dependencies:
   authenticator:
     path: ../authenticator
   cached_network_image: ^3.1.0
-  cloud_firestore: ^3.4.6
-  cloud_firestore_odm: ^1.0.0-dev.29
+  cloud_firestore: ^4.2.0
+  cloud_firestore_odm: ^1.0.0-dev.43
   collection: ^1.15.0
   convenient_widgets:
     path: ../convenient_widgets
-  firebase_core: ^1.24.0
-  firebase_remote_config: ^2.0.16
-  firebase_storage: ^10.3.7
+  firebase_core: ^2.4.0
+  firebase_storage: ^11.0.8
   flutter:
     sdk: flutter
   flutter_hooks: ^0.18.5+1
@@ -33,6 +32,8 @@ dependencies:
   material_design_icons_flutter: ^5.0.5955-rc.1
   modal_bottom_sheet: ^2.0.0
   package_info_plus: ^1.0.5
+  remote_parameter_fetcher:
+    path: ../remote_parameter_fetcher
   riverpod_annotation: ^1.0.6
   routemaster: ^1.0.0
   share_plus: ^4.0.4
@@ -41,12 +42,11 @@ dependencies:
   textfield_tags: ^2.0.0+1
   tuple: ^2.0.0
   uuid: ^3.0.4
-  version: ^2.0.0
 
 dev_dependencies:
   altive_lints: ^1.5.0
   build_runner: ^2.1.4
-  cloud_firestore_odm_generator: ^1.0.0-dev.29
+  cloud_firestore_odm_generator: ^1.0.0-dev.43
   flutter_gen_runner: ^5.1.0+1
   flutter_launcher_icons: ^0.9.2
   flutter_test:
