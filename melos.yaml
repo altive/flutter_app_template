@@ -3,7 +3,9 @@ repository: https://github.com/altive/flutter_app_template
 sdkPath: .fvm/flutter_sdk
 
 packages:
-  - packages/**
+  - "packages/*"
+ignore:
+  - "packages/restock_app"
 
 command:
   bootstrap:
