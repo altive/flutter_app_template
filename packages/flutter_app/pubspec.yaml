@@ -54,7 +54,7 @@ dependencies:
 dev_dependencies:
   altive_lints: ^1.5.0
   build_runner: ^2.3.2
-  flutter_gen_runner: ^5.0.1
+  flutter_gen_runner: ^5.1.0+1
   flutter_launcher_icons: ^0.10.0
   flutter_test:
     sdk: flutter
@@ -65,14 +65,17 @@ dev_dependencies:
   riverpod_generator: ^1.0.6
 
 flutter_gen:
+  enabled: true
   output: lib/gen/
   line_length: 80
   integrations:
     flutter_svg: true
     flare_flutter: false
     rive: false
+    lottie: false
   assets:
-    style: dot-delimiter
+    outputs:
+      style: dot-delimiter
 
 flutter_icons:
   android: true
