@@ -31,7 +31,6 @@ Future<void> main() async {
     ProviderScope(
       overrides: [
         flavorProvider.overrideWithValue(flavor),
-        envProvider.overrideWithValue(Env(flavor)),
         sharedPreferencesProvider.overrideWithValue(sp),
         packageInfoProvider.overrideWithValue(pi),
       ],
