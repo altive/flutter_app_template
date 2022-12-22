@@ -13,6 +13,10 @@ targets:
         generate_for:
           include:
             - lib/router/app_routes.dart
+      envied_generator:envied:
+        generate_for:
+          include:
+            - lib/src/environment/src/*env.dart
       freezed:
         generate_for:
           include:

@@ -9,7 +9,7 @@ part of 'ranking.dart';
 // **************************************************************************
 
 // GENERATED CODE - DO NOT MODIFY BY HAND
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, require_trailing_commas, prefer_single_quotes, prefer_double_quotes, use_super_parameters
 
 class _Sentinel {
   const _Sentinel();
@@ -68,7 +68,7 @@ class _$RankingCollectionReference extends _$RankingQuery
 
   _$RankingCollectionReference._(
     CollectionReference<Ranking> reference,
-  ) : super(reference, reference);
+  ) : super(reference, $referenceWithoutCursor: reference);
 
   String get path => reference.path;
 
@@ -129,19 +129,55 @@ abstract class RankingDocumentReference
   @override
   Future<void> delete();
 
+  /// Updates data on the document. Data will be merged with any existing
+  /// document data.
+  ///
+  /// If no document exists yet, the update will fail.
   Future<void> update({
     DateTime? createdAt,
+    FieldValue createdAtFieldValue,
     DateTime? updatedAt,
+    FieldValue updatedAtFieldValue,
     String title,
+    FieldValue titleFieldValue,
     String description,
+    FieldValue descriptionFieldValue,
     String? imageUrl,
+    FieldValue imageUrlFieldValue,
     String? thumbnailUrl,
+    FieldValue thumbnailUrlFieldValue,
     bool pinned,
+    FieldValue pinnedFieldValue,
     List<String> tags,
+    FieldValue tagsFieldValue,
     bool recommendTagsShowing,
+    FieldValue recommendTagsShowingFieldValue,
   });
 
-  Future<void> set(Ranking value);
+  /// Updates fields in the current document using the transaction API.
+  ///
+  /// The update will fail if applied to a document that does not exist.
+  void transactionUpdate(
+    Transaction transaction, {
+    DateTime? createdAt,
+    FieldValue createdAtFieldValue,
+    DateTime? updatedAt,
+    FieldValue updatedAtFieldValue,
+    String title,
+    FieldValue titleFieldValue,
+    String description,
+    FieldValue descriptionFieldValue,
+    String? imageUrl,
+    FieldValue imageUrlFieldValue,
+    String? thumbnailUrl,
+    FieldValue thumbnailUrlFieldValue,
+    bool pinned,
+    FieldValue pinnedFieldValue,
+    List<String> tags,
+    FieldValue tagsFieldValue,
+    bool recommendTagsShowing,
+    FieldValue recommendTagsShowingFieldValue,
+  });
 }
 
 class _$RankingDocumentReference
@@ -164,58 +200,212 @@ class _$RankingDocumentReference
 
   @override
   Stream<RankingDocumentSnapshot> snapshots() {
-    return reference.snapshots().map((snapshot) {
-      return RankingDocumentSnapshot._(
-        snapshot,
-        snapshot.data(),
-      );
-    });
+    return reference.snapshots().map(RankingDocumentSnapshot._);
   }
 
   @override
   Future<RankingDocumentSnapshot> get([GetOptions? options]) {
-    return reference.get(options).then((snapshot) {
-      return RankingDocumentSnapshot._(
-        snapshot,
-        snapshot.data(),
-      );
-    });
+    return reference.get(options).then(RankingDocumentSnapshot._);
   }
 
   @override
-  Future<void> delete() {
-    return reference.delete();
+  Future<RankingDocumentSnapshot> transactionGet(Transaction transaction) {
+    return transaction.get(reference).then(RankingDocumentSnapshot._);
   }
 
   Future<void> update({
     Object? createdAt = _sentinel,
+    FieldValue? createdAtFieldValue,
     Object? updatedAt = _sentinel,
+    FieldValue? updatedAtFieldValue,
     Object? title = _sentinel,
+    FieldValue? titleFieldValue,
     Object? description = _sentinel,
+    FieldValue? descriptionFieldValue,
     Object? imageUrl = _sentinel,
+    FieldValue? imageUrlFieldValue,
     Object? thumbnailUrl = _sentinel,
+    FieldValue? thumbnailUrlFieldValue,
     Object? pinned = _sentinel,
+    FieldValue? pinnedFieldValue,
     Object? tags = _sentinel,
+    FieldValue? tagsFieldValue,
     Object? recommendTagsShowing = _sentinel,
+    FieldValue? recommendTagsShowingFieldValue,
   }) async {
+    assert(
+      createdAt == _sentinel || createdAtFieldValue == null,
+      "Cannot specify both createdAt and createdAtFieldValue",
+    );
+    assert(
+      updatedAt == _sentinel || updatedAtFieldValue == null,
+      "Cannot specify both updatedAt and updatedAtFieldValue",
+    );
+    assert(
+      title == _sentinel || titleFieldValue == null,
+      "Cannot specify both title and titleFieldValue",
+    );
+    assert(
+      description == _sentinel || descriptionFieldValue == null,
+      "Cannot specify both description and descriptionFieldValue",
+    );
+    assert(
+      imageUrl == _sentinel || imageUrlFieldValue == null,
+      "Cannot specify both imageUrl and imageUrlFieldValue",
+    );
+    assert(
+      thumbnailUrl == _sentinel || thumbnailUrlFieldValue == null,
+      "Cannot specify both thumbnailUrl and thumbnailUrlFieldValue",
+    );
+    assert(
+      pinned == _sentinel || pinnedFieldValue == null,
+      "Cannot specify both pinned and pinnedFieldValue",
+    );
+    assert(
+      tags == _sentinel || tagsFieldValue == null,
+      "Cannot specify both tags and tagsFieldValue",
+    );
+    assert(
+      recommendTagsShowing == _sentinel ||
+          recommendTagsShowingFieldValue == null,
+      "Cannot specify both recommendTagsShowing and recommendTagsShowingFieldValue",
+    );
     final json = {
-      if (createdAt != _sentinel) "createdAt": createdAt as DateTime?,
-      if (updatedAt != _sentinel) "updatedAt": updatedAt as DateTime?,
-      if (title != _sentinel) "title": title as String,
-      if (description != _sentinel) "description": description as String,
-      if (imageUrl != _sentinel) "imageUrl": imageUrl as String?,
-      if (thumbnailUrl != _sentinel) "thumbnailUrl": thumbnailUrl as String?,
-      if (pinned != _sentinel) "pinned": pinned as bool,
-      if (tags != _sentinel) "tags": tags as List<String>,
+      if (createdAt != _sentinel)
+        _$$_RankingFieldMap['createdAt']!: createdAt as DateTime?,
+      if (createdAtFieldValue != null)
+        _$$_RankingFieldMap['createdAt']!: createdAtFieldValue,
+      if (updatedAt != _sentinel)
+        _$$_RankingFieldMap['updatedAt']!: updatedAt as DateTime?,
+      if (updatedAtFieldValue != null)
+        _$$_RankingFieldMap['updatedAt']!: updatedAtFieldValue,
+      if (title != _sentinel) _$$_RankingFieldMap['title']!: title as String,
+      if (titleFieldValue != null)
+        _$$_RankingFieldMap['title']!: titleFieldValue,
+      if (description != _sentinel)
+        _$$_RankingFieldMap['description']!: description as String,
+      if (descriptionFieldValue != null)
+        _$$_RankingFieldMap['description']!: descriptionFieldValue,
+      if (imageUrl != _sentinel)
+        _$$_RankingFieldMap['imageUrl']!: imageUrl as String?,
+      if (imageUrlFieldValue != null)
+        _$$_RankingFieldMap['imageUrl']!: imageUrlFieldValue,
+      if (thumbnailUrl != _sentinel)
+        _$$_RankingFieldMap['thumbnailUrl']!: thumbnailUrl as String?,
+      if (thumbnailUrlFieldValue != null)
+        _$$_RankingFieldMap['thumbnailUrl']!: thumbnailUrlFieldValue,
+      if (pinned != _sentinel) _$$_RankingFieldMap['pinned']!: pinned as bool,
+      if (pinnedFieldValue != null)
+        _$$_RankingFieldMap['pinned']!: pinnedFieldValue,
+      if (tags != _sentinel) _$$_RankingFieldMap['tags']!: tags as List<String>,
+      if (tagsFieldValue != null) _$$_RankingFieldMap['tags']!: tagsFieldValue,
       if (recommendTagsShowing != _sentinel)
-        "recommendTagsShowing": recommendTagsShowing as bool,
+        _$$_RankingFieldMap['recommendTagsShowing']!:
+            recommendTagsShowing as bool,
+      if (recommendTagsShowingFieldValue != null)
+        _$$_RankingFieldMap['recommendTagsShowing']!:
+            recommendTagsShowingFieldValue,
     };
 
     return reference.update(json);
   }
 
-  Future<void> set(Ranking value) {
-    return reference.set(value);
+  void transactionUpdate(
+    Transaction transaction, {
+    Object? createdAt = _sentinel,
+    FieldValue? createdAtFieldValue,
+    Object? updatedAt = _sentinel,
+    FieldValue? updatedAtFieldValue,
+    Object? title = _sentinel,
+    FieldValue? titleFieldValue,
+    Object? description = _sentinel,
+    FieldValue? descriptionFieldValue,
+    Object? imageUrl = _sentinel,
+    FieldValue? imageUrlFieldValue,
+    Object? thumbnailUrl = _sentinel,
+    FieldValue? thumbnailUrlFieldValue,
+    Object? pinned = _sentinel,
+    FieldValue? pinnedFieldValue,
+    Object? tags = _sentinel,
+    FieldValue? tagsFieldValue,
+    Object? recommendTagsShowing = _sentinel,
+    FieldValue? recommendTagsShowingFieldValue,
+  }) {
+    assert(
+      createdAt == _sentinel || createdAtFieldValue == null,
+      "Cannot specify both createdAt and createdAtFieldValue",
+    );
+    assert(
+      updatedAt == _sentinel || updatedAtFieldValue == null,
+      "Cannot specify both updatedAt and updatedAtFieldValue",
+    );
+    assert(
+      title == _sentinel || titleFieldValue == null,
+      "Cannot specify both title and titleFieldValue",
+    );
+    assert(
+      description == _sentinel || descriptionFieldValue == null,
+      "Cannot specify both description and descriptionFieldValue",
+    );
+    assert(
+      imageUrl == _sentinel || imageUrlFieldValue == null,
+      "Cannot specify both imageUrl and imageUrlFieldValue",
+    );
+    assert(
+      thumbnailUrl == _sentinel || thumbnailUrlFieldValue == null,
+      "Cannot specify both thumbnailUrl and thumbnailUrlFieldValue",
+    );
+    assert(
+      pinned == _sentinel || pinnedFieldValue == null,
+      "Cannot specify both pinned and pinnedFieldValue",
+    );
+    assert(
+      tags == _sentinel || tagsFieldValue == null,
+      "Cannot specify both tags and tagsFieldValue",
+    );
+    assert(
+      recommendTagsShowing == _sentinel ||
+          recommendTagsShowingFieldValue == null,
+      "Cannot specify both recommendTagsShowing and recommendTagsShowingFieldValue",
+    );
+    final json = {
+      if (createdAt != _sentinel)
+        _$$_RankingFieldMap['createdAt']!: createdAt as DateTime?,
+      if (createdAtFieldValue != null)
+        _$$_RankingFieldMap['createdAt']!: createdAtFieldValue,
+      if (updatedAt != _sentinel)
+        _$$_RankingFieldMap['updatedAt']!: updatedAt as DateTime?,
+      if (updatedAtFieldValue != null)
+        _$$_RankingFieldMap['updatedAt']!: updatedAtFieldValue,
+      if (title != _sentinel) _$$_RankingFieldMap['title']!: title as String,
+      if (titleFieldValue != null)
+        _$$_RankingFieldMap['title']!: titleFieldValue,
+      if (description != _sentinel)
+        _$$_RankingFieldMap['description']!: description as String,
+      if (descriptionFieldValue != null)
+        _$$_RankingFieldMap['description']!: descriptionFieldValue,
+      if (imageUrl != _sentinel)
+        _$$_RankingFieldMap['imageUrl']!: imageUrl as String?,
+      if (imageUrlFieldValue != null)
+        _$$_RankingFieldMap['imageUrl']!: imageUrlFieldValue,
+      if (thumbnailUrl != _sentinel)
+        _$$_RankingFieldMap['thumbnailUrl']!: thumbnailUrl as String?,
+      if (thumbnailUrlFieldValue != null)
+        _$$_RankingFieldMap['thumbnailUrl']!: thumbnailUrlFieldValue,
+      if (pinned != _sentinel) _$$_RankingFieldMap['pinned']!: pinned as bool,
+      if (pinnedFieldValue != null)
+        _$$_RankingFieldMap['pinned']!: pinnedFieldValue,
+      if (tags != _sentinel) _$$_RankingFieldMap['tags']!: tags as List<String>,
+      if (tagsFieldValue != null) _$$_RankingFieldMap['tags']!: tagsFieldValue,
+      if (recommendTagsShowing != _sentinel)
+        _$$_RankingFieldMap['recommendTagsShowing']!:
+            recommendTagsShowing as bool,
+      if (recommendTagsShowingFieldValue != null)
+        _$$_RankingFieldMap['recommendTagsShowing']!:
+            recommendTagsShowingFieldValue,
+    };
+
+    transaction.update(reference, json);
   }
 
   @override
@@ -228,26 +418,6 @@ class _$RankingDocumentReference
 
   @override
   int get hashCode => Object.hash(runtimeType, parent, id);
-}
-
-class RankingDocumentSnapshot extends FirestoreDocumentSnapshot<Ranking> {
-  RankingDocumentSnapshot._(
-    this.snapshot,
-    this.data,
-  );
-
-  @override
-  final DocumentSnapshot<Ranking> snapshot;
-
-  @override
-  RankingDocumentReference get reference {
-    return RankingDocumentReference(
-      snapshot.reference,
-    );
-  }
-
-  @override
-  final Ranking? data;
 }
 
 abstract class RankingQuery
@@ -558,61 +728,41 @@ abstract class RankingQuery
 class _$RankingQuery extends QueryReference<Ranking, RankingQuerySnapshot>
     implements RankingQuery {
   _$RankingQuery(
-    this.reference,
-    this._collection,
-  );
+    this._collection, {
+    required Query<Ranking> $referenceWithoutCursor,
+    $QueryCursor $queryCursor = const $QueryCursor(),
+  }) : super(
+          $referenceWithoutCursor: $referenceWithoutCursor,
+          $queryCursor: $queryCursor,
+        );
 
   final CollectionReference<Object?> _collection;
 
   @override
-  final Query<Ranking> reference;
-
-  RankingQuerySnapshot _decodeSnapshot(
-    QuerySnapshot<Ranking> snapshot,
-  ) {
-    final docs = snapshot.docs.map((e) {
-      return RankingQueryDocumentSnapshot._(e, e.data());
-    }).toList();
-
-    final docChanges = snapshot.docChanges.map((change) {
-      return FirestoreDocumentChange<RankingDocumentSnapshot>(
-        type: change.type,
-        oldIndex: change.oldIndex,
-        newIndex: change.newIndex,
-        doc: RankingDocumentSnapshot._(change.doc, change.doc.data()),
-      );
-    }).toList();
-
-    return RankingQuerySnapshot._(
-      snapshot,
-      docs,
-      docChanges,
-    );
-  }
-
-  @override
   Stream<RankingQuerySnapshot> snapshots([SnapshotOptions? options]) {
-    return reference.snapshots().map(_decodeSnapshot);
+    return reference.snapshots().map(RankingQuerySnapshot._fromQuerySnapshot);
   }
 
   @override
   Future<RankingQuerySnapshot> get([GetOptions? options]) {
-    return reference.get(options).then(_decodeSnapshot);
+    return reference.get(options).then(RankingQuerySnapshot._fromQuerySnapshot);
   }
 
   @override
   RankingQuery limit(int limit) {
     return _$RankingQuery(
-      reference.limit(limit),
       _collection,
+      $referenceWithoutCursor: $referenceWithoutCursor.limit(limit),
+      $queryCursor: $queryCursor,
     );
   }
 
   @override
   RankingQuery limitToLast(int limit) {
     return _$RankingQuery(
-      reference.limitToLast(limit),
       _collection,
+      $referenceWithoutCursor: $referenceWithoutCursor.limitToLast(limit),
+      $queryCursor: $queryCursor,
     );
   }
 
@@ -628,35 +778,64 @@ class _$RankingQuery extends QueryReference<Ranking, RankingQuerySnapshot>
     RankingDocumentSnapshot? endBeforeDocument,
     RankingDocumentSnapshot? startAfterDocument,
   }) {
-    var query = reference.orderBy(fieldPath, descending: descending);
+    final query =
+        $referenceWithoutCursor.orderBy(fieldPath, descending: descending);
+    var queryCursor = $queryCursor;
 
     if (startAtDocument != null) {
-      query = query.startAtDocument(startAtDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        startAt: const [],
+        startAtDocumentSnapshot: startAtDocument.snapshot,
+      );
     }
     if (startAfterDocument != null) {
-      query = query.startAfterDocument(startAfterDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        startAfter: const [],
+        startAfterDocumentSnapshot: startAfterDocument.snapshot,
+      );
     }
     if (endAtDocument != null) {
-      query = query.endAtDocument(endAtDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        endAt: const [],
+        endAtDocumentSnapshot: endAtDocument.snapshot,
+      );
     }
     if (endBeforeDocument != null) {
-      query = query.endBeforeDocument(endBeforeDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        endBefore: const [],
+        endBeforeDocumentSnapshot: endBeforeDocument.snapshot,
+      );
     }
 
     if (startAt != _sentinel) {
-      query = query.startAt([startAt]);
+      queryCursor = queryCursor.copyWith(
+        startAt: [...queryCursor.startAt, startAt],
+        startAtDocumentSnapshot: null,
+      );
     }
     if (startAfter != _sentinel) {
-      query = query.startAfter([startAfter]);
+      queryCursor = queryCursor.copyWith(
+        startAfter: [...queryCursor.startAfter, startAfter],
+        startAfterDocumentSnapshot: null,
+      );
     }
     if (endAt != _sentinel) {
-      query = query.endAt([endAt]);
+      queryCursor = queryCursor.copyWith(
+        endAt: [...queryCursor.endAt, endAt],
+        endAtDocumentSnapshot: null,
+      );
     }
     if (endBefore != _sentinel) {
-      query = query.endBefore([endBefore]);
+      queryCursor = queryCursor.copyWith(
+        endBefore: [...queryCursor.endBefore, endBefore],
+        endBeforeDocumentSnapshot: null,
+      );
     }
-
-    return _$RankingQuery(query, _collection);
+    return _$RankingQuery(
+      _collection,
+      $referenceWithoutCursor: query,
+      $queryCursor: queryCursor,
+    );
   }
 
   RankingQuery whereFieldPath(
@@ -674,7 +853,8 @@ class _$RankingQuery extends QueryReference<Ranking, RankingQuerySnapshot>
     bool? isNull,
   }) {
     return _$RankingQuery(
-      reference.where(
+      _collection,
+      $referenceWithoutCursor: $referenceWithoutCursor.where(
         fieldPath,
         isEqualTo: isEqualTo,
         isNotEqualTo: isNotEqualTo,
@@ -688,7 +868,7 @@ class _$RankingQuery extends QueryReference<Ranking, RankingQuerySnapshot>
         whereNotIn: whereNotIn,
         isNull: isNull,
       ),
-      _collection,
+      $queryCursor: $queryCursor,
     );
   }
 
@@ -704,7 +884,8 @@ class _$RankingQuery extends QueryReference<Ranking, RankingQuerySnapshot>
     List<String>? whereNotIn,
   }) {
     return _$RankingQuery(
-      reference.where(
+      _collection,
+      $referenceWithoutCursor: $referenceWithoutCursor.where(
         FieldPath.documentId,
         isEqualTo: isEqualTo,
         isNotEqualTo: isNotEqualTo,
@@ -716,7 +897,7 @@ class _$RankingQuery extends QueryReference<Ranking, RankingQuerySnapshot>
         whereIn: whereIn,
         whereNotIn: whereNotIn,
       ),
-      _collection,
+      $queryCursor: $queryCursor,
     );
   }
 
@@ -732,8 +913,9 @@ class _$RankingQuery extends QueryReference<Ranking, RankingQuerySnapshot>
     List<DateTime?>? whereNotIn,
   }) {
     return _$RankingQuery(
-      reference.where(
-        _$$_RankingFieldMap["createdAt"]!,
+      _collection,
+      $referenceWithoutCursor: $referenceWithoutCursor.where(
+        _$$_RankingFieldMap['createdAt']!,
         isEqualTo: isEqualTo,
         isNotEqualTo: isNotEqualTo,
         isLessThan: isLessThan,
@@ -744,7 +926,7 @@ class _$RankingQuery extends QueryReference<Ranking, RankingQuerySnapshot>
         whereIn: whereIn,
         whereNotIn: whereNotIn,
       ),
-      _collection,
+      $queryCursor: $queryCursor,
     );
   }
 
@@ -760,8 +942,9 @@ class _$RankingQuery extends QueryReference<Ranking, RankingQuerySnapshot>
     List<DateTime?>? whereNotIn,
   }) {
     return _$RankingQuery(
-      reference.where(
-        _$$_RankingFieldMap["updatedAt"]!,
+      _collection,
+      $referenceWithoutCursor: $referenceWithoutCursor.where(
+        _$$_RankingFieldMap['updatedAt']!,
         isEqualTo: isEqualTo,
         isNotEqualTo: isNotEqualTo,
         isLessThan: isLessThan,
@@ -772,7 +955,7 @@ class _$RankingQuery extends QueryReference<Ranking, RankingQuerySnapshot>
         whereIn: whereIn,
         whereNotIn: whereNotIn,
       ),
-      _collection,
+      $queryCursor: $queryCursor,
     );
   }
 
@@ -788,8 +971,9 @@ class _$RankingQuery extends QueryReference<Ranking, RankingQuerySnapshot>
     List<String>? whereNotIn,
   }) {
     return _$RankingQuery(
-      reference.where(
-        _$$_RankingFieldMap["title"]!,
+      _collection,
+      $referenceWithoutCursor: $referenceWithoutCursor.where(
+        _$$_RankingFieldMap['title']!,
         isEqualTo: isEqualTo,
         isNotEqualTo: isNotEqualTo,
         isLessThan: isLessThan,
@@ -800,7 +984,7 @@ class _$RankingQuery extends QueryReference<Ranking, RankingQuerySnapshot>
         whereIn: whereIn,
         whereNotIn: whereNotIn,
       ),
-      _collection,
+      $queryCursor: $queryCursor,
     );
   }
 
@@ -816,8 +1000,9 @@ class _$RankingQuery extends QueryReference<Ranking, RankingQuerySnapshot>
     List<String>? whereNotIn,
   }) {
     return _$RankingQuery(
-      reference.where(
-        _$$_RankingFieldMap["description"]!,
+      _collection,
+      $referenceWithoutCursor: $referenceWithoutCursor.where(
+        _$$_RankingFieldMap['description']!,
         isEqualTo: isEqualTo,
         isNotEqualTo: isNotEqualTo,
         isLessThan: isLessThan,
@@ -828,7 +1013,7 @@ class _$RankingQuery extends QueryReference<Ranking, RankingQuerySnapshot>
         whereIn: whereIn,
         whereNotIn: whereNotIn,
       ),
-      _collection,
+      $queryCursor: $queryCursor,
     );
   }
 
@@ -844,8 +1029,9 @@ class _$RankingQuery extends QueryReference<Ranking, RankingQuerySnapshot>
     List<String?>? whereNotIn,
   }) {
     return _$RankingQuery(
-      reference.where(
-        _$$_RankingFieldMap["imageUrl"]!,
+      _collection,
+      $referenceWithoutCursor: $referenceWithoutCursor.where(
+        _$$_RankingFieldMap['imageUrl']!,
         isEqualTo: isEqualTo,
         isNotEqualTo: isNotEqualTo,
         isLessThan: isLessThan,
@@ -856,7 +1042,7 @@ class _$RankingQuery extends QueryReference<Ranking, RankingQuerySnapshot>
         whereIn: whereIn,
         whereNotIn: whereNotIn,
       ),
-      _collection,
+      $queryCursor: $queryCursor,
     );
   }
 
@@ -872,8 +1058,9 @@ class _$RankingQuery extends QueryReference<Ranking, RankingQuerySnapshot>
     List<String?>? whereNotIn,
   }) {
     return _$RankingQuery(
-      reference.where(
-        _$$_RankingFieldMap["thumbnailUrl"]!,
+      _collection,
+      $referenceWithoutCursor: $referenceWithoutCursor.where(
+        _$$_RankingFieldMap['thumbnailUrl']!,
         isEqualTo: isEqualTo,
         isNotEqualTo: isNotEqualTo,
         isLessThan: isLessThan,
@@ -884,7 +1071,7 @@ class _$RankingQuery extends QueryReference<Ranking, RankingQuerySnapshot>
         whereIn: whereIn,
         whereNotIn: whereNotIn,
       ),
-      _collection,
+      $queryCursor: $queryCursor,
     );
   }
 
@@ -900,8 +1087,9 @@ class _$RankingQuery extends QueryReference<Ranking, RankingQuerySnapshot>
     List<bool>? whereNotIn,
   }) {
     return _$RankingQuery(
-      reference.where(
-        _$$_RankingFieldMap["pinned"]!,
+      _collection,
+      $referenceWithoutCursor: $referenceWithoutCursor.where(
+        _$$_RankingFieldMap['pinned']!,
         isEqualTo: isEqualTo,
         isNotEqualTo: isNotEqualTo,
         isLessThan: isLessThan,
@@ -912,7 +1100,7 @@ class _$RankingQuery extends QueryReference<Ranking, RankingQuerySnapshot>
         whereIn: whereIn,
         whereNotIn: whereNotIn,
       ),
-      _collection,
+      $queryCursor: $queryCursor,
     );
   }
 
@@ -928,8 +1116,9 @@ class _$RankingQuery extends QueryReference<Ranking, RankingQuerySnapshot>
     List<String>? arrayContainsAny,
   }) {
     return _$RankingQuery(
-      reference.where(
-        _$$_RankingFieldMap["tags"]!,
+      _collection,
+      $referenceWithoutCursor: $referenceWithoutCursor.where(
+        _$$_RankingFieldMap['tags']!,
         isEqualTo: isEqualTo,
         isNotEqualTo: isNotEqualTo,
         isLessThan: isLessThan,
@@ -940,7 +1129,7 @@ class _$RankingQuery extends QueryReference<Ranking, RankingQuerySnapshot>
         arrayContains: arrayContains,
         arrayContainsAny: arrayContainsAny,
       ),
-      _collection,
+      $queryCursor: $queryCursor,
     );
   }
 
@@ -956,8 +1145,9 @@ class _$RankingQuery extends QueryReference<Ranking, RankingQuerySnapshot>
     List<bool>? whereNotIn,
   }) {
     return _$RankingQuery(
-      reference.where(
-        _$$_RankingFieldMap["recommendTagsShowing"]!,
+      _collection,
+      $referenceWithoutCursor: $referenceWithoutCursor.where(
+        _$$_RankingFieldMap['recommendTagsShowing']!,
         isEqualTo: isEqualTo,
         isNotEqualTo: isNotEqualTo,
         isLessThan: isLessThan,
@@ -968,7 +1158,7 @@ class _$RankingQuery extends QueryReference<Ranking, RankingQuerySnapshot>
         whereIn: whereIn,
         whereNotIn: whereNotIn,
       ),
-      _collection,
+      $queryCursor: $queryCursor,
     );
   }
 
@@ -983,35 +1173,65 @@ class _$RankingQuery extends QueryReference<Ranking, RankingQuerySnapshot>
     RankingDocumentSnapshot? endBeforeDocument,
     RankingDocumentSnapshot? startAfterDocument,
   }) {
-    var query = reference.orderBy(FieldPath.documentId, descending: descending);
+    final query = $referenceWithoutCursor.orderBy(FieldPath.documentId,
+        descending: descending);
+    var queryCursor = $queryCursor;
 
     if (startAtDocument != null) {
-      query = query.startAtDocument(startAtDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        startAt: const [],
+        startAtDocumentSnapshot: startAtDocument.snapshot,
+      );
     }
     if (startAfterDocument != null) {
-      query = query.startAfterDocument(startAfterDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        startAfter: const [],
+        startAfterDocumentSnapshot: startAfterDocument.snapshot,
+      );
     }
     if (endAtDocument != null) {
-      query = query.endAtDocument(endAtDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        endAt: const [],
+        endAtDocumentSnapshot: endAtDocument.snapshot,
+      );
     }
     if (endBeforeDocument != null) {
-      query = query.endBeforeDocument(endBeforeDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        endBefore: const [],
+        endBeforeDocumentSnapshot: endBeforeDocument.snapshot,
+      );
     }
 
     if (startAt != _sentinel) {
-      query = query.startAt([startAt]);
+      queryCursor = queryCursor.copyWith(
+        startAt: [...queryCursor.startAt, startAt],
+        startAtDocumentSnapshot: null,
+      );
     }
     if (startAfter != _sentinel) {
-      query = query.startAfter([startAfter]);
+      queryCursor = queryCursor.copyWith(
+        startAfter: [...queryCursor.startAfter, startAfter],
+        startAfterDocumentSnapshot: null,
+      );
     }
     if (endAt != _sentinel) {
-      query = query.endAt([endAt]);
+      queryCursor = queryCursor.copyWith(
+        endAt: [...queryCursor.endAt, endAt],
+        endAtDocumentSnapshot: null,
+      );
     }
     if (endBefore != _sentinel) {
-      query = query.endBefore([endBefore]);
+      queryCursor = queryCursor.copyWith(
+        endBefore: [...queryCursor.endBefore, endBefore],
+        endBeforeDocumentSnapshot: null,
+      );
     }
 
-    return _$RankingQuery(query, _collection);
+    return _$RankingQuery(
+      _collection,
+      $referenceWithoutCursor: query,
+      $queryCursor: queryCursor,
+    );
   }
 
   RankingQuery orderByCreatedAt({
@@ -1025,36 +1245,65 @@ class _$RankingQuery extends QueryReference<Ranking, RankingQuerySnapshot>
     RankingDocumentSnapshot? endBeforeDocument,
     RankingDocumentSnapshot? startAfterDocument,
   }) {
-    var query = reference.orderBy(_$$_RankingFieldMap["createdAt"]!,
-        descending: descending);
+    final query = $referenceWithoutCursor
+        .orderBy(_$$_RankingFieldMap['createdAt']!, descending: descending);
+    var queryCursor = $queryCursor;
 
     if (startAtDocument != null) {
-      query = query.startAtDocument(startAtDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        startAt: const [],
+        startAtDocumentSnapshot: startAtDocument.snapshot,
+      );
     }
     if (startAfterDocument != null) {
-      query = query.startAfterDocument(startAfterDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        startAfter: const [],
+        startAfterDocumentSnapshot: startAfterDocument.snapshot,
+      );
     }
     if (endAtDocument != null) {
-      query = query.endAtDocument(endAtDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        endAt: const [],
+        endAtDocumentSnapshot: endAtDocument.snapshot,
+      );
     }
     if (endBeforeDocument != null) {
-      query = query.endBeforeDocument(endBeforeDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        endBefore: const [],
+        endBeforeDocumentSnapshot: endBeforeDocument.snapshot,
+      );
     }
 
     if (startAt != _sentinel) {
-      query = query.startAt([startAt]);
+      queryCursor = queryCursor.copyWith(
+        startAt: [...queryCursor.startAt, startAt],
+        startAtDocumentSnapshot: null,
+      );
     }
     if (startAfter != _sentinel) {
-      query = query.startAfter([startAfter]);
+      queryCursor = queryCursor.copyWith(
+        startAfter: [...queryCursor.startAfter, startAfter],
+        startAfterDocumentSnapshot: null,
+      );
     }
     if (endAt != _sentinel) {
-      query = query.endAt([endAt]);
+      queryCursor = queryCursor.copyWith(
+        endAt: [...queryCursor.endAt, endAt],
+        endAtDocumentSnapshot: null,
+      );
     }
     if (endBefore != _sentinel) {
-      query = query.endBefore([endBefore]);
+      queryCursor = queryCursor.copyWith(
+        endBefore: [...queryCursor.endBefore, endBefore],
+        endBeforeDocumentSnapshot: null,
+      );
     }
 
-    return _$RankingQuery(query, _collection);
+    return _$RankingQuery(
+      _collection,
+      $referenceWithoutCursor: query,
+      $queryCursor: queryCursor,
+    );
   }
 
   RankingQuery orderByUpdatedAt({
@@ -1068,36 +1317,65 @@ class _$RankingQuery extends QueryReference<Ranking, RankingQuerySnapshot>
     RankingDocumentSnapshot? endBeforeDocument,
     RankingDocumentSnapshot? startAfterDocument,
   }) {
-    var query = reference.orderBy(_$$_RankingFieldMap["updatedAt"]!,
-        descending: descending);
+    final query = $referenceWithoutCursor
+        .orderBy(_$$_RankingFieldMap['updatedAt']!, descending: descending);
+    var queryCursor = $queryCursor;
 
     if (startAtDocument != null) {
-      query = query.startAtDocument(startAtDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        startAt: const [],
+        startAtDocumentSnapshot: startAtDocument.snapshot,
+      );
     }
     if (startAfterDocument != null) {
-      query = query.startAfterDocument(startAfterDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        startAfter: const [],
+        startAfterDocumentSnapshot: startAfterDocument.snapshot,
+      );
     }
     if (endAtDocument != null) {
-      query = query.endAtDocument(endAtDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        endAt: const [],
+        endAtDocumentSnapshot: endAtDocument.snapshot,
+      );
     }
     if (endBeforeDocument != null) {
-      query = query.endBeforeDocument(endBeforeDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        endBefore: const [],
+        endBeforeDocumentSnapshot: endBeforeDocument.snapshot,
+      );
     }
 
     if (startAt != _sentinel) {
-      query = query.startAt([startAt]);
+      queryCursor = queryCursor.copyWith(
+        startAt: [...queryCursor.startAt, startAt],
+        startAtDocumentSnapshot: null,
+      );
     }
     if (startAfter != _sentinel) {
-      query = query.startAfter([startAfter]);
+      queryCursor = queryCursor.copyWith(
+        startAfter: [...queryCursor.startAfter, startAfter],
+        startAfterDocumentSnapshot: null,
+      );
     }
     if (endAt != _sentinel) {
-      query = query.endAt([endAt]);
+      queryCursor = queryCursor.copyWith(
+        endAt: [...queryCursor.endAt, endAt],
+        endAtDocumentSnapshot: null,
+      );
     }
     if (endBefore != _sentinel) {
-      query = query.endBefore([endBefore]);
+      queryCursor = queryCursor.copyWith(
+        endBefore: [...queryCursor.endBefore, endBefore],
+        endBeforeDocumentSnapshot: null,
+      );
     }
 
-    return _$RankingQuery(query, _collection);
+    return _$RankingQuery(
+      _collection,
+      $referenceWithoutCursor: query,
+      $queryCursor: queryCursor,
+    );
   }
 
   RankingQuery orderByTitle({
@@ -1111,36 +1389,65 @@ class _$RankingQuery extends QueryReference<Ranking, RankingQuerySnapshot>
     RankingDocumentSnapshot? endBeforeDocument,
     RankingDocumentSnapshot? startAfterDocument,
   }) {
-    var query = reference.orderBy(_$$_RankingFieldMap["title"]!,
+    final query = $referenceWithoutCursor.orderBy(_$$_RankingFieldMap['title']!,
         descending: descending);
+    var queryCursor = $queryCursor;
 
     if (startAtDocument != null) {
-      query = query.startAtDocument(startAtDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        startAt: const [],
+        startAtDocumentSnapshot: startAtDocument.snapshot,
+      );
     }
     if (startAfterDocument != null) {
-      query = query.startAfterDocument(startAfterDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        startAfter: const [],
+        startAfterDocumentSnapshot: startAfterDocument.snapshot,
+      );
     }
     if (endAtDocument != null) {
-      query = query.endAtDocument(endAtDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        endAt: const [],
+        endAtDocumentSnapshot: endAtDocument.snapshot,
+      );
     }
     if (endBeforeDocument != null) {
-      query = query.endBeforeDocument(endBeforeDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        endBefore: const [],
+        endBeforeDocumentSnapshot: endBeforeDocument.snapshot,
+      );
     }
 
     if (startAt != _sentinel) {
-      query = query.startAt([startAt]);
+      queryCursor = queryCursor.copyWith(
+        startAt: [...queryCursor.startAt, startAt],
+        startAtDocumentSnapshot: null,
+      );
     }
     if (startAfter != _sentinel) {
-      query = query.startAfter([startAfter]);
+      queryCursor = queryCursor.copyWith(
+        startAfter: [...queryCursor.startAfter, startAfter],
+        startAfterDocumentSnapshot: null,
+      );
     }
     if (endAt != _sentinel) {
-      query = query.endAt([endAt]);
+      queryCursor = queryCursor.copyWith(
+        endAt: [...queryCursor.endAt, endAt],
+        endAtDocumentSnapshot: null,
+      );
     }
     if (endBefore != _sentinel) {
-      query = query.endBefore([endBefore]);
+      queryCursor = queryCursor.copyWith(
+        endBefore: [...queryCursor.endBefore, endBefore],
+        endBeforeDocumentSnapshot: null,
+      );
     }
 
-    return _$RankingQuery(query, _collection);
+    return _$RankingQuery(
+      _collection,
+      $referenceWithoutCursor: query,
+      $queryCursor: queryCursor,
+    );
   }
 
   RankingQuery orderByDescription({
@@ -1154,36 +1461,65 @@ class _$RankingQuery extends QueryReference<Ranking, RankingQuerySnapshot>
     RankingDocumentSnapshot? endBeforeDocument,
     RankingDocumentSnapshot? startAfterDocument,
   }) {
-    var query = reference.orderBy(_$$_RankingFieldMap["description"]!,
-        descending: descending);
+    final query = $referenceWithoutCursor
+        .orderBy(_$$_RankingFieldMap['description']!, descending: descending);
+    var queryCursor = $queryCursor;
 
     if (startAtDocument != null) {
-      query = query.startAtDocument(startAtDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        startAt: const [],
+        startAtDocumentSnapshot: startAtDocument.snapshot,
+      );
     }
     if (startAfterDocument != null) {
-      query = query.startAfterDocument(startAfterDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        startAfter: const [],
+        startAfterDocumentSnapshot: startAfterDocument.snapshot,
+      );
     }
     if (endAtDocument != null) {
-      query = query.endAtDocument(endAtDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        endAt: const [],
+        endAtDocumentSnapshot: endAtDocument.snapshot,
+      );
     }
     if (endBeforeDocument != null) {
-      query = query.endBeforeDocument(endBeforeDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        endBefore: const [],
+        endBeforeDocumentSnapshot: endBeforeDocument.snapshot,
+      );
     }
 
     if (startAt != _sentinel) {
-      query = query.startAt([startAt]);
+      queryCursor = queryCursor.copyWith(
+        startAt: [...queryCursor.startAt, startAt],
+        startAtDocumentSnapshot: null,
+      );
     }
     if (startAfter != _sentinel) {
-      query = query.startAfter([startAfter]);
+      queryCursor = queryCursor.copyWith(
+        startAfter: [...queryCursor.startAfter, startAfter],
+        startAfterDocumentSnapshot: null,
+      );
     }
     if (endAt != _sentinel) {
-      query = query.endAt([endAt]);
+      queryCursor = queryCursor.copyWith(
+        endAt: [...queryCursor.endAt, endAt],
+        endAtDocumentSnapshot: null,
+      );
     }
     if (endBefore != _sentinel) {
-      query = query.endBefore([endBefore]);
+      queryCursor = queryCursor.copyWith(
+        endBefore: [...queryCursor.endBefore, endBefore],
+        endBeforeDocumentSnapshot: null,
+      );
     }
 
-    return _$RankingQuery(query, _collection);
+    return _$RankingQuery(
+      _collection,
+      $referenceWithoutCursor: query,
+      $queryCursor: queryCursor,
+    );
   }
 
   RankingQuery orderByImageUrl({
@@ -1197,36 +1533,65 @@ class _$RankingQuery extends QueryReference<Ranking, RankingQuerySnapshot>
     RankingDocumentSnapshot? endBeforeDocument,
     RankingDocumentSnapshot? startAfterDocument,
   }) {
-    var query = reference.orderBy(_$$_RankingFieldMap["imageUrl"]!,
-        descending: descending);
+    final query = $referenceWithoutCursor
+        .orderBy(_$$_RankingFieldMap['imageUrl']!, descending: descending);
+    var queryCursor = $queryCursor;
 
     if (startAtDocument != null) {
-      query = query.startAtDocument(startAtDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        startAt: const [],
+        startAtDocumentSnapshot: startAtDocument.snapshot,
+      );
     }
     if (startAfterDocument != null) {
-      query = query.startAfterDocument(startAfterDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        startAfter: const [],
+        startAfterDocumentSnapshot: startAfterDocument.snapshot,
+      );
     }
     if (endAtDocument != null) {
-      query = query.endAtDocument(endAtDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        endAt: const [],
+        endAtDocumentSnapshot: endAtDocument.snapshot,
+      );
     }
     if (endBeforeDocument != null) {
-      query = query.endBeforeDocument(endBeforeDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        endBefore: const [],
+        endBeforeDocumentSnapshot: endBeforeDocument.snapshot,
+      );
     }
 
     if (startAt != _sentinel) {
-      query = query.startAt([startAt]);
+      queryCursor = queryCursor.copyWith(
+        startAt: [...queryCursor.startAt, startAt],
+        startAtDocumentSnapshot: null,
+      );
     }
     if (startAfter != _sentinel) {
-      query = query.startAfter([startAfter]);
+      queryCursor = queryCursor.copyWith(
+        startAfter: [...queryCursor.startAfter, startAfter],
+        startAfterDocumentSnapshot: null,
+      );
     }
     if (endAt != _sentinel) {
-      query = query.endAt([endAt]);
+      queryCursor = queryCursor.copyWith(
+        endAt: [...queryCursor.endAt, endAt],
+        endAtDocumentSnapshot: null,
+      );
     }
     if (endBefore != _sentinel) {
-      query = query.endBefore([endBefore]);
+      queryCursor = queryCursor.copyWith(
+        endBefore: [...queryCursor.endBefore, endBefore],
+        endBeforeDocumentSnapshot: null,
+      );
     }
 
-    return _$RankingQuery(query, _collection);
+    return _$RankingQuery(
+      _collection,
+      $referenceWithoutCursor: query,
+      $queryCursor: queryCursor,
+    );
   }
 
   RankingQuery orderByThumbnailUrl({
@@ -1240,36 +1605,65 @@ class _$RankingQuery extends QueryReference<Ranking, RankingQuerySnapshot>
     RankingDocumentSnapshot? endBeforeDocument,
     RankingDocumentSnapshot? startAfterDocument,
   }) {
-    var query = reference.orderBy(_$$_RankingFieldMap["thumbnailUrl"]!,
-        descending: descending);
+    final query = $referenceWithoutCursor
+        .orderBy(_$$_RankingFieldMap['thumbnailUrl']!, descending: descending);
+    var queryCursor = $queryCursor;
 
     if (startAtDocument != null) {
-      query = query.startAtDocument(startAtDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        startAt: const [],
+        startAtDocumentSnapshot: startAtDocument.snapshot,
+      );
     }
     if (startAfterDocument != null) {
-      query = query.startAfterDocument(startAfterDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        startAfter: const [],
+        startAfterDocumentSnapshot: startAfterDocument.snapshot,
+      );
     }
     if (endAtDocument != null) {
-      query = query.endAtDocument(endAtDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        endAt: const [],
+        endAtDocumentSnapshot: endAtDocument.snapshot,
+      );
     }
     if (endBeforeDocument != null) {
-      query = query.endBeforeDocument(endBeforeDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        endBefore: const [],
+        endBeforeDocumentSnapshot: endBeforeDocument.snapshot,
+      );
     }
 
     if (startAt != _sentinel) {
-      query = query.startAt([startAt]);
+      queryCursor = queryCursor.copyWith(
+        startAt: [...queryCursor.startAt, startAt],
+        startAtDocumentSnapshot: null,
+      );
     }
     if (startAfter != _sentinel) {
-      query = query.startAfter([startAfter]);
+      queryCursor = queryCursor.copyWith(
+        startAfter: [...queryCursor.startAfter, startAfter],
+        startAfterDocumentSnapshot: null,
+      );
     }
     if (endAt != _sentinel) {
-      query = query.endAt([endAt]);
+      queryCursor = queryCursor.copyWith(
+        endAt: [...queryCursor.endAt, endAt],
+        endAtDocumentSnapshot: null,
+      );
     }
     if (endBefore != _sentinel) {
-      query = query.endBefore([endBefore]);
+      queryCursor = queryCursor.copyWith(
+        endBefore: [...queryCursor.endBefore, endBefore],
+        endBeforeDocumentSnapshot: null,
+      );
     }
 
-    return _$RankingQuery(query, _collection);
+    return _$RankingQuery(
+      _collection,
+      $referenceWithoutCursor: query,
+      $queryCursor: queryCursor,
+    );
   }
 
   RankingQuery orderByPinned({
@@ -1283,36 +1677,65 @@ class _$RankingQuery extends QueryReference<Ranking, RankingQuerySnapshot>
     RankingDocumentSnapshot? endBeforeDocument,
     RankingDocumentSnapshot? startAfterDocument,
   }) {
-    var query = reference.orderBy(_$$_RankingFieldMap["pinned"]!,
-        descending: descending);
+    final query = $referenceWithoutCursor
+        .orderBy(_$$_RankingFieldMap['pinned']!, descending: descending);
+    var queryCursor = $queryCursor;
 
     if (startAtDocument != null) {
-      query = query.startAtDocument(startAtDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        startAt: const [],
+        startAtDocumentSnapshot: startAtDocument.snapshot,
+      );
     }
     if (startAfterDocument != null) {
-      query = query.startAfterDocument(startAfterDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        startAfter: const [],
+        startAfterDocumentSnapshot: startAfterDocument.snapshot,
+      );
     }
     if (endAtDocument != null) {
-      query = query.endAtDocument(endAtDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        endAt: const [],
+        endAtDocumentSnapshot: endAtDocument.snapshot,
+      );
     }
     if (endBeforeDocument != null) {
-      query = query.endBeforeDocument(endBeforeDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        endBefore: const [],
+        endBeforeDocumentSnapshot: endBeforeDocument.snapshot,
+      );
     }
 
     if (startAt != _sentinel) {
-      query = query.startAt([startAt]);
+      queryCursor = queryCursor.copyWith(
+        startAt: [...queryCursor.startAt, startAt],
+        startAtDocumentSnapshot: null,
+      );
     }
     if (startAfter != _sentinel) {
-      query = query.startAfter([startAfter]);
+      queryCursor = queryCursor.copyWith(
+        startAfter: [...queryCursor.startAfter, startAfter],
+        startAfterDocumentSnapshot: null,
+      );
     }
     if (endAt != _sentinel) {
-      query = query.endAt([endAt]);
+      queryCursor = queryCursor.copyWith(
+        endAt: [...queryCursor.endAt, endAt],
+        endAtDocumentSnapshot: null,
+      );
     }
     if (endBefore != _sentinel) {
-      query = query.endBefore([endBefore]);
+      queryCursor = queryCursor.copyWith(
+        endBefore: [...queryCursor.endBefore, endBefore],
+        endBeforeDocumentSnapshot: null,
+      );
     }
 
-    return _$RankingQuery(query, _collection);
+    return _$RankingQuery(
+      _collection,
+      $referenceWithoutCursor: query,
+      $queryCursor: queryCursor,
+    );
   }
 
   RankingQuery orderByTags({
@@ -1326,36 +1749,65 @@ class _$RankingQuery extends QueryReference<Ranking, RankingQuerySnapshot>
     RankingDocumentSnapshot? endBeforeDocument,
     RankingDocumentSnapshot? startAfterDocument,
   }) {
-    var query =
-        reference.orderBy(_$$_RankingFieldMap["tags"]!, descending: descending);
+    final query = $referenceWithoutCursor.orderBy(_$$_RankingFieldMap['tags']!,
+        descending: descending);
+    var queryCursor = $queryCursor;
 
     if (startAtDocument != null) {
-      query = query.startAtDocument(startAtDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        startAt: const [],
+        startAtDocumentSnapshot: startAtDocument.snapshot,
+      );
     }
     if (startAfterDocument != null) {
-      query = query.startAfterDocument(startAfterDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        startAfter: const [],
+        startAfterDocumentSnapshot: startAfterDocument.snapshot,
+      );
     }
     if (endAtDocument != null) {
-      query = query.endAtDocument(endAtDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        endAt: const [],
+        endAtDocumentSnapshot: endAtDocument.snapshot,
+      );
     }
     if (endBeforeDocument != null) {
-      query = query.endBeforeDocument(endBeforeDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        endBefore: const [],
+        endBeforeDocumentSnapshot: endBeforeDocument.snapshot,
+      );
     }
 
     if (startAt != _sentinel) {
-      query = query.startAt([startAt]);
+      queryCursor = queryCursor.copyWith(
+        startAt: [...queryCursor.startAt, startAt],
+        startAtDocumentSnapshot: null,
+      );
     }
     if (startAfter != _sentinel) {
-      query = query.startAfter([startAfter]);
+      queryCursor = queryCursor.copyWith(
+        startAfter: [...queryCursor.startAfter, startAfter],
+        startAfterDocumentSnapshot: null,
+      );
     }
     if (endAt != _sentinel) {
-      query = query.endAt([endAt]);
+      queryCursor = queryCursor.copyWith(
+        endAt: [...queryCursor.endAt, endAt],
+        endAtDocumentSnapshot: null,
+      );
     }
     if (endBefore != _sentinel) {
-      query = query.endBefore([endBefore]);
+      queryCursor = queryCursor.copyWith(
+        endBefore: [...queryCursor.endBefore, endBefore],
+        endBeforeDocumentSnapshot: null,
+      );
     }
 
-    return _$RankingQuery(query, _collection);
+    return _$RankingQuery(
+      _collection,
+      $referenceWithoutCursor: query,
+      $queryCursor: queryCursor,
+    );
   }
 
   RankingQuery orderByRecommendTagsShowing({
@@ -1369,36 +1821,66 @@ class _$RankingQuery extends QueryReference<Ranking, RankingQuerySnapshot>
     RankingDocumentSnapshot? endBeforeDocument,
     RankingDocumentSnapshot? startAfterDocument,
   }) {
-    var query = reference.orderBy(_$$_RankingFieldMap["recommendTagsShowing"]!,
+    final query = $referenceWithoutCursor.orderBy(
+        _$$_RankingFieldMap['recommendTagsShowing']!,
         descending: descending);
+    var queryCursor = $queryCursor;
 
     if (startAtDocument != null) {
-      query = query.startAtDocument(startAtDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        startAt: const [],
+        startAtDocumentSnapshot: startAtDocument.snapshot,
+      );
     }
     if (startAfterDocument != null) {
-      query = query.startAfterDocument(startAfterDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        startAfter: const [],
+        startAfterDocumentSnapshot: startAfterDocument.snapshot,
+      );
     }
     if (endAtDocument != null) {
-      query = query.endAtDocument(endAtDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        endAt: const [],
+        endAtDocumentSnapshot: endAtDocument.snapshot,
+      );
     }
     if (endBeforeDocument != null) {
-      query = query.endBeforeDocument(endBeforeDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        endBefore: const [],
+        endBeforeDocumentSnapshot: endBeforeDocument.snapshot,
+      );
     }
 
     if (startAt != _sentinel) {
-      query = query.startAt([startAt]);
+      queryCursor = queryCursor.copyWith(
+        startAt: [...queryCursor.startAt, startAt],
+        startAtDocumentSnapshot: null,
+      );
     }
     if (startAfter != _sentinel) {
-      query = query.startAfter([startAfter]);
+      queryCursor = queryCursor.copyWith(
+        startAfter: [...queryCursor.startAfter, startAfter],
+        startAfterDocumentSnapshot: null,
+      );
     }
     if (endAt != _sentinel) {
-      query = query.endAt([endAt]);
+      queryCursor = queryCursor.copyWith(
+        endAt: [...queryCursor.endAt, endAt],
+        endAtDocumentSnapshot: null,
+      );
     }
     if (endBefore != _sentinel) {
-      query = query.endBefore([endBefore]);
+      queryCursor = queryCursor.copyWith(
+        endBefore: [...queryCursor.endBefore, endBefore],
+        endBeforeDocumentSnapshot: null,
+      );
     }
 
-    return _$RankingQuery(query, _collection);
+    return _$RankingQuery(
+      _collection,
+      $referenceWithoutCursor: query,
+      $queryCursor: queryCursor,
+    );
   }
 
   @override
@@ -1412,6 +1894,23 @@ class _$RankingQuery extends QueryReference<Ranking, RankingQuerySnapshot>
   int get hashCode => Object.hash(runtimeType, reference);
 }
 
+class RankingDocumentSnapshot extends FirestoreDocumentSnapshot<Ranking> {
+  RankingDocumentSnapshot._(this.snapshot) : data = snapshot.data();
+
+  @override
+  final DocumentSnapshot<Ranking> snapshot;
+
+  @override
+  RankingDocumentReference get reference {
+    return RankingDocumentReference(
+      snapshot.reference,
+    );
+  }
+
+  @override
+  final Ranking? data;
+}
+
 class RankingQuerySnapshot
     extends FirestoreQuerySnapshot<Ranking, RankingQueryDocumentSnapshot> {
   RankingQuerySnapshot._(
@@ -1419,6 +1918,38 @@ class RankingQuerySnapshot
     this.docs,
     this.docChanges,
   );
+
+  factory RankingQuerySnapshot._fromQuerySnapshot(
+    QuerySnapshot<Ranking> snapshot,
+  ) {
+    final docs = snapshot.docs.map(RankingQueryDocumentSnapshot._).toList();
+
+    final docChanges = snapshot.docChanges.map((change) {
+      return _decodeDocumentChange(
+        change,
+        RankingDocumentSnapshot._,
+      );
+    }).toList();
+
+    return RankingQuerySnapshot._(
+      snapshot,
+      docs,
+      docChanges,
+    );
+  }
+
+  static FirestoreDocumentChange<RankingDocumentSnapshot>
+      _decodeDocumentChange<T>(
+    DocumentChange<T> docChange,
+    RankingDocumentSnapshot Function(DocumentSnapshot<T> doc) decodeDoc,
+  ) {
+    return FirestoreDocumentChange<RankingDocumentSnapshot>(
+      type: docChange.type,
+      oldIndex: docChange.oldIndex,
+      newIndex: docChange.newIndex,
+      doc: decodeDoc(docChange.doc),
+    );
+  }
 
   final QuerySnapshot<Ranking> snapshot;
 
@@ -1432,18 +1963,18 @@ class RankingQuerySnapshot
 class RankingQueryDocumentSnapshot
     extends FirestoreQueryDocumentSnapshot<Ranking>
     implements RankingDocumentSnapshot {
-  RankingQueryDocumentSnapshot._(this.snapshot, this.data);
+  RankingQueryDocumentSnapshot._(this.snapshot) : data = snapshot.data();
 
   @override
   final QueryDocumentSnapshot<Ranking> snapshot;
 
   @override
+  final Ranking data;
+
+  @override
   RankingDocumentReference get reference {
     return RankingDocumentReference(snapshot.reference);
   }
-
-  @override
-  final Ranking data;
 }
 
 /// A collection reference object can be used for adding documents,
@@ -1503,7 +2034,7 @@ class _$RankingMemberCollectionReference extends _$RankingMemberQuery
   _$RankingMemberCollectionReference._(
     this.parent,
     CollectionReference<RankingMember> reference,
-  ) : super(reference, reference);
+  ) : super(reference, $referenceWithoutCursor: reference);
 
   @override
   final RankingDocumentReference parent;
@@ -1571,17 +2102,47 @@ abstract class RankingMemberDocumentReference
   @override
   Future<void> delete();
 
+  /// Updates data on the document. Data will be merged with any existing
+  /// document data.
+  ///
+  /// If no document exists yet, the update will fail.
   Future<void> update({
     DateTime? createdAt,
+    FieldValue createdAtFieldValue,
     DateTime? updatedAt,
+    FieldValue updatedAtFieldValue,
     double order,
+    FieldValue orderFieldValue,
     String title,
+    FieldValue titleFieldValue,
     String description,
+    FieldValue descriptionFieldValue,
     String? imageUrl,
+    FieldValue imageUrlFieldValue,
     String? thumbnailUrl,
+    FieldValue thumbnailUrlFieldValue,
   });
 
-  Future<void> set(RankingMember value);
+  /// Updates fields in the current document using the transaction API.
+  ///
+  /// The update will fail if applied to a document that does not exist.
+  void transactionUpdate(
+    Transaction transaction, {
+    DateTime? createdAt,
+    FieldValue createdAtFieldValue,
+    DateTime? updatedAt,
+    FieldValue updatedAtFieldValue,
+    double order,
+    FieldValue orderFieldValue,
+    String title,
+    FieldValue titleFieldValue,
+    String description,
+    FieldValue descriptionFieldValue,
+    String? imageUrl,
+    FieldValue imageUrlFieldValue,
+    String? thumbnailUrl,
+    FieldValue thumbnailUrlFieldValue,
+  });
 }
 
 class _$RankingMemberDocumentReference extends FirestoreDocumentReference<
@@ -1604,53 +2165,175 @@ class _$RankingMemberDocumentReference extends FirestoreDocumentReference<
 
   @override
   Stream<RankingMemberDocumentSnapshot> snapshots() {
-    return reference.snapshots().map((snapshot) {
-      return RankingMemberDocumentSnapshot._(
-        snapshot,
-        snapshot.data(),
-      );
-    });
+    return reference.snapshots().map(RankingMemberDocumentSnapshot._);
   }
 
   @override
   Future<RankingMemberDocumentSnapshot> get([GetOptions? options]) {
-    return reference.get(options).then((snapshot) {
-      return RankingMemberDocumentSnapshot._(
-        snapshot,
-        snapshot.data(),
-      );
-    });
+    return reference.get(options).then(RankingMemberDocumentSnapshot._);
   }
 
   @override
-  Future<void> delete() {
-    return reference.delete();
+  Future<RankingMemberDocumentSnapshot> transactionGet(
+      Transaction transaction) {
+    return transaction.get(reference).then(RankingMemberDocumentSnapshot._);
   }
 
   Future<void> update({
     Object? createdAt = _sentinel,
+    FieldValue? createdAtFieldValue,
     Object? updatedAt = _sentinel,
+    FieldValue? updatedAtFieldValue,
     Object? order = _sentinel,
+    FieldValue? orderFieldValue,
     Object? title = _sentinel,
+    FieldValue? titleFieldValue,
     Object? description = _sentinel,
+    FieldValue? descriptionFieldValue,
     Object? imageUrl = _sentinel,
+    FieldValue? imageUrlFieldValue,
     Object? thumbnailUrl = _sentinel,
+    FieldValue? thumbnailUrlFieldValue,
   }) async {
+    assert(
+      createdAt == _sentinel || createdAtFieldValue == null,
+      "Cannot specify both createdAt and createdAtFieldValue",
+    );
+    assert(
+      updatedAt == _sentinel || updatedAtFieldValue == null,
+      "Cannot specify both updatedAt and updatedAtFieldValue",
+    );
+    assert(
+      order == _sentinel || orderFieldValue == null,
+      "Cannot specify both order and orderFieldValue",
+    );
+    assert(
+      title == _sentinel || titleFieldValue == null,
+      "Cannot specify both title and titleFieldValue",
+    );
+    assert(
+      description == _sentinel || descriptionFieldValue == null,
+      "Cannot specify both description and descriptionFieldValue",
+    );
+    assert(
+      imageUrl == _sentinel || imageUrlFieldValue == null,
+      "Cannot specify both imageUrl and imageUrlFieldValue",
+    );
+    assert(
+      thumbnailUrl == _sentinel || thumbnailUrlFieldValue == null,
+      "Cannot specify both thumbnailUrl and thumbnailUrlFieldValue",
+    );
     final json = {
-      if (createdAt != _sentinel) "createdAt": createdAt as DateTime?,
-      if (updatedAt != _sentinel) "updatedAt": updatedAt as DateTime?,
-      if (order != _sentinel) "order": order as double,
-      if (title != _sentinel) "title": title as String,
-      if (description != _sentinel) "description": description as String,
-      if (imageUrl != _sentinel) "imageUrl": imageUrl as String?,
-      if (thumbnailUrl != _sentinel) "thumbnailUrl": thumbnailUrl as String?,
+      if (createdAt != _sentinel)
+        _$$_RankingMemberFieldMap['createdAt']!: createdAt as DateTime?,
+      if (createdAtFieldValue != null)
+        _$$_RankingMemberFieldMap['createdAt']!: createdAtFieldValue,
+      if (updatedAt != _sentinel)
+        _$$_RankingMemberFieldMap['updatedAt']!: updatedAt as DateTime?,
+      if (updatedAtFieldValue != null)
+        _$$_RankingMemberFieldMap['updatedAt']!: updatedAtFieldValue,
+      if (order != _sentinel)
+        _$$_RankingMemberFieldMap['order']!: order as double,
+      if (orderFieldValue != null)
+        _$$_RankingMemberFieldMap['order']!: orderFieldValue,
+      if (title != _sentinel)
+        _$$_RankingMemberFieldMap['title']!: title as String,
+      if (titleFieldValue != null)
+        _$$_RankingMemberFieldMap['title']!: titleFieldValue,
+      if (description != _sentinel)
+        _$$_RankingMemberFieldMap['description']!: description as String,
+      if (descriptionFieldValue != null)
+        _$$_RankingMemberFieldMap['description']!: descriptionFieldValue,
+      if (imageUrl != _sentinel)
+        _$$_RankingMemberFieldMap['imageUrl']!: imageUrl as String?,
+      if (imageUrlFieldValue != null)
+        _$$_RankingMemberFieldMap['imageUrl']!: imageUrlFieldValue,
+      if (thumbnailUrl != _sentinel)
+        _$$_RankingMemberFieldMap['thumbnailUrl']!: thumbnailUrl as String?,
+      if (thumbnailUrlFieldValue != null)
+        _$$_RankingMemberFieldMap['thumbnailUrl']!: thumbnailUrlFieldValue,
     };
 
     return reference.update(json);
   }
 
-  Future<void> set(RankingMember value) {
-    return reference.set(value);
+  void transactionUpdate(
+    Transaction transaction, {
+    Object? createdAt = _sentinel,
+    FieldValue? createdAtFieldValue,
+    Object? updatedAt = _sentinel,
+    FieldValue? updatedAtFieldValue,
+    Object? order = _sentinel,
+    FieldValue? orderFieldValue,
+    Object? title = _sentinel,
+    FieldValue? titleFieldValue,
+    Object? description = _sentinel,
+    FieldValue? descriptionFieldValue,
+    Object? imageUrl = _sentinel,
+    FieldValue? imageUrlFieldValue,
+    Object? thumbnailUrl = _sentinel,
+    FieldValue? thumbnailUrlFieldValue,
+  }) {
+    assert(
+      createdAt == _sentinel || createdAtFieldValue == null,
+      "Cannot specify both createdAt and createdAtFieldValue",
+    );
+    assert(
+      updatedAt == _sentinel || updatedAtFieldValue == null,
+      "Cannot specify both updatedAt and updatedAtFieldValue",
+    );
+    assert(
+      order == _sentinel || orderFieldValue == null,
+      "Cannot specify both order and orderFieldValue",
+    );
+    assert(
+      title == _sentinel || titleFieldValue == null,
+      "Cannot specify both title and titleFieldValue",
+    );
+    assert(
+      description == _sentinel || descriptionFieldValue == null,
+      "Cannot specify both description and descriptionFieldValue",
+    );
+    assert(
+      imageUrl == _sentinel || imageUrlFieldValue == null,
+      "Cannot specify both imageUrl and imageUrlFieldValue",
+    );
+    assert(
+      thumbnailUrl == _sentinel || thumbnailUrlFieldValue == null,
+      "Cannot specify both thumbnailUrl and thumbnailUrlFieldValue",
+    );
+    final json = {
+      if (createdAt != _sentinel)
+        _$$_RankingMemberFieldMap['createdAt']!: createdAt as DateTime?,
+      if (createdAtFieldValue != null)
+        _$$_RankingMemberFieldMap['createdAt']!: createdAtFieldValue,
+      if (updatedAt != _sentinel)
+        _$$_RankingMemberFieldMap['updatedAt']!: updatedAt as DateTime?,
+      if (updatedAtFieldValue != null)
+        _$$_RankingMemberFieldMap['updatedAt']!: updatedAtFieldValue,
+      if (order != _sentinel)
+        _$$_RankingMemberFieldMap['order']!: order as double,
+      if (orderFieldValue != null)
+        _$$_RankingMemberFieldMap['order']!: orderFieldValue,
+      if (title != _sentinel)
+        _$$_RankingMemberFieldMap['title']!: title as String,
+      if (titleFieldValue != null)
+        _$$_RankingMemberFieldMap['title']!: titleFieldValue,
+      if (description != _sentinel)
+        _$$_RankingMemberFieldMap['description']!: description as String,
+      if (descriptionFieldValue != null)
+        _$$_RankingMemberFieldMap['description']!: descriptionFieldValue,
+      if (imageUrl != _sentinel)
+        _$$_RankingMemberFieldMap['imageUrl']!: imageUrl as String?,
+      if (imageUrlFieldValue != null)
+        _$$_RankingMemberFieldMap['imageUrl']!: imageUrlFieldValue,
+      if (thumbnailUrl != _sentinel)
+        _$$_RankingMemberFieldMap['thumbnailUrl']!: thumbnailUrl as String?,
+      if (thumbnailUrlFieldValue != null)
+        _$$_RankingMemberFieldMap['thumbnailUrl']!: thumbnailUrlFieldValue,
+    };
+
+    transaction.update(reference, json);
   }
 
   @override
@@ -1663,27 +2346,6 @@ class _$RankingMemberDocumentReference extends FirestoreDocumentReference<
 
   @override
   int get hashCode => Object.hash(runtimeType, parent, id);
-}
-
-class RankingMemberDocumentSnapshot
-    extends FirestoreDocumentSnapshot<RankingMember> {
-  RankingMemberDocumentSnapshot._(
-    this.snapshot,
-    this.data,
-  );
-
-  @override
-  final DocumentSnapshot<RankingMember> snapshot;
-
-  @override
-  RankingMemberDocumentReference get reference {
-    return RankingMemberDocumentReference(
-      snapshot.reference,
-    );
-  }
-
-  @override
-  final RankingMember? data;
 }
 
 abstract class RankingMemberQuery
@@ -1949,61 +2611,45 @@ class _$RankingMemberQuery
     extends QueryReference<RankingMember, RankingMemberQuerySnapshot>
     implements RankingMemberQuery {
   _$RankingMemberQuery(
-    this.reference,
-    this._collection,
-  );
+    this._collection, {
+    required Query<RankingMember> $referenceWithoutCursor,
+    $QueryCursor $queryCursor = const $QueryCursor(),
+  }) : super(
+          $referenceWithoutCursor: $referenceWithoutCursor,
+          $queryCursor: $queryCursor,
+        );
 
   final CollectionReference<Object?> _collection;
 
   @override
-  final Query<RankingMember> reference;
-
-  RankingMemberQuerySnapshot _decodeSnapshot(
-    QuerySnapshot<RankingMember> snapshot,
-  ) {
-    final docs = snapshot.docs.map((e) {
-      return RankingMemberQueryDocumentSnapshot._(e, e.data());
-    }).toList();
-
-    final docChanges = snapshot.docChanges.map((change) {
-      return FirestoreDocumentChange<RankingMemberDocumentSnapshot>(
-        type: change.type,
-        oldIndex: change.oldIndex,
-        newIndex: change.newIndex,
-        doc: RankingMemberDocumentSnapshot._(change.doc, change.doc.data()),
-      );
-    }).toList();
-
-    return RankingMemberQuerySnapshot._(
-      snapshot,
-      docs,
-      docChanges,
-    );
-  }
-
-  @override
   Stream<RankingMemberQuerySnapshot> snapshots([SnapshotOptions? options]) {
-    return reference.snapshots().map(_decodeSnapshot);
+    return reference
+        .snapshots()
+        .map(RankingMemberQuerySnapshot._fromQuerySnapshot);
   }
 
   @override
   Future<RankingMemberQuerySnapshot> get([GetOptions? options]) {
-    return reference.get(options).then(_decodeSnapshot);
+    return reference
+        .get(options)
+        .then(RankingMemberQuerySnapshot._fromQuerySnapshot);
   }
 
   @override
   RankingMemberQuery limit(int limit) {
     return _$RankingMemberQuery(
-      reference.limit(limit),
       _collection,
+      $referenceWithoutCursor: $referenceWithoutCursor.limit(limit),
+      $queryCursor: $queryCursor,
     );
   }
 
   @override
   RankingMemberQuery limitToLast(int limit) {
     return _$RankingMemberQuery(
-      reference.limitToLast(limit),
       _collection,
+      $referenceWithoutCursor: $referenceWithoutCursor.limitToLast(limit),
+      $queryCursor: $queryCursor,
     );
   }
 
@@ -2019,35 +2665,64 @@ class _$RankingMemberQuery
     RankingMemberDocumentSnapshot? endBeforeDocument,
     RankingMemberDocumentSnapshot? startAfterDocument,
   }) {
-    var query = reference.orderBy(fieldPath, descending: descending);
+    final query =
+        $referenceWithoutCursor.orderBy(fieldPath, descending: descending);
+    var queryCursor = $queryCursor;
 
     if (startAtDocument != null) {
-      query = query.startAtDocument(startAtDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        startAt: const [],
+        startAtDocumentSnapshot: startAtDocument.snapshot,
+      );
     }
     if (startAfterDocument != null) {
-      query = query.startAfterDocument(startAfterDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        startAfter: const [],
+        startAfterDocumentSnapshot: startAfterDocument.snapshot,
+      );
     }
     if (endAtDocument != null) {
-      query = query.endAtDocument(endAtDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        endAt: const [],
+        endAtDocumentSnapshot: endAtDocument.snapshot,
+      );
     }
     if (endBeforeDocument != null) {
-      query = query.endBeforeDocument(endBeforeDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        endBefore: const [],
+        endBeforeDocumentSnapshot: endBeforeDocument.snapshot,
+      );
     }
 
     if (startAt != _sentinel) {
-      query = query.startAt([startAt]);
+      queryCursor = queryCursor.copyWith(
+        startAt: [...queryCursor.startAt, startAt],
+        startAtDocumentSnapshot: null,
+      );
     }
     if (startAfter != _sentinel) {
-      query = query.startAfter([startAfter]);
+      queryCursor = queryCursor.copyWith(
+        startAfter: [...queryCursor.startAfter, startAfter],
+        startAfterDocumentSnapshot: null,
+      );
     }
     if (endAt != _sentinel) {
-      query = query.endAt([endAt]);
+      queryCursor = queryCursor.copyWith(
+        endAt: [...queryCursor.endAt, endAt],
+        endAtDocumentSnapshot: null,
+      );
     }
     if (endBefore != _sentinel) {
-      query = query.endBefore([endBefore]);
+      queryCursor = queryCursor.copyWith(
+        endBefore: [...queryCursor.endBefore, endBefore],
+        endBeforeDocumentSnapshot: null,
+      );
     }
-
-    return _$RankingMemberQuery(query, _collection);
+    return _$RankingMemberQuery(
+      _collection,
+      $referenceWithoutCursor: query,
+      $queryCursor: queryCursor,
+    );
   }
 
   RankingMemberQuery whereFieldPath(
@@ -2065,7 +2740,8 @@ class _$RankingMemberQuery
     bool? isNull,
   }) {
     return _$RankingMemberQuery(
-      reference.where(
+      _collection,
+      $referenceWithoutCursor: $referenceWithoutCursor.where(
         fieldPath,
         isEqualTo: isEqualTo,
         isNotEqualTo: isNotEqualTo,
@@ -2079,7 +2755,7 @@ class _$RankingMemberQuery
         whereNotIn: whereNotIn,
         isNull: isNull,
       ),
-      _collection,
+      $queryCursor: $queryCursor,
     );
   }
 
@@ -2095,7 +2771,8 @@ class _$RankingMemberQuery
     List<String>? whereNotIn,
   }) {
     return _$RankingMemberQuery(
-      reference.where(
+      _collection,
+      $referenceWithoutCursor: $referenceWithoutCursor.where(
         FieldPath.documentId,
         isEqualTo: isEqualTo,
         isNotEqualTo: isNotEqualTo,
@@ -2107,7 +2784,7 @@ class _$RankingMemberQuery
         whereIn: whereIn,
         whereNotIn: whereNotIn,
       ),
-      _collection,
+      $queryCursor: $queryCursor,
     );
   }
 
@@ -2123,8 +2800,9 @@ class _$RankingMemberQuery
     List<DateTime?>? whereNotIn,
   }) {
     return _$RankingMemberQuery(
-      reference.where(
-        _$$_RankingMemberFieldMap["createdAt"]!,
+      _collection,
+      $referenceWithoutCursor: $referenceWithoutCursor.where(
+        _$$_RankingMemberFieldMap['createdAt']!,
         isEqualTo: isEqualTo,
         isNotEqualTo: isNotEqualTo,
         isLessThan: isLessThan,
@@ -2135,7 +2813,7 @@ class _$RankingMemberQuery
         whereIn: whereIn,
         whereNotIn: whereNotIn,
       ),
-      _collection,
+      $queryCursor: $queryCursor,
     );
   }
 
@@ -2151,8 +2829,9 @@ class _$RankingMemberQuery
     List<DateTime?>? whereNotIn,
   }) {
     return _$RankingMemberQuery(
-      reference.where(
-        _$$_RankingMemberFieldMap["updatedAt"]!,
+      _collection,
+      $referenceWithoutCursor: $referenceWithoutCursor.where(
+        _$$_RankingMemberFieldMap['updatedAt']!,
         isEqualTo: isEqualTo,
         isNotEqualTo: isNotEqualTo,
         isLessThan: isLessThan,
@@ -2163,7 +2842,7 @@ class _$RankingMemberQuery
         whereIn: whereIn,
         whereNotIn: whereNotIn,
       ),
-      _collection,
+      $queryCursor: $queryCursor,
     );
   }
 
@@ -2179,8 +2858,9 @@ class _$RankingMemberQuery
     List<double>? whereNotIn,
   }) {
     return _$RankingMemberQuery(
-      reference.where(
-        _$$_RankingMemberFieldMap["order"]!,
+      _collection,
+      $referenceWithoutCursor: $referenceWithoutCursor.where(
+        _$$_RankingMemberFieldMap['order']!,
         isEqualTo: isEqualTo,
         isNotEqualTo: isNotEqualTo,
         isLessThan: isLessThan,
@@ -2191,7 +2871,7 @@ class _$RankingMemberQuery
         whereIn: whereIn,
         whereNotIn: whereNotIn,
       ),
-      _collection,
+      $queryCursor: $queryCursor,
     );
   }
 
@@ -2207,8 +2887,9 @@ class _$RankingMemberQuery
     List<String>? whereNotIn,
   }) {
     return _$RankingMemberQuery(
-      reference.where(
-        _$$_RankingMemberFieldMap["title"]!,
+      _collection,
+      $referenceWithoutCursor: $referenceWithoutCursor.where(
+        _$$_RankingMemberFieldMap['title']!,
         isEqualTo: isEqualTo,
         isNotEqualTo: isNotEqualTo,
         isLessThan: isLessThan,
@@ -2219,7 +2900,7 @@ class _$RankingMemberQuery
         whereIn: whereIn,
         whereNotIn: whereNotIn,
       ),
-      _collection,
+      $queryCursor: $queryCursor,
     );
   }
 
@@ -2235,8 +2916,9 @@ class _$RankingMemberQuery
     List<String>? whereNotIn,
   }) {
     return _$RankingMemberQuery(
-      reference.where(
-        _$$_RankingMemberFieldMap["description"]!,
+      _collection,
+      $referenceWithoutCursor: $referenceWithoutCursor.where(
+        _$$_RankingMemberFieldMap['description']!,
         isEqualTo: isEqualTo,
         isNotEqualTo: isNotEqualTo,
         isLessThan: isLessThan,
@@ -2247,7 +2929,7 @@ class _$RankingMemberQuery
         whereIn: whereIn,
         whereNotIn: whereNotIn,
       ),
-      _collection,
+      $queryCursor: $queryCursor,
     );
   }
 
@@ -2263,8 +2945,9 @@ class _$RankingMemberQuery
     List<String?>? whereNotIn,
   }) {
     return _$RankingMemberQuery(
-      reference.where(
-        _$$_RankingMemberFieldMap["imageUrl"]!,
+      _collection,
+      $referenceWithoutCursor: $referenceWithoutCursor.where(
+        _$$_RankingMemberFieldMap['imageUrl']!,
         isEqualTo: isEqualTo,
         isNotEqualTo: isNotEqualTo,
         isLessThan: isLessThan,
@@ -2275,7 +2958,7 @@ class _$RankingMemberQuery
         whereIn: whereIn,
         whereNotIn: whereNotIn,
       ),
-      _collection,
+      $queryCursor: $queryCursor,
     );
   }
 
@@ -2291,8 +2974,9 @@ class _$RankingMemberQuery
     List<String?>? whereNotIn,
   }) {
     return _$RankingMemberQuery(
-      reference.where(
-        _$$_RankingMemberFieldMap["thumbnailUrl"]!,
+      _collection,
+      $referenceWithoutCursor: $referenceWithoutCursor.where(
+        _$$_RankingMemberFieldMap['thumbnailUrl']!,
         isEqualTo: isEqualTo,
         isNotEqualTo: isNotEqualTo,
         isLessThan: isLessThan,
@@ -2303,7 +2987,7 @@ class _$RankingMemberQuery
         whereIn: whereIn,
         whereNotIn: whereNotIn,
       ),
-      _collection,
+      $queryCursor: $queryCursor,
     );
   }
 
@@ -2318,35 +3002,65 @@ class _$RankingMemberQuery
     RankingMemberDocumentSnapshot? endBeforeDocument,
     RankingMemberDocumentSnapshot? startAfterDocument,
   }) {
-    var query = reference.orderBy(FieldPath.documentId, descending: descending);
+    final query = $referenceWithoutCursor.orderBy(FieldPath.documentId,
+        descending: descending);
+    var queryCursor = $queryCursor;
 
     if (startAtDocument != null) {
-      query = query.startAtDocument(startAtDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        startAt: const [],
+        startAtDocumentSnapshot: startAtDocument.snapshot,
+      );
     }
     if (startAfterDocument != null) {
-      query = query.startAfterDocument(startAfterDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        startAfter: const [],
+        startAfterDocumentSnapshot: startAfterDocument.snapshot,
+      );
     }
     if (endAtDocument != null) {
-      query = query.endAtDocument(endAtDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        endAt: const [],
+        endAtDocumentSnapshot: endAtDocument.snapshot,
+      );
     }
     if (endBeforeDocument != null) {
-      query = query.endBeforeDocument(endBeforeDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        endBefore: const [],
+        endBeforeDocumentSnapshot: endBeforeDocument.snapshot,
+      );
     }
 
     if (startAt != _sentinel) {
-      query = query.startAt([startAt]);
+      queryCursor = queryCursor.copyWith(
+        startAt: [...queryCursor.startAt, startAt],
+        startAtDocumentSnapshot: null,
+      );
     }
     if (startAfter != _sentinel) {
-      query = query.startAfter([startAfter]);
+      queryCursor = queryCursor.copyWith(
+        startAfter: [...queryCursor.startAfter, startAfter],
+        startAfterDocumentSnapshot: null,
+      );
     }
     if (endAt != _sentinel) {
-      query = query.endAt([endAt]);
+      queryCursor = queryCursor.copyWith(
+        endAt: [...queryCursor.endAt, endAt],
+        endAtDocumentSnapshot: null,
+      );
     }
     if (endBefore != _sentinel) {
-      query = query.endBefore([endBefore]);
+      queryCursor = queryCursor.copyWith(
+        endBefore: [...queryCursor.endBefore, endBefore],
+        endBeforeDocumentSnapshot: null,
+      );
     }
 
-    return _$RankingMemberQuery(query, _collection);
+    return _$RankingMemberQuery(
+      _collection,
+      $referenceWithoutCursor: query,
+      $queryCursor: queryCursor,
+    );
   }
 
   RankingMemberQuery orderByCreatedAt({
@@ -2360,36 +3074,66 @@ class _$RankingMemberQuery
     RankingMemberDocumentSnapshot? endBeforeDocument,
     RankingMemberDocumentSnapshot? startAfterDocument,
   }) {
-    var query = reference.orderBy(_$$_RankingMemberFieldMap["createdAt"]!,
+    final query = $referenceWithoutCursor.orderBy(
+        _$$_RankingMemberFieldMap['createdAt']!,
         descending: descending);
+    var queryCursor = $queryCursor;
 
     if (startAtDocument != null) {
-      query = query.startAtDocument(startAtDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        startAt: const [],
+        startAtDocumentSnapshot: startAtDocument.snapshot,
+      );
     }
     if (startAfterDocument != null) {
-      query = query.startAfterDocument(startAfterDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        startAfter: const [],
+        startAfterDocumentSnapshot: startAfterDocument.snapshot,
+      );
     }
     if (endAtDocument != null) {
-      query = query.endAtDocument(endAtDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        endAt: const [],
+        endAtDocumentSnapshot: endAtDocument.snapshot,
+      );
     }
     if (endBeforeDocument != null) {
-      query = query.endBeforeDocument(endBeforeDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        endBefore: const [],
+        endBeforeDocumentSnapshot: endBeforeDocument.snapshot,
+      );
     }
 
     if (startAt != _sentinel) {
-      query = query.startAt([startAt]);
+      queryCursor = queryCursor.copyWith(
+        startAt: [...queryCursor.startAt, startAt],
+        startAtDocumentSnapshot: null,
+      );
     }
     if (startAfter != _sentinel) {
-      query = query.startAfter([startAfter]);
+      queryCursor = queryCursor.copyWith(
+        startAfter: [...queryCursor.startAfter, startAfter],
+        startAfterDocumentSnapshot: null,
+      );
     }
     if (endAt != _sentinel) {
-      query = query.endAt([endAt]);
+      queryCursor = queryCursor.copyWith(
+        endAt: [...queryCursor.endAt, endAt],
+        endAtDocumentSnapshot: null,
+      );
     }
     if (endBefore != _sentinel) {
-      query = query.endBefore([endBefore]);
+      queryCursor = queryCursor.copyWith(
+        endBefore: [...queryCursor.endBefore, endBefore],
+        endBeforeDocumentSnapshot: null,
+      );
     }
 
-    return _$RankingMemberQuery(query, _collection);
+    return _$RankingMemberQuery(
+      _collection,
+      $referenceWithoutCursor: query,
+      $queryCursor: queryCursor,
+    );
   }
 
   RankingMemberQuery orderByUpdatedAt({
@@ -2403,36 +3147,66 @@ class _$RankingMemberQuery
     RankingMemberDocumentSnapshot? endBeforeDocument,
     RankingMemberDocumentSnapshot? startAfterDocument,
   }) {
-    var query = reference.orderBy(_$$_RankingMemberFieldMap["updatedAt"]!,
+    final query = $referenceWithoutCursor.orderBy(
+        _$$_RankingMemberFieldMap['updatedAt']!,
         descending: descending);
+    var queryCursor = $queryCursor;
 
     if (startAtDocument != null) {
-      query = query.startAtDocument(startAtDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        startAt: const [],
+        startAtDocumentSnapshot: startAtDocument.snapshot,
+      );
     }
     if (startAfterDocument != null) {
-      query = query.startAfterDocument(startAfterDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        startAfter: const [],
+        startAfterDocumentSnapshot: startAfterDocument.snapshot,
+      );
     }
     if (endAtDocument != null) {
-      query = query.endAtDocument(endAtDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        endAt: const [],
+        endAtDocumentSnapshot: endAtDocument.snapshot,
+      );
     }
     if (endBeforeDocument != null) {
-      query = query.endBeforeDocument(endBeforeDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        endBefore: const [],
+        endBeforeDocumentSnapshot: endBeforeDocument.snapshot,
+      );
     }
 
     if (startAt != _sentinel) {
-      query = query.startAt([startAt]);
+      queryCursor = queryCursor.copyWith(
+        startAt: [...queryCursor.startAt, startAt],
+        startAtDocumentSnapshot: null,
+      );
     }
     if (startAfter != _sentinel) {
-      query = query.startAfter([startAfter]);
+      queryCursor = queryCursor.copyWith(
+        startAfter: [...queryCursor.startAfter, startAfter],
+        startAfterDocumentSnapshot: null,
+      );
     }
     if (endAt != _sentinel) {
-      query = query.endAt([endAt]);
+      queryCursor = queryCursor.copyWith(
+        endAt: [...queryCursor.endAt, endAt],
+        endAtDocumentSnapshot: null,
+      );
     }
     if (endBefore != _sentinel) {
-      query = query.endBefore([endBefore]);
+      queryCursor = queryCursor.copyWith(
+        endBefore: [...queryCursor.endBefore, endBefore],
+        endBeforeDocumentSnapshot: null,
+      );
     }
 
-    return _$RankingMemberQuery(query, _collection);
+    return _$RankingMemberQuery(
+      _collection,
+      $referenceWithoutCursor: query,
+      $queryCursor: queryCursor,
+    );
   }
 
   RankingMemberQuery orderByOrder({
@@ -2446,36 +3220,65 @@ class _$RankingMemberQuery
     RankingMemberDocumentSnapshot? endBeforeDocument,
     RankingMemberDocumentSnapshot? startAfterDocument,
   }) {
-    var query = reference.orderBy(_$$_RankingMemberFieldMap["order"]!,
-        descending: descending);
+    final query = $referenceWithoutCursor
+        .orderBy(_$$_RankingMemberFieldMap['order']!, descending: descending);
+    var queryCursor = $queryCursor;
 
     if (startAtDocument != null) {
-      query = query.startAtDocument(startAtDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        startAt: const [],
+        startAtDocumentSnapshot: startAtDocument.snapshot,
+      );
     }
     if (startAfterDocument != null) {
-      query = query.startAfterDocument(startAfterDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        startAfter: const [],
+        startAfterDocumentSnapshot: startAfterDocument.snapshot,
+      );
     }
     if (endAtDocument != null) {
-      query = query.endAtDocument(endAtDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        endAt: const [],
+        endAtDocumentSnapshot: endAtDocument.snapshot,
+      );
     }
     if (endBeforeDocument != null) {
-      query = query.endBeforeDocument(endBeforeDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        endBefore: const [],
+        endBeforeDocumentSnapshot: endBeforeDocument.snapshot,
+      );
     }
 
     if (startAt != _sentinel) {
-      query = query.startAt([startAt]);
+      queryCursor = queryCursor.copyWith(
+        startAt: [...queryCursor.startAt, startAt],
+        startAtDocumentSnapshot: null,
+      );
     }
     if (startAfter != _sentinel) {
-      query = query.startAfter([startAfter]);
+      queryCursor = queryCursor.copyWith(
+        startAfter: [...queryCursor.startAfter, startAfter],
+        startAfterDocumentSnapshot: null,
+      );
     }
     if (endAt != _sentinel) {
-      query = query.endAt([endAt]);
+      queryCursor = queryCursor.copyWith(
+        endAt: [...queryCursor.endAt, endAt],
+        endAtDocumentSnapshot: null,
+      );
     }
     if (endBefore != _sentinel) {
-      query = query.endBefore([endBefore]);
+      queryCursor = queryCursor.copyWith(
+        endBefore: [...queryCursor.endBefore, endBefore],
+        endBeforeDocumentSnapshot: null,
+      );
     }
 
-    return _$RankingMemberQuery(query, _collection);
+    return _$RankingMemberQuery(
+      _collection,
+      $referenceWithoutCursor: query,
+      $queryCursor: queryCursor,
+    );
   }
 
   RankingMemberQuery orderByTitle({
@@ -2489,36 +3292,65 @@ class _$RankingMemberQuery
     RankingMemberDocumentSnapshot? endBeforeDocument,
     RankingMemberDocumentSnapshot? startAfterDocument,
   }) {
-    var query = reference.orderBy(_$$_RankingMemberFieldMap["title"]!,
-        descending: descending);
+    final query = $referenceWithoutCursor
+        .orderBy(_$$_RankingMemberFieldMap['title']!, descending: descending);
+    var queryCursor = $queryCursor;
 
     if (startAtDocument != null) {
-      query = query.startAtDocument(startAtDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        startAt: const [],
+        startAtDocumentSnapshot: startAtDocument.snapshot,
+      );
     }
     if (startAfterDocument != null) {
-      query = query.startAfterDocument(startAfterDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        startAfter: const [],
+        startAfterDocumentSnapshot: startAfterDocument.snapshot,
+      );
     }
     if (endAtDocument != null) {
-      query = query.endAtDocument(endAtDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        endAt: const [],
+        endAtDocumentSnapshot: endAtDocument.snapshot,
+      );
     }
     if (endBeforeDocument != null) {
-      query = query.endBeforeDocument(endBeforeDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        endBefore: const [],
+        endBeforeDocumentSnapshot: endBeforeDocument.snapshot,
+      );
     }
 
     if (startAt != _sentinel) {
-      query = query.startAt([startAt]);
+      queryCursor = queryCursor.copyWith(
+        startAt: [...queryCursor.startAt, startAt],
+        startAtDocumentSnapshot: null,
+      );
     }
     if (startAfter != _sentinel) {
-      query = query.startAfter([startAfter]);
+      queryCursor = queryCursor.copyWith(
+        startAfter: [...queryCursor.startAfter, startAfter],
+        startAfterDocumentSnapshot: null,
+      );
     }
     if (endAt != _sentinel) {
-      query = query.endAt([endAt]);
+      queryCursor = queryCursor.copyWith(
+        endAt: [...queryCursor.endAt, endAt],
+        endAtDocumentSnapshot: null,
+      );
     }
     if (endBefore != _sentinel) {
-      query = query.endBefore([endBefore]);
+      queryCursor = queryCursor.copyWith(
+        endBefore: [...queryCursor.endBefore, endBefore],
+        endBeforeDocumentSnapshot: null,
+      );
     }
 
-    return _$RankingMemberQuery(query, _collection);
+    return _$RankingMemberQuery(
+      _collection,
+      $referenceWithoutCursor: query,
+      $queryCursor: queryCursor,
+    );
   }
 
   RankingMemberQuery orderByDescription({
@@ -2532,36 +3364,66 @@ class _$RankingMemberQuery
     RankingMemberDocumentSnapshot? endBeforeDocument,
     RankingMemberDocumentSnapshot? startAfterDocument,
   }) {
-    var query = reference.orderBy(_$$_RankingMemberFieldMap["description"]!,
+    final query = $referenceWithoutCursor.orderBy(
+        _$$_RankingMemberFieldMap['description']!,
         descending: descending);
+    var queryCursor = $queryCursor;
 
     if (startAtDocument != null) {
-      query = query.startAtDocument(startAtDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        startAt: const [],
+        startAtDocumentSnapshot: startAtDocument.snapshot,
+      );
     }
     if (startAfterDocument != null) {
-      query = query.startAfterDocument(startAfterDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        startAfter: const [],
+        startAfterDocumentSnapshot: startAfterDocument.snapshot,
+      );
     }
     if (endAtDocument != null) {
-      query = query.endAtDocument(endAtDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        endAt: const [],
+        endAtDocumentSnapshot: endAtDocument.snapshot,
+      );
     }
     if (endBeforeDocument != null) {
-      query = query.endBeforeDocument(endBeforeDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        endBefore: const [],
+        endBeforeDocumentSnapshot: endBeforeDocument.snapshot,
+      );
     }
 
     if (startAt != _sentinel) {
-      query = query.startAt([startAt]);
+      queryCursor = queryCursor.copyWith(
+        startAt: [...queryCursor.startAt, startAt],
+        startAtDocumentSnapshot: null,
+      );
     }
     if (startAfter != _sentinel) {
-      query = query.startAfter([startAfter]);
+      queryCursor = queryCursor.copyWith(
+        startAfter: [...queryCursor.startAfter, startAfter],
+        startAfterDocumentSnapshot: null,
+      );
     }
     if (endAt != _sentinel) {
-      query = query.endAt([endAt]);
+      queryCursor = queryCursor.copyWith(
+        endAt: [...queryCursor.endAt, endAt],
+        endAtDocumentSnapshot: null,
+      );
     }
     if (endBefore != _sentinel) {
-      query = query.endBefore([endBefore]);
+      queryCursor = queryCursor.copyWith(
+        endBefore: [...queryCursor.endBefore, endBefore],
+        endBeforeDocumentSnapshot: null,
+      );
     }
 
-    return _$RankingMemberQuery(query, _collection);
+    return _$RankingMemberQuery(
+      _collection,
+      $referenceWithoutCursor: query,
+      $queryCursor: queryCursor,
+    );
   }
 
   RankingMemberQuery orderByImageUrl({
@@ -2575,36 +3437,66 @@ class _$RankingMemberQuery
     RankingMemberDocumentSnapshot? endBeforeDocument,
     RankingMemberDocumentSnapshot? startAfterDocument,
   }) {
-    var query = reference.orderBy(_$$_RankingMemberFieldMap["imageUrl"]!,
+    final query = $referenceWithoutCursor.orderBy(
+        _$$_RankingMemberFieldMap['imageUrl']!,
         descending: descending);
+    var queryCursor = $queryCursor;
 
     if (startAtDocument != null) {
-      query = query.startAtDocument(startAtDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        startAt: const [],
+        startAtDocumentSnapshot: startAtDocument.snapshot,
+      );
     }
     if (startAfterDocument != null) {
-      query = query.startAfterDocument(startAfterDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        startAfter: const [],
+        startAfterDocumentSnapshot: startAfterDocument.snapshot,
+      );
     }
     if (endAtDocument != null) {
-      query = query.endAtDocument(endAtDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        endAt: const [],
+        endAtDocumentSnapshot: endAtDocument.snapshot,
+      );
     }
     if (endBeforeDocument != null) {
-      query = query.endBeforeDocument(endBeforeDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        endBefore: const [],
+        endBeforeDocumentSnapshot: endBeforeDocument.snapshot,
+      );
     }
 
     if (startAt != _sentinel) {
-      query = query.startAt([startAt]);
+      queryCursor = queryCursor.copyWith(
+        startAt: [...queryCursor.startAt, startAt],
+        startAtDocumentSnapshot: null,
+      );
     }
     if (startAfter != _sentinel) {
-      query = query.startAfter([startAfter]);
+      queryCursor = queryCursor.copyWith(
+        startAfter: [...queryCursor.startAfter, startAfter],
+        startAfterDocumentSnapshot: null,
+      );
     }
     if (endAt != _sentinel) {
-      query = query.endAt([endAt]);
+      queryCursor = queryCursor.copyWith(
+        endAt: [...queryCursor.endAt, endAt],
+        endAtDocumentSnapshot: null,
+      );
     }
     if (endBefore != _sentinel) {
-      query = query.endBefore([endBefore]);
+      queryCursor = queryCursor.copyWith(
+        endBefore: [...queryCursor.endBefore, endBefore],
+        endBeforeDocumentSnapshot: null,
+      );
     }
 
-    return _$RankingMemberQuery(query, _collection);
+    return _$RankingMemberQuery(
+      _collection,
+      $referenceWithoutCursor: query,
+      $queryCursor: queryCursor,
+    );
   }
 
   RankingMemberQuery orderByThumbnailUrl({
@@ -2618,36 +3510,66 @@ class _$RankingMemberQuery
     RankingMemberDocumentSnapshot? endBeforeDocument,
     RankingMemberDocumentSnapshot? startAfterDocument,
   }) {
-    var query = reference.orderBy(_$$_RankingMemberFieldMap["thumbnailUrl"]!,
+    final query = $referenceWithoutCursor.orderBy(
+        _$$_RankingMemberFieldMap['thumbnailUrl']!,
         descending: descending);
+    var queryCursor = $queryCursor;
 
     if (startAtDocument != null) {
-      query = query.startAtDocument(startAtDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        startAt: const [],
+        startAtDocumentSnapshot: startAtDocument.snapshot,
+      );
     }
     if (startAfterDocument != null) {
-      query = query.startAfterDocument(startAfterDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        startAfter: const [],
+        startAfterDocumentSnapshot: startAfterDocument.snapshot,
+      );
     }
     if (endAtDocument != null) {
-      query = query.endAtDocument(endAtDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        endAt: const [],
+        endAtDocumentSnapshot: endAtDocument.snapshot,
+      );
     }
     if (endBeforeDocument != null) {
-      query = query.endBeforeDocument(endBeforeDocument.snapshot);
+      queryCursor = queryCursor.copyWith(
+        endBefore: const [],
+        endBeforeDocumentSnapshot: endBeforeDocument.snapshot,
+      );
     }
 
     if (startAt != _sentinel) {
-      query = query.startAt([startAt]);
+      queryCursor = queryCursor.copyWith(
+        startAt: [...queryCursor.startAt, startAt],
+        startAtDocumentSnapshot: null,
+      );
     }
     if (startAfter != _sentinel) {
-      query = query.startAfter([startAfter]);
+      queryCursor = queryCursor.copyWith(
+        startAfter: [...queryCursor.startAfter, startAfter],
+        startAfterDocumentSnapshot: null,
+      );
     }
     if (endAt != _sentinel) {
-      query = query.endAt([endAt]);
+      queryCursor = queryCursor.copyWith(
+        endAt: [...queryCursor.endAt, endAt],
+        endAtDocumentSnapshot: null,
+      );
     }
     if (endBefore != _sentinel) {
-      query = query.endBefore([endBefore]);
+      queryCursor = queryCursor.copyWith(
+        endBefore: [...queryCursor.endBefore, endBefore],
+        endBeforeDocumentSnapshot: null,
+      );
     }
 
-    return _$RankingMemberQuery(query, _collection);
+    return _$RankingMemberQuery(
+      _collection,
+      $referenceWithoutCursor: query,
+      $queryCursor: queryCursor,
+    );
   }
 
   @override
@@ -2661,6 +3583,24 @@ class _$RankingMemberQuery
   int get hashCode => Object.hash(runtimeType, reference);
 }
 
+class RankingMemberDocumentSnapshot
+    extends FirestoreDocumentSnapshot<RankingMember> {
+  RankingMemberDocumentSnapshot._(this.snapshot) : data = snapshot.data();
+
+  @override
+  final DocumentSnapshot<RankingMember> snapshot;
+
+  @override
+  RankingMemberDocumentReference get reference {
+    return RankingMemberDocumentReference(
+      snapshot.reference,
+    );
+  }
+
+  @override
+  final RankingMember? data;
+}
+
 class RankingMemberQuerySnapshot extends FirestoreQuerySnapshot<RankingMember,
     RankingMemberQueryDocumentSnapshot> {
   RankingMemberQuerySnapshot._(
@@ -2668,6 +3608,39 @@ class RankingMemberQuerySnapshot extends FirestoreQuerySnapshot<RankingMember,
     this.docs,
     this.docChanges,
   );
+
+  factory RankingMemberQuerySnapshot._fromQuerySnapshot(
+    QuerySnapshot<RankingMember> snapshot,
+  ) {
+    final docs =
+        snapshot.docs.map(RankingMemberQueryDocumentSnapshot._).toList();
+
+    final docChanges = snapshot.docChanges.map((change) {
+      return _decodeDocumentChange(
+        change,
+        RankingMemberDocumentSnapshot._,
+      );
+    }).toList();
+
+    return RankingMemberQuerySnapshot._(
+      snapshot,
+      docs,
+      docChanges,
+    );
+  }
+
+  static FirestoreDocumentChange<RankingMemberDocumentSnapshot>
+      _decodeDocumentChange<T>(
+    DocumentChange<T> docChange,
+    RankingMemberDocumentSnapshot Function(DocumentSnapshot<T> doc) decodeDoc,
+  ) {
+    return FirestoreDocumentChange<RankingMemberDocumentSnapshot>(
+      type: docChange.type,
+      oldIndex: docChange.oldIndex,
+      newIndex: docChange.newIndex,
+      doc: decodeDoc(docChange.doc),
+    );
+  }
 
   final QuerySnapshot<RankingMember> snapshot;
 
@@ -2681,18 +3654,18 @@ class RankingMemberQuerySnapshot extends FirestoreQuerySnapshot<RankingMember,
 class RankingMemberQueryDocumentSnapshot
     extends FirestoreQueryDocumentSnapshot<RankingMember>
     implements RankingMemberDocumentSnapshot {
-  RankingMemberQueryDocumentSnapshot._(this.snapshot, this.data);
+  RankingMemberQueryDocumentSnapshot._(this.snapshot) : data = snapshot.data();
 
   @override
   final QueryDocumentSnapshot<RankingMember> snapshot;
 
   @override
+  final RankingMember data;
+
+  @override
   RankingMemberDocumentReference get reference {
     return RankingMemberDocumentReference(snapshot.reference);
   }
-
-  @override
-  final RankingMember data;
 }
 
 // **************************************************************************
