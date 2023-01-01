@@ -15,6 +15,11 @@ jobs:
       - name: Setup for CI
         run: make ci
 
+      - name: Env
+        run: |
+          echo ${{ secrets.DEV_ENV }} | base64 --decode > ./packages/flutter_app/env/.env.dev
+          echo ${{ secrets.DEV_ENV }} | base64 --decode > ./packages/flutter_app/env/.env.prod
+
       - name: Parse Flutter version
         uses: kuhnroyal/flutter-fvm-config-action@v1
 
