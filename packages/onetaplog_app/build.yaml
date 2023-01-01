@@ -9,10 +9,10 @@ targets:
             - implicit_dynamic_type
             - implicit_dynamic_method
             - strict_raw_type
-      TypedGoRoute:
+      go_router_builder:
         generate_for:
           include:
-            - lib/router/app_routes.dart
+            - lib/**/app_routes.dart
       freezed:
         generate_for:
           include:

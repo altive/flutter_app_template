@@ -28,7 +28,7 @@ dependencies:
   go_router: ^5.0.5
   hooks_riverpod: ^2.1.1
   intl: ^0.17.0
-  json_annotation: ^4.6.0
+  json_annotation: ^4.7.0
   notification_receiver:
     path: ../notification_receiver
   pull_down_button: ^0.1.0-beta.8
@@ -48,7 +48,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   freezed: ^2.1.0+1
-  go_router_builder: ^1.0.14
+  go_router_builder: ^1.0.15
   json_serializable: ^6.3.1
   riverpod_generator: ^1.0.6
 
