@@ -1,4 +1,4 @@
-# Custom Dictionary Words
+# App Specific Words
 autofetch
 autofocus
 bluefireteam

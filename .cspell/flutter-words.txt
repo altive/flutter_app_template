@@ -1,4 +1,4 @@
-# Custom Dictionary Words
+# Flutter Specific Words
 appbar
 appbundle
 Checkmark

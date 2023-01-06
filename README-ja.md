@@ -104,7 +104,7 @@ dev, stg, prod環境がセットアップされています。
 | Dart | Dart version | [pubspec.yaml](/packages/flutter_app/pubspec.yaml) |
 | Dart | Lint / Analyze | [analysis_options.yaml](/packages/flutter_app/analysis_options.yaml) |
 
-## 開発セットアップ方法
+## 開発環境構築方法
 
 ```shell
 make
@@ -152,8 +152,6 @@ flutter pub add remote_parameter_fetcher --path ../remote_parameter_fetcher
 
 最新バージョンについてはこちら↓
 https://github.com/invertase/firestore-ios-sdk-frameworks/releases
-
-* 最新の `9.5.0-1` 以上を使用したかったが、pub.dev にある `cloud_firestore 3.4.8` パッケージは最新バージョンに未対応のようなので、`9.4.0` を使用。
 
 ## References
 [Internationalization User Guild](https://docs.google.com/document/d/10e0saTfAv32OZLRmONy866vnaw0I2jwL8zukykpgWBc/)

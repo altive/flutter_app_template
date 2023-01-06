@@ -2,10 +2,10 @@
 {
 	// スペルチェックから除外する単語をまとめたテキストファイルを指定する
 	"cSpell.customDictionaries": {
-		"altive-words": {
-			"name": "altive-words",
-			"path": "${workspaceRoot}/.cspell/altive-words.txt",
-			"description": "Altive Words",
+		"app-words": {
+			"name": "app-words",
+			"path": "${workspaceRoot}/.cspell/app-words.txt",
+			"description": "Words specific to this application",
 			"addWords": true,
 			"scope": "workspace"
 		},
@@ -16,10 +16,10 @@
 			"addWords": true,
 			"scope": "workspace"
 		},
-		"app-words": {
-			"name": "app-words",
-			"path": "${workspaceRoot}/.cspell/app-words.txt",
-			"description": "Words specific to this application",
+		"organization-words": {
+			"name": "organization-words",
+			"path": "${workspaceRoot}/.cspell/organization-words.txt",
+			"description": "Organization Words",
 			"addWords": true,
 			"scope": "workspace"
 		}
