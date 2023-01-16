@@ -10,7 +10,7 @@ dependencies:
   authenticator:
     path: ../authenticator
   cached_network_image: ^3.1.0
-  cloud_firestore: ^4.2.0
+  cloud_firestore: ^4.3.1
   cloud_firestore_odm: ^1.0.0-dev.43
   collection: ^1.15.0
   convenient_widgets:
