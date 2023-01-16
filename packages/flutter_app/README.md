@@ -2,9 +2,9 @@
 
 ## Flavor with App ID
 
-- dev: jp.co.altive.fat
+- dev: jp.co.altive.fat.dev
 - stg: jp.co.altive.fat.stg
-- prod: jp.co.altive.fat.dev
+- prod: jp.co.altive.fat
 
 ## Features
 - Riverpod examples
