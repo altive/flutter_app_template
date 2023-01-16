@@ -9,10 +9,6 @@ targets:
             - implicit_dynamic_type
             - implicit_dynamic_method
             - strict_raw_type
-      go_router_builder:
-        generate_for:
-          include:
-            - lib/**/app_routes.dart
       envied_generator:envied:
         generate_for:
           include:
@@ -21,6 +17,10 @@ targets:
         generate_for:
           include:
             - lib/**/entities/*.dart
+      go_router_builder:
+        generate_for:
+          include:
+            - lib/**/app_routes.dart
       json_serializable:
         generate_for:
           include:
@@ -33,3 +33,6 @@ targets:
           # ネストされたリストに対してtoJson/fromJsonをメソッド生成する
           explicit_to_json: true
           field_rename: snake
+      riverpod_generator:
+        options:
+          provider_name_suffix: "Provider" # (default)
