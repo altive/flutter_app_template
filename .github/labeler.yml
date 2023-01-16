@@ -1,0 +1,23 @@
+android:
+  - "**/android/**/*"
+
+documentation:
+  - "**/*.md"
+
+flutter_app:
+  - "packages/flutter_app/**/*"
+
+ios:
+  - "**/ios/**/*"
+
+macos:
+  - "**/macos/**/*"
+
+test:
+  - "**/test/**/*"
+
+themes:
+  - "packages/themes/**/*"
+
+web:
+  - "**/web/**/*"
