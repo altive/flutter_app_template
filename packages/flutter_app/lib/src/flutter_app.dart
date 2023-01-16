@@ -6,6 +6,7 @@ import 'package:themes/themes.dart';
 import 'features/theme_selector/theme_selector.dart';
 import 'router/router.dart';
 import 'util/localizer/localizer.dart';
+import 'util/logger.dart';
 import 'util/providers/providers.dart';
 
 class FlutterApp extends ConsumerWidget {
@@ -16,11 +17,11 @@ class FlutterApp extends ConsumerWidget {
     ref
       ..listen<List<Locale>?>(
         localesProvider,
-        (previous, next) => debugPrint('Previous: $previous, Next: $next'),
+        (previous, next) => logger.fine('Previous: $previous, Next: $next'),
       )
       ..listen<AppLifecycleState>(
         appLifecycleStateProvider,
-        (previous, next) => debugPrint('Previous: $previous, Next: $next'),
+        (previous, next) => logger.fine('Previous: $previous, Next: $next'),
       );
 
     final router = ref.watch(routerProvider);

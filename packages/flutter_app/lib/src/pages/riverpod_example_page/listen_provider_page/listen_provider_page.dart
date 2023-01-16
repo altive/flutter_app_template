@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../../util/logger.dart';
+
 // Provider example.
 final counterProvider = StateProvider((ref) => 0);
 
@@ -32,7 +34,7 @@ class ListenProviderPage extends ConsumerWidget {
         );
       },
       // エラーハンドリング（省略可能）
-      onError: (error, stackTrace) => debugPrint('$error'),
+      onError: (error, stackTrace) => logger.warning('$error'),
     );
 
     return Scaffold(
