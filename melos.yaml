@@ -15,7 +15,7 @@ command:
     branch: main
 
 scripts:
-  postclean: >
+  postclean: |
     melos exec --flutter -- "flutter clean"
     melos exec --flutter --file-exists="ios/Podfile.lock" -- "cd ios && rm Podfile.lock"
     melos exec --flutter --file-exists="macos/Podfile.lock" -- "cd macos && rm Podfile.lock"
