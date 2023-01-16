@@ -3,12 +3,13 @@
         "blaugold.melos-code",
         "dart-code.dart-code",
         "dart-code.flutter",
-        "DotJoshJohnson.xml",
+        "dotjoshjohnson.xml",
         "irongeek.vscode-env",
         "mariomatheu.syntax-project-pbxproj",
         "mathiasfrohlich.kotlin",
         "streetsidesoftware.code-spell-checker",
         "toba.vsfire",
         "vscode-icons-team.vscode-icons",
+        "robert-brunhage.flutter-riverpod-snippets"
     ]
 }
