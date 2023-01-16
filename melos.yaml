@@ -67,6 +67,15 @@ scripts:
       dir-exists: lib
       depends-on: "build_runner"
 
+  gen:watch:
+    run: |
+      melos exec -c 1 -- \
+        flutter pub run build_runner watch --delete-conflicting-outputs
+    description: Watch and run generate code.
+    select-package:
+      dir-exists: lib
+      depends-on: "build_runner"
+
   test:
     run: |
       melos exec --fail-fast -- \
