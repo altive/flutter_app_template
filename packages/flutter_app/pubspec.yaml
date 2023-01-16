@@ -12,7 +12,7 @@ dependencies:
   authenticator:
     path: ../authenticator
   awaitable_button: ^1.2.0
-  cached_network_image: ^3.2.2
+  cached_network_image: ^3.2.3
   cloud_firestore: ^4.3.1
   collection: ^1.16.0
   convenient_widgets:
