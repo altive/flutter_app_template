@@ -17,6 +17,7 @@ dependencies:
 
 dev_dependencies:
   altive_lints: ^1.5.0
+  build_runner: ^2.3.2
   flutter_test:
     sdk: flutter
   riverpod_generator: ^1.0.6
