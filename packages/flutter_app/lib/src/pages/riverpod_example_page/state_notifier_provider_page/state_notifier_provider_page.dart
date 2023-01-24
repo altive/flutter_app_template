@@ -89,7 +89,6 @@ class StateNotifierProviderPage extends ConsumerWidget {
             final todo = todoList[index];
             return Card(
               child: ListTile(
-                // TodoのタイトルをTextで表示
                 title: Text(todo.title),
                 leading: Icon(
                   todo.completed

@@ -39,10 +39,14 @@ class AccountPageBody extends HookConsumerWidget {
         return;
       }
       final signedOut = await authenticator.signOut();
-      if (signedOut && isMounted()) {
+      if (!isMounted()) {
+        return;
+      }
+      if (signedOut) {
         // ignore: use_build_context_synchronously
         const SigninRoute().go(context);
       } else {
+        // ignore: use_build_context_synchronously
         await showDialog<void>(
           context: context,
           builder: (context) {

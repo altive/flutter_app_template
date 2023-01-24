@@ -27,22 +27,22 @@ PODS:
   - Firebase/Storage (10.3.0):
     - Firebase/CoreOnly
     - FirebaseStorage (~> 10.3.0)
-  - firebase_auth (4.2.1):
+  - firebase_auth (4.2.5):
     - Firebase/Auth (= 10.3.0)
     - firebase_core
     - Flutter
   - firebase_core (2.4.1):
     - Firebase/CoreOnly (= 10.3.0)
     - Flutter
-  - firebase_dynamic_links (5.0.9):
+  - firebase_dynamic_links (5.0.11):
     - Firebase/DynamicLinks (= 10.3.0)
     - firebase_core
     - Flutter
-  - firebase_performance (0.9.0-7):
+  - firebase_performance (0.9.0-10):
     - Firebase/Performance (= 10.3.0)
     - firebase_core
     - Flutter
-  - firebase_storage (11.0.8):
+  - firebase_storage (11.0.10):
     - Firebase/Storage (= 10.3.0)
     - firebase_core
     - Flutter
@@ -150,8 +150,9 @@ PODS:
   - path_provider_ios (0.0.1):
     - Flutter
   - PromisesObjC (2.1.1)
-  - shared_preferences_ios (0.0.1):
+  - shared_preferences_foundation (0.0.1):
     - Flutter
+    - FlutterMacOS
   - sqflite (0.0.2):
     - Flutter
     - FMDB (>= 2.7.5)
@@ -171,7 +172,7 @@ DEPENDENCIES:
   - image_picker_ios (from `.symlinks/plugins/image_picker_ios/ios`)
   - package_info_plus (from `.symlinks/plugins/package_info_plus/ios`)
   - path_provider_ios (from `.symlinks/plugins/path_provider_ios/ios`)
-  - shared_preferences_ios (from `.symlinks/plugins/shared_preferences_ios/ios`)
+  - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/ios`)
   - sqflite (from `.symlinks/plugins/sqflite/ios`)
   - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
 
@@ -226,8 +227,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/package_info_plus/ios"
   path_provider_ios:
     :path: ".symlinks/plugins/path_provider_ios/ios"
-  shared_preferences_ios:
-    :path: ".symlinks/plugins/shared_preferences_ios/ios"
+  shared_preferences_foundation:
+    :path: ".symlinks/plugins/shared_preferences_foundation/ios"
   sqflite:
     :path: ".symlinks/plugins/sqflite/ios"
   url_launcher_ios:
@@ -242,11 +243,11 @@ SPEC CHECKSUMS:
   AppAuth: 8fca6b5563a5baef2c04bee27538025e4ceb2add
   cloud_firestore: 5e5bb98722f66e820bf1aa7b3c98ffc9b2450ffb
   Firebase: f92fc551ead69c94168d36c2b26188263860acd9
-  firebase_auth: 30cbdb28d5c38f572c331a8590a93e2a1201d75c
+  firebase_auth: 3bab991fe1df91c2f948156e9dee976e01a19ab9
   firebase_core: bf59c32d2e53814f558efa20840c1902fa2fe461
-  firebase_dynamic_links: 8b29828bfefdc659c466ed21b224cde8ddaab045
-  firebase_performance: 4705884ed3d6f96b3f10666335f9469cdab981b9
-  firebase_storage: 5d5ae6888014dbd66190a47b54817e9c27b14e5f
+  firebase_dynamic_links: e5ca49679928f5d46e2db5168656975eae39d379
+  firebase_performance: 7746e15bd685debbfcb5e862b2ec720ba8f13979
+  firebase_storage: 8b85bf19de50a1886f9387924fbddf066a718965
   FirebaseABTesting: e6660693429b4663573c82f8d2f1041deff1753a
   FirebaseAppCheckInterop: 9fc57dfa08f0abb737b185ea065422b55355c909
   FirebaseAuth: 0e415d29d846c1dce2fb641e46f35e9888d9bec6
@@ -273,9 +274,9 @@ SPEC CHECKSUMS:
   package_info_plus: 6c92f08e1f853dc01228d6f553146438dafcd14e
   path_provider_ios: 14f3d2fd28c4fdb42f44e0f751d12861c43cee02
   PromisesObjC: ab77feca74fa2823e7af4249b8326368e61014cb
-  shared_preferences_ios: 548a61f8053b9b8a49ac19c1ffbc8b92c50d68ad
+  shared_preferences_foundation: 297b3ebca31b34ec92be11acd7fb0ba932c822ca
   sqflite: 6d358c025f5b867b29ed92fc697fd34924e11904
-  url_launcher_ios: 839c58cdb4279282219f5e248c3321761ff3c4de
+  url_launcher_ios: ae1517e5e344f5544fb090b079e11f399dfbe4d2
 
 PODFILE CHECKSUM: 1ee01ebce1107f180f16c9c78e85039e2a76cb81
 

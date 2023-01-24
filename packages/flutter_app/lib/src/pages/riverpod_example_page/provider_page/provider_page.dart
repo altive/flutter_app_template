@@ -35,12 +35,12 @@ class ProviderPage extends ConsumerWidget {
             children: [
               Text(
                 '2倍されたカウント値：',
-                style: Theme.of(context).textTheme.headline6,
+                style: Theme.of(context).textTheme.displaySmall,
               ),
               // doubleCounterProvider の値を表示
               Text(
                 '$doubleCount',
-                style: Theme.of(context).textTheme.headline1,
+                style: Theme.of(context).textTheme.displayLarge,
               ),
               ElevatedButton(
                 // counterProvider の値を+1する。

@@ -21,7 +21,7 @@ class NotFoundPageBody extends HookConsumerWidget {
       children: [
         Text(l10n.notFoundPageHeaderLabel),
         const Gap(32),
-        Text(path, style: Theme.of(context).textTheme.headline6),
+        Text(path, style: Theme.of(context).textTheme.displaySmall),
         const Gap(32),
         Text(l10n.notFoundPageDescription),
         Center(

@@ -5,7 +5,7 @@ version: 1.0.0
 homepage: https://github.com/altive/flutter_app_template/tree/main/packages/notification_sender
 
 environment:
-  sdk: ">=2.18.0 <3.0.0"
+  sdk: ">=2.19.0 <3.0.0"
 
 dependencies:
   flutter:

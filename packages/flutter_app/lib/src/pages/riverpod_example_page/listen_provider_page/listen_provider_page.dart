@@ -47,7 +47,7 @@ class ListenProviderPage extends ConsumerWidget {
               // counterProviderの状態（カウント数）をTextで表示
               Text(
                 'Count: ${ref.watch(counterProvider)}',
-                style: Theme.of(context).textTheme.headline2,
+                style: Theme.of(context).textTheme.displayLarge,
               ),
               const Gap(32),
               ElevatedButton(
