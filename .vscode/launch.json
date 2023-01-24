@@ -15,40 +15,5 @@
                 "--dart-define=FLAVOR=dev"
             ]
         },
-        {
-            "name": "onetaplog_app",
-            "cwd": "packages/onetaplog_app",
-            "program": "lib/main.dart",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "debug",
-            "args": [
-                "--dart-define=FLAVOR=dev"
-            ]
-        },
-        {
-            "name": "ranking_note_app",
-            "cwd": "packages/ranking_note_app",
-            "program": "lib/main.dart",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "debug",
-            "args": [
-                "--dart-define=FLAVOR=dev"
-            ]
-        },
-        {
-            "name": "restock_app",
-            "cwd": "packages/restock_app",
-            "program": "lib/main.dart",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "debug",
-            "args": [
-                "--flavor",
-                "development",
-                "--dart-define=FLAVOR=development"
-            ]
-        },
     ]
 }
