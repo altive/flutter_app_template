@@ -26,4 +26,3 @@ dummy_env:
 	touch packages/flutter_app/env/.env.dev
 	touch packages/flutter_app/env/.env.stg
 	touch packages/flutter_app/env/.env.prod
-	touch packages/restock_app/.env
