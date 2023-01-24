@@ -4,8 +4,6 @@ sdkPath: .fvm/flutter_sdk
 
 packages:
   - "packages/*"
-ignore:
-  - "packages/restock_app"
 
 command:
   bootstrap:
