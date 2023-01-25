@@ -1,5 +1,4 @@
 all: fvm fvm_install melos melos_bs flutterfire_cli mason mason_get
-ci: dummy_env
 
 fvm:
 	dart pub global activate fvm
@@ -21,8 +20,3 @@ mason:
 
 mason_get:
 	mason get
-
-dummy_env:
-	touch packages/flutter_app/env/.env.dev
-	touch packages/flutter_app/env/.env.stg
-	touch packages/flutter_app/env/.env.prod
