@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import 'entities/todo.dart';
+import '../entities/todo.dart';
 
 // Provider example.
 final todoListNotifierProvider =
