@@ -8,6 +8,16 @@ updates:
       interval: "monthly"
 
   - package-ecosystem: "pub"
+    directory: "/packages/amazon_paapi" # Location of package manifests
+    schedule:
+      interval: "monthly"
+
+  - package-ecosystem: "pub"
+    directory: "/packages/analysis_logger" # Location of package manifests
+    schedule:
+      interval: "monthly"
+
+  - package-ecosystem: "pub"
     directory: "/packages/authenticator" # Location of package manifests
     schedule:
       interval: "monthly"
@@ -34,6 +44,16 @@ updates:
 
   - package-ecosystem: "pub"
     directory: "/packages/remote_parameter_fetcher" # Location of package manifests
+    schedule:
+      interval: "monthly"
+
+  - package-ecosystem: "pub"
+    directory: "/packages/rest_api_client" # Location of package manifests
+    schedule:
+      interval: "monthly"
+
+  - package-ecosystem: "pub"
+    directory: "/packages/themes" # Location of package manifests
     schedule:
       interval: "monthly"
 
