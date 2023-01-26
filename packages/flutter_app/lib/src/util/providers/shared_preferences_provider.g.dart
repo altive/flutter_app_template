@@ -31,7 +31,7 @@ class _SystemHash {
   }
 }
 
-String $sharedPreferencesHash() => r'3a9f8412df34c1653d08100c9826aa2125b80f7f';
+String _$sharedPreferencesHash() => r'3a9f8412df34c1653d08100c9826aa2125b80f7f';
 
 /// See also [sharedPreferences].
 final sharedPreferencesProvider = Provider<SharedPreferences>(
@@ -39,6 +39,6 @@ final sharedPreferencesProvider = Provider<SharedPreferences>(
   name: r'sharedPreferencesProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : $sharedPreferencesHash,
+      : _$sharedPreferencesHash,
 );
 typedef SharedPreferencesRef = ProviderRef<SharedPreferences>;

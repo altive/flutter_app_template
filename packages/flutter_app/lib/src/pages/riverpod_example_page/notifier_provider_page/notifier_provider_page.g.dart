@@ -31,14 +31,14 @@ class _SystemHash {
   }
 }
 
-String $TodoListHash() => r'6ba9e8e3894384e2dd059398bdf2722f909b87b1';
+String _$TodoListHash() => r'6ba9e8e3894384e2dd059398bdf2722f909b87b1';
 
 /// See also [TodoList].
 final todoListProvider = AutoDisposeNotifierProvider<TodoList, List<Todo>>(
   TodoList.new,
   name: r'todoListProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : $TodoListHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$TodoListHash,
 );
 typedef TodoListRef = AutoDisposeNotifierProviderRef<List<Todo>>;
 

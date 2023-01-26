@@ -31,13 +31,13 @@ class _SystemHash {
   }
 }
 
-String $localesHash() => r'38d19dbf55c30e1f6904311a708ab58aaabd1b48';
+String _$localesHash() => r'38d19dbf55c30e1f6904311a708ab58aaabd1b48';
 
 /// See also [locales].
 final localesProvider = Provider<List<Locale>?>(
   locales,
   name: r'localesProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : $localesHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$localesHash,
 );
 typedef LocalesRef = ProviderRef<List<Locale>?>;

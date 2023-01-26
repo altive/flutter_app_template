@@ -31,13 +31,13 @@ class _SystemHash {
   }
 }
 
-String $packageInfoHash() => r'517f01fbab81b5ebd10a5d03633b9ffaee13310a';
+String _$packageInfoHash() => r'517f01fbab81b5ebd10a5d03633b9ffaee13310a';
 
 /// See also [packageInfo].
 final packageInfoProvider = Provider<PackageInfo>(
   packageInfo,
   name: r'packageInfoProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : $packageInfoHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$packageInfoHash,
 );
 typedef PackageInfoRef = ProviderRef<PackageInfo>;

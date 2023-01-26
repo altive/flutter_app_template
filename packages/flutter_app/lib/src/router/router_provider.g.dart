@@ -31,13 +31,13 @@ class _SystemHash {
   }
 }
 
-String $routerHash() => r'2d58cb76575e2e5b9521c780f51853543ac2237b';
+String _$routerHash() => r'2d58cb76575e2e5b9521c780f51853543ac2237b';
 
 /// See also [router].
 final routerProvider = Provider<GoRouter>(
   router,
   name: r'routerProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : $routerHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$routerHash,
 );
 typedef RouterRef = ProviderRef<GoRouter>;

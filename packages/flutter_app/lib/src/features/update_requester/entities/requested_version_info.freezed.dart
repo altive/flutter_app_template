@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'requested_version_info.dart';
 
@@ -39,39 +39,43 @@ mixin _$RequestedVersionInfo {
 abstract class $RequestedVersionInfoCopyWith<$Res> {
   factory $RequestedVersionInfoCopyWith(RequestedVersionInfo value,
           $Res Function(RequestedVersionInfo) then) =
-      _$RequestedVersionInfoCopyWithImpl<$Res>;
+      _$RequestedVersionInfoCopyWithImpl<$Res, RequestedVersionInfo>;
+  @useResult
   $Res call({String requiredVersion, bool canCancel, DateTime enabledAt});
 }
 
 /// @nodoc
-class _$RequestedVersionInfoCopyWithImpl<$Res>
+class _$RequestedVersionInfoCopyWithImpl<$Res,
+        $Val extends RequestedVersionInfo>
     implements $RequestedVersionInfoCopyWith<$Res> {
   _$RequestedVersionInfoCopyWithImpl(this._value, this._then);
 
-  final RequestedVersionInfo _value;
   // ignore: unused_field
-  final $Res Function(RequestedVersionInfo) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? requiredVersion = freezed,
-    Object? canCancel = freezed,
-    Object? enabledAt = freezed,
+    Object? requiredVersion = null,
+    Object? canCancel = null,
+    Object? enabledAt = null,
   }) {
     return _then(_value.copyWith(
-      requiredVersion: requiredVersion == freezed
+      requiredVersion: null == requiredVersion
           ? _value.requiredVersion
           : requiredVersion // ignore: cast_nullable_to_non_nullable
               as String,
-      canCancel: canCancel == freezed
+      canCancel: null == canCancel
           ? _value.canCancel
           : canCancel // ignore: cast_nullable_to_non_nullable
               as bool,
-      enabledAt: enabledAt == freezed
+      enabledAt: null == enabledAt
           ? _value.enabledAt
           : enabledAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-    ));
+    ) as $Val);
   }
 }
 
@@ -82,36 +86,35 @@ abstract class _$$_RequestedVersionInfoCopyWith<$Res>
           $Res Function(_$_RequestedVersionInfo) then) =
       __$$_RequestedVersionInfoCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String requiredVersion, bool canCancel, DateTime enabledAt});
 }
 
 /// @nodoc
 class __$$_RequestedVersionInfoCopyWithImpl<$Res>
-    extends _$RequestedVersionInfoCopyWithImpl<$Res>
+    extends _$RequestedVersionInfoCopyWithImpl<$Res, _$_RequestedVersionInfo>
     implements _$$_RequestedVersionInfoCopyWith<$Res> {
   __$$_RequestedVersionInfoCopyWithImpl(_$_RequestedVersionInfo _value,
       $Res Function(_$_RequestedVersionInfo) _then)
-      : super(_value, (v) => _then(v as _$_RequestedVersionInfo));
+      : super(_value, _then);
 
-  @override
-  _$_RequestedVersionInfo get _value => super._value as _$_RequestedVersionInfo;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? requiredVersion = freezed,
-    Object? canCancel = freezed,
-    Object? enabledAt = freezed,
+    Object? requiredVersion = null,
+    Object? canCancel = null,
+    Object? enabledAt = null,
   }) {
     return _then(_$_RequestedVersionInfo(
-      requiredVersion: requiredVersion == freezed
+      requiredVersion: null == requiredVersion
           ? _value.requiredVersion
           : requiredVersion // ignore: cast_nullable_to_non_nullable
               as String,
-      canCancel: canCancel == freezed
+      canCancel: null == canCancel
           ? _value.canCancel
           : canCancel // ignore: cast_nullable_to_non_nullable
               as bool,
-      enabledAt: enabledAt == freezed
+      enabledAt: null == enabledAt
           ? _value.enabledAt
           : enabledAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
@@ -165,22 +168,22 @@ class _$_RequestedVersionInfo
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_RequestedVersionInfo &&
-            const DeepCollectionEquality()
-                .equals(other.requiredVersion, requiredVersion) &&
-            const DeepCollectionEquality().equals(other.canCancel, canCancel) &&
-            const DeepCollectionEquality().equals(other.enabledAt, enabledAt));
+            (identical(other.requiredVersion, requiredVersion) ||
+                other.requiredVersion == requiredVersion) &&
+            (identical(other.canCancel, canCancel) ||
+                other.canCancel == canCancel) &&
+            (identical(other.enabledAt, enabledAt) ||
+                other.enabledAt == enabledAt));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(requiredVersion),
-      const DeepCollectionEquality().hash(canCancel),
-      const DeepCollectionEquality().hash(enabledAt));
+  int get hashCode =>
+      Object.hash(runtimeType, requiredVersion, canCancel, enabledAt);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_RequestedVersionInfoCopyWith<_$_RequestedVersionInfo> get copyWith =>
       __$$_RequestedVersionInfoCopyWithImpl<_$_RequestedVersionInfo>(
           this, _$identity);

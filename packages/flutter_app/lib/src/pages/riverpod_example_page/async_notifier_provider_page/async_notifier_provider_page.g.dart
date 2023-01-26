@@ -31,15 +31,16 @@ class _SystemHash {
   }
 }
 
-String $AsyncTodoListHash() => r'4fd365a37a63c73d9beced92d2e7f0c7714945ab';
+String _$AsyncTodoListHash() => r'4fd365a37a63c73d9beced92d2e7f0c7714945ab';
 
 /// See also [AsyncTodoList].
 final asyncTodoListProvider =
     AutoDisposeAsyncNotifierProvider<AsyncTodoList, List<Todo>>(
   AsyncTodoList.new,
   name: r'asyncTodoListProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : $AsyncTodoListHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$AsyncTodoListHash,
 );
 typedef AsyncTodoListRef = AutoDisposeAsyncNotifierProviderRef<List<Todo>>;
 

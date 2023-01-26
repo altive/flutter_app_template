@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'todo.dart';
 
@@ -32,38 +32,42 @@ mixin _$Todo {
 /// @nodoc
 abstract class $TodoCopyWith<$Res> {
   factory $TodoCopyWith(Todo value, $Res Function(Todo) then) =
-      _$TodoCopyWithImpl<$Res>;
+      _$TodoCopyWithImpl<$Res, Todo>;
+  @useResult
   $Res call({String id, String title, bool completed});
 }
 
 /// @nodoc
-class _$TodoCopyWithImpl<$Res> implements $TodoCopyWith<$Res> {
+class _$TodoCopyWithImpl<$Res, $Val extends Todo>
+    implements $TodoCopyWith<$Res> {
   _$TodoCopyWithImpl(this._value, this._then);
 
-  final Todo _value;
   // ignore: unused_field
-  final $Res Function(Todo) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? title = freezed,
-    Object? completed = freezed,
+    Object? id = null,
+    Object? title = null,
+    Object? completed = null,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      title: title == freezed
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      completed: completed == freezed
+      completed: null == completed
           ? _value.completed
           : completed // ignore: cast_nullable_to_non_nullable
               as bool,
-    ));
+    ) as $Val);
   }
 }
 
@@ -72,34 +76,33 @@ abstract class _$$_TodoCopyWith<$Res> implements $TodoCopyWith<$Res> {
   factory _$$_TodoCopyWith(_$_Todo value, $Res Function(_$_Todo) then) =
       __$$_TodoCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String id, String title, bool completed});
 }
 
 /// @nodoc
-class __$$_TodoCopyWithImpl<$Res> extends _$TodoCopyWithImpl<$Res>
+class __$$_TodoCopyWithImpl<$Res> extends _$TodoCopyWithImpl<$Res, _$_Todo>
     implements _$$_TodoCopyWith<$Res> {
   __$$_TodoCopyWithImpl(_$_Todo _value, $Res Function(_$_Todo) _then)
-      : super(_value, (v) => _then(v as _$_Todo));
+      : super(_value, _then);
 
-  @override
-  _$_Todo get _value => super._value as _$_Todo;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? title = freezed,
-    Object? completed = freezed,
+    Object? id = null,
+    Object? title = null,
+    Object? completed = null,
   }) {
     return _then(_$_Todo(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as String,
-      title: title == freezed
+      title: null == title
           ? _value.title
           : title // ignore: cast_nullable_to_non_nullable
               as String,
-      completed: completed == freezed
+      completed: null == completed
           ? _value.completed
           : completed // ignore: cast_nullable_to_non_nullable
               as bool,
@@ -143,21 +146,19 @@ class _$_Todo with DiagnosticableTreeMixin implements _Todo {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Todo &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.title, title) &&
-            const DeepCollectionEquality().equals(other.completed, completed));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.completed, completed) ||
+                other.completed == completed));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(title),
-      const DeepCollectionEquality().hash(completed));
+  int get hashCode => Object.hash(runtimeType, id, title, completed);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_TodoCopyWith<_$_Todo> get copyWith =>
       __$$_TodoCopyWithImpl<_$_Todo>(this, _$identity);
 

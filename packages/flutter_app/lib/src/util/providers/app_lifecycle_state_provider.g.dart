@@ -31,7 +31,7 @@ class _SystemHash {
   }
 }
 
-String $appLifecycleStateHash() => r'974a53ea7166aaa18ea48de54b1900c68667c39b';
+String _$appLifecycleStateHash() => r'974a53ea7166aaa18ea48de54b1900c68667c39b';
 
 /// See also [appLifecycleState].
 final appLifecycleStateProvider = Provider<AppLifecycleState>(
@@ -39,6 +39,6 @@ final appLifecycleStateProvider = Provider<AppLifecycleState>(
   name: r'appLifecycleStateProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : $appLifecycleStateHash,
+      : _$appLifecycleStateHash,
 );
 typedef AppLifecycleStateRef = ProviderRef<AppLifecycleState>;

@@ -31,13 +31,13 @@ class _SystemHash {
   }
 }
 
-String $navigatorKeyHash() => r'df03802d88ddaab66f91fd3f48895ada0695c920';
+String _$navigatorKeyHash() => r'df03802d88ddaab66f91fd3f48895ada0695c920';
 
 /// See also [navigatorKey].
 final navigatorKeyProvider = Provider<GlobalKey<NavigatorState>>(
   navigatorKey,
   name: r'navigatorKeyProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : $navigatorKeyHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$navigatorKeyHash,
 );
 typedef NavigatorKeyRef = ProviderRef<GlobalKey<NavigatorState>>;
