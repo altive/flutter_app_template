@@ -65,6 +65,14 @@ GoRoute get $topLevelTabRoute => GoRouteData.$route(
           factory: $StateProviderRouteExtension._fromState,
         ),
         GoRouteData.$route(
+          path: 'notifier-provider',
+          factory: $NotifierProviderRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
+          path: 'async-notifier-provider',
+          factory: $AsyncNotifierProviderRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
           path: 'state-notifier-provider',
           factory: $StateNotifierProviderRouteExtension._fromState,
         ),
@@ -133,6 +141,36 @@ extension $StateProviderRouteExtension on StateProviderRoute {
 
   String get location => GoRouteData.$location(
         '/${Uri.encodeComponent(_$TopLevelTabEnumMap[tab]!)}/state-provider',
+      );
+
+  void go(BuildContext context) => context.go(location, extra: this);
+
+  void push(BuildContext context) => context.push(location, extra: this);
+}
+
+extension $NotifierProviderRouteExtension on NotifierProviderRoute {
+  static NotifierProviderRoute _fromState(GoRouterState state) =>
+      NotifierProviderRoute(
+        tab: _$TopLevelTabEnumMap._$fromName(state.params['tab']!),
+      );
+
+  String get location => GoRouteData.$location(
+        '/${Uri.encodeComponent(_$TopLevelTabEnumMap[tab]!)}/notifier-provider',
+      );
+
+  void go(BuildContext context) => context.go(location, extra: this);
+
+  void push(BuildContext context) => context.push(location, extra: this);
+}
+
+extension $AsyncNotifierProviderRouteExtension on AsyncNotifierProviderRoute {
+  static AsyncNotifierProviderRoute _fromState(GoRouterState state) =>
+      AsyncNotifierProviderRoute(
+        tab: _$TopLevelTabEnumMap._$fromName(state.params['tab']!),
+      );
+
+  String get location => GoRouteData.$location(
+        '/${Uri.encodeComponent(_$TopLevelTabEnumMap[tab]!)}/async-notifier-provider',
       );
 
   void go(BuildContext context) => context.go(location, extra: this);

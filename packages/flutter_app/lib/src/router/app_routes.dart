@@ -3,7 +3,9 @@ import 'package:go_router/go_router.dart';
 
 import '../pages/account/account_page.dart';
 import '../pages/app_info_page/app_info_page.dart';
+import '../pages/riverpod_example_page/async_notifier_provider_page/async_notifier_provider_page.dart';
 import '../pages/riverpod_example_page/listen_provider_page/listen_provider_page.dart';
+import '../pages/riverpod_example_page/notifier_provider_page/notifier_provider_page.dart';
 import '../pages/riverpod_example_page/provider_page/provider_page.dart';
 import '../pages/riverpod_example_page/state_notifier_provider_page/state_notifier_provider_page.dart';
 import '../pages/riverpod_example_page/state_provider_page/state_provider_page.dart';
@@ -41,6 +43,8 @@ class SigninRoute extends GoRouteData {
     TypedGoRoute<AppInfoRoute>(path: 'app-info'),
     TypedGoRoute<ProviderRoute>(path: 'provider'),
     TypedGoRoute<StateProviderRoute>(path: 'state-provider'),
+    TypedGoRoute<NotifierProviderRoute>(path: 'notifier-provider'),
+    TypedGoRoute<AsyncNotifierProviderRoute>(path: 'async-notifier-provider'),
     TypedGoRoute<StateNotifierProviderRoute>(path: 'state-notifier-provider'),
     TypedGoRoute<ListenProviderRoute>(path: 'listen-provider'),
     TypedGoRoute<ThemeSelectionRoute>(path: 'theme-selection'),
@@ -81,6 +85,24 @@ class StateProviderRoute extends GoRouteData {
 
   @override
   Widget build(BuildContext context) => const StateProviderPage();
+}
+
+class NotifierProviderRoute extends GoRouteData {
+  const NotifierProviderRoute({required this.tab});
+
+  final TopLevelTab tab;
+
+  @override
+  Widget build(BuildContext context) => const NotifierProviderPage();
+}
+
+class AsyncNotifierProviderRoute extends GoRouteData {
+  const AsyncNotifierProviderRoute({required this.tab});
+
+  final TopLevelTab tab;
+
+  @override
+  Widget build(BuildContext context) => const AsyncNotifierProviderPage();
 }
 
 class StateNotifierProviderRoute extends GoRouteData {

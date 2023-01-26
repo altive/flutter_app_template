@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../../router/router.dart';
 import '../top_level_tab/top_level_tab.dart';
+import 'async_notifier_provider_page/async_notifier_provider_page.dart';
 import 'listen_provider_page/listen_provider_page.dart';
+import 'notifier_provider_page/notifier_provider_page.dart';
 import 'provider_page/provider_page.dart';
 import 'state_notifier_provider_page/state_notifier_provider_page.dart';
 import 'state_provider_page/state_provider_page.dart';
@@ -32,6 +34,17 @@ class RiverpodExamplePage extends StatelessWidget {
             onTap: () =>
                 const StateProviderRoute(tab: TopLevelTab.riverpod).go(context),
             label: StateProviderPage.title,
+          ),
+          _FeatureCard(
+            onTap: () => const NotifierProviderRoute(tab: TopLevelTab.riverpod)
+                .go(context),
+            label: NotifierProviderPage.title,
+          ),
+          _FeatureCard(
+            onTap: () =>
+                const AsyncNotifierProviderRoute(tab: TopLevelTab.riverpod)
+                    .go(context),
+            label: AsyncNotifierProviderPage.title,
           ),
           _FeatureCard(
             onTap: () =>
