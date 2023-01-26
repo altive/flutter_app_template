@@ -21,10 +21,10 @@ packages:
     dependency: "direct dev"
     description:
       name: altive_lints
-      sha256: "76a58972f9186e391d85decec6068e925343c4a14255e6e187a66b3ef1ae9f51"
+      sha256: "143f86ba05f823a3cbc49a2200966d2ef1a59126395f03620a501ee7db6d2f1f"
       url: "https://pub.dev"
     source: hosted
-    version: "1.5.0"
+    version: "1.6.1"
   analyzer:
     dependency: transitive
     description:

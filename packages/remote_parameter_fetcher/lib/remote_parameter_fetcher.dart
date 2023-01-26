@@ -1,3 +1,4 @@
+/// Remote Parameter Fetcher
 library remote_parameter_fetcher;
 
 export 'src/parameters/parameters.dart';

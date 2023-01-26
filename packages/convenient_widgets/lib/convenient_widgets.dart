@@ -1,3 +1,4 @@
+/// Convenient widgets
 library convenient_widgets;
 
 export 'src/adaptive_bottom_bar.dart';

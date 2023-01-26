@@ -1,3 +1,4 @@
+/// Analysis and Logger
 library analysis_logger;
 
 export 'src/analysis_event.dart';

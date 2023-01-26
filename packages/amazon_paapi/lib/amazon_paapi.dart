@@ -1,3 +1,4 @@
+/// Amazon Product Advertising API
 library amazon_paapi;
 
 export 'src/paapi/aws_v4_auth.dart';

@@ -1,3 +1,4 @@
+/// Authentication with Firebase
 library authenticator;
 
 export 'package:firebase_auth/firebase_auth.dart'

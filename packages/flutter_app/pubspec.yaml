@@ -54,7 +54,7 @@ dependencies:
   version: ^3.0.2
 
 dev_dependencies:
-  altive_lints: ^1.5.0
+  altive_lints: ^1.6.1
   build_runner: ^2.3.2
   envied_generator: ^0.3.0
   flutter_gen_runner: ^5.1.0+1

@@ -16,7 +16,7 @@ dependencies:
   timezone: ^0.9.0
 
 dev_dependencies:
-  altive_lints: ^1.5.0
+  altive_lints: ^1.6.1
   build_runner: ^2.2.1
   flutter_local_notifications_platform_interface: ^6.0.0
   flutter_test:
