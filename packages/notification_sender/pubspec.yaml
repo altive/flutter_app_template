@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_local_notifications: ^12.0.0
+  flutter_local_notifications: ^13.0.0
   riverpod: ^2.1.1
   riverpod_annotation: ^1.0.6
   timezone: ^0.9.0

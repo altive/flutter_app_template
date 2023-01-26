@@ -17,6 +17,7 @@ gfuid
 gokou
 helveticaNeue
 informations
+jpcoaltivefat
 kanban
 kihon
 kuhnroyal
