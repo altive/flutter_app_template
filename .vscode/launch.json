@@ -5,15 +5,37 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "flutter_app",
+            "name": "flutter_app dev-debug",
             "cwd": "packages/flutter_app",
             "program": "lib/main.dart",
             "request": "launch",
             "type": "dart",
             "flutterMode": "debug",
             "args": [
-                "--dart-define=FLAVOR=dev"
+                "--dart-define-from-file=dart_defines/dev.json"
             ]
         },
+        {
+            "name": "flutter_app stg-debug",
+            "cwd": "packages/flutter_app",
+            "program": "lib/main.dart",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "args": [
+                "--dart-define-from-file=dart_defines/stg.json"
+            ]
+        },
+        {
+            "name": "flutter_app prod-debug",
+            "cwd": "packages/flutter_app",
+            "program": "lib/main.dart",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "args": [
+                "--dart-define-from-file=dart_defines/prod.json"
+            ]
+        }
     ]
 }

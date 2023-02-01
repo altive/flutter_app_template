@@ -50,7 +50,7 @@ runs:
         p12-password: ${{ inputs.certificate_password }}
 
     - name: Create ipa file
-      run: flutter build ipa --dart-define=FLAVOR=${{ inputs.flavor }} --export-options-plist=ios/${{ inputs.flavor }}/ExportOptions.plist --build-number ${{ inputs.build_number }}
+      run: flutter build ipa --dart-define-from-file=dart_defines/${{ inputs.flavor }}.json --export-options-plist=ios/${{ inputs.flavor }}/ExportOptions.plist --build-number ${{ inputs.build_number }}
       shell: bash
       working-directory: ${{ inputs.working_directory }}
 

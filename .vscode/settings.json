@@ -26,6 +26,7 @@
 	},
 	// スペルチェックを行わないファイルパスを指定する
 	"cSpell.ignorePaths": [
+		"dart_defines",
 		"firebase_options*.dart",
 		"google-services.json",
 		"node_modules",

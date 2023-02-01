@@ -12,7 +12,7 @@ import 'src/util/providers/shared_preferences_provider.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  const flavorName = String.fromEnvironment('FLAVOR');
+  const flavorName = String.fromEnvironment('flavor');
   final flavor = Flavor.values.byName(flavorName);
 
   late final SharedPreferences sp;
