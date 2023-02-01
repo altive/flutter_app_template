@@ -80,6 +80,7 @@ unlinked_spec.ds
 **/android/app/src/main/res/mipmap*/
 *.jks
 *.keystore
+!debug.keystore
 
 # Android Studio will place build artifacts here
 /android/app/debug
