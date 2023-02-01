@@ -15,24 +15,24 @@ class AppInfoBody extends HookConsumerWidget {
     final textTheme = Theme.of(context).textTheme;
     final flavor = ref.watch(flavorProvider);
     final packageInfo = ref.watch(packageInfoProvider);
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+    return ListView(
       children: <Widget>[
         Text(l10n.title),
+        const Gap(8),
         Text('Author is ${l10n.authorName}.'),
+        const Gap(8),
         const Text('Developed by Ryunosuke Muramatsu.'),
-        const Divider(height: 56),
-        Center(child: Text('App Info', style: textTheme.displayLarge)),
+        const Divider(),
+        Center(child: Text('App Environment', style: textTheme.displayMedium)),
         const Gap(16),
-        Text('Flavor', style: textTheme.displayMedium),
+        Text('Flavor', style: textTheme.titleLarge),
         Text(flavor.name),
         const Gap(32),
-        Text('App name', style: textTheme.displaySmall),
+        Text('App name', style: textTheme.titleLarge),
         Text(packageInfo.appName),
         const Gap(32),
-        Text('Package name', style: textTheme.displaySmall),
+        Text('Package name', style: textTheme.titleLarge),
         Text(packageInfo.packageName),
-        const Divider(height: 56),
       ],
     );
   }
