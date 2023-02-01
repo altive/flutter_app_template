@@ -1,9 +1,11 @@
 # Flutter Specific Words
+altool
 appbar
 appbundle
 Checkmark
 codecov
 codeowners
+codesign
 cupertino
 dotenv
 draggable
@@ -13,6 +15,7 @@ fullscreen
 gcov
 horiz
 iframe
+keychain
 lcov
 lerp
 ltrb
@@ -34,3 +37,4 @@ unfocus
 vsync
 wireframe
 xcconfig
+xcrun
