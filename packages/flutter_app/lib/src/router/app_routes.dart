@@ -24,7 +24,7 @@ class SplashRoute extends GoRouteData {
   const SplashRoute();
 
   @override
-  Widget build(BuildContext context) => const SplashPage();
+  Widget build(BuildContext context, GoRouterState state) => const SplashPage();
 }
 
 @TypedGoRoute<SigninRoute>(
@@ -34,7 +34,7 @@ class SigninRoute extends GoRouteData {
   const SigninRoute();
 
   @override
-  Widget build(BuildContext context) => const SigninPage();
+  Widget build(BuildContext context, GoRouterState state) => const SigninPage();
 }
 
 @TypedGoRoute<TopLevelTabRoute>(
@@ -57,7 +57,8 @@ class TopLevelTabRoute extends GoRouteData {
   final TopLevelTab tab;
 
   @override
-  Widget build(BuildContext context) => TopLevelTabPage(tab: tab);
+  Widget build(BuildContext context, GoRouterState state) =>
+      TopLevelTabPage(tab: tab);
 }
 
 class AppInfoRoute extends GoRouteData {
@@ -66,7 +67,8 @@ class AppInfoRoute extends GoRouteData {
   final TopLevelTab tab;
 
   @override
-  Widget build(BuildContext context) => const AppInfoPage();
+  Widget build(BuildContext context, GoRouterState state) =>
+      const AppInfoPage();
 }
 
 class ProviderRoute extends GoRouteData {
@@ -75,7 +77,8 @@ class ProviderRoute extends GoRouteData {
   final TopLevelTab tab;
 
   @override
-  Widget build(BuildContext context) => const ProviderPage();
+  Widget build(BuildContext context, GoRouterState state) =>
+      const ProviderPage();
 }
 
 class StateProviderRoute extends GoRouteData {
@@ -84,7 +87,8 @@ class StateProviderRoute extends GoRouteData {
   final TopLevelTab tab;
 
   @override
-  Widget build(BuildContext context) => const StateProviderPage();
+  Widget build(BuildContext context, GoRouterState state) =>
+      const StateProviderPage();
 }
 
 class NotifierProviderRoute extends GoRouteData {
@@ -93,7 +97,8 @@ class NotifierProviderRoute extends GoRouteData {
   final TopLevelTab tab;
 
   @override
-  Widget build(BuildContext context) => const NotifierProviderPage();
+  Widget build(BuildContext context, GoRouterState state) =>
+      const NotifierProviderPage();
 }
 
 class AsyncNotifierProviderRoute extends GoRouteData {
@@ -102,7 +107,8 @@ class AsyncNotifierProviderRoute extends GoRouteData {
   final TopLevelTab tab;
 
   @override
-  Widget build(BuildContext context) => const AsyncNotifierProviderPage();
+  Widget build(BuildContext context, GoRouterState state) =>
+      const AsyncNotifierProviderPage();
 }
 
 class StateNotifierProviderRoute extends GoRouteData {
@@ -111,7 +117,8 @@ class StateNotifierProviderRoute extends GoRouteData {
   final TopLevelTab tab;
 
   @override
-  Widget build(BuildContext context) => const StateNotifierProviderPage();
+  Widget build(BuildContext context, GoRouterState state) =>
+      const StateNotifierProviderPage();
 }
 
 class ListenProviderRoute extends GoRouteData {
@@ -120,7 +127,8 @@ class ListenProviderRoute extends GoRouteData {
   final TopLevelTab tab;
 
   @override
-  Widget build(BuildContext context) => const ListenProviderPage();
+  Widget build(BuildContext context, GoRouterState state) =>
+      const ListenProviderPage();
 }
 
 class ThemeSelectionRoute extends GoRouteData {
@@ -129,7 +137,8 @@ class ThemeSelectionRoute extends GoRouteData {
   final TopLevelTab tab;
 
   @override
-  Widget build(BuildContext context) => const ThemeSelectionPage();
+  Widget build(BuildContext context, GoRouterState state) =>
+      const ThemeSelectionPage();
 }
 
 class AccountRoute extends GoRouteData {
@@ -138,5 +147,6 @@ class AccountRoute extends GoRouteData {
   final TopLevelTab tab;
 
   @override
-  Widget build(BuildContext context) => const AccountPage();
+  Widget build(BuildContext context, GoRouterState state) =>
+      const AccountPage();
 }

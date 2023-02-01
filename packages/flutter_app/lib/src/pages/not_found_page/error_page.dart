@@ -11,7 +11,7 @@ class ErrorRoute extends GoRouteData {
   final Exception exception;
 
   @override
-  Widget build(BuildContext context) => ErrorPage(
+  Widget build(BuildContext context, GoRouterState state) => ErrorPage(
         location: location,
         exception: exception,
       );

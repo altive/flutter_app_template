@@ -13,6 +13,6 @@ GoRouter router(RouterRef ref) {
     errorBuilder: (context, state) => ErrorRoute(
       location: state.location,
       exception: state.error!,
-    ).build(context),
+    ).build(context, state),
   );
 }
