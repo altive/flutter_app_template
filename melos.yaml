@@ -110,7 +110,7 @@ scripts:
   build:android:prod:
     run: |
       melos exec -c 1 -- \
-        flutter build appbundle --dart-define=FLAVOR=prod
+        flutter build appbundle --dart-define-from-file=dart_defines/prod.json
     description: Build the AppBundle for the production app.
     select-package:
       flutter: true
@@ -119,7 +119,7 @@ scripts:
   upload:ios:prod:
     run: |
       melos exec -c 1 -- \
-        flutter build ipa --dart-define=FLAVOR=prod --export-options-plist="ios/prod/ExportOptions.plist"
+        flutter build ipa --dart-define-from-file=dart_defines/prod.json --export-options-plist="ios/prod/ExportOptions.plist"
     description: Upload the IPA for the production app.
     select-package:
       flutter: true
@@ -130,13 +130,3 @@ scripts:
     run: |
       melos run build:android:prod:restock
       melos run upload:ios:prod:restock
-
-  build:android:prod:restock:
-    run: |
-      melos exec -c 1 --scope="restock" --flutter --private -- \
-        flutter build appbundle --flavor production --dart-define=FLAVOR=production --no-tree-shake-icons
-
-  upload:ios:prod:restock:
-    run: |
-      melos exec -c 1 --scope="restock" --flutter --private -- \
-        flutter build ipa --flavor production --dart-define=FLAVOR=production --export-options-plist="ios/prod/ExportOptions.plist" --no-tree-shake-icons
