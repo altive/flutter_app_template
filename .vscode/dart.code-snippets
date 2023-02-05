@@ -1,0 +1,8 @@
+{
+    "Generate nice mocks": {
+        "prefix": "generateNiceMocks",
+        "body": [
+            "@GenerateNiceMocks([MockSpec<$1>()])",
+        ],
+    },
+}
