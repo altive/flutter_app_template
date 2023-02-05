@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'paapi_search_items_parameters.dart';
 
@@ -35,7 +35,9 @@ mixin _$PaapiSearchItemsParameters {
 abstract class $PaapiSearchItemsParametersCopyWith<$Res> {
   factory $PaapiSearchItemsParametersCopyWith(PaapiSearchItemsParameters value,
           $Res Function(PaapiSearchItemsParameters) then) =
-      _$PaapiSearchItemsParametersCopyWithImpl<$Res>;
+      _$PaapiSearchItemsParametersCopyWithImpl<$Res,
+          PaapiSearchItemsParameters>;
+  @useResult
   $Res call(
       {String? keyword,
       List<String> resources,
@@ -45,44 +47,47 @@ abstract class $PaapiSearchItemsParametersCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$PaapiSearchItemsParametersCopyWithImpl<$Res>
+class _$PaapiSearchItemsParametersCopyWithImpl<$Res,
+        $Val extends PaapiSearchItemsParameters>
     implements $PaapiSearchItemsParametersCopyWith<$Res> {
   _$PaapiSearchItemsParametersCopyWithImpl(this._value, this._then);
 
-  final PaapiSearchItemsParameters _value;
   // ignore: unused_field
-  final $Res Function(PaapiSearchItemsParameters) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? keyword = freezed,
-    Object? resources = freezed,
+    Object? resources = null,
     Object? searchIndex = freezed,
     Object? itemCount = freezed,
     Object? itemPage = freezed,
   }) {
     return _then(_value.copyWith(
-      keyword: keyword == freezed
+      keyword: freezed == keyword
           ? _value.keyword
           : keyword // ignore: cast_nullable_to_non_nullable
               as String?,
-      resources: resources == freezed
+      resources: null == resources
           ? _value.resources
           : resources // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      searchIndex: searchIndex == freezed
+      searchIndex: freezed == searchIndex
           ? _value.searchIndex
           : searchIndex // ignore: cast_nullable_to_non_nullable
               as String?,
-      itemCount: itemCount == freezed
+      itemCount: freezed == itemCount
           ? _value.itemCount
           : itemCount // ignore: cast_nullable_to_non_nullable
               as int?,
-      itemPage: itemPage == freezed
+      itemPage: freezed == itemPage
           ? _value.itemPage
           : itemPage // ignore: cast_nullable_to_non_nullable
               as int?,
-    ));
+    ) as $Val);
   }
 }
 
@@ -94,6 +99,7 @@ abstract class _$$_PaapiSearchItemsParametersCopyWith<$Res>
           $Res Function(_$_PaapiSearchItemsParameters) then) =
       __$$_PaapiSearchItemsParametersCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String? keyword,
       List<String> resources,
@@ -104,43 +110,41 @@ abstract class _$$_PaapiSearchItemsParametersCopyWith<$Res>
 
 /// @nodoc
 class __$$_PaapiSearchItemsParametersCopyWithImpl<$Res>
-    extends _$PaapiSearchItemsParametersCopyWithImpl<$Res>
+    extends _$PaapiSearchItemsParametersCopyWithImpl<$Res,
+        _$_PaapiSearchItemsParameters>
     implements _$$_PaapiSearchItemsParametersCopyWith<$Res> {
   __$$_PaapiSearchItemsParametersCopyWithImpl(
       _$_PaapiSearchItemsParameters _value,
       $Res Function(_$_PaapiSearchItemsParameters) _then)
-      : super(_value, (v) => _then(v as _$_PaapiSearchItemsParameters));
+      : super(_value, _then);
 
-  @override
-  _$_PaapiSearchItemsParameters get _value =>
-      super._value as _$_PaapiSearchItemsParameters;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? keyword = freezed,
-    Object? resources = freezed,
+    Object? resources = null,
     Object? searchIndex = freezed,
     Object? itemCount = freezed,
     Object? itemPage = freezed,
   }) {
     return _then(_$_PaapiSearchItemsParameters(
-      keyword: keyword == freezed
+      keyword: freezed == keyword
           ? _value.keyword
           : keyword // ignore: cast_nullable_to_non_nullable
               as String?,
-      resources: resources == freezed
+      resources: null == resources
           ? _value._resources
           : resources // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      searchIndex: searchIndex == freezed
+      searchIndex: freezed == searchIndex
           ? _value.searchIndex
           : searchIndex // ignore: cast_nullable_to_non_nullable
               as String?,
-      itemCount: itemCount == freezed
+      itemCount: freezed == itemCount
           ? _value.itemCount
           : itemCount // ignore: cast_nullable_to_non_nullable
               as int?,
-      itemPage: itemPage == freezed
+      itemPage: freezed == itemPage
           ? _value.itemPage
           : itemPage // ignore: cast_nullable_to_non_nullable
               as int?,
@@ -170,6 +174,7 @@ class _$_PaapiSearchItemsParameters
   @override
   @JsonKey()
   List<String> get resources {
+    if (_resources is EqualUnmodifiableListView) return _resources;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_resources);
   }
@@ -206,26 +211,29 @@ class _$_PaapiSearchItemsParameters
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_PaapiSearchItemsParameters &&
-            const DeepCollectionEquality().equals(other.keyword, keyword) &&
+            (identical(other.keyword, keyword) || other.keyword == keyword) &&
             const DeepCollectionEquality()
                 .equals(other._resources, _resources) &&
-            const DeepCollectionEquality()
-                .equals(other.searchIndex, searchIndex) &&
-            const DeepCollectionEquality().equals(other.itemCount, itemCount) &&
-            const DeepCollectionEquality().equals(other.itemPage, itemPage));
+            (identical(other.searchIndex, searchIndex) ||
+                other.searchIndex == searchIndex) &&
+            (identical(other.itemCount, itemCount) ||
+                other.itemCount == itemCount) &&
+            (identical(other.itemPage, itemPage) ||
+                other.itemPage == itemPage));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(keyword),
+      keyword,
       const DeepCollectionEquality().hash(_resources),
-      const DeepCollectionEquality().hash(searchIndex),
-      const DeepCollectionEquality().hash(itemCount),
-      const DeepCollectionEquality().hash(itemPage));
+      searchIndex,
+      itemCount,
+      itemPage);
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_PaapiSearchItemsParametersCopyWith<_$_PaapiSearchItemsParameters>
       get copyWith => __$$_PaapiSearchItemsParametersCopyWithImpl<
           _$_PaapiSearchItemsParameters>(this, _$identity);
@@ -241,15 +249,15 @@ abstract class _PaapiSearchItemsParameters
       final int? itemPage}) = _$_PaapiSearchItemsParameters;
 
   @override // 検索キーワードまたはフレーズ
-  String? get keyword => throw _privateConstructorUsedError;
+  String? get keyword;
   @override // 欲しいレスポンス情報
-  List<String> get resources => throw _privateConstructorUsedError;
+  List<String> get resources;
   @override // 検索対象の製品カテゴリ
-  String? get searchIndex => throw _privateConstructorUsedError;
+  String? get searchIndex;
   @override // 幾つの検索結果を返却するか
-  int? get itemCount => throw _privateConstructorUsedError;
+  int? get itemCount;
   @override // 検索結果のうちの何ページを目を返却するか
-  int? get itemPage => throw _privateConstructorUsedError;
+  int? get itemPage;
   @override
   @JsonKey(ignore: true)
   _$$_PaapiSearchItemsParametersCopyWith<_$_PaapiSearchItemsParameters>

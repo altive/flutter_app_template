@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'paapi_get_items_parameters.dart';
 
@@ -29,34 +29,38 @@ mixin _$PaapiGetItemsParameters {
 abstract class $PaapiGetItemsParametersCopyWith<$Res> {
   factory $PaapiGetItemsParametersCopyWith(PaapiGetItemsParameters value,
           $Res Function(PaapiGetItemsParameters) then) =
-      _$PaapiGetItemsParametersCopyWithImpl<$Res>;
+      _$PaapiGetItemsParametersCopyWithImpl<$Res, PaapiGetItemsParameters>;
+  @useResult
   $Res call({List<String> asin, List<String> resources});
 }
 
 /// @nodoc
-class _$PaapiGetItemsParametersCopyWithImpl<$Res>
+class _$PaapiGetItemsParametersCopyWithImpl<$Res,
+        $Val extends PaapiGetItemsParameters>
     implements $PaapiGetItemsParametersCopyWith<$Res> {
   _$PaapiGetItemsParametersCopyWithImpl(this._value, this._then);
 
-  final PaapiGetItemsParameters _value;
   // ignore: unused_field
-  final $Res Function(PaapiGetItemsParameters) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? asin = freezed,
-    Object? resources = freezed,
+    Object? asin = null,
+    Object? resources = null,
   }) {
     return _then(_value.copyWith(
-      asin: asin == freezed
+      asin: null == asin
           ? _value.asin
           : asin // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      resources: resources == freezed
+      resources: null == resources
           ? _value.resources
           : resources // ignore: cast_nullable_to_non_nullable
               as List<String>,
-    ));
+    ) as $Val);
   }
 }
 
@@ -67,32 +71,31 @@ abstract class _$$_PaapiGetItemsParametersCopyWith<$Res>
           $Res Function(_$_PaapiGetItemsParameters) then) =
       __$$_PaapiGetItemsParametersCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({List<String> asin, List<String> resources});
 }
 
 /// @nodoc
 class __$$_PaapiGetItemsParametersCopyWithImpl<$Res>
-    extends _$PaapiGetItemsParametersCopyWithImpl<$Res>
+    extends _$PaapiGetItemsParametersCopyWithImpl<$Res,
+        _$_PaapiGetItemsParameters>
     implements _$$_PaapiGetItemsParametersCopyWith<$Res> {
   __$$_PaapiGetItemsParametersCopyWithImpl(_$_PaapiGetItemsParameters _value,
       $Res Function(_$_PaapiGetItemsParameters) _then)
-      : super(_value, (v) => _then(v as _$_PaapiGetItemsParameters));
+      : super(_value, _then);
 
-  @override
-  _$_PaapiGetItemsParameters get _value =>
-      super._value as _$_PaapiGetItemsParameters;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? asin = freezed,
-    Object? resources = freezed,
+    Object? asin = null,
+    Object? resources = null,
   }) {
     return _then(_$_PaapiGetItemsParameters(
-      asin: asin == freezed
+      asin: null == asin
           ? _value._asin
           : asin // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      resources: resources == freezed
+      resources: null == resources
           ? _value._resources
           : resources // ignore: cast_nullable_to_non_nullable
               as List<String>,
@@ -117,6 +120,7 @@ class _$_PaapiGetItemsParameters
   @override
   @JsonKey()
   List<String> get asin {
+    if (_asin is EqualUnmodifiableListView) return _asin;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_asin);
   }
@@ -127,6 +131,7 @@ class _$_PaapiGetItemsParameters
   @override
   @JsonKey()
   List<String> get resources {
+    if (_resources is EqualUnmodifiableListView) return _resources;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_resources);
   }
@@ -163,6 +168,7 @@ class _$_PaapiGetItemsParameters
 
   @JsonKey(ignore: true)
   @override
+  @pragma('vm:prefer-inline')
   _$$_PaapiGetItemsParametersCopyWith<_$_PaapiGetItemsParameters>
       get copyWith =>
           __$$_PaapiGetItemsParametersCopyWithImpl<_$_PaapiGetItemsParameters>(
@@ -175,9 +181,9 @@ abstract class _PaapiGetItemsParameters implements PaapiGetItemsParameters {
       final List<String> resources}) = _$_PaapiGetItemsParameters;
 
   @override // Amazon Standard Identification Number: 10文字のユニークな英数字
-  List<String> get asin => throw _privateConstructorUsedError;
+  List<String> get asin;
   @override // 欲しいレスポンス情報
-  List<String> get resources => throw _privateConstructorUsedError;
+  List<String> get resources;
   @override
   @JsonKey(ignore: true)
   _$$_PaapiGetItemsParametersCopyWith<_$_PaapiGetItemsParameters>

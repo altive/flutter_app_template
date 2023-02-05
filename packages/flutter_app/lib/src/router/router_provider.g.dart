@@ -31,7 +31,7 @@ class _SystemHash {
   }
 }
 
-String _$routerHash() => r'2d58cb76575e2e5b9521c780f51853543ac2237b';
+String _$routerHash() => r'2ad7149bd1d8cab1d682a13256216eb5c4b54ff7';
 
 /// See also [router].
 final routerProvider = Provider<GoRouter>(
