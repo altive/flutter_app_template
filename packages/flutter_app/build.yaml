@@ -25,8 +25,6 @@ targets:
         generate_for:
           include:
             - lib/**/entities/*.dart
-            - lib/**/providers/*.dart
-            - lib/**/*_provider.dart
         options:
           # 例外発生時にCheckedFromJsonExceptionをthrowする
           checked: true
@@ -34,5 +32,10 @@ targets:
           explicit_to_json: true
           field_rename: snake
       riverpod_generator:
+        generate_for:
+          include:
+            - lib/**/provider/*.dart
+            - lib/**/*_provider.dart
+            - lib/**/riverpod_example_page/**/*.dart
         options:
           provider_name_suffix: "Provider" # (default)
