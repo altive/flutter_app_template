@@ -2,14 +2,12 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:rest_api_client/rest_api_client.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../entities/todo.dart';
+import '../util/util.dart';
 
 part 'async_notifier_provider_page.g.dart';
-
-final dio = dioClient();
 
 // Provider example.
 // `@riverpod` アノテーションを付けて、 `_$クラス名` を継承することで、 `asyncTodoListProvider` が生成できる。
@@ -18,24 +16,25 @@ final dio = dioClient();
 // `AsyncTodoList(Notifier)` が取得できる。
 @riverpod
 class AsyncTodoList extends _$AsyncTodoList {
+  Future<List<Todo>> _fetchTodo() async {
+    // Web API等を通じてTodoリストを取得する処理
+    final response = await dio.get<List<Map<String, Object?>>>(
+      'https://example.com/api/todo',
+    );
+    return response.data.map(Todo.fromJson).toList();
+  }
+
   @override
   FutureOr<List<Todo>> build() async {
     // 初期値としてTodoリストを取得する
     return _fetchTodo();
   }
 
-  Future<List<Todo>> _fetchTodo() async {
-    // Web API等を通じてTodoリストを取得する処理
-    final response = await dio.get<List<Map<String, Object?>>>(
-      'https://example.com/api/todo',
-    );
-    return response.data!.map(Todo.fromJson).toList();
-  }
-
   /// 新しいTODOを追加するメソッド
   Future<void> add(Todo todo) async {
     // stateをローディング状態にする
     state = const AsyncValue.loading();
+    // AsyncValue.guard: 例外発生時は AsyncErrorを返してくれる（try/catchの代替）
     state = await AsyncValue.guard(() async {
       await dio.post<Map<String, Object?>>(
         'https://example.com/api/todo',
@@ -59,11 +58,12 @@ class AsyncTodoList extends _$AsyncTodoList {
 
   /// IDを指定して、TODOの完了状態を切り替えるメソッド
   Future<void> toggle(String todoId) async {
+    final todo = state.value!.firstWhere((todo) => todo.id == todoId);
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() async {
       await dio.patch<Map<String, Object?>>(
         'https://example.com/api/todo/$todoId',
-        data: <String, Object?>{'completed': true},
+        data: <String, Object?>{'completed': !todo.completed},
       );
       return _fetchTodo();
     });
