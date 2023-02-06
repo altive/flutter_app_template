@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/src/features/theme_selector/theme_mode_ext.dart';
+import 'package:flutter_app/features/theme_selector/theme_mode_ext.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

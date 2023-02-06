@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_app/src/features/theme_selector/theme_selector.dart';
-import 'package:flutter_app/src/util/providers/shared_preferences_provider.dart';
+import 'package:flutter_app/features/theme_selector/theme_selector.dart';
+import 'package:flutter_app/util/providers/shared_preferences_provider.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
