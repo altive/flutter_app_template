@@ -18,7 +18,6 @@ dependencies:
   convenient_widgets:
     path: ../convenient_widgets
   cupertino_icons: ^1.0.5
-  envied: ^0.3.0
   firebase_core: ^2.4.0
   firebase_dynamic_links: ^5.0.9
   firebase_performance: ^0.9.0+7
@@ -56,7 +55,6 @@ dependencies:
 dev_dependencies:
   altive_lints: ^1.6.1
   build_runner: ^2.3.3
-  envied_generator: ^0.3.0
   flutter_gen_runner: ^5.1.0+1
   flutter_launcher_icons: ^0.10.0
   flutter_test:
