@@ -6,7 +6,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../util/localizer/localizer.dart';
 import 'top_level_tab.dart';
-import 'top_level_tab_provider.dart';
+import 'top_level_tab_state_provider.dart';
 
 class TopLevelTabPage extends HookConsumerWidget {
   const TopLevelTabPage({
@@ -19,13 +19,13 @@ class TopLevelTabPage extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = L10n.of(context);
-    final tabController = ref.watch(topLevelTabProvider.notifier);
-    final currentTab = ref.watch(topLevelTabProvider);
+    final tabController = ref.watch(topLevelTabStateProvider.notifier);
+    final currentTab = ref.watch(topLevelTabStateProvider);
 
     useEffect(
       () {
         WidgetsBinding.instance.addPostFrameCallback((_) {
-          tabController.update((_) => TopLevelTab.values.byName(tab.name));
+          tabController.state = tab;
         });
         return null;
       },
@@ -33,8 +33,8 @@ class TopLevelTabPage extends HookConsumerWidget {
     );
 
     void changeTab(int index) {
-      tabController.update((_) => TopLevelTab.values[index]);
       final tab = TopLevelTab.values[index];
+      tabController.state = tab;
       context.go('/${tab.name}');
     }
 
