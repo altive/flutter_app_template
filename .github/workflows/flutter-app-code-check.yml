@@ -33,9 +33,6 @@ jobs:
       - name: Install Melos
         uses: bluefireteam/melos-action@v2
 
-      - name: Generate codes
-        run: melos run gen --no-select
-
       - name: Analyze packages
         run: melos run analyze --no-select
 
@@ -51,10 +48,3 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: ~/coverage/lcov.info
           fail_ci_if_error: false
-
-      - name: Send notification to Slack
-        if: always()
-        uses: ./.github/actions/send_notification_to_slack
-        with:
-          text: "Flutter app code check done! : ${{ github.event.pull_request.html_url }}"
-          incoming_webhook_url: ${{ secrets.SLACK_INCOMING_WEBHOOK_URL }}
