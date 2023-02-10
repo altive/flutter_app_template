@@ -9,14 +9,11 @@ targets:
             - implicit_dynamic_type
             - implicit_dynamic_method
             - strict_raw_type
-      envied_generator:envied:
-        generate_for:
-          include:
-            - lib/src/environment/src/*env.dart
       freezed:
         generate_for:
           include:
             - lib/**/entities/*.dart
+            - lib/**/model/*.dart
       go_router_builder:
         generate_for:
           include:
@@ -25,6 +22,7 @@ targets:
         generate_for:
           include:
             - lib/**/entities/*.dart
+            - lib/**/model/*.dart
         options:
           # 例外発生時にCheckedFromJsonExceptionをthrowする
           checked: true
@@ -35,7 +33,7 @@ targets:
         generate_for:
           include:
             - lib/**/provider/*.dart
-            - lib/**/*_provider.dart
+            - lib/**/*provider.dart
             - lib/**/riverpod_example_page/**/*.dart
         options:
           provider_name_suffix: "Provider" # (default)

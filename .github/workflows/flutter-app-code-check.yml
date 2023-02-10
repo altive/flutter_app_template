@@ -8,7 +8,9 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
     paths-ignore:
-      - "README.md"
+      - "**/README.md"
+      - ".vscode/**"
+      - ".github/**"
 
 jobs:
   check:
