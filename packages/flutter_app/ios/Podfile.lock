@@ -27,18 +27,18 @@ PODS:
   - Firebase/Storage (10.3.0):
     - Firebase/CoreOnly
     - FirebaseStorage (~> 10.3.0)
-  - firebase_auth (4.2.5):
+  - firebase_auth (4.2.6):
     - Firebase/Auth (= 10.3.0)
     - firebase_core
     - Flutter
-  - firebase_core (2.4.1):
+  - firebase_core (2.5.0):
     - Firebase/CoreOnly (= 10.3.0)
     - Flutter
   - firebase_dynamic_links (5.0.11):
     - Firebase/DynamicLinks (= 10.3.0)
     - firebase_core
     - Flutter
-  - firebase_performance (0.9.0-10):
+  - firebase_performance (0.9.0-11):
     - Firebase/Performance (= 10.3.0)
     - firebase_core
     - Flutter
@@ -243,10 +243,10 @@ SPEC CHECKSUMS:
   AppAuth: 8fca6b5563a5baef2c04bee27538025e4ceb2add
   cloud_firestore: 5e5bb98722f66e820bf1aa7b3c98ffc9b2450ffb
   Firebase: f92fc551ead69c94168d36c2b26188263860acd9
-  firebase_auth: 3bab991fe1df91c2f948156e9dee976e01a19ab9
-  firebase_core: bf59c32d2e53814f558efa20840c1902fa2fe461
+  firebase_auth: b196f91b4f7c6d72015c3c12aaa82eb6972b2c2c
+  firebase_core: f95c8bbe65213d406d592573ad42a12d64849cb8
   firebase_dynamic_links: e5ca49679928f5d46e2db5168656975eae39d379
-  firebase_performance: 7746e15bd685debbfcb5e862b2ec720ba8f13979
+  firebase_performance: 456a6bbbca55888ed32b9d0dcd7f96738fe56f0d
   firebase_storage: 8b85bf19de50a1886f9387924fbddf066a718965
   FirebaseABTesting: ae3b32fe26e761fd54c68e37a632a0097b599c87
   FirebaseAppCheckInterop: ef074633831a90cf6c10e8f2c1e1f8b7842a446a

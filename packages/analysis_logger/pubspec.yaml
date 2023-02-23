@@ -9,8 +9,8 @@ environment:
 dependencies:
   authenticator:
     path: ../authenticator
-  firebase_analytics: ^10.0.7
-  firebase_crashlytics: ^3.0.7
+  firebase_analytics: ^10.1.1
+  firebase_crashlytics: ^3.0.12
   flutter:
     sdk: flutter
   riverpod: ^2.1.1
