@@ -56,7 +56,7 @@ dev_dependencies:
   altive_lints: ^1.6.1
   build_runner: ^2.3.3
   flutter_gen_runner: ^5.1.0+1
-  flutter_launcher_icons: ^0.10.0
+  flutter_launcher_icons: ^0.11.0
   flutter_test:
     sdk: flutter
   freezed: ^2.1.1
