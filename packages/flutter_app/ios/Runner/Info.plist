@@ -39,7 +39,7 @@
 				<key>CFBundleURLSchemes</key>
 				<array>
 					<!-- Copied from GoogleService-Info.plist key REVERSED_CLIENT_ID -->
-					<string>$(GOOGLE_REVERSED_CLIENT_ID)</string>
+					<string>$(googleReversedClientId)</string>
 				</array>
 			</dict>
 		</array>
