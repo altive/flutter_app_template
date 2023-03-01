@@ -65,6 +65,10 @@ GoRoute get $topLevelTabRoute => GoRouteData.$route(
           factory: $StateProviderRouteExtension._fromState,
         ),
         GoRouteData.$route(
+          path: 'stream-provider',
+          factory: $StreamProviderRouteExtension._fromState,
+        ),
+        GoRouteData.$route(
           path: 'notifier-provider',
           factory: $NotifierProviderRouteExtension._fromState,
         ),
@@ -141,6 +145,21 @@ extension $StateProviderRouteExtension on StateProviderRoute {
 
   String get location => GoRouteData.$location(
         '/${Uri.encodeComponent(_$TopLevelTabEnumMap[tab]!)}/state-provider',
+      );
+
+  void go(BuildContext context) => context.go(location, extra: this);
+
+  void push(BuildContext context) => context.push(location, extra: this);
+}
+
+extension $StreamProviderRouteExtension on StreamProviderRoute {
+  static StreamProviderRoute _fromState(GoRouterState state) =>
+      StreamProviderRoute(
+        tab: _$TopLevelTabEnumMap._$fromName(state.params['tab']!),
+      );
+
+  String get location => GoRouteData.$location(
+        '/${Uri.encodeComponent(_$TopLevelTabEnumMap[tab]!)}/stream-provider',
       );
 
   void go(BuildContext context) => context.go(location, extra: this);

@@ -8,6 +8,7 @@ import 'notifier_provider_page/notifier_provider_page.dart';
 import 'provider_page/provider_page.dart';
 import 'state_notifier_provider_page/state_notifier_provider_page.dart';
 import 'state_provider_page/state_provider_page.dart';
+import 'stream_provider_page.dart/stream_provider_page.dart';
 
 class RiverpodExamplePage extends StatelessWidget {
   const RiverpodExamplePage({
@@ -34,6 +35,11 @@ class RiverpodExamplePage extends StatelessWidget {
             onTap: () =>
                 const StateProviderRoute(tab: TopLevelTab.riverpod).go(context),
             label: StateProviderPage.title,
+          ),
+          _FeatureCard(
+            onTap: () => const StreamProviderRoute(tab: TopLevelTab.riverpod)
+                .go(context),
+            label: StreamProviderPage.title,
           ),
           _FeatureCard(
             onTap: () => const NotifierProviderRoute(tab: TopLevelTab.riverpod)

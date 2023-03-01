@@ -9,6 +9,7 @@ import '../pages/riverpod_example_page/notifier_provider_page/notifier_provider_
 import '../pages/riverpod_example_page/provider_page/provider_page.dart';
 import '../pages/riverpod_example_page/state_notifier_provider_page/state_notifier_provider_page.dart';
 import '../pages/riverpod_example_page/state_provider_page/state_provider_page.dart';
+import '../pages/riverpod_example_page/stream_provider_page.dart/stream_provider_page.dart';
 import '../pages/signin/signin_page.dart';
 import '../pages/splash/splash_page.dart';
 import '../pages/theme_selection_page/theme_selection_page.dart';
@@ -43,6 +44,7 @@ class SigninRoute extends GoRouteData {
     TypedGoRoute<AppInfoRoute>(path: 'app-info'),
     TypedGoRoute<ProviderRoute>(path: 'provider'),
     TypedGoRoute<StateProviderRoute>(path: 'state-provider'),
+    TypedGoRoute<StreamProviderRoute>(path: 'stream-provider'),
     TypedGoRoute<NotifierProviderRoute>(path: 'notifier-provider'),
     TypedGoRoute<AsyncNotifierProviderRoute>(path: 'async-notifier-provider'),
     TypedGoRoute<StateNotifierProviderRoute>(path: 'state-notifier-provider'),
@@ -89,6 +91,16 @@ class StateProviderRoute extends GoRouteData {
   @override
   Widget build(BuildContext context, GoRouterState state) =>
       const StateProviderPage();
+}
+
+class StreamProviderRoute extends GoRouteData {
+  const StreamProviderRoute({required this.tab});
+
+  final TopLevelTab tab;
+
+  @override
+  Widget build(BuildContext context, GoRouterState state) =>
+      const StreamProviderPage();
 }
 
 class NotifierProviderRoute extends GoRouteData {
