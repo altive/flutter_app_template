@@ -3,4 +3,4 @@ analyzer:
   exclude:
     - "**/l10n/*.dart"
     - "**/gen/*.dart"
-    - "**/firebase_options*.dart"
+    - "**/firebase_options_*.dart"
