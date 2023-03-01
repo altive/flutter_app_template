@@ -63,7 +63,7 @@ dev_dependencies:
   go_router_builder: ^1.0.16
   json_serializable: ^6.6.1
   mockito: ^5.2.0
-  riverpod_generator: ^1.0.6
+  riverpod_generator: ^1.2.0
 
 flutter_gen:
   enabled: true
