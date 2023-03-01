@@ -55,6 +55,7 @@ dependencies:
 dev_dependencies:
   altive_lints: ^1.6.1
   build_runner: ^2.3.3
+  custom_lint: ^0.2.12
   flutter_gen_runner: ^5.1.0+1
   flutter_launcher_icons: ^0.10.0
   flutter_test:
@@ -64,6 +65,7 @@ dev_dependencies:
   json_serializable: ^6.6.1
   mockito: ^5.2.0
   riverpod_generator: ^2.0.0
+  riverpod_lint: ^1.0.1
 
 flutter_gen:
   enabled: true

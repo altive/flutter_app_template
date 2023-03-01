@@ -25,7 +25,7 @@ class TopLevelTabPage extends HookConsumerWidget {
     useEffect(
       () {
         WidgetsBinding.instance.addPostFrameCallback((_) {
-          tabController.state = tab;
+          tabController.changeTab(tab);
         });
         return null;
       },
@@ -33,8 +33,7 @@ class TopLevelTabPage extends HookConsumerWidget {
     );
 
     void changeTab(int index) {
-      final tab = TopLevelTab.values[index];
-      tabController.state = tab;
+      tabController.changeTabWithIndex(index);
       context.go('/${tab.name}');
     }
 
