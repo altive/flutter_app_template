@@ -65,7 +65,7 @@ dev_dependencies:
   json_serializable: ^6.6.1
   mockito: ^5.2.0
   riverpod_generator: ^2.0.0
-  riverpod_lint: ^1.0.1
+  riverpod_lint: ^1.1.2
 
 flutter_gen:
   enabled: true
