@@ -7,88 +7,88 @@ packages:
 
 command:
   bootstrap:
-    usePubspecOverrides: true
     runPubGetInParallel: true
+    hooks:
+      post: |
+        melos exec --flutter --dir-exists=lib/l10n -- "flutter gen-l10n"
+  clean:
+    hooks:
+      post: |
+        melos exec --flutter -- "flutter clean"
+        melos exec --flutter --file-exists="ios/Podfile.lock" -- "cd ios && rm Podfile.lock"
+        melos exec --flutter --file-exists="macos/Podfile.lock" -- "cd macos && rm Podfile.lock"
   version:
     branch: main
 
 scripts:
-  postclean: |
-    melos exec --flutter -- "flutter clean"
-    melos exec --flutter --file-exists="ios/Podfile.lock" -- "cd ios && rm Podfile.lock"
-    melos exec --flutter --file-exists="macos/Podfile.lock" -- "cd macos && rm Podfile.lock"
-
-  postbootstrap: >
-    melos exec --flutter --dir-exists=lib/l10n -- "flutter gen-l10n"
-
   upgrade:
     run: |
       melos exec -- \
         "flutter pub upgrade --major-versions && flutter pub upgrade"
     description: Run upgrade the major version of the pub.
-    select-package:
+    packageFilters:
       flutter: true
-      dir-exists: lib
+      dirExists: lib
 
   analyze:
     run: |
       melos exec -- \
         flutter analyze . --fatal-infos
     description: Run analyze.
-    select-package:
+    packageFilters:
       flutter: true
-      dir-exists: lib
+      dirExists: lib
 
   custom_lint:
     run: |
       melos exec -- \
         dart pub custom_lint
-    select-package:
-      depends-on: "custom_lint"
+    packageFilters:
+      dependsOn: "custom_lint"
 
   format:
     run: |
       melos exec -- \
         flutter format --dry-run --set-exit-if-changed lib/
     description: Run format.
-    select-package:
+    packageFilters:
       flutter: true
-      dir-exists: lib
+      dirExists: lib
 
   fix:
     run: |
       melos exec -- \
         dart fix --apply lib
     description: Run dart fix.
-    select-package:
-      dir-exists: lib
+    packageFilters:
+      dirExists: lib
 
   gen:
     run: |
       melos exec -c 1 -- \
         flutter pub run build_runner build --delete-conflicting-outputs
     description: Run generate code.
-    select-package:
-      dir-exists: lib
-      depends-on: "build_runner"
+    packageFilters:
+      dirExists: lib
+      dependsOn: "build_runner"
 
   gen:watch:
     run: |
       melos exec -c 1 -- \
         flutter pub run build_runner watch --delete-conflicting-outputs
     description: Watch and run generate code.
-    select-package:
-      dir-exists: lib
-      depends-on: "build_runner"
+    packageFilters:
+      dirExists: lib
+      dependsOn: "build_runner"
 
   test:
     run: |
       melos exec --fail-fast -- \
         flutter test --coverage
     description: Run flutter test.
-    select-package:
+    packageFilters:
       flutter: true
-      dir-exists: test
+      dirExists: test
 
   pod:all:
     run: |
@@ -101,39 +101,33 @@ scripts:
       melos exec -- \
         "cd ios && pod install"
     description: Run pod install on iOS.
-    select-package:
-      dir-exists: [lib, ios]
-      file-exists: "ios/Podfile"
+    packageFilters:
+      dirExists: [lib, ios]
+      fileExists: "ios/Podfile"
 
   pod:macos:
     run: |
       melos exec -- \
         "cd macos && pod install"
     description: Run pod install on macOS.
-    select-package:
-      dir-exists: [lib, macos]
-      file-exists: "macos/Podfile"
+    packageFilters:
+      dirExists: [lib, macos]
+      fileExists: "macos/Podfile"
 
   build:android:prod:
     run: |
       melos exec -c 1 -- \
         flutter build appbundle --dart-define-from-file=dart_defines/prod.json
     description: Build the AppBundle for the production app.
-    select-package:
+    packageFilters:
       flutter: true
-      dir-exists: [lib, android]
+      dirExists: [lib, android]
 
   upload:ios:prod:
     run: |
       melos exec -c 1 -- \
         flutter build ipa --dart-define-from-file=dart_defines/prod.json --export-options-plist="ios/prod/ExportOptions.plist"
     description: Upload the IPA for the production app.
-    select-package:
+    packageFilters:
       flutter: true
-      dir-exists: [lib, ios]
-
-  # for ReStock app
-  deploy:restock:prod:
-    run: |
-      melos run build:android:prod:restock
-      melos run upload:ios:prod:restock
+      dirExists: [lib, ios]
