@@ -7,9 +7,7 @@ import 'app_routes.dart';
 part 'router_provider.g.dart';
 
 @Riverpod(keepAlive: true)
-// GoRouterはriverpod_generatorサポート外のChangeNotifierのため、
-// ignore: unsupported_provider_value
-GoRouter router(RouterRef ref) {
+Raw<GoRouter> router(RouterRef ref) {
   return GoRouter(
     routes: $appRoutes,
     errorBuilder: (context, state) => ErrorRoute(
