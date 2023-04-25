@@ -4,8 +4,8 @@ import 'package:dio/dio.dart';
 
 Dio dioClient({
   String? baseUrl,
-  int connectTimeout = 60000,
-  int receiveTimeout = 60000,
+  int timeoutMilliseconds = 60000,
+  int receiveTimeoutMilliseconds = 60000,
   String? authorization,
   String? cookie,
   Map<String, Object?>? customHeaders,
@@ -14,8 +14,8 @@ Dio dioClient({
   return Dio(
     BaseOptions(
       baseUrl: baseUrl ?? '',
-      connectTimeout: connectTimeout,
-      receiveTimeout: receiveTimeout,
+      connectTimeout: Duration(milliseconds: timeoutMilliseconds),
+      receiveTimeout: Duration(milliseconds: receiveTimeoutMilliseconds),
       headers: <String, dynamic>{
         if (cookie != null) HttpHeaders.cookieHeader: cookie,
         if (authorization != null)
