@@ -33,7 +33,7 @@ dependencies:
   go_router: ^6.0.2
   google_sign_in: ^6.1.0
   hooks_riverpod: ^2.3.6
-  image_picker: ^0.8.5
+  image_picker: ^0.8.7+4
   intl: ^0.17.0
   json_annotation: ^4.8.0
   linked_scroll_controller: ^0.2.0
