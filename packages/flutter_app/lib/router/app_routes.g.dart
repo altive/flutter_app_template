@@ -8,13 +8,13 @@ part of 'app_routes.dart';
 // GoRouterGenerator
 // **************************************************************************
 
-List<GoRoute> get $appRoutes => [
+List<RouteBase> get $appRoutes => [
       $splashRoute,
       $signinRoute,
       $topLevelTabRoute,
     ];
 
-GoRoute get $splashRoute => GoRouteData.$route(
+RouteBase get $splashRoute => GoRouteData.$route(
       path: '/',
       factory: $SplashRouteExtension._fromState,
     );
@@ -26,12 +26,15 @@ extension $SplashRouteExtension on SplashRoute {
         '/',
       );
 
-  void go(BuildContext context) => context.go(location, extra: this);
+  void go(BuildContext context) => context.go(location);
 
-  void push(BuildContext context) => context.push(location, extra: this);
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
 }
 
-GoRoute get $signinRoute => GoRouteData.$route(
+RouteBase get $signinRoute => GoRouteData.$route(
       path: '/signin',
       factory: $SigninRouteExtension._fromState,
     );
@@ -43,12 +46,15 @@ extension $SigninRouteExtension on SigninRoute {
         '/signin',
       );
 
-  void go(BuildContext context) => context.go(location, extra: this);
+  void go(BuildContext context) => context.go(location);
 
-  void push(BuildContext context) => context.push(location, extra: this);
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
 }
 
-GoRoute get $topLevelTabRoute => GoRouteData.$route(
+RouteBase get $topLevelTabRoute => GoRouteData.$route(
       path: '/:tab',
       factory: $TopLevelTabRouteExtension._fromState,
       routes: [
@@ -97,163 +103,196 @@ GoRoute get $topLevelTabRoute => GoRouteData.$route(
 
 extension $TopLevelTabRouteExtension on TopLevelTabRoute {
   static TopLevelTabRoute _fromState(GoRouterState state) => TopLevelTabRoute(
-        tab: _$TopLevelTabEnumMap._$fromName(state.params['tab']!),
+        tab: _$TopLevelTabEnumMap._$fromName(state.pathParameters['tab']!),
       );
 
   String get location => GoRouteData.$location(
         '/${Uri.encodeComponent(_$TopLevelTabEnumMap[tab]!)}',
       );
 
-  void go(BuildContext context) => context.go(location, extra: this);
+  void go(BuildContext context) => context.go(location);
 
-  void push(BuildContext context) => context.push(location, extra: this);
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
 }
 
 extension $AppInfoRouteExtension on AppInfoRoute {
   static AppInfoRoute _fromState(GoRouterState state) => AppInfoRoute(
-        tab: _$TopLevelTabEnumMap._$fromName(state.params['tab']!),
+        tab: _$TopLevelTabEnumMap._$fromName(state.pathParameters['tab']!),
       );
 
   String get location => GoRouteData.$location(
         '/${Uri.encodeComponent(_$TopLevelTabEnumMap[tab]!)}/app-info',
       );
 
-  void go(BuildContext context) => context.go(location, extra: this);
+  void go(BuildContext context) => context.go(location);
 
-  void push(BuildContext context) => context.push(location, extra: this);
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
 }
 
 extension $ProviderRouteExtension on ProviderRoute {
   static ProviderRoute _fromState(GoRouterState state) => ProviderRoute(
-        tab: _$TopLevelTabEnumMap._$fromName(state.params['tab']!),
+        tab: _$TopLevelTabEnumMap._$fromName(state.pathParameters['tab']!),
       );
 
   String get location => GoRouteData.$location(
         '/${Uri.encodeComponent(_$TopLevelTabEnumMap[tab]!)}/provider',
       );
 
-  void go(BuildContext context) => context.go(location, extra: this);
+  void go(BuildContext context) => context.go(location);
 
-  void push(BuildContext context) => context.push(location, extra: this);
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
 }
 
 extension $StateProviderRouteExtension on StateProviderRoute {
   static StateProviderRoute _fromState(GoRouterState state) =>
       StateProviderRoute(
-        tab: _$TopLevelTabEnumMap._$fromName(state.params['tab']!),
+        tab: _$TopLevelTabEnumMap._$fromName(state.pathParameters['tab']!),
       );
 
   String get location => GoRouteData.$location(
         '/${Uri.encodeComponent(_$TopLevelTabEnumMap[tab]!)}/state-provider',
       );
 
-  void go(BuildContext context) => context.go(location, extra: this);
+  void go(BuildContext context) => context.go(location);
 
-  void push(BuildContext context) => context.push(location, extra: this);
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
 }
 
 extension $StreamProviderRouteExtension on StreamProviderRoute {
   static StreamProviderRoute _fromState(GoRouterState state) =>
       StreamProviderRoute(
-        tab: _$TopLevelTabEnumMap._$fromName(state.params['tab']!),
+        tab: _$TopLevelTabEnumMap._$fromName(state.pathParameters['tab']!),
       );
 
   String get location => GoRouteData.$location(
         '/${Uri.encodeComponent(_$TopLevelTabEnumMap[tab]!)}/stream-provider',
       );
 
-  void go(BuildContext context) => context.go(location, extra: this);
+  void go(BuildContext context) => context.go(location);
 
-  void push(BuildContext context) => context.push(location, extra: this);
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
 }
 
 extension $NotifierProviderRouteExtension on NotifierProviderRoute {
   static NotifierProviderRoute _fromState(GoRouterState state) =>
       NotifierProviderRoute(
-        tab: _$TopLevelTabEnumMap._$fromName(state.params['tab']!),
+        tab: _$TopLevelTabEnumMap._$fromName(state.pathParameters['tab']!),
       );
 
   String get location => GoRouteData.$location(
         '/${Uri.encodeComponent(_$TopLevelTabEnumMap[tab]!)}/notifier-provider',
       );
 
-  void go(BuildContext context) => context.go(location, extra: this);
+  void go(BuildContext context) => context.go(location);
 
-  void push(BuildContext context) => context.push(location, extra: this);
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
 }
 
 extension $AsyncNotifierProviderRouteExtension on AsyncNotifierProviderRoute {
   static AsyncNotifierProviderRoute _fromState(GoRouterState state) =>
       AsyncNotifierProviderRoute(
-        tab: _$TopLevelTabEnumMap._$fromName(state.params['tab']!),
+        tab: _$TopLevelTabEnumMap._$fromName(state.pathParameters['tab']!),
       );
 
   String get location => GoRouteData.$location(
         '/${Uri.encodeComponent(_$TopLevelTabEnumMap[tab]!)}/async-notifier-provider',
       );
 
-  void go(BuildContext context) => context.go(location, extra: this);
+  void go(BuildContext context) => context.go(location);
 
-  void push(BuildContext context) => context.push(location, extra: this);
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
 }
 
 extension $StateNotifierProviderRouteExtension on StateNotifierProviderRoute {
   static StateNotifierProviderRoute _fromState(GoRouterState state) =>
       StateNotifierProviderRoute(
-        tab: _$TopLevelTabEnumMap._$fromName(state.params['tab']!),
+        tab: _$TopLevelTabEnumMap._$fromName(state.pathParameters['tab']!),
       );
 
   String get location => GoRouteData.$location(
         '/${Uri.encodeComponent(_$TopLevelTabEnumMap[tab]!)}/state-notifier-provider',
       );
 
-  void go(BuildContext context) => context.go(location, extra: this);
+  void go(BuildContext context) => context.go(location);
 
-  void push(BuildContext context) => context.push(location, extra: this);
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
 }
 
 extension $ListenProviderRouteExtension on ListenProviderRoute {
   static ListenProviderRoute _fromState(GoRouterState state) =>
       ListenProviderRoute(
-        tab: _$TopLevelTabEnumMap._$fromName(state.params['tab']!),
+        tab: _$TopLevelTabEnumMap._$fromName(state.pathParameters['tab']!),
       );
 
   String get location => GoRouteData.$location(
         '/${Uri.encodeComponent(_$TopLevelTabEnumMap[tab]!)}/listen-provider',
       );
 
-  void go(BuildContext context) => context.go(location, extra: this);
+  void go(BuildContext context) => context.go(location);
 
-  void push(BuildContext context) => context.push(location, extra: this);
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
 }
 
 extension $ThemeSelectionRouteExtension on ThemeSelectionRoute {
   static ThemeSelectionRoute _fromState(GoRouterState state) =>
       ThemeSelectionRoute(
-        tab: _$TopLevelTabEnumMap._$fromName(state.params['tab']!),
+        tab: _$TopLevelTabEnumMap._$fromName(state.pathParameters['tab']!),
       );
 
   String get location => GoRouteData.$location(
         '/${Uri.encodeComponent(_$TopLevelTabEnumMap[tab]!)}/theme-selection',
       );
 
-  void go(BuildContext context) => context.go(location, extra: this);
+  void go(BuildContext context) => context.go(location);
 
-  void push(BuildContext context) => context.push(location, extra: this);
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
 }
 
 extension $AccountRouteExtension on AccountRoute {
   static AccountRoute _fromState(GoRouterState state) => AccountRoute(
-        tab: _$TopLevelTabEnumMap._$fromName(state.params['tab']!),
+        tab: _$TopLevelTabEnumMap._$fromName(state.pathParameters['tab']!),
       );
 
   String get location => GoRouteData.$location(
         '/${Uri.encodeComponent(_$TopLevelTabEnumMap[tab]!)}/account',
       );
 
-  void go(BuildContext context) => context.go(location, extra: this);
+  void go(BuildContext context) => context.go(location);
 
-  void push(BuildContext context) => context.push(location, extra: this);
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
 }
 
 const _$TopLevelTabEnumMap = {
