@@ -173,7 +173,8 @@ class NotificationSender
       // 10より古いiOSバージョンのための指定
       uiLocalNotificationDateInterpretation:
           UILocalNotificationDateInterpretation.wallClockTime,
-      androidAllowWhileIdle: true,
+      // デバイスが低電力アイドル モードに入った場合でも、正確な時刻に表示されるように指定
+      androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
       payload: payload,
     );
     await updatePendingNotification();

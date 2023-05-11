@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_local_notifications: ^13.0.0
+  flutter_local_notifications: ^14.0.0+1
   riverpod: ^2.3.0
   riverpod_annotation: ^2.0.0
   timezone: ^0.9.0
@@ -18,7 +18,7 @@ dependencies:
 dev_dependencies:
   altive_lints: ^1.6.1
   build_runner: ^2.2.1
-  flutter_local_notifications_platform_interface: ^6.0.0
+  flutter_local_notifications_platform_interface: ^7.0.0
   flutter_test:
     sdk: flutter
   mockito: ^5.3.1
