@@ -89,7 +89,6 @@ class Authenticator {
           // 再認証の後、再度実行する
           await _reauthenticate();
           await _user.delete();
-          break;
         default:
           // 再認証必須以外の例外はRethrowする
           rethrow;
