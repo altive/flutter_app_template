@@ -67,7 +67,6 @@ class BubbleBorder extends ShapeBorder {
           ..relativeLineTo(-12, 12)
           // 右下へ直線を描く
           ..relativeLineTo(12, 12);
-        break;
       case Destination.right:
         path
           ..addRRect(RRect.fromRectAndRadius(r, const Radius.circular(8)))
@@ -77,7 +76,6 @@ class BubbleBorder extends ShapeBorder {
           ..relativeLineTo(12, 12)
           // 左下へ直線を描く
           ..relativeLineTo(-12, 12);
-        break;
       case Destination.top:
         path
           ..addRRect(RRect.fromRectAndRadius(r, const Radius.circular(8)))
@@ -87,7 +85,6 @@ class BubbleBorder extends ShapeBorder {
           ..relativeLineTo(12, -12)
           // 右下へ直線を描く
           ..relativeLineTo(12, 12);
-        break;
       case Destination.bottom:
         path
           ..addRRect(RRect.fromRectAndRadius(r, const Radius.circular(8)))
@@ -97,7 +94,6 @@ class BubbleBorder extends ShapeBorder {
           ..relativeLineTo(-12, 12)
           // 左上へ直線を描く
           ..relativeLineTo(-12, -12);
-        break;
     }
     // 始点まで線を繋げて閉じる
     path.close();

@@ -12,7 +12,7 @@ List<Locale>? locales(LocalesRef ref) {
   final binding = WidgetsBinding.instance..addObserver(observer);
   ref.onDispose(() => binding.removeObserver(observer));
 
-  return window.locales;
+  return PlatformDispatcher.instance.locales;
 }
 
 class _LocaleObserver extends WidgetsBindingObserver {

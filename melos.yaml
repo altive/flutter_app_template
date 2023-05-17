@@ -49,7 +49,7 @@ scripts:
   format:
     run: |
       melos exec -- \
-        flutter format --dry-run --set-exit-if-changed lib/
+        dart format --set-exit-if-changed lib/
     description: Run format.
     packageFilters:
       flutter: true

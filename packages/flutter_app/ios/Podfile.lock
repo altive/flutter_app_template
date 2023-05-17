@@ -27,7 +27,7 @@ PODS:
   - Firebase/Storage (10.7.0):
     - Firebase/CoreOnly
     - FirebaseStorage (~> 10.7.0)
-  - firebase_auth (4.4.2):
+  - firebase_auth (4.6.0):
     - Firebase/Auth (= 10.7.0)
     - firebase_core
     - Flutter
@@ -183,8 +183,8 @@ DEPENDENCIES:
   - google_sign_in_ios (from `.symlinks/plugins/google_sign_in_ios/ios`)
   - image_picker_ios (from `.symlinks/plugins/image_picker_ios/ios`)
   - package_info_plus (from `.symlinks/plugins/package_info_plus/ios`)
-  - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/ios`)
-  - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/ios`)
+  - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
+  - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
   - sqflite (from `.symlinks/plugins/sqflite/ios`)
   - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
 
@@ -240,9 +240,9 @@ EXTERNAL SOURCES:
   package_info_plus:
     :path: ".symlinks/plugins/package_info_plus/ios"
   path_provider_foundation:
-    :path: ".symlinks/plugins/path_provider_foundation/ios"
+    :path: ".symlinks/plugins/path_provider_foundation/darwin"
   shared_preferences_foundation:
-    :path: ".symlinks/plugins/shared_preferences_foundation/ios"
+    :path: ".symlinks/plugins/shared_preferences_foundation/darwin"
   sqflite:
     :path: ".symlinks/plugins/sqflite/ios"
   url_launcher_ios:
@@ -257,7 +257,7 @@ SPEC CHECKSUMS:
   AppAuth: e48b432bb4ba88b10cb2bcc50d7f3af21e78b9c2
   cloud_firestore: 511b4d22a2b3c73d1d6f1974b1cf0971a034ea16
   Firebase: 0219acf760880eeec8ce479895bd7767466d9f81
-  firebase_auth: 98778cde4127b34d2d006f8bd049d3a8131f37bd
+  firebase_auth: 6608b43809305e8d82957dffd6419b04ee4a31e5
   firebase_core: 312d0d81b346ec20540822c8498e626d6918ef48
   firebase_dynamic_links: 6910c165ebf7d30d8f3d5667668049b69a05ccbd
   firebase_performance: 2a0f7dcea97db730990e16a1e94eecc3280160a8
@@ -294,6 +294,6 @@ SPEC CHECKSUMS:
   sqflite: 6d358c025f5b867b29ed92fc697fd34924e11904
   url_launcher_ios: 08a3dfac5fb39e8759aeb0abbd5d9480f30fc8b4
 
-PODFILE CHECKSUM: 1ee01ebce1107f180f16c9c78e85039e2a76cb81
+PODFILE CHECKSUM: 30c829e97852351df5237880c62bc691c701470c
 
 COCOAPODS: 1.12.1

@@ -1,15 +1,17 @@
 buildscript {
-    ext.kotlin_version = '1.6.10'
+    ext.kotlin_version = '1.8.21'
     repositories {
         google()
         jcenter()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.0'
+        classpath 'com.android.tools.build:gradle:7.3.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.google.gms:google-services:4.3.8' // For Forebase.
-        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.5.1' // For Crashlytics.
+        // 最新バージョンはここで確認：Firebase Android SDK Release Notes
+        // https://firebase.google.com/support/release-notes/android
+        classpath 'com.google.gms:google-services:4.3.15' // For Forebase.
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.9.4' // For Crashlytics.
     }
 }
 
@@ -26,6 +28,6 @@ subprojects {
     project.evaluationDependsOn(':app')
 }
 
-task clean(type: Delete) {
+tasks.register("clean", Delete) {
     delete rootProject.buildDir
 }
