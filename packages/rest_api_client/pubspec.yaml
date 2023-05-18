@@ -4,7 +4,7 @@ publish_to: "none"
 version: 1.0.0
 
 environment:
-  sdk: ">=3.0.0 <4.0.0"
+  sdk: ^3.0.0
 
 dependencies:
   dio: ^5.1.1
@@ -13,7 +13,7 @@ dependencies:
   riverpod_annotation: ^2.0.0
 
 dev_dependencies:
-  altive_lints: ^1.6.1
+  altive_lints: ^1.7.0
   build_runner: ^2.2.0
   retrofit_generator: ^6.0.0+3
   riverpod_generator: ^2.0.0

@@ -4,7 +4,7 @@ publish_to: "none"
 version: 1.0.0
 
 environment:
-  sdk: ">=3.0.0 <4.0.0"
+  sdk: ^3.0.0
 
 dependencies:
   collection: ^1.16.0
@@ -16,7 +16,7 @@ dependencies:
   riverpod_annotation: ^2.0.0
 
 dev_dependencies:
-  altive_lints: ^1.6.1
+  altive_lints: ^1.7.0
   build_runner: ^2.3.2
   flutter_test:
     sdk: flutter
