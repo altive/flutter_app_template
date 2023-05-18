@@ -84,6 +84,8 @@
 			"source.addMissingImports",
 			// Dart fix を実行する。
 			"source.fixAll",
+			// セミコロンを挿入する。
+			"quickfix.insertSemicolon",
 		],
 	},
 	// arbファイルが保存されるたびにLocalizationファイルを再生成させる
@@ -94,6 +96,8 @@
 	"dart.debugExternalPackageLibraries": false,
 	// Dart SDKライブラリをデバッグ可能としてマークし、デバッグ中のステップインを可能にするなら`true`
 	"dart.debugSdkLibraries": false,
+	// 実験的な（未完成や不安定な可能性のある）リファクタを有効にするなら`true`
+	"dart.experimentalRefactors": true,
 	// スキップしたテストをテストツリーに表示させるなら`true`
 	"dart.showSkippedTests": false,
 	// pubspec.yamlが保存されるたびにpub getするなら`always`
