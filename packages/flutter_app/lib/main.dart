@@ -15,24 +15,18 @@ Future<void> main() async {
   const flavorName = String.fromEnvironment('flavor');
   final flavor = Flavor.values.byName(flavorName);
 
-  late final SharedPreferences sp;
-  late final PackageInfo pi;
-  await Future.wait([
-    Future(
-      () async => Firebase.initializeApp(
-        options: firebaseOptionsWithFlavor(flavor),
-      ),
-    ),
-    Future(() async => sp = await SharedPreferences.getInstance()),
-    Future(() async => pi = await PackageInfo.fromPlatform()),
-  ]);
+  final (_, sharedPreferences, packageInfo) = await (
+    Firebase.initializeApp(options: firebaseOptionsWithFlavor(flavor)),
+    SharedPreferences.getInstance(),
+    PackageInfo.fromPlatform(),
+  ).wait;
 
   runApp(
     ProviderScope(
       overrides: [
         flavorProvider.overrideWithValue(flavor),
-        sharedPreferencesProvider.overrideWithValue(sp),
-        packageInfoProvider.overrideWithValue(pi),
+        sharedPreferencesProvider.overrideWithValue(sharedPreferences),
+        packageInfoProvider.overrideWithValue(packageInfo),
       ],
       child: const FlutterApp(),
     ),
