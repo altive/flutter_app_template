@@ -45,13 +45,13 @@ final l10n = L10n.of(context);
 
 ```shell
 # Dev
-flutterfire configure -y -o lib/environment/src/firebase_options_dev.dart -p flutter-app-template-dev -a jp.co.altive.fat.dev -i jp.co.altive.fat.dev -m jp.co.altive.fat.dev
+melos run flutterfire:dev
 
 # Staging
-flutterfire configure -y -o lib/environment/src/firebase_options_stg.dart -p flutter-app-template-stg -a jp.co.altive.fat.stg -i jp.co.altive.fat.stg -m jp.co.altive.fat.stg
+melos run flutterfire:stg
 
 # Production
-flutterfire configure -y -o lib/environment/src/firebase_options_prod.dart -p altive-fat -a jp.co.altive.fat -i jp.co.altive.fat -m jp.co.altive.fat
+melos run flutterfire:prod
 ```
 
 `-y`: Skip the Y/n confirmation prompts accept default options.
