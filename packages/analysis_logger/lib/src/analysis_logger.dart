@@ -1,13 +1,12 @@
 import 'dart:async';
+import 'dart:isolate';
 
 import 'package:authenticator/authenticator.dart' show SigningMethod;
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
-import 'package:riverpod/riverpod.dart';
+import 'package:flutter/foundation.dart';
 
 import 'analysis_event.dart';
-
-final analysisLoggerProvider = Provider((ref) => AnalysisLogger());
 
 /// 解析に必要なログを送信する役割を持つ。
 ///
@@ -105,5 +104,49 @@ class AnalysisLogger {
       parameters: event.parameters,
       callOptions: global == null ? null : AnalyticsCallOptions(global: global),
     );
+  }
+
+  /// Flutterフレームワークがキャッチしたエラーを記録するコールバック。
+  ///
+  /// 使用例：
+  /// ```dart
+  /// FlutterError.onError = analysisLogger.onFlutterError;
+  /// ```
+  Future<void> onFlutterError(
+    FlutterErrorDetails flutterErrorDetails, {
+    bool fatal = false,
+  }) async {
+    FlutterError.presentError(flutterErrorDetails);
+    await _crashlytics.recordFlutterError(flutterErrorDetails, fatal: fatal);
+  }
+
+  /// Flutterフレームワークでキャッチできない非同期エラーを記録するコールバック。
+  ///
+  /// 使用例：
+  /// ```dart
+  /// PlatformDispatcher.instance.onError = analysisLogger.onPlatformError;
+  /// ```
+  bool onPlatformError(Object error, StackTrace stack) {
+    unawaited(_crashlytics.recordError(error, stack, fatal: true));
+    return true;
+  }
+
+  /// Flutter外部のエラーを記録するために[Isolate.current]に登録するリスナー。
+  ///
+  /// 使用例：
+  /// ```dart
+  /// Isolate.current.addErrorListener(
+  ///   analysisLogger.isolateErrorListener()
+  /// );
+  /// ```
+  SendPort isolateErrorListener() {
+    return RawReceivePort((List<dynamic> pair) async {
+      final errorAndStacktrace = pair;
+      await _crashlytics.recordError(
+        errorAndStacktrace.first,
+        errorAndStacktrace.last as StackTrace,
+        fatal: true,
+      );
+    }).sendPort;
   }
 }
