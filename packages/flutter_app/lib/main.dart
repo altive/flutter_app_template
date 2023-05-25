@@ -27,13 +27,13 @@ Future<void> main() async {
     retrieveUserDevice(),
   ).wait;
 
-  final analyticsReporter = AnalysisLogger();
+  final analysisLogger = AnalysisLogger();
   // Flutterフレームワークがキャッチしたエラーを記録する。
-  FlutterError.onError = analyticsReporter.onFlutterError;
+  FlutterError.onError = analysisLogger.onFlutterError;
   // Flutterフレームワークでキャッチできない非同期エラーを記録する。
-  PlatformDispatcher.instance.onError = analyticsReporter.onPlatformError;
+  PlatformDispatcher.instance.onError = analysisLogger.onPlatformError;
   // Flutter外部のエラーを記録する。
-  Isolate.current.addErrorListener(analyticsReporter.isolateErrorListener());
+  Isolate.current.addErrorListener(analysisLogger.isolateErrorListener());
 
   runApp(
     ProviderScope(
@@ -42,7 +42,7 @@ Future<void> main() async {
         sharedPreferencesProvider.overrideWithValue(sharedPreferences),
         packageInfoProvider.overrideWithValue(packageInfo),
         userDeviceProvider.overrideWithValue(userDevice),
-        analysisLoggerProvider.overrideWithValue(analyticsReporter),
+        analysisLoggerProvider.overrideWithValue(analysisLogger),
       ],
       child: const FlutterApp(),
     ),
