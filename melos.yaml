@@ -136,7 +136,7 @@ scripts:
     run: |
       melos exec -c 1 -- \
         flutterfire configure -y -o lib/environment/src/firebase_options_dev.dart -p flutter-app-template-dev -a jp.co.altive.fat.dev -i jp.co.altive.fat.dev -m jp.co.altive.fat.dev
-    description: Generate the Firebase configuration file for the staging app.
+    description: Generate the Firebase configuration file for the development app.
     packageFilters:
       flutter: true
       dirExists: [lib, ios, android]
