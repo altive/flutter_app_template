@@ -11,6 +11,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'environment/environment.dart';
 import 'features/user_device/user_device.dart';
 import 'flutter_app.dart';
+import 'package_adaptor/analysis_logger/analysis_logger_provider.dart';
 import 'util/providers/providers.dart';
 
 Future<void> main() async {

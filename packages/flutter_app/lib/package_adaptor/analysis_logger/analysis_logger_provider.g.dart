@@ -10,7 +10,7 @@ part of 'analysis_logger_provider.dart';
 
 String _$analysisLoggerHash() => r'8fc3dc469dadbb93a45c4fae625c2af7ccc51ecd';
 
-/// `analysis_logger` バッケージの `AnalysisLogger` クラスインスタンスを提供する。
+/// `analysis_logger` パッケージの `AnalysisLogger` クラスインスタンスを提供する。
 ///
 /// Copied from [analysisLogger].
 @ProviderFor(analysisLogger)

@@ -3,7 +3,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'analysis_logger_provider.g.dart';
 
-/// `analysis_logger` バッケージの `AnalysisLogger` クラスインスタンスを提供する。
+/// `analysis_logger` パッケージの `AnalysisLogger` クラスインスタンスを提供する。
 @Riverpod(keepAlive: true)
 AnalysisLogger analysisLogger(AnalysisLoggerRef ref) {
   throw UnimplementedError();

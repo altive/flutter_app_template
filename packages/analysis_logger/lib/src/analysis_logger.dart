@@ -5,11 +5,8 @@ import 'package:authenticator/authenticator.dart' show SigningMethod;
 import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/foundation.dart';
-import 'package:riverpod/riverpod.dart';
 
 import 'analysis_event.dart';
-
-final analysisLoggerProvider = Provider((ref) => AnalysisLogger());
 
 /// 解析に必要なログを送信する役割を持つ。
 ///
