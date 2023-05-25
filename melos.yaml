@@ -131,3 +131,33 @@ scripts:
     packageFilters:
       flutter: true
       dirExists: [lib, ios]
+
+  flutterfire:dev:
+    run: |
+      melos exec -c 1 -- \
+        flutterfire configure -y -o lib/environment/src/firebase_options_dev.dart -p flutter-app-template-dev -a jp.co.altive.fat.dev -i jp.co.altive.fat.dev -m jp.co.altive.fat.dev
+    description: Generate the Firebase configuration file for the development app.
+    packageFilters:
+      flutter: true
+      dirExists: [lib, ios, android]
+      dependsOn: "firebase_core"
+
+  flutterfire:stg:
+    run: |
+      melos exec -c 1 -- \
+        flutterfire configure -y -o lib/environment/src/firebase_options_stg.dart -p flutter-app-template-stg -a jp.co.altive.fat.stg -i jp.co.altive.fat.stg -m jp.co.altive.fat.stg
+    description: Generate the Firebase configuration file for the staging app.
+    packageFilters:
+      flutter: true
+      dirExists: [lib, ios, android]
+      dependsOn: "firebase_core"
+
+  flutterfire:prod:
+    run: |
+      melos exec -c 1 -- \
+        flutterfire configure -y -o lib/environment/src/firebase_options_prod.dart -p altive-fat -a jp.co.altive.fat -i jp.co.altive.fat -m jp.co.altive.fat
+    description: Generate the Firebase configuration file for the production app.
+    packageFilters:
+      flutter: true
+      dirExists: [lib, ios, android]
+      dependsOn: "firebase_core"

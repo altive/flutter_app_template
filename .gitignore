@@ -105,6 +105,7 @@ unlinked_spec.ds
 **/ios/**/xcuserdata
 **/ios/.generated/
 **/ios/GoogleService-Info.plist
+**/ios/firebase_app_id_file.json
 **/ios/Flutter/.last_build_id
 **/ios/Flutter/App.framework
 **/ios/Flutter/Flutter.framework
@@ -124,6 +125,7 @@ unlinked_spec.ds
 
 # macOS
 **/macos/Flutter/GeneratedPluginRegistrant.swift
+**/macos/firebase_app_id_file.json
 
 # Web related
 lib/generated_plugin_registrant.dart
