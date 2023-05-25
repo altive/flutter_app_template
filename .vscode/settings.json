@@ -106,6 +106,17 @@
 	"dart.renameFilesWithClasses": "always",
 	// エクスプローラでファイルやフォルダをドラッグ＆ドロップした時に確認を求めるなら`true`
 	"explorer.confirmDragAndDrop": false,
+	// Explorer上でファイルをグループ化しネスト表示させる
+	"explorer.fileNesting.enabled": true,
+	"explorer.fileNesting.expand": false,
+	"explorer.fileNesting.patterns": {
+		"pubspec.yaml": ".flutter-plugins, .packages, .dart_tool, .flutter-plugins-dependencies, .metadata, template.iml, pubspec.lock, lefthook.yaml, pubspec_overrides.yaml",
+		"firebase.json": ".firebaserc, firestore.rules, firestore.indexes.json,storage.rules, remoteconfig.template.json",
+		".env.sample": ".env*",
+		".gitignore": ".gitattributes, .gitmodules, .gitmessage, .mailmap, .git-blame*",
+		"readme.*": "authors, backers.md, changelog*, citation*, code_of_conduct.md, codeowners, contributing.md, contributors, copying, credits, governance.md, history.md, license*, maintainers, readme*, security.md, sponsors.md",
+		"*.dart": "$(capture).g.dart, $(capture).freezed.dart, $(capture).mocks.dart"
+	},
 	// 指定したファイルを監視から除外する
 	"files.watcherExclude": {
 		"**/.fvm": true
