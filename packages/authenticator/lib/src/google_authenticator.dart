@@ -1,15 +1,18 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:riverpod/riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../authenticator.dart';
 import 'authenticatable.dart';
 
 export 'auth_user_provider.dart';
 
-final googleAuthenticatorProvider = Provider<GoogleAuthenticator>((ref) {
+part 'google_authenticator.g.dart';
+
+@Riverpod(keepAlive: true)
+GoogleAuthenticator googleAuthenticator(GoogleAuthenticatorRef ref) {
   return GoogleAuthenticator(ref.watch(firebaseAuthProvider));
-});
+}
 
 class GoogleAuthenticator implements Authenticatable {
   GoogleAuthenticator(this._auth);

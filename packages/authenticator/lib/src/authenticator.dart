@@ -1,17 +1,20 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
-import 'package:riverpod/riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'apple_authenticator.dart';
 import 'firebase_auth_exception_code.dart';
 import 'google_authenticator.dart';
 
-final authenticatorProvider = Provider<Authenticator>((ref) {
+part 'authenticator.g.dart';
+
+@Riverpod(keepAlive: true)
+Authenticator authenticator(AuthenticatorRef ref) {
   return Authenticator(
     appleAuthenticator: ref.watch(appleAuthenticatorProvider),
     googleAuthenticator: ref.watch(googleAuthenticatorProvider),
   );
-});
+}
 
 class Authenticator {
   Authenticator({
