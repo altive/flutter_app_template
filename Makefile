@@ -12,6 +12,9 @@ melos:
 melos_bs:
 	melos bootstrap
 
+generate_code:
+	melos run gen --no-select
+
 flutterfire_cli:
 	fvm dart pub global activate flutterfire_cli
 
