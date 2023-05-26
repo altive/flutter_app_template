@@ -1,0 +1,17 @@
+targets:
+  $default:
+    builders:
+      source_gen|combining_builder:
+        options:
+          ignore_for_file:
+            - type=lint
+            - implicit_dynamic_parameter
+            - implicit_dynamic_type
+            - implicit_dynamic_method
+            - strict_raw_type
+      riverpod_generator:
+        generate_for:
+          include:
+            - lib/**/*provider.dart
+        options:
+          provider_name_suffix: "Provider" # (default)
