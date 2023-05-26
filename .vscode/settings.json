@@ -78,6 +78,8 @@
 		"editor.wordBasedSuggestions": false,
 		// ファイル保存時に実行されるコードアクション
 		"editor.codeActionsOnSave": [
+			// セミコロンを挿入する。
+			"quickfix.insertSemicolon",
 			// インポートを整理する。
 			"source.organizeImports",
 			// 足りないインポートを追加する。
