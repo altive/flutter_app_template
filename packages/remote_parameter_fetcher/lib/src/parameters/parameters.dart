@@ -1,2 +1,2 @@
-export 'is_under_maintenance.dart';
-export 'required_version.dart';
+export 'is_under_maintenance_provider.dart';
+export 'required_version_provider.dart';
