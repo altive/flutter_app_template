@@ -7,10 +7,13 @@ fvm_install:
 	fvm install
 
 melos:
-	fvm dart pub global activate melos
+	dart pub global activate melos
 
 melos_bs:
-	fvm dart pub global run melos bootstrap
+	melos bootstrap
+
+generate_code:
+	melos run gen --no-select
 
 flutterfire_cli:
 	fvm dart pub global activate flutterfire_cli
