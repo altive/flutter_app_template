@@ -4,6 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../router/router.dart';
 import '../../../util/localizer/localizer.dart';
+import '../../../widgets/widgets.dart';
 
 class NotFoundPageBody extends HookConsumerWidget {
   const NotFoundPageBody({
@@ -21,7 +22,7 @@ class NotFoundPageBody extends HookConsumerWidget {
       children: [
         Text(l10n.notFoundPageHeaderLabel),
         const Gap(32),
-        Text(path, style: Theme.of(context).textTheme.displaySmall),
+        DisplaySmallText(path),
         const Gap(32),
         Text(l10n.notFoundPageDescription),
         Center(
