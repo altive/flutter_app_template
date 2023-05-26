@@ -7,7 +7,7 @@ import 'firebase_messaging_provider.dart';
 
 part 'notification_configurator_provider.g.dart';
 
-/// 通知の設定を担当する。[state]にを通知設定状態を持つ
+/// 通知の設定を担当する。[state]に通知設定状態を持つ
 @Riverpod(keepAlive: true)
 class NotificationConfigurator extends _$NotificationConfigurator {
   FirebaseMessaging get _messaging => ref.watch(firebaseMessagingProvider);
