@@ -5,6 +5,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../../environment/environment.dart';
 import '../../../util/localizer/localizer.dart';
 import '../../../util/providers/package_info_provider.dart';
+import '../../../widgets/widgets.dart';
 
 class AppInfoBody extends HookConsumerWidget {
   const AppInfoBody({super.key});
@@ -12,7 +13,6 @@ class AppInfoBody extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = L10n.of(context);
-    final textTheme = Theme.of(context).textTheme;
     final flavor = ref.watch(flavorProvider);
     final packageInfo = ref.watch(packageInfoProvider);
     return ListView(
@@ -23,15 +23,15 @@ class AppInfoBody extends HookConsumerWidget {
         const Gap(8),
         const Text('Developed by Ryunosuke Muramatsu.'),
         const Divider(),
-        Center(child: Text('App Environment', style: textTheme.displayMedium)),
+        const Center(child: DisplayMediumText('App Environment')),
         const Gap(16),
-        Text('Flavor', style: textTheme.titleLarge),
+        const TitleLargeText('Flavor'),
         Text(flavor.name),
         const Gap(32),
-        Text('App name', style: textTheme.titleLarge),
+        const TitleLargeText('App name'),
         Text(packageInfo.appName),
         const Gap(32),
-        Text('Package name', style: textTheme.titleLarge),
+        const TitleLargeText('Package name'),
         Text(packageInfo.packageName),
       ],
     );

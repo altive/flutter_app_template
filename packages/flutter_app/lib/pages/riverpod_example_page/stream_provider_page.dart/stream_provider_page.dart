@@ -3,6 +3,8 @@ import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+import '../../../widgets/widgets.dart';
+
 part 'stream_provider_page.g.dart';
 
 // Provider example.
@@ -51,10 +53,7 @@ class StreamProviderPage extends ConsumerWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                'Increment with stream:',
-                style: Theme.of(context).textTheme.displaySmall,
-              ),
+              const DisplaySmallText('Increment with stream:'),
               const Gap(16),
               // countProvider の値を表示
               asyncCount.when(
@@ -64,10 +63,7 @@ class StreamProviderPage extends ConsumerWidget {
                   child: const Text('Refresh'),
                 ),
                 data: (count) {
-                  return Text(
-                    '$count',
-                    style: Theme.of(context).textTheme.displayLarge,
-                  );
+                  return DisplayLargeText('$count');
                 },
               ),
             ],

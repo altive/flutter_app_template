@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../../widgets/widgets.dart';
+
 // Provider example.
 
 // 1ずつ値を増加させるためのカウンターProvider
@@ -33,15 +35,9 @@ class ProviderPage extends ConsumerWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                '2倍されたカウント値：',
-                style: Theme.of(context).textTheme.displaySmall,
-              ),
+              const DisplaySmallText('2倍されたカウント値：'),
               // doubleCounterProvider の値を表示
-              Text(
-                '$doubleCount',
-                style: Theme.of(context).textTheme.displayLarge,
-              ),
+              DisplayLargeText('$doubleCount'),
               ElevatedButton(
                 // counterProvider の値を+1する。
                 onPressed: () => ref.read(counterProvider.notifier).update(

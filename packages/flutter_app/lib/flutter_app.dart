@@ -26,15 +26,13 @@ class FlutterApp extends ConsumerWidget {
 
     final router = ref.watch(routerProvider);
 
-    const themeData = AltiveThemeData();
-
     return MaterialApp.router(
       routerDelegate: router.routerDelegate,
       routeInformationParser: router.routeInformationParser,
       routeInformationProvider: router.routeInformationProvider,
       onGenerateTitle: (context) => L10n.of(context).title,
-      theme: themeData.light(),
-      darkTheme: themeData.dark(),
+      theme: appLightThemeData,
+      darkTheme: appDarkThemeData,
       themeMode: ref.watch(themeSelectorProvider),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,

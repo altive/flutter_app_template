@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../../widgets/widgets.dart';
+
 // Provider example.
 final counterProvider = StateProvider((ref) => 0);
 
@@ -28,10 +30,7 @@ class StateProviderPage extends ConsumerWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               // counterProviderの状態（カウント数）をTextで表示
-              Text(
-                'Count: ${ref.watch(counterProvider)}',
-                style: Theme.of(context).textTheme.displayLarge,
-              ),
+              DisplayLargeText('Count: ${ref.watch(counterProvider)}'),
               const Gap(32),
               ElevatedButton(
                 // ボタンタップでcounterProviderの状態をプラス１する

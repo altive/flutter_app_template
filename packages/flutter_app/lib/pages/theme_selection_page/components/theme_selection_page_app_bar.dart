@@ -3,6 +3,7 @@ import 'package:gap/gap.dart';
 import 'package:themes/themes.dart';
 
 import '../../../util/localizer/localizer.dart';
+import '../../../widgets/widgets.dart';
 
 class ThemeSelectionPageAppBar extends StatelessWidget
     implements PreferredSizeWidget {
@@ -14,16 +15,13 @@ class ThemeSelectionPageAppBar extends StatelessWidget
   @override
   Widget build(BuildContext context) {
     final l10n = L10n.of(context);
-    final themeDescription = Theme.of(context).extension<ThemeDescription>()!;
+    final themeDescription = context.themeDescription;
     return AppBar(
       title: Text(l10n.themeSelectionPageAppBarTitle),
       actions: [
         themeDescription.icon,
         Align(
-          child: Text(
-            themeDescription.title,
-            style: Theme.of(context).textTheme.titleLarge,
-          ),
+          child: TitleLargeText(themeDescription.title),
         ),
         const Gap(16),
       ],

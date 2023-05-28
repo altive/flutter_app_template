@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-ElevatedButtonThemeData elevatedButtonTheme(ColorScheme colorScheme) =>
+ElevatedButtonThemeData appElevatedButtonTheme(ColorScheme colorScheme) =>
     ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
         elevation: 0,
@@ -10,7 +10,7 @@ ElevatedButtonThemeData elevatedButtonTheme(ColorScheme colorScheme) =>
       ),
     );
 
-OutlinedButtonThemeData outlinedButtonTheme(ColorScheme colorScheme) =>
+OutlinedButtonThemeData appOutlinedButtonTheme(ColorScheme colorScheme) =>
     OutlinedButtonThemeData(
       style: OutlinedButton.styleFrom(
         backgroundColor: colorScheme.background,
@@ -19,6 +19,6 @@ OutlinedButtonThemeData outlinedButtonTheme(ColorScheme colorScheme) =>
       ),
     );
 
-TextButtonThemeData get textButtonTheme => TextButtonThemeData(
+TextButtonThemeData get appTextButtonTheme => TextButtonThemeData(
       style: TextButton.styleFrom(),
     );

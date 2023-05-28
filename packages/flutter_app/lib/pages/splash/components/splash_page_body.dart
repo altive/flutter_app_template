@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../../widgets/widgets.dart';
 import 'providers.dart';
 
 class SplashPageBody extends ConsumerWidget {
@@ -12,14 +13,8 @@ class SplashPageBody extends ConsumerWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(
-            'Splash',
-            style: Theme.of(context).textTheme.titleLarge,
-          ),
-          Text(
-            '${ref.watch(splashCountdownProvider)}',
-            style: Theme.of(context).textTheme.displayLarge,
-          ),
+          const TitleLargeText('Splash'),
+          DisplayLargeText('${ref.watch(splashCountdownProvider)}'),
           const CircularProgressIndicator(),
         ],
       ),
