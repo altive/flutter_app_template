@@ -49,7 +49,8 @@ void main() {
       final themeNotifier = container.read(themeSelectorProvider.notifier);
       // テスト対象のメソッドを、任意の引数で実行する。
       await themeNotifier.changeAndSave(ThemeMode.dark);
-      expect(themeNotifier.debugState, ThemeMode.dark);
+      final themeMode = container.read(themeSelectorProvider);
+      expect(themeMode, ThemeMode.dark);
 
       final sp = container.read(sharedPreferencesProvider);
       final themeIndex = sp.getInt('selectedThemeKey');

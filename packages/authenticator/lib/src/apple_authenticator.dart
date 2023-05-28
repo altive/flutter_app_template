@@ -1,13 +1,16 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
-import 'package:riverpod/riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../authenticator.dart';
 import 'authenticatable.dart';
 
-final appleAuthenticatorProvider = Provider<AppleAuthenticator>((ref) {
+part 'apple_authenticator.g.dart';
+
+@Riverpod(keepAlive: true)
+AppleAuthenticator appleAuthenticator(AppleAuthenticatorRef ref) {
   return AppleAuthenticator(ref.watch(firebaseAuthProvider));
-});
+}
 
 class AppleAuthenticator implements Authenticatable {
   AppleAuthenticator(this._auth);

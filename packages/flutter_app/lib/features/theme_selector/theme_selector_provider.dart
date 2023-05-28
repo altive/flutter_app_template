@@ -1,33 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../util/providers/shared_preferences_provider.dart';
+
+part 'theme_selector_provider.g.dart';
 
 /// SharedPreferences で使用するテーマ保存用のキー
 const _themePrefsKey = 'selectedThemeKey';
 
-final themeSelectorProvider = StateNotifierProvider<ThemeSelector, ThemeMode>(
-  ThemeSelector.new,
-);
-
-class ThemeSelector extends StateNotifier<ThemeMode> {
-  ThemeSelector(this._ref) : super(ThemeMode.system) {
+@Riverpod(keepAlive: true)
+class ThemeSelector extends _$ThemeSelector {
+  @override
+  ThemeMode build() {
     /// `SharedPreferences` を使用して、記憶しているテーマがあれば取得して反映する。
-    final themeIndex = _prefs.getInt(_themePrefsKey);
+    final pref = ref.watch(sharedPreferencesProvider);
+    final themeIndex = pref.getInt(_themePrefsKey);
     if (themeIndex == null) {
-      return;
+      return ThemeMode.system;
     }
     final themeMode = ThemeMode.values.firstWhere(
       (e) => e.index == themeIndex,
       orElse: () => ThemeMode.system,
     );
-    state = themeMode;
+    return themeMode;
   }
 
-  final Ref _ref;
-
   /// 選択したテーマを保存するためのローカル保存領域
-  late final _prefs = _ref.read(sharedPreferencesProvider);
+  SharedPreferences get _prefs => ref.read(sharedPreferencesProvider);
 
   /// テーマの変更と保存を行う
   Future<void> changeAndSave(ThemeMode theme) async {

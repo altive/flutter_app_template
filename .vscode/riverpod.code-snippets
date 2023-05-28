@@ -1,4 +1,27 @@
 {
+    "Riverpod and simple class": {
+        "prefix": "riverpodAndSimpleClass",
+        "body": [
+            "import 'package:hooks_riverpod/hooks_riverpod.dart';",
+            "import 'package:riverpod_annotation/riverpod_annotation.dart';",
+            "",
+            "part '${TM_FILENAME_BASE}.g.dart';",
+            "",
+            "@Riverpod(keepAlive: true)",
+            "${TM_FILENAME_BASE/(.*)/${1:/pascalcase}${2}/} ${TM_FILENAME_BASE/(.*)/${1:/camellcase}${2}/}(${TM_FILENAME_BASE/(.*)/${1:/pascalcase}${2}/}Ref ref) =>",
+            "    ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}${2}/}(ref);",
+            "",
+            "class ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}${2}/} {",
+            "  const ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}${2}/}(this.ref);",
+            "",
+            "  final Ref ref;",
+            "",
+            "  Future<void> call() async {",
+            "    // TODO: implementation",
+            "  }",
+            "}",
+        ],
+    },
     "Riverpod from Method": {
         "prefix": "riverpodMethod",
         "body": [

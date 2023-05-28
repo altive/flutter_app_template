@@ -1,14 +1,15 @@
 import 'dart:async';
 
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:riverpod/riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'firebase_messaging_provider.dart';
 
-/// 通知の設定を担当する。[state]にを通知設定状態を持つ
-class NotificationConfigurator extends AsyncNotifier<NotificationSettings> {
-  NotificationConfigurator();
+part 'notification_configurator_provider.g.dart';
 
+/// 通知の設定を担当する。[state]に通知設定状態を持つ
+@Riverpod(keepAlive: true)
+class NotificationConfigurator extends _$NotificationConfigurator {
   FirebaseMessaging get _messaging => ref.watch(firebaseMessagingProvider);
 
   @override

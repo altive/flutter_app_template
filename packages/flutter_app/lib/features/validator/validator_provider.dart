@@ -1,8 +1,11 @@
-import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-final validatorProvider = Provider<Validator>((ref) {
+part 'validator_provider.g.dart';
+
+@Riverpod(keepAlive: true)
+Validator validator(ValidatorRef ref) {
   return const Validator();
-});
+}
 
 class Validator {
   const Validator();
