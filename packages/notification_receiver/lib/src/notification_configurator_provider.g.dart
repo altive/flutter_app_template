@@ -11,7 +11,7 @@ part of 'notification_configurator_provider.dart';
 String _$notificationConfiguratorHash() =>
     r'15145a28e77d69dbe3a8b64d01c5f8285084418a';
 
-/// 通知の設定を担当する。[state]にを通知設定状態を持つ
+/// 通知の設定を担当する。[state]に通知設定状態を持つ
 ///
 /// Copied from [NotificationConfigurator].
 @ProviderFor(NotificationConfigurator)

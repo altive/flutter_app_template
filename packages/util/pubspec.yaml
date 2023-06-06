@@ -6,7 +6,7 @@ version: 1.0.0
 homepage: https://github.com/altive/flutter_app_template/tree/main/packages/util
 
 environment:
-  sdk: ^3.0.0
+  sdk: ^3.0.3
 
 dependencies:
   flutter:
