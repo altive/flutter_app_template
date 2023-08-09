@@ -15,4 +15,5 @@ jobs:
     with:
       version: ${{ inputs.version }}
       working-directory: "./packages/flutter_app"
-    secrets: inherit
+      app-id: ${{ secrets.GHAPP_ID }}
+      private-key: ${{ secrets.GHAPP_PRIVATE_KEY }}
