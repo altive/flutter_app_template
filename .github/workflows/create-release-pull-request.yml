@@ -11,7 +11,7 @@ on:
         type: string
 jobs:
   create:
-    uses: altive/.github/.github/workflows/create-release-pull-request.yaml@main
+    uses: altive/.github/.github/workflows/create-release-pull-request-for-flutter-app@main
     with:
       version: ${{ inputs.version }}
       working-directory: "./packages/flutter_app"
