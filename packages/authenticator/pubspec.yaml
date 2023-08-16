@@ -8,7 +8,7 @@ environment:
 
 dependencies:
   collection: ^1.16.0
-  firebase_auth: ^4.6.1
+  firebase_auth: ^4.7.3
   flutter:
     sdk: flutter
   google_sign_in: ^6.1.0

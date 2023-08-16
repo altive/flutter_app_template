@@ -15,16 +15,16 @@ dependencies:
     path: ../authenticator
   awaitable_button: ^1.2.0
   cached_network_image: ^3.2.2
-  cloud_firestore: ^4.7.1
+  cloud_firestore: ^4.8.5
   collection: ^1.16.0
   convenient_widgets:
     path: ../convenient_widgets
   cupertino_icons: ^1.0.5
   device_info_plus: ^9.0.0
-  firebase_core: ^2.13.0
-  firebase_dynamic_links: ^5.3.1
-  firebase_performance: ^0.9.2+1
-  firebase_storage: ^11.2.1
+  firebase_core: ^2.15.1
+  firebase_dynamic_links: ^5.3.5
+  firebase_performance: ^0.9.2+5
+  firebase_storage: ^11.2.6
   flutter:
     sdk: flutter
   flutter_hooks: ^0.18.5+1
