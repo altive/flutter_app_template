@@ -82,7 +82,7 @@ class NotifierProviderPage extends ConsumerWidget {
         title: const Text(title),
         actions: [
           // ボタンを押して新しいTodoを追加できる（実際のアプリではTodoのタイトル等を入力できるようにする）
-          IconButton(onPressed: addTodo, icon: const Icon(Icons.add))
+          IconButton(onPressed: addTodo, icon: const Icon(Icons.add)),
         ],
       ),
       body: SafeArea(
