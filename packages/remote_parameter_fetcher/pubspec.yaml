@@ -7,7 +7,7 @@ environment:
   sdk: ^3.0.3
 
 dependencies:
-  firebase_remote_config: ^4.2.1
+  firebase_remote_config: ^4.2.5
   flutter:
     sdk: flutter
   meta: ^1.7.0
