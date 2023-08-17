@@ -33,7 +33,7 @@ class SettingsPageBody extends HookConsumerWidget {
         ListTile(
           title: Text(userDevice.name),
           subtitle: Text('${userDevice.osName} ${userDevice.osVersion}'),
-        )
+        ),
       ],
     );
   }

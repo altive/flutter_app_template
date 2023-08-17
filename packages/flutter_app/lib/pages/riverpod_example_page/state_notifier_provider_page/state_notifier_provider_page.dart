@@ -77,7 +77,7 @@ class StateNotifierProviderPage extends ConsumerWidget {
         title: const Text(title),
         actions: [
           // ボタンを押して新しいTodoを追加できる（実際はTodoのタイトル等を入力できるようにすると良い）
-          IconButton(onPressed: addTodo, icon: const Icon(Icons.add))
+          IconButton(onPressed: addTodo, icon: const Icon(Icons.add)),
         ],
       ),
       body: SafeArea(

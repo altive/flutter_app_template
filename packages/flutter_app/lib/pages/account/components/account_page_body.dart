@@ -28,7 +28,7 @@ class AccountPageBody extends HookConsumerWidget {
               TextButton(
                 onPressed: () => Navigator.pop(context, true),
                 child: Text(l10n.buttonSignOut),
-              )
+              ),
             ],
           );
         },

@@ -20,7 +20,7 @@ Dio dioClient({
         if (cookie != null) HttpHeaders.cookieHeader: cookie,
         if (authorization != null)
           HttpHeaders.authorizationHeader: authorization,
-        if (customHeaders != null) ...customHeaders
+        if (customHeaders != null) ...customHeaders,
       },
     ),
   )..interceptors.addAll(interceptors);
