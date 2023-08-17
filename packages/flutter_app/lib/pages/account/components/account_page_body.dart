@@ -37,7 +37,6 @@ class AccountPageBody extends HookConsumerWidget {
         return;
       }
       final signedOut = await authenticator.signOut();
-      // ignore: use_build_context_synchronously
       if (!context.mounted) {
         return;
       }
