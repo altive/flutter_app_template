@@ -32,7 +32,7 @@ dependencies:
     sdk: flutter
   flutter_svg: ^2.0.5
   freezed_annotation: ^2.2.0
-  gap: ^2.0.0
+  gap: ^3.0.1
   go_router: ^7.0.0
   google_sign_in: ^6.1.0
   hooks_riverpod: ^2.3.6
