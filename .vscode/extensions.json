@@ -10,6 +10,8 @@
         "streetsidesoftware.code-spell-checker",
         "toba.vsfire",
         "vscode-icons-team.vscode-icons",
-        "robert-brunhage.flutter-riverpod-snippets"
+        "miquelddg.dart-barrel-file-generator",
+        "djbkwon.flutter-dependency-docs",
+        "pflannery.vscode-versionlens"
     ]
 }
