@@ -11,6 +11,7 @@ command:
     hooks:
       post: |
         melos exec --flutter --dir-exists=lib/l10n -- "flutter gen-l10n"
+        melos run pod
   clean:
     hooks:
       post: |
@@ -90,7 +91,7 @@ scripts:
       flutter: true
       dirExists: test
 
-  pod:all:
+  pod:
     run: |
       melos run pod:ios --no-select
       melos run pod:macos --no-select
