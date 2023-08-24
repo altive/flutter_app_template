@@ -12,14 +12,14 @@ dependencies:
   flutter:
     sdk: flutter
   google_sign_in: ^6.1.0
-  riverpod: ^2.3.0
-  riverpod_annotation: ^2.0.0
+  riverpod: ^2.3.7
+  riverpod_annotation: ^2.1.2
 
 dev_dependencies:
-  altive_lints: ^1.7.0
-  build_runner: ^2.3.2
+  altive_lints: ^1.8.1
+  build_runner: ^2.4.6
   flutter_test:
     sdk: flutter
-  riverpod_generator: ^2.0.0
+  riverpod_generator: ^2.2.6
 
 flutter:

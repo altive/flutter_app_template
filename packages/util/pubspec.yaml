@@ -11,11 +11,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  json_annotation: ^4.8.0
+  json_annotation: ^4.8.1
   shared_preferences: ^2.0.15
 
 dev_dependencies:
-  altive_lints: ^1.7.0
+  altive_lints: ^1.8.1
   flutter_test:
     sdk: flutter
 
