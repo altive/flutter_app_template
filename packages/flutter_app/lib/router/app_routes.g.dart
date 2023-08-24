@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-// ignore_for_file: type=lint, implicit_dynamic_parameter, implicit_dynamic_type, implicit_dynamic_method, strict_raw_type
+// ignore_for_file: duplicate_ignore, type=lint, implicit_dynamic_parameter, implicit_dynamic_type, implicit_dynamic_method, strict_raw_type
 
 part of 'app_routes.dart';
 
@@ -32,6 +32,8 @@ extension $SplashRouteExtension on SplashRoute {
 
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
 }
 
 RouteBase get $signinRoute => GoRouteData.$route(
@@ -52,6 +54,8 @@ extension $SigninRouteExtension on SigninRoute {
 
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
 }
 
 RouteBase get $topLevelTabRoute => GoRouteData.$route(
@@ -116,7 +120,15 @@ extension $TopLevelTabRouteExtension on TopLevelTabRoute {
 
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
 }
+
+const _$TopLevelTabEnumMap = {
+  TopLevelTab.home: 'home',
+  TopLevelTab.riverpod: 'riverpod',
+  TopLevelTab.settings: 'settings',
+};
 
 extension $AppInfoRouteExtension on AppInfoRoute {
   static AppInfoRoute _fromState(GoRouterState state) => AppInfoRoute(
@@ -133,6 +145,8 @@ extension $AppInfoRouteExtension on AppInfoRoute {
 
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
 }
 
 extension $ProviderRouteExtension on ProviderRoute {
@@ -150,6 +164,8 @@ extension $ProviderRouteExtension on ProviderRoute {
 
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
 }
 
 extension $StateProviderRouteExtension on StateProviderRoute {
@@ -168,6 +184,8 @@ extension $StateProviderRouteExtension on StateProviderRoute {
 
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
 }
 
 extension $StreamProviderRouteExtension on StreamProviderRoute {
@@ -186,6 +204,8 @@ extension $StreamProviderRouteExtension on StreamProviderRoute {
 
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
 }
 
 extension $NotifierProviderRouteExtension on NotifierProviderRoute {
@@ -204,6 +224,8 @@ extension $NotifierProviderRouteExtension on NotifierProviderRoute {
 
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
 }
 
 extension $AsyncNotifierProviderRouteExtension on AsyncNotifierProviderRoute {
@@ -222,6 +244,8 @@ extension $AsyncNotifierProviderRouteExtension on AsyncNotifierProviderRoute {
 
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
 }
 
 extension $StateNotifierProviderRouteExtension on StateNotifierProviderRoute {
@@ -240,6 +264,8 @@ extension $StateNotifierProviderRouteExtension on StateNotifierProviderRoute {
 
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
 }
 
 extension $ListenProviderRouteExtension on ListenProviderRoute {
@@ -258,6 +284,8 @@ extension $ListenProviderRouteExtension on ListenProviderRoute {
 
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
 }
 
 extension $ThemeSelectionRouteExtension on ThemeSelectionRoute {
@@ -276,6 +304,8 @@ extension $ThemeSelectionRouteExtension on ThemeSelectionRoute {
 
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
 }
 
 extension $AccountRouteExtension on AccountRoute {
@@ -293,13 +323,9 @@ extension $AccountRouteExtension on AccountRoute {
 
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
-}
 
-const _$TopLevelTabEnumMap = {
-  TopLevelTab.home: 'home',
-  TopLevelTab.riverpod: 'riverpod',
-  TopLevelTab.settings: 'settings',
-};
+  void replace(BuildContext context) => context.replace(location);
+}
 
 extension<T extends Enum> on Map<T, String> {
   T _$fromName(String value) =>
