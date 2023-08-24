@@ -9,12 +9,12 @@ environment:
 dependencies:
   dio: ^5.1.1
   retrofit: ^4.0.1
-  riverpod: ^2.3.0
-  riverpod_annotation: ^2.0.0
+  riverpod: ^2.3.7
+  riverpod_annotation: ^2.1.2
 
 dev_dependencies:
-  altive_lints: ^1.7.0
-  build_runner: ^2.2.0
-  retrofit_generator: ^7.0.1
-  riverpod_generator: ^2.0.0
+  altive_lints: ^1.8.1
+  build_runner: ^2.4.6
+  retrofit_generator: ^7.0.8
+  riverpod_generator: ^2.2.6
   test: ^1.21.1

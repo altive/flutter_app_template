@@ -31,20 +31,20 @@ dependencies:
   flutter_localizations:
     sdk: flutter
   flutter_svg: ^2.0.5
-  freezed_annotation: ^2.2.0
+  freezed_annotation: ^2.4.1
   gap: ^3.0.1
   go_router: ^7.0.0
   google_sign_in: ^6.1.0
   hooks_riverpod: ^2.3.6
   image_picker: ^0.8.5
   intl: ^0.18.1
-  json_annotation: ^4.8.0
+  json_annotation: ^4.8.1
   linked_scroll_controller: ^0.2.0
   modal_bottom_sheet: ^2.1.2
   package_info_plus: ^3.0.2
   rest_api_client:
     path: ../rest_api_client
-  riverpod_annotation: ^2.1.1
+  riverpod_annotation: ^2.1.2
   shared_preferences: ^2.1.0
   simple_logger: ^1.9.0+1
   sort_key_generator: ^0.2.0+1
@@ -56,19 +56,19 @@ dependencies:
   version: ^3.0.2
 
 dev_dependencies:
-  altive_lints: ^1.7.0
-  build_runner: ^2.3.3
-  custom_lint: ^0.4.0
+  altive_lints: ^1.8.1
+  build_runner: ^2.4.6
+  custom_lint: ^0.5.2
   flutter_gen_runner: ^5.3.1
   flutter_launcher_icons: ^0.13.1
   flutter_test:
     sdk: flutter
-  freezed: ^2.3.4
+  freezed: ^2.4.1
   go_router_builder: ^2.0.1
-  json_serializable: ^6.6.1
+  json_serializable: ^6.7.1
   mockito: ^5.2.0
-  riverpod_generator: ^2.2.1
-  riverpod_lint: ^1.3.2
+  riverpod_generator: ^2.2.6
+  riverpod_lint: ^2.0.1
 
 dependency_overrides:
   # Because flutter_app depends on flutter_localizations from sdk which depends on intl 0.18.0, intl 0.18.0 is required.
