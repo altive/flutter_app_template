@@ -159,7 +159,6 @@
 				51FA83072E71518FB6ED9BF4 /* Pods-Runner.release.xcconfig */,
 				6EBA3C577F94F165FE099A5F /* Pods-Runner.profile.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -181,12 +180,14 @@
 				EC705417BB7BC3C831C41038 /* [CP] Check Pods Manifest.lock */,
 				33CC10E92044A3C60003C045 /* Sources */,
 				33CC10EA2044A3C60003C045 /* Frameworks */,
+				8D0A366C2A9722A1008847C9 /* Select GoogleService-Info.plist */,
+				8D0A366D2A9722D0008847C9 /* Select firebase_app_id_file.json */,
 				33CC10EB2044A3C60003C045 /* Resources */,
 				33CC110E2044A8840003C045 /* Bundle Framework */,
 				3399D490228B24CF009A79C7 /* ShellScript */,
 				AA5EE51A68D293BE0C9BA9B6 /* [CP] Embed Pods Frameworks */,
-				530B2125663C42013F4D531F /* [CP] Copy Pods Resources */,
 				86E77DD0456BE33DAD768033 /* [firebase_crashlytics] Crashlytics Upload Symbols */,
+				4DD25F8677A4827B375CDF74 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -205,7 +206,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 1300;
+				LastUpgradeCheck = 1430;
 				ORGANIZATIONNAME = "";
 				TargetAttributes = {
 					33CC10EC2044A3C60003C045 = {
@@ -294,7 +295,7 @@
 			shellPath = /bin/sh;
 			shellScript = "\"$FLUTTER_ROOT\"/packages/flutter_tools/bin/macos_assemble.sh && touch Flutter/ephemeral/tripwire";
 		};
-		530B2125663C42013F4D531F /* [CP] Copy Pods Resources */ = {
+		4DD25F8677A4827B375CDF74 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -330,6 +331,44 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"$PODS_ROOT/FirebaseCrashlytics/upload-symbols\" --flutter-project \"$PROJECT_DIR/firebase_app_id_file.json\" ";
+		};
+		8D0A366C2A9722A1008847C9 /* Select GoogleService-Info.plist */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Select GoogleService-Info.plist";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/GoogleService-Info.plist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\\cp -f ${SRCROOT}/${flavor}/GoogleService-Info.plist ${SRCROOT}/GoogleService-Info.plist\n";
+		};
+		8D0A366D2A9722D0008847C9 /* Select firebase_app_id_file.json */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Select firebase_app_id_file.json";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/firebase_app_id_file.json",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\\cp -f ${SRCROOT}/${flavor}/firebase_app_id_file.json ${SRCROOT}/firebase_app_id_file.json\n";
 		};
 		AA5EE51A68D293BE0C9BA9B6 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

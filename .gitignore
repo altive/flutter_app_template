@@ -125,6 +125,7 @@ unlinked_spec.ds
 
 # macOS
 **/macos/Flutter/GeneratedPluginRegistrant.swift
+**/macos/GoogleService-Info.plist
 **/macos/firebase_app_id_file.json
 
 # Web related
