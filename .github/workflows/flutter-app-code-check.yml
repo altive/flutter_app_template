@@ -30,7 +30,7 @@ jobs:
           cache: true
 
       - name: Prepare Melos
-        run: echo "MELOS_SDK_PATH=${{ env.FLUTTER_ROOT }}" >> $GITHUB_ENV
+        run: echo "MELOS_SDK_PATH=${{ env.FLUTTER_ROOT }}" >> "$GITHUB_ENV"
 
       - name: Install Melos
         uses: bluefireteam/melos-action@v2
