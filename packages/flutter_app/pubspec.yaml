@@ -68,7 +68,7 @@ dev_dependencies:
   json_serializable: ^6.7.1
   mockito: ^5.2.0
   riverpod_generator: ^2.2.6
-  riverpod_lint: ^2.0.1
+  riverpod_lint: ^2.0.3
 
 dependency_overrides:
   # Because flutter_app depends on flutter_localizations from sdk which depends on intl 0.18.0, intl 0.18.0 is required.

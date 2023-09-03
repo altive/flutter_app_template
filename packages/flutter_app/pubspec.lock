@@ -660,10 +660,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_riverpod
-      sha256: b6cb0041c6c11cefb2dcb97ef436eba43c6d41287ac6d8ca93e02a497f53a4f3
+      sha256: b04d4e9435a563673746ccb328d22018c6c9496bb547e11dd56c1b0cc9829fe5
       url: "https://pub.dev"
     source: hosted
-    version: "2.3.7"
+    version: "2.3.10"
   flutter_svg:
     dependency: "direct main"
     description:
@@ -1189,10 +1189,10 @@ packages:
     dependency: transitive
     description:
       name: riverpod
-      sha256: b0657b5b30c81a3184bdaab353045f0a403ebd60bb381591a8b7ad77dcade793
+      sha256: "6c0a2c30c04206ac05494bcccd8148b76866e1a9248a5a8c84ca7b16fbcb3f6a"
       url: "https://pub.dev"
     source: hosted
-    version: "2.3.7"
+    version: "2.3.10"
   riverpod_analyzer_utils:
     dependency: transitive
     description:
@@ -1221,10 +1221,10 @@ packages:
     dependency: "direct dev"
     description:
       name: riverpod_lint
-      sha256: c9a16d8cb89667696b031d66f43c12ac8d663d773093425e6ff6af7e682973b1
+      sha256: a26fbbd4b948c1a009264418bd6f9b153be75317ac61a2c37ed3920af2e135e4
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.1"
+    version: "2.0.3"
   rxdart:
     dependency: transitive
     description:
