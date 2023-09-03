@@ -10,17 +10,40 @@ jobs:
     if: startsWith(github.head_ref, 'dependabot/pub/')
     name: Pod install
     runs-on: ubuntu-latest
+    env:
+      head_ref: ${{ github.head_ref }}
     steps:
-      - name: Retrieve package
-        env:
-          head_ref: ${{ github.head_ref }}
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Retrie~ve package
         run: |
           PACKAGE=$(echo "${{ env.head_ref }}" | cut -d "/" -f 4)
           echo "directory=packages/$PACKAGE/ios" >> "$GITHUB_ENV"
+
       - name: Setup Cocoapods
         uses: maxim-lobanov/setup-cocoapods@v1
         with:
           podfile-path: "${{ env.directory }}/Podfile.lock"
+
       - name: Install pods
         run: pod install --project-directory=${{ env.directory }}
-  
+
+      - name: Check diff
+        run: |
+          diff_count=$(git diff | wc -l)
+          echo "has_diff=${diff_count != '0'}" >> "$GITHUB_ENV"
+
+      - name: Git config
+        if: env.has_diff
+        run: |
+          git remote set-url origin "https://github-actions:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}"
+          git config --global user.name "${GITHUB_ACTOR}"
+          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+
+      - name: Commit and Push
+        if: env.has_diff
+        run: |
+          git add .
+          git commit -m "build(deps): install pods"
+          git push origin ${{ env.head_ref }}
