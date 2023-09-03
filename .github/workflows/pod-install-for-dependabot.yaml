@@ -9,7 +9,7 @@ jobs:
   pod:
     if: startsWith(github.head_ref, 'dependabot/pub/')
     name: Pod install
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     env:
       head_ref: ${{ github.head_ref }}
     steps:
@@ -20,11 +20,6 @@ jobs:
         run: |
           PACKAGE=$(echo "${{ env.head_ref }}" | cut -d "/" -f 4)
           echo "directory=packages/$PACKAGE/ios" >> "$GITHUB_ENV"
-
-      - name: Setup Cocoapods
-        uses: maxim-lobanov/setup-cocoapods@v1
-        with:
-          podfile-path: "${{ env.directory }}/Podfile.lock"
 
       - name: Install pods
         run: pod install --project-directory=${{ env.directory }}
