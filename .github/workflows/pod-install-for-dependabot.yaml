@@ -26,12 +26,20 @@ jobs:
           PACKAGE=$(echo "${{ env.head_ref }}" | cut -d "/" -f 4)
           echo "directory=packages/$PACKAGE/ios" >> "$GITHUB_ENV"
 
+      - name: Check if directory exists
+        run: |
+          if [ ! -d ${{ env.directory }} ]; then
+              echo "::notice::iOS directory not found"
+              echo "directory_exists=false" >> $GITHUB_ENV
+          fi
+
       - name: Parse Flutter version
+        if: env.directory_exists == 'true'
         id: fvm
         uses: kuhnroyal/flutter-fvm-config-action@v1
 
       - name: Install Flutter
-        id: install-flutter
+        if: env.directory_exists == 'true'
         uses: subosito/flutter-action@v2
         with:
           flutter-version: ${{ steps.fvm.outputs.FLUTTER_VERSION }}
@@ -39,14 +47,17 @@ jobs:
           cache: true
 
       - name: Flutter pub get
+        if: env.directory_exists == 'true'
         run: |
           cd ${{ env.directory }}
           flutter pub get
 
       - name: Install pods
+        if: env.directory_exists == 'true'
         run: pod install --project-directory=${{ env.directory }}
 
       - name: Check diff
+        if: env.directory_exists == 'true'
         run: |
           diff_count=$(git diff | wc -l)
           if [ "$diff_count" -ne 0 ]; then
@@ -56,7 +67,7 @@ jobs:
           fi
 
       - name: Git config
-        if: env.has_diff == 'true'
+        if: env.directory_exists == 'true' && env.has_diff == 'true'
         id: git_config
         run: |
           git remote set-url origin "https://github-actions:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}"
