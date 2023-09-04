@@ -1,0 +1,79 @@
+name: Pod install for Dependabot
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  pod:
+    if: startsWith(github.head_ref, 'dependabot/pub/')
+    name: Pod install
+    runs-on: macos-latest
+    env:
+      head_ref: ${{ github.head_ref }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Retrieve package
+        run: |
+          PACKAGE=$(echo "${{ env.head_ref }}" | cut -d "/" -f 4)
+          echo "directory=packages/$PACKAGE/ios" >> "$GITHUB_ENV"
+
+      - name: Parse Flutter version
+        id: fvm
+        uses: kuhnroyal/flutter-fvm-config-action@v1
+
+      - name: Install Flutter
+        id: install-flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ steps.fvm.outputs.FLUTTER_VERSION }}
+          channel: ${{ steps.fvm.outputs.FLUTTER_CHANNEL }}
+          cache: true
+
+      - name: Flutter pub get
+        run: |
+          cd ${{ env.directory }}
+          flutter pub get
+
+      - name: Install pods
+        run: pod install --project-directory=${{ env.directory }}
+
+      - name: Check diff
+        run: |
+          diff_count=$(git diff | wc -l)
+          if [ "$diff_count" -ne 0 ]; then
+              echo "has_diff=true" >> "$GITHUB_ENV"
+          else
+              echo "has_diff=false" >> "$GITHUB_ENV"
+          fi
+
+      - name: Git config
+        if: env.has_diff
+        run: |
+          git remote set-url origin "https://github-actions:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}"
+          git config --global user.name "${GITHUB_ACTOR}"
+          git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+
+      - name: Commit and Push
+        if: env.has_diff
+        run: |
+          git fetch origin ${{ env.head_ref }}
+          git switch ${{ env.head_ref }}
+          git add .
+          git commit -m "build(deps): install pods"
+          git push origin ${{ env.head_ref }}
+
+      - name: Commnet to PR
+        if: env.has_diff
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: 'I did a pod install and found a difference in the podfile.lock, so I committed it!'
+            })

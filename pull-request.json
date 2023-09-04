@@ -1,0 +1,10 @@
+{
+    "pull_request": {
+        "head": {
+            "ref": "dependabot/pub/packages/flutter_app/go_router_builder-2.3.1"
+        },
+        "base": {
+            "ref": "main"
+        }
+    }
+}
