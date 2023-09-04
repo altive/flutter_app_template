@@ -14,7 +14,7 @@ jobs:
       head_ref: ${{ github.head_ref }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Retrieve package
         run: |
@@ -52,13 +52,23 @@ jobs:
 
       - name: Git config
         if: env.has_diff
+        id: git_config
         run: |
           git remote set-url origin "https://github-actions:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}"
           git config --global user.name "${GITHUB_ACTOR}"
           git config --global user.email "${GITHUB_ACTOR}@users.noreply.github.com"
 
+      - name: Generate GiHub App token
+        if: steps.git_config.conclusion == 'success'
+        id: generate_token
+        uses: tibdex/github-app-token@v1
+        with:
+          app_id: ${{ secrets.PR_WRITER_APP_ID }}
+          private_key: ${{ secrets.PR_WRITER_PRIVATE_KEY }}
+
       - name: Commit and Push
-        if: env.has_diff
+        if: steps.generate_token.conclusion == 'success'
+        id: commit
         run: |
           git fetch origin ${{ env.head_ref }}
           git switch ${{ env.head_ref }}
@@ -67,7 +77,7 @@ jobs:
           git push origin ${{ env.head_ref }}
 
       - name: Commnet to PR
-        if: env.has_diff
+        if: steps.commit.conclusion == 'success'
         uses: actions/github-script@v6
         with:
           script: |
@@ -77,6 +87,14 @@ jobs:
               repo: context.repo.repo,
               body: 'I did a pod install and found a difference in the podfile.lock, so I committed it!'
             })
-  check:
-    needs: pod
-    uses: ./.github/workflows/flutter-app-code-check.yml
+
+      - name: Revoke GitHub Apps token
+        if: steps.generate_token.conclusion == 'success'
+        env:
+          GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
+        run: |
+          curl --location --silent --request DELETE \
+            --url "${GITHUB_API_URL}/installation/token" \
+            --header "Accept: application/vnd.github+json" \
+            --header "X-GitHub-Api-Version: 2022-11-28" \
+            --header "Authorization: Bearer ${GITHUB_TOKEN}"
