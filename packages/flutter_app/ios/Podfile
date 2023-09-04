@@ -34,8 +34,8 @@ target 'Runner' do
 
   pod 'FirebaseFirestore',
     :git => 'https://github.com/invertase/firestore-ios-sdk-frameworks.git',
-    :tag => File.read(File.join(File.expand_path('../../..').split('packages').first,
-      'FirebaseSDKVersionTag.txt')).chomp
+    :tag => File.read(File.join(File.dirname(__FILE__), '../../../FirebaseSDKVersionTag.txt')).chomp
+
 end
 
 post_install do |installer|
