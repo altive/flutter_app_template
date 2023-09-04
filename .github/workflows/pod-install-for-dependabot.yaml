@@ -60,6 +60,8 @@ jobs:
       - name: Commit and Push
         if: env.has_diff
         run: |
+          git fetch origin ${{ env.head_ref }}
+          git switch ${{ env.head_ref }}
           git add .
           git commit -m "build(deps): install pods"
           git push origin ${{ env.head_ref }}
