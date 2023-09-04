@@ -77,3 +77,6 @@ jobs:
               repo: context.repo.repo,
               body: 'I did a pod install and found a difference in the podfile.lock, so I committed it!'
             })
+  check:
+    needs: pod
+    uses: ./.github/workflows/flutter-app-code-check.yml
