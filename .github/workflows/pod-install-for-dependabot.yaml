@@ -74,6 +74,8 @@ jobs:
       - name: Commit and Push
         if: steps.generate_token.conclusion == 'success'
         id: commit
+        env:
+          GITHUB_TOKEN: ${{ steps.generate_token.outputs.token }}
         run: |
           git fetch origin ${{ env.head_ref }}
           git switch ${{ env.head_ref }}
