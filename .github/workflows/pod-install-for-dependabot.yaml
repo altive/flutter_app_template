@@ -44,7 +44,11 @@ jobs:
       - name: Check diff
         run: |
           diff_count=$(git diff | wc -l)
-          echo "has_diff=${diff_count != '0'}" >> "$GITHUB_ENV"
+          if [ "$diff_count" -ne 0 ]; then
+              echo "has_diff=true" >> "$GITHUB_ENV"
+          else
+              echo "has_diff=false" >> "$GITHUB_ENV"
+          fi
 
       - name: Git config
         if: env.has_diff
