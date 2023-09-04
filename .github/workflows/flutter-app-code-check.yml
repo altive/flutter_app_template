@@ -1,6 +1,7 @@
 name: Flutter app code check
 
 on:
+  workflow_call:
   workflow_dispatch:
   push:
     branches:
