@@ -28,7 +28,7 @@ jobs:
 
       - name: Check if directory exists
         run: |
-          if [ ! -d ${{ env.directory }} ]; then
+          if [ ! -d "${{ github.workspace }}/${{ env.directory }}" ]; then
               echo "::notice::iOS directory not found"
               echo "directory_exists=false" >> $GITHUB_ENV
           fi
