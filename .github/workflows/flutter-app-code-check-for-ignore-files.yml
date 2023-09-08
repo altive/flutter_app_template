@@ -1,0 +1,20 @@
+name: Flutter app code check for ignore files
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - "**/.github/**"
+      - "**/.gitignore"
+      - "**/.vscode/**"
+      - "**/README.md"
+      - ".cspell/**"
+      - "Makefile"
+      - "mason.yaml"
+
+jobs:
+  flutter_check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: 'echo "No build required"'

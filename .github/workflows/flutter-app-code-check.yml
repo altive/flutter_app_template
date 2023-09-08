@@ -22,10 +22,12 @@ on:
       - ".cspell/**"
       - "Makefile"
       - "mason.yaml"
+  schedule:
+    - cron: "0 0 * * 1"
   workflow_dispatch:
 
 jobs:
-  check:
+  flutter_check:
     runs-on: ubuntu-latest
 
     steps:
@@ -53,14 +55,14 @@ jobs:
         run: melos run analyze --no-select
 
       - name: Check for the existence of unformatted files
-        run: melos run format --no-select
+        run: melos run format:ci --no-select
 
       - name: Run package tests
-        run: melos run test --no-select
+        run: melos run test:ci --no-select
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          files: ~/coverage/lcov.info
+          files: coverage/lcov.info
           fail_ci_if_error: false
