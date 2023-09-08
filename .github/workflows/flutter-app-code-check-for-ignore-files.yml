@@ -12,6 +12,10 @@ on:
       - "Makefile"
       - "mason.yaml"
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   flutter_check:
     runs-on: ubuntu-latest
