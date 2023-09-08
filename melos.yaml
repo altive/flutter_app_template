@@ -49,11 +49,20 @@ scripts:
   format:
     run: |
       melos exec -- \
-        dart format --set-exit-if-changed lib/
+        dart format lib test
     description: Run format.
     packageFilters:
       flutter: true
-      dirExists: lib
+      dirExists: [lib, test]
+
+  format:ci:
+    run: |
+      melos exec -- \
+        dart format --set-exit-if-changed lib test
+    description: Run format.
+    packageFilters:
+      flutter: true
+      dirExists: [lib, test]
 
   fix:
     run: |
@@ -84,8 +93,17 @@ scripts:
   test:
     run: |
       melos exec --fail-fast -- \
-        flutter test --coverage
+        flutter test
     description: Run flutter test.
+    packageFilters:
+      flutter: true
+      dirExists: test
+
+  test:ci:
+    run: |
+      melos exec --fail-fast -- \
+        flutter test --coverage
+    description: Run flutter test for CI.
     packageFilters:
       flutter: true
       dirExists: test
