@@ -70,11 +70,6 @@ dev_dependencies:
   riverpod_generator: ^2.3.2
   riverpod_lint: ^2.0.4
 
-dependency_overrides:
-  # Because flutter_app depends on flutter_localizations from sdk which depends on intl 0.18.0, intl 0.18.0 is required.
-  # So, because flutter_app depends on intl ^0.18.1, version solving failed.
-  intl: 0.18.1
-
 flutter_gen:
   enabled: true
   output: lib/gen/
