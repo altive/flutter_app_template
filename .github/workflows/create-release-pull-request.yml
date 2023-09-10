@@ -16,5 +16,5 @@ jobs:
       version: ${{ inputs.version }}
       working-directory: "./packages/flutter_app"
     secrets: 
-      app-id: ${{ secrets.PR_WRITER_APP_ID }}
+      app-id: ${{ vars.PR_WRITER_APP_ID }}
       private-key: ${{ secrets.PR_WRITER_PRIVATE_KEY }}
