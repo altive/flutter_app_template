@@ -68,21 +68,6 @@ Change the app ID or app name to start building it as a separate app right away.
 
 Also check the [`flutter_app/README.md`](/packages/flutter_app/README.md).
 
-### `restock_app`
-
-Stockpile management app. for Japan using Amazon.co.jp.
-Slightly older, so some legacy code.
-
-### `ranking_note_app`
-
-An application to create and share rankings.
-Not yet released.
-
-### `onetaplog_app`
-
-An application that allows you to log various records of your life with a single tap.
-Not yet released.
-
 ## Dependency Package Overview
 
 ### State Management
