@@ -1,16 +1,19 @@
 name: Create release pull request
 
 on:
-  # トリガーは手動実行のみ。
   workflow_dispatch:
     inputs:
-      # リリースバージョンを入力する。
       version:
-        description: "リリースバージョン（例: 1.0.0）\n未指定の場合はビルド番号のみインクリメント。"
+        description: |
+          Release version e.g., 1.0.0
+          If not specified, only the build number is incremented.
         required: false
         type: string
 jobs:
   create:
+    permissions:
+      contents: write
+      pull-requests: write
     uses: altive/.github/.github/workflows/create-release-pull-request-for-flutter-app.yaml@main
     with:
       version: ${{ inputs.version }}
