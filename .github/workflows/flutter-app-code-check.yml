@@ -2,28 +2,9 @@ name: Flutter app code check
 
 on:
   push:
-    branches:
-      - main
-    paths-ignore:
-      - "**/.github/**"
-      - "**/.gitignore"
-      - "**/.vscode/**"
-      - "**/README.md"
-      - ".cspell/**"
-      - "Makefile"
-      - "mason.yaml"
+    branches: [main]
   pull_request:
     types: [opened, synchronize, reopened]
-    paths-ignore:
-      - "**/.github/**"
-      - "**/.gitignore"
-      - "**/.vscode/**"
-      - "**/README.md"
-      - ".cspell/**"
-      - "Makefile"
-      - "mason.yaml"
-  schedule:
-    - cron: "0 0 * * 1"
   workflow_dispatch:
 
 concurrency:
@@ -31,26 +12,47 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  flutter_check:
+  check:
     runs-on: ubuntu-latest
-
+    outputs:
+      flutter: ${{ steps.filter.outputs.flutter }}
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Parse Flutter version
-        id: fvm-config
-        uses: kuhnroyal/flutter-fvm-config-action@v1
-
-      - name: Install Flutter
-        id: install-flutter
-        uses: subosito/flutter-action@v2
+      - name: Filter by paths
+        uses: dorny/paths-filter@v2
+        id: filter
         with:
-          flutter-version: ${{ steps.fvm-config.outputs.FLUTTER_VERSION }}
-          channel: ${{ steps.fvm-config.outputs.FLUTTER_CHANNEL }}
-          cache: true
+          filters: |
+            flutter:
+              - '**/android/**'
+              - '**/assets/**'
+              - '**/dart_defines/**'
+              - '**/golden_test/**'
+              - '**/ios/**'
+              - '**/lib/**'
+              - '**/test/**'
+              - '**/web/**'
+              - '**/analysis_options.yaml'
+              - '**/melos.yaml'
+              - '**/pubspec.yaml'
+              - 'fvm_config.json'
+
+  analyze:
+    needs: check
+    if: ${{ needs.check.outputs.flutter == 'true' && github.event_name != 'push' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        id: setup-flutter
+        uses: ./.github/actions/setup_flutter
 
       - name: Prepare Melos
-        run: echo "MELOS_SDK_PATH=${{ steps.install-flutter.outputs.CACHE-PATH }}" >> "$GITHUB_ENV"
+        run: echo "MELOS_SDK_PATH=${{ steps.setup-flutter.outputs.flutter-path }}" >> "$GITHUB_ENV"
 
       - name: Install Melos
         uses: bluefireteam/melos-action@v2
@@ -61,6 +63,24 @@ jobs:
       - name: Check for the existence of unformatted files
         run: melos run format:ci --no-select
 
+  test:
+    needs: check
+    if: needs.check.outputs.flutter == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        id: setup-flutter
+        uses: ./.github/actions/setup_flutter
+
+      - name: Prepare Melos
+        run: echo "MELOS_SDK_PATH=${{ steps.setup-flutter.outputs.flutter-path }}" >> "$GITHUB_ENV"
+
+      - name: Install Melos
+        uses: bluefireteam/melos-action@v2
+
       - name: Run package tests
         run: melos run test:ci --no-select
 
@@ -69,4 +89,3 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: coverage/lcov.info
-          fail_ci_if_error: false
