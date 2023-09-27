@@ -1,47 +1,20 @@
-name: Setup Flutter from repository
-description: "Setup Flutter from repository"
-inputs:
-  ref:
-    description: "example: Branch"
-    required: false
-    default: "stable"
-  working_directory:
-    description: "working-directory. example: packages/flutter_app"
-    required: false
-    default: "./"
+name: Setup Flutter
+description: "Setup Flutter"
+outputs:
+  flutter-path:
+    description: "Flutter SDK path"
+    value: ${{ steps.install-flutter.outputs.CACHE-PATH }}
 runs:
   using: "composite"
   steps:
-    - name: Cache Flutter
-      uses: actions/cache@v2
-      id: flutter-cache
-      with:
-        path: _flutter
-        key: ${{ runner.os }}-${{ inputs.ref }}-${{ inputs.working_directory }}
+    - name: Parse Flutter version
+      id: fvm-config
+      uses: kuhnroyal/flutter-fvm-config-action@v1
 
     - name: Install Flutter
-      if: steps.flutter-cache.outputs.cache-hit != 'true'
-      run: git clone https://github.com/flutter/flutter.git --depth 1 -b ${{ inputs.ref }} "$GITHUB_WORKSPACE /_flutter"
-      shell: bash
-
-    - name: Add PATH
-      run: echo "$GITHUB_WORKSPACE/_flutter/bin" >> $GITHUB_PATH
-      shell: bash
-
-    - name: Cache Pub
-      uses: actions/cache@v2
-      id: pub-cache
+      id: install-flutter
+      uses: subosito/flutter-action@v2
       with:
-        path: |
-          ${{ env.FLUTTER_HOME }}/.pub-cache
-          **/.packages
-          **/.flutter-plugins
-          **/.flutter-plugin-dependencies
-          **/.dart_tool/package_config.json
-        key: build-pubspec-${{ hashFiles('**/pubspec.lock') }}
-
-    - name: Get dependencies
-      if: steps.pub-cache.outputs.cache-hit != 'true'
-      run: flutter pub get
-      working-directory: ${{ inputs.working_directory }}
-      shell: bash
+        flutter-version: ${{ steps.fvm-config.outputs.FLUTTER_VERSION }}
+        channel: ${{ steps.fvm-config.outputs.FLUTTER_CHANNEL }}
+        cache: true
