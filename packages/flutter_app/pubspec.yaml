@@ -19,7 +19,7 @@ dependencies:
   collection: ^1.16.0
   convenient_widgets:
     path: ../convenient_widgets
-  cupertino_icons: ^1.0.5
+  cupertino_icons: ^1.0.6
   device_info_plus: ^9.0.0
   firebase_core: ^2.15.1
   firebase_dynamic_links: ^5.3.5
