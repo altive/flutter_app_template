@@ -41,7 +41,7 @@ dependencies:
   json_annotation: ^4.8.1
   linked_scroll_controller: ^0.2.0
   modal_bottom_sheet: ^2.1.2
-  package_info_plus: ^3.0.2
+  package_info_plus: ^4.1.0
   rest_api_client:
     path: ../rest_api_client
   riverpod_annotation: ^2.1.5
