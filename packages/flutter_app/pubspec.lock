@@ -734,10 +734,10 @@ packages:
     dependency: "direct dev"
     description:
       name: go_router_builder
-      sha256: "89585f7cf2ddd35a3f05908c5bb54339d3f891fc5aac4f30e2864469d7ddc92b"
+      sha256: b004ed761578fd1326054ff9c97daaf7b94f109b24cad843ca8bd349a810f947
       url: "https://pub.dev"
     source: hosted
-    version: "2.3.1"
+    version: "2.3.3"
   google_identity_services_web:
     dependency: transitive
     description:
