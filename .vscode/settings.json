@@ -77,23 +77,23 @@
 		// コメントや文字列の編集時にコード補完が単語を示唆することある挙動を無効化する
 		"editor.wordBasedSuggestions": false,
 		// ファイル保存時に実行されるコードアクション
-		"editor.codeActionsOnSave": [
+		"editor.codeActionsOnSave": {
 			// セミコロンを挿入する。
-			"quickfix.insertSemicolon",
+			"quickfix.insertSemicolon": "always",
 			// インポートを整理する。
-			"source.organizeImports",
+			"source.organizeImports": "always",
 			// 足りないインポートを追加する。
-			"source.addMissingImports",
+			"source.addMissingImports": "always",
 			// Dart fix を実行する。
-			"source.fixAll",
-			// セミコロンを挿入する。
-			"quickfix.insertSemicolon",
-		],
+			"source.fixAll": "always",
+		},
 	},
 	// arbファイルが保存されるたびにLocalizationファイルを再生成させる
 	"dart.flutterGenerateLocalizationsOnSave": "all",
 	// 使用するFlutter SDKのパスを指定
 	"dart.flutterSdkPath": ".fvm/flutter_sdk",
+	// 使用するDart SDKのパスを指定
+	"dart.sdkPath": ".fvm/flutter_sdk/bin/cache/dart-sdk",
 	// 外部パッケージをデバッグ可能としてマークし、デバッグ中のステップインを可能にするなら`true`
 	"dart.debugExternalPackageLibraries": false,
 	// Dart SDKライブラリをデバッグ可能としてマークし、デバッグ中のステップインを可能にするなら`true`
