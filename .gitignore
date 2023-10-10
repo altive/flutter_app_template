@@ -76,7 +76,6 @@ unlinked_spec.ds
 **/android/.settings
 **/android/.project
 **/android/service-account.json
-**/android/app/google-services.json
 **/android/app/src/main/res/mipmap*/
 *.jks
 *.keystore
@@ -104,8 +103,6 @@ unlinked_spec.ds
 **/ios/**/profile
 **/ios/**/xcuserdata
 **/ios/.generated/
-**/ios/GoogleService-Info.plist
-**/ios/firebase_app_id_file.json
 **/ios/Flutter/.last_build_id
 **/ios/Flutter/App.framework
 **/ios/Flutter/Flutter.framework
@@ -125,8 +122,6 @@ unlinked_spec.ds
 
 # macOS
 **/macos/Flutter/GeneratedPluginRegistrant.swift
-**/macos/GoogleService-Info.plist
-**/macos/firebase_app_id_file.json
 
 # Web related
 lib/generated_plugin_registrant.dart

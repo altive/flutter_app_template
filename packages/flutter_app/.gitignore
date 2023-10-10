@@ -45,3 +45,10 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Firebase with Build Phases
+ios/firebase_app_id_file.json
+ios/Runner/GoogleService-Info.plist
+macos/firebase_app_id_file.json
+macos/Runner/GoogleService-Info.plist
+android/app/google-services.json
