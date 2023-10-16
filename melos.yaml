@@ -32,6 +32,24 @@ scripts:
 
   analyze:
     run: |
+      melos run analyze:dart --no-select
+      melos run analyze:flutter --no-select
+      melos run analyze:custom_lint --no-select
+    description: Run all analyze.
+    packageFilters:
+      dirExists: lib
+
+  analyze:dart:
+    run: |
+      melos exec -- \
+        dart analyze . --fatal-infos
+    description: Run analyze.
+    packageFilters:
+      flutter: false
+      dirExists: lib
+
+  analyze:flutter:
+    run: |
       melos exec -- \
         flutter analyze . --fatal-infos
     description: Run analyze.
@@ -39,11 +57,13 @@ scripts:
       flutter: true
       dirExists: lib
 
-  custom_lint:
+  analyze:custom_lint:
     run: |
       melos exec -- \
-        dart pub custom_lint
+        dart run custom_lint
+    description: Run custom_lint.
     packageFilters:
+      dirExists: lib
       dependsOn: "custom_lint"
 
   format:
@@ -75,7 +95,7 @@ scripts:
   gen:
     run: |
       melos exec -c 1 -- \
-        flutter pub run build_runner build --delete-conflicting-outputs
+        dart run build_runner build --delete-conflicting-outputs
     description: Run generate code.
     packageFilters:
       dirExists: lib
@@ -84,7 +104,7 @@ scripts:
   gen:watch:
     run: |
       melos exec -c 1 -- \
-        flutter pub run build_runner watch --delete-conflicting-outputs
+        dart run build_runner watch --delete-conflicting-outputs
     description: Watch and run generate code.
     packageFilters:
       dirExists: lib
