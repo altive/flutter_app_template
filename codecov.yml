@@ -1,4 +1,5 @@
-# See: https://docs.codecov.io/docs/codecov-yaml
+# See: https://docs.codecov.com/docs/codecov-yaml
+# validate: curl -X POST --data-binary @codecov.yml https://codecov.io/validate
 codecov:
   notify:
     require_ci_to_pass: true
@@ -13,8 +14,14 @@ coverage:
       default:
         target: auto
         threshold: 0%
-    patch: no # See: https://docs.codecov.io/docs/commit-status#section-patch-status
-    changes: false
+        paths:
+          - "lib"
+    patch: # for pull requests
+      default:
+        target: 80%
+        threshold: 0%
+        paths:
+          - "lib"
 
 parsers:
   gcov:
@@ -26,10 +33,23 @@ parsers:
 
 # excluding generated files and examples from the coverage report
 ignore:
+  - "**/gen"
+  - "**/stub"
   - "**/*.g.dart"
   - "**/*.freezed.dart"
 
 comment: # See: https://docs.codecov.io/docs/pull-request-comments
-  layout: "reach, diff, flags, files"
+  layout: "reach, diff, flags, tree, header, footer"
   behavior: default
   require_changes: false
+
+component_management:
+  default_rules:
+    paths:
+      - "packages/*/lib/**"
+      - "!**/*.g.dart"
+      - "!**/*.freezed.dart"
+  individual_components:
+    - component_id: flutter_app
+      paths:
+        - "packages/flutter_app/lib"
