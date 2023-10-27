@@ -5,5 +5,5 @@ part 'navigator_key_provider.g.dart';
 
 @Riverpod(keepAlive: true)
 GlobalKey<NavigatorState> navigatorKey(NavigatorKeyRef ref) {
-  throw UnimplementedError();
+  return GlobalKey<NavigatorState>();
 }

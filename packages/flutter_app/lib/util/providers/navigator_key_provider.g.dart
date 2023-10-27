@@ -8,7 +8,7 @@ part of 'navigator_key_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$navigatorKeyHash() => r'df03802d88ddaab66f91fd3f48895ada0695c920';
+String _$navigatorKeyHash() => r'617ac70ebc4c30db56eb48981eab39d3987bb6b3';
 
 /// See also [navigatorKey].
 @ProviderFor(navigatorKey)
