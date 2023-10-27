@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'components/settings_page_app_bar.dart';
 import 'components/settings_page_body.dart';
 
 class SettingsPage extends StatelessWidget {
@@ -8,9 +7,11 @@ class SettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: SettingsPageAppBar(),
-      body: SettingsPageBody(),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Settings'),
+      ),
+      body: const SettingsPageBody(),
     );
   }
 }

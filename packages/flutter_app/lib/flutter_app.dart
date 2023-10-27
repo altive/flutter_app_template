@@ -6,8 +6,6 @@ import 'package:themes/themes.dart';
 import 'features/theme_selector/theme_selector.dart';
 import 'router/router.dart';
 import 'util/localizer/localizer.dart';
-import 'util/logger.dart';
-import 'util/providers/providers.dart';
 import 'util/providers/scaffold_messenger_key_provider.dart';
 
 class FlutterApp extends ConsumerWidget {
@@ -15,22 +13,10 @@ class FlutterApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref
-      ..listen<List<Locale>?>(
-        localesProvider,
-        (previous, next) => logger.fine('Previous: $previous, Next: $next'),
-      )
-      ..listen<AppLifecycleState>(
-        appLifecycleStateProvider,
-        (previous, next) => logger.fine('Previous: $previous, Next: $next'),
-      );
-
     final router = ref.watch(routerProvider);
 
     return MaterialApp.router(
-      routerDelegate: router.routerDelegate,
-      routeInformationParser: router.routeInformationParser,
-      routeInformationProvider: router.routeInformationProvider,
+      routerConfig: router,
       onGenerateTitle: (context) => L10n.of(context).title,
       theme: appLightThemeData,
       darkTheme: appDarkThemeData,

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../router/router.dart';
-import '../top_level_tab/top_level_tab.dart';
 import 'async_notifier_provider_page/async_notifier_provider_page.dart';
 import 'listen_provider_page/listen_provider_page.dart';
 import 'notifier_provider_page/notifier_provider_page.dart';
@@ -27,40 +26,31 @@ class RiverpodExamplePage extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         children: [
           _FeatureCard(
-            onTap: () =>
-                const ProviderRoute(tab: TopLevelTab.riverpod).go(context),
+            onTap: () => const ProviderRouteData().go(context),
             label: ProviderPage.title,
           ),
           _FeatureCard(
-            onTap: () =>
-                const StateProviderRoute(tab: TopLevelTab.riverpod).go(context),
+            onTap: () => const StateProviderRouteData().go(context),
             label: StateProviderPage.title,
           ),
           _FeatureCard(
-            onTap: () => const StreamProviderRoute(tab: TopLevelTab.riverpod)
-                .go(context),
+            onTap: () => const StreamProviderRouteData().go(context),
             label: StreamProviderPage.title,
           ),
           _FeatureCard(
-            onTap: () => const NotifierProviderRoute(tab: TopLevelTab.riverpod)
-                .go(context),
+            onTap: () => const NotifierProviderRouteData().go(context),
             label: NotifierProviderPage.title,
           ),
           _FeatureCard(
-            onTap: () =>
-                const AsyncNotifierProviderRoute(tab: TopLevelTab.riverpod)
-                    .go(context),
+            onTap: () => const AsyncNotifierProviderRouteData().go(context),
             label: AsyncNotifierProviderPage.title,
           ),
           _FeatureCard(
-            onTap: () =>
-                const StateNotifierProviderRoute(tab: TopLevelTab.riverpod)
-                    .go(context),
+            onTap: () => const StateNotifierProviderRouteData().go(context),
             label: StateNotifierProviderPage.title,
           ),
           _FeatureCard(
-            onTap: () => const ListenProviderRoute(tab: TopLevelTab.riverpod)
-                .go(context),
+            onTap: () => const ListenProviderRouteData().go(context),
             label: ListenProviderPage.title,
           ),
         ],

@@ -9,109 +9,117 @@ part of 'app_routes.dart';
 // **************************************************************************
 
 List<RouteBase> get $appRoutes => [
-      $splashRoute,
-      $signinRoute,
-      $topLevelTabRoute,
+      $mainShellRouteData,
     ];
 
-RouteBase get $splashRoute => GoRouteData.$route(
-      path: '/',
-      factory: $SplashRouteExtension._fromState,
-    );
-
-extension $SplashRouteExtension on SplashRoute {
-  static SplashRoute _fromState(GoRouterState state) => const SplashRoute();
-
-  String get location => GoRouteData.$location(
-        '/',
-      );
-
-  void go(BuildContext context) => context.go(location);
-
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
-
-  void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location);
-
-  void replace(BuildContext context) => context.replace(location);
-}
-
-RouteBase get $signinRoute => GoRouteData.$route(
-      path: '/signin',
-      factory: $SigninRouteExtension._fromState,
-    );
-
-extension $SigninRouteExtension on SigninRoute {
-  static SigninRoute _fromState(GoRouterState state) => const SigninRoute();
-
-  String get location => GoRouteData.$location(
-        '/signin',
-      );
-
-  void go(BuildContext context) => context.go(location);
-
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
-
-  void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location);
-
-  void replace(BuildContext context) => context.replace(location);
-}
-
-RouteBase get $topLevelTabRoute => GoRouteData.$route(
-      path: '/:tab',
-      factory: $TopLevelTabRouteExtension._fromState,
-      routes: [
-        GoRouteData.$route(
-          path: 'app-info',
-          factory: $AppInfoRouteExtension._fromState,
+RouteBase get $mainShellRouteData => StatefulShellRouteData.$route(
+      factory: $MainShellRouteDataExtension._fromState,
+      branches: [
+        StatefulShellBranchData.$branch(
+          routes: [
+            GoRouteData.$route(
+              path: '/home',
+              factory: $HomeRouteDataExtension._fromState,
+              routes: [
+                GoRouteData.$route(
+                  path: 'app-info',
+                  factory: $AppInfoRouteDataExtension._fromState,
+                ),
+                GoRouteData.$route(
+                  path: 'riverpod',
+                  factory: $RiverpodExampleRouteDataExtension._fromState,
+                  routes: [
+                    GoRouteData.$route(
+                      path: 'provider',
+                      factory: $ProviderRouteDataExtension._fromState,
+                    ),
+                    GoRouteData.$route(
+                      path: 'state-provider',
+                      factory: $StateProviderRouteDataExtension._fromState,
+                    ),
+                    GoRouteData.$route(
+                      path: 'stream-provider',
+                      factory: $StreamProviderRouteDataExtension._fromState,
+                    ),
+                    GoRouteData.$route(
+                      path: 'notifier-provider',
+                      factory: $NotifierProviderRouteDataExtension._fromState,
+                    ),
+                    GoRouteData.$route(
+                      path: 'async-notifier-provider',
+                      factory:
+                          $AsyncNotifierProviderRouteDataExtension._fromState,
+                    ),
+                    GoRouteData.$route(
+                      path: 'state-notifier-provider',
+                      factory:
+                          $StateNotifierProviderRouteDataExtension._fromState,
+                    ),
+                    GoRouteData.$route(
+                      path: 'listen-provider',
+                      factory: $ListenProviderRouteDataExtension._fromState,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ],
         ),
-        GoRouteData.$route(
-          path: 'provider',
-          factory: $ProviderRouteExtension._fromState,
+        StatefulShellBranchData.$branch(
+          routes: [
+            GoRouteData.$route(
+              path: '/explore',
+              factory: $ExploreRouteDataExtension._fromState,
+            ),
+          ],
         ),
-        GoRouteData.$route(
-          path: 'state-provider',
-          factory: $StateProviderRouteExtension._fromState,
+        StatefulShellBranchData.$branch(
+          routes: [
+            GoRouteData.$route(
+              path: '/post',
+              factory: $PostRouteDataExtension._fromState,
+            ),
+          ],
         ),
-        GoRouteData.$route(
-          path: 'stream-provider',
-          factory: $StreamProviderRouteExtension._fromState,
+        StatefulShellBranchData.$branch(
+          routes: [
+            GoRouteData.$route(
+              path: '/me',
+              factory: $MeRouteDataExtension._fromState,
+            ),
+          ],
         ),
-        GoRouteData.$route(
-          path: 'notifier-provider',
-          factory: $NotifierProviderRouteExtension._fromState,
-        ),
-        GoRouteData.$route(
-          path: 'async-notifier-provider',
-          factory: $AsyncNotifierProviderRouteExtension._fromState,
-        ),
-        GoRouteData.$route(
-          path: 'state-notifier-provider',
-          factory: $StateNotifierProviderRouteExtension._fromState,
-        ),
-        GoRouteData.$route(
-          path: 'listen-provider',
-          factory: $ListenProviderRouteExtension._fromState,
-        ),
-        GoRouteData.$route(
-          path: 'theme-selection',
-          factory: $ThemeSelectionRouteExtension._fromState,
-        ),
-        GoRouteData.$route(
-          path: 'account',
-          factory: $AccountRouteExtension._fromState,
+        StatefulShellBranchData.$branch(
+          routes: [
+            GoRouteData.$route(
+              path: '/settings',
+              factory: $SettingsRouteDataExtension._fromState,
+              routes: [
+                GoRouteData.$route(
+                  path: 'theme-selection',
+                  factory: $ThemeSelectionRouteDataExtension._fromState,
+                ),
+                GoRouteData.$route(
+                  path: 'account',
+                  factory: $AccountRouteDataExtension._fromState,
+                ),
+              ],
+            ),
+          ],
         ),
       ],
     );
 
-extension $TopLevelTabRouteExtension on TopLevelTabRoute {
-  static TopLevelTabRoute _fromState(GoRouterState state) => TopLevelTabRoute(
-        tab: _$TopLevelTabEnumMap._$fromName(state.pathParameters['tab']!),
-      );
+extension $MainShellRouteDataExtension on MainShellRouteData {
+  static MainShellRouteData _fromState(GoRouterState state) =>
+      const MainShellRouteData();
+}
+
+extension $HomeRouteDataExtension on HomeRouteData {
+  static HomeRouteData _fromState(GoRouterState state) => const HomeRouteData();
 
   String get location => GoRouteData.$location(
-        '/${Uri.encodeComponent(_$TopLevelTabEnumMap[tab]!)}',
+        '/home',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -124,19 +132,12 @@ extension $TopLevelTabRouteExtension on TopLevelTabRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-const _$TopLevelTabEnumMap = {
-  TopLevelTab.home: 'home',
-  TopLevelTab.riverpod: 'riverpod',
-  TopLevelTab.settings: 'settings',
-};
-
-extension $AppInfoRouteExtension on AppInfoRoute {
-  static AppInfoRoute _fromState(GoRouterState state) => AppInfoRoute(
-        tab: _$TopLevelTabEnumMap._$fromName(state.pathParameters['tab']!),
-      );
+extension $AppInfoRouteDataExtension on AppInfoRouteData {
+  static AppInfoRouteData _fromState(GoRouterState state) =>
+      const AppInfoRouteData();
 
   String get location => GoRouteData.$location(
-        '/${Uri.encodeComponent(_$TopLevelTabEnumMap[tab]!)}/app-info',
+        '/home/app-info',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -149,13 +150,12 @@ extension $AppInfoRouteExtension on AppInfoRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $ProviderRouteExtension on ProviderRoute {
-  static ProviderRoute _fromState(GoRouterState state) => ProviderRoute(
-        tab: _$TopLevelTabEnumMap._$fromName(state.pathParameters['tab']!),
-      );
+extension $RiverpodExampleRouteDataExtension on RiverpodExampleRouteData {
+  static RiverpodExampleRouteData _fromState(GoRouterState state) =>
+      const RiverpodExampleRouteData();
 
   String get location => GoRouteData.$location(
-        '/${Uri.encodeComponent(_$TopLevelTabEnumMap[tab]!)}/provider',
+        '/home/riverpod',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -168,14 +168,12 @@ extension $ProviderRouteExtension on ProviderRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $StateProviderRouteExtension on StateProviderRoute {
-  static StateProviderRoute _fromState(GoRouterState state) =>
-      StateProviderRoute(
-        tab: _$TopLevelTabEnumMap._$fromName(state.pathParameters['tab']!),
-      );
+extension $ProviderRouteDataExtension on ProviderRouteData {
+  static ProviderRouteData _fromState(GoRouterState state) =>
+      const ProviderRouteData();
 
   String get location => GoRouteData.$location(
-        '/${Uri.encodeComponent(_$TopLevelTabEnumMap[tab]!)}/state-provider',
+        '/home/riverpod/provider',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -188,14 +186,12 @@ extension $StateProviderRouteExtension on StateProviderRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $StreamProviderRouteExtension on StreamProviderRoute {
-  static StreamProviderRoute _fromState(GoRouterState state) =>
-      StreamProviderRoute(
-        tab: _$TopLevelTabEnumMap._$fromName(state.pathParameters['tab']!),
-      );
+extension $StateProviderRouteDataExtension on StateProviderRouteData {
+  static StateProviderRouteData _fromState(GoRouterState state) =>
+      const StateProviderRouteData();
 
   String get location => GoRouteData.$location(
-        '/${Uri.encodeComponent(_$TopLevelTabEnumMap[tab]!)}/stream-provider',
+        '/home/riverpod/state-provider',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -208,14 +204,12 @@ extension $StreamProviderRouteExtension on StreamProviderRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $NotifierProviderRouteExtension on NotifierProviderRoute {
-  static NotifierProviderRoute _fromState(GoRouterState state) =>
-      NotifierProviderRoute(
-        tab: _$TopLevelTabEnumMap._$fromName(state.pathParameters['tab']!),
-      );
+extension $StreamProviderRouteDataExtension on StreamProviderRouteData {
+  static StreamProviderRouteData _fromState(GoRouterState state) =>
+      const StreamProviderRouteData();
 
   String get location => GoRouteData.$location(
-        '/${Uri.encodeComponent(_$TopLevelTabEnumMap[tab]!)}/notifier-provider',
+        '/home/riverpod/stream-provider',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -228,14 +222,12 @@ extension $NotifierProviderRouteExtension on NotifierProviderRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $AsyncNotifierProviderRouteExtension on AsyncNotifierProviderRoute {
-  static AsyncNotifierProviderRoute _fromState(GoRouterState state) =>
-      AsyncNotifierProviderRoute(
-        tab: _$TopLevelTabEnumMap._$fromName(state.pathParameters['tab']!),
-      );
+extension $NotifierProviderRouteDataExtension on NotifierProviderRouteData {
+  static NotifierProviderRouteData _fromState(GoRouterState state) =>
+      const NotifierProviderRouteData();
 
   String get location => GoRouteData.$location(
-        '/${Uri.encodeComponent(_$TopLevelTabEnumMap[tab]!)}/async-notifier-provider',
+        '/home/riverpod/notifier-provider',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -248,14 +240,13 @@ extension $AsyncNotifierProviderRouteExtension on AsyncNotifierProviderRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $StateNotifierProviderRouteExtension on StateNotifierProviderRoute {
-  static StateNotifierProviderRoute _fromState(GoRouterState state) =>
-      StateNotifierProviderRoute(
-        tab: _$TopLevelTabEnumMap._$fromName(state.pathParameters['tab']!),
-      );
+extension $AsyncNotifierProviderRouteDataExtension
+    on AsyncNotifierProviderRouteData {
+  static AsyncNotifierProviderRouteData _fromState(GoRouterState state) =>
+      const AsyncNotifierProviderRouteData();
 
   String get location => GoRouteData.$location(
-        '/${Uri.encodeComponent(_$TopLevelTabEnumMap[tab]!)}/state-notifier-provider',
+        '/home/riverpod/async-notifier-provider',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -268,14 +259,13 @@ extension $StateNotifierProviderRouteExtension on StateNotifierProviderRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $ListenProviderRouteExtension on ListenProviderRoute {
-  static ListenProviderRoute _fromState(GoRouterState state) =>
-      ListenProviderRoute(
-        tab: _$TopLevelTabEnumMap._$fromName(state.pathParameters['tab']!),
-      );
+extension $StateNotifierProviderRouteDataExtension
+    on StateNotifierProviderRouteData {
+  static StateNotifierProviderRouteData _fromState(GoRouterState state) =>
+      const StateNotifierProviderRouteData();
 
   String get location => GoRouteData.$location(
-        '/${Uri.encodeComponent(_$TopLevelTabEnumMap[tab]!)}/listen-provider',
+        '/home/riverpod/state-notifier-provider',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -288,14 +278,12 @@ extension $ListenProviderRouteExtension on ListenProviderRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $ThemeSelectionRouteExtension on ThemeSelectionRoute {
-  static ThemeSelectionRoute _fromState(GoRouterState state) =>
-      ThemeSelectionRoute(
-        tab: _$TopLevelTabEnumMap._$fromName(state.pathParameters['tab']!),
-      );
+extension $ListenProviderRouteDataExtension on ListenProviderRouteData {
+  static ListenProviderRouteData _fromState(GoRouterState state) =>
+      const ListenProviderRouteData();
 
   String get location => GoRouteData.$location(
-        '/${Uri.encodeComponent(_$TopLevelTabEnumMap[tab]!)}/theme-selection',
+        '/home/riverpod/listen-provider',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -308,13 +296,12 @@ extension $ThemeSelectionRouteExtension on ThemeSelectionRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $AccountRouteExtension on AccountRoute {
-  static AccountRoute _fromState(GoRouterState state) => AccountRoute(
-        tab: _$TopLevelTabEnumMap._$fromName(state.pathParameters['tab']!),
-      );
+extension $ExploreRouteDataExtension on ExploreRouteData {
+  static ExploreRouteData _fromState(GoRouterState state) =>
+      const ExploreRouteData();
 
   String get location => GoRouteData.$location(
-        '/${Uri.encodeComponent(_$TopLevelTabEnumMap[tab]!)}/account',
+        '/explore',
       );
 
   void go(BuildContext context) => context.go(location);
@@ -327,7 +314,90 @@ extension $AccountRouteExtension on AccountRoute {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension<T extends Enum> on Map<T, String> {
-  T _$fromName(String value) =>
-      entries.singleWhere((element) => element.value == value).key;
+extension $PostRouteDataExtension on PostRouteData {
+  static PostRouteData _fromState(GoRouterState state) => const PostRouteData();
+
+  String get location => GoRouteData.$location(
+        '/post',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $MeRouteDataExtension on MeRouteData {
+  static MeRouteData _fromState(GoRouterState state) => const MeRouteData();
+
+  String get location => GoRouteData.$location(
+        '/me',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $SettingsRouteDataExtension on SettingsRouteData {
+  static SettingsRouteData _fromState(GoRouterState state) =>
+      const SettingsRouteData();
+
+  String get location => GoRouteData.$location(
+        '/settings',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $ThemeSelectionRouteDataExtension on ThemeSelectionRouteData {
+  static ThemeSelectionRouteData _fromState(GoRouterState state) =>
+      const ThemeSelectionRouteData();
+
+  String get location => GoRouteData.$location(
+        '/settings/theme-selection',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
+}
+
+extension $AccountRouteDataExtension on AccountRouteData {
+  static AccountRouteData _fromState(GoRouterState state) =>
+      const AccountRouteData();
+
+  String get location => GoRouteData.$location(
+        '/settings/account',
+      );
+
+  void go(BuildContext context) => context.go(location);
+
+  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
+
+  void pushReplacement(BuildContext context) =>
+      context.pushReplacement(location);
+
+  void replace(BuildContext context) => context.replace(location);
 }

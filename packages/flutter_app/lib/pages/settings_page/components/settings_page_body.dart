@@ -4,7 +4,6 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../../features/user_device/user_device.dart';
 import '../../../router/router.dart';
 import '../../../util/localizer/localizer.dart';
-import '../../top_level_tab/top_level_tab.dart';
 
 class SettingsPageBody extends HookConsumerWidget {
   const SettingsPageBody({super.key});
@@ -18,15 +17,13 @@ class SettingsPageBody extends HookConsumerWidget {
       children: [
         Card(
           child: ListTile(
-            onTap: () => const ThemeSelectionRoute(tab: TopLevelTab.settings)
-                .go(context),
+            onTap: () => const ThemeSelectionRouteData().go(context),
             title: Text(l10n.settingsPageListThemeSelectorLabel),
           ),
         ),
         Card(
           child: ListTile(
-            onTap: () =>
-                const AccountRoute(tab: TopLevelTab.settings).go(context),
+            onTap: () => const AccountRouteData().go(context),
             title: Text(l10n.settingsPageListAccountLabel),
           ),
         ),
