@@ -27,7 +27,7 @@ class NotFoundPageBody extends HookConsumerWidget {
         Text(l10n.notFoundPageDescription),
         Center(
           child: ElevatedButton(
-            onPressed: () => const SplashRoute().go(context),
+            onPressed: () => const HomeRouteData().go(context),
             child: Text(l10n.notFoundPageReturnButtonLabel),
           ),
         ),

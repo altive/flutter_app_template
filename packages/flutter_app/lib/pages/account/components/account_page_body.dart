@@ -3,7 +3,6 @@ import 'package:awaitable_button/awaitable_button.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../router/router.dart';
 import '../../../util/localizer/localizer.dart';
 
 class AccountPageBody extends HookConsumerWidget {
@@ -36,22 +35,7 @@ class AccountPageBody extends HookConsumerWidget {
       if (isBool != true) {
         return;
       }
-      final signedOut = await authenticator.signOut();
-      if (!context.mounted) {
-        return;
-      }
-      if (signedOut) {
-        const SigninRoute().go(context);
-      } else {
-        await showDialog<void>(
-          context: context,
-          builder: (context) {
-            return const AlertDialog(
-              title: Text('Failed'),
-            );
-          },
-        );
-      }
+      await authenticator.signOut();
     }
 
     return ListView(

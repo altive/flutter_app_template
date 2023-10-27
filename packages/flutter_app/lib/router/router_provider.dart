@@ -10,8 +10,14 @@ part 'router_provider.g.dart';
 Raw<GoRouter> router(RouterRef ref) {
   return GoRouter(
     routes: $appRoutes,
+    redirect: (context, state) {
+      if (state.matchedLocation == '/') {
+        return HomeShellBranchData.path;
+      }
+      return null;
+    },
     errorBuilder: (context, state) => ErrorRoute(
-      location: state.location,
+      location: state.uri.path,
       exception: state.error!,
     ).build(context, state),
   );
