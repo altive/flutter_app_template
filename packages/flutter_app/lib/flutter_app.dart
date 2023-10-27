@@ -8,6 +8,7 @@ import 'router/router.dart';
 import 'util/localizer/localizer.dart';
 import 'util/logger.dart';
 import 'util/providers/providers.dart';
+import 'util/providers/scaffold_messenger_key_provider.dart';
 
 class FlutterApp extends ConsumerWidget {
   const FlutterApp({super.key});
@@ -36,6 +37,7 @@ class FlutterApp extends ConsumerWidget {
       themeMode: ref.watch(themeSelectorProvider),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
+      scaffoldMessengerKey: ref.watch(scaffoldMessengerKeyProvider),
     );
   }
 }
