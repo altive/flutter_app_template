@@ -6,7 +6,9 @@ part 'flavor_provider.g.dart';
 ///
 /// Need override in top-level ProviderScope.
 @Riverpod(keepAlive: true)
-Flavor flavor(FlavorRef ref) => throw UnimplementedError();
+Flavor flavor(FlavorRef ref) {
+  throw UnimplementedError();
+}
 
 enum Flavor {
   /// Development.

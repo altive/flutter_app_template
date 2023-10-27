@@ -18,8 +18,7 @@ import 'util/providers/providers.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  const flavorName = String.fromEnvironment('flavor');
-  final flavor = Flavor.values.byName(flavorName);
+  final flavor = Flavor.values.byName(const String.fromEnvironment('flavor'));
 
   final (_, sharedPreferences, packageInfo, userDevice) = await (
     Firebase.initializeApp(options: firebaseOptionsWithFlavor(flavor)),

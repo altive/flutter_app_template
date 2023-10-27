@@ -8,7 +8,7 @@ part of 'flavor_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$flavorHash() => r'60917d813dab816ef69fb80b45cfe69061a0f9cc';
+String _$flavorHash() => r'35980e94652eeb65673074b7d0a78565bfd6ff95';
 
 /// Provide current Flavor.
 ///
