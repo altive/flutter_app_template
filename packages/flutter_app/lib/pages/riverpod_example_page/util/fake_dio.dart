@@ -28,20 +28,15 @@ class FakeDio {
     );
   }
 
-  Future<Response<List<Map<String, Object?>>>> post<T>(
+  Future<Response<Map<String, Object?>>> post<T>(
     String path, {
     dynamic data,
     Map<String, dynamic>? queryParameters,
     void Function(int, int)? onReceiveProgress,
   }) async {
     await Future<void>.delayed(const Duration(milliseconds: 100));
-    final newTodos = [
-      ..._todos,
-      data as Map<String, dynamic>,
-    ];
-    _todos = newTodos;
     return Response(
-      data: newTodos,
+      data: data as Map<String, dynamic>,
     );
   }
 
