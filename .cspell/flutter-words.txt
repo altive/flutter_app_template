@@ -10,6 +10,7 @@ cupertino
 dotenv
 draggable
 fastlane
+firestore
 flutterfire
 fullscreen
 gcov
