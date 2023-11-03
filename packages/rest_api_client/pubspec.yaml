@@ -15,6 +15,6 @@ dependencies:
 dev_dependencies:
   altive_lints: ^1.8.1
   build_runner: ^2.4.6
-  retrofit_generator: ^7.0.8
+  retrofit_generator: ^8.0.3
   riverpod_generator: ^2.2.6
   test: ^1.21.1
