@@ -27,7 +27,7 @@ dependencies:
   firebase_storage: ^11.2.7
   flutter:
     sdk: flutter
-  flutter_hooks: ^0.18.5+1
+  flutter_hooks: ^0.20.3
   flutter_localizations:
     sdk: flutter
   flutter_svg: ^2.0.5
