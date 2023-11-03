@@ -339,7 +339,7 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AppAuth: 3bb1d1cd9340bd09f5ed189fb00b1cc28e1e8570
   cloud_firestore: 8adb36c2bc754352c717984153ecd7e6c6898047
-  device_info_plus: 7545d84d8d1b896cb16a4ff98c19f07ec4b298ea
+  device_info_plus: c6fb39579d0f423935b0c9ce7ee2f44b71b9fce6
   Firebase: 25899099b77d255a636e3579c3d9dce10ec150d5
   firebase_analytics: 6b9cf6da9b2e38ace14482bd29e099b25abac4ad
   firebase_auth: ff474dcf17bee5762106162e0791433024890ada
