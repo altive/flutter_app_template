@@ -1,7 +1,7 @@
 name: flutter_app_template_workspace
 
 environment:
-  sdk: ^3.1.2
+  sdk: ^3.2.0
 
 dev_dependencies:
-  melos: ^3.1.1
+  melos: ^3.2.0

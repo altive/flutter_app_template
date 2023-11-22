@@ -1,5 +1,3 @@
-import 'package:flutter/foundation.dart';
-
 enum SearchItemsCategory {
   all,
   grocery,
@@ -7,7 +5,7 @@ enum SearchItemsCategory {
 
 extension KeyToString on SearchItemsCategory {
   /// enumの文字列を返却
-  String get key => describeEnum(this);
+  String get key => name;
 
   String get label {
     switch (this) {

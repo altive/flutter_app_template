@@ -13,7 +13,6 @@ ThemeData get appDarkThemeData {
   final textTheme = defaultThemeData.textTheme.merge(altiveTextTheme);
 
   return defaultThemeData.copyWith(
-    useMaterial3: true,
     // 🎨 Color section
     colorScheme: colorScheme,
     // 🖋 Text theme section
