@@ -45,18 +45,29 @@ final l10n = L10n.of(context);
 
 ```shell
 # Dev
-melos run flutterfire:dev
+flutterfire configure --yes \
+--project flutter-app-template-dev \
+--out lib/environment/src/firebase_options_dev.dart \
+--platforms android,ios,macos,web \
+--android-package-name jp.co.altive.fat.dev \
+--ios-bundle-id jp.co.altive.fat.dev \
+--macos-bundle-id jp.co.altive.fat.dev
 
-# Staging
-melos run flutterfire:stg
+# Stg
+flutterfire configure --yes \
+--project flutter-app-template-stg \
+--out lib/environment/src/firebase_options_stg.dart \
+--platforms android,ios,macos,web \
+--android-package-name jp.co.altive.fat.stg \
+--ios-bundle-id jp.co.altive.fat.stg \
+--macos-bundle-id jp.co.altive.fat.stg
 
-# Production
-melos run flutterfire:prod
+# Prod
+flutterfire configure --yes \
+--project altive-fat \
+--out lib/environment/src/firebase_options_prod.dart \
+--platforms android,ios,macos,web \
+--android-package-name jp.co.altive.fat \
+--ios-bundle-id jp.co.altive.fat \
+--macos-bundle-id jp.co.altive.fat
 ```
-
-`-y`: Skip the Y/n confirmation prompts accept default options.
-`-o`: The output file path of the Firebase configuration options.
-`-p`: The Firebase project ID.
-`-a`: The package name of Android app.
-`-i`: The bundle identifier of iOS app.
-`-m`: The bundle identifier of macOS app.
