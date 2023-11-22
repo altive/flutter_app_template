@@ -55,7 +55,7 @@ jobs:
         run: echo "MELOS_SDK_PATH=${{ steps.setup-flutter.outputs.flutter-path }}" >> "$GITHUB_ENV"
 
       - name: Install Melos
-        uses: bluefireteam/melos-action@v2
+        uses: bluefireteam/melos-action@v3
 
       - name: Analyze packages
         run: melos run analyze --no-select
@@ -79,7 +79,7 @@ jobs:
         run: echo "MELOS_SDK_PATH=${{ steps.setup-flutter.outputs.flutter-path }}" >> "$GITHUB_ENV"
 
       - name: Install Melos
-        uses: bluefireteam/melos-action@v2
+        uses: bluefireteam/melos-action@v3
 
       - name: Run package tests
         run: melos run test:ci --no-select
