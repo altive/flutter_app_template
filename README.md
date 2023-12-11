@@ -114,7 +114,7 @@ The `make` command will install the required Dart packages, such as FVM and Melo
 1. Create a project in Firebase.
   1. Create an Android app, download `google-services.json`, and place it in `android/app/src/{dev or stg or prod}`.
   1. Create an iOS app, download `GoogleService-Info.plist`, and place it in `ios/{dev or stg or prod}`.
-  1. Modify `googleReversedClientId` in `dart_defines/{dev, stg, prod}.json` to match the contents of each `GoogleService-Info.plist`.
+  1. Modify `googleReversedClientId` in `dart_defines/{dev, stg, prod}.env` to match the contents of each `GoogleService-Info.plist`.
   1. Create a Web app and modify the parameters in `firebaseConfig` in `web/index.html` according to the Firebase SDK additions.
     - apiKey, authDomain, databaseURL, projectId, storageBucket, messagingSenderId, appId, measurementId
     

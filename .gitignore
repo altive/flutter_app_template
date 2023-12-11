@@ -149,6 +149,7 @@ coverage/
 .env*
 *.env
 !.env.sample
+!/packages/flutter_app/dart_defines/*.env
 *env.g.dart
 
 # Exceptions to above rules.
