@@ -1,0 +1,129 @@
+{
+  "@@locale": "ja",
+  "title": "Flutter App Template",
+  "account": {
+    "page": {
+      "app": {
+        "bar": {
+          "title": "アカウント"
+        }
+      }
+    }
+  },
+  "app": {
+    "info": {
+      "app": {
+        "bar": {
+          "title": "アプリ情報"
+        }
+      }
+    }
+  },
+  "author": {
+    "name": "Altive株式会社"
+  },
+  "button": {
+    "cancel": "キャンセル",
+    "sign": {
+      "out": "サインアウト"
+    }
+  },
+  "home": {
+    "page": {
+      "app": {
+        "bar": {
+          "title": "Home"
+        }
+      },
+      "list": {
+        "app": {
+          "info": {
+            "label": "アプリ情報"
+          }
+        }
+      }
+    }
+  },
+  "not": {
+    "found": {
+      "page": {
+        "title": "404 Not Found",
+        "header": {
+          "label": "ごめんなさい🙏"
+        },
+        "description": "is not found.",
+        "back": {
+          "button": {
+            "label": "is not found."
+          }
+        }
+      }
+    }
+  },
+  "pinkie": {
+    "mew": {
+      "page": {
+        "title": "Pinkie and Mew"
+      }
+    }
+  },
+  "settings": {
+    "page": {
+      "app": {
+        "bar": {
+          "title": "設定"
+        }
+      },
+      "list": {
+        "theme": {
+          "selector": {
+            "label": "テーマ選択"
+          }
+        },
+        "account": {
+          "label": "アカウント"
+        }
+      }
+    }
+  },
+  "theme": {
+    "mode": {
+      "title": {
+        "system": "System",
+        "light": "Light theme",
+        "dark": "Dark theme"
+      },
+      "subtitle": {
+        "system": "システム設定に従う",
+        "light": "明るいテーマ",
+        "dark": "暗いテーマ"
+      }
+    },
+    "selection": {
+      "page": {
+        "app": {
+          "bar": {
+            "title": "テーマ選択"
+          }
+        }
+      }
+    }
+  },
+  "top": {
+    "level": {
+      "tab": {
+        "home": {
+          "label": "Home"
+        },
+        "riverpod": {
+          "example": {
+            "label": "Riverpod"
+          }
+        },
+        "settings": {
+          "label": "Setting"
+        }
+      }
+    }
+  }
+}

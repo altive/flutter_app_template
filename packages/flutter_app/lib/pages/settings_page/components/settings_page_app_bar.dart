@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:themes/themes.dart';
 
-import '../../../util/localizer/localizer.dart';
+import '../../../gen/strings.g.dart';
 
 class SettingsPageAppBar extends StatelessWidget
     implements PreferredSizeWidget {
@@ -12,9 +12,9 @@ class SettingsPageAppBar extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
-    final l10n = L10n.of(context);
+    final i18n = Translations.of(context);
     return AppBar(
-      title: Text(l10n.settingsPageAppBarTitle),
+      title: Text(i18n.settings.page.app.bar.title),
     );
   }
 }

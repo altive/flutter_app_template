@@ -1,0 +1,129 @@
+{
+  "@@locale": "en",
+  "title": "Flutter App Template",
+  "account": {
+    "page": {
+      "app": {
+        "bar": {
+          "title": "Account"
+        }
+      }
+    }
+  },
+  "app": {
+    "info": {
+      "app": {
+        "bar": {
+          "title": "App information"
+        }
+      }
+    }
+  },
+  "author": {
+    "name": "Altive inc"
+  },
+  "button": {
+    "cancel": "Cancel",
+    "sign": {
+      "out": "Sign out"
+    }
+  },
+  "home": {
+    "page": {
+      "app": {
+        "bar": {
+          "title": "Home"
+        }
+      },
+      "list": {
+        "app": {
+          "info": {
+            "label": "App Info"
+          }
+        }
+      }
+    }
+  },
+  "not": {
+    "found": {
+      "page": {
+        "title": "404 Not Found",
+        "header": {
+          "label": "Sorry..."
+        },
+        "description": "is not found.",
+        "back": {
+          "button": {
+            "label": "is not found."
+          }
+        }
+      }
+    }
+  },
+  "pinkie": {
+    "mew": {
+      "page": {
+        "title": "Pinkie and Mew"
+      }
+    }
+  },
+  "settings": {
+    "page": {
+      "app": {
+        "bar": {
+          "title": "Settings"
+        }
+      },
+      "list": {
+        "theme": {
+          "selector": {
+            "label": "Theme Selector"
+          }
+        },
+        "account": {
+          "label": "Account"
+        }
+      }
+    }
+  },
+  "theme": {
+    "mode": {
+      "title": {
+        "system": "System",
+        "light": "Light theme",
+        "dark": "Dark theme"
+      },
+      "subtitle": {
+        "system": "Follows the system settings of the device",
+        "light": "Light",
+        "dark": "Dark"
+      }
+    },
+    "selection": {
+      "page": {
+        "app": {
+          "bar": {
+            "title": "Theme Selector"
+          }
+        }
+      }
+    }
+  },
+  "top": {
+    "level": {
+      "tab": {
+        "home": {
+          "label": "Home"
+        },
+        "riverpod": {
+          "example": {
+            "label": "Riverpod"
+          }
+        },
+        "settings": {
+          "label": "Settings"
+        }
+      }
+    }
+  }
+}

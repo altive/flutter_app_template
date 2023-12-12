@@ -35,7 +35,7 @@ Required only `--release` mode.
 ## How to use
 ### Localizations
 ```dart
-final l10n = L10n.of(context);
+final i18n = Translations.of(context);
 ```
 
 ## FlutterFire Configure

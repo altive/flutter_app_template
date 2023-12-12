@@ -1,26 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../../gen/strings.g.dart';
 
 extension ThemeModeExt on ThemeMode {
-  String title(AppLocalizations l10n) {
+  String title(Translations i18n) {
     switch (this) {
       case ThemeMode.system:
-        return l10n.themeModeTitleSystem;
+        return i18n.theme.mode.title.system;
       case ThemeMode.light:
-        return l10n.themeModeTitleLight;
+        return i18n.theme.mode.title.dark;
       case ThemeMode.dark:
-        return l10n.themeModeTitleDark;
+        return i18n.theme.mode.title.dark;
     }
   }
 
-  String subtitle(AppLocalizations l10n) {
+  String subtitle(Translations i18n) {
     switch (this) {
       case ThemeMode.system:
-        return l10n.themeModeSubtitleSystem;
+        return i18n.theme.mode.subtitle.system;
       case ThemeMode.light:
-        return l10n.themeModeSubtitleLight;
+        return i18n.theme.mode.subtitle.light;
       case ThemeMode.dark:
-        return l10n.themeModeSubtitleDark;
+        return i18n.theme.mode.subtitle.dark;
     }
   }
 

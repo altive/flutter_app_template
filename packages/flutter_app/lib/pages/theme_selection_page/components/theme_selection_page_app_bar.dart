@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:themes/themes.dart';
 
-import '../../../util/localizer/localizer.dart';
+import '../../../gen/strings.g.dart';
 import '../../../widgets/widgets.dart';
 
 class ThemeSelectionPageAppBar extends StatelessWidget
@@ -14,10 +14,10 @@ class ThemeSelectionPageAppBar extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
-    final l10n = L10n.of(context);
+    final i18n = Translations.of(context);
     final themeDescription = context.themeDescription;
     return AppBar(
-      title: Text(l10n.themeSelectionPageAppBarTitle),
+      title: Text(i18n.theme.selection.page.app.bar.title),
       actions: [
         themeDescription.icon,
         Align(

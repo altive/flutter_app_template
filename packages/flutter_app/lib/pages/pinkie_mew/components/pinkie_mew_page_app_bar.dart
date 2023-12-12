@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:themes/themes.dart';
 
-import '../../../util/localizer/localizer.dart';
+import '../../../gen/strings.g.dart';
 
 class PinkieMewPageAppBar extends StatelessWidget
     implements PreferredSizeWidget {
@@ -12,9 +12,9 @@ class PinkieMewPageAppBar extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
-    final l10n = L10n.of(context);
+    final i18n = Translations.of(context);
     return AppBar(
-      title: Text(l10n.pinkieMewPageTitle),
+      title: Text(i18n.pinkie.mew.page.title),
     );
   }
 }

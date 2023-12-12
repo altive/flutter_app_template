@@ -67,7 +67,7 @@
 			"",
 			"  @override",
 			"  Widget build(BuildContext context, WidgetRef ref) {",
-			"    final l10n = useL10n();",
+			"    final i18n = Translations.of(context);",
 			"    return $1;",
 			"  }",
 			"}",
