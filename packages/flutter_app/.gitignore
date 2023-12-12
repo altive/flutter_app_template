@@ -145,3 +145,11 @@ ios/Runner/GoogleService-Info.plist
 macos/firebase_app_id_file.json
 macos/Runner/GoogleService-Info.plist
 android/app/google-services.json
+
+# Environment
+.envrc
+.env*
+*.env
+!.env.sample
+*env.g.dart
+!dart_defines/*.env

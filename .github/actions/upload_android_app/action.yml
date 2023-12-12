@@ -62,7 +62,7 @@ runs:
       working-directory: ${{ inputs.working-directory }}
 
     - name: Building Android AppBundle
-      run: flutter build appbundle --dart-define-from-file=dart_defines/${{ inputs.flavor }}.json --build-number ${{ inputs.build-number }}
+      run: flutter build appbundle --dart-define-from-file=dart_defines/${{ inputs.flavor }}.env --build-number ${{ inputs.build-number }}
       shell: bash
       working-directory: ${{ inputs.working-directory }}
 
