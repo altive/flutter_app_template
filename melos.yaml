@@ -8,9 +8,6 @@ packages:
 command:
   bootstrap:
     runPubGetInParallel: true
-    hooks:
-      post: |
-        melos exec --flutter --dir-exists=lib/l10n -- "flutter gen-l10n"
   clean:
     hooks:
       post: |
