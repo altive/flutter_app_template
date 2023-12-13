@@ -75,7 +75,7 @@
 		// 補完リストが表示されていなくても、<TAB>を押すことで`for`などのスニペットを補完できる
 		"editor.tabCompletion": "onlySnippets",
 		// コメントや文字列の編集時にコード補完が単語を示唆することある挙動を無効化する
-		"editor.wordBasedSuggestions": false,
+		"editor.wordBasedSuggestions": "off",
 		// ファイル保存時に実行されるコードアクション
 		"editor.codeActionsOnSave": {
 			// セミコロンを挿入する。
@@ -130,8 +130,13 @@
 	"git.enableSmartCommit": true,
 	// 検索対象から生成ファイルを除外する
 	"search.exclude": {
-		"**/.fvm": true,
-		"**/*.freezed.dart": true,
-		"**/*.g.dart": true
+		"**/*.dart_tool": true,
+		"**/*.freezed": true,
+		"**/*.g.dart": true,
+		"**/*.symlinks": true,
+		"**/.fvm/flutter_sdk": true,
+		"**/build": true,
+		"**/node_modules": true,
+		"**/Pods": true
 	}
 }
