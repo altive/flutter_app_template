@@ -10,7 +10,7 @@ class SettingsPageBody extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final i18n = Translations.of(context);
+    final t = Translations.of(context);
     final userDevice = ref.watch(userDeviceProvider);
     return ListView(
       padding: const EdgeInsets.all(16),
@@ -18,13 +18,13 @@ class SettingsPageBody extends HookConsumerWidget {
         Card(
           child: ListTile(
             onTap: () => const ThemeSelectionRouteData().go(context),
-            title: Text(i18n.settings.page.list.theme.selector.label),
+            title: Text(t.settingsPage.list.themeSelector.label),
           ),
         ),
         Card(
           child: ListTile(
             onTap: () => const AccountRouteData().go(context),
-            title: Text(i18n.settings.page.list.account.label),
+            title: Text(t.settingsPage.list.account.label),
           ),
         ),
         ListTile(

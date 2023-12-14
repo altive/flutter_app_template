@@ -3,25 +3,25 @@ import 'package:flutter/material.dart';
 import '../../gen/strings.g.dart';
 
 extension ThemeModeExt on ThemeMode {
-  String title(Translations i18n) {
+  String title(Translations t) {
     switch (this) {
       case ThemeMode.system:
-        return i18n.theme.mode.title.system;
+        return t.theme.mode.title.system;
       case ThemeMode.light:
-        return i18n.theme.mode.title.dark;
+        return t.theme.mode.title.light;
       case ThemeMode.dark:
-        return i18n.theme.mode.title.dark;
+        return t.theme.mode.title.dark;
     }
   }
 
-  String subtitle(Translations i18n) {
+  String subtitle(Translations t) {
     switch (this) {
       case ThemeMode.system:
-        return i18n.theme.mode.subtitle.system;
+        return t.theme.mode.subtitle.system;
       case ThemeMode.light:
-        return i18n.theme.mode.subtitle.light;
+        return t.theme.mode.subtitle.light;
       case ThemeMode.dark:
-        return i18n.theme.mode.subtitle.dark;
+        return t.theme.mode.subtitle.dark;
     }
   }
 

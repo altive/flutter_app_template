@@ -11,9 +11,9 @@ class AccountPageAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    final i18n = Translations.of(context);
+    final t = Translations.of(context);
     return AppBar(
-      title: Text(i18n.account.page.app.bar.title),
+      title: Text(t.accountPage.appBar.title),
     );
   }
 }

@@ -11,7 +11,7 @@ class ThemeSelectionPageBody extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final themeSelector = ref.watch(themeSelectorProvider.notifier);
     final currentThemeMode = ref.watch(themeSelectorProvider);
-    final i18n = Translations.of(context);
+    final t = Translations.of(context);
     return ListView.builder(
       padding: const EdgeInsets.symmetric(vertical: 16),
       itemCount: ThemeMode.values.length,
@@ -21,8 +21,8 @@ class ThemeSelectionPageBody extends HookConsumerWidget {
           value: themeMode,
           groupValue: currentThemeMode,
           onChanged: (newTheme) async => themeSelector.changeAndSave(newTheme!),
-          title: Text(themeMode.title(i18n)),
-          subtitle: Text(themeMode.subtitle(i18n)),
+          title: Text(themeMode.title(t)),
+          subtitle: Text(themeMode.subtitle(t)),
           secondary: Icon(themeMode.iconData),
         );
       },

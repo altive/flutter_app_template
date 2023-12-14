@@ -12,14 +12,14 @@ class AppInfoBody extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final i18n = Translations.of(context);
+    final t = Translations.of(context);
     final flavor = ref.watch(flavorProvider);
     final packageInfo = ref.watch(packageInfoProvider);
     return ListView(
       children: <Widget>[
-        Text(i18n.title),
+        Text(t.title),
         const Gap(8),
-        Text('Author is ${i18n.author.name}.'),
+        Text('Author is ${t.author.name}.'),
         const Gap(8),
         const Text('Developed by Ryunosuke Muramatsu.'),
         const Divider(),

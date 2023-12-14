@@ -12,9 +12,9 @@ class SettingsPageAppBar extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
-    final i18n = Translations.of(context);
+    final t = Translations.of(context);
     return AppBar(
-      title: Text(i18n.settings.page.app.bar.title),
+      title: Text(t.settingsPage.appBar.title),
     );
   }
 }

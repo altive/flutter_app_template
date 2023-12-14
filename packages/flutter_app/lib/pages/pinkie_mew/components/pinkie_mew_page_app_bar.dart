@@ -12,9 +12,9 @@ class PinkieMewPageAppBar extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
-    final i18n = Translations.of(context);
+    final t = Translations.of(context);
     return AppBar(
-      title: Text(i18n.pinkie.mew.page.title),
+      title: Text(t.pinkieMewPage.title),
     );
   }
 }

@@ -16,19 +16,19 @@ class NotFoundPageBody extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final i18n = Translations.of(context);
+    final t = Translations.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(i18n.not.found.page.header.label),
+        Text(t.notFoundPage.header.label),
         const Gap(32),
         DisplaySmallText(path),
         const Gap(32),
-        Text(i18n.not.found.page.description),
+        Text(t.notFoundPage.description),
         Center(
           child: ElevatedButton(
             onPressed: () => const HomeRouteData().go(context),
-            child: Text(i18n.not.found.page.back.button.label),
+            child: Text(t.notFoundPage.backButton.label),
           ),
         ),
       ],

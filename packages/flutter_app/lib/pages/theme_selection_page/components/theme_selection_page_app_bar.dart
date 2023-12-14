@@ -14,10 +14,10 @@ class ThemeSelectionPageAppBar extends StatelessWidget
 
   @override
   Widget build(BuildContext context) {
-    final i18n = Translations.of(context);
+    final t = Translations.of(context);
     final themeDescription = context.themeDescription;
     return AppBar(
-      title: Text(i18n.theme.selection.page.app.bar.title),
+      title: Text(t.theme.selection.page.appBar.title),
       actions: [
         themeDescription.icon,
         Align(

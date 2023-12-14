@@ -11,9 +11,9 @@ class HomePageAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    final i18n = Translations.of(context);
+    final t = Translations.of(context);
     return AppBar(
-      title: Text(i18n.home.page.app.bar.title),
+      title: Text(t.homePage.appBar.title),
     );
   }
 }

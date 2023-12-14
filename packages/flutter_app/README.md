@@ -34,8 +34,27 @@ Required only `--release` mode.
 
 ## How to use
 ### Localizations
+JSONファイルを作成
+```json
+{
+  "hello": "Hello $name",
+  "save": "Save",
+  "login": {
+    "success": "Logged in successfully",
+    "fail": "Logged in failed"
+  }
+}
+```
+Dartファイルを生成
+```shell
+dart run slang
+```
+
+生成されたDartファイルをimportして使用
 ```dart
-final i18n = Translations.of(context);
+import '../../../gen/strings.g.dart';
+
+final t = Translations.of(context);
 ```
 
 ## FlutterFire Configure

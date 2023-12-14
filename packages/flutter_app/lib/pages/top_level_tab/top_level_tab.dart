@@ -30,14 +30,14 @@ enum TopLevelTab {
 }
 
 extension TopLevelTabExt on TopLevelTab {
-  String labelText(Translations i18n) {
+  String labelText(Translations t) {
     switch (this) {
       case TopLevelTab.home:
-        return i18n.top.level.tab.home.label;
+        return t.topLevelTab.home.label;
       case TopLevelTab.riverpod:
-        return i18n.top.level.tab.riverpod.example.label;
+        return t.topLevelTab.riverpod.example.label;
       case TopLevelTab.settings:
-        return i18n.top.level.tab.settings.label;
+        return t.topLevelTab.settings.label;
     }
   }
 }

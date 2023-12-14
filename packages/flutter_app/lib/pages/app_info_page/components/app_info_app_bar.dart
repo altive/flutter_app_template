@@ -11,9 +11,9 @@ class AppInfoAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    final i18n = Translations.of(context);
+    final t = Translations.of(context);
     return AppBar(
-      title: Text(i18n.app.info.app.bar.title),
+      title: Text(t.appInfo.appBar.title),
     );
   }
 }

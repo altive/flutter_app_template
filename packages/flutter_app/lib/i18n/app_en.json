@@ -1,22 +1,14 @@
 {
   "@@locale": "en",
   "title": "Flutter App Template",
-  "account": {
-    "page": {
-      "app": {
-        "bar": {
-          "title": "Account"
-        }
-      }
+  "accountPage": {
+    "appBar": {
+      "title": "Account"
     }
   },
-  "app": {
-    "info": {
-      "app": {
-        "bar": {
-          "title": "App information"
-        }
-      }
+  "appInfo": {
+    "appBar": {
+      "title": "App information"
     }
   },
   "author": {
@@ -28,61 +20,39 @@
       "out": "Sign out"
     }
   },
-  "home": {
-    "page": {
-      "app": {
-        "bar": {
-          "title": "Home"
-        }
+  "homePage": {
+    "appBar": {
+      "title": "Home"
+    },
+    "list": {
+      "appInfo": {
+        "label": "App Info"
+      }
+    }
+  },
+  "notFoundPage": {
+    "title": "404 Not Found",
+    "header": {
+      "label": "Sorry..."
+    },
+    "description": "is not found.",
+    "backButton": {
+      "label": "is not found."
+    }
+  },
+  "pinkieMewPage": {
+    "title": "Pinkie and Mew"
+  },
+  "settingsPage": {
+    "appBar": {
+      "title": "Settings"
+    },
+    "list": {
+      "themeSelector": {
+        "label": "Theme Selector"
       },
-      "list": {
-        "app": {
-          "info": {
-            "label": "App Info"
-          }
-        }
-      }
-    }
-  },
-  "not": {
-    "found": {
-      "page": {
-        "title": "404 Not Found",
-        "header": {
-          "label": "Sorry..."
-        },
-        "description": "is not found.",
-        "back": {
-          "button": {
-            "label": "is not found."
-          }
-        }
-      }
-    }
-  },
-  "pinkie": {
-    "mew": {
-      "page": {
-        "title": "Pinkie and Mew"
-      }
-    }
-  },
-  "settings": {
-    "page": {
-      "app": {
-        "bar": {
-          "title": "Settings"
-        }
-      },
-      "list": {
-        "theme": {
-          "selector": {
-            "label": "Theme Selector"
-          }
-        },
-        "account": {
-          "label": "Account"
-        }
+      "account": {
+        "label": "Account"
       }
     }
   },
@@ -101,29 +71,23 @@
     },
     "selection": {
       "page": {
-        "app": {
-          "bar": {
-            "title": "Theme Selector"
-          }
+        "appBar": {
+          "title": "Theme Selector"
         }
       }
     }
   },
-  "top": {
-    "level": {
-      "tab": {
-        "home": {
-          "label": "Home"
-        },
-        "riverpod": {
-          "example": {
-            "label": "Riverpod"
-          }
-        },
-        "settings": {
-          "label": "Settings"
-        }
+  "topLevelTab": {
+    "home": {
+      "label": "Home"
+    },
+    "riverpod": {
+      "example": {
+        "label": "Riverpod"
       }
+    },
+    "settings": {
+      "label": "Settings"
     }
   }
 }

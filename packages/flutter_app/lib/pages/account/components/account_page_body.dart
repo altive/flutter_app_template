@@ -10,7 +10,7 @@ class AccountPageBody extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final i18n = Translations.of(context);
+    final t = Translations.of(context);
     final authenticator = ref.watch(authenticatorProvider);
     Future<void> signOut() async {
       final isBool = await showDialog<bool>(
@@ -22,11 +22,11 @@ class AccountPageBody extends HookConsumerWidget {
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(context, false),
-                child: Text(i18n.button.cancel),
+                child: Text(t.button.cancel),
               ),
               TextButton(
                 onPressed: () => Navigator.pop(context, true),
-                child: Text(i18n.button.sign.out),
+                child: Text(t.button.sign.out),
               ),
             ],
           );
@@ -47,7 +47,7 @@ class AccountPageBody extends HookConsumerWidget {
         ),
         AwaitableTextButton<void>(
           onPressed: signOut,
-          child: Text(i18n.button.sign.out),
+          child: Text(t.button.sign.out),
         ),
       ],
     );

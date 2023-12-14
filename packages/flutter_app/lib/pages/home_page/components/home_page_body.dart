@@ -12,13 +12,13 @@ class HomePageBody extends HookWidget {
 
   @override
   Widget build(BuildContext context) {
-    final i18n = Translations.of(context);
+    final t = Translations.of(context);
     return ListView(
       padding: const EdgeInsets.all(16),
       children: [
         HomeListCard(
           onTap: () => const AppInfoRouteData().go(context),
-          label: i18n.home.page.list.app.info.label,
+          label: t.homePage.list.appInfo.label,
         ),
         HomeListCard(
           onTap: () => const RiverpodExampleRouteData().go(context),
