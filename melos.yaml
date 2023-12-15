@@ -72,10 +72,11 @@ scripts:
       flutter: true
       dirExists: [lib, test]
 
+  # ファイル除外機能に関するissue　https://github.com/dart-lang/dart_style/issues/864
   format:ci:
     run: |
       melos exec -- \
-        dart format --set-exit-if-changed lib test
+        dart format --set-exit-if-changed $(find lib test -name "*.dart" -not \( -name "*.*freezed.dart" -o -name "*.*g.dart" -o -name "*.gen.dart" \) )
     description: Run format.
     packageFilters:
       flutter: true
