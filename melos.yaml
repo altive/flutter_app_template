@@ -8,9 +8,6 @@ packages:
 command:
   bootstrap:
     runPubGetInParallel: true
-    hooks:
-      post: |
-        melos exec --flutter --dir-exists=lib/l10n -- "flutter gen-l10n"
   clean:
     hooks:
       post: |
@@ -75,10 +72,11 @@ scripts:
       flutter: true
       dirExists: [lib, test]
 
+  # ファイル除外機能に関するissue　https://github.com/dart-lang/dart_style/issues/864
   format:ci:
     run: |
       melos exec -- \
-        dart format --set-exit-if-changed lib test
+        dart format --set-exit-if-changed $(find . -name "*.dart" -not \( -name "*.*freezed.dart" -o -name "*.*g.dart" -o -name "*.gen.dart" -o -wholename "./.dart_tool/*" \) )
     description: Run format.
     packageFilters:
       flutter: true

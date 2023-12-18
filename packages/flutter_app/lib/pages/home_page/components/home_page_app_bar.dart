@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:themes/themes.dart';
 
-import '../../../util/localizer/localizer.dart';
+import '../../../gen/strings.g.dart';
 
 class HomePageAppBar extends StatelessWidget implements PreferredSizeWidget {
   const HomePageAppBar({super.key});
@@ -11,9 +11,9 @@ class HomePageAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = L10n.of(context);
+    final t = Translations.of(context);
     return AppBar(
-      title: Text(l10n.homePageAppBarTitle),
+      title: Text(t.homePage.appBar.title),
     );
   }
 }

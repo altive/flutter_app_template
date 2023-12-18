@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import '../../gen/strings.g.dart';
 import '../home_page/home_page.dart';
 import '../riverpod_example_page/riverpod_example_page.dart';
 import '../settings_page/settings_page.dart';
@@ -30,14 +30,14 @@ enum TopLevelTab {
 }
 
 extension TopLevelTabExt on TopLevelTab {
-  String labelText(AppLocalizations l10n) {
+  String labelText(Translations t) {
     switch (this) {
       case TopLevelTab.home:
-        return l10n.topLevelTabHomeLabel;
+        return t.topLevelTab.home.label;
       case TopLevelTab.riverpod:
-        return l10n.topLevelTabRiverpodExampleLabel;
+        return t.topLevelTab.riverpod.example.label;
       case TopLevelTab.settings:
-        return l10n.topLevelTabSettingsLabel;
+        return t.topLevelTab.settings.label;
     }
   }
 }

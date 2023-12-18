@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:themes/themes.dart';
 
 import 'features/theme_selector/theme_selector.dart';
+import 'gen/strings.g.dart';
 import 'router/router.dart';
-import 'util/localizer/localizer.dart';
 import 'util/providers/scaffold_messenger_key_provider.dart';
 
 class FlutterApp extends ConsumerWidget {
@@ -17,12 +17,12 @@ class FlutterApp extends ConsumerWidget {
 
     return MaterialApp.router(
       routerConfig: router,
-      onGenerateTitle: (context) => L10n.of(context).title,
+      onGenerateTitle: (context) => Translations.of(context).title,
       theme: appLightThemeData,
       darkTheme: appDarkThemeData,
       themeMode: ref.watch(themeSelectorProvider),
-      localizationsDelegates: AppLocalizations.localizationsDelegates,
-      supportedLocales: AppLocalizations.supportedLocales,
+      localizationsDelegates: GlobalMaterialLocalizations.delegates,
+      supportedLocales: AppLocaleUtils.supportedLocales,
       scaffoldMessengerKey: ref.watch(scaffoldMessengerKeyProvider),
     );
   }
