@@ -153,7 +153,7 @@ scripts:
   build:android:prod:
     run: |
       melos exec -c 1 -- \
-        flutter build appbundle --dart-define-from-file=dart_defines/prod.json
+        flutter build appbundle --dart-define-from-file=dart_defines/prod.env
     description: Build the AppBundle for the production app.
     packageFilters:
       flutter: true
@@ -162,7 +162,7 @@ scripts:
   upload:ios:prod:
     run: |
       melos exec -c 1 -- \
-        flutter build ipa --dart-define-from-file=dart_defines/prod.json --export-options-plist="ios/prod/ExportOptions.plist"
+        flutter build ipa --dart-define-from-file=dart_defines/prod.env --export-options-plist="ios/prod/ExportOptions.plist"
     description: Upload the IPA for the production app.
     packageFilters:
       flutter: true

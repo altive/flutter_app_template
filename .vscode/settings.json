@@ -130,8 +130,13 @@
 	"git.enableSmartCommit": true,
 	// 検索対象から生成ファイルを除外する
 	"search.exclude": {
-		"**/.fvm": true,
-		"**/*.freezed.dart": true,
-		"**/*.g.dart": true
+		"**/*.dart_tool": true,
+		"**/*.freezed": true,
+		"**/*.g.dart": true,
+		"**/*.symlinks": true,
+		"**/.fvm/flutter_sdk": true,
+		"**/build": true,
+		"**/node_modules": true,
+		"**/Pods": true
 	}
 }

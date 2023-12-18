@@ -144,13 +144,6 @@ coverage/
 # Bundler related
 **/vendor/bundle
 
-# ENV
-.envrc
-.env*
-*.env
-!.env.sample
-*env.g.dart
-
 # Exceptions to above rules.
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 !/dev/ci/**/Gemfile.lock

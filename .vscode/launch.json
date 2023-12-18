@@ -12,7 +12,7 @@
             "type": "dart",
             "flutterMode": "debug",
             "args": [
-                "--dart-define-from-file=dart_defines/dev.json"
+                "--dart-define-from-file=dart_defines/dev.env"
             ]
         },
         {
@@ -23,7 +23,7 @@
             "type": "dart",
             "flutterMode": "debug",
             "args": [
-                "--dart-define-from-file=dart_defines/stg.json"
+                "--dart-define-from-file=dart_defines/stg.env"
             ]
         },
         {
@@ -34,7 +34,7 @@
             "type": "dart",
             "flutterMode": "debug",
             "args": [
-                "--dart-define-from-file=dart_defines/prod.json"
+                "--dart-define-from-file=dart_defines/prod.env"
             ]
         }
     ]
