@@ -3,6 +3,5 @@ analyzer:
   plugins:
     - custom_lint
   exclude:
-    - "**/l10n/*.dart"
     - "**/gen/*.dart"
     - "**/firebase_options_*.dart"

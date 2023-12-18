@@ -302,6 +302,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.3"
+  csv:
+    dependency: transitive
+    description:
+      name: csv
+      sha256: "63ed2871dd6471193dffc52c0e6c76fb86269c00244d244297abbb355c84a86e"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.1.1"
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -930,6 +938,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.6.7"
+  json2yaml:
+    dependency: transitive
+    description:
+      name: json2yaml
+      sha256: da94630fbc56079426fdd167ae58373286f603371075b69bf46d848d63ba3e51
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.1"
   json_annotation:
     dependency: "direct main"
     description:
@@ -1318,6 +1334,30 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.99"
+  slang:
+    dependency: "direct main"
+    description:
+      name: slang
+      sha256: "3231d9b11163acb96e7611c5da54404e93d1e0d0eb8f31126ce86a1a43a1c7d4"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.26.2"
+  slang_build_runner:
+    dependency: "direct dev"
+    description:
+      name: slang_build_runner
+      sha256: "3c1efe9cc32af091859962fc67d68aedf8e649ac758348f3b2ecf4942b2eac4a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.26.2"
+  slang_flutter:
+    dependency: "direct main"
+    description:
+      name: slang_flutter
+      sha256: "88e40b238307abdc191c9c26cdfb7c1b6d5075f461e8fbcf89f6f2a3f92cd5d7"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.26.2"
   sort_key_generator:
     dependency: "direct main"
     description:

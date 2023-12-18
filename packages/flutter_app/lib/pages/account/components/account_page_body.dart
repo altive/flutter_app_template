@@ -3,14 +3,14 @@ import 'package:awaitable_button/awaitable_button.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../util/localizer/localizer.dart';
+import '../../../gen/strings.g.dart';
 
 class AccountPageBody extends HookConsumerWidget {
   const AccountPageBody({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final l10n = L10n.of(context);
+    final t = Translations.of(context);
     final authenticator = ref.watch(authenticatorProvider);
     Future<void> signOut() async {
       final isBool = await showDialog<bool>(
@@ -22,11 +22,11 @@ class AccountPageBody extends HookConsumerWidget {
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(context, false),
-                child: Text(l10n.buttonCancel),
+                child: Text(t.button.cancel),
               ),
               TextButton(
                 onPressed: () => Navigator.pop(context, true),
-                child: Text(l10n.buttonSignOut),
+                child: Text(t.button.sign.out),
               ),
             ],
           );
@@ -47,7 +47,7 @@ class AccountPageBody extends HookConsumerWidget {
         ),
         AwaitableTextButton<void>(
           onPressed: signOut,
-          child: Text(l10n.buttonSignOut),
+          child: Text(t.button.sign.out),
         ),
       ],
     );

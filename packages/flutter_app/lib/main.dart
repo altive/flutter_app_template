@@ -11,6 +11,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'environment/environment.dart';
 import 'features/user_device/user_device.dart';
 import 'flutter_app.dart';
+import 'gen/strings.g.dart';
 import 'package_adaptor/analysis_logger/analysis_logger_provider.dart';
 import 'util/logger/provider_logger.dart';
 import 'util/providers/providers.dart';
@@ -45,7 +46,9 @@ Future<void> main() async {
         analysisLoggerProvider.overrideWithValue(analysisLogger),
       ],
       observers: [ProviderLogger()],
-      child: const FlutterApp(),
+      child: TranslationProvider(
+        child: const FlutterApp(),
+      ),
     ),
   );
 }
