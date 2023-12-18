@@ -18,6 +18,7 @@ jobs:
   pod_install:
     if: startsWith(github.head_ref, 'dependabot/pub/')
     runs-on: macos-latest
+    timeout-minutes: 10
     env:
       head_ref: ${{ github.head_ref }}
     steps:

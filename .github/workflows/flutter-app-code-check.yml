@@ -14,6 +14,7 @@ concurrency:
 jobs:
   check:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     outputs:
       flutter: ${{ steps.filter.outputs.flutter }}
     steps:
@@ -43,6 +44,7 @@ jobs:
     needs: check
     if: ${{ needs.check.outputs.flutter == 'true' && github.event_name != 'push' }}
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -67,6 +69,7 @@ jobs:
     needs: check
     if: needs.check.outputs.flutter == 'true'
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
