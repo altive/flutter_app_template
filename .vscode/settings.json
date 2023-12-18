@@ -75,7 +75,7 @@
 		// 補完リストが表示されていなくても、<TAB>を押すことで`for`などのスニペットを補完できる
 		"editor.tabCompletion": "onlySnippets",
 		// コメントや文字列の編集時にコード補完が単語を示唆することある挙動を無効化する
-		"editor.wordBasedSuggestions": false,
+		"editor.wordBasedSuggestions": "off",
 		// ファイル保存時に実行されるコードアクション
 		"editor.codeActionsOnSave": {
 			// セミコロンを挿入する。

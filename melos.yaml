@@ -76,7 +76,7 @@ scripts:
   format:ci:
     run: |
       melos exec -- \
-        dart format --set-exit-if-changed $(find lib test -name "*.dart" -not \( -name "*.*freezed.dart" -o -name "*.*g.dart" -o -name "*.gen.dart" \) )
+        dart format --set-exit-if-changed $(find . -name "*.dart" -not \( -name "*.*freezed.dart" -o -name "*.*g.dart" -o -name "*.gen.dart" -o -wholename "./.dart_tool/*" \) )
     description: Run format.
     packageFilters:
       flutter: true
