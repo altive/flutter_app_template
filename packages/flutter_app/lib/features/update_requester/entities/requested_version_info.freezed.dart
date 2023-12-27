@@ -80,22 +80,22 @@ class _$RequestedVersionInfoCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_RequestedVersionInfoCopyWith<$Res>
+abstract class _$$RequestedVersionInfoImplCopyWith<$Res>
     implements $RequestedVersionInfoCopyWith<$Res> {
-  factory _$$_RequestedVersionInfoCopyWith(_$_RequestedVersionInfo value,
-          $Res Function(_$_RequestedVersionInfo) then) =
-      __$$_RequestedVersionInfoCopyWithImpl<$Res>;
+  factory _$$RequestedVersionInfoImplCopyWith(_$RequestedVersionInfoImpl value,
+          $Res Function(_$RequestedVersionInfoImpl) then) =
+      __$$RequestedVersionInfoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String requiredVersion, bool canCancel, DateTime enabledAt});
 }
 
 /// @nodoc
-class __$$_RequestedVersionInfoCopyWithImpl<$Res>
-    extends _$RequestedVersionInfoCopyWithImpl<$Res, _$_RequestedVersionInfo>
-    implements _$$_RequestedVersionInfoCopyWith<$Res> {
-  __$$_RequestedVersionInfoCopyWithImpl(_$_RequestedVersionInfo _value,
-      $Res Function(_$_RequestedVersionInfo) _then)
+class __$$RequestedVersionInfoImplCopyWithImpl<$Res>
+    extends _$RequestedVersionInfoCopyWithImpl<$Res, _$RequestedVersionInfoImpl>
+    implements _$$RequestedVersionInfoImplCopyWith<$Res> {
+  __$$RequestedVersionInfoImplCopyWithImpl(_$RequestedVersionInfoImpl _value,
+      $Res Function(_$RequestedVersionInfoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -105,7 +105,7 @@ class __$$_RequestedVersionInfoCopyWithImpl<$Res>
     Object? canCancel = null,
     Object? enabledAt = null,
   }) {
-    return _then(_$_RequestedVersionInfo(
+    return _then(_$RequestedVersionInfoImpl(
       requiredVersion: null == requiredVersion
           ? _value.requiredVersion
           : requiredVersion // ignore: cast_nullable_to_non_nullable
@@ -124,16 +124,16 @@ class __$$_RequestedVersionInfoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_RequestedVersionInfo
+class _$RequestedVersionInfoImpl
     with DiagnosticableTreeMixin
     implements _RequestedVersionInfo {
-  const _$_RequestedVersionInfo(
+  const _$RequestedVersionInfoImpl(
       {required this.requiredVersion,
       this.canCancel = false,
       required this.enabledAt});
 
-  factory _$_RequestedVersionInfo.fromJson(Map<String, dynamic> json) =>
-      _$$_RequestedVersionInfoFromJson(json);
+  factory _$RequestedVersionInfoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RequestedVersionInfoImplFromJson(json);
 
   /// 要求バージョン e.g., '1.0.0'
   @override
@@ -164,10 +164,10 @@ class _$_RequestedVersionInfo
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_RequestedVersionInfo &&
+            other is _$RequestedVersionInfoImpl &&
             (identical(other.requiredVersion, requiredVersion) ||
                 other.requiredVersion == requiredVersion) &&
             (identical(other.canCancel, canCancel) ||
@@ -184,13 +184,14 @@ class _$_RequestedVersionInfo
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_RequestedVersionInfoCopyWith<_$_RequestedVersionInfo> get copyWith =>
-      __$$_RequestedVersionInfoCopyWithImpl<_$_RequestedVersionInfo>(
-          this, _$identity);
+  _$$RequestedVersionInfoImplCopyWith<_$RequestedVersionInfoImpl>
+      get copyWith =>
+          __$$RequestedVersionInfoImplCopyWithImpl<_$RequestedVersionInfoImpl>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_RequestedVersionInfoToJson(
+    return _$$RequestedVersionInfoImplToJson(
       this,
     );
   }
@@ -200,10 +201,10 @@ abstract class _RequestedVersionInfo implements RequestedVersionInfo {
   const factory _RequestedVersionInfo(
       {required final String requiredVersion,
       final bool canCancel,
-      required final DateTime enabledAt}) = _$_RequestedVersionInfo;
+      required final DateTime enabledAt}) = _$RequestedVersionInfoImpl;
 
   factory _RequestedVersionInfo.fromJson(Map<String, dynamic> json) =
-      _$_RequestedVersionInfo.fromJson;
+      _$RequestedVersionInfoImpl.fromJson;
 
   @override
 
@@ -219,6 +220,6 @@ abstract class _RequestedVersionInfo implements RequestedVersionInfo {
   DateTime get enabledAt;
   @override
   @JsonKey(ignore: true)
-  _$$_RequestedVersionInfoCopyWith<_$_RequestedVersionInfo> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$RequestedVersionInfoImplCopyWith<_$RequestedVersionInfoImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

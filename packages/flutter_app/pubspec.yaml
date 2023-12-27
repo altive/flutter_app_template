@@ -58,14 +58,14 @@ dependencies:
   version: ^3.0.2
 
 dev_dependencies:
-  altive_lints: ^1.8.1
-  build_runner: ^2.4.6
+  altive_lints: ^1.9.0
+  build_runner: ^2.4.7
   custom_lint: ^0.5.7
   flutter_gen_runner: ^5.3.2
   flutter_launcher_icons: ^0.13.1
   flutter_test:
     sdk: flutter
-  freezed: ^2.4.1
+  freezed: ^2.4.5
   go_router_builder: ^2.3.4
   json_serializable: ^6.7.1
   mockito: ^5.2.0
