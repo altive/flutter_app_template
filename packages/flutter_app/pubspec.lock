@@ -5,10 +5,10 @@ packages:
     dependency: transitive
     description:
       name: _fe_analyzer_shared
-      sha256: "405666cd3cf0ee0a48d21ec67e65406aad2c726d9fa58840d3375e7bdcd32a07"
+      sha256: ae92f5d747aee634b87f89d9946000c2de774be1d6ac3e58268224348cd0101a
       url: "https://pub.dev"
     source: hosted
-    version: "60.0.0"
+    version: "61.0.0"
   _flutterfire_internals:
     dependency: transitive
     description:
@@ -21,10 +21,10 @@ packages:
     dependency: "direct dev"
     description:
       name: altive_lints
-      sha256: "6052386ff0c5124bdc354c3c28c74d7e8fb973b22464d5985c1b066a3d35ea5b"
+      sha256: ba89baff059dd26160d8299a35de6e9ab3455c24d963c2b8bcf927628dfc4e2a
       url: "https://pub.dev"
     source: hosted
-    version: "1.8.1"
+    version: "1.9.0"
   analysis_logger:
     dependency: "direct main"
     description:
@@ -36,10 +36,10 @@ packages:
     dependency: transitive
     description:
       name: analyzer
-      sha256: "1952250bd005bacb895a01bf1b4dc00e3ba1c526cf47dca54dfe24979c65f5b3"
+      sha256: ea3d8652bda62982addfd92fdc2d0214e5f82e43325104990d4f4c4a2a313562
       url: "https://pub.dev"
     source: hosted
-    version: "5.12.0"
+    version: "5.13.0"
   analyzer_plugin:
     dependency: transitive
     description:
@@ -131,10 +131,10 @@ packages:
     dependency: "direct dev"
     description:
       name: build_runner
-      sha256: "10c6bcdbf9d049a0b666702cf1cee4ddfdc38f02a19d35ae392863b47519848b"
+      sha256: "67d591d602906ef9201caf93452495ad1812bea2074f04e25dbd7c133785821b"
       url: "https://pub.dev"
     source: hosted
-    version: "2.4.6"
+    version: "2.4.7"
   build_runner_core:
     dependency: transitive
     description:
@@ -686,10 +686,10 @@ packages:
     dependency: "direct dev"
     description:
       name: freezed
-      sha256: "2df89855fe181baae3b6d714dc3c4317acf4fccd495a6f36e5e00f24144c6c3b"
+      sha256: "6c5031daae12c7072b3a87eff98983076434b4889ef2a44384d0cae3f82372ba"
       url: "https://pub.dev"
     source: hosted
-    version: "2.4.1"
+    version: "2.4.6"
   freezed_annotation:
     dependency: "direct main"
     description:
@@ -1330,26 +1330,26 @@ packages:
     dependency: "direct main"
     description:
       name: slang
-      sha256: "679eb608889634f57310aa4660189e7e7ef5eed5eab20f613e966d1b257b2c13"
+      sha256: "77fd99f7b0da15e671ef0289b24a0a63e74f693c58a0ca54111388e4c0ddb1dd"
       url: "https://pub.dev"
     source: hosted
-    version: "3.27.0"
+    version: "3.28.0"
   slang_build_runner:
     dependency: "direct dev"
     description:
       name: slang_build_runner
-      sha256: "670a1c6c2c967ce30ea86f68d919e56b7038bc66f3013c8e7179d66386885bb7"
+      sha256: "387a3d569da4490b1fffbf31f203021fbfd34f15228d83e14a0f40bc940966fa"
       url: "https://pub.dev"
     source: hosted
-    version: "3.27.0"
+    version: "3.28.0"
   slang_flutter:
     dependency: "direct main"
     description:
       name: slang_flutter
-      sha256: fd770bcaf6379cbeb4ef509b44f3b101d38695856e4eb933d8ee6d34740895f9
+      sha256: "57817bb15553bb5df37aed3bac497286bdd8c2eab6763f4de6815efe2c0becee"
       url: "https://pub.dev"
     source: hosted
-    version: "3.27.0"
+    version: "3.28.0"
   sort_key_generator:
     dependency: "direct main"
     description:

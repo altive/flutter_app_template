@@ -1,13 +1,21 @@
 name: flutter_app_template
 repository: https://github.com/altive/flutter_app_template
-sdkPath: .fvm/flutter_sdk
 
 packages:
   - "packages/*"
 
 command:
   bootstrap:
-    runPubGetInParallel: true
+    environment:
+      sdk: ^3.2.0
+    dependencies:
+      freezed_annotation: ^2.4.1
+      json_annotation: ^4.8.1
+    dev_dependencies:
+      altive_lints: ^1.9.0
+      build_runner: ^2.4.7
+      freezed: ^2.4.5
+      json_serializable: ^6.7.1
   clean:
     hooks:
       post: |
@@ -16,6 +24,7 @@ command:
         melos exec --flutter --file-exists="macos/Podfile.lock" -- "cd macos && rm Podfile.lock"
   version:
     branch: main
+    releaseUrl: true
 
 scripts:
   upgrade:
