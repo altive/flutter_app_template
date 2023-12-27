@@ -137,22 +137,22 @@ class _$UserDeviceCopyWithImpl<$Res, $Val extends UserDevice>
 }
 
 /// @nodoc
-abstract class _$$AndroidDeviceCopyWith<$Res>
+abstract class _$$AndroidDeviceImplCopyWith<$Res>
     implements $UserDeviceCopyWith<$Res> {
-  factory _$$AndroidDeviceCopyWith(
-          _$AndroidDevice value, $Res Function(_$AndroidDevice) then) =
-      __$$AndroidDeviceCopyWithImpl<$Res>;
+  factory _$$AndroidDeviceImplCopyWith(
+          _$AndroidDeviceImpl value, $Res Function(_$AndroidDeviceImpl) then) =
+      __$$AndroidDeviceImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String name, String model, String osName, String osVersionString});
 }
 
 /// @nodoc
-class __$$AndroidDeviceCopyWithImpl<$Res>
-    extends _$UserDeviceCopyWithImpl<$Res, _$AndroidDevice>
-    implements _$$AndroidDeviceCopyWith<$Res> {
-  __$$AndroidDeviceCopyWithImpl(
-      _$AndroidDevice _value, $Res Function(_$AndroidDevice) _then)
+class __$$AndroidDeviceImplCopyWithImpl<$Res>
+    extends _$UserDeviceCopyWithImpl<$Res, _$AndroidDeviceImpl>
+    implements _$$AndroidDeviceImplCopyWith<$Res> {
+  __$$AndroidDeviceImplCopyWithImpl(
+      _$AndroidDeviceImpl _value, $Res Function(_$AndroidDeviceImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -163,7 +163,7 @@ class __$$AndroidDeviceCopyWithImpl<$Res>
     Object? osName = null,
     Object? osVersionString = null,
   }) {
-    return _then(_$AndroidDevice(
+    return _then(_$AndroidDeviceImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -186,8 +186,8 @@ class __$$AndroidDeviceCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$AndroidDevice extends AndroidDevice with DiagnosticableTreeMixin {
-  const _$AndroidDevice(
+class _$AndroidDeviceImpl extends AndroidDevice with DiagnosticableTreeMixin {
+  const _$AndroidDeviceImpl(
       {required this.name,
       required this.model,
       required this.osName,
@@ -220,10 +220,10 @@ class _$AndroidDevice extends AndroidDevice with DiagnosticableTreeMixin {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AndroidDevice &&
+            other is _$AndroidDeviceImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.model, model) || other.model == model) &&
             (identical(other.osName, osName) || other.osName == osName) &&
@@ -238,8 +238,8 @@ class _$AndroidDevice extends AndroidDevice with DiagnosticableTreeMixin {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AndroidDeviceCopyWith<_$AndroidDevice> get copyWith =>
-      __$$AndroidDeviceCopyWithImpl<_$AndroidDevice>(this, _$identity);
+  _$$AndroidDeviceImplCopyWith<_$AndroidDeviceImpl> get copyWith =>
+      __$$AndroidDeviceImplCopyWithImpl<_$AndroidDeviceImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -333,7 +333,7 @@ abstract class AndroidDevice extends UserDevice {
       {required final String name,
       required final String model,
       required final String osName,
-      required final String osVersionString}) = _$AndroidDevice;
+      required final String osVersionString}) = _$AndroidDeviceImpl;
   const AndroidDevice._() : super._();
 
   @override
@@ -346,26 +346,27 @@ abstract class AndroidDevice extends UserDevice {
   String get osVersionString;
   @override
   @JsonKey(ignore: true)
-  _$$AndroidDeviceCopyWith<_$AndroidDevice> get copyWith =>
+  _$$AndroidDeviceImplCopyWith<_$AndroidDeviceImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$IosDeviceCopyWith<$Res> implements $UserDeviceCopyWith<$Res> {
-  factory _$$IosDeviceCopyWith(
-          _$IosDevice value, $Res Function(_$IosDevice) then) =
-      __$$IosDeviceCopyWithImpl<$Res>;
+abstract class _$$IosDeviceImplCopyWith<$Res>
+    implements $UserDeviceCopyWith<$Res> {
+  factory _$$IosDeviceImplCopyWith(
+          _$IosDeviceImpl value, $Res Function(_$IosDeviceImpl) then) =
+      __$$IosDeviceImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String name, String model, String osName, String osVersionString});
 }
 
 /// @nodoc
-class __$$IosDeviceCopyWithImpl<$Res>
-    extends _$UserDeviceCopyWithImpl<$Res, _$IosDevice>
-    implements _$$IosDeviceCopyWith<$Res> {
-  __$$IosDeviceCopyWithImpl(
-      _$IosDevice _value, $Res Function(_$IosDevice) _then)
+class __$$IosDeviceImplCopyWithImpl<$Res>
+    extends _$UserDeviceCopyWithImpl<$Res, _$IosDeviceImpl>
+    implements _$$IosDeviceImplCopyWith<$Res> {
+  __$$IosDeviceImplCopyWithImpl(
+      _$IosDeviceImpl _value, $Res Function(_$IosDeviceImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -376,7 +377,7 @@ class __$$IosDeviceCopyWithImpl<$Res>
     Object? osName = null,
     Object? osVersionString = null,
   }) {
-    return _then(_$IosDevice(
+    return _then(_$IosDeviceImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -399,8 +400,8 @@ class __$$IosDeviceCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$IosDevice extends IosDevice with DiagnosticableTreeMixin {
-  const _$IosDevice(
+class _$IosDeviceImpl extends IosDevice with DiagnosticableTreeMixin {
+  const _$IosDeviceImpl(
       {required this.name,
       required this.model,
       required this.osName,
@@ -433,10 +434,10 @@ class _$IosDevice extends IosDevice with DiagnosticableTreeMixin {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$IosDevice &&
+            other is _$IosDeviceImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.model, model) || other.model == model) &&
             (identical(other.osName, osName) || other.osName == osName) &&
@@ -451,8 +452,8 @@ class _$IosDevice extends IosDevice with DiagnosticableTreeMixin {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$IosDeviceCopyWith<_$IosDevice> get copyWith =>
-      __$$IosDeviceCopyWithImpl<_$IosDevice>(this, _$identity);
+  _$$IosDeviceImplCopyWith<_$IosDeviceImpl> get copyWith =>
+      __$$IosDeviceImplCopyWithImpl<_$IosDeviceImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -546,7 +547,7 @@ abstract class IosDevice extends UserDevice {
       {required final String name,
       required final String model,
       required final String osName,
-      required final String osVersionString}) = _$IosDevice;
+      required final String osVersionString}) = _$IosDeviceImpl;
   const IosDevice._() : super._();
 
   @override
@@ -559,27 +560,27 @@ abstract class IosDevice extends UserDevice {
   String get osVersionString;
   @override
   @JsonKey(ignore: true)
-  _$$IosDeviceCopyWith<_$IosDevice> get copyWith =>
+  _$$IosDeviceImplCopyWith<_$IosDeviceImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$MacosDeviceCopyWith<$Res>
+abstract class _$$MacosDeviceImplCopyWith<$Res>
     implements $UserDeviceCopyWith<$Res> {
-  factory _$$MacosDeviceCopyWith(
-          _$MacosDevice value, $Res Function(_$MacosDevice) then) =
-      __$$MacosDeviceCopyWithImpl<$Res>;
+  factory _$$MacosDeviceImplCopyWith(
+          _$MacosDeviceImpl value, $Res Function(_$MacosDeviceImpl) then) =
+      __$$MacosDeviceImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String name, String model, String osName, String osVersionString});
 }
 
 /// @nodoc
-class __$$MacosDeviceCopyWithImpl<$Res>
-    extends _$UserDeviceCopyWithImpl<$Res, _$MacosDevice>
-    implements _$$MacosDeviceCopyWith<$Res> {
-  __$$MacosDeviceCopyWithImpl(
-      _$MacosDevice _value, $Res Function(_$MacosDevice) _then)
+class __$$MacosDeviceImplCopyWithImpl<$Res>
+    extends _$UserDeviceCopyWithImpl<$Res, _$MacosDeviceImpl>
+    implements _$$MacosDeviceImplCopyWith<$Res> {
+  __$$MacosDeviceImplCopyWithImpl(
+      _$MacosDeviceImpl _value, $Res Function(_$MacosDeviceImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -590,7 +591,7 @@ class __$$MacosDeviceCopyWithImpl<$Res>
     Object? osName = null,
     Object? osVersionString = null,
   }) {
-    return _then(_$MacosDevice(
+    return _then(_$MacosDeviceImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -613,8 +614,8 @@ class __$$MacosDeviceCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$MacosDevice extends MacosDevice with DiagnosticableTreeMixin {
-  const _$MacosDevice(
+class _$MacosDeviceImpl extends MacosDevice with DiagnosticableTreeMixin {
+  const _$MacosDeviceImpl(
       {required this.name,
       required this.model,
       required this.osName,
@@ -647,10 +648,10 @@ class _$MacosDevice extends MacosDevice with DiagnosticableTreeMixin {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MacosDevice &&
+            other is _$MacosDeviceImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.model, model) || other.model == model) &&
             (identical(other.osName, osName) || other.osName == osName) &&
@@ -665,8 +666,8 @@ class _$MacosDevice extends MacosDevice with DiagnosticableTreeMixin {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$MacosDeviceCopyWith<_$MacosDevice> get copyWith =>
-      __$$MacosDeviceCopyWithImpl<_$MacosDevice>(this, _$identity);
+  _$$MacosDeviceImplCopyWith<_$MacosDeviceImpl> get copyWith =>
+      __$$MacosDeviceImplCopyWithImpl<_$MacosDeviceImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -760,7 +761,7 @@ abstract class MacosDevice extends UserDevice {
       {required final String name,
       required final String model,
       required final String osName,
-      required final String osVersionString}) = _$MacosDevice;
+      required final String osVersionString}) = _$MacosDeviceImpl;
   const MacosDevice._() : super._();
 
   @override
@@ -773,6 +774,6 @@ abstract class MacosDevice extends UserDevice {
   String get osVersionString;
   @override
   @JsonKey(ignore: true)
-  _$$MacosDeviceCopyWith<_$MacosDevice> get copyWith =>
+  _$$MacosDeviceImplCopyWith<_$MacosDeviceImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
