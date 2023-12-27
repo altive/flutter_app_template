@@ -68,7 +68,7 @@ dev_dependencies:
   freezed: ^2.4.5
   go_router_builder: ^2.3.4
   json_serializable: ^6.7.1
-  mockito: ^5.2.0
+  mockito: ^5.4.4
   riverpod_generator: ^2.3.2
   riverpod_lint: ^2.1.0
   slang_build_runner: ^3.26.2
