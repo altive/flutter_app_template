@@ -35,7 +35,7 @@ Future<void> main() async {
   PlatformDispatcher.instance.onError = analysisLogger.onPlatformError;
   // Flutter外部のエラーを記録する。
   Isolate.current.addErrorListener(analysisLogger.isolateErrorListener());
-  // デバイスのロケールを使用する。
+
   LocaleSettings.useDeviceLocale();
 
   runApp(
