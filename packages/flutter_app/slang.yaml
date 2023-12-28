@@ -1,4 +1,4 @@
 base_locale: ja
 input_directory: lib/i18n
-input_file_pattern: .json
+input_file_pattern: .yaml
 output_directory: lib/gen
