@@ -36,6 +36,8 @@ Future<void> main() async {
   // Flutter外部のエラーを記録する。
   Isolate.current.addErrorListener(analysisLogger.isolateErrorListener());
 
+  LocaleSettings.useDeviceLocale();
+
   runApp(
     ProviderScope(
       overrides: [
