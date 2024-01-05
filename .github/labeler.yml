@@ -1,23 +1,31 @@
 android:
-  - "**/android/**/*"
+  - changed-files:
+      - any-glob-to-any-file: "**/android/**/*"
 
 documentation:
-  - "**/*.md"
+  - changed-files:
+      - any-glob-to-any-file: "**/*.md"
 
 flutter_app:
-  - "packages/flutter_app/**/*"
+  - changed-files:
+      - any-glob-to-any-file: "packages/flutter_app/**/*"
 
 ios:
-  - "**/ios/**/*"
+  - changed-files:
+      - any-glob-to-any-file: "**/ios/**/*"
 
 macos:
-  - "**/macos/**/*"
+  - changed-files:
+      - any-glob-to-any-file: "**/macos/**/*"
 
 test:
-  - "**/test/**/*"
+  - changed-files:
+      - any-glob-to-any-file: "**/test/**/*"
 
 themes:
-  - "packages/themes/**/*"
+  - changed-files:
+      - any-glob-to-any-file: "packages/themes/**/*"
 
 web:
-  - "**/web/**/*"
+  - changed-files:
+      - any-glob-to-any-file: "**/web/**/*"
