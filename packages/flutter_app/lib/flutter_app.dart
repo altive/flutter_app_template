@@ -21,7 +21,12 @@ class FlutterApp extends ConsumerWidget {
       theme: appLightThemeData,
       darkTheme: appDarkThemeData,
       themeMode: ref.watch(themeSelectorProvider),
-      localizationsDelegates: GlobalMaterialLocalizations.delegates,
+      locale: TranslationProvider.of(context).flutterLocale,
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
       supportedLocales: AppLocaleUtils.supportedLocales,
       scaffoldMessengerKey: ref.watch(scaffoldMessengerKeyProvider),
     );

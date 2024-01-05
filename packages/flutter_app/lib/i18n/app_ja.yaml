@@ -1,0 +1,59 @@
+# locale: "ja"
+title: "Flutter App Template"
+accountPage:
+  appBar:
+    title: "アカウント"
+appInfo:
+  appBar:
+    title: "アプリ情報"
+author:
+  name: "Altive株式会社"
+button:
+  cancel: "キャンセル"
+  sign:
+    out: "サインアウト"
+homePage:
+  appBar:
+    title: "Home"
+  list:
+    appInfo:
+      label: "アプリ情報"
+notFoundPage:
+  title: "404 Not Found"
+  header:
+    label: "ごめんなさい🙏"
+  description: "is not found."
+  backButton:
+    label: "is not found."
+pinkieMewPage:
+  title: "Pinkie and Mew"
+settingsPage:
+  appBar:
+    title: "設定"
+  list:
+    themeSelector:
+      label: "テーマ選択"
+    account:
+      label: "アカウント"
+theme:
+  mode:
+    title:
+      system: "System"
+      light: "Light theme"
+      dark: "Dark theme"
+    subtitle:
+      system: "システム設定に従う"
+      light: "明るいテーマ"
+      dark: "暗いテーマ"
+  selection:
+    page:
+      appBar:
+        title: "テーマ選択"
+topLevelTab:
+  home:
+    label: "Home"
+  riverpod:
+    example:
+      label: "Riverpod"
+  settings:
+    label: "Settings"

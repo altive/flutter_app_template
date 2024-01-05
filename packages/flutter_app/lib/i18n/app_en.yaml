@@ -1,0 +1,59 @@
+# locale: "en"
+title: "Flutter App Template"
+accountPage:
+  appBar:
+    title: "Account"
+appInfo:
+  appBar:
+    title: "App information"
+author:
+  name: "Altive inc"
+button:
+  cancel: "Cancel"
+  sign:
+    out: "Sign out"
+homePage:
+  appBar:
+    title: "Home"
+  list:
+    appInfo:
+      label: "App Info"
+notFoundPage:
+  title: "404 Not Found"
+  header:
+    label: "Sorry..."
+  description: "is not found."
+  backButton:
+    label: "is not found."
+pinkieMewPage:
+  title: "Pinkie and Mew"
+settingsPage:
+  appBar:
+    title: "Settings"
+  list:
+    themeSelector:
+      label: "Theme Selector"
+    account:
+      label: "Account"
+theme:
+  mode:
+    title:
+      system: "System"
+      light: "Light theme"
+      dark: "Dark theme"
+    subtitle:
+      system: "Follows the system settings of the device"
+      light: "Light"
+      dark: "Dark"
+  selection:
+    page:
+      appBar:
+        title: "Theme Selector"
+topLevelTab:
+  home:
+    label: "Home"
+  riverpod:
+    example:
+      label: "Riverpod"
+  settings:
+    label: "Settings"

@@ -65,23 +65,25 @@ class _$PaapiGetItemsParametersCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_PaapiGetItemsParametersCopyWith<$Res>
+abstract class _$$PaapiGetItemsParametersImplCopyWith<$Res>
     implements $PaapiGetItemsParametersCopyWith<$Res> {
-  factory _$$_PaapiGetItemsParametersCopyWith(_$_PaapiGetItemsParameters value,
-          $Res Function(_$_PaapiGetItemsParameters) then) =
-      __$$_PaapiGetItemsParametersCopyWithImpl<$Res>;
+  factory _$$PaapiGetItemsParametersImplCopyWith(
+          _$PaapiGetItemsParametersImpl value,
+          $Res Function(_$PaapiGetItemsParametersImpl) then) =
+      __$$PaapiGetItemsParametersImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<String> asin, List<String> resources});
 }
 
 /// @nodoc
-class __$$_PaapiGetItemsParametersCopyWithImpl<$Res>
+class __$$PaapiGetItemsParametersImplCopyWithImpl<$Res>
     extends _$PaapiGetItemsParametersCopyWithImpl<$Res,
-        _$_PaapiGetItemsParameters>
-    implements _$$_PaapiGetItemsParametersCopyWith<$Res> {
-  __$$_PaapiGetItemsParametersCopyWithImpl(_$_PaapiGetItemsParameters _value,
-      $Res Function(_$_PaapiGetItemsParameters) _then)
+        _$PaapiGetItemsParametersImpl>
+    implements _$$PaapiGetItemsParametersImplCopyWith<$Res> {
+  __$$PaapiGetItemsParametersImplCopyWithImpl(
+      _$PaapiGetItemsParametersImpl _value,
+      $Res Function(_$PaapiGetItemsParametersImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -90,7 +92,7 @@ class __$$_PaapiGetItemsParametersCopyWithImpl<$Res>
     Object? asin = null,
     Object? resources = null,
   }) {
-    return _then(_$_PaapiGetItemsParameters(
+    return _then(_$PaapiGetItemsParametersImpl(
       asin: null == asin
           ? _value._asin
           : asin // ignore: cast_nullable_to_non_nullable
@@ -105,10 +107,10 @@ class __$$_PaapiGetItemsParametersCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_PaapiGetItemsParameters
+class _$PaapiGetItemsParametersImpl
     with DiagnosticableTreeMixin
     implements _PaapiGetItemsParameters {
-  const _$_PaapiGetItemsParameters(
+  const _$PaapiGetItemsParametersImpl(
       {final List<String> asin = const <String>[],
       final List<String> resources = const <String>[]})
       : _asin = asin,
@@ -151,10 +153,10 @@ class _$_PaapiGetItemsParameters
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_PaapiGetItemsParameters &&
+            other is _$PaapiGetItemsParametersImpl &&
             const DeepCollectionEquality().equals(other._asin, _asin) &&
             const DeepCollectionEquality()
                 .equals(other._resources, _resources));
@@ -169,16 +171,15 @@ class _$_PaapiGetItemsParameters
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_PaapiGetItemsParametersCopyWith<_$_PaapiGetItemsParameters>
-      get copyWith =>
-          __$$_PaapiGetItemsParametersCopyWithImpl<_$_PaapiGetItemsParameters>(
-              this, _$identity);
+  _$$PaapiGetItemsParametersImplCopyWith<_$PaapiGetItemsParametersImpl>
+      get copyWith => __$$PaapiGetItemsParametersImplCopyWithImpl<
+          _$PaapiGetItemsParametersImpl>(this, _$identity);
 }
 
 abstract class _PaapiGetItemsParameters implements PaapiGetItemsParameters {
   const factory _PaapiGetItemsParameters(
       {final List<String> asin,
-      final List<String> resources}) = _$_PaapiGetItemsParameters;
+      final List<String> resources}) = _$PaapiGetItemsParametersImpl;
 
   @override // Amazon Standard Identification Number: 10文字のユニークな英数字
   List<String> get asin;
@@ -186,6 +187,6 @@ abstract class _PaapiGetItemsParameters implements PaapiGetItemsParameters {
   List<String> get resources;
   @override
   @JsonKey(ignore: true)
-  _$$_PaapiGetItemsParametersCopyWith<_$_PaapiGetItemsParameters>
+  _$$PaapiGetItemsParametersImplCopyWith<_$PaapiGetItemsParametersImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
