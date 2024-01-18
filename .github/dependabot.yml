@@ -34,9 +34,6 @@ updates:
           - "*"
         update-types:
         - "patch"
-      dependencies:
-        patterns:
-          - "*"
 
   - package-ecosystem: "pub"
     directory: "/packages/themes"
