@@ -9,7 +9,7 @@ environment:
 dependencies:
   dio: ^5.1.1
   retrofit: ^4.0.1
-  riverpod: ^2.3.7
+  riverpod: ^2.4.9
   riverpod_annotation: ^2.1.2
 
 dev_dependencies:
