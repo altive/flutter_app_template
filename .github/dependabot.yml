@@ -11,33 +11,49 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
-
-  - package-ecosystem: "pub"
-    directory: "/packages/amazon_paapi"
-    schedule:
-      interval: "monthly"
-
-  - package-ecosystem: "pub"
-    directory: "/packages/convenient_widgets"
-    schedule:
-      interval: "monthly"
+    groups:
+      dependencies:
+        patterns:
+          - "*"
 
   - package-ecosystem: "pub"
     directory: "/packages/flutter_app"
     schedule:
       interval: "weekly"
-
-  - package-ecosystem: "pub"
-    directory: "/packages/rest_api_client"
-    schedule:
-      interval: "monthly"
+    groups:
+      riverpod-dependencies:
+        patterns:
+          - "*riverpod*"
+      freezed-dependencies:
+        patterns:
+          - "freezed*"
+          - "json_annotation"
+          - "json_serializable"
+      dependencies-patch:
+        patterns:
+          - "*"
+        update-types:
+        - "patch"
+      dependencies:
+        patterns:
+          - "*"
 
   - package-ecosystem: "pub"
     directory: "/packages/themes"
     schedule:
       interval: "weekly"
+    groups:
+      dependencies:
+        patterns:
+          - "*"
 
   - package-ecosystem: "pub"
     directory: "/packages/util"
     schedule:
       interval: "monthly"
+    groups:
+      dependencies-patch:
+        patterns:
+          - "*"
+        update-types:
+        - "patch"
