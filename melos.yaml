@@ -1,5 +1,6 @@
 name: flutter_app_template
 repository: https://github.com/altive/flutter_app_template
+sdkPath: .fvm/flutter_sdk
 
 packages:
   - "packages/*"
@@ -107,6 +108,15 @@ scripts:
     packageFilters:
       dirExists: lib
       dependsOn: "build_runner"
+
+  slang:
+    run: |
+      melos exec -c 1 -- \
+        dart run slang
+    description: Run generate translation code.
+    packageFilters:
+      dirExists: lib
+      dependsOn: slang
 
   gen:watch:
     run: |
