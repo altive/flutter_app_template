@@ -70,7 +70,7 @@ dev_dependencies:
   json_serializable: ^6.7.1
   mockito: ^5.4.4
   riverpod_generator: ^2.3.2
-  riverpod_lint: ^2.1.0
+  riverpod_lint: ^2.3.7
   slang_build_runner: ^3.26.2
 
 flutter_gen:
