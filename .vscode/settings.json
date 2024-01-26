@@ -38,18 +38,6 @@
 		".vscode",
 		".vscode-insiders"
 	],
-	"debug.openDebug": "openOnDebugBreak",
-	"editor.formatOnSave": true,
-	"editor.formatOnType": true,
-	"editor.formatOnPaste": true,
-	"editor.rulers": [
-		80
-	],
-	"editor.renderWhitespace": "all",
-	"editor.renderControlCharacters": true,
-	"editor.minimap.enabled": false,
-	"editor.bracketPairColorization.enabled": true,
-	"editor.guides.bracketPairs": true,
 	"[dart]": {
 		"editor.selectionHighlight": false,
 		"editor.suggest.snippetsPreventQuickSuggestions": false,
@@ -72,6 +60,18 @@
 	"dart.showSkippedTests": false,
 	"dart.runPubGetOnPubspecChanges": "always",
 	"dart.renameFilesWithClasses": "always",
+	"debug.openDebug": "openOnDebugBreak",
+	"editor.formatOnSave": true,
+	"editor.formatOnType": true,
+	"editor.formatOnPaste": true,
+	"editor.rulers": [
+		80
+	],
+	"editor.renderWhitespace": "all",
+	"editor.renderControlCharacters": true,
+	"editor.minimap.enabled": false,
+	"editor.bracketPairColorization.enabled": true,
+	"editor.guides.bracketPairs": true,
 	"explorer.confirmDragAndDrop": false,
 	"explorer.fileNesting.enabled": true,
 	"explorer.fileNesting.expand": false,
@@ -82,6 +82,9 @@
 		".gitignore": ".gitattributes, .gitmodules, .gitmessage, .mailmap, .git-blame*",
 		"readme.*": "authors, backers.md, changelog*, citation*, code_of_conduct.md, codeowners, contributing.md, contributors, copying, credits, governance.md, history.md, license*, maintainers, readme*, security.md, sponsors.md",
 		"*.dart": "$(capture).g.dart, $(capture).freezed.dart, $(capture).mocks.dart"
+	},
+	"files.associations": {
+		"*.apns": "json"
 	},
 	"files.watcherExclude": {
 		"**/.fvm": true
