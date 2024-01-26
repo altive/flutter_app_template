@@ -1354,10 +1354,10 @@ packages:
     dependency: "direct main"
     description:
       name: sort_key_generator
-      sha256: ff002bbe5a67ab75605f036996c2c8e977fb6addc00e8a8a83e1336cf8a7266a
+      sha256: e5383b450cbed3ea9849df1794a06c719d2cb25154aa1d4ee75d5fe0089f4421
       url: "https://pub.dev"
     source: hosted
-    version: "0.2.0+1"
+    version: "0.2.1"
   source_gen:
     dependency: transitive
     description:

@@ -49,7 +49,7 @@ dependencies:
   simple_logger: ^1.9.0+1
   slang: ^3.27.0
   slang_flutter: ^3.26.2
-  sort_key_generator: ^0.2.0+1
+  sort_key_generator: ^0.2.1
   themes:
     path: ../themes/
   tuple: ^2.0.0
