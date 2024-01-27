@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -33,6 +34,17 @@ class AppInfoBody extends HookConsumerWidget {
         const Gap(32),
         const TitleLargeText('Package name'),
         Text(packageInfo.packageName),
+        const Gap(32),
+        const TitleLargeText('Mode'),
+        const Text(
+          kReleaseMode
+              ? 'Release'
+              : kProfileMode
+                  ? 'Profile'
+                  : kDebugMode
+                      ? 'Debug'
+                      : 'unknown',
+        ),
       ],
     );
   }

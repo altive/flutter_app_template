@@ -43,3 +43,4 @@ su-tuapuri
 subloc
 subosito
 todos
+wholename
