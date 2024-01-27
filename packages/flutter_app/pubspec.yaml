@@ -86,10 +86,6 @@ flutter_gen:
     outputs:
       style: dot-delimiter
 
-flutter_icons:
-  android: true
-  ios: true
-
 flutter:
   uses-material-design: true
 
