@@ -50,6 +50,7 @@ apply plugin: 'kotlin-android'
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
 
 android {
+    // flutter_sdk/packages/flutter_tools/gradle/src/main/groovy/flutter.groovy
     compileSdkVersion flutter.compileSdkVersion
 
     sourceSets {
@@ -58,9 +59,7 @@ android {
 
     defaultConfig {
         applicationId appId
-        // Firebase requires 19 or higher,
-        // but `flutter.minSdkVersion` cannot be used because 16 was specified.
-        minSdkVersion 19
+        minSdkVersion minSdkVersion
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
