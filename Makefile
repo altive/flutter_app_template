@@ -1,10 +1,11 @@
 all: fvm fvm_install melos melos_bs flutterfire_cli mason mason_get
 
 fvm:
-	dart pub global activate fvm
+	brew tap leoafarias/fvm
+	brew install fvm
 
 fvm_install:
-	fvm install
+	fvm install --setup
 
 melos:
 	dart pub global activate melos

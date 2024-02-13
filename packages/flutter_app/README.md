@@ -13,9 +13,24 @@
 ## App settings
 |Category|Description|Codes|
 |---|---|---|
-| [FVM](https://github.com/leoafarias/fvm) | Flutter Version Management | [.fvm/fvm_config.json](../../.fvm/fvm_config.json) |
+| [FVM](https://github.com/leoafarias/fvm) | Flutter Version Management | [.fvmrc](../../.fvmrc) |
 | Dart | Dart version | [pubspec.yaml](./pubspec.yaml) |
 | Dart | Lint / Analyze | [analysis_options.yaml](./analysis_options.yaml) |
+
+## Dependency Packages
+
+### State Management
+- [Riverpod](https://riverpod.dev/)
+
+### Code Generation
+- [freezed](https://pub.dev/packages/freezed)
+- [json_serializable](https://pub.dev/packages/json_serializable)
+
+### Hooks
+- [Flutter Hooks](https://pub.dev/packages/flutter_hooks)
+
+### Router
+- [go_router](https://pub.dev/packages/go_router)
 
 ## App structure
 
