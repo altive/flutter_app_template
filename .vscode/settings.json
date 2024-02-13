@@ -1,104 +1,103 @@
 {
-	"cSpell.customDictionaries": {
-		"app-words": {
-			"name": "app-words",
-			"path": "${workspaceRoot}/.cspell/app-words.txt",
-			"description": "Words specific to this application",
-			"addWords": true,
-			"scope": "workspace"
-		},
-		"flutter-words": {
-			"name": "flutter-words",
-			"path": "${workspaceRoot}/.cspell/flutter-words.txt",
-			"description": "Flutter App Development Words",
-			"addWords": true,
-			"scope": "workspace"
-		},
-		"organization-words": {
-			"name": "organization-words",
-			"path": "${workspaceRoot}/.cspell/organization-words.txt",
-			"description": "Organization Words",
-			"addWords": true,
-			"scope": "workspace"
-		}
-	},
-	"cSpell.ignorePaths": [
-		"dart_defines",
-		"firebase_options*.dart",
-		"google-services.json",
-		"node_modules",
-		"package-lock.json",
-		"vscode-extension",
-		"*.gen.dart",
-		"*.lock",
-		"*.xcconfig",
-		"**/fvm",
-		"**/.pub-cache",
-		".git/objects",
-		".vscode",
-		".vscode-insiders"
-	],
-	"[dart]": {
-		"editor.selectionHighlight": false,
-		"editor.suggest.snippetsPreventQuickSuggestions": false,
-		"editor.suggestSelection": "recentlyUsedByPrefix",
-		"editor.tabCompletion": "onlySnippets",
-		"editor.wordBasedSuggestions": "off",
-		"editor.codeActionsOnSave": {
-			"quickfix.insertSemicolon": "always",
-			"source.organizeImports": "always",
-			"source.addMissingImports": "always",
-			"source.fixAll": "always"
-		}
-	},
-	"dart.flutterGenerateLocalizationsOnSave": "all",
-	"dart.flutterSdkPath": ".fvm/flutter_sdk",
-	"dart.sdkPath": ".fvm/flutter_sdk/bin/cache/dart-sdk",
-	"dart.debugExternalPackageLibraries": false,
-	"dart.debugSdkLibraries": false,
-	"dart.experimentalRefactors": true,
-	"dart.showSkippedTests": false,
-	"dart.runPubGetOnPubspecChanges": "always",
-	"dart.renameFilesWithClasses": "always",
-	"debug.openDebug": "openOnDebugBreak",
-	"editor.formatOnSave": true,
-	"editor.formatOnType": true,
-	"editor.formatOnPaste": true,
-	"editor.rulers": [
-		80
-	],
-	"editor.renderWhitespace": "all",
-	"editor.renderControlCharacters": true,
-	"editor.minimap.enabled": false,
-	"editor.bracketPairColorization.enabled": true,
-	"editor.guides.bracketPairs": true,
-	"explorer.confirmDragAndDrop": false,
-	"explorer.fileNesting.enabled": true,
-	"explorer.fileNesting.expand": false,
-	"explorer.fileNesting.patterns": {
-		"pubspec.yaml": ".flutter-plugins, .packages, .dart_tool, .flutter-plugins-dependencies, .metadata, template.iml, pubspec.lock, lefthook.yaml, pubspec_overrides.yaml",
-		"firebase.json": ".firebaserc, firestore.rules, firestore.indexes.json,storage.rules, remoteconfig.template.json",
-		".env.sample": ".env*",
-		".gitignore": ".gitattributes, .gitmodules, .gitmessage, .mailmap, .git-blame*",
-		"readme.*": "authors, backers.md, changelog*, citation*, code_of_conduct.md, codeowners, contributing.md, contributors, copying, credits, governance.md, history.md, license*, maintainers, readme*, security.md, sponsors.md",
-		"*.dart": "$(capture).g.dart, $(capture).freezed.dart, $(capture).mocks.dart"
-	},
-	"files.associations": {
-		"*.apns": "json"
-	},
-	"files.watcherExclude": {
-		"**/.fvm": true
-	},
-	"git.autofetch": true,
-	"git.enableSmartCommit": true,
-	"search.exclude": {
-		"**/*.dart_tool": true,
-		"**/*.freezed": true,
-		"**/*.g.dart": true,
-		"**/*.symlinks": true,
-		"**/.fvm/flutter_sdk": true,
-		"**/build": true,
-		"**/node_modules": true,
-		"**/Pods": true
-	}
+    "cSpell.customDictionaries": {
+        "app-words": {
+            "name": "app-words",
+            "path": "${workspaceRoot}/.cspell/app-words.txt",
+            "description": "Words specific to this application",
+            "addWords": true,
+            "scope": "workspace"
+        },
+        "flutter-words": {
+            "name": "flutter-words",
+            "path": "${workspaceRoot}/.cspell/flutter-words.txt",
+            "description": "Flutter App Development Words",
+            "addWords": true,
+            "scope": "workspace"
+        },
+        "organization-words": {
+            "name": "organization-words",
+            "path": "${workspaceRoot}/.cspell/organization-words.txt",
+            "description": "Organization Words",
+            "addWords": true,
+            "scope": "workspace"
+        }
+    },
+    "cSpell.ignorePaths": [
+        "dart_defines",
+        "firebase_options*.dart",
+        "google-services.json",
+        "node_modules",
+        "package-lock.json",
+        "vscode-extension",
+        "*.gen.dart",
+        "*.lock",
+        "*.xcconfig",
+        "**/fvm",
+        "**/.pub-cache",
+        ".git/objects",
+        ".vscode",
+        ".vscode-insiders"
+    ],
+    "[dart]": {
+        "editor.selectionHighlight": false,
+        "editor.suggest.snippetsPreventQuickSuggestions": false,
+        "editor.suggestSelection": "recentlyUsedByPrefix",
+        "editor.tabCompletion": "onlySnippets",
+        "editor.wordBasedSuggestions": "off",
+        "editor.codeActionsOnSave": {
+            "quickfix.insertSemicolon": "always",
+            "source.organizeImports": "always",
+            "source.addMissingImports": "always",
+            "source.fixAll": "always"
+        }
+    },
+    "dart.flutterGenerateLocalizationsOnSave": "all",
+    "dart.flutterSdkPath": ".fvm/versions/3.16.9",
+    "dart.debugExternalPackageLibraries": false,
+    "dart.debugSdkLibraries": false,
+    "dart.experimentalRefactors": true,
+    "dart.showSkippedTests": false,
+    "dart.runPubGetOnPubspecChanges": "always",
+    "dart.renameFilesWithClasses": "always",
+    "debug.openDebug": "openOnDebugBreak",
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "editor.formatOnPaste": true,
+    "editor.rulers": [
+        80
+    ],
+    "editor.renderWhitespace": "all",
+    "editor.renderControlCharacters": true,
+    "editor.minimap.enabled": false,
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": true,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.expand": false,
+    "explorer.fileNesting.patterns": {
+        "pubspec.yaml": ".flutter-plugins, .packages, .dart_tool, .flutter-plugins-dependencies, .metadata, template.iml, pubspec.lock, lefthook.yaml, pubspec_overrides.yaml",
+        "firebase.json": ".firebaserc, firestore.rules, firestore.indexes.json,storage.rules, remoteconfig.template.json",
+        ".env.sample": ".env*",
+        ".gitignore": ".gitattributes, .gitmodules, .gitmessage, .mailmap, .git-blame*",
+        "readme.*": "authors, backers.md, changelog*, citation*, code_of_conduct.md, codeowners, contributing.md, contributors, copying, credits, governance.md, history.md, license*, maintainers, readme*, security.md, sponsors.md",
+        "*.dart": "$(capture).g.dart, $(capture).freezed.dart, $(capture).mocks.dart"
+    },
+    "files.associations": {
+        "*.apns": "json"
+    },
+    "files.watcherExclude": {
+        "**/.fvm": true
+    },
+    "git.autofetch": true,
+    "git.enableSmartCommit": true,
+    "search.exclude": {
+        "**/*.dart_tool": true,
+        "**/*.freezed.dart": true,
+        "**/*.g.dart": true,
+        "**/*.symlinks": true,
+        "**/.fvm": true,
+        "**/build": true,
+        "**/node_modules": true,
+        "**/Pods": true
+    }
 }
