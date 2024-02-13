@@ -35,14 +35,14 @@ dependencies:
   gap: ^3.0.1
   go_router: ^12.0.0
   google_sign_in: ^6.2.1
-  hooks_riverpod: ^2.4.9
+  hooks_riverpod: ^2.4.10
   image_picker: ^0.8.5
   intl: ^0.18.1
   json_annotation: ^4.8.1
   linked_scroll_controller: ^0.2.0
   modal_bottom_sheet: ^2.1.2
   package_info_plus: ^4.1.0
-  riverpod_annotation: ^2.3.3
+  riverpod_annotation: ^2.3.4
   shared_preferences: ^2.2.2
   simple_logger: ^1.9.0+1
   slang: ^3.27.0
@@ -67,8 +67,8 @@ dev_dependencies:
   go_router_builder: ^2.3.4
   json_serializable: ^6.7.1
   mockito: ^5.4.4
-  riverpod_generator: ^2.3.9
-  riverpod_lint: ^2.1.0
+  riverpod_generator: ^2.3.10
+  riverpod_lint: ^2.3.8
   slang_build_runner: ^3.26.2
 
 flutter_gen:
