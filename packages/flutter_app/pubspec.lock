@@ -374,14 +374,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "7.0.0"
-  dio:
-    dependency: transitive
-    description:
-      name: dio
-      sha256: ce75a1b40947fea0a0e16ce73337122a86762e38b982e1ccb909daa3b9bc4197
-      url: "https://pub.dev"
-    source: hosted
-    version: "5.3.2"
   fake_async:
     dependency: transitive
     description:
@@ -1178,21 +1170,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.2.1"
-  rest_api_client:
-    dependency: "direct main"
-    description:
-      path: "../rest_api_client"
-      relative: true
-    source: path
-    version: "1.0.0"
-  retrofit:
-    dependency: transitive
-    description:
-      name: retrofit
-      sha256: "5eedbd8f73697f190dabc88520e0bcf2d3b2d9b9ad5c837f1dbb3ee6172d7709"
-      url: "https://pub.dev"
-    source: hosted
-    version: "4.0.1"
   riverpod:
     dependency: transitive
     description:
