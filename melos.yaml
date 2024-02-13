@@ -1,6 +1,5 @@
 name: flutter_app_template
 repository: https://github.com/altive/flutter_app_template
-sdkPath: .fvm/flutter_sdk
 
 packages:
   - "packages/*"
