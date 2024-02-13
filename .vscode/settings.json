@@ -87,7 +87,8 @@
 		"*.apns": "json"
 	},
 	"files.watcherExclude": {
-		"**/.fvm": true
+		"**/.fvm": true,
+		".idea": true
 	},
 	"git.autofetch": true,
 	"git.enableSmartCommit": true,
@@ -97,6 +98,7 @@
 		"**/*.g.dart": true,
 		"**/*.symlinks": true,
 		"**/.fvm/flutter_sdk": true,
+		"**/.idea": true,
 		"**/build": true,
 		"**/node_modules": true,
 		"**/Pods": true
