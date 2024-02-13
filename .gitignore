@@ -137,9 +137,8 @@ coverage/
 # Fastlane related
 **/fastlane/report.xml
 
-# FVM related
-**/.fvm/flutter_sdk
-
+# FVM Version Cache
+.fvm/
 # Bundler related
 **/vendor/bundle
 
