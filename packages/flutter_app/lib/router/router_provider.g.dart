@@ -12,7 +12,7 @@ String _$routerHash() => r'0ef3044393f40928ce93ca4bda3e99ad13994851';
 
 /// See also [router].
 @ProviderFor(router)
-final routerProvider = Provider<GoRouter>.internal(
+final routerProvider = Provider<Raw<GoRouter>>.internal(
   router,
   name: r'routerProvider',
   debugGetCreateSourceHash:
@@ -21,6 +21,6 @@ final routerProvider = Provider<GoRouter>.internal(
   allTransitiveDependencies: null,
 );
 
-typedef RouterRef = ProviderRef<GoRouter>;
+typedef RouterRef = ProviderRef<Raw<GoRouter>>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
