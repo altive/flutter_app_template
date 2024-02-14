@@ -38,7 +38,7 @@ jobs:
               - '**/analysis_options.yaml'
               - '**/melos.yaml'
               - '**/pubspec.yaml'
-              - 'fvm_config.json'
+              - '.fvmrc'
 
   analyze:
     needs: check

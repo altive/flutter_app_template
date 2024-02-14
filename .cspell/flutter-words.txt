@@ -13,6 +13,7 @@ fastlane
 firestore
 flutterfire
 fullscreen
+fvmrc
 gcov
 horiz
 iframe

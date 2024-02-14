@@ -4,9 +4,6 @@
 [![codecov](https://codecov.io/gh/altive/flutter_app_template/branch/main/graph/badge.svg?token=NUHMSLBULE)](https://codecov.io/gh/altive/flutter_app_template)
 [![Flutter app code check](https://github.com/altive/flutter_app_template/actions/workflows/flutter-app-code-check.yml/badge.svg)](https://github.com/altive/flutter_app_template/actions/workflows/flutter-app-code-check.yml)
 
-README in other languages
-- [日本語](README-ja.md)
-
 # Flutter App Template
 
 "Flutter App Template" is a project to template and introduce an approach to developing Flutter apps, including architecture and project structure.
@@ -14,40 +11,6 @@ README in other languages
 "Flutter App Template" repository employs a mono-repo and consists of several internal packages and apps.
 
 ## Packages overview
-
-### `analysis_logger`
-
-This package is responsible for the function (responsibility) of event logging and sending crash reports.
-
-Currently using Firebase Analytics and Crashlytics.
-
-### `authenticator`
-
-This package is responsible for the function (responsibility) of authenticating users, such as logging in.
-
-Currently using Firebase Authentication.
-
-### `convenient_widgets`
-
-A generic widget placement location that can be used in multiple packages.
-
-### `notification_receiver`
-
-This package takes care of functions (responsibilities) related to setting notification permissions and receiving push notifications for the application.
-
-Currently using Firebase Cloud Messaging.
-
-### `notification_sender`
-
-This package is responsible for functions (responsibilities) related to local notification display and schedule registration.
-
-Currently using `flutter_local_notifications`.
-
-### `remote_parameter_fetcher`
-
-This package is responsible for the function (responsibility) of retrieving remotely configured parameters and providing them in a specified type.
-
-Currently using Firebase Remote Config.
 
 ### `themes`
 
@@ -67,36 +30,6 @@ It comes with dev, stg, and prod environments set up.
 Change the app ID or app name to start building it as a separate app right away.
 
 Also check the [`flutter_app/README.md`](/packages/flutter_app/README.md).
-
-## Dependency Package Overview
-
-### State Management
-- [Riverpod](https://riverpod.dev/)
-
-## Code Generation
-- [freezed](https://pub.dev/packages/freezed)
-- [json_serializable](https://pub.dev/packages/json_serializable)
-
-## Hooks
-- [Flutter Hooks](https://pub.dev/packages/flutter_hooks)
-
-## Router
-- [go_router](https://pub.dev/packages/go_router)
-
-## `flutter_app` Project settings
-|Category|Description|Codes|
-|---|---|---|
-| [FVM](https://github.com/leoafarias/fvm) | Flutter Version Management | [.fvm/fvm_config.json](/.fvm/fvm_config.json) |
-| Dart | Dart version | [pubspec.yaml](/packages/flutter_app/pubspec.yaml) |
-| Dart | Lint / Analyze | [analysis_options.yaml](/packages/flutter_app/analysis_options.yaml) |
-
-```shell
-flutter pub add analysis_logger --path ../analysis_logger
-flutter pub add authenticator --path ../authenticator
-flutter pub add convenient_widgets --path ../convenient_widgets
-flutter pub add notification_receiver --path ../notification_receiver
-flutter pub add remote_parameter_fetcher --path ../remote_parameter_fetcher
-```
 
 ## How to start development
 
