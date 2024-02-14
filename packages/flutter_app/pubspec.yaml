@@ -63,7 +63,7 @@ dev_dependencies:
   flutter_launcher_icons: ^0.13.1
   flutter_test:
     sdk: flutter
-  freezed: ^2.4.5
+  freezed: ^2.4.7
   go_router_builder: ^2.3.4
   json_serializable: ^6.7.1
   mockito: ^5.4.4
