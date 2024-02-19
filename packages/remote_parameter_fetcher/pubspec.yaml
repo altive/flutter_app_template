@@ -17,7 +17,7 @@ dependencies:
 
 dev_dependencies:
   altive_lints: ^1.9.0
-  build_runner: ^2.4.7
+  build_runner: ^2.4.8
   mockito: ^5.3.0
   riverpod_generator: ^2.2.6
   test:
