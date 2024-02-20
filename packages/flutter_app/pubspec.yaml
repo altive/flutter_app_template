@@ -69,7 +69,7 @@ dev_dependencies:
   mockito: ^5.4.4
   riverpod_generator: ^2.3.11
   riverpod_lint: ^2.3.9
-  slang_build_runner: ^3.26.2
+  slang_build_runner: ^3.29.0
 
 flutter_gen:
   enabled: true
