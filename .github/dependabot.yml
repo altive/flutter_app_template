@@ -24,11 +24,21 @@ updates:
       riverpod-dependencies:
         patterns:
           - "*riverpod*"
+          - "build_runner"
       freezed-dependencies:
         patterns:
+          - "build_runner"
           - "freezed*"
           - "json_annotation"
           - "json_serializable"
+      slang-dependencies:
+        patterns:
+          - "build_runner"
+          - "slang*"
+      go-router-dependencies:
+        patterns:
+          - "build_runner"
+          - "go_router*"
       dependencies-patch:
         patterns:
           - "*"
