@@ -5,7 +5,7 @@ PODS:
   - AppAuth/Core (1.6.2)
   - AppAuth/ExternalUserAgent (1.6.2):
     - AppAuth/Core
-  - cloud_firestore (4.12.2):
+  - cloud_firestore (4.15.5):
     - Firebase/CoreOnly (~> 10.20.0)
     - Firebase/Firestore (~> 10.20.0)
     - firebase_core
@@ -316,7 +316,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AppAuth: 3bb1d1cd9340bd09f5ed189fb00b1cc28e1e8570
-  cloud_firestore: c20f5d874016a38268e37374527b341bfe0c86bc
+  cloud_firestore: 686113653b333c799c17e592dcc2d0feb465015d
   device_info_plus: 5401765fde0b8d062a2f8eb65510fb17e77cf07f
   file_selector_macos: 468fb6b81fac7c0e88d71317f3eec34c3b008ff9
   Firebase: 10c8cb12fb7ad2ae0c09ffc86cd9c1ab392a0031
