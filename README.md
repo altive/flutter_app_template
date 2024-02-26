@@ -1,8 +1,10 @@
 <img src="https://socialify.git.ci/altive/flutter_app_template/image?description=1&font=Inter&issues=1&owner=1&pattern=Floating%20Cogs&pulls=1&stargazers=1&theme=Dark" alt="flutter_app_template" width="640" height="320" />
 
-[![melos](https://img.shields.io/badge/maintained%20with-melos-f700ff.svg?style=flat-square)](https://github.com/invertase/melos)
-[![codecov](https://codecov.io/gh/altive/flutter_app_template/branch/main/graph/badge.svg?token=NUHMSLBULE)](https://codecov.io/gh/altive/flutter_app_template)
 [![Flutter app code check](https://github.com/altive/flutter_app_template/actions/workflows/flutter-app-code-check.yml/badge.svg)](https://github.com/altive/flutter_app_template/actions/workflows/flutter-app-code-check.yml)
+[![melos](https://img.shields.io/badge/maintained%20with-melos-f700ff.svg?style=flat-square)](https://github.com/invertase/melos)
+[![codecov](https://codecov.io/gh/altive/flutter_app_template/graph/badge.svg?token=NUHMSLBULE)](https://codecov.io/gh/altive/flutter_app_template)
+
+[![](https://codecov.io/gh/altive/flutter_app_template/graphs/icicle.svg?token=NUHMSLBULE)]()
 
 # Flutter App Template
 
@@ -61,16 +63,6 @@ If the project name and the output directory name of the package are the same,
 flutter create -t package packages/{directory_name} --project-name {project_name}
 # App
 flutter create --org jp.co.altive packages/{directory_name} --project-name {project_name}
-```
-
-↓内部パッケージをインストールしたいときに使用するコマンド。
-
-```shell
-flutter pub add analysis_logger --path ../analysis_logger
-flutter pub add authenticator --path ../authenticator
-flutter pub add convenient_widgets --path ../convenient_widgets
-flutter pub add notification_receiver --path ../notification_receiver
-flutter pub add remote_parameter_fetcher --path ../remote_parameter_fetcher
 ```
 
 ## Firebase SDK version for iOS and macOS

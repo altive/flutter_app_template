@@ -1,9 +1,9 @@
-import 'package:authenticator/authenticator.dart';
 import 'package:awaitable_button/awaitable_button.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../gen/strings.g.dart';
+import '../../../package_adaptor/authenticator_provider.dart';
 
 class AccountPageBody extends HookConsumerWidget {
   const AccountPageBody({super.key});
@@ -43,7 +43,7 @@ class AccountPageBody extends HookConsumerWidget {
       children: [
         ListTile(
           title: const Text('UID:'),
-          subtitle: Text(ref.watch(uidProvider).value ?? 'none'),
+          subtitle: Text(ref.watch(userProvider).valueOrNull?.uid ?? 'none'),
         ),
         AwaitableTextButton<void>(
           onPressed: signOut,

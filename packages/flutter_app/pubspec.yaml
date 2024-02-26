@@ -9,10 +9,10 @@ environment:
   sdk: ^3.3.0
 
 dependencies:
-  analysis_logger:
-    path: ../analysis_logger
-  authenticator:
-    path: ../authenticator
+  altfire_authenticator: ^0.1.0
+  altfire_configurator: ^0.1.0
+  altfire_messenger: ^0.1.0
+  altfire_tracker: ^0.1.0
   awaitable_button: ^1.2.0
   cached_network_image: ^3.3.1
   cloud_firestore: ^4.15.5

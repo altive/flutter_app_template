@@ -1,5 +1,6 @@
 # Organization Specific Words
 Aimiee
+altfire
 altive
 miyagawa
 muramatsu
