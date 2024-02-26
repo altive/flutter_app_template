@@ -17,6 +17,38 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.3.22"
+  altfire_authenticator:
+    dependency: "direct main"
+    description:
+      name: altfire_authenticator
+      sha256: e6a0d037fd3f1ef05c4e35420727caab70ad858fa6c796179ded0481683c0b12
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.0"
+  altfire_configurator:
+    dependency: "direct main"
+    description:
+      name: altfire_configurator
+      sha256: e67112a29a1a8f988042798eaffd30707266bbe21219d1f3c8cd227b948eba95
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.0"
+  altfire_messenger:
+    dependency: "direct main"
+    description:
+      name: altfire_messenger
+      sha256: db00525d7ce1f1adfc74db376b1c4e42d4635106b6490686865b53cc4b3f55c4
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.0"
+  altfire_tracker:
+    dependency: "direct main"
+    description:
+      name: altfire_tracker
+      sha256: bda436c8e7f5443f35dccd025c4a1f6b1108069adc54a5a57f7eb79135db9487
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.0"
   altive_lints:
     dependency: "direct dev"
     description:
@@ -25,13 +57,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.9.0"
-  analysis_logger:
-    dependency: "direct main"
-    description:
-      path: "../analysis_logger"
-      relative: true
-    source: path
-    version: "1.0.0"
   analyzer:
     dependency: transitive
     description:
@@ -72,13 +97,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.11.0"
-  authenticator:
-    dependency: "direct main"
-    description:
-      path: "../authenticator"
-      relative: true
-    source: path
-    version: "1.0.0"
   awaitable_button:
     dependency: "direct main"
     description:
@@ -534,6 +552,46 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.2.6+22"
+  firebase_in_app_messaging:
+    dependency: transitive
+    description:
+      name: firebase_in_app_messaging
+      sha256: "19c1d367b58fb6cc2ce7e0d4fcb622dcd09adf8f7fcacccf7edc2536450fb9f7"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.7.4+14"
+  firebase_in_app_messaging_platform_interface:
+    dependency: transitive
+    description:
+      name: firebase_in_app_messaging_platform_interface
+      sha256: dc088c550fe18162137493a781294ad30040ab5d044d6cd800ce4afda6e6fb97
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.2.4+22"
+  firebase_messaging:
+    dependency: transitive
+    description:
+      name: firebase_messaging
+      sha256: "799922b57d09fe89b5634be2a7fea66a2683eb1a02502c71fe90c212240f89ef"
+      url: "https://pub.dev"
+    source: hosted
+    version: "14.7.16"
+  firebase_messaging_platform_interface:
+    dependency: transitive
+    description:
+      name: firebase_messaging_platform_interface
+      sha256: "789a3b26097e2bdad15a407dc552d6af74287b477ceb4aa6ec0d8aa967caf9e5"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.5.24"
+  firebase_messaging_web:
+    dependency: transitive
+    description:
+      name: firebase_messaging_web
+      sha256: "156a83d281bbcc92b17496f323c747802287520aece51a893a5fdb8078bccbe7"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.6.5"
   firebase_performance:
     dependency: "direct main"
     description:
@@ -558,6 +616,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.1.4+11"
+  firebase_remote_config:
+    dependency: transitive
+    description:
+      name: firebase_remote_config
+      sha256: "89a26478b96b831507a8eefbd517755bd5501cd5dd153d1ee70558d7762abbe9"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.3.14"
+  firebase_remote_config_platform_interface:
+    dependency: transitive
+    description:
+      name: firebase_remote_config_platform_interface
+      sha256: "9933c7b0ef2e74ff2bb526724bdcfd9c16f7af637a1b8e59d765bf83ee4c1c6f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.4.22"
+  firebase_remote_config_web:
+    dependency: transitive
+    description:
+      name: firebase_remote_config_web
+      sha256: "11ccb8c836dbbabecb3aa126a9b8195def5b228acdd64ed7c5623e9327fe4789"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.4.22"
   firebase_storage:
     dependency: "direct main"
     description:
