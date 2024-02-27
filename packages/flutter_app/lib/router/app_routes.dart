@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../features/explore/view/explore_page.dart';
-import '../features/me/view/me_page.dart';
 import '../features/post/view/post_page.dart';
 import '../pages/account/account_page.dart';
 import '../pages/app_info_page/app_info_page.dart';
+import '../pages/dashboard/dashboard_page.dart';
 import '../pages/home_page/home_page.dart';
 import '../pages/riverpod_example_page/async_notifier_provider_page/async_notifier_provider_page.dart';
 import '../pages/riverpod_example_page/listen_provider_page/listen_provider_page.dart';
@@ -66,10 +66,10 @@ part 'app_routes.g.dart';
         ),
       ],
     ),
-    TypedStatefulShellBranch<MeShellBranchData>(
+    TypedStatefulShellBranch<DashboardShellBranchData>(
       routes: [
-        TypedGoRoute<MeRouteData>(
-          path: MeShellBranchData.path,
+        TypedGoRoute<DashboardRouteData>(
+          path: DashboardShellBranchData.path,
         ),
       ],
     ),
@@ -222,18 +222,18 @@ class PostRouteData extends GoRouteData {
 }
 
 /// 自分に関連するコンテンツを表示するタブのブランチデータ。
-class MeShellBranchData extends StatefulShellBranchData {
-  const MeShellBranchData();
-  static const String path = '/me';
+class DashboardShellBranchData extends StatefulShellBranchData {
+  const DashboardShellBranchData();
+  static const String path = '/dashboard';
 }
 
 /// 自分に関連するコンテンツをタブのルートデータ。
-class MeRouteData extends GoRouteData {
-  const MeRouteData();
+class DashboardRouteData extends GoRouteData {
+  const DashboardRouteData();
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const MePage();
+    return const DashboardPage();
   }
 }
 

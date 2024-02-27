@@ -84,8 +84,8 @@ RouteBase get $mainShellRouteData => StatefulShellRouteData.$route(
         StatefulShellBranchData.$branch(
           routes: [
             GoRouteData.$route(
-              path: '/me',
-              factory: $MeRouteDataExtension._fromState,
+              path: '/dashboard',
+              factory: $DashboardRouteDataExtension._fromState,
             ),
           ],
         ),
@@ -331,11 +331,12 @@ extension $PostRouteDataExtension on PostRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $MeRouteDataExtension on MeRouteData {
-  static MeRouteData _fromState(GoRouterState state) => const MeRouteData();
+extension $DashboardRouteDataExtension on DashboardRouteData {
+  static DashboardRouteData _fromState(GoRouterState state) =>
+      const DashboardRouteData();
 
   String get location => GoRouteData.$location(
-        '/me',
+        '/dashboard',
       );
 
   void go(BuildContext context) => context.go(location);
