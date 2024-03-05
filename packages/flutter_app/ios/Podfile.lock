@@ -5,7 +5,7 @@ PODS:
   - AppAuth/Core (1.6.2)
   - AppAuth/ExternalUserAgent (1.6.2):
     - AppAuth/Core
-  - cloud_firestore (4.15.5):
+  - cloud_firestore (4.15.6):
     - Firebase/Firestore (= 10.20.0)
     - firebase_core
     - Flutter
@@ -54,14 +54,14 @@ PODS:
     - Firebase/Auth (= 10.20.0)
     - firebase_core
     - Flutter
-  - firebase_core (2.25.4):
+  - firebase_core (2.25.5):
     - Firebase/CoreOnly (= 10.20.0)
     - Flutter
   - firebase_crashlytics (3.4.3):
     - Firebase/Crashlytics (= 10.20.0)
     - firebase_core
     - Flutter
-  - firebase_dynamic_links (5.4.14):
+  - firebase_dynamic_links (5.4.15):
     - Firebase/DynamicLinks (= 10.20.0)
     - firebase_core
     - Flutter
@@ -407,14 +407,14 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AppAuth: 3bb1d1cd9340bd09f5ed189fb00b1cc28e1e8570
-  cloud_firestore: ecf08badc10198974885617f14819201d9a42575
+  cloud_firestore: 0f0bca4953963272e2d8cf6f15e7adce3c10b7f7
   device_info_plus: c6fb39579d0f423935b0c9ce7ee2f44b71b9fce6
   Firebase: 10c8cb12fb7ad2ae0c09ffc86cd9c1ab392a0031
   firebase_analytics: 029a9318a773a1a3d8e48db8e3bb0f9e480f3c40
   firebase_auth: a86f5c6ae1e1cb03ac0253724714d21630bb99f4
-  firebase_core: a46c312d8bae4defa3d009b2aa7b5b413aeb394e
+  firebase_core: c8628c7ce80f79439149549052bff22f6784fbf5
   firebase_crashlytics: 8db6e945836227dd427d1b9fcf06a31af28baa47
-  firebase_dynamic_links: 5ff661188e4c8c5676d94619381bfe47f5958778
+  firebase_dynamic_links: c45216717e2c651300092a5bc7f7675b604337d5
   firebase_in_app_messaging: b53743f17593bcf3c07a51931f1dcff46aabc9a4
   firebase_messaging: e7062cef946e12f93b42abea96937004f8d914d6
   firebase_performance: f4d8e96f9115a782480fe163a88e73f51ba6b311
