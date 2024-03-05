@@ -24,7 +24,7 @@ dependencies:
   firebase_core: ^2.21.0
   firebase_dynamic_links: ^5.4.15
   firebase_performance: ^0.9.2+5
-  firebase_storage: ^11.2.7
+  firebase_storage: ^11.6.7
   flutter:
     sdk: flutter
   flutter_hooks: ^0.20.5
