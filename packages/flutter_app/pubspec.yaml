@@ -15,14 +15,14 @@ dependencies:
   altfire_tracker: ^0.1.0
   awaitable_button: ^1.2.0
   cached_network_image: ^3.3.1
-  cloud_firestore: ^4.15.6
+  cloud_firestore: ^4.15.8
   collection: ^1.16.0
   convenient_widgets:
     path: ../convenient_widgets
   cupertino_icons: ^1.0.6
   device_info_plus: ^9.1.2
   firebase_core: ^2.21.0
-  firebase_dynamic_links: ^5.4.15
+  firebase_dynamic_links: ^5.4.17
   firebase_performance: ^0.9.2+5
   firebase_storage: ^11.2.7
   flutter:
