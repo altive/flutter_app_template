@@ -7,6 +7,7 @@ import '../pages/account/account_page.dart';
 import '../pages/app_info_page/app_info_page.dart';
 import '../pages/dashboard/dashboard_page.dart';
 import '../pages/home_page/home_page.dart';
+import '../pages/main/main_page.dart';
 import '../pages/riverpod_example_page/async_notifier_provider_page/async_notifier_provider_page.dart';
 import '../pages/riverpod_example_page/listen_provider_page/listen_provider_page.dart';
 import '../pages/riverpod_example_page/notifier_provider_page/notifier_provider_page.dart';
@@ -17,7 +18,6 @@ import '../pages/riverpod_example_page/state_provider_page/state_provider_page.d
 import '../pages/riverpod_example_page/stream_provider_page.dart/stream_provider_page.dart';
 import '../pages/settings_page/settings_page.dart';
 import '../pages/theme_selection_page/theme_selection_page.dart';
-import '../pages/top_level_tab/main_page.dart';
 
 part 'app_routes.g.dart';
 
