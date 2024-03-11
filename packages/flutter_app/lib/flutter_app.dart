@@ -18,8 +18,8 @@ class FlutterApp extends ConsumerWidget {
     return MaterialApp.router(
       routerConfig: router,
       onGenerateTitle: (context) => Translations.of(context).title,
-      theme: appLightThemeData,
-      darkTheme: appDarkThemeData,
+      theme: lightThemeData,
+      darkTheme: darkThemeData,
       themeMode: ref.watch(themeSelectorProvider),
       locale: TranslationProvider.of(context).flutterLocale,
       localizationsDelegates: const [

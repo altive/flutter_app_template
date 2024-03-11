@@ -1,16 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'altive_dark_color_scheme.dart';
-import 'altive_text_theme.dart';
+import 'app_text_theme.dart';
+import 'dark_color_scheme.dart';
 import 'theme_data/theme_data.dart';
 import 'theme_extensions/theme_extensions.dart';
 
-ThemeData get appDarkThemeData {
-  const colorScheme = altiveDarkColorScheme;
+ThemeData get darkThemeData {
+  const colorScheme = darkColorScheme;
 
   final defaultThemeData = ThemeData.dark();
-  final textTheme = defaultThemeData.textTheme.merge(altiveTextTheme);
+  final textTheme = defaultThemeData.textTheme.merge(appTextTheme);
 
   return defaultThemeData.copyWith(
     // 🎨 Color section

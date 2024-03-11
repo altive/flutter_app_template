@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-import 'altive_light_color_scheme.dart';
-import 'altive_text_theme.dart';
+import 'app_text_theme.dart';
+import 'light_color_scheme.dart';
 import 'theme_data/theme_data.dart';
 import 'theme_extensions/theme_extensions.dart';
 
-ThemeData get appLightThemeData {
-  final colorScheme = altiveLightColorScheme;
+ThemeData get lightThemeData {
+  final colorScheme = lightColorScheme;
 
   final defaultThemeData = ThemeData.light();
-  final textTheme = defaultThemeData.textTheme.merge(altiveTextTheme);
+  final textTheme = defaultThemeData.textTheme.merge(appTextTheme);
 
   return defaultThemeData.copyWith(
     // 🎨 Color section
