@@ -144,6 +144,13 @@ scripts:
       flutter: true
       dirExists: test
 
+  flutterfire:update:
+    run: melos exec -- flutterfire update
+    description: Run flutterfire update.
+    packageFilters:
+      flutter: true
+      dirExists: lib
+
   pod:
     run: |
       melos run pod:ios --no-select
