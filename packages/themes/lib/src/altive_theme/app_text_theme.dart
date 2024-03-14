@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 /// M3 has five distinct type styles: Display, headline, title, body, and label.
 /// https://m3.material.io/styles/typography/type-scale-tokens
-const altiveTextTheme = TextTheme(
+const appTextTheme = TextTheme(
   displayLarge: TextStyle(),
   displayMedium: TextStyle(),
   displaySmall: TextStyle(),

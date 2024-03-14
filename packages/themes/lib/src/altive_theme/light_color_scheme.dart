@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-final altiveLightColorScheme = ColorScheme.light(
+final lightColorScheme = ColorScheme.light(
   // ベースカラー
   primary: Colors.teal[900]!,
   // primaryの上に配置されるコンテンツカラー
