@@ -17,17 +17,11 @@ ThemeData get lightThemeData {
     // 🖋 Text theme section
     textTheme: textTheme,
     primaryTextTheme: textTheme,
-    // 🔘 Button theme section
-    elevatedButtonTheme: appElevatedButtonTheme(colorScheme),
-    outlinedButtonTheme: appOutlinedButtonTheme(colorScheme),
-    textButtonTheme: appTextButtonTheme,
     // 🖼 ThemeData section
-    bottomNavigationBarTheme: appBottomNavigationBarThemeData(
-      colorScheme: colorScheme,
-    ),
     cardTheme: appCardThemeData,
     chipTheme: appChipThemeData(colorScheme: colorScheme),
     inputDecorationTheme: appInputDecorationTheme(colorScheme: colorScheme),
+    navigationBarTheme: navigationBarThemeData(colorScheme: colorScheme),
     // Extensions
     extensions: [
       ThemeDescription(
