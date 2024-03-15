@@ -25,36 +25,34 @@ class MainPage extends HookConsumerWidget {
     return UnfocusOnTap(
       child: Scaffold(
         body: navigationShell,
-        bottomNavigationBar: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          currentIndex: navigationShell.currentIndex,
-          onTap: onTap,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          items: const [
-            BottomNavigationBarItem(
+        bottomNavigationBar: NavigationBar(
+          selectedIndex: navigationShell.currentIndex,
+          onDestinationSelected: onTap,
+          labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
+          destinations: const [
+            NavigationDestination(
               icon: Icon(Icons.home_outlined),
-              activeIcon: Icon(Icons.home_rounded),
+              selectedIcon: Icon(Icons.home_rounded),
               label: 'Home',
             ),
-            BottomNavigationBarItem(
+            NavigationDestination(
               icon: Icon(Icons.search_outlined),
-              activeIcon: Icon(Icons.search),
+              selectedIcon: Icon(Icons.search),
               label: 'Explore',
             ),
-            BottomNavigationBarItem(
+            NavigationDestination(
               icon: Icon(Icons.post_add_outlined),
-              activeIcon: Icon(Icons.post_add),
+              selectedIcon: Icon(Icons.post_add),
               label: 'Post',
             ),
-            BottomNavigationBarItem(
+            NavigationDestination(
               icon: Icon(Icons.account_circle_outlined),
-              activeIcon: Icon(Icons.account_circle),
+              selectedIcon: Icon(Icons.account_circle),
               label: 'Me',
             ),
-            BottomNavigationBarItem(
+            NavigationDestination(
               icon: Icon(Icons.settings_outlined),
-              activeIcon: Icon(Icons.settings),
+              selectedIcon: Icon(Icons.settings),
               label: 'settings',
             ),
           ],
