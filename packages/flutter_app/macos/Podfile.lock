@@ -5,7 +5,7 @@ PODS:
   - AppAuth/Core (1.7.3)
   - AppAuth/ExternalUserAgent (1.7.3):
     - AppAuth/Core
-  - cloud_firestore (4.15.8):
+  - cloud_firestore (4.15.9):
     - Firebase/CoreOnly (~> 10.22.0)
     - Firebase/Firestore (~> 10.22.0)
     - firebase_core
@@ -40,11 +40,11 @@ PODS:
   - Firebase/Storage (10.22.0):
     - Firebase/CoreOnly
     - FirebaseStorage (~> 10.22.0)
-  - firebase_analytics (10.8.9):
+  - firebase_analytics (10.8.10):
     - Firebase/Analytics (= 10.22.0)
     - firebase_core
     - FlutterMacOS
-  - firebase_auth (4.17.8):
+  - firebase_auth (4.17.9):
     - Firebase/Auth (~> 10.22.0)
     - Firebase/CoreOnly (~> 10.22.0)
     - firebase_core
@@ -52,17 +52,17 @@ PODS:
   - firebase_core (2.27.1):
     - Firebase/CoreOnly (~> 10.22.0)
     - FlutterMacOS
-  - firebase_crashlytics (3.4.18):
+  - firebase_crashlytics (3.4.19):
     - Firebase/CoreOnly (~> 10.22.0)
     - Firebase/Crashlytics (~> 10.22.0)
     - firebase_core
     - FlutterMacOS
-  - firebase_messaging (14.7.19):
+  - firebase_messaging (14.7.20):
     - Firebase/CoreOnly (~> 10.22.0)
     - Firebase/Messaging (~> 10.22.0)
     - firebase_core
     - FlutterMacOS
-  - firebase_remote_config (4.3.17):
+  - firebase_remote_config (4.3.18):
     - Firebase/CoreOnly (~> 10.22.0)
     - Firebase/RemoteConfig (~> 10.22.0)
     - firebase_core
@@ -364,16 +364,16 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AppAuth: a13994980c1ec792f7e2e665acd4d4aa6be43240
-  cloud_firestore: ca256bd6d6834f56a5831db5cb7e1c13dad63105
+  cloud_firestore: 0208417c313dbfa1a084ef8f9bdad9fd5ec676ff
   device_info_plus: 5401765fde0b8d062a2f8eb65510fb17e77cf07f
   file_selector_macos: 468fb6b81fac7c0e88d71317f3eec34c3b008ff9
   Firebase: 797fd7297b7e1be954432743a0b3f90038e45a71
-  firebase_analytics: d3b627594fb80567824609e9c2622bd4f48aee81
-  firebase_auth: da7042c5d5460fdb30b3f0fca1f6acf21d60860c
+  firebase_analytics: 0c4828b46e9ccaa4598721abf366bedd9b2e9b45
+  firebase_auth: c3804eee5fa773900d3ea874bc14bbe64594e89a
   firebase_core: cb81862138b1b98a890bcf3ee59ec820dad075b9
-  firebase_crashlytics: 1e514e5700aeb92c50fbf987c112deab8778f2c1
-  firebase_messaging: b243cd1026362f3f5ec5e73ffb0c4431519f0b57
-  firebase_remote_config: 10c8b1b0a76aabf1e6a3c2f57a73ec756c98d439
+  firebase_crashlytics: 2ced0bb21a3dbd7fc210225b5371e7050bbd9d32
+  firebase_messaging: 1eb7e13c7d7745f764e64ebc7ae059f385e9b28e
+  firebase_remote_config: 50935821da09503c8279602385a19fa37a6cf9a4
   firebase_storage: 4bea87f59784ca99c7ce5a28c04e59245c5e540c
   FirebaseABTesting: 66d2594b36d4ff6e7d3c8719802100990de05857
   FirebaseAnalytics: 8d0ff929c63b7f72260f332b86ccf569776b75d3
