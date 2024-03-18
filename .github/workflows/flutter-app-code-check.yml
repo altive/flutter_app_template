@@ -60,10 +60,10 @@ jobs:
         uses: bluefireteam/melos-action@v3
 
       - name: Analyze packages
-        run: melos run analyze --no-select
+        run: melos analyze
 
       - name: Check for the existence of unformatted files
-        run: melos run format:ci --no-select
+        run: melos format --set-exit-if-changed
 
   test:
     needs: check
