@@ -63,7 +63,8 @@ jobs:
         run: melos analyze
 
       - name: Check for the existence of unformatted files
-        run: melos format --set-exit-if-changed
+        # Cannot use `melos format` as it requires excluding files generated from the target file
+        run: melos run format:ci --no-select
 
   test:
     needs: check
