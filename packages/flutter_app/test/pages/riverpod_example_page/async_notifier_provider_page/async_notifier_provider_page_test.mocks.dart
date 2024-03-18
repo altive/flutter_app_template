@@ -80,6 +80,7 @@ class MockFakeDio extends _i1.Mock implements _i2.FakeDio {
           ),
         )),
       ) as _i3.Future<_i2.Response<List<Map<String, Object?>>>>);
+
   @override
   _i3.Future<_i2.Response<Map<String, Object?>>> post<T>(
     String? path, {
@@ -128,6 +129,7 @@ class MockFakeDio extends _i1.Mock implements _i2.FakeDio {
           ),
         )),
       ) as _i3.Future<_i2.Response<Map<String, Object?>>>);
+
   @override
   _i3.Future<_i2.Response<List<Map<String, Object?>>>> delete<T>(
     String? path, {
@@ -172,6 +174,7 @@ class MockFakeDio extends _i1.Mock implements _i2.FakeDio {
           ),
         )),
       ) as _i3.Future<_i2.Response<List<Map<String, Object?>>>>);
+
   @override
   _i3.Future<_i2.Response<List<Map<String, Object?>>>> patch<T>(
     String? path, {
