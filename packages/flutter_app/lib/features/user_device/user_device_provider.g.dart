@@ -8,9 +8,29 @@ part of 'user_device_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$userDeviceHash() => r'b71d5b4b0f785d80bf95ccacb029b8d025b29644';
+String _$userDeviceInitializingHash() =>
+    r'25a1f15462359d11a4e28387557208de4a58f71c';
 
-/// UserDevice can be an AndroidDevice, IosDevice, or MacosDevice...
+/// Providers that need to initialize asynchronously only once at startup.
+///
+/// Copied from [userDeviceInitializing].
+@ProviderFor(userDeviceInitializing)
+final userDeviceInitializingProvider = FutureProvider<UserDevice>.internal(
+  userDeviceInitializing,
+  name: r'userDeviceInitializingProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$userDeviceInitializingHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef UserDeviceInitializingRef = FutureProviderRef<UserDevice>;
+String _$userDeviceHash() => r'57235a07f31ad84acdc0fa417c8b103223c27e0e';
+
+/// Provide information on devices used by users.
+///
+/// After initialization, use this, which can be obtained synchronously.
 ///
 /// Copied from [userDevice].
 @ProviderFor(userDevice)

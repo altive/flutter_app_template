@@ -11,7 +11,7 @@ class SettingsPageBody extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final t = Translations.of(context);
-    final userDevice = ref.watch(userDeviceProvider);
+    final userDevice = ref.watch(userDeviceProvider).requireValue;
     return ListView(
       padding: const EdgeInsets.all(16),
       children: [
