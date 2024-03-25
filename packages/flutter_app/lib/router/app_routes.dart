@@ -21,7 +21,6 @@ import '../pages/theme_selection_page/theme_selection_page.dart';
 
 part 'app_routes.g.dart';
 
-/// 状態を持つメインシェルートのデータ。
 @TypedStatefulShellRoute<MainShellRouteData>(
   branches: [
     TypedStatefulShellBranch<HomeShellBranchData>(
@@ -99,13 +98,11 @@ class MainShellRouteData extends StatefulShellRouteData {
   }
 }
 
-/// ホームタブのブランチデータ。
 class HomeShellBranchData extends StatefulShellBranchData {
   const HomeShellBranchData();
   static const String path = '/home';
 }
 
-/// ホームページのルートデータ。
 class HomeRouteData extends GoRouteData {
   const HomeRouteData();
 
@@ -189,13 +186,11 @@ class ListenProviderRouteData extends GoRouteData {
       const ListenProviderPage();
 }
 
-/// さがすタブのブランチデータ。
 class ExploreShellBranchData extends StatefulShellBranchData {
   const ExploreShellBranchData();
   static const String path = '/explore';
 }
 
-/// さがすタブのルートデータ。
 class ExploreRouteData extends GoRouteData {
   const ExploreRouteData();
 
@@ -205,13 +200,11 @@ class ExploreRouteData extends GoRouteData {
   }
 }
 
-/// 投稿タブのブランチデータ。
 class PostShellBranchData extends StatefulShellBranchData {
   const PostShellBranchData();
   static const String path = '/post';
 }
 
-/// 投稿タブのルートデータ。
 class PostRouteData extends GoRouteData {
   const PostRouteData();
 
@@ -221,13 +214,11 @@ class PostRouteData extends GoRouteData {
   }
 }
 
-/// 自分に関連するコンテンツを表示するタブのブランチデータ。
 class DashboardShellBranchData extends StatefulShellBranchData {
   const DashboardShellBranchData();
   static const String path = '/dashboard';
 }
 
-/// 自分に関連するコンテンツをタブのルートデータ。
 class DashboardRouteData extends GoRouteData {
   const DashboardRouteData();
 
@@ -237,13 +228,11 @@ class DashboardRouteData extends GoRouteData {
   }
 }
 
-/// 設定タブのブランチデータ。
 class SettingsShellBranchData extends StatefulShellBranchData {
   const SettingsShellBranchData();
   static const String path = '/settings';
 }
 
-/// さがすタブのルートデータ。
 class SettingsRouteData extends GoRouteData {
   const SettingsRouteData();
 

@@ -33,8 +33,7 @@ targets:
       riverpod_generator:
         generate_for:
           include:
-            - lib/**/provider/*.dart
-            - lib/**/*provider.dart
+            - "**/*provider.dart"
             - lib/**/riverpod_example_page/**/*.dart
         options:
           provider_name_suffix: "Provider" # (default)
