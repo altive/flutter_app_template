@@ -5,7 +5,7 @@ PODS:
   - AppAuth/Core (1.7.3)
   - AppAuth/ExternalUserAgent (1.7.3):
     - AppAuth/Core
-  - cloud_firestore (4.15.9):
+  - cloud_firestore (4.15.10):
     - Firebase/Firestore (= 10.22.0)
     - firebase_core
     - Flutter
@@ -54,14 +54,14 @@ PODS:
     - Firebase/Auth (= 10.22.0)
     - firebase_core
     - Flutter
-  - firebase_core (2.27.1):
+  - firebase_core (2.27.2):
     - Firebase/CoreOnly (= 10.22.0)
     - Flutter
   - firebase_crashlytics (3.4.19):
     - Firebase/Crashlytics (= 10.22.0)
     - firebase_core
     - Flutter
-  - firebase_dynamic_links (5.4.18):
+  - firebase_dynamic_links (5.4.19):
     - Firebase/DynamicLinks (= 10.22.0)
     - firebase_core
     - Flutter
@@ -81,7 +81,7 @@ PODS:
     - Firebase/RemoteConfig (= 10.22.0)
     - firebase_core
     - Flutter
-  - firebase_storage (11.6.10):
+  - firebase_storage (11.6.11):
     - Firebase/Storage (= 10.22.0)
     - firebase_core
     - Flutter
@@ -413,19 +413,19 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AppAuth: a13994980c1ec792f7e2e665acd4d4aa6be43240
-  cloud_firestore: 9d69182af1d677062f005584ca5470a19e1f68e7
+  cloud_firestore: 5b14c6806eecfc4cbc4314dea133591eb34eb749
   device_info_plus: c6fb39579d0f423935b0c9ce7ee2f44b71b9fce6
   Firebase: 797fd7297b7e1be954432743a0b3f90038e45a71
   firebase_analytics: 773f04fad34c0a4e442deb5bcfb6ffc8102b9221
   firebase_auth: 610184b4f624545f81e0416bca60642b6818f27f
-  firebase_core: d6dfb4cb86a9ebd92464bb8736075fe967211c97
+  firebase_core: cc49b6648d6dd7570d9273a616cb1205260db91e
   firebase_crashlytics: 0be8c89a6b91fd964a7a8fe574109fd528d310bb
-  firebase_dynamic_links: 9129abba70e20f931bac9c2d630ab8a68cacb591
+  firebase_dynamic_links: 95b935881ca3f9292e0c997481f492d4fff4cf6d
   firebase_in_app_messaging: fc3c0bcbfc195b51cbc550e97953416428fa4f11
   firebase_messaging: f97062a3a7644703ba4892859183c0a59e08d25f
   firebase_performance: e664b27462836c2cbbcbb3bfca8d5598987fce81
   firebase_remote_config: 359e7df138fdff7207867c0242a4ea0d021164a3
-  firebase_storage: 4d91299aefc706729b17bd17c3a1e874a53722df
+  firebase_storage: 8acf9d33013e2ac77ba3461abade0d13b706dd20
   FirebaseABTesting: 66d2594b36d4ff6e7d3c8719802100990de05857
   FirebaseAnalytics: 8d0ff929c63b7f72260f332b86ccf569776b75d3
   FirebaseAppCheckInterop: 58db3e9494751399cf3e7b7e3e705cff71099153
@@ -462,7 +462,7 @@ SPEC CHECKSUMS:
   image_picker_ios: b545a5f16c0fa88e3ecbbce3ed4de45567a8ec18
   leveldb-library: 06a69cc7582d64b29424a63e085e683cc188230a
   nanopb: d4d75c12cd1316f4a64e3c6963f879ecd4b5e0d5
-  package_info_plus: 115f4ad11e0698c8c1c5d8a689390df880f47e85
+  package_info_plus: 58f0028419748fad15bf008b270aaa8e54380b1c
   path_provider_foundation: 3784922295ac71e43754bd15e0653ccfd36a147c
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   PromisesSwift: 9d77319bbe72ebf6d872900551f7eeba9bce2851
