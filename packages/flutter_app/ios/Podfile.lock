@@ -54,7 +54,7 @@ PODS:
     - Firebase/Auth (= 10.22.0)
     - firebase_core
     - Flutter
-  - firebase_core (2.27.2):
+  - firebase_core (2.28.0):
     - Firebase/CoreOnly (= 10.22.0)
     - Flutter
   - firebase_crashlytics (3.4.19):
@@ -73,7 +73,7 @@ PODS:
     - Firebase/Messaging (= 10.22.0)
     - firebase_core
     - Flutter
-  - firebase_performance (0.9.3-18):
+  - firebase_performance (0.9.4):
     - Firebase/Performance (= 10.22.0)
     - firebase_core
     - Flutter
@@ -418,12 +418,12 @@ SPEC CHECKSUMS:
   Firebase: 797fd7297b7e1be954432743a0b3f90038e45a71
   firebase_analytics: 773f04fad34c0a4e442deb5bcfb6ffc8102b9221
   firebase_auth: 610184b4f624545f81e0416bca60642b6818f27f
-  firebase_core: cc49b6648d6dd7570d9273a616cb1205260db91e
+  firebase_core: d955499180c3c8ef355adf46b8752c4c01d09e0a
   firebase_crashlytics: 0be8c89a6b91fd964a7a8fe574109fd528d310bb
   firebase_dynamic_links: 95b935881ca3f9292e0c997481f492d4fff4cf6d
   firebase_in_app_messaging: fc3c0bcbfc195b51cbc550e97953416428fa4f11
   firebase_messaging: f97062a3a7644703ba4892859183c0a59e08d25f
-  firebase_performance: e664b27462836c2cbbcbb3bfca8d5598987fce81
+  firebase_performance: af8d4326bc3aafbb7bc558b7ee91e92e080ac5d4
   firebase_remote_config: 359e7df138fdff7207867c0242a4ea0d021164a3
   firebase_storage: 8acf9d33013e2ac77ba3461abade0d13b706dd20
   FirebaseABTesting: 66d2594b36d4ff6e7d3c8719802100990de05857
