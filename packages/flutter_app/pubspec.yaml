@@ -15,7 +15,7 @@ dependencies:
   altfire_tracker: ^0.1.1
   awaitable_button: ^1.2.0
   cached_network_image: ^3.3.1
-  cloud_firestore: ^4.15.10
+  cloud_firestore: ^4.16.0
   collection: ^1.16.0
   convenient_widgets:
     path: ../convenient_widgets
