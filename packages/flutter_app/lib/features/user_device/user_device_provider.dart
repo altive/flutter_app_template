@@ -37,8 +37,7 @@ Future<UserDevice> userDeviceInitializing(UserDeviceInitializingRef ref) async {
     return UserDevice.macos(
       name: info.computerName,
       model: info.model,
-      osName: info.osRelease,
-      osVersionString: info.kernelVersion,
+      osVersionString: info.osRelease,
     );
   }
   throw UnimplementedError('Unsupported platform');
