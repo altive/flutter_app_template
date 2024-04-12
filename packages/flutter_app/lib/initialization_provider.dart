@@ -8,7 +8,6 @@ part 'initialization_provider.g.dart';
 
 @Riverpod(keepAlive: true)
 Future<void> initialization(InitializationRef ref) async {
-  await Future<void>.delayed(const Duration(seconds: 2));
   ref.onDispose(() {
     // Clean up
     ref
