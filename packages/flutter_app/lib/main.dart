@@ -19,6 +19,8 @@ Future<void> main() async {
 
   final flavor = Flavor.values.byName(const String.fromEnvironment('flavor'));
 
+  // If only programmer error occurs, initialize within main().
+  // If other exceptions may occur, initialize using initializationProvider.
   await Firebase.initializeApp(options: firebaseOptionsWithFlavor(flavor));
 
   final tracker = Tracker();
