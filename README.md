@@ -74,6 +74,14 @@ https://github.com/invertase/firestore-ios-sdk-frameworks/releases
 
 * I wanted to use the latest `9.5.0-1` or higher, but the `cloud_firestore 3.4.8` package in pub.dev seemed to be unsupported, so I used `9.4.0`.
 
+## Addition of ISSUE_TEMPLATE
+
+If you do not have `.github/ISSUE_TEMPLATE` in a repository, you can use Issue templates placed in a special repository named `.github`.
+
+For altive organization, the Issue templates in the [altive/.github](https://github.com/altive/.github/) repository should also work for this repository.
+
+If necessary, please copy and use the Issue template from the above repository.
+
 ## References
 [Internationalization User Guild](https://docs.google.com/document/d/10e0saTfAv32OZLRmONy866vnaw0I2jwL8zukykpgWBc/)
 [PresentationDomainSeparation](https://martinfowler.com/bliki/PresentationDomainSeparation.html)
