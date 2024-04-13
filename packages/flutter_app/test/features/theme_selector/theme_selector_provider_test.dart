@@ -21,40 +21,47 @@ void main() {
     });
 
     tearDown(() {
-      // テストごとにProviderContainerを破棄する。
       container.dispose();
     });
 
-    test('初期テーマが[ThemeMode.system]なこと', () {
-      // テスト対象のクラスをコンテナから取得する。
+    test('Initial theme is system', () {
       final themeMode = container.read(themeSelectorProvider);
       expect(themeMode, ThemeMode.system);
     });
 
-    test('ローカル保存領域に保存されていた場合は、そのテーマになっていること', () async {
-      const lightIndex = 1;
-      SharedPreferences.setMockInitialValues({'selectedThemeKey': lightIndex});
+    test(
+      'If it was saved in the local storage area, it must be on that theme.',
+      () async {
+        const lightIndex = 1;
+        SharedPreferences.setMockInitialValues(
+          {'selectedThemeKey': lightIndex},
+        );
 
-      final sp = await SharedPreferences.getInstance();
-      container = ProviderContainer(
-        overrides: [sharedPreferencesProvider.overrideWithValue(sp)],
-      );
+        final sp = await SharedPreferences.getInstance();
+        container = ProviderContainer(
+          overrides: [
+            sharedPreferencesProvider.overrideWithValue(sp),
+          ],
+        );
 
-      final themeMode = container.read(themeSelectorProvider);
-      expect(themeMode, ThemeMode.light);
-    });
+        final themeMode = container.read(themeSelectorProvider);
+        expect(themeMode, ThemeMode.light);
+      },
+    );
 
-    test('Darkテーマに切り替えられ、ローカル記憶領域にも保存されていること', () async {
-      // テスト対象のクラスをコンテナから取得する。
-      final themeNotifier = container.read(themeSelectorProvider.notifier);
-      // テスト対象のメソッドを、任意の引数で実行する。
-      await themeNotifier.changeAndSave(ThemeMode.dark);
-      final themeMode = container.read(themeSelectorProvider);
-      expect(themeMode, ThemeMode.dark);
+    test(
+      'Must be switched to the Dark theme and also stored in local storage.',
+      () async {
+        final themeNotifier = container.read(themeSelectorProvider.notifier);
 
-      final sp = container.read(sharedPreferencesProvider);
-      final themeIndex = sp.getInt('selectedThemeKey');
-      expect(themeIndex, 2);
-    });
+        await themeNotifier.changeAndSave(ThemeMode.dark);
+        final themeMode = container.read(themeSelectorProvider);
+        expect(themeMode, ThemeMode.dark);
+
+        final sp = container.read(sharedPreferencesProvider);
+        final themeIndex = sp.getInt('selectedThemeKey');
+        expect(themeIndex, 2);
+      },
+    );
   });
 }

@@ -5,7 +5,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../environment/environment.dart';
 import '../../../gen/strings.g.dart';
-import '../../../util/providers/package_info_provider.dart';
+import '../../../package_adaptor/package_info_provider.dart';
 import '../../../widgets/widgets.dart';
 
 class AppInfoBody extends HookConsumerWidget {

@@ -8,8 +8,8 @@ import 'gen/strings.g.dart';
 import 'router/router.dart';
 import 'util/providers/scaffold_messenger_key_provider.dart';
 
-class FlutterApp extends ConsumerWidget {
-  const FlutterApp({super.key});
+class MainApp extends ConsumerWidget {
+  const MainApp({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
