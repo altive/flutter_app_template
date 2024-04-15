@@ -8,9 +8,31 @@ part of 'package_info_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$packageInfoHash() => r'517f01fbab81b5ebd10a5d03633b9ffaee13310a';
+String _$packageInfoInitializingHash() =>
+    r'f08f031b27189f382d00702ba98adab4f82b944a';
 
-/// See also [packageInfo].
+/// Providers that need to initialize asynchronously only once at startup.
+///
+/// Copied from [packageInfoInitializing].
+@ProviderFor(packageInfoInitializing)
+final packageInfoInitializingProvider = FutureProvider<PackageInfo>.internal(
+  packageInfoInitializing,
+  name: r'packageInfoInitializingProvider',
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$packageInfoInitializingHash,
+  dependencies: null,
+  allTransitiveDependencies: null,
+);
+
+typedef PackageInfoInitializingRef = FutureProviderRef<PackageInfo>;
+String _$packageInfoHash() => r'9b711fe79c9d46a81ff455a72adb29031fc2cad5';
+
+/// Provide metadata for the application.
+///
+/// After initialization, use this, which can be obtained synchronously.
+///
+/// Copied from [packageInfo].
 @ProviderFor(packageInfo)
 final packageInfoProvider = Provider<PackageInfo>.internal(
   packageInfo,
