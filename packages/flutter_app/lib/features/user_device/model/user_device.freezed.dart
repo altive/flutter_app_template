@@ -18,7 +18,6 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$UserDevice {
   String get name => throw _privateConstructorUsedError;
   String get model => throw _privateConstructorUsedError;
-  String get osName => throw _privateConstructorUsedError;
   String get osVersionString => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -28,8 +27,7 @@ mixin _$UserDevice {
     required TResult Function(
             String name, String model, String osName, String osVersionString)
         ios,
-    required TResult Function(
-            String name, String model, String osName, String osVersionString)
+    required TResult Function(String name, String model, String osVersionString)
         macos,
   }) =>
       throw _privateConstructorUsedError;
@@ -41,9 +39,7 @@ mixin _$UserDevice {
     TResult? Function(
             String name, String model, String osName, String osVersionString)?
         ios,
-    TResult? Function(
-            String name, String model, String osName, String osVersionString)?
-        macos,
+    TResult? Function(String name, String model, String osVersionString)? macos,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -54,9 +50,7 @@ mixin _$UserDevice {
     TResult Function(
             String name, String model, String osName, String osVersionString)?
         ios,
-    TResult Function(
-            String name, String model, String osName, String osVersionString)?
-        macos,
+    TResult Function(String name, String model, String osVersionString)? macos,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -94,7 +88,7 @@ abstract class $UserDeviceCopyWith<$Res> {
           UserDevice value, $Res Function(UserDevice) then) =
       _$UserDeviceCopyWithImpl<$Res, UserDevice>;
   @useResult
-  $Res call({String name, String model, String osName, String osVersionString});
+  $Res call({String name, String model, String osVersionString});
 }
 
 /// @nodoc
@@ -112,7 +106,6 @@ class _$UserDeviceCopyWithImpl<$Res, $Val extends UserDevice>
   $Res call({
     Object? name = null,
     Object? model = null,
-    Object? osName = null,
     Object? osVersionString = null,
   }) {
     return _then(_value.copyWith(
@@ -123,10 +116,6 @@ class _$UserDeviceCopyWithImpl<$Res, $Val extends UserDevice>
       model: null == model
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
-              as String,
-      osName: null == osName
-          ? _value.osName
-          : osName // ignore: cast_nullable_to_non_nullable
               as String,
       osVersionString: null == osVersionString
           ? _value.osVersionString
@@ -250,8 +239,7 @@ class _$AndroidDeviceImpl extends AndroidDevice with DiagnosticableTreeMixin {
     required TResult Function(
             String name, String model, String osName, String osVersionString)
         ios,
-    required TResult Function(
-            String name, String model, String osName, String osVersionString)
+    required TResult Function(String name, String model, String osVersionString)
         macos,
   }) {
     return android(name, model, osName, osVersionString);
@@ -266,9 +254,7 @@ class _$AndroidDeviceImpl extends AndroidDevice with DiagnosticableTreeMixin {
     TResult? Function(
             String name, String model, String osName, String osVersionString)?
         ios,
-    TResult? Function(
-            String name, String model, String osName, String osVersionString)?
-        macos,
+    TResult? Function(String name, String model, String osVersionString)? macos,
   }) {
     return android?.call(name, model, osName, osVersionString);
   }
@@ -282,9 +268,7 @@ class _$AndroidDeviceImpl extends AndroidDevice with DiagnosticableTreeMixin {
     TResult Function(
             String name, String model, String osName, String osVersionString)?
         ios,
-    TResult Function(
-            String name, String model, String osName, String osVersionString)?
-        macos,
+    TResult Function(String name, String model, String osVersionString)? macos,
     required TResult orElse(),
   }) {
     if (android != null) {
@@ -340,7 +324,6 @@ abstract class AndroidDevice extends UserDevice {
   String get name;
   @override
   String get model;
-  @override
   String get osName;
   @override
   String get osVersionString;
@@ -464,8 +447,7 @@ class _$IosDeviceImpl extends IosDevice with DiagnosticableTreeMixin {
     required TResult Function(
             String name, String model, String osName, String osVersionString)
         ios,
-    required TResult Function(
-            String name, String model, String osName, String osVersionString)
+    required TResult Function(String name, String model, String osVersionString)
         macos,
   }) {
     return ios(name, model, osName, osVersionString);
@@ -480,9 +462,7 @@ class _$IosDeviceImpl extends IosDevice with DiagnosticableTreeMixin {
     TResult? Function(
             String name, String model, String osName, String osVersionString)?
         ios,
-    TResult? Function(
-            String name, String model, String osName, String osVersionString)?
-        macos,
+    TResult? Function(String name, String model, String osVersionString)? macos,
   }) {
     return ios?.call(name, model, osName, osVersionString);
   }
@@ -496,9 +476,7 @@ class _$IosDeviceImpl extends IosDevice with DiagnosticableTreeMixin {
     TResult Function(
             String name, String model, String osName, String osVersionString)?
         ios,
-    TResult Function(
-            String name, String model, String osName, String osVersionString)?
-        macos,
+    TResult Function(String name, String model, String osVersionString)? macos,
     required TResult orElse(),
   }) {
     if (ios != null) {
@@ -554,7 +532,6 @@ abstract class IosDevice extends UserDevice {
   String get name;
   @override
   String get model;
-  @override
   String get osName;
   @override
   String get osVersionString;
@@ -572,7 +549,7 @@ abstract class _$$MacosDeviceImplCopyWith<$Res>
       __$$MacosDeviceImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, String model, String osName, String osVersionString});
+  $Res call({String name, String model, String osVersionString});
 }
 
 /// @nodoc
@@ -588,7 +565,6 @@ class __$$MacosDeviceImplCopyWithImpl<$Res>
   $Res call({
     Object? name = null,
     Object? model = null,
-    Object? osName = null,
     Object? osVersionString = null,
   }) {
     return _then(_$MacosDeviceImpl(
@@ -599,10 +575,6 @@ class __$$MacosDeviceImplCopyWithImpl<$Res>
       model: null == model
           ? _value.model
           : model // ignore: cast_nullable_to_non_nullable
-              as String,
-      osName: null == osName
-          ? _value.osName
-          : osName // ignore: cast_nullable_to_non_nullable
               as String,
       osVersionString: null == osVersionString
           ? _value.osVersionString
@@ -616,24 +588,24 @@ class __$$MacosDeviceImplCopyWithImpl<$Res>
 
 class _$MacosDeviceImpl extends MacosDevice with DiagnosticableTreeMixin {
   const _$MacosDeviceImpl(
-      {required this.name,
-      required this.model,
-      required this.osName,
-      required this.osVersionString})
+      {required this.name, required this.model, required this.osVersionString})
       : super._();
 
+  /// Altive's MacBook Air
   @override
   final String name;
+
+  /// example: Mac14,2
   @override
   final String model;
-  @override
-  final String osName;
+
+  /// example: Version 14.2.1 (Build 23C71)
   @override
   final String osVersionString;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UserDevice.macos(name: $name, model: $model, osName: $osName, osVersionString: $osVersionString)';
+    return 'UserDevice.macos(name: $name, model: $model, osVersionString: $osVersionString)';
   }
 
   @override
@@ -643,7 +615,6 @@ class _$MacosDeviceImpl extends MacosDevice with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('type', 'UserDevice.macos'))
       ..add(DiagnosticsProperty('name', name))
       ..add(DiagnosticsProperty('model', model))
-      ..add(DiagnosticsProperty('osName', osName))
       ..add(DiagnosticsProperty('osVersionString', osVersionString));
   }
 
@@ -654,14 +625,12 @@ class _$MacosDeviceImpl extends MacosDevice with DiagnosticableTreeMixin {
             other is _$MacosDeviceImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.model, model) || other.model == model) &&
-            (identical(other.osName, osName) || other.osName == osName) &&
             (identical(other.osVersionString, osVersionString) ||
                 other.osVersionString == osVersionString));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, name, model, osName, osVersionString);
+  int get hashCode => Object.hash(runtimeType, name, model, osVersionString);
 
   @JsonKey(ignore: true)
   @override
@@ -678,11 +647,10 @@ class _$MacosDeviceImpl extends MacosDevice with DiagnosticableTreeMixin {
     required TResult Function(
             String name, String model, String osName, String osVersionString)
         ios,
-    required TResult Function(
-            String name, String model, String osName, String osVersionString)
+    required TResult Function(String name, String model, String osVersionString)
         macos,
   }) {
-    return macos(name, model, osName, osVersionString);
+    return macos(name, model, osVersionString);
   }
 
   @override
@@ -694,11 +662,9 @@ class _$MacosDeviceImpl extends MacosDevice with DiagnosticableTreeMixin {
     TResult? Function(
             String name, String model, String osName, String osVersionString)?
         ios,
-    TResult? Function(
-            String name, String model, String osName, String osVersionString)?
-        macos,
+    TResult? Function(String name, String model, String osVersionString)? macos,
   }) {
-    return macos?.call(name, model, osName, osVersionString);
+    return macos?.call(name, model, osVersionString);
   }
 
   @override
@@ -710,13 +676,11 @@ class _$MacosDeviceImpl extends MacosDevice with DiagnosticableTreeMixin {
     TResult Function(
             String name, String model, String osName, String osVersionString)?
         ios,
-    TResult Function(
-            String name, String model, String osName, String osVersionString)?
-        macos,
+    TResult Function(String name, String model, String osVersionString)? macos,
     required TResult orElse(),
   }) {
     if (macos != null) {
-      return macos(name, model, osName, osVersionString);
+      return macos(name, model, osVersionString);
     }
     return orElse();
   }
@@ -760,17 +724,20 @@ abstract class MacosDevice extends UserDevice {
   const factory MacosDevice(
       {required final String name,
       required final String model,
-      required final String osName,
       required final String osVersionString}) = _$MacosDeviceImpl;
   const MacosDevice._() : super._();
 
   @override
+
+  /// Altive's MacBook Air
   String get name;
   @override
+
+  /// example: Mac14,2
   String get model;
   @override
-  String get osName;
-  @override
+
+  /// example: Version 14.2.1 (Build 23C71)
   String get osVersionString;
   @override
   @JsonKey(ignore: true)

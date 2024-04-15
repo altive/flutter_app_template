@@ -1,6 +1,5 @@
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:version/version.dart';
 
 part 'user_device.freezed.dart';
 
@@ -31,13 +30,15 @@ sealed class UserDevice with _$UserDevice {
   }) = IosDevice;
 
   const factory UserDevice.macos({
+    /// Altive's MacBook Air
     required String name,
+
+    /// example: Mac14,2
     required String model,
-    required String osName,
+
+    /// example: Version 14.2.1 (Build 23C71)
     required String osVersionString,
   }) = MacosDevice;
 
   const UserDevice._();
-
-  Version get osVersion => Version.parse(osVersionString);
 }
