@@ -5,10 +5,10 @@ packages:
     dependency: "direct dev"
     description:
       name: altive_lints
-      sha256: ba89baff059dd26160d8299a35de6e9ab3455c24d963c2b8bcf927628dfc4e2a
+      sha256: cc3f1215e69ae2e9922a9bc383cf607ae29cd955481059e3f106e08ad22b75d7
       url: "https://pub.dev"
     source: hosted
-    version: "1.9.0"
+    version: "1.10.0"
   async:
     dependency: transitive
     description:
