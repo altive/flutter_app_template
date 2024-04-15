@@ -22,7 +22,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   device_info_plus: ^9.1.2
   firebase_core: ^2.21.0
-  firebase_dynamic_links: ^5.4.19
+  firebase_dynamic_links: ^5.5.0
   firebase_performance: ^0.9.4
   firebase_storage: ^11.6.11
   flutter:
