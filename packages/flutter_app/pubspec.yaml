@@ -19,10 +19,10 @@ dependencies:
   collection: ^1.16.0
   convenient_widgets:
     path: ../convenient_widgets
-  cupertino_icons: ^1.0.6
+  cupertino_icons: ^1.0.8
   device_info_plus: ^9.1.2
   firebase_core: ^2.21.0
-  firebase_dynamic_links: ^5.5.0
+  firebase_dynamic_links: ^5.5.2
   firebase_performance: ^0.9.4
   firebase_storage: ^11.6.11
   flutter:
@@ -43,7 +43,7 @@ dependencies:
   modal_bottom_sheet: ^2.1.2
   package_info_plus: ^6.0.0
   riverpod_annotation: ^2.3.5
-  shared_preferences: ^2.2.2
+  shared_preferences: ^2.2.3
   simple_logger: ^1.9.0+1
   slang: ^3.30.2
   slang_flutter: ^3.26.2
@@ -51,7 +51,7 @@ dependencies:
   themes:
     path: ../themes/
   tuple: ^2.0.0
-  url_launcher: ^6.2.5
+  url_launcher: ^6.2.6
   uuid: ^4.3.3
   version: ^3.0.2
 
