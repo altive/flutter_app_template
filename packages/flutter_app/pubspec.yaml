@@ -42,7 +42,7 @@ dependencies:
   json_annotation: ^4.8.1
   linked_scroll_controller: ^0.2.0
   modal_bottom_sheet: ^2.1.2
-  package_info_plus: ^6.0.0
+  package_info_plus: ^8.0.0
   riverpod_annotation: ^2.3.5
   shared_preferences: ^2.2.3
   simple_logger: ^1.9.0+1
@@ -71,10 +71,6 @@ dev_dependencies:
   riverpod_generator: ^2.4.0
   riverpod_lint: ^2.3.10
   slang_build_runner: ^3.26.2
-
-dependency_overrides: 
-  # Because package_info_plus 5.0.1 depends on an older version of the web package.
-  web: ^0.5.1
 
 flutter_gen:
   enabled: true
