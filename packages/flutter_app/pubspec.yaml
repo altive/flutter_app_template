@@ -72,10 +72,6 @@ dev_dependencies:
   riverpod_lint: ^2.3.10
   slang_build_runner: ^3.26.2
 
-dependency_overrides: 
-  # Because package_info_plus 5.0.1 depends on an older version of the web package.
-  web: ^0.5.1
-
 flutter_gen:
   enabled: true
   output: lib/gen/
