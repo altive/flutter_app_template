@@ -21,7 +21,7 @@ dependencies:
   convenient_widgets:
     path: ../convenient_widgets
   cupertino_icons: ^1.0.8
-  device_info_plus: ^9.1.2
+  device_info_plus: ^10.1.0
   firebase_core: ^2.21.0
   firebase_dynamic_links: ^5.5.4
   firebase_performance: ^0.9.4
