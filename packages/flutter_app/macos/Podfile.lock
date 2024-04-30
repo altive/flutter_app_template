@@ -1,9 +1,9 @@
 PODS:
-  - AppAuth (1.7.5):
-    - AppAuth/Core (= 1.7.5)
-    - AppAuth/ExternalUserAgent (= 1.7.5)
-  - AppAuth/Core (1.7.5)
-  - AppAuth/ExternalUserAgent (1.7.5):
+  - AppAuth (1.7.4):
+    - AppAuth/Core (= 1.7.4)
+    - AppAuth/ExternalUserAgent (= 1.7.4)
+  - AppAuth/Core (1.7.4)
+  - AppAuth/ExternalUserAgent (1.7.4):
     - AppAuth/Core
   - cloud_firestore (4.17.2):
     - Firebase/CoreOnly (~> 10.24.0)
@@ -245,10 +245,10 @@ PODS:
   - GTMAppAuth (4.1.1):
     - AppAuth/Core (~> 1.7)
     - GTMSessionFetcher/Core (< 4.0, >= 3.3)
-  - GTMSessionFetcher (3.4.1):
-    - GTMSessionFetcher/Full (= 3.4.1)
-  - GTMSessionFetcher/Core (3.4.1)
-  - GTMSessionFetcher/Full (3.4.1):
+  - GTMSessionFetcher (3.4.0):
+    - GTMSessionFetcher/Full (= 3.4.0)
+  - GTMSessionFetcher/Core (3.4.0)
+  - GTMSessionFetcher/Full (3.4.0):
     - GTMSessionFetcher/Core
   - leveldb-library (1.22.5)
   - nanopb (2.30910.0):
@@ -378,10 +378,10 @@ CHECKOUT OPTIONS:
     :tag: 10.24.0
 
 SPEC CHECKSUMS:
-  AppAuth: 501c04eda8a8d11f179dbe8637b7a91bb7e5d2fa
+  AppAuth: 182c5b88630569df5acb672720534756c29b3358
   cloud_firestore: aef8aab24d6d83cf75b3741d799d0a70ff865d0b
   connectivity_plus: ddd7f30999e1faaef5967c23d5b6d503d10434db
-  device_info_plus: 5401765fde0b8d062a2f8eb65510fb17e77cf07f
+  device_info_plus: ce1b7762849d3ec103d0e0517299f2db7ad60720
   file_selector_macos: 468fb6b81fac7c0e88d71317f3eec34c3b008ff9
   Firebase: 91fefd38712feb9186ea8996af6cbdef41473442
   firebase_analytics: 18a56165340c07beeebb1b8949efdf9fe185e902
@@ -421,7 +421,7 @@ SPEC CHECKSUMS:
   GoogleSignIn: d4281ab6cf21542b1cfaff85c191f230b399d2db
   GoogleUtilities: d053d902a8edaa9904e1bd00c37535385b8ed152
   GTMAppAuth: f69bd07d68cd3b766125f7e072c45d7340dea0de
-  GTMSessionFetcher: 8000756fc1c19d2e5697b90311f7832d2e33f6cd
+  GTMSessionFetcher: ed61055dc13f769533d057edc520a4cb8f41c324
   leveldb-library: e8eadf9008a61f9e1dde3978c086d2b6d9b9dc28
   nanopb: 438bc412db1928dac798aa6fd75726007be04262
   package_info_plus: fa739dd842b393193c5ca93c26798dff6e3d0e0c
