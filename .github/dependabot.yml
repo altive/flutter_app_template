@@ -21,6 +21,9 @@ updates:
     schedule:
       interval: "weekly"
     groups:
+      altfire-dependencies:
+        patterns:
+          - "altfire*"
       riverpod-dependencies:
         patterns:
           - "*riverpod*"
@@ -43,7 +46,7 @@ updates:
         patterns:
           - "*"
         update-types:
-        - "patch"
+          - "patch"
 
   - package-ecosystem: "pub"
     directory: "/packages/themes"
@@ -63,4 +66,4 @@ updates:
         patterns:
           - "*"
         update-types:
-        - "patch"
+          - "patch"
