@@ -41,7 +41,7 @@ dependencies:
   intl: ^0.18.1
   json_annotation: ^4.8.1
   linked_scroll_controller: ^0.2.0
-  modal_bottom_sheet: ^2.1.2
+  modal_bottom_sheet: ^3.0.0
   package_info_plus: ^8.0.0
   riverpod_annotation: ^2.3.5
   shared_preferences: ^2.2.3
