@@ -21,34 +21,34 @@ packages:
     dependency: "direct main"
     description:
       name: altfire_authenticator
-      sha256: ccc9ec1ba9f02d128586dc38517323106a251b476bbf4c847af81fa346ac89b4
+      sha256: c0a59492a589cb58ed91c979f8785b40ddcf6379419dcfc8d28bd1980af8308b
       url: "https://pub.dev"
     source: hosted
-    version: "0.1.1"
+    version: "0.1.2"
   altfire_configurator:
     dependency: "direct main"
     description:
       name: altfire_configurator
-      sha256: e67112a29a1a8f988042798eaffd30707266bbe21219d1f3c8cd227b948eba95
+      sha256: e4a649f5a1a892d769b4a01d6b3d0c81ff84ed5e27de91a5c56cb345de3d6aea
       url: "https://pub.dev"
     source: hosted
-    version: "0.1.0"
+    version: "0.1.1"
   altfire_messenger:
     dependency: "direct main"
     description:
       name: altfire_messenger
-      sha256: db00525d7ce1f1adfc74db376b1c4e42d4635106b6490686865b53cc4b3f55c4
+      sha256: "960451f239b477fbfb962875a15c8dfc665145202e06a5d77440173c41a85b02"
       url: "https://pub.dev"
     source: hosted
-    version: "0.1.0"
+    version: "0.1.1"
   altfire_tracker:
     dependency: "direct main"
     description:
       name: altfire_tracker
-      sha256: d900984ef5279e581e4806db57a235b543aa017851f03ce0f7ba3acdac97554a
+      sha256: facc2ca4b28e0368d9a2c9087833acba02f081676321a9e8960b5303a735b98a
       url: "https://pub.dev"
     source: hosted
-    version: "0.1.1"
+    version: "0.1.2"
   altive_lints:
     dependency: "direct dev"
     description:
