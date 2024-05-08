@@ -8,16 +8,12 @@ updates:
       interval: "weekly"
 
   - package-ecosystem: "pub"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    groups:
-      dependencies:
-        patterns:
-          - "*"
-
-  - package-ecosystem: "pub"
-    directory: "/packages/flutter_app"
+    directories:
+      - "/"
+      - "/packages/convenient_widgets"
+      - "/packages/flutter_app"
+      - "/packages/themes"
+      - "/packages/util"
     schedule:
       interval: "weekly"
     groups:
@@ -42,26 +38,6 @@ updates:
         patterns:
           - "build_runner"
           - "go_router*"
-      dependencies-patch:
-        patterns:
-          - "*"
-        update-types:
-          - "patch"
-
-  - package-ecosystem: "pub"
-    directory: "/packages/themes"
-    schedule:
-      interval: "weekly"
-    groups:
-      dependencies:
-        patterns:
-          - "*"
-
-  - package-ecosystem: "pub"
-    directory: "/packages/util"
-    schedule:
-      interval: "monthly"
-    groups:
       dependencies-patch:
         patterns:
           - "*"
