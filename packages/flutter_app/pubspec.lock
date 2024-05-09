@@ -832,10 +832,10 @@ packages:
     dependency: "direct dev"
     description:
       name: go_router_builder
-      sha256: "7cbd20d9e17396b966af6f40a071d84b039caff360ec80d08ac8a589a56b6804"
+      sha256: a6f74b9f7dffe317c2479d6edb8757fde5df33a0056394d3a0d3ec44f4809210
       url: "https://pub.dev"
     source: hosted
-    version: "2.6.1"
+    version: "2.6.2"
   google_identity_services_web:
     dependency: transitive
     description:
