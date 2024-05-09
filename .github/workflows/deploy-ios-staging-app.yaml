@@ -1,0 +1,37 @@
+name: Deploy iOS Staging app
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    # macos-latest Specify macos-13 because an error occurs during archiving if it is macos-latest.
+    runs-on: macos-13
+    timeout-minutes: 40
+    if: github.event_name == 'workflow_dispatch' || (github.event.pull_request.merged == true && contains(github.head_ref, 'release/'))
+    env:
+      ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+      ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+      ASC_KEY_BASE64: ${{ secrets.ASC_KEY_BASE64 }}
+      CERTIFICATES_P12: ${{ secrets.CERTIFICATES_P12 }}
+      CERTIFICATES_P12_PASSWORD: ${{ secrets.CERTIFICATES_P12_PASSWORD }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: ./.github/actions/setup_flutter
+
+      - name: Deploy iOS app
+        uses: ./.github/actions/deploy_ios_app
+        with:
+          working-directory: ./packages/flutter_app_template
+          flavor: stg
+          asc-key-id: ${{ env.ASC_KEY_ID }}
+          asc-issuer-id: ${{ env.ASC_ISSUER_ID }}
+          asc-key-base64: ${{ env.ASC_KEY_BASE64 }}
+          certificates-p12-base64: ${{ env.CERTIFICATES_P12 }}
+          certificates-p12-password: ${{ env.CERTIFICATES_P12_PASSWORD }}
