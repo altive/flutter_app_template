@@ -1,0 +1,100 @@
+name: Deploy iOS App
+description: "Deploy iOS App"
+inputs:
+  working-directory:
+    description: "working-directory. example: ./packages/flutter_app"
+    required: false
+    default: "./"
+  flavor:
+    description: "Flavor name"
+    required: true
+  asc-key-id:
+    description: "App Store Connect Key ID"
+    required: true
+  asc-issuer-id:
+    description: "App Store Connect Issuer ID"
+    required: true
+  asc-key-base64:
+    description: "App Store Connect Key Base64"
+    required: true
+  certificates-p12-base64:
+    description: "Certificates p12 file base64"
+    required: true
+  certificates-p12-password:
+    description: "Certificates p12 file password"
+    required: true
+runs:
+  using: "composite"
+  steps:
+    # Import developer certificates.
+    # NOTE: If `--no-codesign` is specified in flutter build, to correctly include Entitlement.
+    # Signing must be done at archive time, which requires importing the developer certificate into the keychain.
+    # because certificates registered in Secrets are automatically renewed,
+    # `CERTIFICATES_P12` and `CERTIFICATES_P12_PASSWORD` in Secrets need to be updated annually.
+    # Expect improvements on the Flutter side.
+    - name: Import Code Signing Certificate
+      uses: apple-actions/import-codesign-certs@v2
+      with:
+        p12-file-base64: ${{ inputs.certificates-p12-base64 }}
+        p12-password: ${{ inputs.certificates-p12-password }}
+
+    - name: Decode App Store Connect API Key
+      run: |
+        mkdir ./private_keys
+        echo "${{ inputs.asc-key-base64 }}" | base64 --decode > ./private_keys/AuthKey_${{ inputs.asc-key-id }}.p8
+        echo "API_KEY_PATH=$(pwd)/private_keys/AuthKey_${{ inputs.asc-key-id }}.p8" >> $GITHUB_ENV
+      shell: bash
+      working-directory: ${{ inputs.working-directory }}
+
+    - name: Build iOS by Flutter
+      # Specify `--no-codesign` as signing at this stage will result in an error.
+      run: |
+        flutter build ios --release --dart-define-from-file=dart_defines/${{ inputs.flavor }}.json --no-codesign
+      shell: bash
+      working-directory: ${{ inputs.working-directory }}
+
+    - name: Create Xcode-Archive
+      run: |
+        xcodebuild archive \
+          -workspace ./ios/Runner.xcworkspace \
+          -scheme Runner \
+          -configuration Release \
+          -archivePath build/ios/Runner.xcarchive \
+          -allowProvisioningUpdates \
+          -authenticationKeyIssuerID ${{ inputs.asc-issuer-id }} \
+          -authenticationKeyID ${{ inputs.asc-key-id }} \
+          -authenticationKeyPath ${{ env.API_KEY_PATH }}
+      shell: bash
+      working-directory: ${{ inputs.working-directory }}
+
+    - name: Export IPA
+      run: |
+        xcodebuild -exportArchive \
+        -archivePath ./build/ios/Runner.xcarchive \
+        -exportPath ./build/ios/ipa \
+        -exportOptionsPlist ./ios/${{ inputs.flavor }}/ExportOptions.plist \
+        -allowProvisioningUpdates \
+        -authenticationKeyIssuerID ${{ inputs.asc-issuer-id }} \
+        -authenticationKeyID ${{ inputs.asc-key-id }} \
+        -authenticationKeyPath ${{ env.API_KEY_PATH }}
+      shell: bash
+      working-directory: ${{ inputs.working-directory }}
+
+    - name: Set IPA file path
+      run: |
+        echo "IPA_PATH=$(find build/ios/ipa -type f -name '*.ipa')" >> "$GITHUB_ENV"
+      shell: bash
+      working-directory: ${{ inputs.working-directory }}
+
+    - name: Upload IPA file to App Store Connect
+      run: |
+        xcrun altool --upload-app -t ios -f "${IPA_PATH}" --apiKey ${{ inputs.asc-key-id }} --apiIssuer ${{ inputs.asc-issuer-id }}
+      shell: bash
+      working-directory: ${{ inputs.working-directory }}
+
+    - name: Remove App Store Connect API Key
+      if: ${{ always() }}
+      run: >
+        rm ./private_keys/AuthKey_${{ inputs.asc-key-id }}.p8
+      shell: bash
+      working-directory: ${{ inputs.working-directory }}

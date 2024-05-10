@@ -1,8 +1,3 @@
-import 'package:flutter/foundation.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
-
-part 'user_device.freezed.dart';
-
 /// ユーザーの使用している実行デバイスの情報。
 ///
 /// ```dart
@@ -13,32 +8,79 @@ part 'user_device.freezed.dart';
 ///
 /// if (device is AndroidDevice) {}
 /// ```
-@freezed
-sealed class UserDevice with _$UserDevice {
-  const factory UserDevice.android({
-    required String name,
-    required String model,
-    required String osName,
-    required String osVersionString,
-  }) = AndroidDevice;
+sealed class UserDevice {
+  const UserDevice();
 
-  const factory UserDevice.ios({
-    required String name,
-    required String model,
-    required String osName,
-    required String osVersionString,
-  }) = IosDevice;
+  String get name;
+  String get model;
+  String get osVersionString;
+}
 
-  const factory UserDevice.macos({
-    /// Altive's MacBook Air
-    required String name,
+class AndroidDevice extends UserDevice {
+  const AndroidDevice({
+    required this.name,
+    required this.model,
+    required this.osName,
+    required this.osVersionString,
+  });
 
-    /// example: Mac14,2
-    required String model,
+  @override
+  final String name;
+  @override
+  final String model;
+  final String osName;
+  @override
+  final String osVersionString;
+}
 
-    /// example: Version 14.2.1 (Build 23C71)
-    required String osVersionString,
-  }) = MacosDevice;
+class IOSDevice extends UserDevice {
+  const IOSDevice({
+    required this.name,
+    required this.model,
+    required this.osName,
+    required this.osVersionString,
+  });
 
-  const UserDevice._();
+  @override
+  final String name;
+  @override
+  final String model;
+  final String osName;
+  @override
+  final String osVersionString;
+}
+
+class MacosDevice extends UserDevice {
+  const MacosDevice({
+    required this.name,
+    required this.model,
+    required this.osVersionString,
+  });
+
+  /// Altive's MacBook Air
+  @override
+  final String name;
+
+  /// example: Mac14,2
+  @override
+  final String model;
+
+  /// example: Version 14.2.1 (Build 23C71)
+  @override
+  final String osVersionString;
+}
+
+class WebDevice extends UserDevice {
+  const WebDevice({
+    required this.name,
+    required this.model,
+    required this.osVersionString,
+  });
+
+  @override
+  final String name;
+  @override
+  final String model;
+  @override
+  final String osVersionString;
 }

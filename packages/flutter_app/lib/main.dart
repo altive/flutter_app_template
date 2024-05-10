@@ -28,8 +28,10 @@ Future<void> main() async {
   FlutterError.onError = tracker.onFlutterError;
   // Log asynchronous errors not caught by the Flutter SDK.
   PlatformDispatcher.instance.onError = tracker.onPlatformError;
-  // Record errors external to Flutter SDK.
-  Isolate.current.addErrorListener(tracker.isolateErrorListener());
+  if (!kIsWeb) {
+    // Record errors external to Flutter SDK.
+    Isolate.current.addErrorListener(tracker.isolateErrorListener());
+  }
 
   LocaleSettings.useDeviceLocale();
 
