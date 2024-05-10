@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:device_info_plus/device_info_plus.dart';
+import 'package:flutter/foundation.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'model/user_device.dart';
@@ -10,11 +11,20 @@ part 'user_device_provider.g.dart';
 /// Providers that need to initialize asynchronously only once at startup.
 @Riverpod(keepAlive: true)
 Future<UserDevice> userDeviceInitializing(UserDeviceInitializingRef ref) async {
-  final deviceInfoPlugin = DeviceInfoPlugin();
+  final deviceInfo = DeviceInfoPlugin();
+
+  if (kIsWeb) {
+    final info = await deviceInfo.webBrowserInfo;
+    return WebDevice(
+      name: info.browserName.name,
+      model: info.product ?? '',
+      osVersionString: info.appVersion ?? '',
+    );
+  }
 
   if (Platform.isAndroid) {
-    final info = await deviceInfoPlugin.androidInfo;
-    return UserDevice.android(
+    final info = await deviceInfo.androidInfo;
+    return AndroidDevice(
       name: '${info.manufacturer} ${info.model}',
       model: info.model,
       osName: info.version.codename,
@@ -23,8 +33,8 @@ Future<UserDevice> userDeviceInitializing(UserDeviceInitializingRef ref) async {
   }
 
   if (Platform.isIOS) {
-    final info = await deviceInfoPlugin.iosInfo;
-    return UserDevice.ios(
+    final info = await deviceInfo.iosInfo;
+    return IOSDevice(
       name: info.utsname.machine,
       model: info.model,
       osName: info.systemName,
@@ -33,13 +43,14 @@ Future<UserDevice> userDeviceInitializing(UserDeviceInitializingRef ref) async {
   }
 
   if (Platform.isMacOS) {
-    final info = await deviceInfoPlugin.macOsInfo;
-    return UserDevice.macos(
+    final info = await deviceInfo.macOsInfo;
+    return MacosDevice(
       name: info.computerName,
       model: info.model,
       osVersionString: info.osRelease,
     );
   }
+
   throw UnimplementedError('Unsupported platform');
 }
 
