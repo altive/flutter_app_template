@@ -3,7 +3,7 @@ description: |
   The Flutter App Template is a starter kit for developing Flutter apps.
   It is also a project that Altive Inc continues to update as a sample of architecture, configuration, and package usage.
 publish_to: "none"
-version: 1.0.0+2
+version: 1.0.0+3
 
 environment:
   sdk: ^3.3.0
