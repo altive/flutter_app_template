@@ -28,7 +28,7 @@ jobs:
       - name: Deploy iOS app
         uses: ./.github/actions/deploy_ios_app
         with:
-          working-directory: ./packages/flutter_app_template
+          working-directory: ./packages/flutter_app
           flavor: prod
           asc-key-id: ${{ env.ASC_KEY_ID }}
           asc-issuer-id: ${{ env.ASC_ISSUER_ID }}

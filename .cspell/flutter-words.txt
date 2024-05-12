@@ -39,5 +39,8 @@ unfocus
 utsname
 vsync
 wireframe
+xcarchive
 xcconfig
+xcodebuild
 xcrun
+xcworkspace
