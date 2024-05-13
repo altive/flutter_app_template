@@ -49,7 +49,7 @@ runs:
     - name: Build iOS by Flutter
       # Specify `--no-codesign` as signing at this stage will result in an error.
       run: |
-        flutter build ios --release --dart-define-from-file=dart_defines/${{ inputs.flavor }}.json --no-codesign
+        flutter build ios --release --dart-define-from-file=dart_defines/${{ inputs.flavor }}.env --no-codesign
       shell: bash
       working-directory: ${{ inputs.working-directory }}
 
