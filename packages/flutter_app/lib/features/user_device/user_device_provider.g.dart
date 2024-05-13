@@ -9,7 +9,7 @@ part of 'user_device_provider.dart';
 // **************************************************************************
 
 String _$userDeviceInitializingHash() =>
-    r'3237e34d761a616b6a5882669c482576078688f7';
+    r'315f73fcc422922b8c876eafb57cc76304f94e66';
 
 /// Providers that need to initialize asynchronously only once at startup.
 ///
