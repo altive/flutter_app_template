@@ -6,7 +6,7 @@ publish_to: "none"
 version: 1.0.0+4
 
 environment:
-  sdk: ^3.3.0
+  sdk: ^3.4.0
 
 dependencies:
   altfire_authenticator: ^0.1.2
@@ -38,7 +38,7 @@ dependencies:
   google_sign_in: ^6.2.1
   hooks_riverpod: ^2.5.1
   image_picker: ^1.1.1
-  intl: ^0.18.1
+  intl: ^0.19.0
   json_annotation: ^4.8.1
   linked_scroll_controller: ^0.2.0
   package_info_plus: ^8.0.0
