@@ -1,5 +1,5 @@
 /// Convenient widgets
-library convenient_widgets;
+library;
 
 export 'src/adaptive_bottom_bar.dart';
 export 'src/apple_auth_button.dart';
