@@ -1,9 +1,9 @@
 {
     "cSpell.customDictionaries": {
-        "app-words": {
-            "name": "app-words",
-            "path": "${workspaceRoot}/.cspell/app-words.txt",
-            "description": "Words specific to this application",
+        "project-words": {
+            "name": "project-words",
+            "path": "${workspaceRoot}/.cspell/project-words.txt",
+            "description": "Words specific to this project",
             "addWords": true,
             "scope": "workspace"
         },

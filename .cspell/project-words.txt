@@ -1,4 +1,4 @@
-# App Specific Words
+# Project Specific Words
 autofetch
 autofocus
 bluefireteam
