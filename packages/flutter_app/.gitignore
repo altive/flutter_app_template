@@ -140,12 +140,14 @@ coverage/
 # Fastlane related
 **/fastlane/report.xml
 
-# Firebase with Build Phases
+# Flavor
+# Ignore these to use per-flavor files
 ios/firebase_app_id_file.json
 ios/Runner/GoogleService-Info.plist
 macos/firebase_app_id_file.json
 macos/Runner/GoogleService-Info.plist
 android/app/google-services.json
+android/app/src/main/res/mipmap*/ 
 
 # Environment
 .envrc
