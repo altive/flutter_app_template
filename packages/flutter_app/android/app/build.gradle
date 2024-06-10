@@ -35,7 +35,7 @@ if (project.hasProperty('dart-defines')) {
         .split(',')
         .collectEntries { entry ->
             def pair = new String(entry.decodeBase64(), 'UTF-8').split('=')
-            [(pair.first()): pair.last()]
+            pair.length == 2 ? [(pair.first()): pair.last()] : [:]
         }
 }
 
