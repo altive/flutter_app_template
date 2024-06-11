@@ -1,0 +1,58 @@
+{
+    "flutter": {
+        "platforms": {
+            "android": {
+                "default": {
+                    "projectId": "altive-fat",
+                    "appId": "1:1007652573613:android:7d7115fc2a21631fbb1124",
+                    "fileOutput": "android/app/google-services.json"
+                }
+            },
+            "ios": {
+                "default": {
+                    "projectId": "altive-fat",
+                    "appId": "1:1007652573613:ios:bf46ce3fca7af889bb1124",
+                    "uploadDebugSymbols": true,
+                    "fileOutput": "ios/Runner/GoogleService-Info.plist"
+                }
+            },
+            "macos": {
+                "default": {
+                    "projectId": "altive-fat",
+                    "appId": "1:1007652573613:ios:bf46ce3fca7af889bb1124",
+                    "uploadDebugSymbols": true,
+                    "fileOutput": "macos/Runner/GoogleService-Info.plist"
+                }
+            },
+            "dart": {
+                "lib/environment/src/firebase_options_dev.dart": {
+                    "projectId": "flutter-app-template-dev",
+                    "configurations": {
+                        "android": "1:1068511233454:android:340e7bfd9b8e50c0a6f43f",
+                        "ios": "1:1068511233454:ios:0fbb2ad807bb95dda6f43f",
+                        "macos": "1:1068511233454:ios:0fbb2ad807bb95dda6f43f",
+                        "web": "1:1068511233454:web:575d437de3c7b4a3a6f43f"
+                    }
+                },
+                "lib/environment/src/firebase_options_stg.dart": {
+                    "projectId": "flutter-app-template-stg",
+                    "configurations": {
+                        "android": "1:502626918852:android:f7e395467b0e3e5bdfc491",
+                        "ios": "1:502626918852:ios:99ee534eace74ff6dfc491",
+                        "macos": "1:502626918852:ios:99ee534eace74ff6dfc491",
+                        "web": "1:502626918852:web:8cc56d7467967ee5dfc491"
+                    }
+                },
+                "lib/environment/src/firebase_options_prod.dart": {
+                    "projectId": "altive-fat",
+                    "configurations": {
+                        "android": "1:1007652573613:android:7d7115fc2a21631fbb1124",
+                        "ios": "1:1007652573613:ios:bf46ce3fca7af889bb1124",
+                        "macos": "1:1007652573613:ios:bf46ce3fca7af889bb1124",
+                        "web": "1:1007652573613:web:95b16cd22289abbfbb1124"
+                    }
+                }
+            }
+        }
+    }
+}
