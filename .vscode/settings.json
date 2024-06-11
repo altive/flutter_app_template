@@ -35,9 +35,11 @@
         "**/fvm",
         "**/.pub-cache",
         ".git/objects",
+        ".metadata",
         ".vscode",
         ".vscode-insiders"
     ],
+    "cSpell.spellCheckOnlyWorkspaceFiles": true,
     "[dart]": {
         "editor.selectionHighlight": false,
         "editor.suggest.snippetsPreventQuickSuggestions": false,

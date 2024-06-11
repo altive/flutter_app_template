@@ -33,6 +33,7 @@ revenuecat
 riverpod
 Routemaster
 Schyler
+temurin
 toggleable
 unawaited
 unfocus

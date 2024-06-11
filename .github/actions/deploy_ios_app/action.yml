@@ -46,6 +46,14 @@ runs:
       shell: bash
       working-directory: ${{ inputs.working-directory }}
 
+    # The flutterfire command is used in Xcode Build Phases and must be installed in advance.
+    - name: Install flutterfire_cli
+      run: |
+        curl -sL https://firebase.tools | bash
+        dart pub global activate flutterfire_cli
+      shell: bash
+      working-directory: ${{ inputs.working-directory }}
+
     - name: Build iOS by Flutter
       # Specify `--no-codesign` as signing at this stage will result in an error.
       run: |
