@@ -1,7 +1,6 @@
 # cSpell: words r0adkll internalsharing
 name: Upload Flutter Android App
 description: "Upload Flutter Android App"
-author: "Muramatsu Ryunosuke (@riscait)"
 inputs:
   working-directory:
     description: "working-directory. example: packages/flutter_app"
@@ -46,7 +45,7 @@ runs:
       uses: actions/setup-java@v4
       with:
         distribution: 'temurin'
-        java-version: '21'
+        java-version: '17'
 
     - name: Create upload-keystore.jks
       run: echo -n ${{ inputs.upload-keystore-jks }} | base64 -d > android/app/upload-keystore.jks
