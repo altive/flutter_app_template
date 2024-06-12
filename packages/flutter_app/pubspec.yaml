@@ -51,7 +51,7 @@ dependencies:
   themes:
     path: ../themes/
   tuple: ^2.0.0
-  url_launcher: ^6.2.6
+  url_launcher: ^6.3.0
   uuid: ^4.3.3
   version: ^3.0.2
 
