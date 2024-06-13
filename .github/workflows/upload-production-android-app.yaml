@@ -31,8 +31,9 @@ jobs:
           working-directory: ./packages/flutter_app
           flavor: prod
           package-name: jp.co.altive.fat
-          service-account-base64: ${{ env.SERVICE_ACCOUNT_BASE64 }}
-          keystore-base64: ${{ env.KEYSTORE_BASE64 }}
-          keystore-password: ${{ env.KEYSTORE_PASSWORD }}
+          release-track: internal
+          service-account-json: ${{ env.SERVICE_ACCOUNT_BASE64 }}
+          upload-keystore-jks: ${{ env.KEYSTORE_BASE64 }}
+          store-password: ${{ env.KEYSTORE_PASSWORD }}
           key-password: ${{ env.KEY_PASSWORD }}
           key-alias: ${{ env.KEY_ALIAS }}
