@@ -1,0 +1,39 @@
+name: Upload staging android app
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy-app:
+    name: Upload staging app (android)
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    if: github.event_name == 'workflow_dispatch' || (github.event.pull_request.merged == true && contains(github.head_ref, 'release/'))
+    env:
+      SERVICE_ACCOUNT_JSON: ${{ secrets.SERVICE_ACCOUNT_JSON }}
+      UPLOAD_KEYSTORE_JKS: ${{ secrets.UPLOAD_KEYSTORE_JKS }}
+      STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
+      KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+      KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Flutter
+        uses: ./.github/actions/setup_flutter
+
+      - name: Upload android app
+        uses: ./.github/actions/upload_android_app
+        with:
+          working-directory: ./packages/flutter_app
+          flavor: stg
+          package-name: jp.co.altive.fat.stg
+          release-track: internal
+          service-account-json: ${{ env.SERVICE_ACCOUNT_JSON }}
+          upload-keystore-jks: ${{ env.UPLOAD_KEYSTORE_JKS }}
+          store-password: ${{ env.STORE_PASSWORD }}
+          key-password: ${{ env.KEY_PASSWORD }}
+          key-alias: ${{ env.KEY_ALIAS }}
