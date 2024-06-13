@@ -44,6 +44,11 @@ task selectGoogleServicesJson(type: Copy) {
     into './'
 }
 
+task copySources(type: Copy) {
+    from "src/${dartDefines.flavor}/res"
+    into 'src/main/res'
+}
+
 tasks.whenTaskAdded { task ->
     if (task.name == 'processDebugGoogleServices' || task.name == 'processReleaseGoogleServices') {
         task.dependsOn selectGoogleServicesJson
@@ -61,7 +66,7 @@ android {
     sourceSets {
         main {
             java.srcDirs += 'src/main/kotlin'
-            res.srcDirs = ['src/main/res', "src/${dartDefines.flavor}/res"]
+            res.srcDirs = ['src/main/res']
         }
     }
 
