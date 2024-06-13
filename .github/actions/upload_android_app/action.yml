@@ -12,9 +12,6 @@ inputs:
   package-name:
     description: "Android App Package Name"
     required: true
-  build-number:
-    description: "Build number"
-    required: true
   release-track:
     description: "Release track. Values: alpha, beta, internal, production, internalsharing"
     default: production
@@ -44,8 +41,8 @@ runs:
     - name: Set up JDK
       uses: actions/setup-java@v4
       with:
-        distribution: 'temurin'
-        java-version: '17'
+        distribution: "temurin"
+        java-version: "17"
 
     - name: Create upload-keystore.jks
       run: echo -n ${{ inputs.upload-keystore-jks }} | base64 -d > android/app/upload-keystore.jks
@@ -68,7 +65,7 @@ runs:
       working-directory: ${{ inputs.working-directory }}
 
     - name: Building Android AppBundle
-      run: flutter build appbundle --dart-define-from-file=dart_defines/${{ inputs.flavor }}.env --build-number ${{ inputs.build-number }}
+      run: flutter build appbundle --dart-define-from-file=dart_defines/${{ inputs.flavor }}.env
       shell: bash
       working-directory: ${{ inputs.working-directory }}
 
