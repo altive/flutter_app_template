@@ -24,6 +24,7 @@ ltrb
 LTWH
 mockito
 nullsafety
+pbcopy
 Podfile
 postbootstrap
 postclean

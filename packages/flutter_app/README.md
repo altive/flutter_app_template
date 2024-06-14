@@ -11,11 +11,11 @@
 - Theme selector
 
 ## App settings
-|Category|Description|Codes|
-|---|---|---|
-| [FVM](https://github.com/leoafarias/fvm) | Flutter Version Management | [.fvmrc](../../.fvmrc) |
-| Dart | Dart version | [pubspec.yaml](./pubspec.yaml) |
-| Dart | Lint / Analyze | [analysis_options.yaml](./analysis_options.yaml) |
+| Category                                 | Description                | Codes                                            |
+| ---------------------------------------- | -------------------------- | ------------------------------------------------ |
+| [FVM](https://github.com/leoafarias/fvm) | Flutter Version Management | [.fvmrc](../../.fvmrc)                           |
+| Dart                                     | Dart version               | [pubspec.yaml](./pubspec.yaml)                   |
+| Dart                                     | Lint / Analyze             | [analysis_options.yaml](./analysis_options.yaml) |
 
 ## Dependency Packages
 
@@ -47,9 +47,18 @@ Required only `--release` mode.
 - android/key.properties
 - android/app/upload-keystore.jks
 
+The jks file was converted to Base64 and registered as Secret because it is used by Continuous Delivery.
+
+```
+base64 --input upload-keystore.jks | pbcopy
+```
+
 ## How to use
+
 ### Localizations
-JSONファイルを作成
+
+Create JSON files.
+
 ```json
 {
   "hello": "Hello $name",
@@ -60,12 +69,14 @@ JSONファイルを作成
   }
 }
 ```
-Dartファイルを生成
+Generate Dart files.
+
 ```shell
 dart run slang
 ```
 
-生成されたDartファイルをimportして使用
+Use the generated file.
+
 ```dart
 import '../../../gen/strings.g.dart';
 
@@ -73,9 +84,10 @@ final t = Translations.of(context);
 ```
 
 ## FlutterFire Configure
-再実行すべきタイミング
-- 新しいプラットフォームのサポート追加
-- 新しいFirebaseサービスやプロダクトの使用を開始する
+
+When should it be re-run?
+- Add support for new platforms
+- Start using new Firebase services and products
 
 ```shell
 # Dev
