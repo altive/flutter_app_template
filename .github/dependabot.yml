@@ -10,10 +10,7 @@ updates:
   - package-ecosystem: "pub"
     directories:
       - "/"
-      - "/packages/convenient_widgets"
-      - "/packages/flutter_app"
-      - "/packages/themes"
-      - "/packages/util"
+      - "/packages/*"
     schedule:
       interval: "weekly"
     groups:
