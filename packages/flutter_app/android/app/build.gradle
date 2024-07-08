@@ -72,7 +72,8 @@ android {
 
     defaultConfig {
         applicationId "${dartDefines.appId}"
-        minSdkVersion flutter.minSdkVersion
+        // For Firebase.
+        minSdkVersion 23
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
