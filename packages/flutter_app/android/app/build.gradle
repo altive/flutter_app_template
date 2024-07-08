@@ -1,3 +1,11 @@
+plugins {
+    id "com.android.application"
+    id "kotlin-android"
+    id "dev.flutter.flutter-gradle-plugin"
+    id "com.google.gms.google-services"
+    id "com.google.firebase.crashlytics"
+}
+
 def localProperties = new Properties()
 def localPropertiesFile = rootProject.file('local.properties')
 if (localPropertiesFile.exists()) {
@@ -11,11 +19,6 @@ def keystoreProperties = new Properties()
 def keystorePropertiesFile = rootProject.file('key.properties')
 if (keystorePropertiesFile.exists()) {
     keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
-}
-
-def flutterRoot = localProperties.getProperty('flutter.sdk')
-if (flutterRoot == null) {
-    throw new GradleException("Flutter SDK not found. Define location with flutter.sdk in the local.properties file.")
 }
 
 def flutterVersionCode = localProperties.getProperty('flutter.versionCode')
@@ -55,10 +58,6 @@ tasks.whenTaskAdded { task ->
     }
 }
 
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
-
 android {
     // flutter_sdk/packages/flutter_tools/gradle/src/main/groovy/flutter.groovy
     compileSdkVersion flutter.compileSdkVersion
@@ -72,7 +71,8 @@ android {
 
     defaultConfig {
         applicationId "${dartDefines.appId}"
-        minSdkVersion flutter.minSdkVersion
+        // For Firebase.
+        minSdkVersion 23
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
@@ -101,9 +101,12 @@ flutter {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.android.support:multidex:1.0.3' // For Firebase.
-}
+    // Import the Firebase BoM
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation(platform("com.google.firebase:firebase-bom:33.1.1"))
 
-apply plugin: 'com.google.gms.google-services' // For Firebabase.
-apply plugin: 'com.google.firebase.crashlytics' // For Crashlytics.
+    // See https://firebase.google.com/docs/android/setup#available-libraries
+    implementation("com.google.firebase:firebase-analytics-ktx")
+    implementation("com.google.firebase:firebase-auth-ktx")
+    implementation("com.google.firebase:firebase-crashlytics-ktx")
+}
