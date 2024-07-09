@@ -7,17 +7,17 @@
             "addWords": true,
             "scope": "workspace"
         },
-        "flutter-words": {
-            "name": "flutter-words",
-            "path": "${workspaceRoot}/.cspell/flutter-words.txt",
-            "description": "Flutter App Development Words",
+        "framework-words": {
+            "name": "framework-words",
+            "path": "${workspaceRoot}/.cspell/framework-words.txt",
+            "description": "Framework specific Words",
             "addWords": true,
             "scope": "workspace"
         },
         "organization-words": {
             "name": "organization-words",
             "path": "${workspaceRoot}/.cspell/organization-words.txt",
-            "description": "Organization Words",
+            "description": "Organization specific Words",
             "addWords": true,
             "scope": "workspace"
         }
