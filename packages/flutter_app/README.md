@@ -117,3 +117,14 @@ flutterfire configure --yes \
 --ios-bundle-id jp.co.altive.fat \
 --macos-bundle-id jp.co.altive.fat
 ```
+
+### Firebase Analytics DebugView
+
+#### Start/Stop DebugView for Android
+
+```shell
+# Start
+adb shell setprop debug.firebase.analytics.app jp.co.altive.fat.dev
+# Stop
+adb shell setprop debug.firebase.analytics.app .none.
+```
