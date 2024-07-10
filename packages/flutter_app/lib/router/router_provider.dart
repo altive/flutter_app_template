@@ -55,7 +55,6 @@ Raw<GoRouter> router(RouterRef ref) {
   Future<void> handleRouteChanged() async {
     final config = router.routerDelegate.currentConfiguration;
     final path = config.uri.path;
-    // 画面遷移時に画面遷移イベントを送信する。
     unawaited(tracker.trackScreenView(path));
     logger.finest('tracked screen path: $path');
   }
