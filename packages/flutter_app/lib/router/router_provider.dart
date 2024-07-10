@@ -36,12 +36,6 @@ Raw<GoRouter> router(RouterRef ref) {
     ).build(context, state),
     observers: [
       ...tracker.navigatorObservers(
-        nameExtractor: (settings) {
-          final config = router.routerDelegate.currentConfiguration;
-          final name = '${config.uri.path}/${settings.name}';
-          logger.finest('navigated route name: $name');
-          return name;
-        },
         routeFilter: (route) {
           // Only monitor transitions in Navigator.
           // Transitions in GoRouter can be detected by routerDelegate and
@@ -53,10 +47,15 @@ Raw<GoRouter> router(RouterRef ref) {
   );
 
   Future<void> handleRouteChanged() async {
-    final config = router.routerDelegate.currentConfiguration;
-    final path = config.uri.path;
-    unawaited(tracker.trackScreenView(path));
-    logger.finest('tracked screen path: $path');
+    // As StatefulShellRoute does not support screen tracking
+    // by NavigatorObserver, screen tracking logs are sent here.
+    // If StatefulShellRoute supports NavigatorObserver, it will no longer be
+    // necessary and the routeFilter for NavigatorObserver will be unnecessary.
+    final paths = router.routerDelegate.currentConfiguration.uri.pathSegments;
+    if (paths.lastOrNull case final String lastPath) {
+      unawaited(tracker.trackScreenView('/$lastPath'));
+      logger.finest('tracked screen path: /$lastPath');
+    }
   }
 
   router.routerDelegate.addListener(handleRouteChanged);
