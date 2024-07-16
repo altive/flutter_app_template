@@ -564,18 +564,18 @@ packages:
     dependency: "direct main"
     description:
       name: firebase_dynamic_links
-      sha256: facba6ef5cd74a3c0d41a75a205a9a99df8e0cc5dcc6363e266c70059fdd3c23
+      sha256: beed25d57e0240728952c0ff540dde214b11b323ca09cb1ae5f71f30e5efc3b3
       url: "https://pub.dev"
     source: hosted
-    version: "6.0.2"
+    version: "6.0.3"
   firebase_dynamic_links_platform_interface:
     dependency: transitive
     description:
       name: firebase_dynamic_links_platform_interface
-      sha256: da1253adb4de5b31458bb6d1525f106205fc131895d3f457fc34a2405fe49b90
+      sha256: bb949552fcf65e8ed810b69327eb0dcb174b7d69e2b71f8856d27af50c89ddc7
       url: "https://pub.dev"
     source: hosted
-    version: "0.2.6+38"
+    version: "0.2.6+39"
   firebase_in_app_messaging:
     dependency: transitive
     description:
@@ -668,26 +668,26 @@ packages:
     dependency: "direct main"
     description:
       name: firebase_storage
-      sha256: "01fdcef335d2c86a265e9eb3c5b3b489ddc5589e7fc18a74df84b31be9f0c15b"
+      sha256: "472e8532dfdcffd00ed8cc1ff57fda76af6f0a8a26547908bc20f25079922408"
       url: "https://pub.dev"
     source: hosted
-    version: "12.1.0"
+    version: "12.1.1"
   firebase_storage_platform_interface:
     dependency: transitive
     description:
       name: firebase_storage_platform_interface
-      sha256: "8fdbfc63af3441434f33a420a304a670b464ff71b8f12fccc80accba1378ca3b"
+      sha256: f07b5dbf0efcaab0f7d38910851791f7509b8864d491bb11c079f67339f31b27
       url: "https://pub.dev"
     source: hosted
-    version: "5.1.25"
+    version: "5.1.26"
   firebase_storage_web:
     dependency: transitive
     description:
       name: firebase_storage_web
-      sha256: bb9a387ae26bf7358e118f191ee22167b30217cad551184592cc73e7f73bd470
+      sha256: ef9d27afcd68a1c2b90d0cad2b02cf6333a053655988f4a2f6cba2796134cae5
       url: "https://pub.dev"
     source: hosted
-    version: "3.9.10"
+    version: "3.9.11"
   fixnum:
     dependency: transitive
     description:
@@ -1692,10 +1692,10 @@ packages:
     dependency: "direct main"
     description:
       name: uuid
-      sha256: "814e9e88f21a176ae1359149021870e87f7cddaf633ab678a5d2b0bff7fd1ba8"
+      sha256: "83d37c7ad7aaf9aa8e275490669535c8080377cfa7a7004c24dfac53afffaa90"
       url: "https://pub.dev"
     source: hosted
-    version: "4.4.0"
+    version: "4.4.2"
   vector_graphics:
     dependency: transitive
     description:

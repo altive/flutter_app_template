@@ -23,9 +23,9 @@ dependencies:
   cupertino_icons: ^1.0.8
   device_info_plus: ^10.1.0
   firebase_core: ^3.1.1
-  firebase_dynamic_links: ^6.0.2
+  firebase_dynamic_links: ^6.0.3
   firebase_performance: ^0.10.0+2
-  firebase_storage: ^12.1.0
+  firebase_storage: ^12.1.1
   flutter:
     sdk: flutter
   flutter_hooks: ^0.20.5
@@ -52,7 +52,7 @@ dependencies:
     path: ../themes/
   tuple: ^2.0.0
   url_launcher: ^6.3.0
-  uuid: ^4.3.3
+  uuid: ^4.4.2
   version: ^3.0.2
 
 dev_dependencies:
