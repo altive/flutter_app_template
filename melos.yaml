@@ -101,6 +101,7 @@ scripts:
     packageFilters:
       flutter: true
       dirExists: lib
+      dependsOn: "firebase_core"
 
   pod:
     run: melos run pod:ios --no-select && melos run pod:macos --no-select
