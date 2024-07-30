@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../router/router.dart';
 import 'async_notifier_provider_page/async_notifier_provider_page.dart';
+import 'component/count_state_provider.dart';
 import 'listen_provider_page/listen_provider_page.dart';
 import 'notifier_provider_page/notifier_provider_page.dart';
 import 'provider_page/provider_page.dart';
@@ -9,7 +11,7 @@ import 'state_notifier_provider_page/state_notifier_provider_page.dart';
 import 'state_provider_page/state_provider_page.dart';
 import 'stream_provider_page.dart/stream_provider_page.dart';
 
-class RiverpodExamplePage extends StatelessWidget {
+class RiverpodExamplePage extends ConsumerWidget {
   const RiverpodExamplePage({
     super.key,
   });
@@ -17,7 +19,9 @@ class RiverpodExamplePage extends StatelessWidget {
   static const String title = 'Riverpod Examples';
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    // Keep CountState alive as long as this page is alive.
+    ref.listen(countStateProvider, (_, __) {});
     return Scaffold(
       appBar: AppBar(
         title: const Text(title),

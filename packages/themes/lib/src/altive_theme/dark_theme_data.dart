@@ -19,6 +19,7 @@ ThemeData get darkThemeData {
     textTheme: textTheme,
     primaryTextTheme: textTheme,
     // 🖼 ThemeData section
+    appBarTheme: appBarThemeData(textTheme: textTheme),
     cardTheme: appCardThemeData,
     chipTheme: appChipThemeData(colorScheme: colorScheme),
     inputDecorationTheme: appInputDecorationTheme(colorScheme: colorScheme),

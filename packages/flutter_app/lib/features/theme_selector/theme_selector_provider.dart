@@ -6,16 +6,17 @@ import '../../util/providers/shared_preferences_provider.dart';
 
 part 'theme_selector_provider.g.dart';
 
-const _themePrefsKey = 'selectedThemeKey';
-
 @riverpod
 class ThemeSelector extends _$ThemeSelector {
   SharedPreferences get _prefs => ref.read(sharedPreferencesProvider);
 
+  @visibleForTesting
+  static const themePrefsKey = 'selectedThemeKey';
+
   @override
   ThemeMode build() {
     final pref = ref.watch(sharedPreferencesProvider);
-    final themeIndex = pref.getInt(_themePrefsKey);
+    final themeIndex = pref.getInt(themePrefsKey);
     if (themeIndex == null) {
       return ThemeMode.system;
     }
@@ -27,7 +28,7 @@ class ThemeSelector extends _$ThemeSelector {
   }
 
   Future<void> changeAndSave(ThemeMode theme) async {
-    await _prefs.setInt(_themePrefsKey, theme.index);
+    await _prefs.setInt(themePrefsKey, theme.index);
     state = theme;
   }
 }

@@ -2,27 +2,26 @@
 
 // ignore_for_file: duplicate_ignore, type=lint, implicit_dynamic_parameter, implicit_dynamic_type, implicit_dynamic_method, strict_raw_type
 
-part of 'theme_selector_provider.dart';
+part of 'count_state_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$themeSelectorHash() => r'48fc54b4fc30c87d31c8e505ec2b0bb0102b2b5b';
+String _$countStateHash() => r'bde51656f93dfa164b80386bf17a8a6413cb88d5';
 
-/// See also [ThemeSelector].
-@ProviderFor(ThemeSelector)
-final themeSelectorProvider =
-    AutoDisposeNotifierProvider<ThemeSelector, ThemeMode>.internal(
-  ThemeSelector.new,
-  name: r'themeSelectorProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$themeSelectorHash,
+/// See also [CountState].
+@ProviderFor(CountState)
+final countStateProvider =
+    AutoDisposeNotifierProvider<CountState, int>.internal(
+  CountState.new,
+  name: r'countStateProvider',
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product') ? null : _$countStateHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$ThemeSelector = AutoDisposeNotifier<ThemeMode>;
+typedef _$CountState = AutoDisposeNotifier<int>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
