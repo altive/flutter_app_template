@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 import '../theme_extensions/theme_extensions.dart';
 
 extension BuildContextWithThemeExtension on BuildContext {
-  /// [BuildContext] 経由で、最も近い [ThemeDescription] インスタンスを取得する
+  /// Get the closest [ThemeDescription] instance via [BuildContext].
   ThemeDescription get themeDescription => Theme.of(this).extension()!;
 
-  /// [BuildContext] 経由で、最も近い [TextTheme] インスタンスを取得する
+  /// Get the closest [TextTheme] instance via [BuildContext].
   TextTheme get textTheme => Theme.of(this).textTheme;
+
+  /// Get the closest [ColorScheme] instance via [BuildContext].
+  ColorScheme get colorScheme => Theme.of(this).colorScheme;
 }
