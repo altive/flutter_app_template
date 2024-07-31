@@ -22,6 +22,7 @@ class HomePage extends StatelessWidget {
                 t.homePage.appBar.title,
                 style: Theme.of(context).appBarTheme.titleTextStyle?.copyWith(
                   color: context.colorScheme.onInverseSurface,
+                  // Added shadows to improve visibility of text placed over images.
                   shadows: [
                     Shadow(
                       blurRadius: 10,
