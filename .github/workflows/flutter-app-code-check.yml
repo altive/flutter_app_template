@@ -60,7 +60,10 @@ jobs:
         uses: bluefireteam/melos-action@v3
 
       - name: Analyze packages
-        run: melos analyze
+        run: melos analyze --fatal-infos
+
+      - name: Run custom lint
+        run: melos run custom_lint
 
       - name: Check for the existence of unformatted files
         # Cannot use `melos format` as it requires excluding files generated from the target file

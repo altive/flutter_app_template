@@ -2,6 +2,7 @@ final dio = FakeDio();
 
 class Response<T> {
   const Response({required this.data});
+
   final T data;
 }
 
