@@ -17,15 +17,15 @@ dependencies:
   cached_network_image: ^3.3.1
   cloud_firestore: ^5.1.0
   collection: ^1.16.0
-  connectivity_plus: ^6.0.3
+  connectivity_plus: ^6.0.4
   convenient_widgets:
     path: ../convenient_widgets
   cupertino_icons: ^1.0.8
-  device_info_plus: ^10.1.0
+  device_info_plus: ^10.1.1
   firebase_core: ^3.1.1
-  firebase_dynamic_links: ^6.0.3
+  firebase_dynamic_links: ^6.0.4
   firebase_performance: ^0.10.0+2
-  firebase_storage: ^12.1.1
+  firebase_storage: ^12.1.2
   flutter:
     sdk: flutter
   flutter_hooks: ^0.20.5
@@ -41,7 +41,7 @@ dependencies:
   intl: ^0.19.0
   json_annotation: ^4.8.1
   linked_scroll_controller: ^0.2.0
-  package_info_plus: ^8.0.0
+  package_info_plus: ^8.0.1
   riverpod_annotation: ^2.3.5
   shared_preferences: ^2.2.3
   simple_logger: ^1.9.0+1
