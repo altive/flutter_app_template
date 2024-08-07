@@ -18,6 +18,7 @@ homePage:
   list:
     appInfo:
       label: "App Info"
+    doubleCount: "The doubled count value :"
 notFoundPage:
   title: "404 Not Found"
   header:
