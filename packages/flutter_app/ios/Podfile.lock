@@ -5,7 +5,7 @@ PODS:
   - AppAuth/Core (1.7.5)
   - AppAuth/ExternalUserAgent (1.7.5):
     - AppAuth/Core
-  - cloud_firestore (5.1.0):
+  - cloud_firestore (5.2.0):
     - Firebase/Firestore (= 10.29.0)
     - firebase_core
     - Flutter
@@ -432,7 +432,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AppAuth: 501c04eda8a8d11f179dbe8637b7a91bb7e5d2fa
-  cloud_firestore: 65b92bd5db2a75160ef73b5abb29688073cfa249
+  cloud_firestore: 9bdbf5a952da93fad19c89f4a497bff41b3f7df2
   connectivity_plus: ddd7f30999e1faaef5967c23d5b6d503d10434db
   device_info_plus: 97af1d7e84681a90d0693e63169a5d50e0839a0d
   Firebase: cec914dab6fd7b1bd8ab56ea07ce4e03dd251c2d
