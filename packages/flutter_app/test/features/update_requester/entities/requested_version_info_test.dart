@@ -1,3 +1,4 @@
+// ignore_for_file: avoid_hardcoded_japanese
 import 'package:flutter_app/features/update_requester/entities/requested_version_info.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:json_annotation/json_annotation.dart';

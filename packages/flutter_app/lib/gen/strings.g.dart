@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 52 (26 per locale)
+/// Strings: 54 (27 per locale)
 ///
-/// Built on 2024-03-18 at 03:09 UTC
+/// Built on 2024-08-07 at 09:24 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -318,6 +318,7 @@ class _StringsHomePageListJa {
 
 	// Translations
 	late final _StringsHomePageListAppInfoJa appInfo = _StringsHomePageListAppInfoJa._(_root);
+	String get doubleCount => '2倍されたカウント値：';
 }
 
 // Path: notFoundPage.header
@@ -690,6 +691,7 @@ class _StringsHomePageListEn implements _StringsHomePageListJa {
 
 	// Translations
 	@override late final _StringsHomePageListAppInfoEn appInfo = _StringsHomePageListAppInfoEn._(_root);
+	@override String get doubleCount => 'The doubled count value :';
 }
 
 // Path: notFoundPage.header
@@ -882,6 +884,7 @@ extension on Translations {
 			case 'button.sign.out': return 'サインアウト';
 			case 'homePage.appBar.title': return 'Home';
 			case 'homePage.list.appInfo.label': return 'アプリ情報';
+			case 'homePage.list.doubleCount': return '2倍されたカウント値：';
 			case 'notFoundPage.title': return '404 Not Found';
 			case 'notFoundPage.header.label': return 'ごめんなさい🙏';
 			case 'notFoundPage.description': return 'is not found.';
@@ -916,6 +919,7 @@ extension on _StringsEn {
 			case 'button.sign.out': return 'Sign out';
 			case 'homePage.appBar.title': return 'Home';
 			case 'homePage.list.appInfo.label': return 'App Info';
+			case 'homePage.list.doubleCount': return 'The doubled count value :';
 			case 'notFoundPage.title': return '404 Not Found';
 			case 'notFoundPage.header.label': return 'Sorry...';
 			case 'notFoundPage.description': return 'is not found.';
