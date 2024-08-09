@@ -9,6 +9,6 @@ custom_lint:
   rules:
     # TODO(riscait): Enable custom lint rules for altive_lints.
     # https://github.com/altive/flutter_app_template/issues/461
-    - avoid_hardcoded_color: false
+    - avoid_hardcoded_color: true
     - avoid_hardcoded_japanese: false
     - prefer_clock_now: false
