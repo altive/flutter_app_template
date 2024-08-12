@@ -824,18 +824,18 @@ packages:
     dependency: "direct main"
     description:
       name: go_router
-      sha256: "39dd52168d6c59984454183148dc3a5776960c61083adfc708cc79a7b3ce1ba8"
+      sha256: ddc16d34b0d74cb313986918c0f0885a7ba2fc24d8fb8419de75f0015144ccfe
       url: "https://pub.dev"
     source: hosted
-    version: "14.2.1"
+    version: "14.2.3"
   go_router_builder:
     dependency: "direct dev"
     description:
       name: go_router_builder
-      sha256: "51eca134e77d84c78a5297242ed45dc6988c66531a97cb4bf49d149e8f60d809"
+      sha256: "3425b72dea69209754ac6b71b4da34165dcd4d4a2934713029945709a246427a"
       url: "https://pub.dev"
     source: hosted
-    version: "2.7.0"
+    version: "2.7.1"
   google_identity_services_web:
     dependency: transitive
     description:
