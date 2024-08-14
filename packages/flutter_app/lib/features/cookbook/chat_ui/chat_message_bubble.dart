@@ -1,4 +1,3 @@
-// ignore_for_file: avoid_hardcoded_color
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -38,9 +37,7 @@ class ChatMessageBubble extends LeafRenderObjectWidget {
       textDirection: Directionality.of(context),
       textStyle: effectiveTextStyle!,
       sentAtStyle: effectiveTextStyle.copyWith(
-        color: Theme.of(context).colorScheme.brightness == Brightness.dark
-            ? Colors.black54
-            : Colors.white54,
+        color: Theme.of(context).colorScheme.onPrimary.withOpacity(0.5),
       ),
     );
   }
