@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../../gen/strings.g.dart';
 import '../../../widgets/widgets.dart';
 
 // Provider example.
@@ -35,7 +36,9 @@ class ProviderPage extends ConsumerWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const DisplaySmallText('2倍されたカウント値：'),
+              DisplaySmallText(
+                Translations.of(context).homePage.list.doubleCount,
+              ),
               // doubleCounterProvider の値を表示
               DisplayLargeText('$doubleCount'),
               ElevatedButton(

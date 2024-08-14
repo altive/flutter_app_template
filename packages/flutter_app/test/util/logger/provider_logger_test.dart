@@ -1,3 +1,4 @@
+// ignore_for_file: avoid_hardcoded_japanese
 import 'package:flutter_app/util/logger/provider_logger.dart';
 import 'package:flutter_test/flutter_test.dart';
 
