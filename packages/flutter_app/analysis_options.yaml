@@ -5,8 +5,3 @@ analyzer:
   exclude:
     - "**/gen/*.dart"
     - "**/firebase_options_*.dart"
-custom_lint:
-  rules:
-    # TODO(riscait): Enable custom lint rules for altive_lints.
-    # https://github.com/altive/flutter_app_template/issues/461
-    - prefer_clock_now: false
