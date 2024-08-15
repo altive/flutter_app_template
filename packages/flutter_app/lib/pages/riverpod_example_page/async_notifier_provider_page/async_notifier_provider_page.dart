@@ -1,6 +1,5 @@
 import 'dart:math';
 
-import 'package:clock/clock.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -94,7 +93,7 @@ class AsyncNotifierProviderPage extends ConsumerWidget {
     Future<void> addTodo() async {
       final newTodo = Todo(
         id: Random().nextDouble().toString(),
-        title: clock.now().toIso8601String(),
+        title: DateTime.now().toIso8601String(),
       );
       // AsyncTodoList(Notifier)に定義したメソッドを使用して、新しいTodoをstateに追加する
       await notifier.add(newTodo);
