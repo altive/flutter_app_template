@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:clock/clock.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
@@ -67,7 +68,7 @@ class StateNotifierProviderPage extends ConsumerWidget {
     void addTodo() {
       final newTodo = Todo(
         id: Random().nextDouble().toString(),
-        title: DateTime.now().toIso8601String(),
+        title: clock.now().toIso8601String(),
       );
       notifier.add(newTodo);
     }
