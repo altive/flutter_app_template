@@ -42,11 +42,11 @@ PODS:
   - Firebase/Storage (10.29.0):
     - Firebase/CoreOnly
     - FirebaseStorage (~> 10.29.0)
-  - firebase_analytics (11.1.0):
+  - firebase_analytics (11.2.1):
     - Firebase/Analytics (= 10.29.0)
     - firebase_core
     - FlutterMacOS
-  - firebase_auth (5.1.1):
+  - firebase_auth (5.1.4):
     - Firebase/Auth (~> 10.29.0)
     - Firebase/CoreOnly (~> 10.29.0)
     - firebase_core
@@ -54,17 +54,17 @@ PODS:
   - firebase_core (3.3.0):
     - Firebase/CoreOnly (~> 10.29.0)
     - FlutterMacOS
-  - firebase_crashlytics (4.0.2):
+  - firebase_crashlytics (4.0.4):
     - Firebase/CoreOnly (~> 10.29.0)
     - Firebase/Crashlytics (~> 10.29.0)
     - firebase_core
     - FlutterMacOS
-  - firebase_messaging (15.0.2):
+  - firebase_messaging (15.0.4):
     - Firebase/CoreOnly (~> 10.29.0)
     - Firebase/Messaging (~> 10.29.0)
     - firebase_core
     - FlutterMacOS
-  - firebase_remote_config (5.0.2):
+  - firebase_remote_config (5.0.4):
     - Firebase/CoreOnly (~> 10.29.0)
     - Firebase/RemoteConfig (~> 10.29.0)
     - firebase_core
@@ -181,6 +181,8 @@ PODS:
     - FirebaseCoreExtension (~> 10.0)
     - GoogleUtilities/Environment (~> 7.12)
     - GTMSessionFetcher/Core (< 4.0, >= 2.1)
+  - flutter_local_notifications (0.0.1):
+    - FlutterMacOS
   - FlutterMacOS (1.0.0)
   - google_sign_in_ios (0.0.1):
     - AppAuth (>= 1.7.4)
@@ -288,6 +290,7 @@ DEPENDENCIES:
   - firebase_remote_config (from `Flutter/ephemeral/.symlinks/plugins/firebase_remote_config/macos`)
   - firebase_storage (from `Flutter/ephemeral/.symlinks/plugins/firebase_storage/macos`)
   - FirebaseFirestore (from `https://github.com/invertase/firestore-ios-sdk-frameworks.git`, tag `10.29.0`)
+  - flutter_local_notifications (from `Flutter/ephemeral/.symlinks/plugins/flutter_local_notifications/macos`)
   - FlutterMacOS (from `Flutter/ephemeral`)
   - google_sign_in_ios (from `Flutter/ephemeral/.symlinks/plugins/google_sign_in_ios/darwin`)
   - package_info_plus (from `Flutter/ephemeral/.symlinks/plugins/package_info_plus/macos`)
@@ -359,6 +362,8 @@ EXTERNAL SOURCES:
   FirebaseFirestore:
     :git: https://github.com/invertase/firestore-ios-sdk-frameworks.git
     :tag: 10.29.0
+  flutter_local_notifications:
+    :path: Flutter/ephemeral/.symlinks/plugins/flutter_local_notifications/macos
   FlutterMacOS:
     :path: Flutter/ephemeral
   google_sign_in_ios:
@@ -386,12 +391,12 @@ SPEC CHECKSUMS:
   device_info_plus: ce1b7762849d3ec103d0e0517299f2db7ad60720
   file_selector_macos: 468fb6b81fac7c0e88d71317f3eec34c3b008ff9
   Firebase: cec914dab6fd7b1bd8ab56ea07ce4e03dd251c2d
-  firebase_analytics: 4ce4f8382b29ac15497417a9c3fd1a0e6203ed6f
-  firebase_auth: 68c78abf2919682cf905e349aa24467ef2d4d0aa
+  firebase_analytics: e1236d621a5d62d16a706315d198f3cd7f0e2fcb
+  firebase_auth: a1b0972e30634894e8b24bf618b9a5aeb1f86119
   firebase_core: 73185b844efc8a534e5744d68152e75e740922d2
-  firebase_crashlytics: aadac06736e719523ace214e9fb4d9e98dd57275
-  firebase_messaging: 179a52d6b422c3d124c31a3bc905562add0a63a6
-  firebase_remote_config: 3efb49a5650e3348b5b0cea3273afc8fd098d9f6
+  firebase_crashlytics: a7b94c09eb4df16cabb0cfae4831ff4624a3d5d6
+  firebase_messaging: 167fdd90971720e0b62ccd6fa8d430b8af4ca6e9
+  firebase_remote_config: 4e3fda88b5d4c1474d8260344009639f7f82ef07
   firebase_storage: f172523ecb8a1b95652117b4fc544c84d38e7e21
   FirebaseABTesting: d87f56707159bae64e269757a6e963d490f2eebe
   FirebaseAnalytics: 23717de130b779aa506e757edb9713d24b6ffeda
@@ -416,6 +421,7 @@ SPEC CHECKSUMS:
   FirebaseSessions: dbd14adac65ce996228652c1fc3a3f576bdf3ecc
   FirebaseSharedSwift: 20530f495084b8d840f78a100d8c5ee613375f6e
   FirebaseStorage: 436c30aa46f2177ba152f268fe4452118b8a4856
+  flutter_local_notifications: 3805ca215b2fb7f397d78b66db91f6a747af52e4
   FlutterMacOS: 8f6f14fa908a6fb3fba0cd85dbd81ec4b251fb24
   google_sign_in_ios: 07375bfbf2620bc93a602c0e27160d6afc6ead38
   GoogleAppMeasurement: f9de05ee17401e3355f68e8fc8b5064d429f5918
