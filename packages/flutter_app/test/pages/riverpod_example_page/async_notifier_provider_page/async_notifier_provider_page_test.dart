@@ -1,3 +1,4 @@
+// ignore_for_file: avoid_hardcoded_japanese
 import 'package:flutter_app/pages/riverpod_example_page/async_notifier_provider_page/async_notifier_provider_page.dart';
 import 'package:flutter_app/pages/riverpod_example_page/entities/todo.dart';
 import 'package:flutter_app/pages/riverpod_example_page/util/dio_provider.dart';
