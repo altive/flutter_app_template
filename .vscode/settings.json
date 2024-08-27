@@ -97,6 +97,7 @@
         "**/*.dart_tool": true,
         "**/*.freezed.dart": true,
         "**/*.g.dart": true,
+        "**/*.log": true,
         "**/*.symlinks": true,
         "**/.fvm": true,
         "**/.idea": true,
