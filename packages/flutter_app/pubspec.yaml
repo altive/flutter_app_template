@@ -59,7 +59,7 @@ dependencies:
 dev_dependencies:
   altive_lints: ^1.11.1
   build_runner: ^2.4.12
-  custom_lint: ^0.6.4
+  custom_lint: ^0.6.5
   flutter_gen_runner: ^5.6.0
   flutter_launcher_icons: ^0.13.1
   flutter_test:
