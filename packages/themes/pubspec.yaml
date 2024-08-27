@@ -14,5 +14,3 @@ dev_dependencies:
   altive_lints: ^1.11.1
   flutter_test:
     sdk: flutter
-
-flutter:
