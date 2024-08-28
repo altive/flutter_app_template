@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-/// スワイプで削除できるアイテムのWidget
+/// Widget of items that can be deleted with a swipe.
 class DismissibleBackground extends StatelessWidget {
+  /// Creates a new instance of [DismissibleBackground].
   const DismissibleBackground({
     super.key,
     required this.child,
@@ -11,12 +12,19 @@ class DismissibleBackground extends StatelessWidget {
     this.borderRadius = BorderRadius.zero,
   });
 
-  /// 表示する文字列。デフォルトは `Delete`
+  /// Widget to display.
   final Widget child;
+
+  /// Background color.
   final Color backgroundColor;
+
+  /// Outer margins.
   final EdgeInsetsGeometry margin;
+
+  /// Alignment of the child.
   final Alignment alignment;
-  // どの角にどのくらいの角丸を施すか
+
+  /// degree of roundness.
   final BorderRadius borderRadius;
 
   @override
