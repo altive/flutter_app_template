@@ -1,24 +1,35 @@
 import 'package:flutter/material.dart';
 
+/// Destination of the balloon.
 enum Destination {
+  /// Facing left.
   left,
+
+  /// Facing top.
   top,
+
+  /// Facing right.
   right,
+
+  /// Facing bottom.
   bottom,
 }
 
-/// [ShapeDecoration]の`shape`パラメータで使用できる
-/// [destination]は吹き出しの向き
+/// BubbleBorder is Available in the `shape` parameter of [ShapeDecoration].
 class BubbleBorder extends ShapeBorder {
+  /// Creates a new instance of [BubbleBorder].
   const BubbleBorder({
     this.destination = Destination.left,
     this.usePadding = true,
   });
 
+  /// Destination of the balloon.
   final Destination destination;
+
+  /// Whether to use padding.
   final bool usePadding;
 
-  Offset get offset => () {
+  Offset get _offset => () {
         switch (destination) {
           case Destination.left:
             return const Offset(-12, 0);
@@ -54,7 +65,7 @@ class BubbleBorder extends ShapeBorder {
   Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
     final r = Rect.fromPoints(
       rect.topRight,
-      rect.bottomLeft - offset,
+      rect.bottomLeft - _offset,
     );
     final path = Path();
     switch (destination) {

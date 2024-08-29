@@ -1,7 +1,6 @@
 /// Convenient widgets
 library;
 
-export 'src/adaptive_bottom_bar.dart';
 export 'src/apple_auth_button.dart';
 export 'src/bubble_border.dart';
 export 'src/dismissible_background.dart';
