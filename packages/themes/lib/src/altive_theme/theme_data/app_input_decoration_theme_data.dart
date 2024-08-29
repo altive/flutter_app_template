@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// A [InputDecorationTheme] for the app.
 InputDecorationTheme appInputDecorationTheme({
   required ColorScheme colorScheme,
 }) {

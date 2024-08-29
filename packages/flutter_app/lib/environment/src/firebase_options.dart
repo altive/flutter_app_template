@@ -5,6 +5,7 @@ import 'firebase_options_prod.dart' as prod;
 import 'firebase_options_stg.dart' as stg;
 import 'flavor_provider.dart';
 
+/// Returns the [FirebaseOptions] for the current flavor.
 FirebaseOptions firebaseOptionsWithFlavor(Flavor flavor) {
   switch (flavor) {
     case Flavor.dev:

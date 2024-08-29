@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// Returns a [ChipThemeData] for the app.
 ChipThemeData appChipThemeData({
   required ColorScheme colorScheme,
 }) {

@@ -6,6 +6,7 @@ import 'dark_color_scheme.dart';
 import 'theme_data/theme_data.dart';
 import 'theme_extensions/theme_extensions.dart';
 
+/// Returns a [ThemeData] for dark theme.
 ThemeData get darkThemeData {
   const colorScheme = darkColorScheme;
 
@@ -26,10 +27,10 @@ ThemeData get darkThemeData {
     navigationBarTheme: navigationBarThemeData(colorScheme: colorScheme),
     // Extensions
     extensions: [
-      ThemeDescription(
+      const ThemeDescription(
         title: 'Dark',
         subtitle: 'Dark theme',
-        icon: const Icon(Icons.nightlife, color: Colors.red),
+        icon: Icon(Icons.nightlife, color: Colors.red),
       ),
     ],
     // Workaround for: CupertinoTextInputDialog input text color and

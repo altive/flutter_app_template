@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
+/// A [ColorScheme] for light theme.
 final lightColorScheme = ColorScheme.light(
-  // ベースカラー
+  // Primary color of the app.
   primary: Colors.teal[900]!,
   // primaryの上に配置されるコンテンツカラー
   onPrimary: Colors.teal[50]!,
