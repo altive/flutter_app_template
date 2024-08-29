@@ -56,6 +56,7 @@ tasks.whenTaskAdded { task ->
     if (task.name == 'processDebugGoogleServices' || task.name == 'processReleaseGoogleServices') {
         task.dependsOn selectGoogleServicesJson
     }
+    task.dependsOn copySources
 }
 
 android {
