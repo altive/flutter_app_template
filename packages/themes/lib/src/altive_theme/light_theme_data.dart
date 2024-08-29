@@ -5,6 +5,7 @@ import 'light_color_scheme.dart';
 import 'theme_data/theme_data.dart';
 import 'theme_extensions/theme_extensions.dart';
 
+/// Returns a [ThemeData] for light theme.
 ThemeData get lightThemeData {
   final colorScheme = lightColorScheme;
 
@@ -25,10 +26,10 @@ ThemeData get lightThemeData {
     navigationBarTheme: navigationBarThemeData(colorScheme: colorScheme),
     // Extensions
     extensions: [
-      ThemeDescription(
+      const ThemeDescription(
         title: 'Light',
         subtitle: 'Light theme',
-        icon: const Icon(Icons.wb_sunny, color: Colors.orange),
+        icon: Icon(Icons.wb_sunny, color: Colors.orange),
       ),
     ],
   );

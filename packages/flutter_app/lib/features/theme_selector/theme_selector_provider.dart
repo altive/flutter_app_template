@@ -6,10 +6,12 @@ import '../../util/providers/shared_preferences_provider.dart';
 
 part 'theme_selector_provider.g.dart';
 
+/// Provider for selecting the theme.
 @riverpod
 class ThemeSelector extends _$ThemeSelector {
   SharedPreferences get _prefs => ref.read(sharedPreferencesProvider);
 
+  /// Key for storing the selected theme.
   @visibleForTesting
   static const themePrefsKey = 'selectedThemeKey';
 
@@ -27,6 +29,7 @@ class ThemeSelector extends _$ThemeSelector {
     return themeMode;
   }
 
+  /// Change the theme and save it.
   Future<void> changeAndSave(ThemeMode theme) async {
     await _prefs.setInt(themePrefsKey, theme.index);
     state = theme;
