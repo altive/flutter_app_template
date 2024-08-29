@@ -44,8 +44,7 @@ The `make` command will install the required Dart packages, such as FVM and Melo
 ## ToDo list required after creating a new repository using this template
 1. Replace Bundle ID (Package name) with your App ID.
   `jp.co.altive.fat` -> `your.domain.id`
-1. Change `CFBundleName` and `CFBundleDisplayName` in `ios/Runner/info.plist` to your app name.
-1. Change `FlutterAT` in `defaultConfig/resValue` of `android/app/build.gradle` to your app name.
+1. Change `appName` in `{flavor}.env` to your app name.
 1. Create a project in Firebase.
   1. Create an Android app, download `google-services.json`, and place it in `android/app/src/{dev or stg or prod}`.
   1. Create an iOS app, download `GoogleService-Info.plist`, and place it in `ios/{dev or stg or prod}`.
@@ -71,8 +70,6 @@ flutter create --org jp.co.altive packages/{directory_name} --project-name {proj
 
 ↓ For the latest version, click here.
 https://github.com/invertase/firestore-ios-sdk-frameworks/releases
-
-* I wanted to use the latest `9.5.0-1` or higher, but the `cloud_firestore 3.4.8` package in pub.dev seemed to be unsupported, so I used `9.4.0`.
 
 ## Addition of ISSUE_TEMPLATE
 

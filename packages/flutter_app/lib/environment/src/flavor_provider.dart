@@ -10,6 +10,7 @@ Flavor flavor(FlavorRef ref) {
   throw UnimplementedError();
 }
 
+/// Flavor of the app.
 enum Flavor {
   /// Development.
   dev,

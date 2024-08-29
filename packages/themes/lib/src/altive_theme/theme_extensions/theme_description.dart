@@ -2,15 +2,22 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
+/// A [ThemeDescription] example for the app.
 class ThemeDescription extends ThemeExtension<ThemeDescription> {
-  ThemeDescription({
+  /// Creates a new instance of [ThemeDescription].
+  const ThemeDescription({
     required this.title,
     required this.subtitle,
     required this.icon,
   });
 
+  /// The title of the theme.
   final String title;
+
+  /// The subtitle of the theme.
   final String subtitle;
+
+  /// The icon of the theme.
   final Icon icon;
 
   @override
