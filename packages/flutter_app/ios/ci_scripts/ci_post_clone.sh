@@ -16,6 +16,9 @@ export PATH="$PATH:$HOME/flutter/bin"
 # Print the Flutter version
 flutter --version
 
+# change working directory to the Flutter app directory.
+cd ./packages/flutter_app
+
 # Install Flutter artifacts for iOS (--ios), or macOS (--macos) platforms.
 flutter precache --ios
 
