@@ -1,0 +1,63 @@
+name: Create new release tag
+
+on:
+  # Trigger when a PR to main is closed.
+  pull_request:
+    types: [closed]
+    branches:
+      - main
+
+jobs:
+  # Extract the release version
+  extract-version:
+    name: Extract version
+    runs-on: ubuntu-latest
+    # Execute when the PR is merged and the source branch name contains "release/".
+    if: github.event.pull_request.merged == true && contains(github.head_ref, 'release/')
+    outputs:
+      version: ${{ steps.extract-version.outputs.version }}
+    steps:
+      - uses: actions/checkout@v4
+
+      # Extract the version number from the source branch.
+      - name: Extract version
+        id: extract-version
+        env:
+          HEAD_REF: ${{ github.head_ref }}
+        run: |
+          BRANCH_NAME="$HEAD_REF"
+          VERSION="$(echo -e "$BRANCH_NAME" | perl -pe 's/.*\/([0-9]+\.[0-9]+\.[0-9]+).*/$1/g;')"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+
+  # Create the release tag.
+  create-tag:
+    name: Create new tag
+    runs-on: ubuntu-latest
+    # Execute when the version extraction job is completed.
+    needs: extract-version
+    steps:
+      - uses: actions/checkout@v4
+
+      # Check if the release tag for the version already exists.
+      - name: Check if tag exists
+        id: check-tag
+        run: |
+          TAG=v${{ needs.extract-version.outputs.version }}
+          git fetch --tags
+          tag_count=$(git tag -l $TAG | wc -l)
+          echo "TAG_COUNT=$tag_count" >> "$GITHUB_ENV"
+
+      # If the release tag for the version exists, delete the old release tag.
+      - name: Delete old tag
+        if: env.TAG_COUNT != '0'
+        run: |
+          TAG=v${{ needs.extract-version.outputs.version }}
+          git tag -d $TAG
+          git push origin --delete $TAG
+
+      # Create and push the release tag.
+      - name: Create & Push tag
+        run: |
+          git fetch --tags
+          git tag v${{ needs.extract-version.outputs.version }}
+          git push origin v${{ needs.extract-version.outputs.version }}

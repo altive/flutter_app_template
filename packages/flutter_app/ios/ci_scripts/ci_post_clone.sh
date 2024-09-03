@@ -16,6 +16,9 @@ export PATH="$PATH:$HOME/flutter/bin"
 # Print the Flutter version
 flutter --version
 
+# change working directory to the Flutter app directory.
+cd ./packages/flutter_app
+
 # Install Flutter artifacts for iOS (--ios), or macOS (--macos) platforms.
 flutter precache --ios
 
@@ -34,6 +37,6 @@ curl -sL https://firebase.tools | bash
 dart pub global activate flutterfire_cli
 
 # Build the iOS app in release mode with no code signing.
-flutter build ios --release --dart-define-from-file=dart_defines/prod.env --no-codesign
+flutter build ios --release --dart-define-from-file=dart_defines/${flavor}.env --no-codesign
 
 exit 0
