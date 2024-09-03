@@ -33,8 +33,8 @@ brew install cocoapods
 cd ios && pod install # run `pod install` in the `ios` directory.
 
 # The flutterfire command is used in Xcode Build Phases and must be installed in advance.
-curl -sL https://firebase.tools | bash
 dart pub global activate flutterfire_cli
+export PATH="$PATH":"$HOME/.pub-cache/bin"
 
 # Build the iOS app in release mode with no code signing.
 flutter build ios --release --dart-define-from-file=dart_defines/${flavor}.env --no-codesign
