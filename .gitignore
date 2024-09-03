@@ -148,6 +148,3 @@ coverage/
 
 # Melos
 pubspec_overrides.yaml
-
-# mason
-.mason
