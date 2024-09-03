@@ -37,6 +37,6 @@ curl -sL https://firebase.tools | bash
 dart pub global activate flutterfire_cli
 
 # Build the iOS app in release mode with no code signing.
-flutter build ios --release --dart-define-from-file=dart_defines/prod.env --no-codesign
+flutter build ios --release --dart-define-from-file=dart_defines/${flavor}.env --no-codesign
 
 exit 0
