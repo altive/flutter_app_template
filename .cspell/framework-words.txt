@@ -41,6 +41,7 @@ unawaited
 unfocus
 utsname
 vsync
+widgetbook
 wireframe
 xcarchive
 xcconfig

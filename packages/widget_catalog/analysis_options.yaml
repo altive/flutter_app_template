@@ -1,0 +1,8 @@
+include: package:altive_lints/altive_lints.yaml
+analyzer:
+  plugins:
+    - custom_lint
+linter:
+  rules:
+    # Because WidgetCatalog often does not use the public methods you define from other places.
+    - public_member_api_docs: false
