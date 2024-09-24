@@ -5,3 +5,6 @@ analyzer:
   exclude:
     - "**/gen/*.dart"
     - "**/firebase_options_*.dart"
+linter:
+  rules:
+    public_member_api_docs: false
