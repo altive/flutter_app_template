@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "widget_catalog",
+            "cwd": "packages/widget_catalog",
+            "program": "lib/main.dart",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
             "name": "flutter_app dev-debug",
             "cwd": "packages/flutter_app",
             "program": "lib/main.dart",

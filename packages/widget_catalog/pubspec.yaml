@@ -1,0 +1,26 @@
+name: widget_catalog
+description: "A new Flutter project."
+publish_to: "none"
+version: 0.1.0
+
+environment:
+  sdk: ^3.5.1
+
+dependencies:
+  convenient_widgets:
+    path: ../convenient_widgets
+  flutter:
+    sdk: flutter
+  themes:
+    path: ../themes/
+  widgetbook: ^3.9.0
+  widgetbook_annotation: ^3.2.0
+
+dev_dependencies:
+  altive_lints: ^1.11.1
+  build_runner: ^2.4.12
+  custom_lint: ^0.6.5
+  widgetbook_generator: ^3.9.0
+
+flutter:
+  uses-material-design: true
