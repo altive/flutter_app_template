@@ -40,7 +40,7 @@ jobs:
       - name: Parse Flutter version
         if: env.directory_exists == 'true'
         id: fvm
-        uses: kuhnroyal/flutter-fvm-config-action@v2
+        uses: kuhnroyal/flutter-fvm-config-action@v3
 
       - name: Install Flutter
         if: env.directory_exists == 'true'
