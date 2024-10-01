@@ -22,8 +22,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Setup Flutter
-        uses: ./.github/actions/setup_flutter
+      - name: Setup Flutter with FVM
+        uses: kuhnroyal/flutter-fvm-config-action/setup@v3
 
       - name: Upload android app
         uses: ./.github/actions/upload_android_app

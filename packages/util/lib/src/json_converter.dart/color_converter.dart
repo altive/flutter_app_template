@@ -11,6 +11,7 @@ class ColorConverter implements JsonConverter<Color, int> {
   const ColorConverter();
 
   @override
+  // ignore: avoid_hardcoded_color
   Color fromJson(int json) => Color(json);
 
   @override

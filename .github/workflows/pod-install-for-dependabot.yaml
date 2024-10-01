@@ -37,18 +37,9 @@ jobs:
               echo "directory_exists=false" >> "$GITHUB_ENV"
           fi
 
-      - name: Parse Flutter version
+      - name: Setup Flutter with FVM
         if: env.directory_exists == 'true'
-        id: fvm
-        uses: kuhnroyal/flutter-fvm-config-action@v2
-
-      - name: Install Flutter
-        if: env.directory_exists == 'true'
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: ${{ steps.fvm.outputs.FLUTTER_VERSION }}
-          channel: ${{ steps.fvm.outputs.FLUTTER_CHANNEL }}
-          cache: true
+        uses: kuhnroyal/flutter-fvm-config-action/setup@v3
 
       - name: Flutter pub get
         if: env.directory_exists == 'true'
