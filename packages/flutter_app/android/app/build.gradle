@@ -102,12 +102,12 @@ flutter {
 }
 
 dependencies {
-    // Import the Firebase BoM
-    // When using the BoM, you don't specify versions in Firebase library dependencies
-    implementation(platform("com.google.firebase:firebase-bom:33.1.1"))
+    // Import the Firebase BoM.
+    // When using BoM, it is not necessary to specify the version in each Firebase library dependency.
+    implementation(platform("com.google.firebase:firebase-bom:33.3.0"))
 
     // See https://firebase.google.com/docs/android/setup#available-libraries
-    implementation("com.google.firebase:firebase-analytics-ktx")
-    implementation("com.google.firebase:firebase-auth-ktx")
-    implementation("com.google.firebase:firebase-crashlytics-ktx")
+    implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.firebase:firebase-crashlytics")
 }
