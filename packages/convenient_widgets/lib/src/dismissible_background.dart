@@ -6,7 +6,7 @@ class DismissibleBackground extends StatelessWidget {
   const DismissibleBackground({
     super.key,
     required this.child,
-    this.backgroundColor = Colors.red,
+    this.backgroundColor,
     this.margin = EdgeInsets.zero,
     this.alignment = Alignment.centerRight,
     this.borderRadius = BorderRadius.zero,
@@ -16,7 +16,7 @@ class DismissibleBackground extends StatelessWidget {
   final Widget child;
 
   /// Background color.
-  final Color backgroundColor;
+  final Color? backgroundColor;
 
   /// Outer margins.
   final EdgeInsetsGeometry margin;
@@ -34,7 +34,7 @@ class DismissibleBackground extends StatelessWidget {
       margin: margin,
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: backgroundColor,
+        color: backgroundColor ?? Theme.of(context).colorScheme.error,
         borderRadius: borderRadius,
       ),
       child: child,

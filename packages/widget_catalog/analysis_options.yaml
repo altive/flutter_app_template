@@ -5,4 +5,4 @@ analyzer:
 linter:
   rules:
     # Because WidgetCatalog often does not use the public methods you define from other places.
-    - public_member_api_docs: false
+    public_member_api_docs: false
