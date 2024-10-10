@@ -9,24 +9,24 @@ environment:
   sdk: ^3.5.1
 
 dependencies:
-  altfire_authenticator: ^0.1.5
-  altfire_configurator: ^0.1.3
-  altfire_messenger: ^0.2.0
-  altfire_tracker: ^0.1.4
+  altfire_authenticator: ^0.1.6
+  altfire_configurator: ^0.1.4
+  altfire_messenger: ^0.2.1
+  altfire_tracker: ^0.1.5
   awaitable_button: ^1.3.0
   cached_network_image: ^3.4.0
   clock: ^1.1.1
-  cloud_firestore: ^5.2.1
+  cloud_firestore: ^5.4.4
   collection: ^1.16.0
   connectivity_plus: ^6.0.5
   convenient_widgets:
     path: ../convenient_widgets
   cupertino_icons: ^1.0.8
   device_info_plus: ^10.1.2
-  firebase_core: ^3.1.1
-  firebase_dynamic_links: ^6.0.4
-  firebase_performance: ^0.10.0+2
-  firebase_storage: ^12.1.3
+  firebase_core: ^3.6.0
+  firebase_dynamic_links: ^6.0.8
+  firebase_performance: ^0.10.0+8
+  firebase_storage: ^12.3.2
   flutter:
     sdk: flutter
   flutter_hooks: ^0.20.5
