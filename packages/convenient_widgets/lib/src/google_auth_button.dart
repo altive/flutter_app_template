@@ -23,11 +23,12 @@ class GoogleAuthButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final colorScheme = Theme.of(context).colorScheme;
     final isLightTheme = Theme.of(context).brightness == Brightness.light;
-    return ElevatedButton.icon(
+    return FilledButton.icon(
       onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-        backgroundColor: isLightTheme ? Colors.black : Colors.white,
+      style: FilledButton.styleFrom(
+        backgroundColor: colorScheme.inverseSurface,
         shape: StadiumBorder(
           side: isLightTheme ? const BorderSide() : BorderSide.none,
         ),

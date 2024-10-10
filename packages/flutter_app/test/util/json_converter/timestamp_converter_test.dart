@@ -1,4 +1,3 @@
-// ignore_for_file: avoid_hardcoded_japanese
 import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';

@@ -26,6 +26,7 @@ class _LivingPlace extends _$LivingPlace {
   String build() => '';
 }
 
+// This is example.
 // ignore: avoid_classes_with_only_static_members
 class Registration {
   static final nicknameProvider = _nicknameProvider;
@@ -38,6 +39,7 @@ class Registration {
 // `InquiryProviders` クラスでまとめて公開する例
 // -----------------------------------------------------------------------------
 
+// This is example.
 // ignore: avoid_classes_with_only_static_members
 class Inquiry {
   static final nameProvider = StateProvider((ref) => '');
