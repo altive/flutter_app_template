@@ -108,14 +108,20 @@ scripts:
     description: Clean install the Pods
 
   pod:ios:
-    exec: cd ios && rm -f Podfile.lock && pod install --repo-update
+    exec: |
+      cd ios
+      rm -f Podfile.lock
+      pod install --repo-update
     description: Run pod install on iOS.
     packageFilters:
       dirExists: [lib, ios]
       fileExists: "ios/Podfile"
 
   pod:macos:
-    exec: cd macos && rm -f Podfile.lock && pod install --repo-update
+    exec: |
+      cd macos
+      rm -f Podfile.lock
+      pod install --repo-update
     description: Run pod install on macOS.
     packageFilters:
       dirExists: [lib, macos]
