@@ -10,7 +10,9 @@ part of 'theme_selector_provider.dart';
 
 String _$themeSelectorHash() => r'48fc54b4fc30c87d31c8e505ec2b0bb0102b2b5b';
 
-/// See also [ThemeSelector].
+/// Provider for selecting the theme.
+///
+/// Copied from [ThemeSelector].
 @ProviderFor(ThemeSelector)
 final themeSelectorProvider =
     AutoDisposeNotifierProvider<ThemeSelector, ThemeMode>.internal(
@@ -25,4 +27,4 @@ final themeSelectorProvider =
 
 typedef _$ThemeSelector = AutoDisposeNotifier<ThemeMode>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

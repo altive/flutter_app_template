@@ -8,12 +8,12 @@ part of 'locales_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$localesHash() => r'a26fe083d2baf3dce2e1d12fccbf7c32f976c665';
+String _$localesHash() => r'a1df380fa42af9a8b0e3e27eb48a8bda37d3464d';
 
-/// See also [locales].
-@ProviderFor(locales)
-final localesProvider = Provider<List<Locale>?>.internal(
-  locales,
+/// See also [Locales].
+@ProviderFor(Locales)
+final localesProvider = NotifierProvider<Locales, List<Locale>?>.internal(
+  Locales.new,
   name: r'localesProvider',
   debugGetCreateSourceHash:
       const bool.fromEnvironment('dart.vm.product') ? null : _$localesHash,
@@ -21,6 +21,6 @@ final localesProvider = Provider<List<Locale>?>.internal(
   allTransitiveDependencies: null,
 );
 
-typedef LocalesRef = ProviderRef<List<Locale>?>;
+typedef _$Locales = Notifier<List<Locale>?>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

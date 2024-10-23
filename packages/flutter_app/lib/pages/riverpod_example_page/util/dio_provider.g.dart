@@ -8,7 +8,7 @@ part of 'dio_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$dioHash() => r'f8d180950382f7f5d39e6a84b346a0aba4d3442e';
+String _$dioHash() => r'6098211ab8c657ba0a1c67c33fffe0ae8dc8bda2';
 
 /// See also [dio].
 @ProviderFor(dio)
@@ -21,6 +21,8 @@ final dioProvider = AutoDisposeProvider<FakeDio>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef DioRef = AutoDisposeProviderRef<FakeDio>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

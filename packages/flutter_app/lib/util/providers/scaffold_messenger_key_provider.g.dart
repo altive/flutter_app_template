@@ -9,7 +9,7 @@ part of 'scaffold_messenger_key_provider.dart';
 // **************************************************************************
 
 String _$scaffoldMessengerKeyHash() =>
-    r'f809f6dcf7a4f92ce76d0fa47e0bb51c45039b72';
+    r'd312c68c939c6684184c4faa7e67434262f3aca9';
 
 /// See also [scaffoldMessengerKey].
 @ProviderFor(scaffoldMessengerKey)
@@ -24,7 +24,9 @@ final scaffoldMessengerKeyProvider =
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef ScaffoldMessengerKeyRef
     = ProviderRef<GlobalKey<ScaffoldMessengerState>>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

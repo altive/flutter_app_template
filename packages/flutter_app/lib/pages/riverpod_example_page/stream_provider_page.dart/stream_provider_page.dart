@@ -23,7 +23,7 @@ final countOldSyntaxProvider = StreamProvider.autoDispose(
 /// コード生成記法
 /// 1秒ずつにカウントをインクリメントする。
 @riverpod
-Stream<int> count(CountRef ref) {
+Stream<int> count(Ref ref) {
   return Stream<int>.periodic(
     const Duration(seconds: 1),
     (count) => count,

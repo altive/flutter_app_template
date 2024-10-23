@@ -6,23 +6,17 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'locales_provider.g.dart';
 
 @Riverpod(keepAlive: true)
-List<Locale>? locales(LocalesRef ref) {
-  final observer = _LocaleObserver((value) => ref.state = value);
-
-  final binding = WidgetsBinding.instance..addObserver(observer);
-  ref.onDispose(() => binding.removeObserver(observer));
-
-  return PlatformDispatcher.instance.locales;
-}
-
-class _LocaleObserver extends WidgetsBindingObserver {
-  _LocaleObserver(this._didChangeLocales);
-
-  final ValueChanged<List<Locale>?> _didChangeLocales;
+class Locales extends _$Locales with WidgetsBindingObserver {
+  @override
+  List<Locale>? build() {
+    final binding = WidgetsBinding.instance..addObserver(this);
+    ref.onDispose(() => binding.removeObserver(this));
+    return PlatformDispatcher.instance.locales;
+  }
 
   @override
   void didChangeLocales(List<Locale>? locales) {
-    _didChangeLocales(locales);
+    state = locales;
     super.didChangeLocales(locales);
   }
 }
