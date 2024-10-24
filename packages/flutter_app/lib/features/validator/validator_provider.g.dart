@@ -8,7 +8,7 @@ part of 'validator_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$validatorHash() => r'0e3284305da341e42bc0f622cbf585f28e45e9c0';
+String _$validatorHash() => r'50b9c2bc2bd05f7f60ec3b9cb51c41bc18444f6f';
 
 /// See also [validator].
 @ProviderFor(validator)
@@ -21,6 +21,8 @@ final validatorProvider = Provider<Validator>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef ValidatorRef = ProviderRef<Validator>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

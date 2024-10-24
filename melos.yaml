@@ -38,8 +38,10 @@ scripts:
       dirExists: [lib, test]
 
   fix:
-    exec: dart fix --apply lib
-    description: Run dart fix.
+    exec: |
+      dart fix --apply lib
+      dart run custom_lint --fix
+    description: Run dart and custom_lint fixes.
     packageFilters:
       dirExists: lib
 

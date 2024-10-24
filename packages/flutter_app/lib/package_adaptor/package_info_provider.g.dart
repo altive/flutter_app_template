@@ -9,7 +9,7 @@ part of 'package_info_provider.dart';
 // **************************************************************************
 
 String _$packageInfoInitializingHash() =>
-    r'f08f031b27189f382d00702ba98adab4f82b944a';
+    r'92258b1cb5e798dac5f0ee4dadb2a05b2bc9c6a9';
 
 /// Providers that need to initialize asynchronously only once at startup.
 ///
@@ -25,8 +25,10 @@ final packageInfoInitializingProvider = FutureProvider<PackageInfo>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef PackageInfoInitializingRef = FutureProviderRef<PackageInfo>;
-String _$packageInfoHash() => r'9b711fe79c9d46a81ff455a72adb29031fc2cad5';
+String _$packageInfoHash() => r'96addbd397773a31f7584c089d1540ad59e2f05f';
 
 /// Provide metadata for the application.
 ///
@@ -43,6 +45,8 @@ final packageInfoProvider = Provider<PackageInfo>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef PackageInfoRef = ProviderRef<PackageInfo>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

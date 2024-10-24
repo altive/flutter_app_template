@@ -29,8 +29,12 @@ mixin _$RequestedVersionInfo {
   /// アップデート要求を有強化する日時
   DateTime get enabledAt => throw _privateConstructorUsedError;
 
+  /// Serializes this RequestedVersionInfo to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of RequestedVersionInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $RequestedVersionInfoCopyWith<RequestedVersionInfo> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -55,6 +59,8 @@ class _$RequestedVersionInfoCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of RequestedVersionInfo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -98,6 +104,8 @@ class __$$RequestedVersionInfoImplCopyWithImpl<$Res>
       $Res Function(_$RequestedVersionInfoImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of RequestedVersionInfo
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -176,12 +184,14 @@ class _$RequestedVersionInfoImpl
                 other.enabledAt == enabledAt));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode =>
       Object.hash(runtimeType, requiredVersion, canCancel, enabledAt);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of RequestedVersionInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$RequestedVersionInfoImplCopyWith<_$RequestedVersionInfoImpl>
@@ -206,20 +216,22 @@ abstract class _RequestedVersionInfo implements RequestedVersionInfo {
   factory _RequestedVersionInfo.fromJson(Map<String, dynamic> json) =
       _$RequestedVersionInfoImpl.fromJson;
 
-  @override
-
   /// 要求バージョン e.g., '1.0.0'
-  String get requiredVersion;
   @override
+  String get requiredVersion;
 
   /// アップデートをキャンセルして利用可能にするかどうか
-  bool get canCancel;
   @override
+  bool get canCancel;
 
   /// アップデート要求を有強化する日時
-  DateTime get enabledAt;
   @override
-  @JsonKey(ignore: true)
+  DateTime get enabledAt;
+
+  /// Create a copy of RequestedVersionInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$RequestedVersionInfoImplCopyWith<_$RequestedVersionInfoImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
