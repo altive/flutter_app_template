@@ -8,7 +8,7 @@ part of 'tracker_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$trackerHash() => r'8ecd81245dd6432bae9e66b41a7b1f546e4c5f6b';
+String _$trackerHash() => r'8b77cc11d593f46376606aaa14800a713c90d7c9';
 
 /// `altfire_tracker` パッケージの [Tracker] クラスインスタンスを提供する。
 ///
@@ -25,6 +25,8 @@ final trackerProvider = Provider<Tracker>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef TrackerRef = ProviderRef<Tracker>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

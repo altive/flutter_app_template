@@ -8,7 +8,7 @@ part of 'authenticator_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$authenticatorHash() => r'6925c886cb4003fcd1a57aa84d0f353279d6594a';
+String _$authenticatorHash() => r'4b541e97a781f3526786ee807f2853d29ddc5074';
 
 /// `[altfire_authenticator]` パッケージの [Authenticator] クラスインスタンスを提供する。
 ///
@@ -24,8 +24,10 @@ final authenticatorProvider = Provider<Authenticator>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef AuthenticatorRef = ProviderRef<Authenticator>;
-String _$userHash() => r'2a5c88c5ec8c1a3eacb778b712f7c7b3b1a9f785';
+String _$userHash() => r'ae200174a4a30690eae71f9335e08989ccab99b2';
 
 /// Firebase Authの[User]情報を提供する。
 ///
@@ -40,6 +42,8 @@ final userProvider = AutoDisposeStreamProvider<User?>.internal(
   allTransitiveDependencies: null,
 );
 
+@Deprecated('Will be removed in 3.0. Use Ref instead')
+// ignore: unused_element
 typedef UserRef = AutoDisposeStreamProviderRef<User?>;
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

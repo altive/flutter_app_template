@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../initialization_provider.dart';
@@ -14,7 +15,7 @@ import 'branches/branches.dart';
 part 'router_provider.g.dart';
 
 @Riverpod(keepAlive: true)
-Raw<GoRouter> router(RouterRef ref) {
+Raw<GoRouter> router(Ref ref) {
   final initialization = ref.watch(initializationProvider);
   final tracker = ref.watch(trackerProvider);
 
