@@ -25,12 +25,13 @@
     "Riverpod from Method": {
         "prefix": "riverpodMethod",
         "body": [
+            "import 'package:hooks_riverpod/hooks_riverpod.dart';",
             "import 'package:riverpod_annotation/riverpod_annotation.dart';",
             "",
             "part '${TM_FILENAME_BASE}.g.dart';",
             "",
             "@riverpod",
-            "$1 $2(${2/(.*)/${1:/pascalcase}${2}/}Ref ref) {",
+            "$1 $2(Ref ref) {",
             "  return ${3:value};",
             "}",
         ],
@@ -38,12 +39,13 @@
     "Riverpod from Method with keepAlive": {
         "prefix": "riverpodMethodKeepAlive",
         "body": [
+            "import 'package:hooks_riverpod/hooks_riverpod.dart';",
             "import 'package:riverpod_annotation/riverpod_annotation.dart';",
             "",
             "part '${TM_FILENAME_BASE}.g.dart';",
             "",
             "@Riverpod(keepAlive: true)",
-            "$1 $2(${2/(.*)/${1:/pascalcase}${2}/}Ref ref) {",
+            "$1 $2(Ref ref) {",
             "  return ${3:value};",
             "}",
         ],
@@ -51,12 +53,13 @@
     "Riverpod from Future method": {
         "prefix": "riverpodFutureMethod",
         "body": [
+            "import 'package:hooks_riverpod/hooks_riverpod.dart';",
             "import 'package:riverpod_annotation/riverpod_annotation.dart';",
             "",
             "part '${TM_FILENAME_BASE}.g.dart';",
             "",
             "@riverpod",
-            "Future<$1> $2(${2/(.*)/${1:/pascalcase}${2}/}Ref ref) async {",
+            "Future<$1> $2(Ref ref) async {",
             "  return ${3:value};",
             "}",
         ],
@@ -64,12 +67,13 @@
     "Riverpod from Future method with keepAlive": {
         "prefix": "riverpodFutureMethodKeepAlive",
         "body": [
+            "import 'package:hooks_riverpod/hooks_riverpod.dart';",
             "import 'package:riverpod_annotation/riverpod_annotation.dart';",
             "",
             "part '${TM_FILENAME_BASE}.g.dart';",
             "",
             "@Riverpod(keepAlive: true)",
-            "Future<$1> $2(${2/(.*)/${1:/pascalcase}${2}/}Ref ref) async {",
+            "Future<$1> $2(Ref ref) async {",
             "  return ${3:value};",
             "}",
         ],
