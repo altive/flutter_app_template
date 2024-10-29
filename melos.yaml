@@ -54,15 +54,6 @@ scripts:
       dirExists: lib
       dependsOn: "build_runner"
 
-  slang:
-    run: dart run slang
-    exec:
-      concurrency: 1
-    description: Run generate translation code.
-    packageFilters:
-      dirExists: lib
-      dependsOn: slang
-
   gen:watch:
     run: dart run build_runner watch --delete-conflicting-outputs
     exec:
@@ -78,6 +69,24 @@ scripts:
     packageFilters:
       dirExists: lib
       dependsOn: "flutter_launcher_icons"
+
+  slang:
+    run: dart run slang
+    exec:
+      concurrency: 1
+    description: Run generate translation code.
+    packageFilters:
+      dirExists: lib
+      dependsOn: slang
+
+  slang:watch:
+    run: dart run slang watch
+    exec:
+      concurrency: 1
+    description: Run generate translation code.
+    packageFilters:
+      dirExists: lib
+      dependsOn: slang
 
   test:
     run: flutter test
