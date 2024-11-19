@@ -80,5 +80,6 @@
 		<true/>
 		<key>UIApplicationSupportsIndirectInputEvents</key>
 		<true/>
-	</dict>
+		<key>kMDItemKeywords</key>
+		<string>fab, flutter_app_template,ふらったー,てんぷれーと</string>	</dict>
 </plist>
