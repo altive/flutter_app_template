@@ -2,6 +2,7 @@
 altool
 appbar
 appbundle
+APPL
 Checkmark
 codecov
 codeowners
