@@ -46,8 +46,8 @@ dependencies:
   riverpod_annotation: ^2.6.1
   shared_preferences: ^2.3.2
   simple_logger: ^1.9.0+1
-  slang: ^3.32.0
-  slang_flutter: ^3.26.2
+  slang: ^4.2.1
+  slang_flutter: ^4.2.0
   sort_key_generator: ^0.2.1
   themes:
     path: ../themes/
@@ -70,7 +70,7 @@ dev_dependencies:
   mockito: ^5.4.4
   riverpod_generator: ^2.6.3
   riverpod_lint: ^2.6.1
-  slang_build_runner: ^3.26.2
+  slang_build_runner: ^4.2.0
 
 flutter_gen:
   enabled: true
