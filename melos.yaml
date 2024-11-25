@@ -80,9 +80,7 @@ scripts:
       dependsOn: slang
 
   slang:watch:
-    run: dart run slang watch
-    exec:
-      concurrency: 1
+    exec: dart run slang watch
     description: Run generate translation code.
     packageFilters:
       dirExists: lib

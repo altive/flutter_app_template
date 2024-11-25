@@ -33,10 +33,11 @@ Future<void> main() async {
     Isolate.current.addErrorListener(tracker.isolateErrorListener());
   }
 
-  LocaleSettings.useDeviceLocale();
-
-  // Get it here because you want to use Preferences before Initialize.
-  final sp = await SharedPreferences.getInstance();
+  final (sp, _) = await (
+    // Get it here because you want to use Preferences before Initialize.
+    SharedPreferences.getInstance(),
+    LocaleSettings.useDeviceLocale()
+  ).wait;
 
   runApp(
     ProviderScope(
