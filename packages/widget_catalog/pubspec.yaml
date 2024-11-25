@@ -18,7 +18,7 @@ dependencies:
 
 dev_dependencies:
   altive_lints: ^1.14.1
-  build_runner: ^2.4.12
+  build_runner: ^2.4.13
   custom_lint: ^0.6.5
   widgetbook_generator: ^3.9.0
 
