@@ -58,10 +58,10 @@ packages:
     dependency: "direct dev"
     description:
       name: altive_lints
-      sha256: e9cace896453be6f97b9b41e3d02bd7f7c8c96c3fbe5e900a4d47d6f8d5c99d0
+      sha256: "957f225e9239dd1bbfb98862ba4962e1e4fa418ad202ad52e773dce6b48d7f61"
       url: "https://pub.dev"
     source: hosted
-    version: "1.16.0"
+    version: "1.14.1"
   analyzer:
     dependency: transitive
     description:
@@ -361,34 +361,26 @@ packages:
     dependency: "direct dev"
     description:
       name: custom_lint
-      sha256: "3486c470bb93313a9417f926c7dd694a2e349220992d7b9d14534dc49c15bba9"
+      sha256: "832fcdc676171205201c9cffafd6b5add19393962f6598af8472b48b413026e6"
       url: "https://pub.dev"
     source: hosted
-    version: "0.7.0"
+    version: "0.6.8"
   custom_lint_builder:
     dependency: transitive
     description:
       name: custom_lint_builder
-      sha256: "42cdc41994eeeddab0d7a722c7093ec52bd0761921eeb2cbdbf33d192a234759"
+      sha256: c3d82779026f91b8e00c9ac18934595cbc9b490094ea682052beeafdb2bd50ac
       url: "https://pub.dev"
     source: hosted
-    version: "0.7.0"
+    version: "0.6.8"
   custom_lint_core:
     dependency: transitive
     description:
       name: custom_lint_core
-      sha256: "02450c3e45e2a6e8b26c4d16687596ab3c4644dd5792e3313aa9ceba5a49b7f5"
+      sha256: "4ddbbdaa774265de44c97054dcec058a83d9081d071785ece601e348c18c267d"
       url: "https://pub.dev"
     source: hosted
-    version: "0.7.0"
-  custom_lint_visitor:
-    dependency: transitive
-    description:
-      name: custom_lint_visitor
-      sha256: "8aeb3b6ae2bb765e7716b93d1d10e8356d04e0ff6d7592de6ee04e0dd7d6587d"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.0.0+6.7.0"
+    version: "0.6.5"
   dart_style:
     dependency: transitive
     description:
@@ -1357,10 +1349,10 @@ packages:
     dependency: transitive
     description:
       name: riverpod_analyzer_utils
-      sha256: c6b8222b2b483cb87ae77ad147d6408f400c64f060df7a225b127f4afef4f8c8
+      sha256: "0dcb0af32d561f8fa000c6a6d95633c9fb08ea8a8df46e3f9daca59f11218167"
       url: "https://pub.dev"
     source: hosted
-    version: "0.5.8"
+    version: "0.5.6"
   riverpod_annotation:
     dependency: "direct main"
     description:
@@ -1373,18 +1365,18 @@ packages:
     dependency: "direct dev"
     description:
       name: riverpod_generator
-      sha256: "63546d70952015f0981361636bf8f356d9cfd9d7f6f0815e3c07789a41233188"
+      sha256: "851aedac7ad52693d12af3bf6d92b1626d516ed6b764eb61bf19e968b5e0b931"
       url: "https://pub.dev"
     source: hosted
-    version: "2.6.3"
+    version: "2.6.1"
   riverpod_lint:
     dependency: "direct dev"
     description:
       name: riverpod_lint
-      sha256: "83e4caa337a9840469b7b9bd8c2351ce85abad80f570d84146911b32086fbd99"
+      sha256: "0684c21a9a4582c28c897d55c7b611fa59a351579061b43f8c92c005804e63a8"
       url: "https://pub.dev"
     source: hosted
-    version: "2.6.3"
+    version: "2.6.1"
   rxdart:
     dependency: transitive
     description:
@@ -1482,26 +1474,26 @@ packages:
     dependency: "direct main"
     description:
       name: slang
-      sha256: a2f704508bf9f209b71c881347bd27de45309651e9bd63570e4dd6ed2a77fbd2
+      sha256: a466773de768eb95bdf681e0a92e7c8010d44bb247b62130426c83ece33aeaed
       url: "https://pub.dev"
     source: hosted
-    version: "3.31.2"
+    version: "3.32.0"
   slang_build_runner:
     dependency: "direct dev"
     description:
       name: slang_build_runner
-      sha256: "6e60160e8000b91824c47221b20d9642e7408287a5a21837ecefc75270197586"
+      sha256: b2e0c63f3c801a4aa70b4ca43173893d6eb7d5a421fc9d97ad983527397631b3
       url: "https://pub.dev"
     source: hosted
-    version: "3.31.0"
+    version: "3.32.0"
   slang_flutter:
     dependency: "direct main"
     description:
       name: slang_flutter
-      sha256: f8400292be49c11697d94af58d7f7d054c91af759f41ffe71e4e5413871ffc62
+      sha256: "1a98e878673996902fa5ef0b61ce5c245e41e4d25640d18af061c6aab917b0c7"
       url: "https://pub.dev"
     source: hosted
-    version: "3.31.0"
+    version: "3.32.0"
   sort_key_generator:
     dependency: "direct main"
     description:
