@@ -17,9 +17,9 @@ dependencies:
   widgetbook_annotation: ^3.2.0
 
 dev_dependencies:
-  altive_lints: ^1.14.1
-  build_runner: ^2.4.12
-  custom_lint: ^0.6.5
+  altive_lints: ^1.16.0
+  build_runner: ^2.4.13
+  custom_lint: ^0.7.0
   widgetbook_generator: ^3.9.0
 
 flutter:

@@ -46,20 +46,20 @@ dependencies:
   riverpod_annotation: ^2.6.1
   shared_preferences: ^2.3.2
   simple_logger: ^1.9.0+1
-  slang: ^3.31.1
-  slang_flutter: ^3.26.2
+  slang: ^4.2.1
+  slang_flutter: ^4.2.0
   sort_key_generator: ^0.2.1
   themes:
     path: ../themes/
   tuple: ^2.0.0
   url_launcher: ^6.3.0
-  uuid: ^4.4.2
+  uuid: ^4.5.1
   version: ^3.0.2
 
 dev_dependencies:
-  altive_lints: ^1.14.1
-  build_runner: ^2.4.12
-  custom_lint: ^0.6.5
+  altive_lints: ^1.16.0
+  build_runner: ^2.4.13
+  custom_lint: ^0.7.0
   flutter_gen_runner: ^5.6.0
   flutter_launcher_icons: ^0.13.1
   flutter_test:
@@ -68,9 +68,9 @@ dev_dependencies:
   go_router_builder: ^2.7.1
   json_serializable: ^6.7.1
   mockito: ^5.4.4
-  riverpod_generator: ^2.6.1
+  riverpod_generator: ^2.6.3
   riverpod_lint: ^2.6.1
-  slang_build_runner: ^3.26.2
+  slang_build_runner: ^4.2.0
 
 flutter_gen:
   enabled: true

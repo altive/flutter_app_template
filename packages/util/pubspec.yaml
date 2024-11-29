@@ -15,7 +15,7 @@ dependencies:
   shared_preferences: ^2.0.15
 
 dev_dependencies:
-  altive_lints: ^1.14.1
-  custom_lint: ^0.6.7
+  altive_lints: ^1.16.0
+  custom_lint: ^0.7.0
   flutter_test:
     sdk: flutter
