@@ -1,0 +1,54 @@
+import 'package:rest_api_client/rest_api_client.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
+
+import '../../../package_adaptor/rest_api_client_provider.dart';
+
+part 'pub_dev_packages_page_state_provider.g.dart';
+
+@Riverpod(keepAlive: true)
+class PackageSearchWordState extends _$PackageSearchWordState {
+  @override
+  String build() => '';
+
+  // Update the search word.
+  // ignore: use_setters_to_change_properties
+  void update(String word) {
+    state = word;
+  }
+
+  // Clear the search word.
+  void clear() {
+    state = '';
+  }
+}
+
+@Riverpod(keepAlive: true)
+class PubDevPackagesPageState extends _$PubDevPackagesPageState {
+  @override
+  Future<GetSearchResponseBody> build() async {
+    final searchWord = ref.watch(packageSearchWordStateProvider);
+    final client = ref.watch(restApiClientProvider);
+    final response = await client.search(searchWord: searchWord);
+    return response;
+  }
+
+  Future<void> loadNext(int nextPage) async {
+    state = const AsyncLoading<GetSearchResponseBody>().copyWithPrevious(state);
+
+    final searchWord = ref.watch(packageSearchWordStateProvider);
+    final client = ref.watch(restApiClientProvider);
+    final response = await client.search(
+      searchWord: searchWord,
+      page: nextPage,
+    );
+    final currentPackages = state.requireValue.packages;
+    final newPackages = [...currentPackages, ...response.packages];
+
+    state = AsyncData(
+      GetSearchResponseBody(
+        packages: newPackages,
+        nextPageUrl: response.nextPageUrl,
+      ),
+    );
+  }
+}

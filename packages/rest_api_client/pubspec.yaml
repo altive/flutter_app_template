@@ -1,0 +1,25 @@
+name: rest_api_client
+description: A api client package
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.3
+
+dependencies:
+  dio: ^5.7.0
+  flutter:
+    sdk: flutter
+  freezed_annotation: ^2.4.4
+  retrofit: ^4.4.1
+  url_launcher: ^6.3.1
+
+dev_dependencies:
+  altive_lints: ^1.16.0
+  build_runner: ^2.4.13
+  custom_lint: ^0.7.0
+  freezed: ^2.5.7
+  json_serializable: ^6.9.0
+  retrofit_generator: ^9.1.5
+  test: ^1.25.8
+
+
