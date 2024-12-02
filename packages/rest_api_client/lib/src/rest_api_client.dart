@@ -36,17 +36,17 @@ abstract class RestApiClient {
     );
   }
 
-  /// Search for packages.
+  /// Get packages by search word.
   @GET('/search')
-  Future<GetSearchResponseBody> search({
+  Future<GetSearchedPackagesResponseBody> getSearchedPackages({
     @Query('q') String? searchWord,
     @Query('sort') String? sort = 'top',
     @Query('page') int? page,
   });
 
-  /// Get package information.
+  /// Get particular package details.
   @GET('/packages/{name}')
-  Future<GetPackageResponseBody> getPackage({
+  Future<GetPackageDetailsResponseBody> getPackageDetails({
     @Path('name') required String packageName,
   });
 }

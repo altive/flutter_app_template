@@ -8,11 +8,11 @@ part 'package_details_provider.g.dart';
 
 /// Provider for package details by package name.
 @riverpod
-Future<GetPackageResponseBody> packageDetails(
+Future<GetPackageDetailsResponseBody> packageDetails(
   Ref ref, {
   required String packageName,
 }) async {
   final client = ref.watch(restApiClientProvider);
-  final response = await client.getPackage(packageName: packageName);
+  final response = await client.getPackageDetails(packageName: packageName);
   return response;
 }

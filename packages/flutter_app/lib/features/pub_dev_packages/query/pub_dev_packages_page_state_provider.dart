@@ -25,19 +25,20 @@ class PackageSearchWordState extends _$PackageSearchWordState {
 @Riverpod(keepAlive: true)
 class PubDevPackagesPageState extends _$PubDevPackagesPageState {
   @override
-  Future<GetSearchResponseBody> build() async {
+  Future<GetSearchedPackagesResponseBody> build() async {
     final searchWord = ref.watch(packageSearchWordStateProvider);
     final client = ref.watch(restApiClientProvider);
-    final response = await client.search(searchWord: searchWord);
+    final response = await client.getSearchedPackages(searchWord: searchWord);
     return response;
   }
 
   Future<void> loadNext(int nextPage) async {
-    state = const AsyncLoading<GetSearchResponseBody>().copyWithPrevious(state);
+    state = const AsyncLoading<GetSearchedPackagesResponseBody>()
+        .copyWithPrevious(state);
 
     final searchWord = ref.watch(packageSearchWordStateProvider);
     final client = ref.watch(restApiClientProvider);
-    final response = await client.search(
+    final response = await client.getSearchedPackages(
       searchWord: searchWord,
       page: nextPage,
     );
@@ -45,7 +46,7 @@ class PubDevPackagesPageState extends _$PubDevPackagesPageState {
     final newPackages = [...currentPackages, ...response.packages];
 
     state = AsyncData(
-      GetSearchResponseBody(
+      GetSearchedPackagesResponseBody(
         packages: newPackages,
         nextPageUrl: response.nextPageUrl,
       ),

@@ -10,6 +10,8 @@ dependencies:
   flutter:
     sdk: flutter
   freezed_annotation: ^2.4.4
+  mock_web_server: ^5.0.0-nullsafety.1
+  mockito: ^5.4.4
   retrofit: ^4.4.1
   url_launcher: ^6.3.1
 

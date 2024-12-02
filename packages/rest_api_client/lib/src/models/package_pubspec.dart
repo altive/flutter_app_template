@@ -4,7 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'package_pubspec.freezed.dart';
 part 'package_pubspec.g.dart';
 
-/// Information about a package's pubspec.
+/// Information about a package's pubspec.yaml.
 @freezed
 class PackagePubspec with _$PackagePubspec {
   /// Default constructor.

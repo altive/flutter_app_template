@@ -22,7 +22,7 @@ class _RestApiClient implements RestApiClient {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<GetSearchResponseBody> search({
+  Future<GetSearchedPackagesResponseBody> getSearchedPackages({
     String? searchWord,
     String? sort = 'top',
     int? page,
@@ -36,7 +36,7 @@ class _RestApiClient implements RestApiClient {
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<GetSearchResponseBody>(Options(
+    final _options = _setStreamType<GetSearchedPackagesResponseBody>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -53,9 +53,9 @@ class _RestApiClient implements RestApiClient {
           baseUrl,
         )));
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late GetSearchResponseBody _value;
+    late GetSearchedPackagesResponseBody _value;
     try {
-      _value = GetSearchResponseBody.fromJson(_result.data!);
+      _value = GetSearchedPackagesResponseBody.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;
@@ -64,13 +64,13 @@ class _RestApiClient implements RestApiClient {
   }
 
   @override
-  Future<GetPackageResponseBody> getPackage(
+  Future<GetPackageDetailsResponseBody> getPackageDetails(
       {required String packageName}) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<GetPackageResponseBody>(Options(
+    final _options = _setStreamType<GetPackageDetailsResponseBody>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -87,9 +87,9 @@ class _RestApiClient implements RestApiClient {
           baseUrl,
         )));
     final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late GetPackageResponseBody _value;
+    late GetPackageDetailsResponseBody _value;
     try {
-      _value = GetPackageResponseBody.fromJson(_result.data!);
+      _value = GetPackageDetailsResponseBody.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

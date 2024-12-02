@@ -3,25 +3,25 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 import 'package_name.dart';
 
-part 'get_search_response_body.freezed.dart';
-part 'get_search_response_body.g.dart';
+part 'get_searched_packages_response_body.freezed.dart';
+part 'get_searched_packages_response_body.g.dart';
 
 /// Response body for the search API.
 @freezed
-class GetSearchResponseBody with _$GetSearchResponseBody {
+class GetSearchedPackagesResponseBody with _$GetSearchedPackagesResponseBody {
   /// Default constructor.
-  const factory GetSearchResponseBody({
+  const factory GetSearchedPackagesResponseBody({
     required List<PackageName> packages,
 
     // e.g. "https://pub.dev/api/search?page=2"
     @JsonKey(name: 'next') String? nextPageUrl,
-  }) = _GetSearchResponseBody;
+  }) = _GetSearchedPackagesResponseBody;
 
-  const GetSearchResponseBody._();
+  const GetSearchedPackagesResponseBody._();
 
   /// Create an instance from JSON.
-  factory GetSearchResponseBody.fromJson(Map<String, dynamic> json) =>
-      _$GetSearchResponseBodyFromJson(json);
+  factory GetSearchedPackagesResponseBody.fromJson(Map<String, dynamic> json) =>
+      _$GetSearchedPackagesResponseBodyFromJson(json);
 
   /// Get the next page number.
   int? get nextPage {

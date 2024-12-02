@@ -8,7 +8,7 @@ part of 'package_details_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$packageDetailsHash() => r'c08e0b016126b6b75a84b0addd1a8f87a6dc8fd4';
+String _$packageDetailsHash() => r'6890125ca14e847841a92900e8b3304b33862ddf';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -40,7 +40,8 @@ const packageDetailsProvider = PackageDetailsFamily();
 /// Provider for package details by package name.
 ///
 /// Copied from [packageDetails].
-class PackageDetailsFamily extends Family<AsyncValue<GetPackageResponseBody>> {
+class PackageDetailsFamily
+    extends Family<AsyncValue<GetPackageDetailsResponseBody>> {
   /// Provider for package details by package name.
   ///
   /// Copied from [packageDetails].
@@ -85,7 +86,7 @@ class PackageDetailsFamily extends Family<AsyncValue<GetPackageResponseBody>> {
 ///
 /// Copied from [packageDetails].
 class PackageDetailsProvider
-    extends AutoDisposeFutureProvider<GetPackageResponseBody> {
+    extends AutoDisposeFutureProvider<GetPackageDetailsResponseBody> {
   /// Provider for package details by package name.
   ///
   /// Copied from [packageDetails].
@@ -122,7 +123,7 @@ class PackageDetailsProvider
 
   @override
   Override overrideWith(
-    FutureOr<GetPackageResponseBody> Function(PackageDetailsRef provider)
+    FutureOr<GetPackageDetailsResponseBody> Function(PackageDetailsRef provider)
         create,
   ) {
     return ProviderOverride(
@@ -140,7 +141,8 @@ class PackageDetailsProvider
   }
 
   @override
-  AutoDisposeFutureProviderElement<GetPackageResponseBody> createElement() {
+  AutoDisposeFutureProviderElement<GetPackageDetailsResponseBody>
+      createElement() {
     return _PackageDetailsProviderElement(this);
   }
 
@@ -161,13 +163,13 @@ class PackageDetailsProvider
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 mixin PackageDetailsRef
-    on AutoDisposeFutureProviderRef<GetPackageResponseBody> {
+    on AutoDisposeFutureProviderRef<GetPackageDetailsResponseBody> {
   /// The parameter `packageName` of this provider.
   String get packageName;
 }
 
 class _PackageDetailsProviderElement
-    extends AutoDisposeFutureProviderElement<GetPackageResponseBody>
+    extends AutoDisposeFutureProviderElement<GetPackageDetailsResponseBody>
     with PackageDetailsRef {
   _PackageDetailsProviderElement(super.provider);
 

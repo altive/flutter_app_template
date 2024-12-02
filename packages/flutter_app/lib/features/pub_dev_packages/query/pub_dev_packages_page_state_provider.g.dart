@@ -26,12 +26,12 @@ final packageSearchWordStateProvider =
 
 typedef _$PackageSearchWordState = Notifier<String>;
 String _$pubDevPackagesPageStateHash() =>
-    r'586e2aeca9b92d4d764a3a47943c1f98cf4466ef';
+    r'f29b133a92e4518315cf9beb7fd85773ac9f8593';
 
 /// See also [PubDevPackagesPageState].
 @ProviderFor(PubDevPackagesPageState)
 final pubDevPackagesPageStateProvider = AsyncNotifierProvider<
-    PubDevPackagesPageState, GetSearchResponseBody>.internal(
+    PubDevPackagesPageState, GetSearchedPackagesResponseBody>.internal(
   PubDevPackagesPageState.new,
   name: r'pubDevPackagesPageStateProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
@@ -41,6 +41,7 @@ final pubDevPackagesPageStateProvider = AsyncNotifierProvider<
   allTransitiveDependencies: null,
 );
 
-typedef _$PubDevPackagesPageState = AsyncNotifier<GetSearchResponseBody>;
+typedef _$PubDevPackagesPageState
+    = AsyncNotifier<GetSearchedPackagesResponseBody>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

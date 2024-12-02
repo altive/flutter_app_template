@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'get_package_response_body.dart';
+part of 'get_package_details_response_body.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,31 +14,33 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-GetPackageResponseBody _$GetPackageResponseBodyFromJson(
+GetPackageDetailsResponseBody _$GetPackageDetailsResponseBodyFromJson(
     Map<String, dynamic> json) {
-  return _GetPackageResponseBody.fromJson(json);
+  return _GetPackageDetailsResponseBody.fromJson(json);
 }
 
 /// @nodoc
-mixin _$GetPackageResponseBody {
+mixin _$GetPackageDetailsResponseBody {
   String get name => throw _privateConstructorUsedError;
   LatestPackageRelease get latest => throw _privateConstructorUsedError;
 
-  /// Serializes this GetPackageResponseBody to a JSON map.
+  /// Serializes this GetPackageDetailsResponseBody to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
 
-  /// Create a copy of GetPackageResponseBody
+  /// Create a copy of GetPackageDetailsResponseBody
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  $GetPackageResponseBodyCopyWith<GetPackageResponseBody> get copyWith =>
-      throw _privateConstructorUsedError;
+  $GetPackageDetailsResponseBodyCopyWith<GetPackageDetailsResponseBody>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $GetPackageResponseBodyCopyWith<$Res> {
-  factory $GetPackageResponseBodyCopyWith(GetPackageResponseBody value,
-          $Res Function(GetPackageResponseBody) then) =
-      _$GetPackageResponseBodyCopyWithImpl<$Res, GetPackageResponseBody>;
+abstract class $GetPackageDetailsResponseBodyCopyWith<$Res> {
+  factory $GetPackageDetailsResponseBodyCopyWith(
+          GetPackageDetailsResponseBody value,
+          $Res Function(GetPackageDetailsResponseBody) then) =
+      _$GetPackageDetailsResponseBodyCopyWithImpl<$Res,
+          GetPackageDetailsResponseBody>;
   @useResult
   $Res call({String name, LatestPackageRelease latest});
 
@@ -46,17 +48,17 @@ abstract class $GetPackageResponseBodyCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$GetPackageResponseBodyCopyWithImpl<$Res,
-        $Val extends GetPackageResponseBody>
-    implements $GetPackageResponseBodyCopyWith<$Res> {
-  _$GetPackageResponseBodyCopyWithImpl(this._value, this._then);
+class _$GetPackageDetailsResponseBodyCopyWithImpl<$Res,
+        $Val extends GetPackageDetailsResponseBody>
+    implements $GetPackageDetailsResponseBodyCopyWith<$Res> {
+  _$GetPackageDetailsResponseBodyCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
 
-  /// Create a copy of GetPackageResponseBody
+  /// Create a copy of GetPackageDetailsResponseBody
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -76,7 +78,7 @@ class _$GetPackageResponseBodyCopyWithImpl<$Res,
     ) as $Val);
   }
 
-  /// Create a copy of GetPackageResponseBody
+  /// Create a copy of GetPackageDetailsResponseBody
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
@@ -88,12 +90,12 @@ class _$GetPackageResponseBodyCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$GetPackageResponseBodyImplCopyWith<$Res>
-    implements $GetPackageResponseBodyCopyWith<$Res> {
-  factory _$$GetPackageResponseBodyImplCopyWith(
-          _$GetPackageResponseBodyImpl value,
-          $Res Function(_$GetPackageResponseBodyImpl) then) =
-      __$$GetPackageResponseBodyImplCopyWithImpl<$Res>;
+abstract class _$$GetPackageDetailsResponseBodyImplCopyWith<$Res>
+    implements $GetPackageDetailsResponseBodyCopyWith<$Res> {
+  factory _$$GetPackageDetailsResponseBodyImplCopyWith(
+          _$GetPackageDetailsResponseBodyImpl value,
+          $Res Function(_$GetPackageDetailsResponseBodyImpl) then) =
+      __$$GetPackageDetailsResponseBodyImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String name, LatestPackageRelease latest});
@@ -103,16 +105,16 @@ abstract class _$$GetPackageResponseBodyImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$GetPackageResponseBodyImplCopyWithImpl<$Res>
-    extends _$GetPackageResponseBodyCopyWithImpl<$Res,
-        _$GetPackageResponseBodyImpl>
-    implements _$$GetPackageResponseBodyImplCopyWith<$Res> {
-  __$$GetPackageResponseBodyImplCopyWithImpl(
-      _$GetPackageResponseBodyImpl _value,
-      $Res Function(_$GetPackageResponseBodyImpl) _then)
+class __$$GetPackageDetailsResponseBodyImplCopyWithImpl<$Res>
+    extends _$GetPackageDetailsResponseBodyCopyWithImpl<$Res,
+        _$GetPackageDetailsResponseBodyImpl>
+    implements _$$GetPackageDetailsResponseBodyImplCopyWith<$Res> {
+  __$$GetPackageDetailsResponseBodyImplCopyWithImpl(
+      _$GetPackageDetailsResponseBodyImpl _value,
+      $Res Function(_$GetPackageDetailsResponseBodyImpl) _then)
       : super(_value, _then);
 
-  /// Create a copy of GetPackageResponseBody
+  /// Create a copy of GetPackageDetailsResponseBody
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
@@ -120,7 +122,7 @@ class __$$GetPackageResponseBodyImplCopyWithImpl<$Res>
     Object? name = null,
     Object? latest = null,
   }) {
-    return _then(_$GetPackageResponseBodyImpl(
+    return _then(_$GetPackageDetailsResponseBodyImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -135,14 +137,15 @@ class __$$GetPackageResponseBodyImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$GetPackageResponseBodyImpl
+class _$GetPackageDetailsResponseBodyImpl
     with DiagnosticableTreeMixin
-    implements _GetPackageResponseBody {
-  const _$GetPackageResponseBodyImpl(
+    implements _GetPackageDetailsResponseBody {
+  const _$GetPackageDetailsResponseBodyImpl(
       {required this.name, required this.latest});
 
-  factory _$GetPackageResponseBodyImpl.fromJson(Map<String, dynamic> json) =>
-      _$$GetPackageResponseBodyImplFromJson(json);
+  factory _$GetPackageDetailsResponseBodyImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$GetPackageDetailsResponseBodyImplFromJson(json);
 
   @override
   final String name;
@@ -151,14 +154,14 @@ class _$GetPackageResponseBodyImpl
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'GetPackageResponseBody(name: $name, latest: $latest)';
+    return 'GetPackageDetailsResponseBody(name: $name, latest: $latest)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'GetPackageResponseBody'))
+      ..add(DiagnosticsProperty('type', 'GetPackageDetailsResponseBody'))
       ..add(DiagnosticsProperty('name', name))
       ..add(DiagnosticsProperty('latest', latest));
   }
@@ -167,7 +170,7 @@ class _$GetPackageResponseBodyImpl
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetPackageResponseBodyImpl &&
+            other is _$GetPackageDetailsResponseBodyImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.latest, latest) || other.latest == latest));
   }
@@ -176,41 +179,44 @@ class _$GetPackageResponseBodyImpl
   @override
   int get hashCode => Object.hash(runtimeType, name, latest);
 
-  /// Create a copy of GetPackageResponseBody
+  /// Create a copy of GetPackageDetailsResponseBody
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$GetPackageResponseBodyImplCopyWith<_$GetPackageResponseBodyImpl>
-      get copyWith => __$$GetPackageResponseBodyImplCopyWithImpl<
-          _$GetPackageResponseBodyImpl>(this, _$identity);
+  _$$GetPackageDetailsResponseBodyImplCopyWith<
+          _$GetPackageDetailsResponseBodyImpl>
+      get copyWith => __$$GetPackageDetailsResponseBodyImplCopyWithImpl<
+          _$GetPackageDetailsResponseBodyImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$GetPackageResponseBodyImplToJson(
+    return _$$GetPackageDetailsResponseBodyImplToJson(
       this,
     );
   }
 }
 
-abstract class _GetPackageResponseBody implements GetPackageResponseBody {
-  const factory _GetPackageResponseBody(
+abstract class _GetPackageDetailsResponseBody
+    implements GetPackageDetailsResponseBody {
+  const factory _GetPackageDetailsResponseBody(
           {required final String name,
           required final LatestPackageRelease latest}) =
-      _$GetPackageResponseBodyImpl;
+      _$GetPackageDetailsResponseBodyImpl;
 
-  factory _GetPackageResponseBody.fromJson(Map<String, dynamic> json) =
-      _$GetPackageResponseBodyImpl.fromJson;
+  factory _GetPackageDetailsResponseBody.fromJson(Map<String, dynamic> json) =
+      _$GetPackageDetailsResponseBodyImpl.fromJson;
 
   @override
   String get name;
   @override
   LatestPackageRelease get latest;
 
-  /// Create a copy of GetPackageResponseBody
+  /// Create a copy of GetPackageDetailsResponseBody
   /// with the given fields replaced by the non-null parameter values.
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetPackageResponseBodyImplCopyWith<_$GetPackageResponseBodyImpl>
+  _$$GetPackageDetailsResponseBodyImplCopyWith<
+          _$GetPackageDetailsResponseBodyImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
