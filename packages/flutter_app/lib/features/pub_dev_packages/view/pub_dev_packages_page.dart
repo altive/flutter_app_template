@@ -5,6 +5,7 @@ import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../../gen/strings.g.dart';
 import '../query/query.dart';
 
 /// Pub.dev packages page.
@@ -13,6 +14,7 @@ class PubDevPackagesPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final t = Translations.of(context);
     final asyncValue = ref.watch(pubDevPackagesPageStateProvider);
 
     return GestureDetector(
@@ -20,7 +22,7 @@ class PubDevPackagesPage extends ConsumerWidget {
       onTap: FocusScope.of(context).unfocus,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('pub.dev packages'),
+          title: Text(t.pubDevPackagesPage.appBar.title),
         ),
         body: asyncValue.when(
           loading: () =>
@@ -31,7 +33,7 @@ class PubDevPackagesPage extends ConsumerWidget {
             final nextPage = packagesState.nextPage;
 
             if (packages.isEmpty) {
-              return const Center(child: Text('No packages found'));
+              return Center(child: Text(t.pubDevPackagesPage.body.emptyLabel));
             }
 
             return NotificationListener<ScrollEndNotification>(
@@ -55,7 +57,7 @@ class PubDevPackagesPage extends ConsumerWidget {
                         text: ref.watch(packageSearchWordStateProvider),
                       ),
                       decoration: InputDecoration(
-                        hintText: 'Search packages',
+                        hintText: t.pubDevPackagesPage.searchBar.hintText,
                         prefixIcon: const Icon(Icons.search),
                         suffixIcon: IconButton(
                           onPressed: () => ref
@@ -117,6 +119,7 @@ class _PackageCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final t = Translations.of(context);
     return Card(
       elevation: 0.5,
       child: ListTile(
@@ -158,9 +161,11 @@ class _PackageCard extends StatelessWidget {
                         children: [
                           Wrap(
                             children: [
-                              const Text(
-                                'Latest version :',
-                                style: TextStyle(fontWeight: FontWeight.bold),
+                              Text(
+                                t.pubDevPackagesPage.dialog.content.version,
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                               const SizedBox(width: 8),
                               Text(latestDetail.pubspec.version),
@@ -169,9 +174,11 @@ class _PackageCard extends StatelessWidget {
                           const Gap(20),
                           Wrap(
                             children: [
-                              const Text(
-                                'Description :',
-                                style: TextStyle(fontWeight: FontWeight.bold),
+                              Text(
+                                t.pubDevPackagesPage.dialog.content.description,
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                               const SizedBox(width: 8),
                               Text(latestDetail.pubspec.description),
@@ -185,7 +192,8 @@ class _PackageCard extends StatelessWidget {
                   actions: [
                     ElevatedButton(
                       onPressed: Navigator.of(context).pop,
-                      child: const Text('Close'),
+                      child:
+                          Text(t.pubDevPackagesPage.dialog.button.close.label),
                     ),
                   ],
                 );
