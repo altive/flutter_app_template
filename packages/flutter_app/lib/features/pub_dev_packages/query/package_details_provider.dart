@@ -12,7 +12,7 @@ Future<GetPackageDetailsResponseBody> packageDetails(
   Ref ref, {
   required String packageName,
 }) async {
-  final client = ref.watch(restApiClientProvider);
+  final client = ref.watch(pubDevApiClientProvider);
   final response = await client.getPackageDetails(packageName: packageName);
   return response;
 }

@@ -2,7 +2,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pub_dev_api_client/pub_dev_api_client.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-part 'rest_api_client_provider.g.dart';
+part 'pub_dev_api_client_provider.g.dart';
 
 @Riverpod(keepAlive: true)
 PubDevApiClient pubDevApiClient(Ref ref) {

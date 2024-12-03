@@ -27,7 +27,7 @@ class PubDevPackagesPageState extends _$PubDevPackagesPageState {
   @override
   Future<GetSearchedPackagesResponseBody> build() async {
     final searchWord = ref.watch(packageSearchWordStateProvider);
-    final client = ref.watch(restApiClientProvider);
+    final client = ref.watch(pubDevApiClientProvider);
     final response = await client.getSearchedPackages(searchWord: searchWord);
     return response;
   }
@@ -36,8 +36,8 @@ class PubDevPackagesPageState extends _$PubDevPackagesPageState {
     state = const AsyncLoading<GetSearchedPackagesResponseBody>()
         .copyWithPrevious(state);
 
-    final searchWord = ref.watch(packageSearchWordStateProvider);
-    final client = ref.watch(restApiClientProvider);
+    final searchWord = ref.read(packageSearchWordStateProvider);
+    final client = ref.read(pubDevApiClientProvider);
     final response = await client.getSearchedPackages(
       searchWord: searchWord,
       page: nextPage,
