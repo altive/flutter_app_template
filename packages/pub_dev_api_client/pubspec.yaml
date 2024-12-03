@@ -1,5 +1,5 @@
-name: rest_api_client
-description: A api client package
+name: pub_dev_api_client
+description: Pub.dev API client package
 version: 1.0.0+1
 
 environment:

@@ -3,23 +3,23 @@ import 'package:retrofit/retrofit.dart' hide Headers;
 
 import 'models/models.dart';
 
-part 'rest_api_client.g.dart';
+part 'pub_dev_api_client.g.dart';
 
-/// Client for the REST API.
+/// Client for the Pub.dev API.
 @RestApi()
-abstract class RestApiClient {
+abstract class PubDevApiClient {
   /// Internal constructor.
-  factory RestApiClient.internal(
+  factory PubDevApiClient.internal(
     Dio dio, {
     String baseUrl,
-  }) = _RestApiClient;
+  }) = _PubDevApiClient;
 
   /// Create a client from parameters.
-  factory RestApiClient.fromParameters({
+  factory PubDevApiClient.fromParameters({
     required String baseUrl,
     required Duration timeoutDuration,
   }) {
-    return _RestApiClient(
+    return _PubDevApiClient(
       Dio(
         BaseOptions(
           baseUrl: baseUrl,

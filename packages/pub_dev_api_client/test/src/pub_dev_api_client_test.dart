@@ -1,13 +1,13 @@
 import 'dart:convert';
 
 import 'package:mock_web_server/mock_web_server.dart';
-import 'package:rest_api_client/rest_api_client.dart';
-import 'package:rest_api_client/src/models/package_pubspec.dart';
+import 'package:pub_dev_api_client/pub_dev_api_client.dart';
+import 'package:pub_dev_api_client/src/models/package_pubspec.dart';
 import 'package:test/test.dart';
 
 void main() {
-  RestApiClient createClient({required String baseUrl}) {
-    final client = RestApiClient.fromParameters(
+  PubDevApiClient createClient({required String baseUrl}) {
+    final client = PubDevApiClient.fromParameters(
       baseUrl: baseUrl,
       timeoutDuration: const Duration(milliseconds: 30000),
     );
@@ -31,12 +31,12 @@ void main() {
     test(
         'Ensure that RestApiClient can be instantiated '
         'using the fromParameters constructor', () {
-      final client = RestApiClient.fromParameters(
+      final client = PubDevApiClient.fromParameters(
         baseUrl: 'https://example.com/api-base-url',
         timeoutDuration: const Duration(seconds: 30),
       );
 
-      expect(client, isA<RestApiClient>());
+      expect(client, isA<PubDevApiClient>());
     });
   });
 

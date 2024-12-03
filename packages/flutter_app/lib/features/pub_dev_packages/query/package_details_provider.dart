@@ -1,8 +1,8 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:rest_api_client/rest_api_client.dart';
+import 'package:pub_dev_api_client/pub_dev_api_client.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../../package_adaptor/rest_api_client_provider.dart';
+import '../../../package_adaptor/pub_dev_api_client_provider.dart';
 
 part 'package_details_provider.g.dart';
 
