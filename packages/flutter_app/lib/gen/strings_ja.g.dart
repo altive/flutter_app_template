@@ -43,11 +43,10 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final TranslationsAuthorJa author = TranslationsAuthorJa._(_root);
 	late final TranslationsButtonJa button = TranslationsButtonJa._(_root);
 	late final TranslationsHomePageJa homePage = TranslationsHomePageJa._(_root);
+	late final TranslationsPubDevPackagesPageJa pubDevPackagesPage = TranslationsPubDevPackagesPageJa._(_root);
 	late final TranslationsNotFoundPageJa notFoundPage = TranslationsNotFoundPageJa._(_root);
-	late final TranslationsPinkieMewPageJa pinkieMewPage = TranslationsPinkieMewPageJa._(_root);
 	late final TranslationsSettingsPageJa settingsPage = TranslationsSettingsPageJa._(_root);
 	late final TranslationsThemeJa theme = TranslationsThemeJa._(_root);
-	late final TranslationsTopLevelTabJa topLevelTab = TranslationsTopLevelTabJa._(_root);
 }
 
 // Path: accountPage
@@ -102,6 +101,19 @@ class TranslationsHomePageJa {
 	late final TranslationsHomePageListJa list = TranslationsHomePageListJa._(_root);
 }
 
+// Path: pubDevPackagesPage
+class TranslationsPubDevPackagesPageJa {
+	TranslationsPubDevPackagesPageJa._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsPubDevPackagesPageAppBarJa appBar = TranslationsPubDevPackagesPageAppBarJa._(_root);
+	late final TranslationsPubDevPackagesPageSearchBarJa searchBar = TranslationsPubDevPackagesPageSearchBarJa._(_root);
+	late final TranslationsPubDevPackagesPageBodyJa body = TranslationsPubDevPackagesPageBodyJa._(_root);
+	late final TranslationsPubDevPackagesPageDialogJa dialog = TranslationsPubDevPackagesPageDialogJa._(_root);
+}
+
 // Path: notFoundPage
 class TranslationsNotFoundPageJa {
 	TranslationsNotFoundPageJa._(this._root);
@@ -113,16 +125,6 @@ class TranslationsNotFoundPageJa {
 	late final TranslationsNotFoundPageHeaderJa header = TranslationsNotFoundPageHeaderJa._(_root);
 	String get description => 'is not found.';
 	late final TranslationsNotFoundPageBackButtonJa backButton = TranslationsNotFoundPageBackButtonJa._(_root);
-}
-
-// Path: pinkieMewPage
-class TranslationsPinkieMewPageJa {
-	TranslationsPinkieMewPageJa._(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-	String get title => 'Pinkie and Mew';
 }
 
 // Path: settingsPage
@@ -145,18 +147,6 @@ class TranslationsThemeJa {
 	// Translations
 	late final TranslationsThemeModeJa mode = TranslationsThemeModeJa._(_root);
 	late final TranslationsThemeSelectionJa selection = TranslationsThemeSelectionJa._(_root);
-}
-
-// Path: topLevelTab
-class TranslationsTopLevelTabJa {
-	TranslationsTopLevelTabJa._(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-	late final TranslationsTopLevelTabHomeJa home = TranslationsTopLevelTabHomeJa._(_root);
-	late final TranslationsTopLevelTabRiverpodJa riverpod = TranslationsTopLevelTabRiverpodJa._(_root);
-	late final TranslationsTopLevelTabSettingsJa settings = TranslationsTopLevelTabSettingsJa._(_root);
 }
 
 // Path: accountPage.appBar
@@ -208,6 +198,47 @@ class TranslationsHomePageListJa {
 	// Translations
 	late final TranslationsHomePageListAppInfoJa appInfo = TranslationsHomePageListAppInfoJa._(_root);
 	String get doubleCount => '2倍されたカウント値：';
+}
+
+// Path: pubDevPackagesPage.appBar
+class TranslationsPubDevPackagesPageAppBarJa {
+	TranslationsPubDevPackagesPageAppBarJa._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Pub.dev パッケージ';
+}
+
+// Path: pubDevPackagesPage.searchBar
+class TranslationsPubDevPackagesPageSearchBarJa {
+	TranslationsPubDevPackagesPageSearchBarJa._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get hintText => 'パッケージを検索';
+}
+
+// Path: pubDevPackagesPage.body
+class TranslationsPubDevPackagesPageBodyJa {
+	TranslationsPubDevPackagesPageBodyJa._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get emptyLabel => 'パッケージが見つかりませんでした。';
+}
+
+// Path: pubDevPackagesPage.dialog
+class TranslationsPubDevPackagesPageDialogJa {
+	TranslationsPubDevPackagesPageDialogJa._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsPubDevPackagesPageDialogContentJa content = TranslationsPubDevPackagesPageDialogContentJa._(_root);
+	late final TranslationsPubDevPackagesPageDialogButtonJa button = TranslationsPubDevPackagesPageDialogButtonJa._(_root);
 }
 
 // Path: notFoundPage.header
@@ -272,36 +303,6 @@ class TranslationsThemeSelectionJa {
 	late final TranslationsThemeSelectionPageJa page = TranslationsThemeSelectionPageJa._(_root);
 }
 
-// Path: topLevelTab.home
-class TranslationsTopLevelTabHomeJa {
-	TranslationsTopLevelTabHomeJa._(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-	String get label => 'Home';
-}
-
-// Path: topLevelTab.riverpod
-class TranslationsTopLevelTabRiverpodJa {
-	TranslationsTopLevelTabRiverpodJa._(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-	late final TranslationsTopLevelTabRiverpodExampleJa example = TranslationsTopLevelTabRiverpodExampleJa._(_root);
-}
-
-// Path: topLevelTab.settings
-class TranslationsTopLevelTabSettingsJa {
-	TranslationsTopLevelTabSettingsJa._(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-	String get label => 'Settings';
-}
-
 // Path: homePage.list.appInfo
 class TranslationsHomePageListAppInfoJa {
 	TranslationsHomePageListAppInfoJa._(this._root);
@@ -310,6 +311,27 @@ class TranslationsHomePageListAppInfoJa {
 
 	// Translations
 	String get label => 'アプリ情報';
+}
+
+// Path: pubDevPackagesPage.dialog.content
+class TranslationsPubDevPackagesPageDialogContentJa {
+	TranslationsPubDevPackagesPageDialogContentJa._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get version => '最新バージョン :';
+	String get description => '説明 :';
+}
+
+// Path: pubDevPackagesPage.dialog.button
+class TranslationsPubDevPackagesPageDialogButtonJa {
+	TranslationsPubDevPackagesPageDialogButtonJa._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final TranslationsPubDevPackagesPageDialogButtonCloseJa close = TranslationsPubDevPackagesPageDialogButtonCloseJa._(_root);
 }
 
 // Path: settingsPage.list.themeSelector
@@ -366,14 +388,14 @@ class TranslationsThemeSelectionPageJa {
 	late final TranslationsThemeSelectionPageAppBarJa appBar = TranslationsThemeSelectionPageAppBarJa._(_root);
 }
 
-// Path: topLevelTab.riverpod.example
-class TranslationsTopLevelTabRiverpodExampleJa {
-	TranslationsTopLevelTabRiverpodExampleJa._(this._root);
+// Path: pubDevPackagesPage.dialog.button.close
+class TranslationsPubDevPackagesPageDialogButtonCloseJa {
+	TranslationsPubDevPackagesPageDialogButtonCloseJa._(this._root);
 
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get label => 'Riverpod';
+	String get label => 'とじる';
 }
 
 // Path: theme.selection.page.appBar
@@ -400,11 +422,16 @@ extension on Translations {
 			case 'homePage.appBar.title': return 'Home';
 			case 'homePage.list.appInfo.label': return 'アプリ情報';
 			case 'homePage.list.doubleCount': return '2倍されたカウント値：';
+			case 'pubDevPackagesPage.appBar.title': return 'Pub.dev パッケージ';
+			case 'pubDevPackagesPage.searchBar.hintText': return 'パッケージを検索';
+			case 'pubDevPackagesPage.body.emptyLabel': return 'パッケージが見つかりませんでした。';
+			case 'pubDevPackagesPage.dialog.content.version': return '最新バージョン :';
+			case 'pubDevPackagesPage.dialog.content.description': return '説明 :';
+			case 'pubDevPackagesPage.dialog.button.close.label': return 'とじる';
 			case 'notFoundPage.title': return '404 Not Found';
 			case 'notFoundPage.header.label': return 'ごめんなさい🙏';
 			case 'notFoundPage.description': return 'is not found.';
 			case 'notFoundPage.backButton.label': return 'is not found.';
-			case 'pinkieMewPage.title': return 'Pinkie and Mew';
 			case 'settingsPage.appBar.title': return '設定';
 			case 'settingsPage.list.themeSelector.label': return 'テーマ選択';
 			case 'settingsPage.list.account.label': return 'アカウント';
@@ -415,9 +442,6 @@ extension on Translations {
 			case 'theme.mode.subtitle.light': return '明るいテーマ';
 			case 'theme.mode.subtitle.dark': return '暗いテーマ';
 			case 'theme.selection.page.appBar.title': return 'テーマ選択';
-			case 'topLevelTab.home.label': return 'Home';
-			case 'topLevelTab.riverpod.example.label': return 'Riverpod';
-			case 'topLevelTab.settings.label': return 'Settings';
 			default: return null;
 		}
 	}
