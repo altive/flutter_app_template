@@ -34,10 +34,10 @@ packages:
     dependency: "direct main"
     description:
       name: altfire_configurator
-      sha256: "3cf9d5654c9ff2c30741d3b3c14212f0f2f2b36e64abf396773423888831a2fb"
+      sha256: aeea5c1966483918127e6896e7ae927634508b9c4bfc2059cbaaecfaaff115e1
       url: "https://pub.dev"
     source: hosted
-    version: "0.1.4"
+    version: "1.0.0"
   altfire_messenger:
     dependency: "direct main"
     description:
