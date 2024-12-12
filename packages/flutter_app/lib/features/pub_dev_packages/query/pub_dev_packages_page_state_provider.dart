@@ -5,18 +5,19 @@ import '../../../package_adaptor/pub_dev_api_client_provider.dart';
 
 part 'pub_dev_packages_page_state_provider.g.dart';
 
+/// Provider for the search word of pub.dev packages.
 @Riverpod(keepAlive: true)
-class PackageSearchWordState extends _$PackageSearchWordState {
+class PubDevPackageSearchWordState extends _$PubDevPackageSearchWordState {
   @override
   String build() => '';
 
-  // Update the search word.
+  /// Update the search word.
   // ignore: use_setters_to_change_properties
   void update(String word) {
     state = word;
   }
 
-  // Clear the search word.
+  /// Clear the search word.
   void clear() {
     state = '';
   }
@@ -26,7 +27,7 @@ class PackageSearchWordState extends _$PackageSearchWordState {
 class PubDevPackagesPageState extends _$PubDevPackagesPageState {
   @override
   Future<GetSearchedPackagesResponseBody> build() async {
-    final searchWord = ref.watch(packageSearchWordStateProvider);
+    final searchWord = ref.watch(pubDevPackageSearchWordStateProvider);
     final client = ref.watch(pubDevApiClientProvider);
     final response = await client.getSearchedPackages(searchWord: searchWord);
     return response;
@@ -36,7 +37,7 @@ class PubDevPackagesPageState extends _$PubDevPackagesPageState {
     state = const AsyncLoading<GetSearchedPackagesResponseBody>()
         .copyWithPrevious(state);
 
-    final searchWord = ref.read(packageSearchWordStateProvider);
+    final searchWord = ref.read(pubDevPackageSearchWordStateProvider);
     final client = ref.read(pubDevApiClientProvider);
     final response = await client.getSearchedPackages(
       searchWord: searchWord,

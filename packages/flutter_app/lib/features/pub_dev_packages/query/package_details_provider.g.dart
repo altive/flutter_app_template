@@ -8,7 +8,8 @@ part of 'package_details_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$packageDetailsHash() => r'6890125ca14e847841a92900e8b3304b33862ddf';
+String _$pubDevPackageDetailsHash() =>
+    r'009b9b652b9792197a424bd7825542bdcae202a6';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -31,36 +32,36 @@ class _SystemHash {
   }
 }
 
-/// Provider for package details by package name.
+/// Provider for pub.dev package details by package name.
 ///
-/// Copied from [packageDetails].
-@ProviderFor(packageDetails)
-const packageDetailsProvider = PackageDetailsFamily();
+/// Copied from [pubDevPackageDetails].
+@ProviderFor(pubDevPackageDetails)
+const pubDevPackageDetailsProvider = PubDevPackageDetailsFamily();
 
-/// Provider for package details by package name.
+/// Provider for pub.dev package details by package name.
 ///
-/// Copied from [packageDetails].
-class PackageDetailsFamily
+/// Copied from [pubDevPackageDetails].
+class PubDevPackageDetailsFamily
     extends Family<AsyncValue<GetPackageDetailsResponseBody>> {
-  /// Provider for package details by package name.
+  /// Provider for pub.dev package details by package name.
   ///
-  /// Copied from [packageDetails].
-  const PackageDetailsFamily();
+  /// Copied from [pubDevPackageDetails].
+  const PubDevPackageDetailsFamily();
 
-  /// Provider for package details by package name.
+  /// Provider for pub.dev package details by package name.
   ///
-  /// Copied from [packageDetails].
-  PackageDetailsProvider call({
+  /// Copied from [pubDevPackageDetails].
+  PubDevPackageDetailsProvider call({
     required String packageName,
   }) {
-    return PackageDetailsProvider(
+    return PubDevPackageDetailsProvider(
       packageName: packageName,
     );
   }
 
   @override
-  PackageDetailsProvider getProviderOverride(
-    covariant PackageDetailsProvider provider,
+  PubDevPackageDetailsProvider getProviderOverride(
+    covariant PubDevPackageDetailsProvider provider,
   ) {
     return call(
       packageName: provider.packageName,
@@ -79,37 +80,37 @@ class PackageDetailsFamily
       _allTransitiveDependencies;
 
   @override
-  String? get name => r'packageDetailsProvider';
+  String? get name => r'pubDevPackageDetailsProvider';
 }
 
-/// Provider for package details by package name.
+/// Provider for pub.dev package details by package name.
 ///
-/// Copied from [packageDetails].
-class PackageDetailsProvider
+/// Copied from [pubDevPackageDetails].
+class PubDevPackageDetailsProvider
     extends AutoDisposeFutureProvider<GetPackageDetailsResponseBody> {
-  /// Provider for package details by package name.
+  /// Provider for pub.dev package details by package name.
   ///
-  /// Copied from [packageDetails].
-  PackageDetailsProvider({
+  /// Copied from [pubDevPackageDetails].
+  PubDevPackageDetailsProvider({
     required String packageName,
   }) : this._internal(
-          (ref) => packageDetails(
-            ref as PackageDetailsRef,
+          (ref) => pubDevPackageDetails(
+            ref as PubDevPackageDetailsRef,
             packageName: packageName,
           ),
-          from: packageDetailsProvider,
-          name: r'packageDetailsProvider',
+          from: pubDevPackageDetailsProvider,
+          name: r'pubDevPackageDetailsProvider',
           debugGetCreateSourceHash:
               const bool.fromEnvironment('dart.vm.product')
                   ? null
-                  : _$packageDetailsHash,
-          dependencies: PackageDetailsFamily._dependencies,
+                  : _$pubDevPackageDetailsHash,
+          dependencies: PubDevPackageDetailsFamily._dependencies,
           allTransitiveDependencies:
-              PackageDetailsFamily._allTransitiveDependencies,
+              PubDevPackageDetailsFamily._allTransitiveDependencies,
           packageName: packageName,
         );
 
-  PackageDetailsProvider._internal(
+  PubDevPackageDetailsProvider._internal(
     super._createNotifier, {
     required super.name,
     required super.dependencies,
@@ -123,13 +124,14 @@ class PackageDetailsProvider
 
   @override
   Override overrideWith(
-    FutureOr<GetPackageDetailsResponseBody> Function(PackageDetailsRef provider)
+    FutureOr<GetPackageDetailsResponseBody> Function(
+            PubDevPackageDetailsRef provider)
         create,
   ) {
     return ProviderOverride(
       origin: this,
-      override: PackageDetailsProvider._internal(
-        (ref) => create(ref as PackageDetailsRef),
+      override: PubDevPackageDetailsProvider._internal(
+        (ref) => create(ref as PubDevPackageDetailsRef),
         from: from,
         name: null,
         dependencies: null,
@@ -143,12 +145,13 @@ class PackageDetailsProvider
   @override
   AutoDisposeFutureProviderElement<GetPackageDetailsResponseBody>
       createElement() {
-    return _PackageDetailsProviderElement(this);
+    return _PubDevPackageDetailsProviderElement(this);
   }
 
   @override
   bool operator ==(Object other) {
-    return other is PackageDetailsProvider && other.packageName == packageName;
+    return other is PubDevPackageDetailsProvider &&
+        other.packageName == packageName;
   }
 
   @override
@@ -162,19 +165,20 @@ class PackageDetailsProvider
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-mixin PackageDetailsRef
+mixin PubDevPackageDetailsRef
     on AutoDisposeFutureProviderRef<GetPackageDetailsResponseBody> {
   /// The parameter `packageName` of this provider.
   String get packageName;
 }
 
-class _PackageDetailsProviderElement
+class _PubDevPackageDetailsProviderElement
     extends AutoDisposeFutureProviderElement<GetPackageDetailsResponseBody>
-    with PackageDetailsRef {
-  _PackageDetailsProviderElement(super.provider);
+    with PubDevPackageDetailsRef {
+  _PubDevPackageDetailsProviderElement(super.provider);
 
   @override
-  String get packageName => (origin as PackageDetailsProvider).packageName;
+  String get packageName =>
+      (origin as PubDevPackageDetailsProvider).packageName;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

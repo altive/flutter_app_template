@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:convenient_widgets/convenient_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -17,9 +18,7 @@ class PubDevPackagesPage extends ConsumerWidget {
     final t = Translations.of(context);
     final asyncValue = ref.watch(pubDevPackagesPageStateProvider);
 
-    return GestureDetector(
-      behavior: HitTestBehavior.opaque,
-      onTap: FocusScope.of(context).unfocus,
+    return UnfocusOnTap(
       child: Scaffold(
         appBar: AppBar(
           title: Text(t.pubDevPackagesPage.appBar.title),
@@ -54,20 +53,22 @@ class PubDevPackagesPage extends ConsumerWidget {
                     floating: true,
                     title: TextFormField(
                       controller: TextEditingController(
-                        text: ref.watch(packageSearchWordStateProvider),
+                        text: ref.watch(pubDevPackageSearchWordStateProvider),
                       ),
                       decoration: InputDecoration(
                         hintText: t.pubDevPackagesPage.searchBar.hintText,
                         prefixIcon: const Icon(Icons.search),
                         suffixIcon: IconButton(
                           onPressed: () => ref
-                              .read(packageSearchWordStateProvider.notifier)
+                              .read(
+                                pubDevPackageSearchWordStateProvider.notifier,
+                              )
                               .clear(),
                           icon: const Icon(Icons.clear),
                         ),
                       ),
                       onFieldSubmitted: ref
-                          .read(packageSearchWordStateProvider.notifier)
+                          .read(pubDevPackageSearchWordStateProvider.notifier)
                           .update,
                     ),
                   ),
@@ -130,7 +131,7 @@ class _PackageCard extends StatelessWidget {
             builder: (_) => Consumer(
               builder: (context, ref, child) {
                 final asyncValue = ref.watch(
-                  packageDetailsProvider(packageName: packageName),
+                  pubDevPackageDetailsProvider(packageName: packageName),
                 );
 
                 return AlertDialog(

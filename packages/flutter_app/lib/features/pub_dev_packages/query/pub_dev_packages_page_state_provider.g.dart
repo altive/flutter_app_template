@@ -8,25 +8,27 @@ part of 'pub_dev_packages_page_state_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$packageSearchWordStateHash() =>
-    r'7810dd56f25c9c36151b9a33242520bdd5c583c4';
+String _$pubDevPackageSearchWordStateHash() =>
+    r'4503635ef8a15e7279a81f805139a09dbafd0320';
 
-/// See also [PackageSearchWordState].
-@ProviderFor(PackageSearchWordState)
-final packageSearchWordStateProvider =
-    NotifierProvider<PackageSearchWordState, String>.internal(
-  PackageSearchWordState.new,
-  name: r'packageSearchWordStateProvider',
+/// Provider for the search word of pub.dev packages.
+///
+/// Copied from [PubDevPackageSearchWordState].
+@ProviderFor(PubDevPackageSearchWordState)
+final pubDevPackageSearchWordStateProvider =
+    NotifierProvider<PubDevPackageSearchWordState, String>.internal(
+  PubDevPackageSearchWordState.new,
+  name: r'pubDevPackageSearchWordStateProvider',
   debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
       ? null
-      : _$packageSearchWordStateHash,
+      : _$pubDevPackageSearchWordStateHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$PackageSearchWordState = Notifier<String>;
+typedef _$PubDevPackageSearchWordState = Notifier<String>;
 String _$pubDevPackagesPageStateHash() =>
-    r'f29b133a92e4518315cf9beb7fd85773ac9f8593';
+    r'fa605b47791791857c2a92b0e3f8a0ca0e8ecc38';
 
 /// See also [PubDevPackagesPageState].
 @ProviderFor(PubDevPackagesPageState)

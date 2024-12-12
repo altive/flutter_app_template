@@ -6,9 +6,9 @@ import '../../../package_adaptor/pub_dev_api_client_provider.dart';
 
 part 'package_details_provider.g.dart';
 
-/// Provider for package details by package name.
+/// Provider for pub.dev package details by package name.
 @riverpod
-Future<GetPackageDetailsResponseBody> packageDetails(
+Future<GetPackageDetailsResponseBody> pubDevPackageDetails(
   Ref ref, {
   required String packageName,
 }) async {
