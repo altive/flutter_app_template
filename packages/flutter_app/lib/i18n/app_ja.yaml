@@ -19,6 +19,20 @@ homePage:
     appInfo:
       label: "アプリ情報"
     doubleCount: "2倍されたカウント値："
+pubDevPackagesPage:
+  appBar:
+    title: "Pub.dev パッケージ"
+  searchBar:
+    hintText: "パッケージを検索"
+  body:
+    emptyLabel: "パッケージが見つかりませんでした。"
+  dialog:
+    content:
+      version: "最新バージョン :"
+      description: "説明 :"
+    button: 
+      close: 
+        label: "とじる"
 notFoundPage:
   title: "404 Not Found"
   header:
@@ -26,8 +40,6 @@ notFoundPage:
   description: "is not found."
   backButton:
     label: "is not found."
-pinkieMewPage:
-  title: "Pinkie and Mew"
 settingsPage:
   appBar:
     title: "設定"
@@ -50,11 +62,3 @@ theme:
     page:
       appBar:
         title: "テーマ選択"
-topLevelTab:
-  home:
-    label: "Home"
-  riverpod:
-    example:
-      label: "Riverpod"
-  settings:
-    label: "Settings"

@@ -39,11 +39,10 @@ class TranslationsEn implements Translations {
 	@override late final _TranslationsAuthorEn author = _TranslationsAuthorEn._(_root);
 	@override late final _TranslationsButtonEn button = _TranslationsButtonEn._(_root);
 	@override late final _TranslationsHomePageEn homePage = _TranslationsHomePageEn._(_root);
+	@override late final _TranslationsPubDevPackagesPageEn pubDevPackagesPage = _TranslationsPubDevPackagesPageEn._(_root);
 	@override late final _TranslationsNotFoundPageEn notFoundPage = _TranslationsNotFoundPageEn._(_root);
-	@override late final _TranslationsPinkieMewPageEn pinkieMewPage = _TranslationsPinkieMewPageEn._(_root);
 	@override late final _TranslationsSettingsPageEn settingsPage = _TranslationsSettingsPageEn._(_root);
 	@override late final _TranslationsThemeEn theme = _TranslationsThemeEn._(_root);
-	@override late final _TranslationsTopLevelTabEn topLevelTab = _TranslationsTopLevelTabEn._(_root);
 }
 
 // Path: accountPage
@@ -98,6 +97,19 @@ class _TranslationsHomePageEn implements TranslationsHomePageJa {
 	@override late final _TranslationsHomePageListEn list = _TranslationsHomePageListEn._(_root);
 }
 
+// Path: pubDevPackagesPage
+class _TranslationsPubDevPackagesPageEn implements TranslationsPubDevPackagesPageJa {
+	_TranslationsPubDevPackagesPageEn._(this._root);
+
+	final TranslationsEn _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsPubDevPackagesPageAppBarEn appBar = _TranslationsPubDevPackagesPageAppBarEn._(_root);
+	@override late final _TranslationsPubDevPackagesPageSearchBarEn searchBar = _TranslationsPubDevPackagesPageSearchBarEn._(_root);
+	@override late final _TranslationsPubDevPackagesPageBodyEn body = _TranslationsPubDevPackagesPageBodyEn._(_root);
+	@override late final _TranslationsPubDevPackagesPageDialogEn dialog = _TranslationsPubDevPackagesPageDialogEn._(_root);
+}
+
 // Path: notFoundPage
 class _TranslationsNotFoundPageEn implements TranslationsNotFoundPageJa {
 	_TranslationsNotFoundPageEn._(this._root);
@@ -109,16 +121,6 @@ class _TranslationsNotFoundPageEn implements TranslationsNotFoundPageJa {
 	@override late final _TranslationsNotFoundPageHeaderEn header = _TranslationsNotFoundPageHeaderEn._(_root);
 	@override String get description => 'is not found.';
 	@override late final _TranslationsNotFoundPageBackButtonEn backButton = _TranslationsNotFoundPageBackButtonEn._(_root);
-}
-
-// Path: pinkieMewPage
-class _TranslationsPinkieMewPageEn implements TranslationsPinkieMewPageJa {
-	_TranslationsPinkieMewPageEn._(this._root);
-
-	final TranslationsEn _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'Pinkie and Mew';
 }
 
 // Path: settingsPage
@@ -141,18 +143,6 @@ class _TranslationsThemeEn implements TranslationsThemeJa {
 	// Translations
 	@override late final _TranslationsThemeModeEn mode = _TranslationsThemeModeEn._(_root);
 	@override late final _TranslationsThemeSelectionEn selection = _TranslationsThemeSelectionEn._(_root);
-}
-
-// Path: topLevelTab
-class _TranslationsTopLevelTabEn implements TranslationsTopLevelTabJa {
-	_TranslationsTopLevelTabEn._(this._root);
-
-	final TranslationsEn _root; // ignore: unused_field
-
-	// Translations
-	@override late final _TranslationsTopLevelTabHomeEn home = _TranslationsTopLevelTabHomeEn._(_root);
-	@override late final _TranslationsTopLevelTabRiverpodEn riverpod = _TranslationsTopLevelTabRiverpodEn._(_root);
-	@override late final _TranslationsTopLevelTabSettingsEn settings = _TranslationsTopLevelTabSettingsEn._(_root);
 }
 
 // Path: accountPage.appBar
@@ -204,6 +194,47 @@ class _TranslationsHomePageListEn implements TranslationsHomePageListJa {
 	// Translations
 	@override late final _TranslationsHomePageListAppInfoEn appInfo = _TranslationsHomePageListAppInfoEn._(_root);
 	@override String get doubleCount => 'The doubled count value :';
+}
+
+// Path: pubDevPackagesPage.appBar
+class _TranslationsPubDevPackagesPageAppBarEn implements TranslationsPubDevPackagesPageAppBarJa {
+	_TranslationsPubDevPackagesPageAppBarEn._(this._root);
+
+	final TranslationsEn _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Pub.dev Packages';
+}
+
+// Path: pubDevPackagesPage.searchBar
+class _TranslationsPubDevPackagesPageSearchBarEn implements TranslationsPubDevPackagesPageSearchBarJa {
+	_TranslationsPubDevPackagesPageSearchBarEn._(this._root);
+
+	final TranslationsEn _root; // ignore: unused_field
+
+	// Translations
+	@override String get hintText => 'Search packages';
+}
+
+// Path: pubDevPackagesPage.body
+class _TranslationsPubDevPackagesPageBodyEn implements TranslationsPubDevPackagesPageBodyJa {
+	_TranslationsPubDevPackagesPageBodyEn._(this._root);
+
+	final TranslationsEn _root; // ignore: unused_field
+
+	// Translations
+	@override String get emptyLabel => 'No packages found.';
+}
+
+// Path: pubDevPackagesPage.dialog
+class _TranslationsPubDevPackagesPageDialogEn implements TranslationsPubDevPackagesPageDialogJa {
+	_TranslationsPubDevPackagesPageDialogEn._(this._root);
+
+	final TranslationsEn _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsPubDevPackagesPageDialogContentEn content = _TranslationsPubDevPackagesPageDialogContentEn._(_root);
+	@override late final _TranslationsPubDevPackagesPageDialogButtonEn button = _TranslationsPubDevPackagesPageDialogButtonEn._(_root);
 }
 
 // Path: notFoundPage.header
@@ -268,36 +299,6 @@ class _TranslationsThemeSelectionEn implements TranslationsThemeSelectionJa {
 	@override late final _TranslationsThemeSelectionPageEn page = _TranslationsThemeSelectionPageEn._(_root);
 }
 
-// Path: topLevelTab.home
-class _TranslationsTopLevelTabHomeEn implements TranslationsTopLevelTabHomeJa {
-	_TranslationsTopLevelTabHomeEn._(this._root);
-
-	final TranslationsEn _root; // ignore: unused_field
-
-	// Translations
-	@override String get label => 'Home';
-}
-
-// Path: topLevelTab.riverpod
-class _TranslationsTopLevelTabRiverpodEn implements TranslationsTopLevelTabRiverpodJa {
-	_TranslationsTopLevelTabRiverpodEn._(this._root);
-
-	final TranslationsEn _root; // ignore: unused_field
-
-	// Translations
-	@override late final _TranslationsTopLevelTabRiverpodExampleEn example = _TranslationsTopLevelTabRiverpodExampleEn._(_root);
-}
-
-// Path: topLevelTab.settings
-class _TranslationsTopLevelTabSettingsEn implements TranslationsTopLevelTabSettingsJa {
-	_TranslationsTopLevelTabSettingsEn._(this._root);
-
-	final TranslationsEn _root; // ignore: unused_field
-
-	// Translations
-	@override String get label => 'Settings';
-}
-
 // Path: homePage.list.appInfo
 class _TranslationsHomePageListAppInfoEn implements TranslationsHomePageListAppInfoJa {
 	_TranslationsHomePageListAppInfoEn._(this._root);
@@ -306,6 +307,27 @@ class _TranslationsHomePageListAppInfoEn implements TranslationsHomePageListAppI
 
 	// Translations
 	@override String get label => 'App Info';
+}
+
+// Path: pubDevPackagesPage.dialog.content
+class _TranslationsPubDevPackagesPageDialogContentEn implements TranslationsPubDevPackagesPageDialogContentJa {
+	_TranslationsPubDevPackagesPageDialogContentEn._(this._root);
+
+	final TranslationsEn _root; // ignore: unused_field
+
+	// Translations
+	@override String get version => 'Latest version :';
+	@override String get description => 'Description :';
+}
+
+// Path: pubDevPackagesPage.dialog.button
+class _TranslationsPubDevPackagesPageDialogButtonEn implements TranslationsPubDevPackagesPageDialogButtonJa {
+	_TranslationsPubDevPackagesPageDialogButtonEn._(this._root);
+
+	final TranslationsEn _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsPubDevPackagesPageDialogButtonCloseEn close = _TranslationsPubDevPackagesPageDialogButtonCloseEn._(_root);
 }
 
 // Path: settingsPage.list.themeSelector
@@ -362,14 +384,14 @@ class _TranslationsThemeSelectionPageEn implements TranslationsThemeSelectionPag
 	@override late final _TranslationsThemeSelectionPageAppBarEn appBar = _TranslationsThemeSelectionPageAppBarEn._(_root);
 }
 
-// Path: topLevelTab.riverpod.example
-class _TranslationsTopLevelTabRiverpodExampleEn implements TranslationsTopLevelTabRiverpodExampleJa {
-	_TranslationsTopLevelTabRiverpodExampleEn._(this._root);
+// Path: pubDevPackagesPage.dialog.button.close
+class _TranslationsPubDevPackagesPageDialogButtonCloseEn implements TranslationsPubDevPackagesPageDialogButtonCloseJa {
+	_TranslationsPubDevPackagesPageDialogButtonCloseEn._(this._root);
 
 	final TranslationsEn _root; // ignore: unused_field
 
 	// Translations
-	@override String get label => 'Riverpod';
+	@override String get label => 'Close';
 }
 
 // Path: theme.selection.page.appBar
@@ -396,11 +418,16 @@ extension on TranslationsEn {
 			case 'homePage.appBar.title': return 'Home';
 			case 'homePage.list.appInfo.label': return 'App Info';
 			case 'homePage.list.doubleCount': return 'The doubled count value :';
+			case 'pubDevPackagesPage.appBar.title': return 'Pub.dev Packages';
+			case 'pubDevPackagesPage.searchBar.hintText': return 'Search packages';
+			case 'pubDevPackagesPage.body.emptyLabel': return 'No packages found.';
+			case 'pubDevPackagesPage.dialog.content.version': return 'Latest version :';
+			case 'pubDevPackagesPage.dialog.content.description': return 'Description :';
+			case 'pubDevPackagesPage.dialog.button.close.label': return 'Close';
 			case 'notFoundPage.title': return '404 Not Found';
 			case 'notFoundPage.header.label': return 'Sorry...';
 			case 'notFoundPage.description': return 'is not found.';
 			case 'notFoundPage.backButton.label': return 'is not found.';
-			case 'pinkieMewPage.title': return 'Pinkie and Mew';
 			case 'settingsPage.appBar.title': return 'Settings';
 			case 'settingsPage.list.themeSelector.label': return 'Theme Selector';
 			case 'settingsPage.list.account.label': return 'Account';
@@ -411,9 +438,6 @@ extension on TranslationsEn {
 			case 'theme.mode.subtitle.light': return 'Light';
 			case 'theme.mode.subtitle.dark': return 'Dark';
 			case 'theme.selection.page.appBar.title': return 'Theme Selector';
-			case 'topLevelTab.home.label': return 'Home';
-			case 'topLevelTab.riverpod.example.label': return 'Riverpod';
-			case 'topLevelTab.settings.label': return 'Settings';
 			default: return null;
 		}
 	}
