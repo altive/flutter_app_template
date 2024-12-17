@@ -112,9 +112,9 @@ RouteBase get $mainShellRouteData => StatefulShellRouteData.$route(
         StatefulShellBranchData.$branch(
           routes: [
             GoRouteData.$route(
-              path: '/post',
-              name: '/post',
-              factory: $PostRouteDataExtension._fromState,
+              path: '/pub_dev_packages',
+              name: '/pub_dev_packages',
+              factory: $PubDevPackagesRouteDataExtension._fromState,
             ),
           ],
         ),
@@ -355,11 +355,12 @@ extension $ExploreRouteDataExtension on ExploreRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $PostRouteDataExtension on PostRouteData {
-  static PostRouteData _fromState(GoRouterState state) => const PostRouteData();
+extension $PubDevPackagesRouteDataExtension on PubDevPackagesRouteData {
+  static PubDevPackagesRouteData _fromState(GoRouterState state) =>
+      const PubDevPackagesRouteData();
 
   String get location => GoRouteData.$location(
-        '/post',
+        '/pub_dev_packages',
       );
 
   void go(BuildContext context) => context.go(location);
