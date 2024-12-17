@@ -17,7 +17,7 @@ dependencies:
   cached_network_image: ^3.4.0
   clock: ^1.1.1
   cloud_firestore: ^5.5.1
-  collection: ^1.16.0
+  collection: ^1.19.0
   connectivity_plus: ^6.1.0
   convenient_widgets:
     path: ../convenient_widgets
