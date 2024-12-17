@@ -126,9 +126,7 @@ class __$$PackagePubspecImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PackagePubspecImpl
-    with DiagnosticableTreeMixin
-    implements _PackagePubspec {
+class _$PackagePubspecImpl implements _PackagePubspec {
   const _$PackagePubspecImpl(
       {required this.name, required this.version, required this.description});
 
@@ -143,18 +141,8 @@ class _$PackagePubspecImpl
   final String description;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'PackagePubspec(name: $name, version: $version, description: $description)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'PackagePubspec'))
-      ..add(DiagnosticsProperty('name', name))
-      ..add(DiagnosticsProperty('version', version))
-      ..add(DiagnosticsProperty('description', description));
   }
 
   @override

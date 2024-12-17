@@ -105,7 +105,7 @@ class __$$PackageNameImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PackageNameImpl with DiagnosticableTreeMixin implements _PackageName {
+class _$PackageNameImpl implements _PackageName {
   const _$PackageNameImpl({@JsonKey(name: 'package') required this.name});
 
   factory _$PackageNameImpl.fromJson(Map<String, dynamic> json) =>
@@ -116,16 +116,8 @@ class _$PackageNameImpl with DiagnosticableTreeMixin implements _PackageName {
   final String name;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'PackageName(name: $name)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'PackageName'))
-      ..add(DiagnosticsProperty('name', name));
   }
 
   @override
