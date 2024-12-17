@@ -5,7 +5,6 @@ import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../initialization_provider.dart';
 import '../package_adaptor/tracker_provider.dart';
 import '../pages/not_found_page/error_page.dart';
 import '../util/logger.dart';
@@ -16,16 +15,12 @@ part 'router_provider.g.dart';
 
 @Riverpod(keepAlive: true)
 Raw<GoRouter> router(Ref ref) {
-  final initialization = ref.watch(initializationProvider);
   final tracker = ref.watch(trackerProvider);
 
   late final GoRouter router;
   router = GoRouter(
     routes: $appRoutes,
     redirect: (context, state) {
-      if (initialization.isLoading || initialization.hasError) {
-        return InitializationRoute.path;
-      }
       if (state.matchedLocation == '/') {
         return HomeRouteData.path;
       }

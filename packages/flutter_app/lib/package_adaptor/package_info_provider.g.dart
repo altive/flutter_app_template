@@ -9,7 +9,7 @@ part of 'package_info_provider.dart';
 // **************************************************************************
 
 String _$packageInfoInitializingHash() =>
-    r'92258b1cb5e798dac5f0ee4dadb2a05b2bc9c6a9';
+    r'9e9859b77c365e47475d313f542ee8bf55158c16';
 
 /// Providers that need to initialize asynchronously only once at startup.
 ///

@@ -9,33 +9,8 @@ part of 'app_routes.dart';
 // **************************************************************************
 
 List<RouteBase> get $appRoutes => [
-      $initializationRoute,
       $mainShellRouteData,
     ];
-
-RouteBase get $initializationRoute => GoRouteData.$route(
-      path: '/init',
-      name: '/init',
-      factory: $InitializationRouteExtension._fromState,
-    );
-
-extension $InitializationRouteExtension on InitializationRoute {
-  static InitializationRoute _fromState(GoRouterState state) =>
-      const InitializationRoute();
-
-  String get location => GoRouteData.$location(
-        '/init',
-      );
-
-  void go(BuildContext context) => context.go(location);
-
-  Future<T?> push<T>(BuildContext context) => context.push<T>(location);
-
-  void pushReplacement(BuildContext context) =>
-      context.pushReplacement(location);
-
-  void replace(BuildContext context) => context.replace(location);
-}
 
 RouteBase get $mainShellRouteData => StatefulShellRouteData.$route(
       factory: $MainShellRouteDataExtension._fromState,
