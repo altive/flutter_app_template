@@ -18,9 +18,9 @@ dependencies:
 
 dev_dependencies:
   altive_lints: ^1.16.0
-  build_runner: ^2.4.13
+  build_runner: ^2.4.14
   custom_lint: ^0.7.0
-  widgetbook_generator: ^3.9.0
+  widgetbook_generator: ^3.9.1
 
 flutter:
   uses-material-design: true
