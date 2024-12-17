@@ -4,13 +4,16 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../initialization_provider.dart';
 
+/// The first page.
 class InitializationPage extends ConsumerWidget {
-  const InitializationPage({super.key});
+  const InitializationPage({super.key, required this.onInitialized});
+
+  final WidgetBuilder onInitialized;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return switch (ref.watch(initializationProvider)) {
-      AsyncData(isLoading: false) => throw AssertionError(),
+      AsyncData(isLoading: false) => onInitialized(context),
       AsyncError(:final error) => _ErrorPage(
           error,
           onRetry: () => ref.invalidate(initializationProvider),

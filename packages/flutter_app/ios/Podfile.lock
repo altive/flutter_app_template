@@ -434,9 +434,9 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AppAuth: d4f13a8fe0baf391b2108511793e4b479691fb73
-  cloud_firestore: 56bca083ecf07f16188ace1d5b57123bcb1b3465
-  connectivity_plus: 18382e7311ba19efcaee94442b23b32507b20695
-  device_info_plus: bf2e3232933866d73fe290f2942f2156cdd10342
+  cloud_firestore: 3fafe78d755b01fe1fd267a87bb52e80b7dacacc
+  connectivity_plus: 4c41c08fc6d7c91f63bc7aec70ffe3730b04f563
+  device_info_plus: 97af1d7e84681a90d0693e63169a5d50e0839a0d
   Firebase: cf1b19f21410b029b6786a54e9764a0cacad3c99
   firebase_analytics: 2815af29d49c1a994652abd37a5b001a88bc7b75
   firebase_auth: c4bdd9d7b338ac004008cb5024a643584e0ec03f

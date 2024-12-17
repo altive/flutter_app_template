@@ -1,27 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../pages/initialization_page.dart';
 import '../pages/main/main_page.dart';
 import 'branches/branches.dart';
 
 part 'app_routes.g.dart';
-
-@TypedGoRoute<InitializationRoute>(
-  name: InitializationRoute.name,
-  path: InitializationRoute.path,
-)
-class InitializationRoute extends GoRouteData {
-  const InitializationRoute();
-
-  static const String name = '/init';
-  static const String path = '/init';
-
-  @override
-  Page<void> buildPage(BuildContext context, GoRouterState state) {
-    return const NoTransitionPage(child: InitializationPage());
-  }
-}
 
 @TypedStatefulShellRoute<MainShellRouteData>(
   branches: [

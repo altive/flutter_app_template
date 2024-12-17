@@ -2,27 +2,33 @@
 
 // ignore_for_file: duplicate_ignore, type=lint, implicit_dynamic_parameter, implicit_dynamic_type, implicit_dynamic_method, strict_raw_type
 
-part of 'router_provider.dart';
+part of 'configurator_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$routerHash() => r'49290ce66bc128bc0a2d2bd864b390e877df9735';
+String _$configuratorHash() => r'9e492ffb951b15cbe24c846fb5bdcbb0fe71a690';
 
-/// See also [router].
-@ProviderFor(router)
-final routerProvider = Provider<Raw<GoRouter>>.internal(
-  router,
-  name: r'routerProvider',
+/// Provides a [Configurator] to retrieve parameters using "RemoteConfig".
+///
+/// It is recommended to call [Configurator.fetchAndActivate] before using
+/// the parameters (e.g., at app startup) in order to fetch and activate them
+/// for use in the app.
+///
+/// Copied from [configurator].
+@ProviderFor(configurator)
+final configuratorProvider = Provider<Configurator>.internal(
+  configurator,
+  name: r'configuratorProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$routerHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$configuratorHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
-typedef RouterRef = ProviderRef<Raw<GoRouter>>;
+typedef ConfiguratorRef = ProviderRef<Configurator>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
