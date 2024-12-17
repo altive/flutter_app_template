@@ -4,7 +4,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../package_adaptor/pub_dev_api_client_provider.dart';
 
-part 'package_details_provider.g.dart';
+part 'pub_dev_package_details_provider.g.dart';
 
 /// Provider for pub.dev package details by package name.
 @riverpod

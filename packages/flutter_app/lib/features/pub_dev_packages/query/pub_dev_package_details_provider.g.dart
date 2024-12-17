@@ -2,7 +2,7 @@
 
 // ignore_for_file: duplicate_ignore, type=lint, implicit_dynamic_parameter, implicit_dynamic_type, implicit_dynamic_method, strict_raw_type
 
-part of 'package_details_provider.dart';
+part of 'pub_dev_package_details_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
