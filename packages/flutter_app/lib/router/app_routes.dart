@@ -81,11 +81,11 @@ class InitializationRoute extends GoRouteData {
         ),
       ],
     ),
-    TypedStatefulShellBranch<PostShellBranchData>(
+    TypedStatefulShellBranch<PubDevPackagesShellBranchData>(
       routes: [
-        TypedGoRoute<PostRouteData>(
-          name: PostRouteData.name,
-          path: PostRouteData.path,
+        TypedGoRoute<PubDevPackagesRouteData>(
+          name: PubDevPackagesRouteData.name,
+          path: PubDevPackagesRouteData.path,
         ),
       ],
     ),
