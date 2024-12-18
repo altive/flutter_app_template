@@ -1,18 +1,16 @@
 name: widget_catalog
 description: "A new Flutter project."
 publish_to: "none"
-version: 0.1.0
+version: 1.0.0
 
 environment:
   sdk: ^3.5.3
 
 dependencies:
-  convenient_widgets:
-    path: ../convenient_widgets
+  convenient_widgets: ^1.0.0
   flutter:
     sdk: flutter
-  themes:
-    path: ../themes/
+  themes: ^1.0.0
   widgetbook: ^3.9.0
   widgetbook_annotation: ^3.2.0
 

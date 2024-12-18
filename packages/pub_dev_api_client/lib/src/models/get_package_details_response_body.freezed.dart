@@ -138,7 +138,6 @@ class __$$GetPackageDetailsResponseBodyImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$GetPackageDetailsResponseBodyImpl
-    with DiagnosticableTreeMixin
     implements _GetPackageDetailsResponseBody {
   const _$GetPackageDetailsResponseBodyImpl(
       {required this.name, required this.latest});
@@ -153,17 +152,8 @@ class _$GetPackageDetailsResponseBodyImpl
   final LatestPackageRelease latest;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'GetPackageDetailsResponseBody(name: $name, latest: $latest)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'GetPackageDetailsResponseBody'))
-      ..add(DiagnosticsProperty('name', name))
-      ..add(DiagnosticsProperty('latest', latest));
   }
 
   @override

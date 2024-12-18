@@ -1359,7 +1359,7 @@ packages:
       path: "../pub_dev_api_client"
       relative: true
     source: path
-    version: "1.0.0+1"
+    version: "1.0.0"
   pub_semver:
     dependency: transitive
     description:

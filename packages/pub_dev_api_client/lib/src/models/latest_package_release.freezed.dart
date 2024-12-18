@@ -120,9 +120,7 @@ class __$$LatestPackageReleaseImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$LatestPackageReleaseImpl
-    with DiagnosticableTreeMixin
-    implements _LatestPackageRelease {
+class _$LatestPackageReleaseImpl implements _LatestPackageRelease {
   const _$LatestPackageReleaseImpl({required this.pubspec});
 
   factory _$LatestPackageReleaseImpl.fromJson(Map<String, dynamic> json) =>
@@ -132,16 +130,8 @@ class _$LatestPackageReleaseImpl
   final PackagePubspec pubspec;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'LatestPackageRelease(pubspec: $pubspec)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'LatestPackageRelease'))
-      ..add(DiagnosticsProperty('pubspec', pubspec));
   }
 
   @override

@@ -127,7 +127,7 @@ class __$$GetSearchedPackagesResponseBodyImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$GetSearchedPackagesResponseBodyImpl
-    extends _GetSearchedPackagesResponseBody with DiagnosticableTreeMixin {
+    extends _GetSearchedPackagesResponseBody {
   const _$GetSearchedPackagesResponseBodyImpl(
       {required final List<PackageName> packages,
       @JsonKey(name: 'next') this.nextPageUrl})
@@ -152,17 +152,8 @@ class _$GetSearchedPackagesResponseBodyImpl
   final String? nextPageUrl;
 
   @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+  String toString() {
     return 'GetSearchedPackagesResponseBody(packages: $packages, nextPageUrl: $nextPageUrl)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'GetSearchedPackagesResponseBody'))
-      ..add(DiagnosticsProperty('packages', packages))
-      ..add(DiagnosticsProperty('nextPageUrl', nextPageUrl));
   }
 
   @override

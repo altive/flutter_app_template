@@ -19,8 +19,7 @@ dependencies:
   cloud_firestore: ^5.5.1
   collection: ^1.16.0
   connectivity_plus: ^6.1.0
-  convenient_widgets:
-    path: ../convenient_widgets
+  convenient_widgets: ^1.0.0
   cupertino_icons: ^1.0.8
   device_info_plus: ^11.2.0
   firebase_core: ^3.8.1
@@ -43,16 +42,14 @@ dependencies:
   json_annotation: ^4.8.1
   linked_scroll_controller: ^0.2.0
   package_info_plus: ^8.0.2
-  pub_dev_api_client:
-    path: ../pub_dev_api_client
+  pub_dev_api_client: ^1.0.0
   riverpod_annotation: ^2.6.1
   shared_preferences: ^2.3.3
   simple_logger: ^1.9.0+1
   slang: ^4.3.0
   slang_flutter: ^4.3.0
   sort_key_generator: ^0.2.1
-  themes:
-    path: ../themes/
+  themes: ^1.0.0
   tuple: ^2.0.0
   url_launcher: ^6.3.1
   uuid: ^4.5.1
