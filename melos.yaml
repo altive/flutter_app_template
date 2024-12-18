@@ -7,7 +7,7 @@ packages:
 command:
   bootstrap:
     environment:
-      sdk: ^3.5.3
+      sdk: ^3.6.0
   clean:
     hooks:
       post: |

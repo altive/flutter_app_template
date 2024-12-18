@@ -6,7 +6,7 @@ publish_to: "none"
 version: 1.0.0+29
 
 environment:
-  sdk: ^3.5.3
+  sdk: ^3.6.0
 
 dependencies:
   altfire_authenticator: ^0.1.6

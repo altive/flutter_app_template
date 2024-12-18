@@ -3,7 +3,7 @@ description: Pub.dev API client package
 version: 1.0.0
 
 environment:
-  sdk: ^3.5.3
+  sdk: ^3.6.0
 
 dependencies:
   dio: ^5.7.0

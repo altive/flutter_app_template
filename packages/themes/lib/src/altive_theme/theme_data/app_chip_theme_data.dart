@@ -7,7 +7,7 @@ ChipThemeData appChipThemeData({
   return ChipThemeData(
     side: const BorderSide(color: Colors.black12),
     shape: const StadiumBorder(),
-    backgroundColor: colorScheme.primary.withOpacity(0.2),
+    backgroundColor: colorScheme.primary.withValues(alpha: 0.2),
     checkmarkColor: colorScheme.onPrimary,
     selectedColor: colorScheme.primary,
   );
