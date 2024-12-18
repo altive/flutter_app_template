@@ -11,6 +11,6 @@ InputDecorationTheme appInputDecorationTheme({
       borderRadius: BorderRadius.all(Radius.circular(12)),
     ),
     filled: true,
-    fillColor: colorScheme.onSurface.withOpacity(0.1),
+    fillColor: colorScheme.onSurface.withValues(alpha: 0.1),
   );
 }

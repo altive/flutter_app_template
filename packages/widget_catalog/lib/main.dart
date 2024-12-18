@@ -30,7 +30,8 @@ class MainApp extends StatelessWidget {
           ],
         ),
         TextScaleAddon(
-          scales: [1.0, 2.0],
+          min: 0.6,
+          max: 1.9,
         ),
         LocalizationAddon(
           locales: [

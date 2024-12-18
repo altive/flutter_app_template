@@ -16,5 +16,11 @@ class ColorConverter implements JsonConverter<Color, int> {
   Color fromJson(int json) => Color(json);
 
   @override
-  int toJson(Color object) => object.value;
+  int toJson(Color object) {
+    final a = (object.a * 255).toInt() & 0xFF;
+    final r = (object.r * 255).toInt() & 0xFF;
+    final g = (object.g * 255).toInt() & 0xFF;
+    final b = (object.b * 255).toInt() & 0xFF;
+    return (a << 24) | (r << 16) | (g << 8) | b;
+  }
 }

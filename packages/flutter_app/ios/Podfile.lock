@@ -48,18 +48,18 @@ PODS:
   - Firebase/Storage (11.4.0):
     - Firebase/CoreOnly
     - FirebaseStorage (~> 11.4.0)
-  - firebase_analytics (11.3.3):
+  - firebase_analytics (11.3.6):
     - Firebase/Analytics (= 11.4.0)
     - firebase_core
     - Flutter
-  - firebase_auth (5.3.1):
+  - firebase_auth (5.3.4):
     - Firebase/Auth (= 11.4.0)
     - firebase_core
     - Flutter
   - firebase_core (3.8.1):
     - Firebase/CoreOnly (= 11.4.0)
     - Flutter
-  - firebase_crashlytics (4.1.3):
+  - firebase_crashlytics (4.2.0):
     - Firebase/Crashlytics (= 11.4.0)
     - firebase_core
     - Flutter
@@ -67,11 +67,11 @@ PODS:
     - Firebase/DynamicLinks (= 11.4.0)
     - firebase_core
     - Flutter
-  - firebase_in_app_messaging (0.8.0-8):
+  - firebase_in_app_messaging (0.8.0-11):
     - Firebase/InAppMessaging (= 11.4.0)
     - firebase_core
     - Flutter
-  - firebase_messaging (15.1.3):
+  - firebase_messaging (15.1.6):
     - Firebase/Messaging (= 11.4.0)
     - firebase_core
     - Flutter
@@ -79,7 +79,7 @@ PODS:
     - Firebase/Performance (= 11.4.0)
     - firebase_core
     - Flutter
-  - firebase_remote_config (5.1.3):
+  - firebase_remote_config (5.2.0):
     - Firebase/RemoteConfig (= 11.4.0)
     - firebase_core
     - Flutter
@@ -306,7 +306,7 @@ PODS:
   - shared_preferences_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
-  - sqflite (0.0.3):
+  - sqflite_darwin (0.0.4):
     - Flutter
     - FlutterMacOS
   - url_launcher_ios (0.0.1):
@@ -334,7 +334,7 @@ DEPENDENCIES:
   - package_info_plus (from `.symlinks/plugins/package_info_plus/ios`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
   - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
-  - sqflite (from `.symlinks/plugins/sqflite/darwin`)
+  - sqflite_darwin (from `.symlinks/plugins/sqflite_darwin/darwin`)
   - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
 
 SPEC REPOS:
@@ -422,8 +422,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/path_provider_foundation/darwin"
   shared_preferences_foundation:
     :path: ".symlinks/plugins/shared_preferences_foundation/darwin"
-  sqflite:
-    :path: ".symlinks/plugins/sqflite/darwin"
+  sqflite_darwin:
+    :path: ".symlinks/plugins/sqflite_darwin/darwin"
   url_launcher_ios:
     :path: ".symlinks/plugins/url_launcher_ios/ios"
 
@@ -435,18 +435,18 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AppAuth: d4f13a8fe0baf391b2108511793e4b479691fb73
   cloud_firestore: 3fafe78d755b01fe1fd267a87bb52e80b7dacacc
-  connectivity_plus: ddd7f30999e1faaef5967c23d5b6d503d10434db
-  device_info_plus: 97af1d7e84681a90d0693e63169a5d50e0839a0d
+  connectivity_plus: 18382e7311ba19efcaee94442b23b32507b20695
+  device_info_plus: bf2e3232933866d73fe290f2942f2156cdd10342
   Firebase: cf1b19f21410b029b6786a54e9764a0cacad3c99
-  firebase_analytics: ac872e186755025fbfbb477afb4761ae392a8a2a
-  firebase_auth: 49ccdaf618938d4d81d2d914dfcc5fb7eac45b43
+  firebase_analytics: 2815af29d49c1a994652abd37a5b001a88bc7b75
+  firebase_auth: c4bdd9d7b338ac004008cb5024a643584e0ec03f
   firebase_core: 418aed674e9a0b8b6088aec16cde82a811f6261f
-  firebase_crashlytics: a22d4ad59d4cb669bc04ec0de56b1b0a4f52a197
+  firebase_crashlytics: 757e252772ed3dd37c07638f9fcd4dceb5f101c8
   firebase_dynamic_links: b6c2a7d6e50d2d0c0ae2acb213af78e9a3d9ce9b
-  firebase_in_app_messaging: a49dbaae73f4b1c0eb0bc6d14076907383356042
-  firebase_messaging: c9ca1d520216519dbd1621bf60d2bb2407dadd9b
+  firebase_in_app_messaging: 459ff8bedc57c800ff87b8d4da98c123062528d7
+  firebase_messaging: 98619a0572d82cfb3668e78859ba9f1110e268c9
   firebase_performance: fbdbd301c18579b35b0385262b881eb82a3047aa
-  firebase_remote_config: bff3c405406e768bfbcd08cc5906b66c6055b865
+  firebase_remote_config: 015a36be218a38943c2273d63b33bc983b3d7bb6
   firebase_storage: 8826dc971e5029b48826613f7265952e55191585
   FirebaseABTesting: aef1719704fade00b200827e7973f352efc4caee
   FirebaseAnalytics: 3feef9ae8733c567866342a1000691baaa7cad49
@@ -486,13 +486,13 @@ SPEC CHECKSUMS:
   image_picker_ios: c560581cceedb403a6ff17f2f816d7fea1421fc1
   leveldb-library: cc8b8f8e013647a295ad3f8cd2ddf49a6f19be19
   nanopb: fad817b59e0457d11a5dfbde799381cd727c1275
-  package_info_plus: 58f0028419748fad15bf008b270aaa8e54380b1c
+  package_info_plus: c0502532a26c7662a62a356cebe2692ec5fe4ec4
   path_provider_foundation: 2b6b4c569c0fb62ec74538f866245ac84301af46
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   PromisesSwift: 9d77319bbe72ebf6d872900551f7eeba9bce2851
   RecaptchaInterop: 7d1a4a01a6b2cb1610a47ef3f85f0c411434cb21
   shared_preferences_foundation: fcdcbc04712aee1108ac7fda236f363274528f78
-  sqflite: 673a0e54cc04b7d6dba8d24fb8095b31c3a99eec
+  sqflite_darwin: 5a7236e3b501866c1c9befc6771dfd73ffb8702d
   url_launcher_ios: 5334b05cef931de560670eeae103fd3e431ac3fe
 
 PODFILE CHECKSUM: c21c2f7aaf6818e3a3370ff293fcb80de1de5d81
