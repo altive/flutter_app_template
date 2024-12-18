@@ -1,3 +1,5 @@
+// this rule unnecessary for tests
+// ignore_for_file: avoid_hardcoded_color
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:util/util.dart';
