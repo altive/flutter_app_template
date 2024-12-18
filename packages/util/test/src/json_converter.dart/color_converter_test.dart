@@ -5,7 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:util/util.dart';
 
 void main() {
-  test('color converter ...', () async {
+  test('toJson', () async {
     const converter = ColorConverter();
     const object = Color(0xFFFF0000);
     final sut = converter.toJson(object);
