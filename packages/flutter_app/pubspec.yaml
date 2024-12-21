@@ -8,6 +8,8 @@ version: 1.0.0+29
 environment:
   sdk: ^3.6.0
 
+resolution: workspace
+
 dependencies:
   altfire_authenticator: ^0.1.6
   altfire_configurator: ^1.0.0
