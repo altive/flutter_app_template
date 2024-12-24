@@ -8,6 +8,7 @@ codecov
 codeowners
 codesign
 cupertino
+dorny
 dotenv
 draggable
 fastlane

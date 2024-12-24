@@ -5,7 +5,7 @@ PODS:
   - AppAuth/Core (1.7.6)
   - AppAuth/ExternalUserAgent (1.7.6):
     - AppAuth/Core
-  - cloud_firestore (5.5.1):
+  - cloud_firestore (5.6.0):
     - Firebase/CoreOnly (~> 11.4.0)
     - Firebase/Firestore (~> 11.4.0)
     - firebase_core
@@ -51,7 +51,7 @@ PODS:
     - Firebase/CoreOnly (~> 11.4.0)
     - firebase_core
     - FlutterMacOS
-  - firebase_core (3.8.1):
+  - firebase_core (3.9.0):
     - Firebase/CoreOnly (~> 11.4.0)
     - FlutterMacOS
   - firebase_crashlytics (4.2.0):
@@ -386,14 +386,14 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   AppAuth: d4f13a8fe0baf391b2108511793e4b479691fb73
-  cloud_firestore: 9a20a45d1f46dda8d3486bc68866e8dca2d68548
+  cloud_firestore: 0d1c982890702bf99ab2881743c35fddb66e295d
   connectivity_plus: 18382e7311ba19efcaee94442b23b32507b20695
   device_info_plus: 1b14eed9bf95428983aed283a8d51cce3d8c4215
   file_selector_macos: cc3858c981fe6889f364731200d6232dac1d812d
   Firebase: cf1b19f21410b029b6786a54e9764a0cacad3c99
   firebase_analytics: a80b3d6645f2f12d626fde928b61dae12e5ea2ef
   firebase_auth: cda334a14540e3c1be90eb2cd82682f9409bea37
-  firebase_core: e4a35c426636a2cce00a5163df7ba69bfd0cca57
+  firebase_core: 1dfe1f4d02ad78be0277e320aa3d8384cf46231f
   firebase_crashlytics: 4bf853f7b18680fe9095aebde606be148de3d4a8
   firebase_messaging: 61f678060b69a7ae1013e3a939ec8e1c56ef6fcf
   firebase_remote_config: 559bbd2f3fec93598e725d35da1f94a3140a15ad
