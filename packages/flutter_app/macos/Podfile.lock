@@ -42,11 +42,11 @@ PODS:
   - Firebase/Storage (11.4.0):
     - Firebase/CoreOnly
     - FirebaseStorage (~> 11.4.0)
-  - firebase_analytics (11.3.3):
+  - firebase_analytics (11.3.6):
     - Firebase/Analytics (= 11.4.0)
     - firebase_core
     - FlutterMacOS
-  - firebase_auth (5.3.1):
+  - firebase_auth (5.3.4):
     - Firebase/Auth (~> 11.4.0)
     - Firebase/CoreOnly (~> 11.4.0)
     - firebase_core
@@ -54,17 +54,17 @@ PODS:
   - firebase_core (3.8.1):
     - Firebase/CoreOnly (~> 11.4.0)
     - FlutterMacOS
-  - firebase_crashlytics (4.1.3):
+  - firebase_crashlytics (4.2.0):
     - Firebase/CoreOnly (~> 11.4.0)
     - Firebase/Crashlytics (~> 11.4.0)
     - firebase_core
     - FlutterMacOS
-  - firebase_messaging (15.1.3):
+  - firebase_messaging (15.1.6):
     - Firebase/CoreOnly (~> 11.4.0)
     - Firebase/Messaging (~> 11.4.0)
     - firebase_core
     - FlutterMacOS
-  - firebase_remote_config (5.1.3):
+  - firebase_remote_config (5.2.0):
     - Firebase/CoreOnly (~> 11.4.0)
     - Firebase/RemoteConfig (~> 11.4.0)
     - firebase_core
@@ -271,7 +271,7 @@ PODS:
   - shared_preferences_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
-  - sqflite (0.0.3):
+  - sqflite_darwin (0.0.4):
     - Flutter
     - FlutterMacOS
   - url_launcher_macos (0.0.1):
@@ -296,7 +296,7 @@ DEPENDENCIES:
   - package_info_plus (from `Flutter/ephemeral/.symlinks/plugins/package_info_plus/macos`)
   - path_provider_foundation (from `Flutter/ephemeral/.symlinks/plugins/path_provider_foundation/darwin`)
   - shared_preferences_foundation (from `Flutter/ephemeral/.symlinks/plugins/shared_preferences_foundation/darwin`)
-  - sqflite (from `Flutter/ephemeral/.symlinks/plugins/sqflite/darwin`)
+  - sqflite_darwin (from `Flutter/ephemeral/.symlinks/plugins/sqflite_darwin/darwin`)
   - url_launcher_macos (from `Flutter/ephemeral/.symlinks/plugins/url_launcher_macos/macos`)
 
 SPEC REPOS:
@@ -374,8 +374,8 @@ EXTERNAL SOURCES:
     :path: Flutter/ephemeral/.symlinks/plugins/path_provider_foundation/darwin
   shared_preferences_foundation:
     :path: Flutter/ephemeral/.symlinks/plugins/shared_preferences_foundation/darwin
-  sqflite:
-    :path: Flutter/ephemeral/.symlinks/plugins/sqflite/darwin
+  sqflite_darwin:
+    :path: Flutter/ephemeral/.symlinks/plugins/sqflite_darwin/darwin
   url_launcher_macos:
     :path: Flutter/ephemeral/.symlinks/plugins/url_launcher_macos/macos
 
@@ -387,16 +387,16 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   AppAuth: d4f13a8fe0baf391b2108511793e4b479691fb73
   cloud_firestore: 9a20a45d1f46dda8d3486bc68866e8dca2d68548
-  connectivity_plus: 4c41c08fc6d7c91f63bc7aec70ffe3730b04f563
+  connectivity_plus: 18382e7311ba19efcaee94442b23b32507b20695
   device_info_plus: 1b14eed9bf95428983aed283a8d51cce3d8c4215
-  file_selector_macos: 54fdab7caa3ac3fc43c9fac4d7d8d231277f8cf2
+  file_selector_macos: cc3858c981fe6889f364731200d6232dac1d812d
   Firebase: cf1b19f21410b029b6786a54e9764a0cacad3c99
-  firebase_analytics: 012c9a2b3c6c4a3cf0e42f6d980b77d524cf7071
-  firebase_auth: abdbc764776cc236e27f715cf2dc5c9e459abb5e
+  firebase_analytics: a80b3d6645f2f12d626fde928b61dae12e5ea2ef
+  firebase_auth: cda334a14540e3c1be90eb2cd82682f9409bea37
   firebase_core: e4a35c426636a2cce00a5163df7ba69bfd0cca57
-  firebase_crashlytics: 417f75ff12cc5b3587840cd52bdacf4f197aea5b
-  firebase_messaging: 919888afaabb4e49c923a6e8de80c39749cc6c4e
-  firebase_remote_config: c6fe0210b873b518cc699d3385430856785164d6
+  firebase_crashlytics: 4bf853f7b18680fe9095aebde606be148de3d4a8
+  firebase_messaging: 61f678060b69a7ae1013e3a939ec8e1c56ef6fcf
+  firebase_remote_config: 559bbd2f3fec93598e725d35da1f94a3140a15ad
   firebase_storage: 16cc41d4413a069731667e5097ae73461f3fb40d
   FirebaseABTesting: aef1719704fade00b200827e7973f352efc4caee
   FirebaseAnalytics: 3feef9ae8733c567866342a1000691baaa7cad49
@@ -421,7 +421,7 @@ SPEC CHECKSUMS:
   FirebaseSessions: 3f56f177d9e53a85021d16b31f9a111849d1dd8b
   FirebaseSharedSwift: 505dae2d05969dbf6d43749a642bb1bf230f0252
   FirebaseStorage: 1bf8f80ac3bb02c72844b7350e95e10be7113ef0
-  flutter_local_notifications: 3805ca215b2fb7f397d78b66db91f6a747af52e4
+  flutter_local_notifications: 4b427ffabf278fc6ea9484c97505e231166927a5
   FlutterMacOS: 8f6f14fa908a6fb3fba0cd85dbd81ec4b251fb24
   google_sign_in_ios: 07375bfbf2620bc93a602c0e27160d6afc6ead38
   GoogleAppMeasurement: 987769c4ca6b968f2479fbcc9fe3ce34af454b8e
@@ -432,13 +432,13 @@ SPEC CHECKSUMS:
   GTMSessionFetcher: 5aea5ba6bd522a239e236100971f10cb71b96ab6
   leveldb-library: cc8b8f8e013647a295ad3f8cd2ddf49a6f19be19
   nanopb: fad817b59e0457d11a5dfbde799381cd727c1275
-  package_info_plus: fa739dd842b393193c5ca93c26798dff6e3d0e0c
+  package_info_plus: 12f1c5c2cfe8727ca46cbd0b26677728972d9a5b
   path_provider_foundation: 2b6b4c569c0fb62ec74538f866245ac84301af46
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   PromisesSwift: 9d77319bbe72ebf6d872900551f7eeba9bce2851
   shared_preferences_foundation: fcdcbc04712aee1108ac7fda236f363274528f78
-  sqflite: 673a0e54cc04b7d6dba8d24fb8095b31c3a99eec
-  url_launcher_macos: 5f437abeda8c85500ceb03f5c1938a8c5a705399
+  sqflite_darwin: 5a7236e3b501866c1c9befc6771dfd73ffb8702d
+  url_launcher_macos: c82c93949963e55b228a30115bd219499a6fe404
 
 PODFILE CHECKSUM: fc5f8d83ac49aed4e3fa7d71a664f3733001ded0
 
