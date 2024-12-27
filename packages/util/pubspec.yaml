@@ -8,6 +8,8 @@ homepage: https://github.com/altive/flutter_app_template/tree/main/packages/util
 environment:
   sdk: ^3.6.0
 
+resolution: workspace
+
 dependencies:
   flutter:
     sdk: flutter

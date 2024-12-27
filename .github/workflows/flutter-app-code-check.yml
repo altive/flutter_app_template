@@ -58,6 +58,11 @@ jobs:
 
       - name: Install Melos
         uses: bluefireteam/melos-action@v3
+        with:
+          run-bootstrap: false
+
+      - name: Install Dependencies
+        run: dart pub get --enforce-lockfile
 
       - name: Analyze packages
         run: melos analyze --fatal-infos
@@ -87,6 +92,11 @@ jobs:
 
       - name: Install Melos
         uses: bluefireteam/melos-action@v3
+        with:
+          run-bootstrap: false
+
+      - name: Install Dependencies
+        run: dart pub get --enforce-lockfile
 
       - name: Run package tests
         run: melos run test:ci --no-select

@@ -1,7 +1,15 @@
 name: flutter_app_template_workspace
 
 environment:
-  sdk: ^3.5.3
+  sdk: ^3.6.0
+
+workspace:
+  - packages/convenient_widgets
+  - packages/flutter_app
+  - packages/pub_dev_api_client
+  - packages/themes
+  - packages/util
+  - packages/widget_catalog
 
 dev_dependencies:
   melos: ^6.2.0
