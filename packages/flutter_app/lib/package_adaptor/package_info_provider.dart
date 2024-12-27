@@ -6,8 +6,9 @@ part 'package_info_provider.g.dart';
 
 /// Providers that need to initialize asynchronously only once at startup.
 @Riverpod(keepAlive: true)
-Future<PackageInfo> packageInfoInitializing(Ref ref) async =>
-    PackageInfo.fromPlatform();
+Future<PackageInfo> packageInfoInitializing(Ref ref) async {
+  return PackageInfo.fromPlatform();
+}
 
 /// Provide metadata for the application.
 ///

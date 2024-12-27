@@ -2,6 +2,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import 'features/user_device/user_device_provider.dart';
+import 'package_adaptor/configurator_provider.dart';
 import 'package_adaptor/package_info_provider.dart';
 import 'util/providers/providers.dart';
 
@@ -21,4 +22,6 @@ Future<void> initialization(Ref ref) async {
     ref.watch(packageInfoInitializingProvider.future),
     ref.watch(userDeviceInitializingProvider.future),
   ]);
+  final configurator = ref.watch(configuratorProvider);
+  await configurator.fetchAndActivate();
 }

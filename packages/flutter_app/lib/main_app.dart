@@ -5,6 +5,7 @@ import 'package:themes/themes.dart';
 
 import 'features/theme_selector/theme_selector.dart';
 import 'gen/strings.g.dart';
+import 'pages/initialization_page.dart';
 import 'router/router.dart';
 import 'util/providers/scaffold_messenger_key_provider.dart';
 
@@ -29,6 +30,9 @@ class MainApp extends ConsumerWidget {
       ],
       supportedLocales: AppLocaleUtils.supportedLocales,
       scaffoldMessengerKey: ref.watch(scaffoldMessengerKeyProvider),
+      builder: (context, child) {
+        return InitializationPage(onInitialized: (_) => child!);
+      },
     );
   }
 }
