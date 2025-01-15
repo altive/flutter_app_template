@@ -42,16 +42,14 @@
     ],
     "cSpell.spellCheckOnlyWorkspaceFiles": true,
     "[dart]": {
+        "editor.defaultFormatter": "Dart-Code.flutter",
         "editor.selectionHighlight": false,
         "editor.suggest.snippetsPreventQuickSuggestions": false,
         "editor.suggestSelection": "recentlyUsedByPrefix",
         "editor.tabCompletion": "onlySnippets",
-        "editor.wordBasedSuggestions": "off",
+        "editor.wordBasedSuggestions": "currentDocument",
         "editor.codeActionsOnSave": {
             "quickfix.insertSemicolon": "always",
-            "source.organizeImports": "always",
-            "source.addMissingImports": "always",
-            "source.fixAll": "always"
         }
     },
     "dart.flutterGenerateLocalizationsOnSave": "all",
@@ -63,7 +61,14 @@
     "dart.runPubGetOnPubspecChanges": "always",
     "dart.renameFilesWithClasses": "always",
     "debug.openDebug": "openOnDebugBreak",
+    "editor.codeActionsOnSave": {
+        "quickfix.insertSemicolon": "always",
+        "source.organizeImports": "always",
+        "source.addMissingImports": "always",
+        "source.fixAll": "always"
+    },
     "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "file",
     "editor.formatOnType": true,
     "editor.formatOnPaste": true,
     "editor.rulers": [
@@ -74,6 +79,7 @@
     "editor.minimap.enabled": false,
     "editor.bracketPairColorization.enabled": true,
     "editor.guides.bracketPairs": true,
+    "editor.inlayHints.enabled": "on",
     "explorer.confirmDragAndDrop": false,
     "explorer.fileNesting.enabled": true,
     "explorer.fileNesting.expand": false,
@@ -88,12 +94,19 @@
     "files.associations": {
         "*.apns": "json"
     },
+    "files.autoSave": "onWindowChange",
     "files.watcherExclude": {
         "**/.fvm": true,
         ".idea": true
     },
     "git.autofetch": true,
     "git.enableSmartCommit": true,
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
     "search.exclude": {
         "**/*.dart_tool": true,
         "**/*.freezed.dart": true,
