@@ -11,32 +11,23 @@ part 'stream_provider_page.g.dart';
 
 /// 従来の記法
 /// 1秒ずつにカウントをインクリメントする。
-final countOldSyntaxProvider = StreamProvider.autoDispose(
-  (ref) {
-    return Stream<int>.periodic(
-      const Duration(seconds: 1),
-      (count) => count,
-    );
-  },
-);
+final AutoDisposeStreamProvider<int> countOldSyntaxProvider =
+    StreamProvider.autoDispose((ref) {
+      return Stream<int>.periodic(const Duration(seconds: 1), (count) => count);
+    });
 
 /// コード生成記法
 /// 1秒ずつにカウントをインクリメントする。
 @riverpod
 Stream<int> count(Ref ref) {
-  return Stream<int>.periodic(
-    const Duration(seconds: 1),
-    (count) => count,
-  );
+  return Stream<int>.periodic(const Duration(seconds: 1), (count) => count);
 }
 
 // Widget example.
 class StreamProviderPage extends ConsumerWidget {
-  const StreamProviderPage({
-    super.key,
-  });
+  const StreamProviderPage({super.key});
 
-  static const String title = 'StreamProviderPage';
+  static const title = 'StreamProviderPage';
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -58,10 +49,11 @@ class StreamProviderPage extends ConsumerWidget {
               // countProvider の値を表示
               asyncCount.when(
                 loading: () => const Center(child: CircularProgressIndicator()),
-                error: (error, stack) => OutlinedButton(
-                  onPressed: () => ref.invalidate(countProvider),
-                  child: const Text('Refresh'),
-                ),
+                error:
+                    (error, stack) => OutlinedButton(
+                      onPressed: () => ref.invalidate(countProvider),
+                      child: const Text('Refresh'),
+                    ),
                 data: (count) {
                   return DisplayLargeText('$count');
                 },

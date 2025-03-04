@@ -51,21 +51,15 @@ class PubDevPackageDetailsFamily
   /// Provider for pub.dev package details by package name.
   ///
   /// Copied from [pubDevPackageDetails].
-  PubDevPackageDetailsProvider call({
-    required String packageName,
-  }) {
-    return PubDevPackageDetailsProvider(
-      packageName: packageName,
-    );
+  PubDevPackageDetailsProvider call({required String packageName}) {
+    return PubDevPackageDetailsProvider(packageName: packageName);
   }
 
   @override
   PubDevPackageDetailsProvider getProviderOverride(
     covariant PubDevPackageDetailsProvider provider,
   ) {
-    return call(
-      packageName: provider.packageName,
-    );
+    return call(packageName: provider.packageName);
   }
 
   static const Iterable<ProviderOrFamily>? _dependencies = null;
@@ -91,24 +85,23 @@ class PubDevPackageDetailsProvider
   /// Provider for pub.dev package details by package name.
   ///
   /// Copied from [pubDevPackageDetails].
-  PubDevPackageDetailsProvider({
-    required String packageName,
-  }) : this._internal(
-          (ref) => pubDevPackageDetails(
-            ref as PubDevPackageDetailsRef,
-            packageName: packageName,
-          ),
-          from: pubDevPackageDetailsProvider,
-          name: r'pubDevPackageDetailsProvider',
-          debugGetCreateSourceHash:
-              const bool.fromEnvironment('dart.vm.product')
-                  ? null
-                  : _$pubDevPackageDetailsHash,
-          dependencies: PubDevPackageDetailsFamily._dependencies,
-          allTransitiveDependencies:
-              PubDevPackageDetailsFamily._allTransitiveDependencies,
+  PubDevPackageDetailsProvider({required String packageName})
+    : this._internal(
+        (ref) => pubDevPackageDetails(
+          ref as PubDevPackageDetailsRef,
           packageName: packageName,
-        );
+        ),
+        from: pubDevPackageDetailsProvider,
+        name: r'pubDevPackageDetailsProvider',
+        debugGetCreateSourceHash:
+            const bool.fromEnvironment('dart.vm.product')
+                ? null
+                : _$pubDevPackageDetailsHash,
+        dependencies: PubDevPackageDetailsFamily._dependencies,
+        allTransitiveDependencies:
+            PubDevPackageDetailsFamily._allTransitiveDependencies,
+        packageName: packageName,
+      );
 
   PubDevPackageDetailsProvider._internal(
     super._createNotifier, {
@@ -125,8 +118,9 @@ class PubDevPackageDetailsProvider
   @override
   Override overrideWith(
     FutureOr<GetPackageDetailsResponseBody> Function(
-            PubDevPackageDetailsRef provider)
-        create,
+      PubDevPackageDetailsRef provider,
+    )
+    create,
   ) {
     return ProviderOverride(
       origin: this,
@@ -144,7 +138,7 @@ class PubDevPackageDetailsProvider
 
   @override
   AutoDisposeFutureProviderElement<GetPackageDetailsResponseBody>
-      createElement() {
+  createElement() {
     return _PubDevPackageDetailsProviderElement(this);
   }
 
@@ -180,5 +174,6 @@ class _PubDevPackageDetailsProviderElement
   String get packageName =>
       (origin as PubDevPackageDetailsProvider).packageName;
 }
+
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

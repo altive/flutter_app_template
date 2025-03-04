@@ -12,8 +12,8 @@ class SettingsShellBranchData extends StatefulShellBranchData {
 class SettingsRouteData extends GoRouteData {
   const SettingsRouteData();
 
-  static const String name = '/settings';
-  static const String path = '/settings';
+  static const name = '/settings';
+  static const path = '/settings';
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
@@ -24,8 +24,8 @@ class SettingsRouteData extends GoRouteData {
 class ThemeSelectionRouteData extends GoRouteData {
   const ThemeSelectionRouteData();
 
-  static const String name = '/theme-selection';
-  static const String path = 'theme-selection';
+  static const name = '/theme-selection';
+  static const path = 'theme-selection';
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
@@ -36,8 +36,8 @@ class ThemeSelectionRouteData extends GoRouteData {
 class AccountRouteData extends GoRouteData {
   const AccountRouteData();
 
-  static const String name = '/account';
-  static const String path = 'account';
+  static const name = '/account';
+  static const path = 'account';
 
   @override
   Widget build(BuildContext context, GoRouterState state) {

@@ -11,53 +11,48 @@ import '../component/count_state_provider.dart';
 class ListenProviderPage extends HookConsumerWidget {
   const ListenProviderPage({super.key});
 
-  static String title = 'Listen Provider';
-  static String routeName = 'listen-provider';
+  static const title = 'Listen Provider';
+  static const routeName = 'listen-provider';
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    useEffect(
-      () {
-        // initStateやuseEffect等、build外から購読したい時は、listenManualを使う。
-        ref.listenManual(
-          countStateProvider,
-          fireImmediately: true,
-          (prev, next) {
-            // Widgetツリーが全体がビルドされた後にダイアログを表示する。
-            WidgetsBinding.instance.addPostFrameCallback((_) async {
-              await showDialog<void>(
-                context: context,
-                builder: (context) {
-                  return AlertDialog(
-                    title: Text('Prev number is $prev, Next number is $next!'),
-                  );
-                },
-              );
-            });
-          },
-          // エラーハンドリング（省略可能）
-          onError: (error, stackTrace) => logger.warning(error),
-        );
-        return null;
-      },
-      const [],
-    );
+    useEffect(() {
+      // initStateやuseEffect等、build外から購読したい時は、listenManualを使う。
+      ref.listenManual(
+        countStateProvider,
+        fireImmediately: true,
+        (prev, next) {
+          // Widgetツリーが全体がビルドされた後にダイアログを表示する。
+          WidgetsBinding.instance.addPostFrameCallback((_) async {
+            await showDialog<void>(
+              context: context,
+              builder: (context) {
+                return AlertDialog(
+                  title: Text('Prev number is $prev, Next number is $next!'),
+                );
+              },
+            );
+          });
+        },
+        // エラーハンドリング（省略可能）
+        onError: (error, stackTrace) => logger.warning(error),
+      );
+      return null;
+    }, const []);
 
+    //
+    //
     // build内では、ref.listenを使う。
-    ref.listen(
-      countStateProvider,
-      (previous, next) async {
-        // Counterの数値が偶数になったときにだけダイアログを表示する
-        if (next.isEven) {
-          return;
-        }
-        logger.fine('Prev number is $previous, Next number is $next!');
-      },
-      onError: (error, stackTrace) => logger.warning('$error'),
-    );
+    ref.listen(countStateProvider, (previous, next) async {
+      // Counterの数値が偶数になったときにだけダイアログを表示する
+      if (next.isEven) {
+        return;
+      }
+      logger.fine('Prev number is $previous, Next number is $next!');
+    }, onError: (error, stackTrace) => logger.warning('$error'));
 
     return Scaffold(
-      appBar: AppBar(title: Text(title)),
+      appBar: AppBar(title: const Text(title)),
       body: SafeArea(
         child: Center(
           child: Column(
@@ -67,8 +62,8 @@ class ListenProviderPage extends HookConsumerWidget {
               DisplayLargeText('Count: ${ref.watch(countStateProvider)}'),
               const Gap(32),
               FilledButton(
-                onPressed: () =>
-                    ref.read(countStateProvider.notifier).increment(),
+                onPressed:
+                    () => ref.read(countStateProvider.notifier).increment(),
                 child: const Text('Increment'),
               ),
               const Gap(16),

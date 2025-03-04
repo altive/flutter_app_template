@@ -5,16 +5,14 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../../widgets/widgets.dart';
 
 // Provider example.
-final counterProvider = StateProvider((ref) => 0);
+final StateProvider<int> counterProvider = StateProvider((ref) => 0);
 
 // Widget example.
 class StateProviderPage extends ConsumerWidget {
-  const StateProviderPage({
-    super.key,
-  });
+  const StateProviderPage({super.key});
 
-  static String title = 'StateProvider';
-  static String routeName = 'state-provider';
+  static const title = 'StateProvider';
+  static const routeName = 'state-provider';
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -23,7 +21,7 @@ class StateProviderPage extends ConsumerWidget {
     final counter = ref.watch(counterProvider.notifier);
 
     return Scaffold(
-      appBar: AppBar(title: Text(title)),
+      appBar: AppBar(title: const Text(title)),
       body: SafeArea(
         child: Center(
           child: Column(

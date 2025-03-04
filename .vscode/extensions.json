@@ -1,6 +1,5 @@
 {
     "recommendations": [
-        "blaugold.melos-code",
         "dart-code.dart-code",
         "dart-code.flutter",
         "dotjoshjohnson.xml",
@@ -8,9 +7,7 @@
         "mariomatheu.syntax-project-pbxproj",
         "mathiasfrohlich.kotlin",
         "streetsidesoftware.code-spell-checker",
-        "toba.vsfire",
         "vscode-icons-team.vscode-icons",
-        "miquelddg.dart-barrel-file-generator",
         "djbkwon.flutter-dependency-docs",
         "pflannery.vscode-versionlens"
     ]

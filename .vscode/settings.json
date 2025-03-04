@@ -55,7 +55,7 @@
         }
     },
     "dart.flutterGenerateLocalizationsOnSave": "all",
-    "dart.flutterSdkPath": ".fvm/versions/3.27.1",
+    "dart.flutterSdkPath": ".fvm/versions/3.29.0",
     "dart.debugExternalPackageLibraries": false,
     "dart.debugSdkLibraries": false,
     "dart.experimentalRefactors": true,
@@ -105,5 +105,8 @@
         "**/build": true,
         "**/node_modules": true,
         "**/Pods": true
+    },
+    "[json]": {
+        "editor.tabSize": 4
     }
 }

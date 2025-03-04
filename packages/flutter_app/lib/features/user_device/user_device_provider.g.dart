@@ -18,9 +18,10 @@ String _$userDeviceInitializingHash() =>
 final userDeviceInitializingProvider = FutureProvider<UserDevice>.internal(
   userDeviceInitializing,
   name: r'userDeviceInitializingProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$userDeviceInitializingHash,
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$userDeviceInitializingHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );

@@ -12,10 +12,12 @@ part of 'get_package_details_response_body.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 GetPackageDetailsResponseBody _$GetPackageDetailsResponseBodyFromJson(
-    Map<String, dynamic> json) {
+  Map<String, dynamic> json,
+) {
   return _GetPackageDetailsResponseBody.fromJson(json);
 }
 
@@ -31,16 +33,19 @@ mixin _$GetPackageDetailsResponseBody {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   $GetPackageDetailsResponseBodyCopyWith<GetPackageDetailsResponseBody>
-      get copyWith => throw _privateConstructorUsedError;
+  get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 abstract class $GetPackageDetailsResponseBodyCopyWith<$Res> {
   factory $GetPackageDetailsResponseBodyCopyWith(
-          GetPackageDetailsResponseBody value,
-          $Res Function(GetPackageDetailsResponseBody) then) =
-      _$GetPackageDetailsResponseBodyCopyWithImpl<$Res,
-          GetPackageDetailsResponseBody>;
+    GetPackageDetailsResponseBody value,
+    $Res Function(GetPackageDetailsResponseBody) then,
+  ) =
+      _$GetPackageDetailsResponseBodyCopyWithImpl<
+        $Res,
+        GetPackageDetailsResponseBody
+      >;
   @useResult
   $Res call({String name, LatestPackageRelease latest});
 
@@ -48,8 +53,10 @@ abstract class $GetPackageDetailsResponseBodyCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$GetPackageDetailsResponseBodyCopyWithImpl<$Res,
-        $Val extends GetPackageDetailsResponseBody>
+class _$GetPackageDetailsResponseBodyCopyWithImpl<
+  $Res,
+  $Val extends GetPackageDetailsResponseBody
+>
     implements $GetPackageDetailsResponseBodyCopyWith<$Res> {
   _$GetPackageDetailsResponseBodyCopyWithImpl(this._value, this._then);
 
@@ -62,20 +69,22 @@ class _$GetPackageDetailsResponseBodyCopyWithImpl<$Res,
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? name = null,
-    Object? latest = null,
-  }) {
-    return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      latest: null == latest
-          ? _value.latest
-          : latest // ignore: cast_nullable_to_non_nullable
-              as LatestPackageRelease,
-    ) as $Val);
+  $Res call({Object? name = null, Object? latest = null}) {
+    return _then(
+      _value.copyWith(
+            name:
+                null == name
+                    ? _value.name
+                    : name // ignore: cast_nullable_to_non_nullable
+                        as String,
+            latest:
+                null == latest
+                    ? _value.latest
+                    : latest // ignore: cast_nullable_to_non_nullable
+                        as LatestPackageRelease,
+          )
+          as $Val,
+    );
   }
 
   /// Create a copy of GetPackageDetailsResponseBody
@@ -93,9 +102,9 @@ class _$GetPackageDetailsResponseBodyCopyWithImpl<$Res,
 abstract class _$$GetPackageDetailsResponseBodyImplCopyWith<$Res>
     implements $GetPackageDetailsResponseBodyCopyWith<$Res> {
   factory _$$GetPackageDetailsResponseBodyImplCopyWith(
-          _$GetPackageDetailsResponseBodyImpl value,
-          $Res Function(_$GetPackageDetailsResponseBodyImpl) then) =
-      __$$GetPackageDetailsResponseBodyImplCopyWithImpl<$Res>;
+    _$GetPackageDetailsResponseBodyImpl value,
+    $Res Function(_$GetPackageDetailsResponseBodyImpl) then,
+  ) = __$$GetPackageDetailsResponseBodyImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String name, LatestPackageRelease latest});
@@ -106,32 +115,36 @@ abstract class _$$GetPackageDetailsResponseBodyImplCopyWith<$Res>
 
 /// @nodoc
 class __$$GetPackageDetailsResponseBodyImplCopyWithImpl<$Res>
-    extends _$GetPackageDetailsResponseBodyCopyWithImpl<$Res,
-        _$GetPackageDetailsResponseBodyImpl>
+    extends
+        _$GetPackageDetailsResponseBodyCopyWithImpl<
+          $Res,
+          _$GetPackageDetailsResponseBodyImpl
+        >
     implements _$$GetPackageDetailsResponseBodyImplCopyWith<$Res> {
   __$$GetPackageDetailsResponseBodyImplCopyWithImpl(
-      _$GetPackageDetailsResponseBodyImpl _value,
-      $Res Function(_$GetPackageDetailsResponseBodyImpl) _then)
-      : super(_value, _then);
+    _$GetPackageDetailsResponseBodyImpl _value,
+    $Res Function(_$GetPackageDetailsResponseBodyImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of GetPackageDetailsResponseBody
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? name = null,
-    Object? latest = null,
-  }) {
-    return _then(_$GetPackageDetailsResponseBodyImpl(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      latest: null == latest
-          ? _value.latest
-          : latest // ignore: cast_nullable_to_non_nullable
-              as LatestPackageRelease,
-    ));
+  $Res call({Object? name = null, Object? latest = null}) {
+    return _then(
+      _$GetPackageDetailsResponseBodyImpl(
+        name:
+            null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                    as String,
+        latest:
+            null == latest
+                ? _value.latest
+                : latest // ignore: cast_nullable_to_non_nullable
+                    as LatestPackageRelease,
+      ),
+    );
   }
 }
 
@@ -139,12 +152,14 @@ class __$$GetPackageDetailsResponseBodyImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$GetPackageDetailsResponseBodyImpl
     implements _GetPackageDetailsResponseBody {
-  const _$GetPackageDetailsResponseBodyImpl(
-      {required this.name, required this.latest});
+  const _$GetPackageDetailsResponseBodyImpl({
+    required this.name,
+    required this.latest,
+  });
 
   factory _$GetPackageDetailsResponseBodyImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$GetPackageDetailsResponseBodyImplFromJson(json);
+    Map<String, dynamic> json,
+  ) => _$$GetPackageDetailsResponseBodyImplFromJson(json);
 
   @override
   final String name;
@@ -175,24 +190,24 @@ class _$GetPackageDetailsResponseBodyImpl
   @override
   @pragma('vm:prefer-inline')
   _$$GetPackageDetailsResponseBodyImplCopyWith<
-          _$GetPackageDetailsResponseBodyImpl>
-      get copyWith => __$$GetPackageDetailsResponseBodyImplCopyWithImpl<
-          _$GetPackageDetailsResponseBodyImpl>(this, _$identity);
+    _$GetPackageDetailsResponseBodyImpl
+  >
+  get copyWith => __$$GetPackageDetailsResponseBodyImplCopyWithImpl<
+    _$GetPackageDetailsResponseBodyImpl
+  >(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$GetPackageDetailsResponseBodyImplToJson(
-      this,
-    );
+    return _$$GetPackageDetailsResponseBodyImplToJson(this);
   }
 }
 
 abstract class _GetPackageDetailsResponseBody
     implements GetPackageDetailsResponseBody {
-  const factory _GetPackageDetailsResponseBody(
-          {required final String name,
-          required final LatestPackageRelease latest}) =
-      _$GetPackageDetailsResponseBodyImpl;
+  const factory _GetPackageDetailsResponseBody({
+    required final String name,
+    required final LatestPackageRelease latest,
+  }) = _$GetPackageDetailsResponseBodyImpl;
 
   factory _GetPackageDetailsResponseBody.fromJson(Map<String, dynamic> json) =
       _$GetPackageDetailsResponseBodyImpl.fromJson;
@@ -207,6 +222,7 @@ abstract class _GetPackageDetailsResponseBody
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$GetPackageDetailsResponseBodyImplCopyWith<
-          _$GetPackageDetailsResponseBodyImpl>
-      get copyWith => throw _privateConstructorUsedError;
+    _$GetPackageDetailsResponseBodyImpl
+  >
+  get copyWith => throw _privateConstructorUsedError;
 }

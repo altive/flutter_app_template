@@ -43,8 +43,8 @@ class HomePage extends StatelessWidget {
                 label: t.homePage.list.appInfo.label,
               ),
               HomeListCard(
-                onTap: () async =>
-                    const RiverpodExampleRouteData().push(context),
+                onTap:
+                    () async => const RiverpodExampleRouteData().push(context),
                 label: 'Riverpod examples',
               ),
             ],

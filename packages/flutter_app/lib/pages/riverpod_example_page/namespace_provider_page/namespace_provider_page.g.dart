@@ -14,13 +14,13 @@ String _$nicknameHash() => r'7e9b71625f625835c03e710e20ae306be1b926a1';
 @ProviderFor(_Nickname)
 final _nicknameProvider =
     AutoDisposeNotifierProvider<_Nickname, String>.internal(
-  _Nickname.new,
-  name: r'_nicknameProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$nicknameHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+      _Nickname.new,
+      name: r'_nicknameProvider',
+      debugGetCreateSourceHash:
+          const bool.fromEnvironment('dart.vm.product') ? null : _$nicknameHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
 
 typedef _$Nickname = AutoDisposeNotifier<String>;
 String _$birthdayHash() => r'3cc8c3b03370bb6a2fcb3a4a6ea2314bb875c0f0';
@@ -29,13 +29,13 @@ String _$birthdayHash() => r'3cc8c3b03370bb6a2fcb3a4a6ea2314bb875c0f0';
 @ProviderFor(_Birthday)
 final _birthdayProvider =
     AutoDisposeNotifierProvider<_Birthday, String>.internal(
-  _Birthday.new,
-  name: r'_birthdayProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$birthdayHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+      _Birthday.new,
+      name: r'_birthdayProvider',
+      debugGetCreateSourceHash:
+          const bool.fromEnvironment('dart.vm.product') ? null : _$birthdayHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
 
 typedef _$Birthday = AutoDisposeNotifier<String>;
 String _$livingPlaceHash() => r'f171654b5112d7ff9f6b6eb4cd164cd45cf950a4';
@@ -44,13 +44,15 @@ String _$livingPlaceHash() => r'f171654b5112d7ff9f6b6eb4cd164cd45cf950a4';
 @ProviderFor(_LivingPlace)
 final _livingPlaceProvider =
     AutoDisposeNotifierProvider<_LivingPlace, String>.internal(
-  _LivingPlace.new,
-  name: r'_livingPlaceProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$livingPlaceHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+      _LivingPlace.new,
+      name: r'_livingPlaceProvider',
+      debugGetCreateSourceHash:
+          const bool.fromEnvironment('dart.vm.product')
+              ? null
+              : _$livingPlaceHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
 
 typedef _$LivingPlace = AutoDisposeNotifier<String>;
 // ignore_for_file: type=lint

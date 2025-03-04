@@ -14,9 +14,9 @@ _$PackagePubspecImpl _$$PackagePubspecImplFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$$PackagePubspecImplToJson(
-        _$PackagePubspecImpl instance) =>
-    <String, dynamic>{
-      'name': instance.name,
-      'version': instance.version,
-      'description': instance.description,
-    };
+  _$PackagePubspecImpl instance,
+) => <String, dynamic>{
+  'name': instance.name,
+  'version': instance.version,
+  'description': instance.description,
+};

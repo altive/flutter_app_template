@@ -13,33 +13,34 @@ import 'package:flutter_svg/flutter_svg.dart' as _svg;
 import 'package:vector_graphics/vector_graphics.dart' as _vg;
 
 class Assets {
-  Assets._();
+  const Assets._();
 
-  static const SvgGenImage appleLogoBlack =
-      SvgGenImage('assets/apple_logo_black.svg');
-  static const SvgGenImage appleLogoGrey =
-      SvgGenImage('assets/apple_logo_grey.svg');
-  static const SvgGenImage appleLogoWhite =
-      SvgGenImage('assets/apple_logo_white.svg');
+  static const SvgGenImage appleLogoBlack = SvgGenImage(
+    'assets/apple_logo_black.svg',
+  );
+  static const SvgGenImage appleLogoGrey = SvgGenImage(
+    'assets/apple_logo_grey.svg',
+  );
+  static const SvgGenImage appleLogoWhite = SvgGenImage(
+    'assets/apple_logo_white.svg',
+  );
   static const SvgGenImage googleLogo = SvgGenImage('assets/google_logo.svg');
 
   /// List of all assets
-  static List<SvgGenImage> get values =>
-      [appleLogoBlack, appleLogoGrey, appleLogoWhite, googleLogo];
+  static List<SvgGenImage> get values => [
+    appleLogoBlack,
+    appleLogoGrey,
+    appleLogoWhite,
+    googleLogo,
+  ];
 }
 
 class SvgGenImage {
-  const SvgGenImage(
-    this._assetName, {
-    this.size,
-    this.flavors = const {},
-  }) : _isVecFormat = false;
+  const SvgGenImage(this._assetName, {this.size, this.flavors = const {}})
+    : _isVecFormat = false;
 
-  const SvgGenImage.vec(
-    this._assetName, {
-    this.size,
-    this.flavors = const {},
-  }) : _isVecFormat = true;
+  const SvgGenImage.vec(this._assetName, {this.size, this.flavors = const {}})
+    : _isVecFormat = true;
 
   final String _assetName;
   final Size? size;
@@ -93,7 +94,8 @@ class SvgGenImage {
       placeholderBuilder: placeholderBuilder,
       semanticsLabel: semanticsLabel,
       excludeFromSemantics: excludeFromSemantics,
-      colorFilter: colorFilter ??
+      colorFilter:
+          colorFilter ??
           (color == null ? null : ColorFilter.mode(color, colorBlendMode)),
       clipBehavior: clipBehavior,
       cacheColorFilter: cacheColorFilter,

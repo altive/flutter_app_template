@@ -54,11 +54,9 @@ class TodoList extends _$TodoList {
 
 // Widget example.
 class NotifierProviderPage extends ConsumerWidget {
-  const NotifierProviderPage({
-    super.key,
-  });
+  const NotifierProviderPage({super.key});
 
-  static const String title = 'NotifierProvider';
+  static const title = 'NotifierProvider';
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -90,7 +88,7 @@ class NotifierProviderPage extends ConsumerWidget {
         child: ListView.separated(
           padding: const EdgeInsets.all(16),
           itemCount: todoList.length,
-          separatorBuilder: (_, __) => const SizedBox(height: 4),
+          separatorBuilder: (_, _) => const SizedBox(height: 4),
           itemBuilder: (context, index) {
             final todo = todoList[index];
             return Card(

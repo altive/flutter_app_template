@@ -7,21 +7,19 @@ import '../../../widgets/widgets.dart';
 // Provider example.
 
 // 1ずつ値を増加させるためのカウンターProvider
-final counterProvider = StateProvider((ref) => 0);
+final StateProvider<int> counterProvider = StateProvider((ref) => 0);
 
 // カウンターの値を2倍にした値を提供するProvider
-final doubleCounterProvider = Provider((ref) {
+final Provider<int> doubleCounterProvider = Provider((ref) {
   final count = ref.watch(counterProvider);
   return count * 2;
 });
 
 // Widget example.
 class ProviderPage extends ConsumerWidget {
-  const ProviderPage({
-    super.key,
-  });
+  const ProviderPage({super.key});
 
-  static const String title = 'ProviderPage';
+  static const title = 'ProviderPage';
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -43,9 +41,10 @@ class ProviderPage extends ConsumerWidget {
               DisplayLargeText('$doubleCount'),
               ElevatedButton(
                 // counterProvider の値を+1する。
-                onPressed: () => ref.read(counterProvider.notifier).update(
-                      (state) => state + 1,
-                    ),
+                onPressed:
+                    () => ref
+                        .read(counterProvider.notifier)
+                        .update((state) => state + 1),
                 child: const Text('Increase Count'),
               ),
             ],
