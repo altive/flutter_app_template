@@ -13,9 +13,7 @@ void main() {
         SharedPreferences.setMockInitialValues({});
         final sp = await SharedPreferences.getInstance();
         container = ProviderContainer(
-          overrides: [
-            sharedPreferencesProvider.overrideWithValue(sp),
-          ],
+          overrides: [sharedPreferencesProvider.overrideWithValue(sp)],
         );
       });
     });
@@ -33,15 +31,13 @@ void main() {
       'If it was saved in the local storage area, it must be on that theme.',
       () async {
         const lightIndex = 1;
-        SharedPreferences.setMockInitialValues(
-          {'selectedThemeKey': lightIndex},
-        );
+        SharedPreferences.setMockInitialValues({
+          'selectedThemeKey': lightIndex,
+        });
 
         final sp = await SharedPreferences.getInstance();
         container = ProviderContainer(
-          overrides: [
-            sharedPreferencesProvider.overrideWithValue(sp),
-          ],
+          overrides: [sharedPreferencesProvider.overrideWithValue(sp)],
         );
 
         final themeMode = container.read(themeSelectorProvider);

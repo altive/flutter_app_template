@@ -21,9 +21,7 @@ class ThemeSelectionPage extends StatelessWidget {
         title: Text(t.theme.selection.page.appBar.title),
         actions: [
           themeDescription.icon,
-          Align(
-            child: TitleLargeText(themeDescription.title),
-          ),
+          Align(child: TitleLargeText(themeDescription.title)),
           const Gap(16),
         ],
       ),

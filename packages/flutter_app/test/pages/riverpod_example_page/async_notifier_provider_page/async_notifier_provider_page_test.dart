@@ -40,18 +40,9 @@ void main() {
 
         final listener = Listener<AsyncValue<_State>>();
 
-        container.listen(
-          sut,
-          listener.call,
-          fireImmediately: true,
-        );
+        container.listen(sut, listener.call, fireImmediately: true);
 
-        verify(
-          listener(
-            null,
-            const AsyncLoading<_State>(),
-          ),
-        );
+        verify(listener(null, const AsyncLoading<_State>()));
 
         final got = await container.read(sut.future);
 

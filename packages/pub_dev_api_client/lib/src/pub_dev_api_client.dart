@@ -9,10 +9,8 @@ part 'pub_dev_api_client.g.dart';
 @RestApi()
 abstract class PubDevApiClient {
   /// Internal constructor.
-  factory PubDevApiClient.internal(
-    Dio dio, {
-    String baseUrl,
-  }) = _PubDevApiClient;
+  factory PubDevApiClient.internal(Dio dio, {String baseUrl}) =
+      _PubDevApiClient;
 
   /// Create a client from parameters.
   factory PubDevApiClient.fromParameters({
@@ -28,11 +26,7 @@ abstract class PubDevApiClient {
           receiveTimeout: timeoutDuration,
           contentType: Headers.jsonContentType,
         ),
-      )..interceptors.add(
-          LogInterceptor(
-            responseBody: true,
-          ),
-        ),
+      )..interceptors.add(LogInterceptor(responseBody: true)),
     );
   }
 

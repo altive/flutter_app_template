@@ -14,9 +14,7 @@ class SettingsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = Translations.of(context);
     return Scaffold(
-      appBar: AppBar(
-        title: Text(t.settingsPage.appBar.title),
-      ),
+      appBar: AppBar(title: Text(t.settingsPage.appBar.title)),
       body: const _Body(),
     );
   }
@@ -46,8 +44,9 @@ class _Body extends HookConsumerWidget {
         ),
         ListTile(
           title: Text(userDevice.name),
-          subtitle:
-              Text('${userDevice.model}, OS: ${userDevice.osVersionString}'),
+          subtitle: Text(
+            '${userDevice.model}, OS: ${userDevice.osVersionString}',
+          ),
         ),
       ],
     );

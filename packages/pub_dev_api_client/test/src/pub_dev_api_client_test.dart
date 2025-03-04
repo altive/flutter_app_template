@@ -28,8 +28,7 @@ void main() {
   }
 
   group('fromParameters', () {
-    test(
-        'Ensure that RestApiClient can be instantiated '
+    test('Ensure that RestApiClient can be instantiated '
         'using the fromParameters constructor', () {
       final client = PubDevApiClient.fromParameters(
         baseUrl: 'https://example.com/api-base-url',
@@ -42,14 +41,10 @@ void main() {
 
   group('getSearchedPackages', () {
     const mockResponse = GetSearchedPackagesResponseBody(
-      packages: [
-        PackageName(name: 'package1'),
-        PackageName(name: 'package2'),
-      ],
+      packages: [PackageName(name: 'package1'), PackageName(name: 'package2')],
     );
 
-    test(
-        'Verify that the request is sent to the correct endpoint'
+    test('Verify that the request is sent to the correct endpoint'
         ' when the method is called', () async {
       final mockServer = await createMockWebServer(mockResponse.toJson());
 
@@ -62,8 +57,7 @@ void main() {
       expect(request.uri.path, '/search');
     });
 
-    test(
-        'Verify that the correct query parameters are included in the request'
+    test('Verify that the correct query parameters are included in the request'
         ' when it is sent', () async {
       final mockServer = await createMockWebServer(mockResponse.toJson());
 
@@ -78,8 +72,7 @@ void main() {
       expect(request.uri.queryParameters['page'], '2');
     });
 
-    test(
-        'Verify that the parsed response object is correctly returned'
+    test('Verify that the parsed response object is correctly returned'
         ' when the request is sent', () async {
       final mockServer = await createMockWebServer(mockResponse.toJson());
       final client = createClient(baseUrl: mockServer.url);
@@ -101,8 +94,7 @@ void main() {
       ),
     );
 
-    test(
-        'Verify that the request is sent to the correct endpoint'
+    test('Verify that the request is sent to the correct endpoint'
         ' when the method is called', () async {
       final mockServer = await createMockWebServer(mockResponse.toJson());
 
@@ -115,8 +107,7 @@ void main() {
       expect(request.uri.path, '/packages/package1');
     });
 
-    test(
-        'Verify that the parsed response object is correctly returned'
+    test('Verify that the parsed response object is correctly returned'
         ' when the request is sent', () async {
       final mockServer = await createMockWebServer(mockResponse.toJson());
       final client = createClient(baseUrl: mockServer.url);

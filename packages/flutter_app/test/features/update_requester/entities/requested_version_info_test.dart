@@ -27,20 +27,22 @@ void main() {
         expect(target, entity);
       });
 
-      test('JSTでenabled_atを指定しても、コンストラクタで生成したオブジェクトとfromJsonで生成したオブジェクトが同一',
-          () {
-        final entity = RequestedVersionInfo(
-          requiredVersion: '123.999.195',
-          canCancel: true,
-          enabledAt: enabledAt,
-        );
-        final target = RequestedVersionInfo.fromJson(<String, Object?>{
-          'required_version': '123.999.195',
-          'can_cancel': true,
-          'enabled_at': '2018-04-04T00:00+09:00',
-        });
-        expect(target, entity);
-      });
+      test(
+        'JSTでenabled_atを指定しても、コンストラクタで生成したオブジェクトとfromJsonで生成したオブジェクトが同一',
+        () {
+          final entity = RequestedVersionInfo(
+            requiredVersion: '123.999.195',
+            canCancel: true,
+            enabledAt: enabledAt,
+          );
+          final target = RequestedVersionInfo.fromJson(<String, Object?>{
+            'required_version': '123.999.195',
+            'can_cancel': true,
+            'enabled_at': '2018-04-04T00:00+09:00',
+          });
+          expect(target, entity);
+        },
+      );
 
       test('DateTimeに変換不可能な日付文字列の場合は例外が発生する', () {
         expect(

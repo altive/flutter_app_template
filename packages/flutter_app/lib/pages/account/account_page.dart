@@ -14,9 +14,7 @@ class AccountPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = Translations.of(context);
     return Scaffold(
-      appBar: AppBar(
-        title: Text(t.accountPage.appBar.title),
-      ),
+      appBar: AppBar(title: Text(t.accountPage.appBar.title)),
       body: const _Body(),
     );
   }
