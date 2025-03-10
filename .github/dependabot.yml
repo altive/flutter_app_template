@@ -8,9 +8,7 @@ updates:
       interval: "weekly"
 
   - package-ecosystem: "pub"
-    directories:
-      - "/"
-      - "/packages/*"
+    directory: "/"
     schedule:
       interval: "weekly"
     groups:
