@@ -1,3 +1,5 @@
+// 例のため、一部の警告を無視しています。
+// ignore_for_file: invalid_use_of_internal_member
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
@@ -29,9 +31,12 @@ class _LivingPlace extends _$LivingPlace {
 // This is example.
 // ignore: avoid_classes_with_only_static_members
 class Registration {
-  static final nicknameProvider = _nicknameProvider;
-  static final birthdayProvider = _birthdayProvider;
-  static final livingPlaceProvider = _livingPlaceProvider;
+  static final AutoDisposeNotifierProviderImpl<_Nickname, String>
+  nicknameProvider = _nicknameProvider;
+  static final AutoDisposeNotifierProviderImpl<_Birthday, String>
+  birthdayProvider = _birthdayProvider;
+  static final AutoDisposeNotifierProviderImpl<_LivingPlace, String>
+  livingPlaceProvider = _livingPlaceProvider;
 }
 
 // -----------------------------------------------------------------------------
@@ -42,9 +47,11 @@ class Registration {
 // This is example.
 // ignore: avoid_classes_with_only_static_members
 class Inquiry {
-  static final nameProvider = StateProvider((ref) => '');
-  static final emailProvider = StateProvider((ref) => '');
-  static final contentProvider = StateProvider((ref) => '');
+  static final StateProvider<String> nameProvider = StateProvider((ref) => '');
+  static final StateProvider<String> emailProvider = StateProvider((ref) => '');
+  static final StateProvider<String> contentProvider = StateProvider(
+    (ref) => '',
+  );
 }
 
 // -----------------------------------------------------------------------------
@@ -59,10 +66,7 @@ class NamespaceWidget extends ConsumerWidget {
     final nickname = ref.watch(Registration.nicknameProvider);
     final email = ref.watch(Inquiry.emailProvider);
     return Column(
-      children: [
-        Text('nickname: $nickname'),
-        Text('email: $email'),
-      ],
+      children: [Text('nickname: $nickname'), Text('email: $email')],
     );
   }
 }

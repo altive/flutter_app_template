@@ -9,9 +9,7 @@ class ExplorePage extends HookConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final counter = useState(0);
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Explore'),
-      ),
+      appBar: AppBar(title: const Text('Explore')),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,

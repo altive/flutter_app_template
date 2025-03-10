@@ -10,10 +10,7 @@ import '../../util/providers/providers.dart';
 /// The page that serves as the main content of the application.
 /// It can have multiple Navigation items and switch between internal pages.
 class MainPage extends HookConsumerWidget {
-  const MainPage({
-    super.key,
-    required this.navigationShell,
-  });
+  const MainPage({super.key, required this.navigationShell});
 
   final StatefulNavigationShell navigationShell;
 
@@ -35,9 +32,7 @@ class MainPage extends HookConsumerWidget {
         if (nextResults case final List<ConnectivityResult> next
             when next.hasNotNetworkConnection) {
           messenger.showSnackBar(
-            const SnackBar(
-              content: Text('Network connection has been lost.'),
-            ),
+            const SnackBar(content: Text('Network connection has been lost.')),
           );
         } else if (prevResults case final List<ConnectivityResult> prev
             when prev.hasNotNetworkConnection) {

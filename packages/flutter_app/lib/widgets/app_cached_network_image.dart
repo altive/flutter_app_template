@@ -30,10 +30,7 @@ class AppCachedNetworkImage extends StatelessWidget {
       if (emptyView != null) {
         return emptyView!;
       }
-      return Icon(
-        Icons.error,
-        color: colorScheme.error,
-      );
+      return Icon(Icons.error, color: colorScheme.error);
     }
 
     return CachedNetworkImage(
@@ -41,11 +38,9 @@ class AppCachedNetworkImage extends StatelessWidget {
       fit: fit,
       fadeInDuration: const Duration(milliseconds: 100),
       fadeOutDuration: const Duration(milliseconds: 100),
-      progressIndicatorBuilder: (_, __, progress) {
+      progressIndicatorBuilder: (_, _, progress) {
         return Center(
-          child: CircularProgressIndicator.adaptive(
-            value: progress.progress,
-          ),
+          child: CircularProgressIndicator.adaptive(value: progress.progress),
         );
       },
       cacheKey: cacheKey,
@@ -60,10 +55,7 @@ class AppCachedNetworkImage extends StatelessWidget {
               unawaited(tracker.recordError(error, StackTrace.current));
               return;
             });
-            return Icon(
-              Icons.error,
-              color: colorScheme.outline,
-            );
+            return Icon(Icons.error, color: colorScheme.outline);
           },
         );
       },

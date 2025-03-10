@@ -12,7 +12,8 @@ part of 'package_name.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 PackageName _$PackageNameFromJson(Map<String, dynamic> json) {
   return _PackageName.fromJson(json);
@@ -36,8 +37,9 @@ mixin _$PackageName {
 /// @nodoc
 abstract class $PackageNameCopyWith<$Res> {
   factory $PackageNameCopyWith(
-          PackageName value, $Res Function(PackageName) then) =
-      _$PackageNameCopyWithImpl<$Res, PackageName>;
+    PackageName value,
+    $Res Function(PackageName) then,
+  ) = _$PackageNameCopyWithImpl<$Res, PackageName>;
   @useResult
   $Res call({@JsonKey(name: 'package') String name});
 }
@@ -56,15 +58,17 @@ class _$PackageNameCopyWithImpl<$Res, $Val extends PackageName>
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? name = null,
-  }) {
-    return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+  $Res call({Object? name = null}) {
+    return _then(
+      _value.copyWith(
+            name:
+                null == name
+                    ? _value.name
+                    : name // ignore: cast_nullable_to_non_nullable
+                        as String,
+          )
+          as $Val,
+    );
   }
 }
 
@@ -72,8 +76,9 @@ class _$PackageNameCopyWithImpl<$Res, $Val extends PackageName>
 abstract class _$$PackageNameImplCopyWith<$Res>
     implements $PackageNameCopyWith<$Res> {
   factory _$$PackageNameImplCopyWith(
-          _$PackageNameImpl value, $Res Function(_$PackageNameImpl) then) =
-      __$$PackageNameImplCopyWithImpl<$Res>;
+    _$PackageNameImpl value,
+    $Res Function(_$PackageNameImpl) then,
+  ) = __$$PackageNameImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@JsonKey(name: 'package') String name});
@@ -84,22 +89,24 @@ class __$$PackageNameImplCopyWithImpl<$Res>
     extends _$PackageNameCopyWithImpl<$Res, _$PackageNameImpl>
     implements _$$PackageNameImplCopyWith<$Res> {
   __$$PackageNameImplCopyWithImpl(
-      _$PackageNameImpl _value, $Res Function(_$PackageNameImpl) _then)
-      : super(_value, _then);
+    _$PackageNameImpl _value,
+    $Res Function(_$PackageNameImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of PackageName
   /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
-  $Res call({
-    Object? name = null,
-  }) {
-    return _then(_$PackageNameImpl(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+  $Res call({Object? name = null}) {
+    return _then(
+      _$PackageNameImpl(
+        name:
+            null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                    as String,
+      ),
+    );
   }
 }
 
@@ -142,16 +149,14 @@ class _$PackageNameImpl implements _PackageName {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PackageNameImplToJson(
-      this,
-    );
+    return _$$PackageNameImplToJson(this);
   }
 }
 
 abstract class _PackageName implements PackageName {
-  const factory _PackageName(
-          {@JsonKey(name: 'package') required final String name}) =
-      _$PackageNameImpl;
+  const factory _PackageName({
+    @JsonKey(name: 'package') required final String name,
+  }) = _$PackageNameImpl;
 
   factory _PackageName.fromJson(Map<String, dynamic> json) =
       _$PackageNameImpl.fromJson;

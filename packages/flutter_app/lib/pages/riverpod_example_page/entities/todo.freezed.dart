@@ -12,7 +12,8 @@ part of 'todo.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 Todo _$TodoFromJson(Map<String, dynamic> json) {
   return _Todo.fromJson(json);
@@ -60,28 +61,35 @@ class _$TodoCopyWithImpl<$Res, $Val extends Todo>
     Object? title = null,
     Object? completed = null,
   }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      completed: null == completed
-          ? _value.completed
-          : completed // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            id:
+                null == id
+                    ? _value.id
+                    : id // ignore: cast_nullable_to_non_nullable
+                        as String,
+            title:
+                null == title
+                    ? _value.title
+                    : title // ignore: cast_nullable_to_non_nullable
+                        as String,
+            completed:
+                null == completed
+                    ? _value.completed
+                    : completed // ignore: cast_nullable_to_non_nullable
+                        as bool,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$TodoImplCopyWith<$Res> implements $TodoCopyWith<$Res> {
   factory _$$TodoImplCopyWith(
-          _$TodoImpl value, $Res Function(_$TodoImpl) then) =
-      __$$TodoImplCopyWithImpl<$Res>;
+    _$TodoImpl value,
+    $Res Function(_$TodoImpl) then,
+  ) = __$$TodoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String id, String title, bool completed});
@@ -92,7 +100,7 @@ class __$$TodoImplCopyWithImpl<$Res>
     extends _$TodoCopyWithImpl<$Res, _$TodoImpl>
     implements _$$TodoImplCopyWith<$Res> {
   __$$TodoImplCopyWithImpl(_$TodoImpl _value, $Res Function(_$TodoImpl) _then)
-      : super(_value, _then);
+    : super(_value, _then);
 
   /// Create a copy of Todo
   /// with the given fields replaced by the non-null parameter values.
@@ -103,28 +111,36 @@ class __$$TodoImplCopyWithImpl<$Res>
     Object? title = null,
     Object? completed = null,
   }) {
-    return _then(_$TodoImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      completed: null == completed
-          ? _value.completed
-          : completed // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
+    return _then(
+      _$TodoImpl(
+        id:
+            null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                    as String,
+        title:
+            null == title
+                ? _value.title
+                : title // ignore: cast_nullable_to_non_nullable
+                    as String,
+        completed:
+            null == completed
+                ? _value.completed
+                : completed // ignore: cast_nullable_to_non_nullable
+                    as bool,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$TodoImpl with DiagnosticableTreeMixin implements _Todo {
-  const _$TodoImpl(
-      {required this.id, required this.title, this.completed = false});
+  const _$TodoImpl({
+    required this.id,
+    required this.title,
+    this.completed = false,
+  });
 
   factory _$TodoImpl.fromJson(Map<String, dynamic> json) =>
       _$$TodoImplFromJson(json);
@@ -177,17 +193,16 @@ class _$TodoImpl with DiagnosticableTreeMixin implements _Todo {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$TodoImplToJson(
-      this,
-    );
+    return _$$TodoImplToJson(this);
   }
 }
 
 abstract class _Todo implements Todo {
-  const factory _Todo(
-      {required final String id,
-      required final String title,
-      final bool completed}) = _$TodoImpl;
+  const factory _Todo({
+    required final String id,
+    required final String title,
+    final bool completed,
+  }) = _$TodoImpl;
 
   factory _Todo.fromJson(Map<String, dynamic> json) = _$TodoImpl.fromJson;
 

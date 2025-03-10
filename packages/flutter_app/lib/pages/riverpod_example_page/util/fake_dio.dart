@@ -11,11 +11,7 @@ class FakeDio {
 
   List<Map<String, Object?>> _todos = [
     for (final i in [1, 2, 3])
-      {
-        'id': 'T_00$i',
-        'title': 'T 00$i',
-        'completed': false,
-      },
+      {'id': 'T_00$i', 'title': 'T 00$i', 'completed': false},
   ];
 
   Future<Response<List<Map<String, Object?>>>> get<T>(
@@ -24,9 +20,7 @@ class FakeDio {
     void Function(int, int)? onReceiveProgress,
   }) async {
     await Future<void>.delayed(const Duration(milliseconds: 400));
-    return Response(
-      data: _todos,
-    );
+    return Response(data: _todos);
   }
 
   Future<Response<Map<String, Object?>>> post<T>(
@@ -36,9 +30,7 @@ class FakeDio {
     void Function(int, int)? onReceiveProgress,
   }) async {
     await Future<void>.delayed(const Duration(milliseconds: 100));
-    return Response(
-      data: data as Map<String, dynamic>,
-    );
+    return Response(data: data as Map<String, dynamic>);
   }
 
   Future<Response<List<Map<String, Object?>>>> delete<T>(
@@ -52,9 +44,7 @@ class FakeDio {
       for (final todo in _todos)
         if (todo['id'] != todoId) todo,
     ];
-    return Response(
-      data: _todos,
-    );
+    return Response(data: _todos);
   }
 
   Future<Response<List<Map<String, Object?>>>> patch<T>(
@@ -70,8 +60,6 @@ class FakeDio {
       for (final todo in _todos)
         if (todo['id'] == todoId) {...todo, ...?body} else todo,
     ];
-    return Response(
-      data: _todos,
-    );
+    return Response(data: _todos);
   }
 }

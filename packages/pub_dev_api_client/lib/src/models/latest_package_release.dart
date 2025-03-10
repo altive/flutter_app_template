@@ -9,9 +9,8 @@ part 'latest_package_release.g.dart';
 @freezed
 class LatestPackageRelease with _$LatestPackageRelease {
   /// Default constructor.
-  const factory LatestPackageRelease({
-    required PackagePubspec pubspec,
-  }) = _LatestPackageRelease;
+  const factory LatestPackageRelease({required PackagePubspec pubspec}) =
+      _LatestPackageRelease;
 
   /// Create an instance from JSON.
   factory LatestPackageRelease.fromJson(Map<String, dynamic> json) =>

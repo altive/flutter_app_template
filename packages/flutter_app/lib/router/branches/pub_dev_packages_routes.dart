@@ -10,8 +10,8 @@ class PubDevPackagesShellBranchData extends StatefulShellBranchData {
 class PubDevPackagesRouteData extends GoRouteData {
   const PubDevPackagesRouteData();
 
-  static const String name = '/pub_dev_packages';
-  static const String path = '/pub_dev_packages';
+  static const name = '/pub_dev_packages';
+  static const path = '/pub_dev_packages';
 
   @override
   Widget build(BuildContext context, GoRouterState state) {

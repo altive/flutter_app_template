@@ -14,13 +14,13 @@ String _$todoListHash() => r'6ba9e8e3894384e2dd059398bdf2722f909b87b1';
 @ProviderFor(TodoList)
 final todoListProvider =
     AutoDisposeNotifierProvider<TodoList, List<Todo>>.internal(
-  TodoList.new,
-  name: r'todoListProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$todoListHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+      TodoList.new,
+      name: r'todoListProvider',
+      debugGetCreateSourceHash:
+          const bool.fromEnvironment('dart.vm.product') ? null : _$todoListHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
 
 typedef _$TodoList = AutoDisposeNotifier<List<Todo>>;
 // ignore_for_file: type=lint

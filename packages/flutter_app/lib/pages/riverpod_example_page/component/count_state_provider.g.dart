@@ -14,13 +14,15 @@ String _$countStateHash() => r'bde51656f93dfa164b80386bf17a8a6413cb88d5';
 @ProviderFor(CountState)
 final countStateProvider =
     AutoDisposeNotifierProvider<CountState, int>.internal(
-  CountState.new,
-  name: r'countStateProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$countStateHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+      CountState.new,
+      name: r'countStateProvider',
+      debugGetCreateSourceHash:
+          const bool.fromEnvironment('dart.vm.product')
+              ? null
+              : _$countStateHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
 
 typedef _$CountState = AutoDisposeNotifier<int>;
 // ignore_for_file: type=lint

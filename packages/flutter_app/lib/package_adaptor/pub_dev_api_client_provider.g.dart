@@ -15,9 +15,10 @@ String _$pubDevApiClientHash() => r'a480dd2c3d62f33421097013c21c92a9c2ef2fac';
 final pubDevApiClientProvider = Provider<PubDevApiClient>.internal(
   pubDevApiClient,
   name: r'pubDevApiClientProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$pubDevApiClientHash,
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$pubDevApiClientHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );

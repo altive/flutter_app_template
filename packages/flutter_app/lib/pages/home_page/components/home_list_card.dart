@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 
 class HomeListCard extends StatelessWidget {
-  const HomeListCard({
-    super.key,
-    required this.onTap,
-    required this.label,
-  });
+  const HomeListCard({super.key, required this.onTap, required this.label});
 
   final VoidCallback onTap;
   final String label;

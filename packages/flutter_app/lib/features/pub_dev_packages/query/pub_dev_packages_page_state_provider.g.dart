@@ -17,14 +17,15 @@ String _$pubDevPackageSearchWordStateHash() =>
 @ProviderFor(PubDevPackageSearchWordState)
 final pubDevPackageSearchWordStateProvider =
     NotifierProvider<PubDevPackageSearchWordState, String>.internal(
-  PubDevPackageSearchWordState.new,
-  name: r'pubDevPackageSearchWordStateProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$pubDevPackageSearchWordStateHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+      PubDevPackageSearchWordState.new,
+      name: r'pubDevPackageSearchWordStateProvider',
+      debugGetCreateSourceHash:
+          const bool.fromEnvironment('dart.vm.product')
+              ? null
+              : _$pubDevPackageSearchWordStateHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
 
 typedef _$PubDevPackageSearchWordState = Notifier<String>;
 String _$pubDevPackagesPageStateHash() =>
@@ -33,17 +34,20 @@ String _$pubDevPackagesPageStateHash() =>
 /// See also [PubDevPackagesPageState].
 @ProviderFor(PubDevPackagesPageState)
 final pubDevPackagesPageStateProvider = AsyncNotifierProvider<
-    PubDevPackagesPageState, GetSearchedPackagesResponseBody>.internal(
+  PubDevPackagesPageState,
+  GetSearchedPackagesResponseBody
+>.internal(
   PubDevPackagesPageState.new,
   name: r'pubDevPackagesPageStateProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$pubDevPackagesPageStateHash,
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$pubDevPackagesPageStateHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-typedef _$PubDevPackagesPageState
-    = AsyncNotifier<GetSearchedPackagesResponseBody>;
+typedef _$PubDevPackagesPageState =
+    AsyncNotifier<GetSearchedPackagesResponseBody>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

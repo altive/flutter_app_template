@@ -8,18 +8,15 @@ part of 'todo.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$TodoImpl _$$TodoImplFromJson(Map<String, dynamic> json) => $checkedCreate(
-      r'_$TodoImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$TodoImpl(
-          id: $checkedConvert('id', (v) => v as String),
-          title: $checkedConvert('title', (v) => v as String),
-          completed: $checkedConvert('completed', (v) => v as bool? ?? false),
-        );
-        return val;
-      },
-    );
+_$TodoImpl _$$TodoImplFromJson(Map<String, dynamic> json) =>
+    $checkedCreate(r'_$TodoImpl', json, ($checkedConvert) {
+      final val = _$TodoImpl(
+        id: $checkedConvert('id', (v) => v as String),
+        title: $checkedConvert('title', (v) => v as String),
+        completed: $checkedConvert('completed', (v) => v as bool? ?? false),
+      );
+      return val;
+    });
 
 Map<String, dynamic> _$$TodoImplToJson(_$TodoImpl instance) =>
     <String, dynamic>{

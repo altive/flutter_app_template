@@ -12,20 +12,16 @@ import 'state_provider_page/state_provider_page.dart';
 import 'stream_provider_page.dart/stream_provider_page.dart';
 
 class RiverpodExamplePage extends ConsumerWidget {
-  const RiverpodExamplePage({
-    super.key,
-  });
+  const RiverpodExamplePage({super.key});
 
-  static const String title = 'Riverpod Examples';
+  static const title = 'Riverpod Examples';
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     // Keep CountState alive as long as this page is alive.
-    ref.listen(countStateProvider, (_, __) {});
+    ref.listen(countStateProvider, (_, _) {});
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(title),
-      ),
+      appBar: AppBar(title: const Text(title)),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
@@ -64,10 +60,7 @@ class RiverpodExamplePage extends ConsumerWidget {
 }
 
 class _FeatureCard extends StatelessWidget {
-  const _FeatureCard({
-    required this.onTap,
-    required this.label,
-  });
+  const _FeatureCard({required this.onTap, required this.label});
 
   final VoidCallback onTap;
   final String label;

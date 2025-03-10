@@ -10,8 +10,8 @@ class DashboardShellBranchData extends StatefulShellBranchData {
 class DashboardRouteData extends GoRouteData {
   const DashboardRouteData();
 
-  static const String name = '/dashboard';
-  static const String path = '/dashboard';
+  static const name = '/dashboard';
+  static const path = '/dashboard';
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
