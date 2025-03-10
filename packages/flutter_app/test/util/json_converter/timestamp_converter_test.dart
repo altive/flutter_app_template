@@ -19,8 +19,9 @@ void main() {
         final expectDate = DateTime.fromMillisecondsSinceEpoch(randomNumber);
 
         const target = TimestampConverter();
-        final targetDate =
-            target.fromJson(Timestamp.fromMillisecondsSinceEpoch(randomNumber));
+        final targetDate = target.fromJson(
+          Timestamp.fromMillisecondsSinceEpoch(randomNumber),
+        );
 
         expect(targetDate, expectDate);
       });
@@ -29,8 +30,9 @@ void main() {
         final expectDate = DateTime.fromMillisecondsSinceEpoch(1000);
 
         const target = TimestampConverter();
-        final targetDate =
-            target.fromJson(Timestamp.fromMillisecondsSinceEpoch(999));
+        final targetDate = target.fromJson(
+          Timestamp.fromMillisecondsSinceEpoch(999),
+        );
 
         expect(targetDate, isNot(expectDate));
       });
@@ -38,12 +40,14 @@ void main() {
 
     group('toJson', () {
       test('同じ値を引数に与えた時、DateTimeからTimestampへの変換が成功する', () {
-        final expectTimestamp =
-            Timestamp.fromMillisecondsSinceEpoch(randomNumber);
+        final expectTimestamp = Timestamp.fromMillisecondsSinceEpoch(
+          randomNumber,
+        );
 
         const target = TimestampConverter();
-        final targetTimestamp =
-            target.toJson(DateTime.fromMillisecondsSinceEpoch(randomNumber));
+        final targetTimestamp = target.toJson(
+          DateTime.fromMillisecondsSinceEpoch(randomNumber),
+        );
 
         expect(targetTimestamp, expectTimestamp);
       });
@@ -52,8 +56,9 @@ void main() {
         final expectTimestamp = Timestamp.fromMillisecondsSinceEpoch(1000);
 
         const target = TimestampConverter();
-        final targetTimestamp =
-            target.toJson(DateTime.fromMillisecondsSinceEpoch(999));
+        final targetTimestamp = target.toJson(
+          DateTime.fromMillisecondsSinceEpoch(999),
+        );
 
         expect(targetTimestamp, isNot(expectTimestamp));
       });

@@ -19,20 +19,14 @@ class ErrorRoute extends GoRouteData {
   final Exception exception;
 
   @override
-  Widget build(BuildContext context, GoRouterState state) => ErrorPage(
-        location: location,
-        exception: exception,
-      );
+  Widget build(BuildContext context, GoRouterState state) =>
+      ErrorPage(location: location, exception: exception);
 }
 
 /// A page for error.
 class ErrorPage extends StatelessWidget {
   /// Creates a new instance of [ErrorPage].
-  const ErrorPage({
-    super.key,
-    required this.location,
-    required this.exception,
-  });
+  const ErrorPage({super.key, required this.location, required this.exception});
 
   /// Location of the route.
   final String location;
@@ -44,9 +38,7 @@ class ErrorPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final t = Translations.of(context);
     return Scaffold(
-      appBar: AppBar(
-        title: Text(t.notFoundPage.title),
-      ),
+      appBar: AppBar(title: Text(t.notFoundPage.title)),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: _Body(path: location),
@@ -56,9 +48,7 @@ class ErrorPage extends StatelessWidget {
 }
 
 class _Body extends HookConsumerWidget {
-  const _Body({
-    required this.path,
-  });
+  const _Body({required this.path});
 
   final String path;
 

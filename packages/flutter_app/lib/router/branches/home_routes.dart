@@ -19,8 +19,8 @@ class HomeShellBranchData extends StatefulShellBranchData {
 class HomeRouteData extends GoRouteData {
   const HomeRouteData();
 
-  static const String name = '/home';
-  static const String path = '/home';
+  static const name = '/home';
+  static const path = '/home';
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
@@ -31,8 +31,8 @@ class HomeRouteData extends GoRouteData {
 class AppInfoRouteData extends GoRouteData {
   const AppInfoRouteData();
 
-  static const String name = '/app-info';
-  static const String path = 'app-info';
+  static const name = '/app-info';
+  static const path = 'app-info';
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
@@ -43,8 +43,8 @@ class AppInfoRouteData extends GoRouteData {
 class RiverpodExampleRouteData extends GoRouteData {
   const RiverpodExampleRouteData();
 
-  static const String name = '/riverpod';
-  static const String path = 'riverpod';
+  static const name = '/riverpod';
+  static const path = 'riverpod';
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
@@ -55,8 +55,8 @@ class RiverpodExampleRouteData extends GoRouteData {
 class ProviderRouteData extends GoRouteData {
   const ProviderRouteData();
 
-  static const String name = '/provider';
-  static const String path = 'provider';
+  static const name = '/provider';
+  static const path = 'provider';
 
   @override
   Widget build(BuildContext context, GoRouterState state) =>
@@ -66,8 +66,8 @@ class ProviderRouteData extends GoRouteData {
 class StateProviderRouteData extends GoRouteData {
   const StateProviderRouteData();
 
-  static const String name = '/state-provider';
-  static const String path = 'state-provider';
+  static const name = '/state-provider';
+  static const path = 'state-provider';
 
   @override
   Widget build(BuildContext context, GoRouterState state) =>
@@ -77,8 +77,8 @@ class StateProviderRouteData extends GoRouteData {
 class StreamProviderRouteData extends GoRouteData {
   const StreamProviderRouteData();
 
-  static const String name = '/stream-provider';
-  static const String path = 'stream-provider';
+  static const name = '/stream-provider';
+  static const path = 'stream-provider';
 
   @override
   Widget build(BuildContext context, GoRouterState state) =>
@@ -88,8 +88,8 @@ class StreamProviderRouteData extends GoRouteData {
 class NotifierProviderRouteData extends GoRouteData {
   const NotifierProviderRouteData();
 
-  static const String name = '/notifier-provider';
-  static const String path = 'notifier-provider';
+  static const name = '/notifier-provider';
+  static const path = 'notifier-provider';
 
   @override
   Widget build(BuildContext context, GoRouterState state) =>
@@ -99,8 +99,8 @@ class NotifierProviderRouteData extends GoRouteData {
 class AsyncNotifierProviderRouteData extends GoRouteData {
   const AsyncNotifierProviderRouteData();
 
-  static const String name = '/async-notifier-provider';
-  static const String path = 'async-notifier-provider';
+  static const name = '/async-notifier-provider';
+  static const path = 'async-notifier-provider';
 
   @override
   Widget build(BuildContext context, GoRouterState state) =>
@@ -110,8 +110,8 @@ class AsyncNotifierProviderRouteData extends GoRouteData {
 class StateNotifierProviderRouteData extends GoRouteData {
   const StateNotifierProviderRouteData();
 
-  static const String name = '/state-notifier-provider';
-  static const String path = 'state-notifier-provider';
+  static const name = '/state-notifier-provider';
+  static const path = 'state-notifier-provider';
 
   @override
   Widget build(BuildContext context, GoRouterState state) =>
@@ -121,8 +121,8 @@ class StateNotifierProviderRouteData extends GoRouteData {
 class ListenProviderRouteData extends GoRouteData {
   const ListenProviderRouteData();
 
-  static const String name = '/listen-provider';
-  static const String path = 'listen-provider';
+  static const name = '/listen-provider';
+  static const path = 'listen-provider';
 
   @override
   Widget build(BuildContext context, GoRouterState state) =>

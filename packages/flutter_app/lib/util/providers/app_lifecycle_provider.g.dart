@@ -14,13 +14,15 @@ String _$appLifecycleHash() => r'e8bcd1ac977780523d4ade8f877914568a785840';
 @ProviderFor(AppLifecycle)
 final appLifecycleProvider =
     AutoDisposeNotifierProvider<AppLifecycle, AppLifecycleState>.internal(
-  AppLifecycle.new,
-  name: r'appLifecycleProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$appLifecycleHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+      AppLifecycle.new,
+      name: r'appLifecycleProvider',
+      debugGetCreateSourceHash:
+          const bool.fromEnvironment('dart.vm.product')
+              ? null
+              : _$appLifecycleHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
 
 typedef _$AppLifecycle = AutoDisposeNotifier<AppLifecycleState>;
 // ignore_for_file: type=lint

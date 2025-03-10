@@ -4,6 +4,7 @@ appbar
 appbundle
 APPL
 Checkmark
+COCOAPODS
 codecov
 codeowners
 codesign
@@ -29,6 +30,7 @@ mockito
 nullsafety
 pbcopy
 Podfile
+podhelper
 postbootstrap
 postclean
 pubspec

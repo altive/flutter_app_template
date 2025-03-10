@@ -7,11 +7,7 @@ part of 'package_name.dart';
 // **************************************************************************
 
 _$PackageNameImpl _$$PackageNameImplFromJson(Map<String, dynamic> json) =>
-    _$PackageNameImpl(
-      name: json['package'] as String,
-    );
+    _$PackageNameImpl(name: json['package'] as String);
 
 Map<String, dynamic> _$$PackageNameImplToJson(_$PackageNameImpl instance) =>
-    <String, dynamic>{
-      'package': instance.name,
-    };
+    <String, dynamic>{'package': instance.name};

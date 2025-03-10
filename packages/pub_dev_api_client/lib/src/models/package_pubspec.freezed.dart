@@ -12,7 +12,8 @@ part of 'package_pubspec.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
+);
 
 PackagePubspec _$PackagePubspecFromJson(Map<String, dynamic> json) {
   return _PackagePubspec.fromJson(json);
@@ -37,8 +38,9 @@ mixin _$PackagePubspec {
 /// @nodoc
 abstract class $PackagePubspecCopyWith<$Res> {
   factory $PackagePubspecCopyWith(
-          PackagePubspec value, $Res Function(PackagePubspec) then) =
-      _$PackagePubspecCopyWithImpl<$Res, PackagePubspec>;
+    PackagePubspec value,
+    $Res Function(PackagePubspec) then,
+  ) = _$PackagePubspecCopyWithImpl<$Res, PackagePubspec>;
   @useResult
   $Res call({String name, String version, String description});
 }
@@ -62,29 +64,36 @@ class _$PackagePubspecCopyWithImpl<$Res, $Val extends PackagePubspec>
     Object? version = null,
     Object? description = null,
   }) {
-    return _then(_value.copyWith(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      version: null == version
-          ? _value.version
-          : version // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
+    return _then(
+      _value.copyWith(
+            name:
+                null == name
+                    ? _value.name
+                    : name // ignore: cast_nullable_to_non_nullable
+                        as String,
+            version:
+                null == version
+                    ? _value.version
+                    : version // ignore: cast_nullable_to_non_nullable
+                        as String,
+            description:
+                null == description
+                    ? _value.description
+                    : description // ignore: cast_nullable_to_non_nullable
+                        as String,
+          )
+          as $Val,
+    );
   }
 }
 
 /// @nodoc
 abstract class _$$PackagePubspecImplCopyWith<$Res>
     implements $PackagePubspecCopyWith<$Res> {
-  factory _$$PackagePubspecImplCopyWith(_$PackagePubspecImpl value,
-          $Res Function(_$PackagePubspecImpl) then) =
-      __$$PackagePubspecImplCopyWithImpl<$Res>;
+  factory _$$PackagePubspecImplCopyWith(
+    _$PackagePubspecImpl value,
+    $Res Function(_$PackagePubspecImpl) then,
+  ) = __$$PackagePubspecImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String name, String version, String description});
@@ -95,8 +104,9 @@ class __$$PackagePubspecImplCopyWithImpl<$Res>
     extends _$PackagePubspecCopyWithImpl<$Res, _$PackagePubspecImpl>
     implements _$$PackagePubspecImplCopyWith<$Res> {
   __$$PackagePubspecImplCopyWithImpl(
-      _$PackagePubspecImpl _value, $Res Function(_$PackagePubspecImpl) _then)
-      : super(_value, _then);
+    _$PackagePubspecImpl _value,
+    $Res Function(_$PackagePubspecImpl) _then,
+  ) : super(_value, _then);
 
   /// Create a copy of PackagePubspec
   /// with the given fields replaced by the non-null parameter values.
@@ -107,28 +117,36 @@ class __$$PackagePubspecImplCopyWithImpl<$Res>
     Object? version = null,
     Object? description = null,
   }) {
-    return _then(_$PackagePubspecImpl(
-      name: null == name
-          ? _value.name
-          : name // ignore: cast_nullable_to_non_nullable
-              as String,
-      version: null == version
-          ? _value.version
-          : version // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
+    return _then(
+      _$PackagePubspecImpl(
+        name:
+            null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                    as String,
+        version:
+            null == version
+                ? _value.version
+                : version // ignore: cast_nullable_to_non_nullable
+                    as String,
+        description:
+            null == description
+                ? _value.description
+                : description // ignore: cast_nullable_to_non_nullable
+                    as String,
+      ),
+    );
   }
 }
 
 /// @nodoc
 @JsonSerializable()
 class _$PackagePubspecImpl implements _PackagePubspec {
-  const _$PackagePubspecImpl(
-      {required this.name, required this.version, required this.description});
+  const _$PackagePubspecImpl({
+    required this.name,
+    required this.version,
+    required this.description,
+  });
 
   factory _$PackagePubspecImpl.fromJson(Map<String, dynamic> json) =>
       _$$PackagePubspecImplFromJson(json);
@@ -167,21 +185,22 @@ class _$PackagePubspecImpl implements _PackagePubspec {
   @pragma('vm:prefer-inline')
   _$$PackagePubspecImplCopyWith<_$PackagePubspecImpl> get copyWith =>
       __$$PackagePubspecImplCopyWithImpl<_$PackagePubspecImpl>(
-          this, _$identity);
+        this,
+        _$identity,
+      );
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PackagePubspecImplToJson(
-      this,
-    );
+    return _$$PackagePubspecImplToJson(this);
   }
 }
 
 abstract class _PackagePubspec implements PackagePubspec {
-  const factory _PackagePubspec(
-      {required final String name,
-      required final String version,
-      required final String description}) = _$PackagePubspecImpl;
+  const factory _PackagePubspec({
+    required final String name,
+    required final String version,
+    required final String description,
+  }) = _$PackagePubspecImpl;
 
   factory _PackagePubspec.fromJson(Map<String, dynamic> json) =
       _$PackagePubspecImpl.fromJson;

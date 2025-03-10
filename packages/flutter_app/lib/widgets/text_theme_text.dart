@@ -52,9 +52,7 @@ class DisplayLargeText extends StatelessWidget with TextThemeText {
       indent: indent,
       maxLines: maxLines,
       textAlign: textAlign,
-      style: context.textTheme.displayLarge!.copyWith(
-        color: color,
-      ),
+      style: context.textTheme.displayLarge!.copyWith(color: color),
     );
   }
 }
@@ -93,9 +91,7 @@ class DisplayMediumText extends StatelessWidget with TextThemeText {
       indent: indent,
       maxLines: maxLines,
       textAlign: textAlign,
-      style: context.textTheme.displayMedium!.copyWith(
-        color: color,
-      ),
+      style: context.textTheme.displayMedium!.copyWith(color: color),
     );
   }
 }
@@ -134,9 +130,7 @@ class DisplaySmallText extends StatelessWidget with TextThemeText {
       indent: indent,
       maxLines: maxLines,
       textAlign: textAlign,
-      style: context.textTheme.displaySmall!.copyWith(
-        color: color,
-      ),
+      style: context.textTheme.displaySmall!.copyWith(color: color),
     );
   }
 }
@@ -175,9 +169,7 @@ class HeadlineLargeText extends StatelessWidget with TextThemeText {
       indent: indent,
       maxLines: maxLines,
       textAlign: textAlign,
-      style: context.textTheme.headlineLarge!.copyWith(
-        color: color,
-      ),
+      style: context.textTheme.headlineLarge!.copyWith(color: color),
     );
   }
 }
@@ -216,9 +208,7 @@ class HeadlineMediumText extends StatelessWidget with TextThemeText {
       indent: indent,
       maxLines: maxLines,
       textAlign: textAlign,
-      style: context.textTheme.headlineMedium!.copyWith(
-        color: color,
-      ),
+      style: context.textTheme.headlineMedium!.copyWith(color: color),
     );
   }
 }
@@ -257,9 +247,7 @@ class HeadlineSmallText extends StatelessWidget with TextThemeText {
       indent: indent,
       maxLines: maxLines,
       textAlign: textAlign,
-      style: context.textTheme.headlineSmall!.copyWith(
-        color: color,
-      ),
+      style: context.textTheme.headlineSmall!.copyWith(color: color),
     );
   }
 }
@@ -298,9 +286,7 @@ class TitleLargeText extends StatelessWidget with TextThemeText {
       indent: indent,
       maxLines: maxLines,
       textAlign: textAlign,
-      style: context.textTheme.titleLarge!.copyWith(
-        color: color,
-      ),
+      style: context.textTheme.titleLarge!.copyWith(color: color),
     );
   }
 }
@@ -339,9 +325,7 @@ class TitleMediumText extends StatelessWidget with TextThemeText {
       indent: indent,
       maxLines: maxLines,
       textAlign: textAlign,
-      style: context.textTheme.titleMedium!.copyWith(
-        color: color,
-      ),
+      style: context.textTheme.titleMedium!.copyWith(color: color),
     );
   }
 }
@@ -380,9 +364,7 @@ class TitleSmallText extends StatelessWidget with TextThemeText {
       indent: indent,
       maxLines: maxLines,
       textAlign: textAlign,
-      style: context.textTheme.titleSmall!.copyWith(
-        color: color,
-      ),
+      style: context.textTheme.titleSmall!.copyWith(color: color),
     );
   }
 }
@@ -421,9 +403,7 @@ class BodyLargeText extends StatelessWidget with TextThemeText {
       indent: indent,
       maxLines: maxLines,
       textAlign: textAlign,
-      style: context.textTheme.bodyLarge!.copyWith(
-        color: color,
-      ),
+      style: context.textTheme.bodyLarge!.copyWith(color: color),
     );
   }
 }
@@ -462,9 +442,7 @@ class BodyMediumText extends StatelessWidget with TextThemeText {
       indent: indent,
       maxLines: maxLines,
       textAlign: textAlign,
-      style: context.textTheme.bodyMedium!.copyWith(
-        color: color,
-      ),
+      style: context.textTheme.bodyMedium!.copyWith(color: color),
     );
   }
 }
@@ -503,9 +481,7 @@ class BodySmallText extends StatelessWidget with TextThemeText {
       indent: indent,
       maxLines: maxLines,
       textAlign: textAlign,
-      style: context.textTheme.bodySmall!.copyWith(
-        color: color,
-      ),
+      style: context.textTheme.bodySmall!.copyWith(color: color),
     );
   }
 }
@@ -544,9 +520,7 @@ class LabelLargeText extends StatelessWidget with TextThemeText {
       indent: indent,
       maxLines: maxLines,
       textAlign: textAlign,
-      style: context.textTheme.labelLarge!.copyWith(
-        color: color,
-      ),
+      style: context.textTheme.labelLarge!.copyWith(color: color),
     );
   }
 }
@@ -585,9 +559,7 @@ class LabelMediumText extends StatelessWidget with TextThemeText {
       indent: indent,
       maxLines: maxLines,
       textAlign: textAlign,
-      style: context.textTheme.labelMedium!.copyWith(
-        color: color,
-      ),
+      style: context.textTheme.labelMedium!.copyWith(color: color),
     );
   }
 }
@@ -626,9 +598,7 @@ class LabelSmallText extends StatelessWidget with TextThemeText {
       indent: indent,
       maxLines: maxLines,
       textAlign: textAlign,
-      style: context.textTheme.labelSmall!.copyWith(
-        color: color,
-      ),
+      style: context.textTheme.labelSmall!.copyWith(color: color),
     );
   }
 }

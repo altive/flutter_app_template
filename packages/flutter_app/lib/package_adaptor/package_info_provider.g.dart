@@ -9,7 +9,7 @@ part of 'package_info_provider.dart';
 // **************************************************************************
 
 String _$packageInfoInitializingHash() =>
-    r'9e9859b77c365e47475d313f542ee8bf55158c16';
+    r'2d1ca6709ba0fddeca7db1820c612f6fdab1e841';
 
 /// Providers that need to initialize asynchronously only once at startup.
 ///
@@ -18,9 +18,10 @@ String _$packageInfoInitializingHash() =>
 final packageInfoInitializingProvider = FutureProvider<PackageInfo>.internal(
   packageInfoInitializing,
   name: r'packageInfoInitializingProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$packageInfoInitializingHash,
+  debugGetCreateSourceHash:
+      const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$packageInfoInitializingHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );

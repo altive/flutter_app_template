@@ -11,29 +11,23 @@ resolution: workspace
 dependencies:
   flutter:
     sdk: flutter
-  flutter_svg: ^2.0.5
+  flutter_svg: ^2.0.17
   simple_logger: ^1.8.0+1
 
 dev_dependencies:
-  altive_lints: ^1.16.0
-  build_runner: ^2.4.13
+  altive_lints: ^1.19.1
+  build_runner: ^2.4.15
   custom_lint: ^0.7.0
-  flutter_gen_runner: ^5.3.1
+  flutter_gen_runner: ^5.10.0
   flutter_test:
     sdk: flutter
 
 flutter_gen:
-  enabled: true
-  output: lib/gen/
-  line_length: 80
   integrations:
+    image: true
     flutter_svg: true
-    flare_flutter: false
     rive: false
     lottie: false
-  assets:
-    outputs:
-      style: dot-delimiter
 
 flutter:
   assets:

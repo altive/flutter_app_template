@@ -11,22 +11,15 @@ import '../../widgets/widgets.dart';
 /// A page for app information.
 class AppInfoPage extends StatelessWidget {
   /// Creates a new instance of [AppInfoPage].
-  const AppInfoPage({
-    super.key,
-  });
+  const AppInfoPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     final t = Translations.of(context);
     return Scaffold(
-      appBar: AppBar(
-        title: Text(t.appInfo.appBar.title),
-      ),
+      appBar: AppBar(title: Text(t.appInfo.appBar.title)),
       body: const SafeArea(
-        child: Padding(
-          padding: EdgeInsets.all(16),
-          child: _Body(),
-        ),
+        child: Padding(padding: EdgeInsets.all(16), child: _Body()),
       ),
     );
   }
@@ -64,10 +57,10 @@ class _Body extends HookConsumerWidget {
           kReleaseMode
               ? 'Release'
               : kProfileMode
-                  ? 'Profile'
-                  : kDebugMode
-                      ? 'Debug'
-                      : 'unknown',
+              ? 'Profile'
+              : kDebugMode
+              ? 'Debug'
+              : 'unknown',
         ),
       ],
     );

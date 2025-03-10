@@ -30,7 +30,7 @@
 //       appBar: AppBar(title: const Text('Dialog Catalog')),
 //       body: ListView.separated(
 //         padding: const EdgeInsets.all(16),
-//         separatorBuilder: (_, __) => const Gap(16),
+//         separatorBuilder: (_, _) => const Gap(16),
 //         itemCount: widgets.length,
 //         itemBuilder: (context, index) => widgets[index],
 //       ),

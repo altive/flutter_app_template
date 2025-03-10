@@ -16,14 +16,15 @@ String _$themeSelectorHash() => r'48fc54b4fc30c87d31c8e505ec2b0bb0102b2b5b';
 @ProviderFor(ThemeSelector)
 final themeSelectorProvider =
     AutoDisposeNotifierProvider<ThemeSelector, ThemeMode>.internal(
-  ThemeSelector.new,
-  name: r'themeSelectorProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$themeSelectorHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+      ThemeSelector.new,
+      name: r'themeSelectorProvider',
+      debugGetCreateSourceHash:
+          const bool.fromEnvironment('dart.vm.product')
+              ? null
+              : _$themeSelectorHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
 
 typedef _$ThemeSelector = AutoDisposeNotifier<ThemeMode>;
 // ignore_for_file: type=lint

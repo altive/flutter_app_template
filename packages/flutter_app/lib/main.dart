@@ -33,11 +33,12 @@ Future<void> main() async {
     Isolate.current.addErrorListener(tracker.isolateErrorListener());
   }
 
-  final (sp, _) = await (
-    // Get it here because you want to use Preferences before Initialize.
-    SharedPreferences.getInstance(),
-    LocaleSettings.useDeviceLocale()
-  ).wait;
+  final (sp, _) =
+      await (
+        // Get it here because you want to use Preferences before Initialize.
+        SharedPreferences.getInstance(),
+        LocaleSettings.useDeviceLocale(),
+      ).wait;
 
   runApp(
     ProviderScope(
@@ -47,9 +48,7 @@ Future<void> main() async {
         sharedPreferencesProvider.overrideWithValue(sp),
       ],
       observers: [ProviderLogger()],
-      child: TranslationProvider(
-        child: const MainApp(),
-      ),
+      child: TranslationProvider(child: const MainApp()),
     ),
   );
 }

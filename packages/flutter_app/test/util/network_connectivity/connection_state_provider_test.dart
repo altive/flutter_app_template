@@ -14,21 +14,21 @@ void main() {
       () async {
         final mockConnectivity = MockConnectivity();
         final container = createContainer(
-          overrides: [
-            connectivityProvider.overrideWithValue(mockConnectivity),
-          ],
+          overrides: [connectivityProvider.overrideWithValue(mockConnectivity)],
         );
 
         final streamController = StreamController<List<ConnectivityResult>>();
         addTearDown(streamController.close);
 
-        when(mockConnectivity.onConnectivityChanged)
-            .thenAnswer((_) => streamController.stream);
+        when(
+          mockConnectivity.onConnectivityChanged,
+        ).thenAnswer((_) => streamController.stream);
 
         streamController.add([ConnectivityResult.none]);
 
-        final target =
-            await container.read(networkConnectionStateProvider.future);
+        final target = await container.read(
+          networkConnectionStateProvider.future,
+        );
         expect(target.hasNetworkConnection, isFalse);
       },
     );
@@ -38,21 +38,21 @@ void main() {
       () async {
         final mockConnectivity = MockConnectivity();
         final container = createContainer(
-          overrides: [
-            connectivityProvider.overrideWithValue(mockConnectivity),
-          ],
+          overrides: [connectivityProvider.overrideWithValue(mockConnectivity)],
         );
 
         final streamController = StreamController<List<ConnectivityResult>>();
         addTearDown(streamController.close);
 
-        when(mockConnectivity.onConnectivityChanged)
-            .thenAnswer((_) => streamController.stream);
+        when(
+          mockConnectivity.onConnectivityChanged,
+        ).thenAnswer((_) => streamController.stream);
 
         streamController.add([ConnectivityResult.wifi]);
 
-        final target =
-            await container.read(networkConnectionStateProvider.future);
+        final target = await container.read(
+          networkConnectionStateProvider.future,
+        );
         expect(target.hasNetworkConnection, isTrue);
       },
     );

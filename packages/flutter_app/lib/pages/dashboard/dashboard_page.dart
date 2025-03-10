@@ -12,16 +12,15 @@ class DashboardPage extends HookWidget {
     final imageFileState = useState<XFile?>(null);
     final imageFile = imageFileState.value;
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Dashboard'),
-      ),
+      appBar: AppBar(title: const Text('Dashboard')),
       body: SingleChildScrollView(
         child: Column(
           children: [
             IconButton(
               onPressed: () async {
-                final file =
-                    await ImagePicker().pickImage(source: ImageSource.gallery);
+                final file = await ImagePicker().pickImage(
+                  source: ImageSource.gallery,
+                );
                 imageFileState.value = file;
               },
               icon: CircleAvatar(

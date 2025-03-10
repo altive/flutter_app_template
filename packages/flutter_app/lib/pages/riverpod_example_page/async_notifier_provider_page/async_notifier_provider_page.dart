@@ -19,17 +19,17 @@ part 'async_notifier_provider_page.g.dart';
 class AsyncTodoList extends _$AsyncTodoList {
   Future<List<Todo>> _fetchTodo() async {
     // Web API等を通じてTodoリストを取得する処理
-    final r = await ref.read(dioProvider).get<List<Map<String, Object?>>>(
-          'https://example.com/api/todo',
-        );
+    final r = await ref
+        .read(dioProvider)
+        .get<List<Map<String, Object?>>>('https://example.com/api/todo');
     return r.data.map(Todo.fromJson).toList();
   }
 
   @override
   Future<List<Todo>> build() async {
-    final r = await ref.watch(dioProvider).get<List<Map<String, Object?>>>(
-          'https://example.com/api/todo',
-        );
+    final r = await ref
+        .watch(dioProvider)
+        .get<List<Map<String, Object?>>>('https://example.com/api/todo');
     return r.data.map(Todo.fromJson).toList();
   }
 
@@ -40,7 +40,9 @@ class AsyncTodoList extends _$AsyncTodoList {
     state = const AsyncValue.loading(); // 処理完了までの間はローディング状態にしたい場合
     // AsyncValue.guard: 例外発生時は AsyncErrorを返してくれる（try/catchの代替）
     state = await AsyncValue.guard(() async {
-      final r = await ref.read(dioProvider).post<Map<String, Object?>>(
+      final r = await ref
+          .read(dioProvider)
+          .post<Map<String, Object?>>(
             'https://example.com/api/todos',
             data: todo.toJson(),
           );
@@ -53,9 +55,9 @@ class AsyncTodoList extends _$AsyncTodoList {
   Future<void> remove(String todoId) async {
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() async {
-      await ref.read(dioProvider).delete<Map<String, Object?>>(
-            'https://example.com/api/todo/$todoId',
-          );
+      await ref
+          .read(dioProvider)
+          .delete<Map<String, Object?>>('https://example.com/api/todo/$todoId');
       return _fetchTodo();
     });
   }
@@ -65,10 +67,12 @@ class AsyncTodoList extends _$AsyncTodoList {
     final todo = state.value!.firstWhere((todo) => todo.id == todoId);
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() async {
-      await ref.read(dioProvider).patch<Map<String, Object?>>(
-        'https://example.com/api/todo/$todoId',
-        data: <String, Object?>{'completed': !todo.completed},
-      );
+      await ref
+          .read(dioProvider)
+          .patch<Map<String, Object?>>(
+            'https://example.com/api/todo/$todoId',
+            data: <String, Object?>{'completed': !todo.completed},
+          );
       return _fetchTodo();
     });
   }
@@ -76,9 +80,7 @@ class AsyncTodoList extends _$AsyncTodoList {
 
 // Widget example.
 class AsyncNotifierProviderPage extends ConsumerWidget {
-  const AsyncNotifierProviderPage({
-    super.key,
-  });
+  const AsyncNotifierProviderPage({super.key});
 
   static const title = 'AsyncNotifierProvider';
 
@@ -116,7 +118,7 @@ class AsyncNotifierProviderPage extends ConsumerWidget {
             return ListView.separated(
               padding: const EdgeInsets.all(16),
               itemCount: todoList.length,
-              separatorBuilder: (_, __) => const SizedBox(height: 4),
+              separatorBuilder: (_, _) => const SizedBox(height: 4),
               itemBuilder: (context, index) {
                 final todo = todoList[index];
                 return Card(

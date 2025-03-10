@@ -12,4 +12,4 @@ workspace:
   - packages/widget_catalog
 
 dev_dependencies:
-  melos: ^6.2.0
+  melos: ^6.3.2

@@ -9,19 +9,19 @@ import '../entities/todo.dart';
 // Provider example.
 final todoListNotifierProvider =
     StateNotifierProvider<TodoListNotifier, List<Todo>>((ref) {
-  return TodoListNotifier();
-});
+      return TodoListNotifier();
+    });
 
 class TodoListNotifier extends StateNotifier<List<Todo>> {
   TodoListNotifier()
-      : super(const [
-          // サンプルのTodoを挿入
-          Todo(id: '1', title: 'Buy a coffee'),
-          Todo(id: '2', title: 'Buy a milk'),
-          Todo(id: '3', title: 'Eat sushi'),
-          Todo(id: '4', title: 'Build an sushi'),
-          Todo(id: '5', title: 'Build my app'),
-        ]);
+    : super(const [
+        // サンプルのTodoを挿入
+        Todo(id: '1', title: 'Buy a coffee'),
+        Todo(id: '2', title: 'Buy a milk'),
+        Todo(id: '3', title: 'Eat sushi'),
+        Todo(id: '4', title: 'Build an sushi'),
+        Todo(id: '5', title: 'Build my app'),
+      ]);
 
   /// 新しいTODOを追加するメソッド
   void add(Todo todo) {
@@ -50,11 +50,9 @@ class TodoListNotifier extends StateNotifier<List<Todo>> {
 
 // Widget example.
 class StateNotifierProviderPage extends ConsumerWidget {
-  const StateNotifierProviderPage({
-    super.key,
-  });
+  const StateNotifierProviderPage({super.key});
 
-  static const String title = 'StateNotifierProvider';
+  static const title = 'StateNotifierProvider';
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -85,7 +83,7 @@ class StateNotifierProviderPage extends ConsumerWidget {
         child: ListView.separated(
           padding: const EdgeInsets.all(16),
           itemCount: todoList.length,
-          separatorBuilder: (_, __) => const SizedBox(height: 4),
+          separatorBuilder: (_, _) => const SizedBox(height: 4),
           itemBuilder: (context, index) {
             final todo = todoList[index];
             return Card(

@@ -19,28 +19,18 @@ void main() {
   });
 
   group('ConnectivityResultsExtension', () {
-    test(
-      'If there is any connection, '
-      'it is determined that there is a network connection.',
-      () async {
-        final target = <ConnectivityResult>[
-          ConnectivityResult.wifi,
-        ];
-        expect(target.hasNetworkConnection, isTrue);
-        expect(target.hasNotNetworkConnection, isFalse);
-      },
-    );
+    test('If there is any connection, '
+        'it is determined that there is a network connection.', () async {
+      final target = <ConnectivityResult>[ConnectivityResult.wifi];
+      expect(target.hasNetworkConnection, isTrue);
+      expect(target.hasNotNetworkConnection, isFalse);
+    });
 
-    test(
-      'If there is no connection, '
-      'it is determined that there is no network connection.',
-      () async {
-        final target = <ConnectivityResult>[
-          ConnectivityResult.none,
-        ];
-        expect(target.hasNetworkConnection, isFalse);
-        expect(target.hasNotNetworkConnection, isTrue);
-      },
-    );
+    test('If there is no connection, '
+        'it is determined that there is no network connection.', () async {
+      final target = <ConnectivityResult>[ConnectivityResult.none];
+      expect(target.hasNetworkConnection, isFalse);
+      expect(target.hasNotNetworkConnection, isTrue);
+    });
   });
 }

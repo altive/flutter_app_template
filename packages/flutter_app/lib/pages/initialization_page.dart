@@ -15,9 +15,9 @@ class InitializationPage extends ConsumerWidget {
     return switch (ref.watch(initializationProvider)) {
       AsyncData(isLoading: false) => onInitialized(context),
       AsyncError(:final error) => _ErrorPage(
-          error,
-          onRetry: () => ref.invalidate(initializationProvider),
-        ),
+        error,
+        onRetry: () => ref.invalidate(initializationProvider),
+      ),
       _ => const _LoadingPage(),
     };
   }
@@ -30,9 +30,7 @@ class _LoadingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: const Center(
-        child: CircularProgressIndicator(),
-      ),
+      body: const Center(child: CircularProgressIndicator()),
     );
   }
 }
@@ -56,10 +54,7 @@ class _ErrorPage extends StatelessWidget {
               style: Theme.of(context).textTheme.headlineSmall,
             ),
             const Gap(16),
-            FilledButton(
-              onPressed: onRetry,
-              child: const Text('Retry'),
-            ),
+            FilledButton(onPressed: onRetry, child: const Text('Retry')),
           ],
         ),
       ),

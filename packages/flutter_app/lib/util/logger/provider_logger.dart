@@ -5,12 +5,7 @@ import '../extension/string_extension.dart';
 
 /// `Provider`イベントの種別
 /// `dart_defines`の`providerLogPrint`にて、このイベントを文字列で指定すると、対応するログが出力される。
-enum _ProviderEvent {
-  add,
-  update,
-  dispose,
-  error,
-}
+enum _ProviderEvent { add, update, dispose, error }
 
 class ProviderLogger implements ProviderObserver {
   ProviderLogger() {
@@ -21,10 +16,11 @@ class ProviderLogger implements ProviderObserver {
       return;
     }
 
-    outputLogTypes = providerLogPrint
-        .split(',')
-        .map((e) => _ProviderEvent.values.byName(e))
-        .toList();
+    outputLogTypes =
+        providerLogPrint
+            .split(',')
+            .map((e) => _ProviderEvent.values.byName(e))
+            .toList();
   }
 
   @visibleForTesting
@@ -55,11 +51,7 @@ class ProviderLogger implements ProviderObserver {
     Object? value,
     ProviderContainer _,
   ) {
-    _print(
-      providerEvent: _ProviderEvent.add,
-      provider: provider,
-      value: value,
-    );
+    _print(providerEvent: _ProviderEvent.add, provider: provider, value: value);
   }
 
   @override
@@ -67,7 +59,7 @@ class ProviderLogger implements ProviderObserver {
     ProviderBase<dynamic> provider,
     Object? _,
     Object? newValue,
-    ProviderContainer __,
+    ProviderContainer _,
   ) {
     _print(
       providerEvent: _ProviderEvent.update,
@@ -77,14 +69,8 @@ class ProviderLogger implements ProviderObserver {
   }
 
   @override
-  void didDisposeProvider(
-    ProviderBase<dynamic> provider,
-    ProviderContainer _,
-  ) {
-    _print(
-      providerEvent: _ProviderEvent.dispose,
-      provider: provider,
-    );
+  void didDisposeProvider(ProviderBase<dynamic> provider, ProviderContainer _) {
+    _print(providerEvent: _ProviderEvent.dispose, provider: provider);
   }
 
   @override
@@ -92,7 +78,7 @@ class ProviderLogger implements ProviderObserver {
     ProviderBase<dynamic> provider,
     Object error,
     StackTrace _,
-    ProviderContainer __,
+    ProviderContainer _,
   ) {
     _print(
       providerEvent: _ProviderEvent.error,

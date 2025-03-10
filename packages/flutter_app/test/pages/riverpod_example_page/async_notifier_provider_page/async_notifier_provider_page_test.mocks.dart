@@ -24,13 +24,8 @@ import 'package:mockito/mockito.dart' as _i1;
 // ignore_for_file: subtype_of_sealed_class
 
 class _FakeResponse_0<T1> extends _i1.SmartFake implements _i2.Response<T1> {
-  _FakeResponse_0(
-    Object parent,
-    Invocation parentInvocation,
-  ) : super(
-          parent,
-          parentInvocation,
-        );
+  _FakeResponse_0(Object parent, Invocation parentInvocation)
+    : super(parent, parentInvocation);
 }
 
 /// A class which mocks [FakeDio].
@@ -41,187 +36,190 @@ class MockFakeDio extends _i1.Mock implements _i2.FakeDio {
   _i3.Future<_i2.Response<List<Map<String, Object?>>>> get<T>(
     String? path, {
     Map<String, dynamic>? queryParameters,
-    void Function(
-      int,
-      int,
-    )? onReceiveProgress,
+    void Function(int, int)? onReceiveProgress,
   }) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #get,
-          [path],
-          {
-            #queryParameters: queryParameters,
-            #onReceiveProgress: onReceiveProgress,
-          },
-        ),
-        returnValue: _i3.Future<_i2.Response<List<Map<String, Object?>>>>.value(
-            _FakeResponse_0<List<Map<String, Object?>>>(
-          this,
-          Invocation.method(
-            #get,
-            [path],
-            {
-              #queryParameters: queryParameters,
-              #onReceiveProgress: onReceiveProgress,
-            },
-          ),
-        )),
-        returnValueForMissingStub:
-            _i3.Future<_i2.Response<List<Map<String, Object?>>>>.value(
-                _FakeResponse_0<List<Map<String, Object?>>>(
-          this,
-          Invocation.method(
-            #get,
-            [path],
-            {
-              #queryParameters: queryParameters,
-              #onReceiveProgress: onReceiveProgress,
-            },
-          ),
-        )),
-      ) as _i3.Future<_i2.Response<List<Map<String, Object?>>>>);
+            Invocation.method(
+              #get,
+              [path],
+              {
+                #queryParameters: queryParameters,
+                #onReceiveProgress: onReceiveProgress,
+              },
+            ),
+            returnValue:
+                _i3.Future<_i2.Response<List<Map<String, Object?>>>>.value(
+                  _FakeResponse_0<List<Map<String, Object?>>>(
+                    this,
+                    Invocation.method(
+                      #get,
+                      [path],
+                      {
+                        #queryParameters: queryParameters,
+                        #onReceiveProgress: onReceiveProgress,
+                      },
+                    ),
+                  ),
+                ),
+            returnValueForMissingStub:
+                _i3.Future<_i2.Response<List<Map<String, Object?>>>>.value(
+                  _FakeResponse_0<List<Map<String, Object?>>>(
+                    this,
+                    Invocation.method(
+                      #get,
+                      [path],
+                      {
+                        #queryParameters: queryParameters,
+                        #onReceiveProgress: onReceiveProgress,
+                      },
+                    ),
+                  ),
+                ),
+          )
+          as _i3.Future<_i2.Response<List<Map<String, Object?>>>>);
 
   @override
   _i3.Future<_i2.Response<Map<String, Object?>>> post<T>(
     String? path, {
     dynamic data,
     Map<String, dynamic>? queryParameters,
-    void Function(
-      int,
-      int,
-    )? onReceiveProgress,
+    void Function(int, int)? onReceiveProgress,
   }) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #post,
-          [path],
-          {
-            #data: data,
-            #queryParameters: queryParameters,
-            #onReceiveProgress: onReceiveProgress,
-          },
-        ),
-        returnValue: _i3.Future<_i2.Response<Map<String, Object?>>>.value(
-            _FakeResponse_0<Map<String, Object?>>(
-          this,
-          Invocation.method(
-            #post,
-            [path],
-            {
-              #data: data,
-              #queryParameters: queryParameters,
-              #onReceiveProgress: onReceiveProgress,
-            },
-          ),
-        )),
-        returnValueForMissingStub:
-            _i3.Future<_i2.Response<Map<String, Object?>>>.value(
-                _FakeResponse_0<Map<String, Object?>>(
-          this,
-          Invocation.method(
-            #post,
-            [path],
-            {
-              #data: data,
-              #queryParameters: queryParameters,
-              #onReceiveProgress: onReceiveProgress,
-            },
-          ),
-        )),
-      ) as _i3.Future<_i2.Response<Map<String, Object?>>>);
+            Invocation.method(
+              #post,
+              [path],
+              {
+                #data: data,
+                #queryParameters: queryParameters,
+                #onReceiveProgress: onReceiveProgress,
+              },
+            ),
+            returnValue: _i3.Future<_i2.Response<Map<String, Object?>>>.value(
+              _FakeResponse_0<Map<String, Object?>>(
+                this,
+                Invocation.method(
+                  #post,
+                  [path],
+                  {
+                    #data: data,
+                    #queryParameters: queryParameters,
+                    #onReceiveProgress: onReceiveProgress,
+                  },
+                ),
+              ),
+            ),
+            returnValueForMissingStub:
+                _i3.Future<_i2.Response<Map<String, Object?>>>.value(
+                  _FakeResponse_0<Map<String, Object?>>(
+                    this,
+                    Invocation.method(
+                      #post,
+                      [path],
+                      {
+                        #data: data,
+                        #queryParameters: queryParameters,
+                        #onReceiveProgress: onReceiveProgress,
+                      },
+                    ),
+                  ),
+                ),
+          )
+          as _i3.Future<_i2.Response<Map<String, Object?>>>);
 
   @override
   _i3.Future<_i2.Response<List<Map<String, Object?>>>> delete<T>(
     String? path, {
     Map<String, dynamic>? queryParameters,
-    void Function(
-      int,
-      int,
-    )? onReceiveProgress,
+    void Function(int, int)? onReceiveProgress,
   }) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #delete,
-          [path],
-          {
-            #queryParameters: queryParameters,
-            #onReceiveProgress: onReceiveProgress,
-          },
-        ),
-        returnValue: _i3.Future<_i2.Response<List<Map<String, Object?>>>>.value(
-            _FakeResponse_0<List<Map<String, Object?>>>(
-          this,
-          Invocation.method(
-            #delete,
-            [path],
-            {
-              #queryParameters: queryParameters,
-              #onReceiveProgress: onReceiveProgress,
-            },
-          ),
-        )),
-        returnValueForMissingStub:
-            _i3.Future<_i2.Response<List<Map<String, Object?>>>>.value(
-                _FakeResponse_0<List<Map<String, Object?>>>(
-          this,
-          Invocation.method(
-            #delete,
-            [path],
-            {
-              #queryParameters: queryParameters,
-              #onReceiveProgress: onReceiveProgress,
-            },
-          ),
-        )),
-      ) as _i3.Future<_i2.Response<List<Map<String, Object?>>>>);
+            Invocation.method(
+              #delete,
+              [path],
+              {
+                #queryParameters: queryParameters,
+                #onReceiveProgress: onReceiveProgress,
+              },
+            ),
+            returnValue:
+                _i3.Future<_i2.Response<List<Map<String, Object?>>>>.value(
+                  _FakeResponse_0<List<Map<String, Object?>>>(
+                    this,
+                    Invocation.method(
+                      #delete,
+                      [path],
+                      {
+                        #queryParameters: queryParameters,
+                        #onReceiveProgress: onReceiveProgress,
+                      },
+                    ),
+                  ),
+                ),
+            returnValueForMissingStub:
+                _i3.Future<_i2.Response<List<Map<String, Object?>>>>.value(
+                  _FakeResponse_0<List<Map<String, Object?>>>(
+                    this,
+                    Invocation.method(
+                      #delete,
+                      [path],
+                      {
+                        #queryParameters: queryParameters,
+                        #onReceiveProgress: onReceiveProgress,
+                      },
+                    ),
+                  ),
+                ),
+          )
+          as _i3.Future<_i2.Response<List<Map<String, Object?>>>>);
 
   @override
   _i3.Future<_i2.Response<List<Map<String, Object?>>>> patch<T>(
     String? path, {
     dynamic data,
     Map<String, dynamic>? queryParameters,
-    void Function(
-      int,
-      int,
-    )? onReceiveProgress,
+    void Function(int, int)? onReceiveProgress,
   }) =>
       (super.noSuchMethod(
-        Invocation.method(
-          #patch,
-          [path],
-          {
-            #data: data,
-            #queryParameters: queryParameters,
-            #onReceiveProgress: onReceiveProgress,
-          },
-        ),
-        returnValue: _i3.Future<_i2.Response<List<Map<String, Object?>>>>.value(
-            _FakeResponse_0<List<Map<String, Object?>>>(
-          this,
-          Invocation.method(
-            #patch,
-            [path],
-            {
-              #data: data,
-              #queryParameters: queryParameters,
-              #onReceiveProgress: onReceiveProgress,
-            },
-          ),
-        )),
-        returnValueForMissingStub:
-            _i3.Future<_i2.Response<List<Map<String, Object?>>>>.value(
-                _FakeResponse_0<List<Map<String, Object?>>>(
-          this,
-          Invocation.method(
-            #patch,
-            [path],
-            {
-              #data: data,
-              #queryParameters: queryParameters,
-              #onReceiveProgress: onReceiveProgress,
-            },
-          ),
-        )),
-      ) as _i3.Future<_i2.Response<List<Map<String, Object?>>>>);
+            Invocation.method(
+              #patch,
+              [path],
+              {
+                #data: data,
+                #queryParameters: queryParameters,
+                #onReceiveProgress: onReceiveProgress,
+              },
+            ),
+            returnValue:
+                _i3.Future<_i2.Response<List<Map<String, Object?>>>>.value(
+                  _FakeResponse_0<List<Map<String, Object?>>>(
+                    this,
+                    Invocation.method(
+                      #patch,
+                      [path],
+                      {
+                        #data: data,
+                        #queryParameters: queryParameters,
+                        #onReceiveProgress: onReceiveProgress,
+                      },
+                    ),
+                  ),
+                ),
+            returnValueForMissingStub:
+                _i3.Future<_i2.Response<List<Map<String, Object?>>>>.value(
+                  _FakeResponse_0<List<Map<String, Object?>>>(
+                    this,
+                    Invocation.method(
+                      #patch,
+                      [path],
+                      {
+                        #data: data,
+                        #queryParameters: queryParameters,
+                        #onReceiveProgress: onReceiveProgress,
+                      },
+                    ),
+                  ),
+                ),
+          )
+          as _i3.Future<_i2.Response<List<Map<String, Object?>>>>);
 }

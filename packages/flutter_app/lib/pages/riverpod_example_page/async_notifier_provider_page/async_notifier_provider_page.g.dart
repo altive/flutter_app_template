@@ -14,14 +14,15 @@ String _$asyncTodoListHash() => r'3f94bdba522ce6142a477012a900f456103ae079';
 @ProviderFor(AsyncTodoList)
 final asyncTodoListProvider =
     AutoDisposeAsyncNotifierProvider<AsyncTodoList, List<Todo>>.internal(
-  AsyncTodoList.new,
-  name: r'asyncTodoListProvider',
-  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
-      ? null
-      : _$asyncTodoListHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+      AsyncTodoList.new,
+      name: r'asyncTodoListProvider',
+      debugGetCreateSourceHash:
+          const bool.fromEnvironment('dart.vm.product')
+              ? null
+              : _$asyncTodoListHash,
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
 
 typedef _$AsyncTodoList = AutoDisposeAsyncNotifier<List<Todo>>;
 // ignore_for_file: type=lint
