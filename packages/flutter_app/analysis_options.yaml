@@ -10,4 +10,3 @@ linter:
     public_member_api_docs: false
     # Disabled to avoid conflict with format in Dart v3.7.0
     require_trailing_commas: false
-    require_trailing_commas: false
