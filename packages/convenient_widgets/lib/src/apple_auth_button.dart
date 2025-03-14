@@ -35,9 +35,10 @@ class AppleAuthButton extends StatelessWidget {
       ),
       icon: SizedBox.square(
         dimension: 20,
-        child: isLightTheme
-            ? Assets.appleLogoWhite.svg(package: packageName)
-            : Assets.appleLogoBlack.svg(package: packageName),
+        child:
+            isLightTheme
+                ? Assets.appleLogoWhite.svg(package: packageName)
+                : Assets.appleLogoBlack.svg(package: packageName),
       ),
       label: Text(labelText),
     );
