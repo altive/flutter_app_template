@@ -43,7 +43,7 @@ dependencies:
   intl: ^0.19.0
   json_annotation: ^4.8.1
   linked_scroll_controller: ^0.2.0
-  package_info_plus: ^8.0.2
+  package_info_plus: ^8.3.0
   pub_dev_api_client: ^1.0.0
   riverpod_annotation: ^2.6.1
   shared_preferences: ^2.3.3
