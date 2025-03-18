@@ -73,6 +73,11 @@ dev_dependencies:
   riverpod_lint: ^2.6.1
   slang_build_runner: ^4.3.0
 
+# Melos depends on intl ^0.19.0, but flutter_localizations requires intl ^0.20.2.
+# To resolve this conflict, we force the use of intl 0.19.0 to match Melos' dependency.
+dependency_overrides:
+  intl: 0.19.0
+
 flutter:
   uses-material-design: true
 
