@@ -48,7 +48,7 @@ dependencies:
   riverpod_annotation: ^2.6.1
   shared_preferences: ^2.5.2
   simple_logger: ^1.9.0+1
-  slang: ^4.5.0
+  slang: ^4.6.0
   slang_flutter: ^4.3.0
   sort_key_generator: ^0.2.1
   themes: ^1.0.0
