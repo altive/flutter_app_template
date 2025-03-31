@@ -46,7 +46,7 @@ dependencies:
   package_info_plus: ^8.3.0
   pub_dev_api_client: ^1.0.0
   riverpod_annotation: ^2.6.1
-  shared_preferences: ^2.5.2
+  shared_preferences: ^2.5.3
   simple_logger: ^1.9.0+1
   slang: ^4.6.0
   slang_flutter: ^4.3.0
