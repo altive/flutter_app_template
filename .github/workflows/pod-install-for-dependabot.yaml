@@ -72,7 +72,7 @@ jobs:
       - name: Generate GiHub App token
         if: steps.git_config.conclusion == 'success'
         id: generate_token
-        uses: actions/create-github-app-token@v1
+        uses: actions/create-github-app-token@v2
         with:
           app_id: ${{ vars.PR_WRITER_APP_ID }}
           private_key: ${{ secrets.PR_WRITER_PRIVATE_KEY }}
