@@ -14,7 +14,7 @@ dependencies:
     sdk: flutter
   themes: ^1.0.0
   widgetbook: ^3.11.0
-  widgetbook_annotation: ^3.2.0
+  widgetbook_annotation: ^3.3.1
 
 dev_dependencies:
   altive_lints: ^1.19.1
