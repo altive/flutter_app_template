@@ -94,28 +94,25 @@ When should it be re-run?
 flutterfire configure --yes \
 --project flutter-app-template-dev \
 --out lib/environment/src/firebase_options_dev.dart \
---platforms android,ios,macos,web \
+--platforms android,ios,web \
 --android-package-name jp.co.altive.fat.dev \
---ios-bundle-id jp.co.altive.fat.dev \
---macos-bundle-id jp.co.altive.fat.dev
+--ios-bundle-id jp.co.altive.fat.dev
 
 # Stg
 flutterfire configure --yes \
 --project flutter-app-template-stg \
 --out lib/environment/src/firebase_options_stg.dart \
---platforms android,ios,macos,web \
+--platforms android,ios,web \
 --android-package-name jp.co.altive.fat.stg \
---ios-bundle-id jp.co.altive.fat.stg \
---macos-bundle-id jp.co.altive.fat.stg
+--ios-bundle-id jp.co.altive.fat.stg
 
 # Prod
 flutterfire configure --yes \
 --project altive-fat \
 --out lib/environment/src/firebase_options_prod.dart \
---platforms android,ios,macos,web \
+--platforms android,ios,web \
 --android-package-name jp.co.altive.fat \
---ios-bundle-id jp.co.altive.fat \
---macos-bundle-id jp.co.altive.fat
+--ios-bundle-id jp.co.altive.fat
 ```
 
 ### Firebase Analytics DebugView
