@@ -52,7 +52,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '1007652573613',
     projectId: 'altive-fat',
     authDomain: 'altive-fat.firebaseapp.com',
-    storageBucket: 'altive-fat.appspot.com',
+    storageBucket: 'altive-fat.firebasestorage.app',
     measurementId: 'G-P8N1PB7S1Y',
   );
 
@@ -61,7 +61,7 @@ class DefaultFirebaseOptions {
     appId: '1:1007652573613:android:7d7115fc2a21631fbb1124',
     messagingSenderId: '1007652573613',
     projectId: 'altive-fat',
-    storageBucket: 'altive-fat.appspot.com',
+    storageBucket: 'altive-fat.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
@@ -69,9 +69,8 @@ class DefaultFirebaseOptions {
     appId: '1:1007652573613:ios:bf46ce3fca7af889bb1124',
     messagingSenderId: '1007652573613',
     projectId: 'altive-fat',
-    storageBucket: 'altive-fat.appspot.com',
-    iosClientId:
-        '1007652573613-2ggi30iortpdb6gilpfli5ouk6ruckhg.apps.googleusercontent.com',
+    storageBucket: 'altive-fat.firebasestorage.app',
     iosBundleId: 'jp.co.altive.fat',
   );
+
 }

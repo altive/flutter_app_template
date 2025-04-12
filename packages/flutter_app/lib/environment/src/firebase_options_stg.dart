@@ -52,7 +52,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '502626918852',
     projectId: 'flutter-app-template-stg',
     authDomain: 'flutter-app-template-stg.firebaseapp.com',
-    storageBucket: 'flutter-app-template-stg.appspot.com',
+    storageBucket: 'flutter-app-template-stg.firebasestorage.app',
     measurementId: 'G-9DC69MGFRX',
   );
 
@@ -61,7 +61,7 @@ class DefaultFirebaseOptions {
     appId: '1:502626918852:android:f7e395467b0e3e5bdfc491',
     messagingSenderId: '502626918852',
     projectId: 'flutter-app-template-stg',
-    storageBucket: 'flutter-app-template-stg.appspot.com',
+    storageBucket: 'flutter-app-template-stg.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
@@ -69,9 +69,8 @@ class DefaultFirebaseOptions {
     appId: '1:502626918852:ios:99ee534eace74ff6dfc491',
     messagingSenderId: '502626918852',
     projectId: 'flutter-app-template-stg',
-    storageBucket: 'flutter-app-template-stg.appspot.com',
-    iosClientId:
-        '502626918852-9h1ius8m1asenmeu9a770orn23jsmbh1.apps.googleusercontent.com',
+    storageBucket: 'flutter-app-template-stg.firebasestorage.app',
     iosBundleId: 'jp.co.altive.fat.stg',
   );
+
 }

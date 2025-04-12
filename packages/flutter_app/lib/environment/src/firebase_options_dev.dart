@@ -70,8 +70,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '1068511233454',
     projectId: 'flutter-app-template-dev',
     storageBucket: 'flutter-app-template-dev.appspot.com',
-    iosClientId:
-        '1068511233454-jqkcgldo7cro8bsap1j574959nmgfjqe.apps.googleusercontent.com',
     iosBundleId: 'jp.co.altive.fat.dev',
   );
+
 }
