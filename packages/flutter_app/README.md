@@ -94,25 +94,34 @@ When should it be re-run?
 flutterfire configure --yes \
 --project flutter-app-template-dev \
 --out lib/environment/src/firebase_options_dev.dart \
+--android-out android/app/src/dev/google-services.json \
+--ios-out ios/dev/ \
 --platforms android,ios,web \
 --android-package-name jp.co.altive.fat.dev \
---ios-bundle-id jp.co.altive.fat.dev
+--ios-bundle-id jp.co.altive.fat.dev \
+--no-apply-gradle-plugins
 
 # Stg
 flutterfire configure --yes \
 --project flutter-app-template-stg \
 --out lib/environment/src/firebase_options_stg.dart \
+--android-out android/app/src/stg/google-services.json \
+--ios-out ios/stg/ \
 --platforms android,ios,web \
 --android-package-name jp.co.altive.fat.stg \
---ios-bundle-id jp.co.altive.fat.stg
+--ios-bundle-id jp.co.altive.fat.stg \
+--no-apply-gradle-plugins
 
 # Prod
 flutterfire configure --yes \
 --project altive-fat \
 --out lib/environment/src/firebase_options_prod.dart \
+--android-out android/app/src/prod/google-services.json \
+--ios-out ios/prod/ \
 --platforms android,ios,web \
 --android-package-name jp.co.altive.fat \
---ios-bundle-id jp.co.altive.fat
+--ios-bundle-id jp.co.altive.fat \
+--no-apply-gradle-plugins
 ```
 
 ### Firebase Analytics DebugView

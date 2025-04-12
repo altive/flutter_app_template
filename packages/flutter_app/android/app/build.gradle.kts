@@ -9,7 +9,6 @@ plugins {
     id("kotlin-android")
     // For Firebase.
     id("com.google.gms.google-services")
-    id("com.google.firebase.firebase-perf")
     id("com.google.firebase.crashlytics")
     // The Flutter Gradle Plugin must be applied after the Android and Kotlin Gradle plugins.
     id("dev.flutter.flutter-gradle-plugin")
@@ -75,6 +74,7 @@ android {
     }
     
     flavorDimensions += "default"
+    val appName = "App"
     productFlavors {
         create("dev") {
             dimension = "default"
@@ -82,7 +82,7 @@ android {
             resValue(
                 type = "string",
                 name = "app_name",
-                value = "App.dev")
+                value = "$appName.dev")
         }
         create("stg") {
             dimension = "default"
@@ -90,7 +90,7 @@ android {
             resValue(
                 type = "string",
                 name = "app_name",
-                value = "App.stg")
+                value = "$appName.stg")
         }
         create("prod") {
             dimension = "default"
@@ -98,7 +98,7 @@ android {
             resValue(
                 type = "string",
                 name = "app_name",
-                value = "App")
+                value = appName)
         }
     }
 }
@@ -115,7 +115,6 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-crashlytics")
-    
     // Add desugaring support for flutter_local_notifications
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.4")
 } 
