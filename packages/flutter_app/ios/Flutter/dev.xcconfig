@@ -1,3 +1,4 @@
 SCHEME=dev
 BUNDLE_IDENTIFIER=jp.co.altive.fat.dev
 DISPLAY_NAME=App.dev
+GOOGLE_REVERSED_CLIENT_ID=com.googleusercontent.apps.1068511233454-jqkcgldo7cro8bsap1j574959nmgfjqe
