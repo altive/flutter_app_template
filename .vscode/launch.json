@@ -5,55 +5,44 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "flutter_app dev",
+            "cwd": "packages/flutter_app",
+            "program": "lib/main.dart",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "args": [
+                "--flavor=dev"
+            ]
+        },
+        {
+            "name": "flutter_app stg",
+            "cwd": "packages/flutter_app",
+            "program": "lib/main.dart",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "args": [
+                "--flavor=stg"
+            ]
+        },
+        {
+            "name": "flutter_app prod",
+            "cwd": "packages/flutter_app",
+            "program": "lib/main.dart",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "args": [
+                "--flavor=prod"
+            ]
+        },
+        {
             "name": "widget_catalog",
             "cwd": "packages/widget_catalog",
             "program": "lib/main.dart",
             "request": "launch",
             "type": "dart"
-        },
-        {
-            "name": "flutter_app dev-debug",
-            "cwd": "packages/flutter_app",
-            "program": "lib/main.dart",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "debug",
-            "args": [
-                "--dart-define-from-file=dart_defines/dev.env"
-            ]
-        },
-        {
-            "name": "flutter_app stg-debug",
-            "cwd": "packages/flutter_app",
-            "program": "lib/main.dart",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "debug",
-            "args": [
-                "--dart-define-from-file=dart_defines/stg.env"
-            ]
-        },
-        {
-            "name": "flutter_app prod-debug",
-            "cwd": "packages/flutter_app",
-            "program": "lib/main.dart",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "debug",
-            "args": [
-                "--dart-define-from-file=dart_defines/prod.env"
-            ]
-        },
-        {
-            "name": "flutter_app dev-release",
-            "cwd": "packages/flutter_app",
-            "program": "lib/main.dart",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "release",
-            "args": [
-                "--dart-define-from-file=dart_defines/dev.env"
-            ]
         },
     ]
 }

@@ -38,7 +38,9 @@
     ".gitignore",
     ".metadata",
     ".vscode",
-    ".vscode-insiders"
+    ".vscode-insiders",
+    "project.pbxproj",
+    "GoogleService-Info.plist"
   ],
   "cSpell.spellCheckOnlyWorkspaceFiles": true,
   "[dart]": {

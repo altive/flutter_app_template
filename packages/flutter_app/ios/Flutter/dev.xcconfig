@@ -1,0 +1,3 @@
+SCHEME=dev
+BUNDLE_IDENTIFIER=jp.co.altive.fat.dev
+DISPLAY_NAME=App.dev

@@ -1,0 +1,3 @@
+SCHEME=stg
+BUNDLE_IDENTIFIER=jp.co.altive.fat.stg
+DISPLAY_NAME=App.stg

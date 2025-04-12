@@ -1,0 +1,3 @@
+SCHEME=prod
+BUNDLE_IDENTIFIER=jp.co.altive.fat
+DISPLAY_NAME=App

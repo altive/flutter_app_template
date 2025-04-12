@@ -29,65 +29,11 @@ if (keystorePropertiesFile.exists()) {
     keystoreProperties.load(FileInputStream(keystorePropertiesFile))
 }
 
-// Extract dart-defines properties.
-val dartDefines = mutableMapOf<String, String>()
-if (project.hasProperty("dart-defines")) {
-    dartDefines.putAll(project.property("dart-defines")
-        .toString()
-        .split(",")
-        .map { entry ->
-            val pair = String(Base64.getDecoder().decode(entry), StandardCharsets.UTF_8).split("=")
-            if (pair.size == 2) pair[0] to pair[1] else null
-        }
-        .filterNotNull()
-        .toMap())
-}
-
-// フレーバー依存のリソースをコピーするタスク
-tasks.register<Copy>("copyFlavorResources") {
-    val flavor = dartDefines["flavor"] ?: return@register
-    
-    // Google Servicesの設定ファイルをコピー
-    from("src/$flavor/google-services.json")
-    into(projectDir) // appディレクトリにコピー
-    
-    // フレーバー固有のリソースをコピー
-    from("src/$flavor/res")
-    into("src/main/res")
-    
-    // 必要なリソースが存在するかチェック
-    doFirst {
-        val googleServicesFile = file("src/$flavor/google-services.json")
-        if (!googleServicesFile.exists()) {
-            logger.warn("Warning: google-services.json for flavor '$flavor' not found at ${googleServicesFile.absolutePath}")
-        }
-    }
-}
-
-// タスク依存関係を明示的に設定
-tasks.whenTaskAdded {
-    // デバッグビルド関連タスク
-    if (name == "generateDebugResources" || name == "processDebugResources") {
-        dependsOn("copyFlavorResources")
-    }
-    // リリースビルド関連タスク
-    if (name == "generateReleaseResources" || name == "processReleaseResources") {
-        dependsOn("copyFlavorResources")
-    }
-    // Firebase関連タスク
-    if (name == "processDebugGoogleServices" || name == "processReleaseGoogleServices") {
-        dependsOn("copyFlavorResources")
-    }
-    // Flutter関連タスク
-    if (name.startsWith("compile") && name.contains("Flutter")) {
-        dependsOn("copyFlavorResources")
-    }
-}
-
 android {
     namespace = "jp.co.altive.fat"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = 27.0.12077973 // flutter.ndkVersion
+    // Using flutter.ndkVersion will display a warning during the build process.
+    ndkVersion = "27.0.12077973" 
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -100,21 +46,12 @@ android {
         jvmTarget = JavaVersion.VERSION_11.toString()
     }
 
-    sourceSets {
-        getByName("main") {
-            java.srcDirs("src/main/kotlin")
-            res.srcDirs("src/main/res")
-        }
-    }
-
     defaultConfig {
-        applicationId = dartDefines["appId"] ?: ""
         minSdk = 23 // from flutter.minSdkVersion, for Firebase
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
         multiDexEnabled = true
-        resValue("string", "app_name", dartDefines["appName"] ?: "")
     }
 
     signingConfigs {
@@ -129,10 +66,38 @@ android {
     }
 
     buildTypes {
-        release {
+        getByName("release") {
             if (keystorePropertiesFile.exists()) {
                 signingConfig = signingConfigs.getByName("release")
             }
+        }
+    }
+    
+    flavorDimensions += "default"
+    productFlavors {
+        create("dev") {
+            dimension = "default"
+            applicationId = "jp.co.altive.fat.dev"
+            resValue(
+                type = "string",
+                name = "app_name",
+                value = "App.dev")
+        }
+        create("stg") {
+            dimension = "default"
+            applicationId = "jp.co.altive.fat.stg"
+            resValue(
+                type = "string",
+                name = "app_name",
+                value = "App.stg")
+        }
+        create("prod") {
+            dimension = "default"
+            applicationId = "jp.co.altive.fat"
+            resValue(
+                type = "string",
+                name = "app_name",
+                value = "App")
         }
     }
 }
