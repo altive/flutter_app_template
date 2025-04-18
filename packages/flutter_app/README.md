@@ -1,12 +1,15 @@
-# Examples app of Flutter App Template
+# Example Flutter App
 
-## Flavor with App ID
+## Flavor
+
+### App ID
 
 - dev: jp.co.altive.fat.dev
 - stg: jp.co.altive.fat.stg
 - prod: jp.co.altive.fat
 
 ## Features
+
 - Riverpod examples
 - Theme selector
 
@@ -32,14 +35,6 @@
 ### Router
 - [go_router](https://pub.dev/packages/go_router)
 
-## App structure
-
-- lib/
-    - commons/
-    - features/
-    - presentation/
-  - main.dart
-
 ## Secret files required for Release
 
 Required only `--release` mode.
@@ -52,6 +47,28 @@ The jks file was converted to Base64 and registered as Secret because it is used
 ```
 base64 --input upload-keystore.jks | pbcopy
 ```
+
+## ToDo list for new app
+
+required after creating a new repository using this template app.
+
+Rewrite the configuration values of each config file.
+
+- [android/app/build.gradle.kts](./android/app/build.gradle.kts)
+  1. `applicationId`
+  1. `namespace`
+  2. `app_name`
+- [ios/Flutter/dev.xcconfig](./ios/Flutter/dev.xcconfig)
+- [ios/Flutter/stg.xcconfig](./ios/Flutter/stg.xcconfig)
+- [ios/Flutter/prod.xcconfig](./ios/Flutter/prod.xcconfig)
+  1. `BUNDLE_IDENTIFIER`
+  1. `DISPLAY_NAME`
+
+2. Create a project in Firebase.
+3. Execute `flutterfire configure`.
+4. Replace `GOOGLE_REVERSED_CLIENT_ID` in `{flavor}.xcconfig`.
+5. Create a Web app and modify the parameters in `firebaseConfig` in `web/index.html`.
+
 
 ## How to use
 
@@ -126,7 +143,7 @@ flutterfire configure --yes \
 
 ### Firebase Analytics DebugView
 
-#### Start/Stop DebugView for Android
+#### Start/Stop DebugView for Android dev
 
 ```shell
 # Start
