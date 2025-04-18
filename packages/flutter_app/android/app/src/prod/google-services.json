@@ -2,7 +2,7 @@
   "project_info": {
     "project_number": "1007652573613",
     "project_id": "altive-fat",
-    "storage_bucket": "altive-fat.appspot.com"
+    "storage_bucket": "altive-fat.firebasestorage.app"
   },
   "client": [
     {
@@ -12,12 +12,7 @@
           "package_name": "jp.co.altive.fat"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "1007652573613-m90964utetd6985lqujfs0div2ee8cj2.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
           "current_key": "AIzaSyA_C_cr46GSb7oTlp9mXoVbTntzYqiWfaQ"
@@ -25,12 +20,26 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "1007652573613-m90964utetd6985lqujfs0div2ee8cj2.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1007652573613:android:7a979363aca74c00bb1124",
+        "android_client_info": {
+          "package_name": "jp.co.altive.fat.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_C_cr46GSb7oTlp9mXoVbTntzYqiWfaQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
         }
       }
     }

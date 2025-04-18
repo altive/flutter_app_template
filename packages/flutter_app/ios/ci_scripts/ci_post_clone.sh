@@ -37,6 +37,6 @@ dart pub global activate flutterfire_cli
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 
 # Build the iOS app in release mode with no code signing.
-flutter build ios --release --dart-define-from-file=dart_defines/${flavor}.env --no-codesign
+flutter build ios --release --flavor=${flavor} --no-codesign
 
 exit 0

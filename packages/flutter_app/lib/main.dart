@@ -4,6 +4,7 @@ import 'package:altfire_tracker/altfire_tracker.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -17,7 +18,7 @@ import 'util/providers/shared_preferences_provider.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  final flavor = Flavor.values.byName(const String.fromEnvironment('flavor'));
+  final flavor = Flavor.values.byName(appFlavor!);
 
   // If only programmer error occurs, initialize within main().
   // If other exceptions may occur, initialize using initializationProvider.

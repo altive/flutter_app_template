@@ -1,0 +1,4 @@
+SCHEME=prod
+BUNDLE_IDENTIFIER=jp.co.altive.fat
+DISPLAY_NAME=App
+GOOGLE_REVERSED_CLIENT_ID=com.googleusercontent.apps.1007652573613-2ggi30iortpdb6gilpfli5ouk6ruckhg

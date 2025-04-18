@@ -2,10 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CLIENT_ID</key>
-	<string>502626918852-9h1ius8m1asenmeu9a770orn23jsmbh1.apps.googleusercontent.com</string>
-	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.502626918852-9h1ius8m1asenmeu9a770orn23jsmbh1</string>
 	<key>API_KEY</key>
 	<string>AIzaSyACYrCRpTpoH1dxPJY3atGxmwKmtXRdw24</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +13,7 @@
 	<key>PROJECT_ID</key>
 	<string>flutter-app-template-stg</string>
 	<key>STORAGE_BUCKET</key>
-	<string>flutter-app-template-stg.appspot.com</string>
+	<string>flutter-app-template-stg.firebasestorage.app</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>

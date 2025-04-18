@@ -2,7 +2,7 @@
   "project_info": {
     "project_number": "502626918852",
     "project_id": "flutter-app-template-stg",
-    "storage_bucket": "flutter-app-template-stg.appspot.com"
+    "storage_bucket": "flutter-app-template-stg.firebasestorage.app"
   },
   "client": [
     {
