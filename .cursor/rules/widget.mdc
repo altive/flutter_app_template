@@ -1,0 +1,168 @@
+---
+description: Flutter Widget実装ルール
+globs: *.dart, *.yaml
+alwaysApply: true
+---
+# Flutter Widget実装ルール
+
+## 遅延読み込みによるリスト表示
+
+APIやデータベースから取得したデータのリストを表示する場合、遅延読み込みを正しく実装することが非常に重要です。これを怠ると、すべてのリストデータが継続的にメモリに保持され、メモリ不足（OOM）エラーのリスクが高まります。
+
+### 遅延読み込みに推奨されるWidget
+
+#### リストWidget
+
+- `ListView`
+- `CustomScrollView` + `SliverList`
+
+#### グリッドWidget
+
+- `GridView`
+- `CustomScrollView` + `SliverGrid`
+
+#### 外部パッケージ
+
+- `pull_to_refresh_flutter3`
+
+### 実装例
+
+APIやデータベースから取得するリストの数が可変長の場合、以下のように実装します。
+
+OK: ListView.builder（推奨）
+
+```dart
+class SamplePage1 extends StatelessWidget {
+  const SamplePage1({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final items = List.generate(1000, (index) => index);
+    return Scaffold(
+      appBar: AppBar(),
+      body: ListView.builder(
+        itemBuilder: (context, item) => Tile(item),
+        itemCount: items.length,
+      ),
+    );
+  }
+}
+```
+
+NG: SingleChildScrollView + Column（非推奨）
+
+```dart
+class SamplePage3 extends StatelessWidget {
+  const SamplePage3({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final items = List.generate(1000, (index) => index);
+    return Scaffold(
+      appBar: AppBar(),
+      body: SingleChildScrollView(
+        child: Column(
+          children: items.map(Tile.new).toList(),
+        ),
+      ),
+    );
+  }
+}
+```
+
+### ベストプラクティス
+
+1. 多数の項目を持つリストには、常に遅延読み込みをサポートするWidgetを使用する
+2. 最適なパフォーマンスのために`ListView.builder`または`GridView.builder`を使用する
+3. 長いリストには`SingleChildScrollView` + `Column`の使用を避ける
+4. APIからデータを取得する際にはページネーションを実装する
+5. 画像やその他の重いコンテンツにはキャッシング戦略を使用する
+6. 多数の項目でうまく動作することを確認するため、実装をテストする
+
+## ボタン実装ガイドライン
+
+Flutterアプリケーションでボタンを実装する際、組み込みのマテリアルデザインボタンを適切に使用し、必要な場合にのみカスタムボタンを作成することが重要です。一貫性と柔軟性を維持するためには、`ButtonStyleButton`フレームワークを理解することが不可欠です。
+
+### 一般的な実装の落とし穴
+
+#### NG: 非常に特定の目的に特化したボタンコンポーネントの作成
+
+拡張や変更が難しい、非常に特定の目的に特化したボタンコンポーネントの作成は避けてください：
+
+```dart
+// 非推奨
+class FullWidthButton extends StatelessWidget {
+  const FullWidthButton({
+    super.key,
+    required this.onPressed,
+    required this.child,
+  });
+
+  final VoidCallback? onPressed;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: double.infinity,
+      child: FilledButton(
+        onPressed: onPressed,
+        child: child,
+      ),
+    );
+  }
+}
+```
+
+このアプローチの問題点：
+
+1. `FilledButton`のみに限定され、他のボタンタイプのために新しいWidgetを作成する必要がある
+2. より多くのパラメータを追加せずにスタイル（色、形状など）をカスタマイズする方法がない
+3. 単純なボタン設定に対して不必要な抽象化を作り出す
+
+### より良いアプローチ
+
+#### OK: ButtonStyleの設定を使用する
+
+```dart
+// 推奨
+// constants.dart
+const double kButtonMinimumHeight = 40.0;
+
+// button_styles.dart
+class ButtonStyles {
+  // 全幅ボタン用のスタイル
+  static ButtonStyle fullWidthStyle = ButtonStyle(
+    minimumSize: MaterialStatePropertyAll(
+      Size(double.infinity, kButtonMinimumHeight),
+    ),
+  );
+
+  // 角丸ボタン用のスタイル
+  static ButtonStyle roundedStyle = ButtonStyle(
+    shape: MaterialStatePropertyAll(
+      RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(8),
+      ),
+    ),
+  );
+}
+
+// 使用方法
+FilledButton(
+  style: ButtonStyles.fullWidthStyle,
+  onPressed: () {},
+  child: const Text('送信'),
+)
+```
+
+### ボタン実装のベストプラクティス
+
+1. UIの要件とアクションの重要性に基づいて、適切な組み込みボタンタイプを使用する
+2. 色やスタイルをハードコーディングするのではなく、一貫したスタイリングのために`Theme.of(context)`を活用する
+3. ラッパーWidgetを作成するのではなく、一般的なボタン設定のために再利用可能な`ButtonStyle`オブジェクトを定義する
+4. 異なるボタン状態を適切に処理するために`MaterialStateProperty`を使用する
+5. カスタムボタンの実装は、表面的なスタイリングではなく意味のある機能の追加に重点を置く
+6. カスタムボタンを作成する場合は、マテリアルライブラリのすべての関連するボタンタイプと連携することを確認する
+7. アプリケーション全体で一貫したボタンの高さを設定する（Material 3では通常40dp）
+8. プラットフォーム固有のデザインには、Flutterが提供するVisual Densityプロパティの使用を検討する

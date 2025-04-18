@@ -1,0 +1,116 @@
+---
+description: Flutterテストルール
+globs: *.dart, *.yaml
+alwaysApply: false
+---
+# Flutterテストルール
+
+## ディレクトリ構造
+
+```
+test/
+├── features/          # 各機能のテストコード
+├── core/             # コア機能のテスト
+├── other/            # その他のテストコード
+└── utils.dart        # テストユーティリティ
+```
+
+## テスト実装ガイドライン
+
+### 1. ユニットテスト
+
+- 各機能のビジネスロジックをテストする
+- `flutter_test`パッケージを使用する
+- テストファイル名は`*_test.dart`形式に従う
+- mockitoを使用してモックオブジェクトを作成する
+  ```dart
+  @GenerateNiceMocks([MockSpec<YourClass>()])
+  ```
+
+### 2. リポジトリテスト
+
+- APIクライアント、データベース、ファイルシステムなどの外部依存関係をモック化する
+- エラーケースを含む様々なシナリオをテストする
+- 非同期テストには`async/await`を使用する
+
+### 3. ユースケーステスト
+
+- ビジネスロジックをユニットテストする
+- Riverpodプロバイダーをテストする
+- テスト用ProviderContainerを作成するには`createContainer()`ユーティリティを使用する
+
+### 4. UIテスト
+
+- ウィジェットテストを実装する
+- 画面状態の変化をテストする
+- ユーザーインタラクションをシミュレートする
+
+### 5. モック化ガイドライン
+
+- `mockito`パッケージを使用する
+- モッククラスを自動生成する
+  ```bash
+  dart run build_runner build
+  ```
+- テスト対象の外部依存関係すべてをモック化する
+
+### 6. テストデータ
+
+- 各テストファイル内にテストデータを定義する
+- 共通のテストデータは専用ファイルに配置する
+- 現実的なテストデータを使用する
+
+### 7. エラー処理
+
+- 成功ケースとエラーケースの両方をテストする
+- エラーケースでの適切な例外処理を検証する
+- エラー処理には`AppException`を使用する
+
+### 8. ベストプラクティス
+
+- テストは独立して実行可能であるべき
+- 明確なテスト説明を書く
+- テストケースを適切にグループ化する
+- テストカバレッジに注意を払う
+
+### 9. Riverpodテスト
+
+- `ProviderContainer`を使用する
+- プロバイダーの状態変化をテストする
+- テスト用にオーバーライドを活用する
+
+### 10. ユーティリティ
+
+- 共通のテストユーティリティは`utils.dart`に配置する
+- テストコンテナを作成する
+- モックリスナーを実装する
+
+## テスト構造の例
+
+```dart
+import 'package:flutter_test/flutter_test.dart';
+import 'package:mockito/annotations.dart';
+import 'package:mockito/mockito.dart';
+
+@GenerateNiceMocks([MockSpec<YourClass>()])
+void main() {
+  group('機能テストグループ', () {
+    late MockYourClass mockYourClass;
+
+    setUp(() {
+      mockYourClass = MockYourClass();
+    });
+
+    test('テストケースの説明', () async {
+      // 準備
+      when(mockYourClass.someMethod()).thenReturn(expectedValue);
+
+      // 実行
+      final result = await someFunction();
+
+      // 検証
+      expect(result, expectedValue);
+    });
+  });
+}
+```

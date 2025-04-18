@@ -1,0 +1,39 @@
+targets:
+  $default:
+    builders:
+      source_gen|combining_builder:
+        options:
+          ignore_for_file:
+            - duplicate_ignore
+            - type=lint
+            - implicit_dynamic_parameter
+            - implicit_dynamic_type
+            - implicit_dynamic_method
+            - strict_raw_type
+      freezed:
+        generate_for:
+          include:
+            - lib/**/entities/*.dart
+            - lib/**/model/*.dart
+      go_router_builder:
+        generate_for:
+          include:
+            - lib/**/app_routes.dart
+      json_serializable:
+        generate_for:
+          include:
+            - lib/**/entities/*.dart
+            - lib/**/model/*.dart
+        options:
+          # 例外発生時にCheckedFromJsonExceptionをthrowする
+          checked: true
+          # ネストされたリストに対してtoJson/fromJsonをメソッド生成する
+          explicit_to_json: true
+          field_rename: snake
+      riverpod_generator:
+        generate_for:
+          include:
+            - "**/*provider.dart"
+            - lib/**/riverpod_example_page/**/*.dart
+        options:
+          provider_name_suffix: "Provider" # (default)

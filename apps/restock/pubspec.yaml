@@ -1,0 +1,78 @@
+name: restock
+description: ReStock
+publish_to: "none"
+version: 1.0.0+29
+
+environment:
+  sdk: ^3.7.2
+
+resolution: workspace
+
+dependencies:
+  altfire_authenticator: ^0.1.6
+  altfire_configurator: ^1.0.0
+  altfire_messenger: ^0.2.1
+  altfire_tracker: ^0.1.5
+  awaitable_button: ^1.3.0
+  cached_network_image: ^3.4.0
+  clock: ^1.1.1
+  cloud_firestore: ^5.6.5
+  collection: ^1.16.0
+  connectivity_plus: ^6.1.3
+  convenient_widgets: ^1.0.0
+  cupertino_icons: ^1.0.8
+  device_info_plus: ^11.3.3
+  firebase_core: ^3.12.1
+  firebase_dynamic_links: ^6.1.4
+  firebase_performance: ^0.10.1+4
+  firebase_storage: ^12.4.4
+  flutter:
+    sdk: flutter
+  flutter_hooks: ^0.21.2
+  flutter_localizations:
+    sdk: flutter
+  flutter_svg: ^2.0.16
+  freezed_annotation: ^2.4.4
+  gap: ^3.0.1
+  go_router: ^14.8.1
+  google_sign_in: ^6.3.0
+  hooks_riverpod: ^2.6.1
+  image_picker: ^1.1.2
+  intl: ^0.19.0
+  json_annotation: ^4.8.1
+  linked_scroll_controller: ^0.2.0
+  package_info_plus: ^8.3.0
+  pub_dev_api_client: ^1.0.0
+  riverpod_annotation: ^2.6.1
+  shared_preferences: ^2.5.2
+  simple_logger: ^1.9.0+1
+  slang: ^4.6.0
+  slang_flutter: ^4.3.0
+  sort_key_generator: ^0.2.1
+  themes: ^1.0.0
+  tuple: ^2.0.0
+  url_launcher: ^6.3.1
+  uuid: ^4.5.1
+  version: ^3.0.2
+
+dev_dependencies:
+  altive_lints: ^1.19.1
+  build_runner: ^2.4.13
+  custom_lint: ^0.7.0
+  flutter_gen_runner: ^5.10.0
+  flutter_launcher_icons: ^0.14.3
+  flutter_test:
+    sdk: flutter
+  freezed: ^2.5.8
+  go_router_builder: ^2.8.2
+  json_serializable: ^6.9.0
+  mockito: ^5.4.4
+  riverpod_generator: ^2.6.3
+  riverpod_lint: ^2.6.1
+  slang_build_runner: ^4.3.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/sample_images/

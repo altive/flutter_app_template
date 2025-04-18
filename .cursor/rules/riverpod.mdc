@@ -1,0 +1,211 @@
+---
+description: Riverpod実装ガイドライン
+globs: *.dart, *.yaml
+alwaysApply: true
+---
+# Riverpod実装ガイドライン
+
+## 1. プロバイダーの種類とその使用方法
+
+### 1.1 永続的プロバイダー（`@Riverpod(keepAlive: true)`）
+
+以下の場合に使用する：
+
+- アプリケーション全体で共有されるグローバル状態
+- リポジトリクラス
+- 認証状態
+- システム設定
+- キャッシュされたデータ
+
+```dart
+@Riverpod(keepAlive: true)
+class AuthRepository extends _$AuthRepository {
+  @override
+  Future<User?> build() async {
+    // 実装
+  }
+}
+```
+
+### 1.2 一時的プロバイダー（`@riverpod`）
+
+以下の場合に使用する：
+
+- 画面固有の状態管理
+- 一時的なデータ保持
+- UI状態制御
+- フォーム入力管理
+
+```dart
+@riverpod
+class ThemeModeController extends _$ThemeModeController {
+  @override
+  ThemeMode build() {
+    // 実装
+  }
+}
+```
+
+## 2. 命名規則
+
+### 2.1 プロバイダークラス
+
+- Controller：状態変更を伴うプロバイダー
+- Repository：データアクセスを担当するプロバイダー
+- State：単純な状態を保持するプロバイダー
+
+### 2.2 メソッド名
+
+- build()：初期状態の構築
+- setState()：状態の更新
+- update()：データの更新
+- create()：新規作成
+- delete()：削除
+
+## 3. 状態管理パターン
+
+### 3.1 非同期データ管理
+
+```dart
+@riverpod
+class DataController extends _$DataController {
+  @override
+  Future<Data?> build() async {
+    // 非同期データを取得
+  }
+
+  Future<void> update() async {
+    state = const AsyncValue.loading();
+    state = await AsyncValue.guard(() => // 更新処理);
+  }
+}
+```
+
+### 3.2 ローカルストレージ統合
+
+```dart
+@riverpod
+class StorageController extends _$StorageController {
+  @override
+  Data build() {
+    final value = ref.watch(sharedPreferencesProvider).getString(key);
+    return // 変換処理
+  }
+
+  void save(Data data) {
+    state = data;
+    ref.read(sharedPreferencesProvider).setString(key, // 保存処理);
+  }
+}
+```
+
+## 4. エラー処理
+
+### 4.1 基本パターン
+
+```dart
+try {
+  state = const AsyncValue.loading();
+  state = await AsyncValue.guard(() => // 処理);
+} on Exception catch (e) {
+  state = AsyncValue.error(e, StackTrace.current);
+}
+```
+
+### 4.2 カスタム例外
+
+```dart
+if (condition) {
+  throw AppException('エラーメッセージ');
+}
+```
+
+## 5. キャッシュ制御
+
+### 5.1 キャッシュの無効化
+
+```dart
+// 関連するプロバイダーを無効化
+ref.invalidate(relatedProvider);
+
+// 複数のプロバイダーの一括無効化
+ref
+  ..invalidate(providerA)
+  ..invalidate(providerB);
+```
+
+### 5.2 キャッシュの更新
+
+```dart
+// 既存のキャッシュを更新
+state = state.whenData((data) => data.copyWith(// 更新内容));
+```
+
+## 6. ベストプラクティス
+
+### 6.1 依存性注入
+
+- プロバイダー間の依存関係を明示的に定義する
+- 循環参照を避ける
+- 適切なスコープを設定する
+
+### 6.2 テスト可能性
+
+- モック可能な設計
+- 副作用の分離
+- 明確な依存関係
+
+### 6.3 パフォーマンス最適化
+
+- 不要な再構築を避ける
+- 適切なキャッシング戦略
+- メモリリークの防止
+
+### 6.4 ref.watchとref.readの使い分け
+
+- プロバイダーとウィジェットのbuildメソッドでは、依存関係を適切に追跡するために常に`ref.watch`を使用する
+- `ref.watch`は、監視されているプロバイダーの状態が変化したときにウィジェット/プロバイダーが再構築されることを保証する
+- `ref.read`は、再構築をトリガーすべきではないイベントハンドラーやメソッドでのみ使用する
+- buildメソッドで`ref.read`を誤って使用すると、古いデータや更新の見逃しにつながる可能性がある
+
+```dart
+// 良い例：buildでref.watchを使用
+@override
+Widget build(BuildContext context, WidgetRef ref) {
+  final user = ref.watch(userProvider);
+  return Text(user.name);
+}
+
+// 良い例：プロバイダーのbuildでref.watchを使用
+@override
+String build() {
+  final settings = ref.watch(settingsProvider);
+  return settings.theme;
+}
+
+// 良い例：イベントハンドラーでref.readを使用
+void onButtonPressed() {
+  ref.read(counterProvider.notifier).increment();
+}
+```
+
+## 7. コード生成
+
+### 7.1 セットアップ
+
+```yaml
+dependencies:
+  riverpod_annotation: latest
+
+dev_dependencies:
+  riverpod_generator: latest
+  build_runner: latest
+```
+
+### 7.2 生成コマンド
+
+```bash
+flutter pub run build_runner build
+# または
+flutter pub run build_runner watch
+```

@@ -1,0 +1,146 @@
+---
+description: Flutterアプリアーキテクチャ
+globs: *
+alwaysApply: true
+---
+# Flutter
+
+このドキュメントでは、現在のプロジェクト構造とアーキテクチャパターンについて説明します。
+Flutterのベストプラクティスを適用しながら一貫性を維持するために、これらのガイドラインに従ってください。
+
+Flutter SDK version: [version](mdc:.fvm/version)
+
+## アーキテクチャ概要
+
+- フィーチャーファーストアーキテクチャと状態管理
+- Hooksベースのウィジェット構成
+- ローカル永続化のためのSharedPreferences
+- バックエンドサービスとしてのFirebase
+- altive_lintsによる静的解析 [analysis_options.yaml](mdc:analysis_options.yaml)
+
+## ディレクトリ構造 
+
+```
+lib/
+  environment/
+  features/          // 機能モジュール
+    feature_name/    // 個別機能ディレクトリ
+      providers/     // 機能固有のプロバイダー
+      widgets/       // 機能固有のウィジェット
+      {feature}_page.dart  // メインページ
+  constants/        // アプリ全体の定数
+  extensions/       // 拡張メソッド
+  gen/     // 自動生成コード
+  i18n        // 国際化
+  pacakge_adaptor/       // パッケージの仲介役
+  pages/    // ページ（画面）を基準としたUIを格納
+  router/  //
+  util/           // ドメイン（ビジネスロジック）に依存しない関数
+  widgets/         // 共通ウィジェット
+test/  // テストファイル格納
+```
+
+## 状態管理ガイドライン
+
+1. @riverpodアノテーションを使用したRiverpodを使用
+2. riverpod_generatorに適切なNotifierクラスの決定を任せる
+3. 適切なローカルストレージを使用する：
+   - 簡単な設定やフラグにはSharedPreferences
+   - 複雑なユーザーデータやコンテンツにはSembast
+4. 適切な状態の不変性パターンに従う
+5. 適切なプロバイダーのスコープを使用
+6. コードが静的解析を通過することを確認：
+   - pedantic_monoのリントルールに従う
+   - すべての解析警告を修正
+   - 適切なNull安全パターンを使用
+   - 必要なドキュメントコメントを追加
+
+## ウィジェットガイドライン
+
+1. ステートフルウィジェットにはHookConsumerWidgetを使用
+2. adaptive_dialogで適切なエラーハンドリングを実装
+3. 適切なウィジェット構成を使用
+4. Material 3デザイン原則に従う
+5. 適切な読み込み状態を実装
+6. ナビゲーションパターンに従う：
+   - ページ遷移のための静的show()メソッドを実装
+   - 標準的な遷移にはNavigator.pushとCupertinoPageRouteを使用
+   - 必要に応じてpage_transitionでカスタム遷移効果を使用
+   - routeNameで適切なルート設定を設定
+
+## プロバイダーガイドライン
+
+1. プロバイダーをfeature/providersディレクトリに配置
+2. 適切なプロバイダーの依存関係を使用
+3. 適切なエラーハンドリングを実装
+4. 適切なキャッシュ戦略に従う
+5. 適切なプロバイダーのスコープを使用
+6. 単一責任の原則に従う：
+   - 1つのプロバイダーは1つの特定の状態を管理すべき
+   - 状態の変更は単一の真実のソースによって処理されるべき
+   - ビジネスロジックは焦点を絞り、一貫性を持たせる
+
+## 機能の構成
+
+1. 機能ごとに最初に整理
+2. 機能を独立させる
+3. coreを通じて共通コードを共有
+4. 一貫した命名パターンに従う
+5. 適切なルーティングを実装
+6. DRY原則に従う：
+   - 共通ウィジェットをcore/widgetsに抽出
+   - core/providersを通じて共通プロバイダーを共有
+   - 繰り返しコードパターンには拡張機能を使用
+   - 共通操作にはユーティリティ関数を作成
+
+## テストガイドライン
+
+1. オフラインユニットテストを作成：
+   - 依存関係のモック化にはmockitoを使用
+   - ネットワークとデータベースの依存関係を最小化
+   - ビジネスロジックを分離してテストに集中
+2. 複雑なUIにはウィジェットテストを実装
+3. 適切なモック戦略を使用
+4. 適切なテスト命名規則に従う
+
+## パフォーマンスガイドライン
+
+1. 適切な画像キャッシュを実装
+2. UGC（ユーザー生成コンテンツ）のリストビューを最適化：
+   - 遅延読み込みにはListView.builderを使用
+   - 大規模データセット用のページネーションを実装
+   - リストアイテムを適切にキャッシュ
+   - 読み込みとエラー状態を処理
+   - 適切なスクロールパフォーマンス最適化を使用
+3. 適切な状態管理パターンに従う
+4. 適切なメモリ管理を実装
+5. 適切な広告読み込み戦略を使用
+
+## 命名ガイドライン
+
+1. 一貫したケーシングに従う：
+   - ディレクトリ名：snake_case
+   - ファイル名：snake_case
+   - クラス名：UpperCamelCase
+   - 変数名：camelCase
+   - 定数名：camelCase
+
+2. 画面とコンポーネントの命名：
+   - ページ：NounPage（例：ArticlePage、ArticlesPage）
+   - コンポーネント：NounComponentType（例：ArticleTile、ArticleCard）
+   - 一般的なWidgetサフィックスを避ける（例：ArticleWidget）
+
+3. データクラスの命名：
+   - 基本：Noun（例：Article）
+   - 修飾：AdjectiveNounまたはNounNoun（例：LatestArticle、PrivateArticle）
+
+4. データソース層の命名：
+   - APIクライアント：NounClient（例：GitHubClient）
+   - リポジトリ：NounRepository（例：ArticleRepository）
+   - データソース：NounDataSource（例：ArticleDataSource）
+
+5. 一般原則：
+   - エンティティには名詞または形容詞を使用
+   - アクションには動詞を使用
+   - 命名には複数形を考慮
+   - 名前は明確で説明的に保つ

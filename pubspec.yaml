@@ -1,9 +1,10 @@
 name: flutter_app_template_workspace
 
 environment:
-  sdk: ^3.6.0
+  sdk: ^3.7.2
 
 workspace:
+  - apps/restock
   - packages/convenient_widgets
   - packages/flutter_app
   - packages/pub_dev_api_client
