@@ -10,7 +10,6 @@ command:
       post: |
         melos exec --flutter -- "flutter clean"
         melos exec --flutter --file-exists="ios/Podfile.lock" -- "cd ios && rm Podfile.lock"
-        melos exec --flutter --file-exists="macos/Podfile.lock" -- "cd macos && rm Podfile.lock"
   version:
     branch: main
     releaseUrl: true
@@ -110,10 +109,6 @@ scripts:
       dependsOn: "firebase_core"
 
   pod:
-    run: melos run pod:ios --no-select && melos run pod:macos --no-select
-    description: Clean install the Pods
-
-  pod:ios:
     exec: |
       cd ios
       rm -f Podfile.lock
@@ -123,18 +118,9 @@ scripts:
       dirExists: [lib, ios]
       fileExists: "ios/Podfile"
 
-  pod:macos:
-    exec: |
-      cd macos
-      rm -f Podfile.lock
-      pod install --repo-update
-    description: Run pod install on macOS.
-    packageFilters:
-      dirExists: [lib, macos]
-      fileExists: "macos/Podfile"
 
   build:android:prod:
-    run: flutter build appbundle --dart-define-from-file=dart_defines/prod.env
+    run: flutter build appbundle --flavor=prod
     exec:
       concurrency: 1
     description: Build the AppBundle for the production app.
@@ -143,7 +129,7 @@ scripts:
       dirExists: [lib, android]
 
   upload:ios:prod:
-    run: flutter build ipa --dart-define-from-file=dart_defines/prod.env --export-options-plist="ios/prod/ExportOptions.plist"
+    run: flutter build ipa --flavor=prod --export-options-plist="ios/prod/ExportOptions.plist"
     exec:
       concurrency: 1
     description: Upload the IPA for the production app.

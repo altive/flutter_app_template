@@ -110,7 +110,6 @@ unlinked_spec.ds
 **/ios/Flutter/Flutter.framework
 **/ios/Flutter/Flutter.podspec
 **/ios/Flutter/Generated.xcconfig
-**/ios/Flutter/Dart-Defines.xcconfig
 **/ios/Flutter/ephemeral
 **/ios/Flutter/app.flx
 **/ios/Flutter/app.zip
@@ -125,7 +124,6 @@ unlinked_spec.ds
 
 # macOS
 **/macos/Flutter/GeneratedPluginRegistrant.swift
-**/macos/Flutter/Dart-Defines.xcconfig
 
 # Web related
 lib/generated_plugin_registrant.dart

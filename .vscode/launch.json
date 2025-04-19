@@ -5,55 +5,55 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "widget_catalog",
-            "cwd": "packages/widget_catalog",
-            "program": "lib/main.dart",
-            "request": "launch",
-            "type": "dart"
-        },
-        {
-            "name": "flutter_app dev-debug",
+            "name": "flutter_app Debug-dev",
             "cwd": "packages/flutter_app",
             "program": "lib/main.dart",
             "request": "launch",
             "type": "dart",
             "flutterMode": "debug",
             "args": [
-                "--dart-define-from-file=dart_defines/dev.env"
+                "--flavor=dev"
             ]
         },
         {
-            "name": "flutter_app stg-debug",
+            "name": "flutter_app Debug-stg",
             "cwd": "packages/flutter_app",
             "program": "lib/main.dart",
             "request": "launch",
             "type": "dart",
             "flutterMode": "debug",
             "args": [
-                "--dart-define-from-file=dart_defines/stg.env"
+                "--flavor=stg"
             ]
         },
         {
-            "name": "flutter_app prod-debug",
+            "name": "flutter_app Debug-prod",
             "cwd": "packages/flutter_app",
             "program": "lib/main.dart",
             "request": "launch",
             "type": "dart",
             "flutterMode": "debug",
             "args": [
-                "--dart-define-from-file=dart_defines/prod.env"
+                "--flavor=prod"
             ]
         },
         {
-            "name": "flutter_app dev-release",
+            "name": "flutter_app Release-dev",
             "cwd": "packages/flutter_app",
             "program": "lib/main.dart",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release",
             "args": [
-                "--dart-define-from-file=dart_defines/dev.env"
+                "--flavor=dev"
             ]
+        },
+        {
+            "name": "widget_catalog",
+            "cwd": "packages/widget_catalog",
+            "program": "lib/main.dart",
+            "request": "launch",
+            "type": "dart"
         },
     ]
 }
