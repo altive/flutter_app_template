@@ -9,7 +9,7 @@ resolution: workspace
 
 dependencies:
   dio: ^5.8.0+1
-  freezed_annotation: ^2.4.4
+  freezed_annotation: ^3.0.0
   mock_web_server: ^5.0.0-nullsafety.1
   mockito: ^5.4.4
   retrofit: ^4.4.1
@@ -17,8 +17,8 @@ dependencies:
 dev_dependencies:
   altive_lints: ^1.19.1
   build_runner: ^2.4.13
-  custom_lint: ^0.7.0
-  freezed: ^2.5.8
-  json_serializable: ^6.9.0
+  custom_lint: ^0.7.5
+  freezed: ^3.0.6
+  json_serializable: ^6.9.5
   retrofit_generator: ^9.1.5
   test: ^1.25.8
