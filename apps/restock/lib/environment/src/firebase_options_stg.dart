@@ -55,7 +55,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyC9WiqSDFa1HfI41cuhspZcyAlfWUz6174',
-    appId: '1:727863764527:android:95c28048a58c7a509688da',
+    appId: '1:727863764527:android:60de361331b312169688da',
     messagingSenderId: '727863764527',
     projectId: 'rolling-stock-app',
     databaseURL: 'https://rolling-stock-app.firebaseio.com',
@@ -64,14 +64,14 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyDI3580c_3e-U70CUKNt6WD8WG7I3OTZxE',
-    appId: '1:727863764527:ios:fc6668dd3ad638799688da',
+    appId: '1:727863764527:ios:286ee1a13b1d5a149688da',
     messagingSenderId: '727863764527',
     projectId: 'rolling-stock-app',
     databaseURL: 'https://rolling-stock-app.firebaseio.com',
     storageBucket: 'rolling-stock-app.appspot.com',
     androidClientId: '727863764527-gj1q890q471e4lb0tcuksnoofnl9t32t.apps.googleusercontent.com',
-    iosClientId: '727863764527-oee5d34dpqne4f2g345mq0phlphepsva.apps.googleusercontent.com',
-    iosBundleId: 'jp.co.altive.fat.stg',
+    iosClientId: '727863764527-6v90arqckamvcujn63gd9maevugk3mal.apps.googleusercontent.com',
+    iosBundleId: 'jp.altive.rollingstock',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(

@@ -95,8 +95,7 @@ flutterfire configure --yes \
 --platforms android,ios \
 --android-package-name jp.altive.rollingstock.development \
 --ios-bundle-id jp.altive.rollingstock.development \
---ios-build-config=Debug-prod \
---no-apply-gradle-plugins
+--ios-build-config=Debug-dev
 
 # Stg
 flutterfire configure --yes \
@@ -105,10 +104,9 @@ flutterfire configure --yes \
 --android-out android/app/src/stg/google-services.json \
 --ios-out ios/stg/ \
 --platforms android,ios \
---android-package-name jp.co.altive.fat.stg \
---ios-bundle-id jp.co.altive.fat.stg \
---ios-build-config=Debug-prod \
---no-apply-gradle-plugins
+--android-package-name jp.altive.rollingstock \
+--ios-bundle-id jp.altive.rollingstock \
+--ios-build-config=Debug-stg
 
 # Prod
 flutterfire configure --yes \
@@ -119,8 +117,7 @@ flutterfire configure --yes \
 --platforms android,ios \
 --android-package-name jp.altive.restock \
 --ios-bundle-id jp.altive.restock \
---ios-build-config=Debug-prod \
---no-apply-gradle-plugins
+--ios-build-config=Debug-prod
 ```
 
 ### Firebase Analytics DebugView

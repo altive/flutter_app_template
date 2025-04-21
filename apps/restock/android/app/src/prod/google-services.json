@@ -1,45 +1,69 @@
 {
   "project_info": {
-    "project_number": "1007652573613",
-    "project_id": "altive-fat",
-    "storage_bucket": "altive-fat.firebasestorage.app"
+    "project_number": "273222294304",
+    "firebase_url": "https://re-stock.firebaseio.com",
+    "project_id": "re-stock",
+    "storage_bucket": "re-stock.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1007652573613:android:7d7115fc2a21631fbb1124",
+        "mobilesdk_app_id": "1:273222294304:android:490840a846ee465929d545",
         "android_client_info": {
-          "package_name": "jp.co.altive.fat"
+          "package_name": "jp.altive.restock"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "273222294304-3q91gcj6okqlu5amm02f8ognmqr4p3fa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "jp.altive.restock",
+            "certificate_hash": "c7ea60bb2dc9727e234551f2a25321d70191bda3"
+          }
+        },
+        {
+          "client_id": "273222294304-j7lp0h1kib0kg9tequ5p6342ksnn6lim.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "jp.altive.restock",
+            "certificate_hash": "4f4b778ebe0514a1e0a539a3fd1774ac475a6759"
+          }
+        },
+        {
+          "client_id": "273222294304-pddsgov4sc4jfi5uu77er1pn5l37hm7u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "jp.altive.restock",
+            "certificate_hash": "745aaeb99f42633dd85d75e239ca7a54b125cadf"
+          }
+        },
+        {
+          "client_id": "273222294304-gpi0jfohda3af8n7p30fqoaujid25qes.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyA_C_cr46GSb7oTlp9mXoVbTntzYqiWfaQ"
+          "current_key": "AIzaSyCe8g8xklQh6VbTbNNUrozIGhEJInVYSnI"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:1007652573613:android:7a979363aca74c00bb1124",
-        "android_client_info": {
-          "package_name": "jp.co.altive.fat.dev"
-        }
-      },
-      "oauth_client": [],
-      "api_key": [
-        {
-          "current_key": "AIzaSyA_C_cr46GSb7oTlp9mXoVbTntzYqiWfaQ"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "273222294304-gpi0jfohda3af8n7p30fqoaujid25qes.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "273222294304-vjukbcahpm2puf8so4eu7b3haghpojm2.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "jp.altive.restock",
+                "app_store_id": "1523128250"
+              }
+            }
+          ]
         }
       }
     }

@@ -144,3 +144,7 @@ test/  // テストファイル格納
    - アクションには動詞を使用
    - 命名には複数形を考慮
    - 名前は明確で説明的に保つ
+
+## その他
+
+- `Color.withOpacity` is deprecated and shouldn't be used. Use .withValues()

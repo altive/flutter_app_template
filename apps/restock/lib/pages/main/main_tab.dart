@@ -4,29 +4,24 @@ import 'package:flutter/material.dart';
 /// apps/restock 用。
 enum MainTab {
   home(
-    label: 'Home',
+    label: 'ホーム',
     icon: Icons.home_outlined,
     selectedIcon: Icons.home_rounded,
   ),
-  explore(
-    label: 'Explore',
-    icon: Icons.search_outlined,
-    selectedIcon: Icons.search,
+  stockList(
+    label: '備蓄リスト',
+    icon: Icons.list_alt_outlined,
+    selectedIcon: Icons.list_alt,
   ),
-  post(
-    label: 'Post',
-    icon: Icons.post_add_outlined,
-    selectedIcon: Icons.post_add,
+  addItem(
+    label: '追加',
+    icon: Icons.add_circle_outline,
+    selectedIcon: Icons.add_circle,
   ),
-  me(
-    label: 'Me',
-    icon: Icons.account_circle_outlined,
-    selectedIcon: Icons.account_circle,
-  ),
-  settings(
-    label: 'Settings',
-    icon: Icons.settings_outlined,
-    selectedIcon: Icons.settings,
+  myPage(
+    label: 'マイページ',
+    icon: Icons.person_outline,
+    selectedIcon: Icons.person,
   );
 
   const MainTab({

@@ -18,40 +18,6 @@ part 'app_routes.g.dart';
               name: AppInfoRouteData.name,
               path: AppInfoRouteData.path,
             ),
-            TypedGoRoute<RiverpodExampleRouteData>(
-              name: RiverpodExampleRouteData.name,
-              path: RiverpodExampleRouteData.path,
-              routes: [
-                TypedGoRoute<ProviderRouteData>(
-                  name: ProviderRouteData.name,
-                  path: ProviderRouteData.path,
-                ),
-                TypedGoRoute<StateProviderRouteData>(
-                  name: StateProviderRouteData.name,
-                  path: StateProviderRouteData.path,
-                ),
-                TypedGoRoute<StreamProviderRouteData>(
-                  name: StreamProviderRouteData.name,
-                  path: StreamProviderRouteData.path,
-                ),
-                TypedGoRoute<NotifierProviderRouteData>(
-                  name: NotifierProviderRouteData.name,
-                  path: NotifierProviderRouteData.path,
-                ),
-                TypedGoRoute<AsyncNotifierProviderRouteData>(
-                  name: AsyncNotifierProviderRouteData.name,
-                  path: AsyncNotifierProviderRouteData.path,
-                ),
-                TypedGoRoute<StateNotifierProviderRouteData>(
-                  name: StateNotifierProviderRouteData.name,
-                  path: StateNotifierProviderRouteData.path,
-                ),
-                TypedGoRoute<ListenProviderRouteData>(
-                  name: ListenProviderRouteData.name,
-                  path: ListenProviderRouteData.path,
-                ),
-              ],
-            ),
           ],
         ),
       ],

@@ -1,4 +1,4 @@
-package jp.co.altive.fat
+package jp.altive.restock
 
 import io.flutter.embedding.android.FlutterActivity
 
