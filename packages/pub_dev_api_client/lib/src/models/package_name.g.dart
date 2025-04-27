@@ -6,8 +6,8 @@ part of 'package_name.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PackageNameImpl _$$PackageNameImplFromJson(Map<String, dynamic> json) =>
-    _$PackageNameImpl(name: json['package'] as String);
+_PackageName _$PackageNameFromJson(Map<String, dynamic> json) =>
+    _PackageName(name: json['package'] as String);
 
-Map<String, dynamic> _$$PackageNameImplToJson(_$PackageNameImpl instance) =>
+Map<String, dynamic> _$PackageNameToJson(_PackageName instance) =>
     <String, dynamic>{'package': instance.name};

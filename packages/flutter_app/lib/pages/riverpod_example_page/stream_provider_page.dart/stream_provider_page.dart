@@ -48,12 +48,12 @@ class StreamProviderPage extends ConsumerWidget {
               const Gap(16),
               // countProvider の値を表示
               switch (asyncCount) {
-                AsyncLoading() => const Center(child: CircularProgressIndicator()),
-                AsyncError(:final error) => OutlinedButton(
-                      onPressed: () => ref.invalidate(countProvider),
-                      child: const Text('Refresh'),
-                    ),
+                AsyncError() => OutlinedButton(
+                  onPressed: () => ref.invalidate(countProvider),
+                  child: const Text('Refresh'),
+                ),
                 AsyncData(:final value) => DisplayLargeText('$value'),
+                _ => const Center(child: CircularProgressIndicator.adaptive()),
               },
             ],
           ),

@@ -112,32 +112,32 @@ class AsyncNotifierProviderPage extends ConsumerWidget {
       ),
       body: SafeArea(
         child: switch (asyncTodoList) {
-          AsyncLoading() => const Center(child: CircularProgressIndicator()),
-          AsyncError(:final error) => Center(child: Text('Error: $error')),
-          AsyncData(:final value) => ListView.separated(
-              padding: const EdgeInsets.all(16),
-              itemCount: value.length,
-              separatorBuilder: (_, _) => const SizedBox(height: 4),
-              itemBuilder: (context, index) {
-                final todo = value[index];
-                return Card(
-                  child: ListTile(
-                    title: Text(todo.title),
-                    leading: Icon(
-                      todo.completed
-                          ? Icons.check_box
-                          : Icons.check_box_outline_blank,
-                    ),
-                    trailing: TextButton(
-                      onPressed: () async => notifier.remove(todo.id),
-                      child: const Text('Delete'),
-                    ),
-                    // タップでTODOの完了状態を切り替える
-                    onTap: () async => notifier.toggle(todo.id),
+          AsyncValue(:final error?) => Center(child: Text('Error: $error')),
+          AsyncValue(:final List<Todo> value) => ListView.separated(
+            padding: const EdgeInsets.all(16),
+            itemCount: value.length,
+            separatorBuilder: (_, _) => const SizedBox(height: 4),
+            itemBuilder: (context, index) {
+              final todo = value[index];
+              return Card(
+                child: ListTile(
+                  title: Text(todo.title),
+                  leading: Icon(
+                    todo.completed
+                        ? Icons.check_box
+                        : Icons.check_box_outline_blank,
                   ),
-                );
-              },
-            ),
+                  trailing: TextButton(
+                    onPressed: () async => notifier.remove(todo.id),
+                    child: const Text('Delete'),
+                  ),
+                  // タップでTODOの完了状態を切り替える
+                  onTap: () async => notifier.toggle(todo.id),
+                ),
+              );
+            },
+          ),
+          _ => const Center(child: CircularProgressIndicator.adaptive()),
         },
       ),
     );

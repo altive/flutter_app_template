@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,184 +10,157 @@ part of 'latest_package_release.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
-
-LatestPackageRelease _$LatestPackageReleaseFromJson(Map<String, dynamic> json) {
-  return _LatestPackageRelease.fromJson(json);
-}
 
 /// @nodoc
 mixin _$LatestPackageRelease {
-  PackagePubspec get pubspec => throw _privateConstructorUsedError;
+
+ PackagePubspec get pubspec;
+/// Create a copy of LatestPackageRelease
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$LatestPackageReleaseCopyWith<LatestPackageRelease> get copyWith => _$LatestPackageReleaseCopyWithImpl<LatestPackageRelease>(this as LatestPackageRelease, _$identity);
 
   /// Serializes this LatestPackageRelease to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of LatestPackageRelease
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $LatestPackageReleaseCopyWith<LatestPackageRelease> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is LatestPackageRelease&&(identical(other.pubspec, pubspec) || other.pubspec == pubspec));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,pubspec);
+
+@override
+String toString() {
+  return 'LatestPackageRelease(pubspec: $pubspec)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $LatestPackageReleaseCopyWith<$Res> {
-  factory $LatestPackageReleaseCopyWith(
-    LatestPackageRelease value,
-    $Res Function(LatestPackageRelease) then,
-  ) = _$LatestPackageReleaseCopyWithImpl<$Res, LatestPackageRelease>;
-  @useResult
-  $Res call({PackagePubspec pubspec});
+abstract mixin class $LatestPackageReleaseCopyWith<$Res>  {
+  factory $LatestPackageReleaseCopyWith(LatestPackageRelease value, $Res Function(LatestPackageRelease) _then) = _$LatestPackageReleaseCopyWithImpl;
+@useResult
+$Res call({
+ PackagePubspec pubspec
+});
 
-  $PackagePubspecCopyWith<$Res> get pubspec;
+
+$PackagePubspecCopyWith<$Res> get pubspec;
+
 }
-
 /// @nodoc
-class _$LatestPackageReleaseCopyWithImpl<
-  $Res,
-  $Val extends LatestPackageRelease
->
+class _$LatestPackageReleaseCopyWithImpl<$Res>
     implements $LatestPackageReleaseCopyWith<$Res> {
-  _$LatestPackageReleaseCopyWithImpl(this._value, this._then);
+  _$LatestPackageReleaseCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final LatestPackageRelease _self;
+  final $Res Function(LatestPackageRelease) _then;
 
-  /// Create a copy of LatestPackageRelease
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? pubspec = null}) {
-    return _then(
-      _value.copyWith(
-            pubspec:
-                null == pubspec
-                    ? _value.pubspec
-                    : pubspec // ignore: cast_nullable_to_non_nullable
-                        as PackagePubspec,
-          )
-          as $Val,
-    );
-  }
-
-  /// Create a copy of LatestPackageRelease
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $PackagePubspecCopyWith<$Res> get pubspec {
-    return $PackagePubspecCopyWith<$Res>(_value.pubspec, (value) {
-      return _then(_value.copyWith(pubspec: value) as $Val);
-    });
-  }
+/// Create a copy of LatestPackageRelease
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? pubspec = null,}) {
+  return _then(_self.copyWith(
+pubspec: null == pubspec ? _self.pubspec : pubspec // ignore: cast_nullable_to_non_nullable
+as PackagePubspec,
+  ));
+}
+/// Create a copy of LatestPackageRelease
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PackagePubspecCopyWith<$Res> get pubspec {
+  
+  return $PackagePubspecCopyWith<$Res>(_self.pubspec, (value) {
+    return _then(_self.copyWith(pubspec: value));
+  });
+}
 }
 
-/// @nodoc
-abstract class _$$LatestPackageReleaseImplCopyWith<$Res>
-    implements $LatestPackageReleaseCopyWith<$Res> {
-  factory _$$LatestPackageReleaseImplCopyWith(
-    _$LatestPackageReleaseImpl value,
-    $Res Function(_$LatestPackageReleaseImpl) then,
-  ) = __$$LatestPackageReleaseImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({PackagePubspec pubspec});
-
-  @override
-  $PackagePubspecCopyWith<$Res> get pubspec;
-}
-
-/// @nodoc
-class __$$LatestPackageReleaseImplCopyWithImpl<$Res>
-    extends _$LatestPackageReleaseCopyWithImpl<$Res, _$LatestPackageReleaseImpl>
-    implements _$$LatestPackageReleaseImplCopyWith<$Res> {
-  __$$LatestPackageReleaseImplCopyWithImpl(
-    _$LatestPackageReleaseImpl _value,
-    $Res Function(_$LatestPackageReleaseImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of LatestPackageRelease
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? pubspec = null}) {
-    return _then(
-      _$LatestPackageReleaseImpl(
-        pubspec:
-            null == pubspec
-                ? _value.pubspec
-                : pubspec // ignore: cast_nullable_to_non_nullable
-                    as PackagePubspec,
-      ),
-    );
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$LatestPackageReleaseImpl implements _LatestPackageRelease {
-  const _$LatestPackageReleaseImpl({required this.pubspec});
 
-  factory _$LatestPackageReleaseImpl.fromJson(Map<String, dynamic> json) =>
-      _$$LatestPackageReleaseImplFromJson(json);
+class _LatestPackageRelease implements LatestPackageRelease {
+  const _LatestPackageRelease({required this.pubspec});
+  factory _LatestPackageRelease.fromJson(Map<String, dynamic> json) => _$LatestPackageReleaseFromJson(json);
 
-  @override
-  final PackagePubspec pubspec;
+@override final  PackagePubspec pubspec;
 
-  @override
-  String toString() {
-    return 'LatestPackageRelease(pubspec: $pubspec)';
-  }
+/// Create a copy of LatestPackageRelease
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$LatestPackageReleaseCopyWith<_LatestPackageRelease> get copyWith => __$LatestPackageReleaseCopyWithImpl<_LatestPackageRelease>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$LatestPackageReleaseImpl &&
-            (identical(other.pubspec, pubspec) || other.pubspec == pubspec));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, pubspec);
-
-  /// Create a copy of LatestPackageRelease
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$LatestPackageReleaseImplCopyWith<_$LatestPackageReleaseImpl>
-  get copyWith =>
-      __$$LatestPackageReleaseImplCopyWithImpl<_$LatestPackageReleaseImpl>(
-        this,
-        _$identity,
-      );
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$LatestPackageReleaseImplToJson(this);
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$LatestPackageReleaseToJson(this, );
 }
 
-abstract class _LatestPackageRelease implements LatestPackageRelease {
-  const factory _LatestPackageRelease({required final PackagePubspec pubspec}) =
-      _$LatestPackageReleaseImpl;
-
-  factory _LatestPackageRelease.fromJson(Map<String, dynamic> json) =
-      _$LatestPackageReleaseImpl.fromJson;
-
-  @override
-  PackagePubspec get pubspec;
-
-  /// Create a copy of LatestPackageRelease
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$LatestPackageReleaseImplCopyWith<_$LatestPackageReleaseImpl>
-  get copyWith => throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _LatestPackageRelease&&(identical(other.pubspec, pubspec) || other.pubspec == pubspec));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,pubspec);
+
+@override
+String toString() {
+  return 'LatestPackageRelease(pubspec: $pubspec)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$LatestPackageReleaseCopyWith<$Res> implements $LatestPackageReleaseCopyWith<$Res> {
+  factory _$LatestPackageReleaseCopyWith(_LatestPackageRelease value, $Res Function(_LatestPackageRelease) _then) = __$LatestPackageReleaseCopyWithImpl;
+@override @useResult
+$Res call({
+ PackagePubspec pubspec
+});
+
+
+@override $PackagePubspecCopyWith<$Res> get pubspec;
+
+}
+/// @nodoc
+class __$LatestPackageReleaseCopyWithImpl<$Res>
+    implements _$LatestPackageReleaseCopyWith<$Res> {
+  __$LatestPackageReleaseCopyWithImpl(this._self, this._then);
+
+  final _LatestPackageRelease _self;
+  final $Res Function(_LatestPackageRelease) _then;
+
+/// Create a copy of LatestPackageRelease
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? pubspec = null,}) {
+  return _then(_LatestPackageRelease(
+pubspec: null == pubspec ? _self.pubspec : pubspec // ignore: cast_nullable_to_non_nullable
+as PackagePubspec,
+  ));
+}
+
+/// Create a copy of LatestPackageRelease
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PackagePubspecCopyWith<$Res> get pubspec {
+  
+  return $PackagePubspecCopyWith<$Res>(_self.pubspec, (value) {
+    return _then(_self.copyWith(pubspec: value));
+  });
+}
+}
+
+// dart format on

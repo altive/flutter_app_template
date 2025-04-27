@@ -22,93 +22,96 @@ class PubDevPackagesPage extends ConsumerWidget {
       child: Scaffold(
         appBar: AppBar(title: Text(t.pubDevPackagesPage.appBar.title)),
         body: switch (asyncValue) {
-          AsyncLoading() => const Center(child: CircularProgressIndicator.adaptive()),
           AsyncError(:final error) => Center(child: Text('$error')),
-          AsyncData(:final value) => (() {
-            final packages = value.packages;
-            final nextPage = value.nextPage;
+          AsyncData(:final value) =>
+            (() {
+              final packages = value.packages;
+              final nextPage = value.nextPage;
 
-            if (packages.isEmpty) {
-              return Center(child: Text(t.pubDevPackagesPage.body.emptyLabel));
-            }
+              if (packages.isEmpty) {
+                return Center(
+                  child: Text(t.pubDevPackagesPage.body.emptyLabel),
+                );
+              }
 
-            return NotificationListener<ScrollEndNotification>(
-              onNotification: (notification) {
-                if (notification.metrics.extentAfter == 0 && nextPage != null) {
-                  unawaited(
-                    ref
-                        .read(pubDevPackagesPageStateProvider.notifier)
-                        .loadNext(nextPage),
-                  );
-                  return true;
-                }
-                return false;
-              },
-              child: CustomScrollView(
-                slivers: [
-                  SliverAppBar(
-                    floating: true,
-                    title: TextFormField(
-                      controller: TextEditingController(
-                        text: ref.watch(pubDevPackageSearchWordStateProvider),
-                      ),
-                      decoration: InputDecoration(
-                        hintText: t.pubDevPackagesPage.searchBar.hintText,
-                        prefixIcon: const Icon(Icons.search),
-                        suffixIcon: IconButton(
-                          onPressed:
-                              () =>
-                                  ref
-                                      .read(
-                                        pubDevPackageSearchWordStateProvider
-                                            .notifier,
-                                      )
-                                      .clear(),
-                          icon: const Icon(Icons.clear),
+              return NotificationListener<ScrollEndNotification>(
+                onNotification: (notification) {
+                  if (notification.metrics.extentAfter == 0 &&
+                      nextPage != null) {
+                    unawaited(
+                      ref
+                          .read(pubDevPackagesPageStateProvider.notifier)
+                          .loadNext(nextPage),
+                    );
+                    return true;
+                  }
+                  return false;
+                },
+                child: CustomScrollView(
+                  slivers: [
+                    SliverAppBar(
+                      floating: true,
+                      title: TextFormField(
+                        controller: TextEditingController(
+                          text: ref.watch(pubDevPackageSearchWordStateProvider),
                         ),
-                      ),
-                      onFieldSubmitted:
-                          ref
-                              .read(
-                                pubDevPackageSearchWordStateProvider.notifier,
-                              )
-                              .update,
-                    ),
-                  ),
-                  SliverList(
-                    delegate: SliverChildBuilderDelegate(
-                      // Add 1 for the loading indicator.
-                      childCount: packages.length + 1,
-                      (context, index) {
-                        if (index == packages.length) {
-                          return asyncValue.isRefreshing
-                              ? const Center(
-                                child: Padding(
-                                  padding: EdgeInsets.symmetric(vertical: 20),
-                                  child: CircularProgressIndicator.adaptive(),
-                                ),
-                              )
-                              : const Gap(40);
-                        }
-
-                        final package = packages[index];
-                        final name = package.name;
-
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(
-                            vertical: 4,
-                            horizontal: 8,
+                        decoration: InputDecoration(
+                          hintText: t.pubDevPackagesPage.searchBar.hintText,
+                          prefixIcon: const Icon(Icons.search),
+                          suffixIcon: IconButton(
+                            onPressed:
+                                () =>
+                                    ref
+                                        .read(
+                                          pubDevPackageSearchWordStateProvider
+                                              .notifier,
+                                        )
+                                        .clear(),
+                            icon: const Icon(Icons.clear),
                           ),
-                          child: _PackageCard(packageName: name),
-                        );
-                      },
+                        ),
+                        onFieldSubmitted:
+                            ref
+                                .read(
+                                  pubDevPackageSearchWordStateProvider.notifier,
+                                )
+                                .update,
+                      ),
                     ),
-                  ),
-                ],
-              ),
-            );
-          })(),
-          },
+                    SliverList(
+                      delegate: SliverChildBuilderDelegate(
+                        // Add 1 for the loading indicator.
+                        childCount: packages.length + 1,
+                        (context, index) {
+                          if (index == packages.length) {
+                            return asyncValue.isRefreshing
+                                ? const Center(
+                                  child: Padding(
+                                    padding: EdgeInsets.symmetric(vertical: 20),
+                                    child: CircularProgressIndicator.adaptive(),
+                                  ),
+                                )
+                                : const Gap(40);
+                          }
+
+                          final package = packages[index];
+                          final name = package.name;
+
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(
+                              vertical: 4,
+                              horizontal: 8,
+                            ),
+                            child: _PackageCard(packageName: name),
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            })(),
+          _ => const Center(child: CircularProgressIndicator.adaptive()),
         },
       ),
     );
