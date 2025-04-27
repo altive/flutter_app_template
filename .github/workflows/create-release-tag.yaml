@@ -6,6 +6,7 @@ on:
     types: [closed]
     branches:
       - main
+  merge_group:
 
 jobs:
   # Extract the release version

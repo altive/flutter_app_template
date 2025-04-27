@@ -5,6 +5,7 @@ on:
     types: [closed]
     branches:
       - main
+  merge_group:
   workflow_dispatch:
 
 jobs:
