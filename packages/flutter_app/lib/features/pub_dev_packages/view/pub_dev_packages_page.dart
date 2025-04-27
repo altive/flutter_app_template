@@ -24,7 +24,7 @@ class PubDevPackagesPage extends ConsumerWidget {
         body: switch (asyncValue) {
           AsyncLoading() => const Center(child: CircularProgressIndicator.adaptive()),
           AsyncError(:final error) => Center(child: Text('$error')),
-          AsyncData(:final value) => {
+          AsyncData(:final value) => (() {
             final packages = value.packages;
             final nextPage = value.nextPage;
 
@@ -107,6 +107,7 @@ class PubDevPackagesPage extends ConsumerWidget {
                 ],
               ),
             );
+          })(),
           },
         },
       ),
