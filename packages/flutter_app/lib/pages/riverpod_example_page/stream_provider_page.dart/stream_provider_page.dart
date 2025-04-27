@@ -47,17 +47,14 @@ class StreamProviderPage extends ConsumerWidget {
               const DisplaySmallText('Increment with stream:'),
               const Gap(16),
               // countProvider の値を表示
-              asyncCount.when(
-                loading: () => const Center(child: CircularProgressIndicator()),
-                error:
-                    (error, stack) => OutlinedButton(
+              switch (asyncCount) {
+                AsyncLoading() => const Center(child: CircularProgressIndicator()),
+                AsyncError(:final error) => OutlinedButton(
                       onPressed: () => ref.invalidate(countProvider),
                       child: const Text('Refresh'),
                     ),
-                data: (count) {
-                  return DisplayLargeText('$count');
-                },
-              ),
+                AsyncData(:final value) => DisplayLargeText('$value'),
+              },
             ],
           ),
         ),

@@ -7,7 +7,7 @@ part 'get_searched_packages_response_body.g.dart';
 
 /// Response body for the search API.
 @freezed
-class GetSearchedPackagesResponseBody with _$GetSearchedPackagesResponseBody {
+abstract class GetSearchedPackagesResponseBody with _$GetSearchedPackagesResponseBody {
   /// Default constructor.
   const factory GetSearchedPackagesResponseBody({
     required List<PackageName> packages,

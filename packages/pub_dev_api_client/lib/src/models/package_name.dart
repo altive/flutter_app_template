@@ -5,7 +5,7 @@ part 'package_name.g.dart';
 
 /// Package name.
 @freezed
-class PackageName with _$PackageName {
+abstract class PackageName with _$PackageName {
   /// Default constructor.
   const factory PackageName({@JsonKey(name: 'package') required String name}) =
       _PackageName;

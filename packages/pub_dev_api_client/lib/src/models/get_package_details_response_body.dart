@@ -7,7 +7,7 @@ part 'get_package_details_response_body.g.dart';
 
 /// Response body for the package details endpoint.
 @freezed
-class GetPackageDetailsResponseBody with _$GetPackageDetailsResponseBody {
+abstract class GetPackageDetailsResponseBody with _$GetPackageDetailsResponseBody {
   /// Default constructor.
   const factory GetPackageDetailsResponseBody({
     required String name,

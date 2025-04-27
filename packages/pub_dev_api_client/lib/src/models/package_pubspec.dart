@@ -5,7 +5,7 @@ part 'package_pubspec.g.dart';
 
 /// Information about a package's pubspec.yaml.
 @freezed
-class PackagePubspec with _$PackagePubspec {
+abstract class PackagePubspec with _$PackagePubspec {
   /// Default constructor.
   const factory PackagePubspec({
     required String name,

@@ -111,16 +111,15 @@ class AsyncNotifierProviderPage extends ConsumerWidget {
         ],
       ),
       body: SafeArea(
-        child: asyncTodoList.when(
-          loading: () => const Center(child: CircularProgressIndicator()),
-          error: (error, stackTrace) => Center(child: Text('Error: $error')),
-          data: (todoList) {
-            return ListView.separated(
+        child: switch (asyncTodoList) {
+          AsyncLoading() => const Center(child: CircularProgressIndicator()),
+          AsyncError(:final error) => Center(child: Text('Error: $error')),
+          AsyncData(:final value) => ListView.separated(
               padding: const EdgeInsets.all(16),
-              itemCount: todoList.length,
+              itemCount: value.length,
               separatorBuilder: (_, _) => const SizedBox(height: 4),
               itemBuilder: (context, index) {
-                final todo = todoList[index];
+                final todo = value[index];
                 return Card(
                   child: ListTile(
                     title: Text(todo.title),
@@ -138,9 +137,8 @@ class AsyncNotifierProviderPage extends ConsumerWidget {
                   ),
                 );
               },
-            );
-          },
-        ),
+            ),
+        },
       ),
     );
   }

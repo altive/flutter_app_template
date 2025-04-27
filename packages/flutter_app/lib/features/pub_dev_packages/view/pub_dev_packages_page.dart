@@ -21,13 +21,12 @@ class PubDevPackagesPage extends ConsumerWidget {
     return UnfocusOnTap(
       child: Scaffold(
         appBar: AppBar(title: Text(t.pubDevPackagesPage.appBar.title)),
-        body: asyncValue.when(
-          loading:
-              () => const Center(child: CircularProgressIndicator.adaptive()),
-          error: (error, stackTrace) => Center(child: Text('$error')),
-          data: (packagesState) {
-            final packages = packagesState.packages;
-            final nextPage = packagesState.nextPage;
+        body: switch (asyncValue) {
+          AsyncLoading() => const Center(child: CircularProgressIndicator.adaptive()),
+          AsyncError(:final error) => Center(child: Text('$error')),
+          AsyncData(:final value) => {
+            final packages = value.packages;
+            final nextPage = value.nextPage;
 
             if (packages.isEmpty) {
               return Center(child: Text(t.pubDevPackagesPage.body.emptyLabel));
@@ -109,7 +108,7 @@ class PubDevPackagesPage extends ConsumerWidget {
               ),
             );
           },
-        ),
+        },
       ),
     );
   }
