@@ -2,7 +2,6 @@ name: Assign author to Pull request
 on:
   pull_request:
     types: [opened]
-  merge_group:
 jobs:
   assignAuthor:
     name: Assign author to PR
