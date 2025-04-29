@@ -16,34 +16,12 @@
             ]
         },
         {
-            "name": "flutter_app Debug-stg",
-            "cwd": "packages/flutter_app",
+            "name": "restock Debug-dev",
+            "cwd": "apps/restock",
             "program": "lib/main.dart",
             "request": "launch",
             "type": "dart",
             "flutterMode": "debug",
-            "args": [
-                "--flavor=stg"
-            ]
-        },
-        {
-            "name": "flutter_app Debug-prod",
-            "cwd": "packages/flutter_app",
-            "program": "lib/main.dart",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "debug",
-            "args": [
-                "--flavor=prod"
-            ]
-        },
-        {
-            "name": "flutter_app Release-dev",
-            "cwd": "packages/flutter_app",
-            "program": "lib/main.dart",
-            "request": "launch",
-            "type": "dart",
-            "flutterMode": "release",
             "args": [
                 "--flavor=dev"
             ]
