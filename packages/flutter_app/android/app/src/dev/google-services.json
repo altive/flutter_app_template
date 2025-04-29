@@ -12,12 +12,7 @@
           "package_name": "jp.co.altive.fat.dev"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "1068511233454-te3vq3nm7h1mth3m1tq4m90ei6bfm2e2.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
           "current_key": "AIzaSyBTOem4kiPZwfqvrfMYFJKP8Qnt8zG-_jM"
@@ -25,19 +20,7 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "1068511233454-te3vq3nm7h1mth3m1tq4m90ei6bfm2e2.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "1068511233454-jqkcgldo7cro8bsap1j574959nmgfjqe.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "jp.co.altive.fat.dev"
-              }
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }

@@ -115,8 +115,7 @@ flutterfire configure --yes \
 --ios-out ios/dev/ \
 --platforms android,ios,web \
 --android-package-name jp.co.altive.fat.dev \
---ios-bundle-id jp.co.altive.fat.dev \
---no-apply-gradle-plugins
+--ios-bundle-id jp.co.altive.fat.dev
 
 # Stg
 flutterfire configure --yes \
@@ -126,8 +125,7 @@ flutterfire configure --yes \
 --ios-out ios/stg/ \
 --platforms android,ios,web \
 --android-package-name jp.co.altive.fat.stg \
---ios-bundle-id jp.co.altive.fat.stg \
---no-apply-gradle-plugins
+--ios-bundle-id jp.co.altive.fat.stg
 
 # Prod
 flutterfire configure --yes \
@@ -137,8 +135,7 @@ flutterfire configure --yes \
 --ios-out ios/prod/ \
 --platforms android,ios,web \
 --android-package-name jp.co.altive.fat \
---ios-bundle-id jp.co.altive.fat \
---no-apply-gradle-plugins
+--ios-bundle-id jp.co.altive.fat
 ```
 
 ### Firebase Analytics DebugView
