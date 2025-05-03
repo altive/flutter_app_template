@@ -2,11 +2,7 @@
     "flutter": {
         "platforms": {
             "android": {
-                "default": {
-                    "projectId": "",
-                    "appId": "",
-                    "fileOutput": ""
-                },
+                "default": {},
                 "buildConfigurations": {
                     "src/dev": {
                         "projectId": "flutter-app-template-dev",
@@ -26,11 +22,7 @@
                 }
             },
             "ios": {
-                "default": {
-                    "projectId": "",
-                    "appId": "",
-                    "fileOutput": ""
-                },
+                "default": {},
                 "buildConfigurations": {
                     "Debug-dev": {
                         "projectId": "flutter-app-template-dev",

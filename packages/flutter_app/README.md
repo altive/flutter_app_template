@@ -37,6 +37,8 @@
 
 ## Secret files required for Release
 
+### Android
+
 Required only `--release` mode.
 
 - android/key.properties
@@ -68,7 +70,6 @@ Rewrite the configuration values of each config file.
 3. Execute `flutterfire configure`.
 4. Replace `GOOGLE_REVERSED_CLIENT_ID` in `{flavor}.xcconfig`.
 5. Create a Web app and modify the parameters in `firebaseConfig` in `web/index.html`.
-
 
 ## How to use
 
@@ -112,7 +113,7 @@ flutterfire configure --yes \
 --project flutter-app-template-dev \
 --out lib/environment/src/firebase_options_dev.dart \
 --android-out android/app/src/dev/google-services.json \
---ios-out ios/dev/ \
+--ios-out ios/Runner/dev/ \
 --platforms android,ios,web \
 --android-package-name jp.co.altive.fat.dev \
 --ios-bundle-id jp.co.altive.fat.dev
@@ -122,7 +123,7 @@ flutterfire configure --yes \
 --project flutter-app-template-stg \
 --out lib/environment/src/firebase_options_stg.dart \
 --android-out android/app/src/stg/google-services.json \
---ios-out ios/stg/ \
+--ios-out ios/Runner/stg/ \
 --platforms android,ios,web \
 --android-package-name jp.co.altive.fat.stg \
 --ios-bundle-id jp.co.altive.fat.stg
@@ -132,7 +133,7 @@ flutterfire configure --yes \
 --project altive-fat \
 --out lib/environment/src/firebase_options_prod.dart \
 --android-out android/app/src/prod/google-services.json \
---ios-out ios/prod/ \
+--ios-out ios/Runner/prod/ \
 --platforms android,ios,web \
 --android-package-name jp.co.altive.fat \
 --ios-bundle-id jp.co.altive.fat
@@ -148,3 +149,23 @@ adb shell setprop debug.firebase.analytics.app jp.co.altive.fat.dev
 # Stop
 adb shell setprop debug.firebase.analytics.app .none.
 ```
+
+## Deploy
+
+### iOS for local
+
+Upload the IPA for the production app.
+
+```shell
+flutter build ipa --flavor=prod --export-options-plist="ios/prod/ExportOptions.plist"
+```
+
+### Android for local
+
+1. Build the AppBundle for the production app.
+
+```shell
+flutter build appbundle --flavor=prod
+```
+
+2. Upload the AppBundle in Google Play Console.
