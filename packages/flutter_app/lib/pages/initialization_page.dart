@@ -46,16 +46,19 @@ class _ErrorPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              error.toString(),
-              style: Theme.of(context).textTheme.headlineSmall,
-            ),
-            const Gap(16),
-            FilledButton(onPressed: onRetry, child: const Text('Retry')),
-          ],
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                error.toString(),
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
+              const Gap(16),
+              FilledButton(onPressed: onRetry, child: const Text('Retry')),
+            ],
+          ),
         ),
       ),
     );

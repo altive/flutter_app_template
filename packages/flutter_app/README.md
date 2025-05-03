@@ -37,6 +37,8 @@
 
 ## Secret files required for Release
 
+### Android
+
 Required only `--release` mode.
 
 - android/key.properties
@@ -68,7 +70,6 @@ Rewrite the configuration values of each config file.
 3. Execute `flutterfire configure`.
 4. Replace `GOOGLE_REVERSED_CLIENT_ID` in `{flavor}.xcconfig`.
 5. Create a Web app and modify the parameters in `firebaseConfig` in `web/index.html`.
-
 
 ## How to use
 
@@ -115,8 +116,7 @@ flutterfire configure --yes \
 --ios-out ios/dev/ \
 --platforms android,ios,web \
 --android-package-name jp.co.altive.fat.dev \
---ios-bundle-id jp.co.altive.fat.dev \
---no-apply-gradle-plugins
+--ios-bundle-id jp.co.altive.fat.dev
 
 # Stg
 flutterfire configure --yes \
@@ -126,8 +126,7 @@ flutterfire configure --yes \
 --ios-out ios/stg/ \
 --platforms android,ios,web \
 --android-package-name jp.co.altive.fat.stg \
---ios-bundle-id jp.co.altive.fat.stg \
---no-apply-gradle-plugins
+--ios-bundle-id jp.co.altive.fat.stg
 
 # Prod
 flutterfire configure --yes \
@@ -137,8 +136,7 @@ flutterfire configure --yes \
 --ios-out ios/prod/ \
 --platforms android,ios,web \
 --android-package-name jp.co.altive.fat \
---ios-bundle-id jp.co.altive.fat \
---no-apply-gradle-plugins
+--ios-bundle-id jp.co.altive.fat
 ```
 
 ### Firebase Analytics DebugView
@@ -151,3 +149,23 @@ adb shell setprop debug.firebase.analytics.app jp.co.altive.fat.dev
 # Stop
 adb shell setprop debug.firebase.analytics.app .none.
 ```
+
+## Deploy
+
+### iOS for local
+
+Upload the IPA for the production app.
+
+```shell
+flutter build ipa --flavor=prod --export-options-plist="ios/prod/ExportOptions.plist"
+```
+
+### Android for local
+
+1. Build the AppBundle for the production app.
+
+```shell
+flutter build appbundle --flavor=prod
+```
+
+2. Upload the AppBundle in Google Play Console.
