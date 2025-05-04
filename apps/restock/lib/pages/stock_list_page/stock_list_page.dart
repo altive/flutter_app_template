@@ -59,7 +59,7 @@ class StockListPage extends HookConsumerWidget {
                   ),
                 ),
                 const SizedBox(width: 8),
-                Expanded(
+                Flexible(
                   child: InkWell(
                     onTap: () {
                       // 並び替えダイアログを表示
@@ -78,9 +78,13 @@ class StockListPage extends HookConsumerWidget {
                         children: [
                           Icon(Icons.sort, size: 18),
                           SizedBox(width: 4),
-                          Text(
-                            '並び替え: $selectedSort',
-                            style: TextStyle(fontSize: 14),
+                          Flexible(
+                            child: Text(
+                              '並び替え: $selectedSort',
+                              style: TextStyle(fontSize: 14),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
                           ),
                         ],
                       ),
@@ -265,36 +269,38 @@ class StockListPage extends HookConsumerWidget {
                       ],
                     ),
                   ),
-                  // 数量
-                  Container(
-                    margin: const EdgeInsets.only(right: 8),
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 8,
-                      vertical: 4,
-                    ),
-                    decoration: BoxDecoration(
-                      color: Colors.blue.shade50,
-                      borderRadius: BorderRadius.circular(4),
-                    ),
-                    child: Text(
-                      '${item['quantity']}個',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.blue.shade700,
-                      ),
-                    ),
-                  ),
-                  // 期限表示
+                  // 数量・期限を縦並びで表示
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
+                      Container(
+                        margin: const EdgeInsets.only(bottom: 4),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 8,
+                          vertical: 4,
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.blue.shade50,
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                        child: Text(
+                          '${item['quantity']}個',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            color: Colors.blue.shade700,
+                            fontSize: 13,
+                          ),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      ),
                       Container(
                         padding: const EdgeInsets.symmetric(
                           horizontal: 8,
                           vertical: 4,
                         ),
                         decoration: BoxDecoration(
-                          color: statusColor.withValues(alpha: 0.2),
+                          color: statusColor.withOpacity(0.15),
                           borderRadius: BorderRadius.circular(4),
                         ),
                         child: Text(
@@ -308,14 +314,8 @@ class StockListPage extends HookConsumerWidget {
                             fontWeight: FontWeight.bold,
                             color: statusColor,
                           ),
-                        ),
-                      ),
-                      const SizedBox(height: 4),
-                      Text(
-                        item['expiry']! as String,
-                        style: TextStyle(
-                          fontSize: 12,
-                          color: Colors.grey.shade600,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ),
                     ],

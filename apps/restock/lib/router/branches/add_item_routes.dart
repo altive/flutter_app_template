@@ -3,12 +3,12 @@ import 'package:go_router/go_router.dart';
 
 import '../../pages/add_item_page/add_item_page.dart';
 
-class PubDevPackagesShellBranchData extends StatefulShellBranchData {
-  const PubDevPackagesShellBranchData();
+class AddItemShellBranchData extends StatefulShellBranchData {
+  const AddItemShellBranchData();
 }
 
-class PubDevPackagesRouteData extends GoRouteData {
-  const PubDevPackagesRouteData();
+class AddItemRouteData extends GoRouteData {
+  const AddItemRouteData();
 
   static const name = 'addItem';
   static const path = '/add-item';

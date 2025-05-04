@@ -3,12 +3,12 @@ import 'package:go_router/go_router.dart';
 
 import '../../pages/stock_list_page/stock_list_page.dart';
 
-class ExploreShellBranchData extends StatefulShellBranchData {
-  const ExploreShellBranchData();
+class StockListShellBranchData extends StatefulShellBranchData {
+  const StockListShellBranchData();
 }
 
-class ExploreRouteData extends GoRouteData {
-  const ExploreRouteData();
+class StockListRouteData extends GoRouteData {
+  const StockListRouteData();
 
   static const name = 'stockList';
   static const path = '/stock-list';

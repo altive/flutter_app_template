@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../pages/my_page/my_page.dart';
+import '../../pages/menu_page/menu_page.dart';
 import '../../pages/theme_selection_page/theme_selection_page.dart';
 
-class SettingsShellBranchData extends StatefulShellBranchData {
-  const SettingsShellBranchData();
+class MenuShellBranchData extends StatefulShellBranchData {
+  const MenuShellBranchData();
 }
 
-class SettingsRouteData extends GoRouteData {
-  const SettingsRouteData();
+class MenuRouteData extends GoRouteData {
+  const MenuRouteData();
 
-  static const name = '/myPage';
-  static const path = '/my-page';
+  static const name = '/menu';
+  static const path = '/menu';
 
   @override
   Widget build(BuildContext context, GoRouterState state) {
-    return const MyPage();
+    return const MenuPage();
   }
 }
 

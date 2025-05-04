@@ -18,11 +18,7 @@ enum MainTab {
     icon: Icons.add_circle_outline,
     selectedIcon: Icons.add_circle,
   ),
-  myPage(
-    label: 'マイページ',
-    icon: Icons.person_outline,
-    selectedIcon: Icons.person,
-  );
+  menu(label: 'メニュー', icon: Icons.menu_outlined, selectedIcon: Icons.menu);
 
   const MainTab({
     required this.label,

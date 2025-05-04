@@ -22,35 +22,27 @@ part 'app_routes.g.dart';
         ),
       ],
     ),
-    TypedStatefulShellBranch<ExploreShellBranchData>(
+    TypedStatefulShellBranch<StockListShellBranchData>(
       routes: [
-        TypedGoRoute<ExploreRouteData>(
-          name: ExploreRouteData.name,
-          path: ExploreRouteData.path,
+        TypedGoRoute<StockListRouteData>(
+          name: StockListRouteData.name,
+          path: StockListRouteData.path,
         ),
       ],
     ),
-    TypedStatefulShellBranch<PubDevPackagesShellBranchData>(
+    TypedStatefulShellBranch<AddItemShellBranchData>(
       routes: [
-        TypedGoRoute<PubDevPackagesRouteData>(
-          name: PubDevPackagesRouteData.name,
-          path: PubDevPackagesRouteData.path,
+        TypedGoRoute<AddItemRouteData>(
+          name: AddItemRouteData.name,
+          path: AddItemRouteData.path,
         ),
       ],
     ),
-    TypedStatefulShellBranch<DashboardShellBranchData>(
+    TypedStatefulShellBranch<MenuShellBranchData>(
       routes: [
-        TypedGoRoute<DashboardRouteData>(
-          name: DashboardRouteData.name,
-          path: DashboardRouteData.path,
-        ),
-      ],
-    ),
-    TypedStatefulShellBranch<SettingsShellBranchData>(
-      routes: [
-        TypedGoRoute<SettingsRouteData>(
-          name: SettingsRouteData.name,
-          path: SettingsRouteData.path,
+        TypedGoRoute<MenuRouteData>(
+          name: MenuRouteData.name,
+          path: MenuRouteData.path,
           routes: [
             TypedGoRoute<ThemeSelectionRouteData>(
               name: ThemeSelectionRouteData.name,

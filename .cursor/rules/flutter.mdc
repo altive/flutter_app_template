@@ -12,7 +12,7 @@ Flutter SDK version: [version](mdc:.fvm/version)
 
 ## アーキテクチャ概要
 
-- フィーチャーファーストアーキテクチャと状態管理
+- Feature first architectureと状態管理
 - Hooksベースのウィジェット構成
 - ローカル永続化のためのSharedPreferences
 - バックエンドサービスとしてのFirebase
@@ -62,11 +62,7 @@ test/  // テストファイル格納
 3. 適切なウィジェット構成を使用
 4. Material 3デザイン原則に従う
 5. 適切な読み込み状態を実装
-6. ナビゲーションパターンに従う：
-   - ページ遷移のための静的show()メソッドを実装
-   - 標準的な遷移にはNavigator.pushとCupertinoPageRouteを使用
-   - 必要に応じてpage_transitionでカスタム遷移効果を使用
-   - routeNameで適切なルート設定を設定
+6. go_routerを使用したルーティング
 
 ## プロバイダーガイドライン
 
