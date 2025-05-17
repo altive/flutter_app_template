@@ -1,0 +1,116 @@
+{
+    "flutter": {
+        "platforms": {
+            "android": {
+                "default": {
+                    "projectId": "",
+                    "appId": "",
+                    "fileOutput": ""
+                },
+                "buildConfigurations": {
+                    "src/dev": {
+                        "projectId": "restock-development",
+                        "appId": "1:142133475394:android:10cd065710581da111d5db",
+                        "fileOutput": "android/app/src/dev/google-services.json"
+                    },
+                    "src/stg": {
+                        "projectId": "rolling-stock-app",
+                        "appId": "1:727863764527:android:60de361331b312169688da",
+                        "fileOutput": "android/app/src/stg/google-services.json"
+                    },
+                    "src/prod": {
+                        "projectId": "re-stock",
+                        "appId": "1:273222294304:android:490840a846ee465929d545",
+                        "fileOutput": "android/app/src/prod/google-services.json"
+                    }
+                }
+            },
+            "ios": {
+                "default": {
+                    "projectId": "",
+                    "appId": "",
+                    "fileOutput": ""
+                },
+                "buildConfigurations": {
+                    "Debug-dev": {
+                        "projectId": "restock-development",
+                        "appId": "1:142133475394:ios:7a8bc0481f2fc53511d5db",
+                        "uploadDebugSymbols": false,
+                        "fileOutput": "ios/Runner/dev/GoogleService-Info.plist"
+                    },
+                    "Profile-dev": {
+                        "projectId": "restock-development",
+                        "appId": "1:142133475394:ios:7a8bc0481f2fc53511d5db",
+                        "uploadDebugSymbols": false,
+                        "fileOutput": "ios/Runner/dev/GoogleService-Info.plist"
+                    },
+                    "Release-dev": {
+                        "projectId": "restock-development",
+                        "appId": "1:142133475394:ios:7a8bc0481f2fc53511d5db",
+                        "uploadDebugSymbols": false,
+                        "fileOutput": "ios/Runner/dev/GoogleService-Info.plist"
+                    },
+                    "Debug-stg": {
+                        "projectId": "rolling-stock-app",
+                        "appId": "1:727863764527:ios:286ee1a13b1d5a149688da",
+                        "uploadDebugSymbols": false,
+                        "fileOutput": "ios/Runner/stg/GoogleService-Info.plist"
+                    },
+                    "Profile-stg": {
+                        "projectId": "rolling-stock-app",
+                        "appId": "1:727863764527:ios:286ee1a13b1d5a149688da",
+                        "uploadDebugSymbols": false,
+                        "fileOutput": "ios/Runner/stg/GoogleService-Info.plist"
+                    },
+                    "Release-stg": {
+                        "projectId": "rolling-stock-app",
+                        "appId": "1:727863764527:ios:286ee1a13b1d5a149688da",
+                        "uploadDebugSymbols": false,
+                        "fileOutput": "ios/Runner/stg/GoogleService-Info.plist"
+                    },
+                    "Debug-prod": {
+                        "projectId": "re-stock",
+                        "appId": "1:273222294304:ios:b94fef831522147c29d545",
+                        "uploadDebugSymbols": false,
+                        "fileOutput": "ios/Runner/prod/GoogleService-Info.plist"
+                    },
+                    "Profile-prod": {
+                        "projectId": "re-stock",
+                        "appId": "1:273222294304:ios:b94fef831522147c29d545",
+                        "uploadDebugSymbols": false,
+                        "fileOutput": "ios/Runner/prod/GoogleService-Info.plist"
+                    },
+                    "Release-prod": {
+                        "projectId": "re-stock",
+                        "appId": "1:273222294304:ios:b94fef831522147c29d545",
+                        "uploadDebugSymbols": false,
+                        "fileOutput": "ios/Runner/prod/GoogleService-Info.plist"
+                    }
+                }
+            },
+            "dart": {
+                "lib/environment/src/firebase_options_dev.dart": {
+                    "projectId": "restock-development",
+                    "configurations": {
+                        "android": "1:142133475394:android:10cd065710581da111d5db",
+                        "ios": "1:142133475394:ios:7a8bc0481f2fc53511d5db"
+                    }
+                },
+                "lib/environment/src/firebase_options_stg.dart": {
+                    "projectId": "rolling-stock-app",
+                    "configurations": {
+                        "android": "1:727863764527:android:60de361331b312169688da",
+                        "ios": "1:727863764527:ios:286ee1a13b1d5a149688da"
+                    }
+                },
+                "lib/environment/src/firebase_options_prod.dart": {
+                    "projectId": "re-stock",
+                    "configurations": {
+                        "android": "1:273222294304:android:490840a846ee465929d545",
+                        "ios": "1:273222294304:ios:b94fef831522147c29d545"
+                    }
+                }
+            }
+        }
+    }
+}

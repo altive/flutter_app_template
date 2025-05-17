@@ -8,7 +8,7 @@ import 'theme_extensions/theme_extensions.dart';
 
 /// Returns a [ThemeData] for dark theme.
 ThemeData get darkThemeData {
-  const colorScheme = darkColorScheme;
+  final colorScheme = darkColorScheme;
 
   final defaultThemeData = ThemeData.dark();
   final textTheme = defaultThemeData.textTheme.merge(appTextTheme);

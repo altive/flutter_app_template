@@ -1,0 +1,64 @@
+# locale: "ja"
+title: "Flutter App Template"
+accountPage:
+  appBar:
+    title: "アカウント"
+appInfo:
+  appBar:
+    title: "アプリ情報"
+author:
+  name: "Altive株式会社"
+button:
+  cancel: "キャンセル"
+  sign:
+    out: "サインアウト"
+homePage:
+  appBar:
+    title: "Home"
+  list:
+    appInfo:
+      label: "アプリ情報"
+    doubleCount: "2倍されたカウント値："
+pubDevPackagesPage:
+  appBar:
+    title: "Pub.dev パッケージ"
+  searchBar:
+    hintText: "パッケージを検索"
+  body:
+    emptyLabel: "パッケージが見つかりませんでした。"
+  dialog:
+    content:
+      version: "最新バージョン :"
+      description: "説明 :"
+    button: 
+      close: 
+        label: "とじる"
+notFoundPage:
+  title: "404 Not Found"
+  header:
+    label: "ごめんなさい🙏"
+  description: "is not found."
+  backButton:
+    label: "is not found."
+settingsPage:
+  appBar:
+    title: "設定"
+  list:
+    themeSelector:
+      label: "テーマ選択"
+    account:
+      label: "アカウント"
+theme:
+  mode:
+    title:
+      system: "System"
+      light: "Light theme"
+      dark: "Dark theme"
+    subtitle:
+      system: "システム設定に従う"
+      light: "明るいテーマ"
+      dark: "暗いテーマ"
+  selection:
+    page:
+      appBar:
+        title: "テーマ選択"

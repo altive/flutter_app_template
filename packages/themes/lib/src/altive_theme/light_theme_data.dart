@@ -15,6 +15,7 @@ ThemeData get lightThemeData {
   return defaultThemeData.copyWith(
     // 🎨 Color section
     colorScheme: colorScheme,
+    scaffoldBackgroundColor: colorScheme.surface,
     // 🖋 Text theme section
     textTheme: textTheme,
     primaryTextTheme: textTheme,
