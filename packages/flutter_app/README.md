@@ -111,32 +111,35 @@ When should it be re-run?
 # Dev
 flutterfire configure --yes \
 --project flutter-app-template-dev \
---out lib/environment/src/firebase_options_dev.dart \
---android-out android/app/src/dev/google-services.json \
---ios-out ios/Runner/dev/ \
 --platforms android,ios,web \
+--out lib/environment/src/firebase_options_dev.dart \
 --android-package-name jp.co.altive.fat.dev \
---ios-bundle-id jp.co.altive.fat.dev
+--android-out android/app/src/dev/ \
+--ios-bundle-id jp.co.altive.fat.dev \
+--ios-build-config Debug-dev \
+--ios-out ios/Runner/dev/
 
 # Stg
 flutterfire configure --yes \
 --project flutter-app-template-stg \
---out lib/environment/src/firebase_options_stg.dart \
---android-out android/app/src/stg/google-services.json \
---ios-out ios/Runner/stg/ \
 --platforms android,ios,web \
+--out lib/environment/src/firebase_options_stg.dart \
 --android-package-name jp.co.altive.fat.stg \
---ios-bundle-id jp.co.altive.fat.stg
+--android-out android/app/src/stg/ \
+--ios-bundle-id jp.co.altive.fat.stg \
+--ios-build-config Debug-stg \
+--ios-out ios/Runner/stg/
 
 # Prod
 flutterfire configure --yes \
 --project altive-fat \
---out lib/environment/src/firebase_options_prod.dart \
---android-out android/app/src/prod/google-services.json \
---ios-out ios/Runner/prod/ \
 --platforms android,ios,web \
+--out lib/environment/src/firebase_options_prod.dart \
 --android-package-name jp.co.altive.fat \
---ios-bundle-id jp.co.altive.fat
+--android-out android/app/src/prod/ \
+--ios-bundle-id jp.co.altive.fat \
+--ios-build-config Debug-prod \
+--ios-out ios/Runner/prod/
 ```
 
 ### Firebase Analytics DebugView
