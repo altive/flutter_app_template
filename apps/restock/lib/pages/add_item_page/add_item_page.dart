@@ -5,6 +5,18 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 class AddItemPage extends HookConsumerWidget {
   const AddItemPage({super.key});
 
+  static String get routeName => '/add-item';
+
+  /// ナビゲーション
+  static Future<void> show(BuildContext context) async {
+    await Navigator.of(context, rootNavigator: true).push<void>(
+      MaterialPageRoute(
+        settings: RouteSettings(name: routeName),
+        builder: (_) => const AddItemPage(),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(

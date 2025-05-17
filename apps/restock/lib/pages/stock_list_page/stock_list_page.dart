@@ -1,9 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../add_item_page/add_item_page.dart';
+
 /// 備蓄リスト画面: 登録されている全備蓄品の確認と管理
 class StockListPage extends HookConsumerWidget {
   const StockListPage({super.key});
+
+  static String get routeName => '/stock-list';
+
+  /// ナビゲーション
+  static Future<void> show(BuildContext context) async {
+    await Navigator.of(context, rootNavigator: true).push<void>(
+      MaterialPageRoute(
+        settings: RouteSettings(name: routeName),
+        builder: (_) => const StockListPage(),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -209,8 +223,8 @@ class StockListPage extends HookConsumerWidget {
           margin: const EdgeInsets.only(bottom: 8),
           clipBehavior: Clip.antiAlias,
           child: InkWell(
-            onTap: () {
-              // アイテム詳細画面へ
+            onTap: () async {
+              await AddItemPage.show(context);
             },
             child: Padding(
               padding: const EdgeInsets.all(12),
@@ -300,7 +314,7 @@ class StockListPage extends HookConsumerWidget {
                           vertical: 4,
                         ),
                         decoration: BoxDecoration(
-                          color: statusColor.withOpacity(0.15),
+                          color: statusColor.withValues(alpha: 0.15),
                           borderRadius: BorderRadius.circular(4),
                         ),
                         child: Text(

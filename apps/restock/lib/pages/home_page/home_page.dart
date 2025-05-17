@@ -1,9 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../menu_page/menu_page.dart';
+import '../stock_list_page/stock_list_page.dart';
+
 /// ホーム画面: アプリのダッシュボード
 class HomePage extends HookConsumerWidget {
   const HomePage({super.key});
+
+  static String get routeName => '/';
+
+  /// ナビゲーション
+  static Future<void> show(BuildContext context) {
+    return Navigator.of(context, rootNavigator: true).push<void>(
+      MaterialPageRoute(
+        settings: RouteSettings(name: routeName),
+        builder: (_) => const HomePage(),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -15,8 +30,8 @@ class HomePage extends HookConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             // 期限アラート (最重要)
-            _buildSectionTitle('期限アラート'),
-            _buildAlertCard(
+            const SectionTitleWidget('期限アラート'),
+            AlertCardWidget(
               title: 'まもなく期限切れ',
               count: 5,
               color: Colors.orange,
@@ -25,7 +40,7 @@ class HomePage extends HookConsumerWidget {
               },
             ),
             const SizedBox(height: 8),
-            _buildAlertCard(
+            AlertCardWidget(
               title: 'すでに期限切れ',
               count: 2,
               color: Colors.red,
@@ -36,30 +51,30 @@ class HomePage extends HookConsumerWidget {
 
             // 期限が近い商品リスト
             const SizedBox(height: 16),
-            _buildSectionTitle('期限が近い商品'),
-            _buildExpiringItemsList(),
+            const SectionTitleWidget('期限が近い商品'),
+            const ExpiringItemsListWidget(),
 
             // 在庫アラート
             const SizedBox(height: 16),
-            _buildSectionTitle('在庫アラート'),
-            _buildAlertCard(
+            const SectionTitleWidget('在庫アラート'),
+            AlertCardWidget(
               title: '在庫わずか',
               count: 3,
               color: Colors.blue,
-              onTap: () {
-                // 買い物リスト / 備蓄リストへ
+              onTap: () async {
+                await StockListPage.show(context);
               },
             ),
 
             // 備蓄状況サマリー
             const SizedBox(height: 16),
-            _buildSectionTitle('備蓄状況'),
-            _buildStockSummary(),
+            const SectionTitleWidget('備蓄状況'),
+            const StockSummaryWidget(),
 
             // お知らせ・Tips
             const SizedBox(height: 16),
-            _buildSectionTitle('お知らせ・Tips'),
-            _buildNewsList(),
+            const SectionTitleWidget('お知らせ・Tips'),
+            const NewsListWidget(),
           ],
         ),
       ),
@@ -71,67 +86,46 @@ class HomePage extends HookConsumerWidget {
       ),
     );
   }
+}
 
-  Widget _buildSectionTitle(String title) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 8),
-      child: Text(
-        title,
-        style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-      ),
+/// お知らせ・Tipsリスト
+class NewsListWidget extends StatelessWidget {
+  const NewsListWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    // 仮のお知らせデータ
+    final news = [
+      {'title': '台風シーズンの備えについて', 'date': '2024-06-01'},
+      {'title': '新機能のお知らせ：グループ共有', 'date': '2024-05-22'},
+      {'title': '食料備蓄のコツ', 'date': '2024-05-15'},
+    ];
+
+    return Column(
+      children:
+          news.map((item) {
+            return Card(
+              margin: const EdgeInsets.only(bottom: 8),
+              child: ListTile(
+                leading: const Icon(Icons.info_outline),
+                title: Text(item['title']!),
+                subtitle: Text('公開日: ${item['date']}'),
+                onTap: () async {
+                  await MenuPage.show(context);
+                },
+              ),
+            );
+          }).toList(),
     );
   }
+}
 
-  Widget _buildAlertCard({
-    required String title,
-    required int count,
-    required Color color,
-    required VoidCallback onTap,
-  }) {
-    return Card(
-      clipBehavior: Clip.antiAlias,
-      child: InkWell(
-        onTap: onTap,
-        child: Container(
-          padding: const EdgeInsets.all(16),
-          child: Row(
-            children: [
-              Icon(Icons.warning_amber_rounded, size: 28, color: color),
-              const SizedBox(width: 16),
-              Expanded(
-                child: Text(
-                  title,
-                  style: const TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 12,
-                  vertical: 6,
-                ),
-                decoration: BoxDecoration(
-                  color: color,
-                  borderRadius: BorderRadius.circular(16),
-                ),
-                child: Text(
-                  '$count件',
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
+/// 期限が近い商品リスト
+class ExpiringItemsListWidget extends StatelessWidget {
+  const ExpiringItemsListWidget({super.key});
 
-  Widget _buildExpiringItemsList() {
+  @override
+  Widget build(BuildContext context) {
     // 仮のデータ
     final items = [
       {'name': 'カップラーメン', 'expiry': '2日後', 'location': 'パントリー'},
@@ -167,8 +161,14 @@ class HomePage extends HookConsumerWidget {
           }).toList(),
     );
   }
+}
 
-  Widget _buildStockSummary() {
+/// 備蓄状況サマリー
+class StockSummaryWidget extends StatelessWidget {
+  const StockSummaryWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
     return Card(
       child: Padding(
         padding: const EdgeInsets.all(16),
@@ -211,30 +211,83 @@ class HomePage extends HookConsumerWidget {
       ),
     );
   }
+}
 
-  Widget _buildNewsList() {
-    // 仮のお知らせデータ
-    final news = [
-      {'title': '台風シーズンの備えについて', 'date': '2024-06-01'},
-      {'title': '新機能のお知らせ：グループ共有', 'date': '2024-05-22'},
-      {'title': '食料備蓄のコツ', 'date': '2024-05-15'},
-    ];
+/// アラートカード
+class AlertCardWidget extends StatelessWidget {
+  const AlertCardWidget({
+    super.key,
+    required this.title,
+    required this.count,
+    required this.color,
+    required this.onTap,
+  });
 
-    return Column(
-      children:
-          news.map((item) {
-            return Card(
-              margin: const EdgeInsets.only(bottom: 8),
-              child: ListTile(
-                leading: const Icon(Icons.info_outline),
-                title: Text(item['title']!),
-                subtitle: Text('公開日: ${item['date']}'),
-                onTap: () {
-                  // お知らせ詳細画面へ
-                },
+  final String title;
+  final int count;
+  final Color color;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      clipBehavior: Clip.antiAlias,
+      child: InkWell(
+        onTap: onTap,
+        child: Container(
+          padding: const EdgeInsets.all(16),
+          child: Row(
+            children: [
+              Icon(Icons.warning_amber_rounded, size: 28, color: color),
+              const SizedBox(width: 16),
+              Expanded(
+                child: Text(
+                  title,
+                  style: const TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
               ),
-            );
-          }).toList(),
+              Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 12,
+                  vertical: 6,
+                ),
+                decoration: BoxDecoration(
+                  color: color,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Text(
+                  '$count件',
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// セクションタイトル
+class SectionTitleWidget extends StatelessWidget {
+  const SectionTitleWidget(this.title, {super.key});
+
+  final String title;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 8),
+      child: Text(
+        title,
+        style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+      ),
     );
   }
 }

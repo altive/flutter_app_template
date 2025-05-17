@@ -3,30 +3,54 @@ import 'package:flutter/material.dart';
 /// 集約されたメインタブ定義。
 /// apps/restock 用。
 enum MainTab {
+  /// ホーム
   home(
-    label: 'ホーム',
     icon: Icons.home_outlined,
-    selectedIcon: Icons.home_rounded,
+    selectedIcon: Icons.home,
+    label: 'ホーム',
+    routeName: '/',
   ),
+
+  /// 備蓄リスト
   stockList(
+    icon: Icons.inventory_2_outlined,
+    selectedIcon: Icons.inventory_2,
     label: '備蓄リスト',
-    icon: Icons.list_alt_outlined,
-    selectedIcon: Icons.list_alt,
+    routeName: '/stock-list',
   ),
+
+  /// 追加
   addItem(
-    label: '追加',
     icon: Icons.add_circle_outline,
     selectedIcon: Icons.add_circle,
+    label: '追加',
+    routeName: '/add-item',
   ),
-  menu(label: 'メニュー', icon: Icons.menu_outlined, selectedIcon: Icons.menu);
+
+  /// メニュー
+  menu(
+    icon: Icons.menu,
+    selectedIcon: Icons.menu,
+    label: 'メニュー',
+    routeName: '/menu',
+  );
 
   const MainTab({
-    required this.label,
     required this.icon,
     required this.selectedIcon,
+    required this.label,
+    required this.routeName,
   });
 
-  final String label;
+  /// アイコン
   final IconData icon;
+
+  /// 選択時のアイコン
   final IconData selectedIcon;
+
+  /// ラベル
+  final String label;
+
+  /// ルート名
+  final String routeName;
 }

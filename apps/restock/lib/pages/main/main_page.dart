@@ -1,22 +1,27 @@
 import 'package:convenient_widgets/convenient_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../util/logger.dart';
 import '../../util/network_connectivity/network_connectivity.dart';
 import '../../util/providers/providers.dart';
+import '../add_item_page/add_item_page.dart';
+import '../home_page/home_page.dart';
+import '../menu_page/menu_page.dart';
+import '../stock_list_page/stock_list_page.dart';
 import 'main_tab.dart';
+import 'main_tab_provider.dart';
+import 'tab_navigator.dart';
 
 /// The page that serves as the main content of the application.
 /// It can have multiple Navigation items and switch between internal pages.
 class MainPage extends HookConsumerWidget {
-  const MainPage({super.key, required this.navigationShell});
-
-  final StatefulNavigationShell navigationShell;
+  const MainPage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final currentTab = ref.watch(mainTabStateProvider);
+
     ref
       ..listen(appLifecycleProvider, (prev, next) {
         logger.finest('AppLifecycleState: prev: $prev, next: $next');
@@ -45,19 +50,31 @@ class MainPage extends HookConsumerWidget {
         }
       });
 
-    void onTap(int index) {
-      navigationShell.goBranch(
-        index,
-        initialLocation: index == navigationShell.currentIndex,
-      );
-    }
-
     return UnfocusOnTap(
       child: Scaffold(
-        body: navigationShell,
+        body: IndexedStack(
+          index: currentTab.index,
+          children:
+              MainTab.values
+                  .map(
+                    (tab) => TabNavigator(
+                      navigatorKey: GlobalKey<NavigatorState>(),
+                      page: switch (tab) {
+                        MainTab.home => const HomePage(),
+                        MainTab.stockList => const StockListPage(),
+                        MainTab.addItem => const AddItemPage(),
+                        MainTab.menu => const MenuPage(),
+                      },
+                    ),
+                  )
+                  .toList(),
+        ),
         bottomNavigationBar: NavigationBar(
-          selectedIndex: navigationShell.currentIndex,
-          onDestinationSelected: onTap,
+          selectedIndex: currentTab.index,
+          onDestinationSelected: (index) async {
+            ref.read(mainTabStateProvider.notifier).setTabFromIndex(index);
+            // await Navigator.of(context).pushReplacementNamed(tab.routeName);
+          },
           labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
           destinations: [
             for (final tab in MainTab.values)

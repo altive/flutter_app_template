@@ -1,9 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import 'contact_us_page.dart';
+import 'data_management_page.dart';
+import 'group_list_page.dart';
+import 'group_setting_page.dart';
+import 'help_page.dart';
+import 'location_category_page.dart';
+import 'notification_setting_page.dart';
+import 'profile_page.dart';
+import 'subscription_page.dart';
+import 'terms_page.dart';
+
 /// メニュー画面: アカウント設定やアプリの各種ユーティリティ機能への入口。
 class MenuPage extends HookConsumerWidget {
   const MenuPage({super.key});
+
+  static String get routeName => '/menu';
+
+  /// ナビゲーション
+  static Future<void> show(BuildContext context) async {
+    await Navigator.of(context, rootNavigator: true).push<void>(
+      MaterialPageRoute(
+        settings: RouteSettings(name: routeName),
+        builder: (_) => const MenuPage(),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -21,16 +44,16 @@ class MenuPage extends HookConsumerWidget {
                 icon: Icons.person,
                 label: 'プロフィール',
                 description: 'ユーザー情報の確認・編集',
-                onTap: () {
-                  // TODO: ナビゲーション: ProfilePage.show(context)
+                onTap: () async {
+                  await ProfilePage.show(context);
                 },
               ),
               _MenuItem(
                 icon: Icons.workspace_premium,
                 label: '課金状況',
                 description: 'サブスクリプションの確認・変更',
-                onTap: () {
-                  // TODO: SubscriptionPage.show(context)
+                onTap: () async {
+                  await SubscriptionPage.show(context);
                 },
               ),
             ],
@@ -47,16 +70,16 @@ class MenuPage extends HookConsumerWidget {
                 icon: Icons.groups,
                 label: 'グループ一覧 / 招待',
                 description: '参加中グループの確認・招待',
-                onTap: () {
-                  // TODO: GroupListPage.show(context)
+                onTap: () async {
+                  await GroupListPage.show(context);
                 },
               ),
               _MenuItem(
                 icon: Icons.settings_suggest,
                 label: 'グループ設定',
                 description: '権限管理・グループ名変更',
-                onTap: () {
-                  // TODO: GroupSettingPage.show(context)
+                onTap: () async {
+                  await GroupSettingPage.show(context);
                 },
               ),
             ],
@@ -73,24 +96,24 @@ class MenuPage extends HookConsumerWidget {
                 icon: Icons.notifications_active,
                 label: '通知設定',
                 description: '期限アラートなどの通知',
-                onTap: () {
-                  // TODO: NotificationSettingPage.show(context)
+                onTap: () async {
+                  await NotificationSettingPage.show(context);
                 },
               ),
               _MenuItem(
                 icon: Icons.place,
                 label: '場所 / カテゴリ管理',
                 description: '保管場所・カテゴリの追加・編集',
-                onTap: () {
-                  // TODO: LocationCategoryPage.show(context)
+                onTap: () async {
+                  await LocationCategoryPage.show(context);
                 },
               ),
               _MenuItem(
                 icon: Icons.backup,
                 label: 'データ管理',
                 description: 'バックアップ・エクスポート',
-                onTap: () {
-                  // TODO: DataManagementPage.show(context)
+                onTap: () async {
+                  await DataManagementPage.show(context);
                 },
               ),
             ],
@@ -107,24 +130,24 @@ class MenuPage extends HookConsumerWidget {
                 icon: Icons.help_outline,
                 label: 'ヘルプ / FAQ',
                 description: 'よくある質問',
-                onTap: () {
-                  // TODO: HelpPage.show(context)
+                onTap: () async {
+                  await HelpPage.show(context);
                 },
               ),
               _MenuItem(
                 icon: Icons.article_outlined,
                 label: '利用規約・プライバシー',
                 description: '利用規約の閲覧',
-                onTap: () {
-                  // TODO: TermsPage.show(context)
+                onTap: () async {
+                  await TermsPage.show(context);
                 },
               ),
               _MenuItem(
                 icon: Icons.contact_support_outlined,
                 label: 'お問い合わせ',
                 description: 'フィードバックを送信',
-                onTap: () {
-                  // TODO: ContactUsPage.show(context)
+                onTap: () async {
+                  await ContactUsPage.show(context);
                 },
               ),
             ],

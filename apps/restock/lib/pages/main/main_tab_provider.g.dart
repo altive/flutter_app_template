@@ -2,27 +2,25 @@
 
 // ignore_for_file: duplicate_ignore, type=lint, implicit_dynamic_parameter, implicit_dynamic_type, implicit_dynamic_method, strict_raw_type
 
-part of 'router_provider.dart';
+part of 'main_tab_provider.dart';
 
 // **************************************************************************
 // RiverpodGenerator
 // **************************************************************************
 
-String _$routerHash() => r'49290ce66bc128bc0a2d2bd864b390e877df9735';
+String _$mainTabStateHash() => r'70279c7d010c164867401f3187db6072c771c83e';
 
-/// See also [router].
-@ProviderFor(router)
-final routerProvider = Provider<Raw<GoRouter>>.internal(
-  router,
-  name: r'routerProvider',
+/// See also [MainTabState].
+@ProviderFor(MainTabState)
+final mainTabStateProvider = NotifierProvider<MainTabState, MainTab>.internal(
+  MainTabState.new,
+  name: r'mainTabStateProvider',
   debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$routerHash,
+      const bool.fromEnvironment('dart.vm.product') ? null : _$mainTabStateHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef RouterRef = ProviderRef<Raw<GoRouter>>;
+typedef _$MainTabState = Notifier<MainTab>;
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

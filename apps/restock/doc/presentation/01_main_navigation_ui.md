@@ -84,3 +84,47 @@
     * (発展) レシピ提案へのリンク。
 
 この構成により、ユーザーは日常的にホーム画面で重要な期限情報を確認し、必要に応じて詳細なリスト確認やアイテム追加、設定変更を行えるようになります。
+
+## 3. 画面遷移図
+
+```mermaid
+%%{init: {'theme': 'base', 'themeVariables': { 'fontSize': '16px', 'fontFamily': 'arial', 'primaryColor': '#f9f', 'primaryTextColor': '#000', 'primaryBorderColor': '#333', 'lineColor': '#333', 'secondaryColor': '#bbf', 'tertiaryColor': '#ddf'}}}%%
+graph TD
+    %% メインナビゲーション
+    Main[メイン画面] --> Home[ホーム画面]
+    Main --> StockList[備蓄リスト画面]
+    Main --> AddItem[追加画面]
+    Main --> Menu[メニュー画面]
+    
+    %% ホーム画面からの遷移
+    Home --> RollingStock[ローリングストック詳細画面]
+    Home --> ItemDetail[アイテム詳細画面]
+    Home --> StockPlan[備蓄計画画面]
+    
+    %% 備蓄リスト画面からの遷移
+    StockList --> ItemDetail
+    StockList --> Filter[フィルター設定]
+    
+    %% メニュー画面からの遷移
+    Menu --> Account[アカウント設定]
+    Menu --> Group[グループ管理]
+    Menu --> ShoppingList[買い物リスト]
+    Menu --> StockPlan
+    Menu --> AppSettings[アプリ設定]
+    Menu --> Support[サポート・情報]
+    
+    %% ローリングストック詳細画面からの遷移
+    RollingStock --> ItemDetail
+    RollingStock --> ShoppingList
+    
+    %% スタイル設定
+    classDef main fill:#f9f,stroke:#333,stroke-width:2px,color:#000
+    classDef tab fill:#bbf,stroke:#333,stroke-width:1px,color:#000
+    classDef sub fill:#ddf,stroke:#333,stroke-width:1px,color:#000
+    
+    class Main main
+    class Home,StockList,AddItem,Menu tab
+    class RollingStock,ItemDetail,Filter,Account,Group,ShoppingList,StockPlan,AppSettings,Support sub
+```
+
+この構成により、ユーザーは日常的にホーム画面で重要な期限情報を確認し、必要に応じて詳細なリスト確認やアイテム追加、設定変更を行えるようになります。
