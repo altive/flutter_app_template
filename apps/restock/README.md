@@ -89,35 +89,35 @@ When should it be re-run?
 # Dev
 flutterfire configure --yes \
 --project restock-development \
---out lib/environment/src/firebase_options_dev.dart \
---android-out android/app/src/dev/google-services.json \
---ios-out ios/dev/ \
 --platforms android,ios \
+--out lib/environment/src/firebase_options_dev.dart \
 --android-package-name jp.altive.rollingstock.development \
+--android-out android/app/src/dev/ \
 --ios-bundle-id jp.altive.rollingstock.development \
---ios-build-config=Debug-dev
+--ios-build-config=Debug-dev \
+--ios-out ios/Runner/dev/
 
 # Stg
 flutterfire configure --yes \
 --project rolling-stock-app \
---out lib/environment/src/firebase_options_stg.dart \
---android-out android/app/src/stg/google-services.json \
---ios-out ios/stg/ \
 --platforms android,ios \
+--out lib/environment/src/firebase_options_stg.dart \
 --android-package-name jp.altive.rollingstock \
+--android-out android/app/src/stg/ \
 --ios-bundle-id jp.altive.rollingstock \
---ios-build-config=Debug-stg
+--ios-build-config=Debug-stg \
+--ios-out ios/Runner/stg/
 
 # Prod
 flutterfire configure --yes \
 --project re-stock \
---out lib/environment/src/firebase_options_prod.dart \
---android-out android/app/src/prod/google-services.json \
---ios-out ios/prod/ \
 --platforms android,ios \
+--out lib/environment/src/firebase_options_prod.dart \
 --android-package-name jp.altive.restock \
+--android-out android/app/src/prod/ \
 --ios-bundle-id jp.altive.restock \
---ios-build-config=Debug-prod
+--ios-build-config=Debug-prod \
+--ios-out ios/Runner/prod/
 ```
 
 ### Firebase Analytics DebugView

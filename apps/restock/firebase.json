@@ -36,55 +36,55 @@
                         "projectId": "restock-development",
                         "appId": "1:142133475394:ios:7a8bc0481f2fc53511d5db",
                         "uploadDebugSymbols": false,
-                        "fileOutput": "ios/dev/GoogleService-Info.plist"
+                        "fileOutput": "ios/Runner/dev/GoogleService-Info.plist"
                     },
                     "Profile-dev": {
                         "projectId": "restock-development",
                         "appId": "1:142133475394:ios:7a8bc0481f2fc53511d5db",
                         "uploadDebugSymbols": false,
-                        "fileOutput": "ios/dev/GoogleService-Info.plist"
+                        "fileOutput": "ios/Runner/dev/GoogleService-Info.plist"
                     },
                     "Release-dev": {
                         "projectId": "restock-development",
                         "appId": "1:142133475394:ios:7a8bc0481f2fc53511d5db",
                         "uploadDebugSymbols": false,
-                        "fileOutput": "ios/dev/GoogleService-Info.plist"
+                        "fileOutput": "ios/Runner/dev/GoogleService-Info.plist"
                     },
                     "Debug-stg": {
                         "projectId": "rolling-stock-app",
                         "appId": "1:727863764527:ios:286ee1a13b1d5a149688da",
                         "uploadDebugSymbols": false,
-                        "fileOutput": "ios/stg/GoogleService-Info.plist"
+                        "fileOutput": "ios/Runner/stg/GoogleService-Info.plist"
                     },
                     "Profile-stg": {
                         "projectId": "rolling-stock-app",
                         "appId": "1:727863764527:ios:286ee1a13b1d5a149688da",
                         "uploadDebugSymbols": false,
-                        "fileOutput": "ios/stg/GoogleService-Info.plist"
+                        "fileOutput": "ios/Runner/stg/GoogleService-Info.plist"
                     },
                     "Release-stg": {
                         "projectId": "rolling-stock-app",
                         "appId": "1:727863764527:ios:286ee1a13b1d5a149688da",
                         "uploadDebugSymbols": false,
-                        "fileOutput": "ios/stg/GoogleService-Info.plist"
+                        "fileOutput": "ios/Runner/stg/GoogleService-Info.plist"
                     },
                     "Debug-prod": {
                         "projectId": "re-stock",
                         "appId": "1:273222294304:ios:b94fef831522147c29d545",
                         "uploadDebugSymbols": false,
-                        "fileOutput": "ios/prod/GoogleService-Info.plist"
+                        "fileOutput": "ios/Runner/prod/GoogleService-Info.plist"
                     },
                     "Profile-prod": {
                         "projectId": "re-stock",
                         "appId": "1:273222294304:ios:b94fef831522147c29d545",
                         "uploadDebugSymbols": false,
-                        "fileOutput": "ios/prod/GoogleService-Info.plist"
+                        "fileOutput": "ios/Runner/prod/GoogleService-Info.plist"
                     },
                     "Release-prod": {
                         "projectId": "re-stock",
                         "appId": "1:273222294304:ios:b94fef831522147c29d545",
                         "uploadDebugSymbols": false,
-                        "fileOutput": "ios/prod/GoogleService-Info.plist"
+                        "fileOutput": "ios/Runner/prod/GoogleService-Info.plist"
                     }
                 }
             },

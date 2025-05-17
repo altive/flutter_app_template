@@ -27,6 +27,28 @@
             ]
         },
         {
+            "name": "restock Debug-stg",
+            "cwd": "apps/restock",
+            "program": "lib/main.dart",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "args": [
+                "--flavor=stg"
+            ]
+        },
+        {
+            "name": "restock Debug-prod",
+            "cwd": "apps/restock",
+            "program": "lib/main.dart",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "debug",
+            "args": [
+                "--flavor=prod"
+            ]
+        },
+        {
             "name": "widget_catalog",
             "cwd": "packages/widget_catalog",
             "program": "lib/main.dart",
