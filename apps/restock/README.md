@@ -4,10 +4,10 @@
 
 ### App ID
 
-| | dev | stg | prod |
-| --- | --- | --- | --- |
-| App ID | jp.altive.restock | jp.altive.rollingstock | jp.altive.rollingstock.development |
-| App Name | ReStock | stg.ReStock | dev.ReStock |
+|          | dev               | stg                    | prod                               |
+| -------- | ----------------- | ---------------------- | ---------------------------------- |
+| App ID   | jp.altive.restock | jp.altive.rollingstock | jp.altive.rollingstock.development |
+| App Name | ReStock           | stg.ReStock            | dev.ReStock                        |
 
 ## Features
 
