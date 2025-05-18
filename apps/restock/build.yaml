@@ -13,27 +13,20 @@ targets:
       freezed:
         generate_for:
           include:
-            - lib/**/entities/*.dart
-            - lib/**/model/*.dart
-      go_router_builder:
-        generate_for:
-          include:
-            - lib/**/app_routes.dart
+            - "**/entities/*.dart"
+            - "**/models/*.dart"
       json_serializable:
         generate_for:
           include:
-            - lib/**/entities/*.dart
-            - lib/**/model/*.dart
+            - "**/entities/*.dart"
+            - "**/models/*.dart"
         options:
           # 例外発生時にCheckedFromJsonExceptionをthrowする
           checked: true
           # ネストされたリストに対してtoJson/fromJsonをメソッド生成する
           explicit_to_json: true
-          field_rename: snake
       riverpod_generator:
         generate_for:
           include:
+            - "**/providers/*.dart"
             - "**/*provider.dart"
-            - lib/**/riverpod_example_page/**/*.dart
-        options:
-          provider_name_suffix: "Provider" # (default)
