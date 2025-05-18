@@ -8,32 +8,12 @@
 
 ## Collection階層構造
 
-- `timeline`
 - `triggerEvents`
 - `userReports`
 - `userRequests`
 - `users`
 
 ## Collection設計
-
-### timeline
-
-Path: `timeline/{timelineId}`
-
-| フィールド名          | データ形式     | データ例                            |
-| --------------------- | -------------- | ----------------------------------- |
-| amazonUrl             | 文字列         | https://example.com/dp/B00BLXFKMS   |
-| asin                  | 文字列         | B00ABCDEFG                          |
-| category              | 文字列         | Others                              |
-| createdAt             | タイムスタンプ | 2023年9月4日 11:15:52 UTC+9         |
-| expirationAt          | null           | null                                |
-| expirationDateTypeInt | 数値           | 2                                   |
-| imageUrlLarge         | 文字列         | https://example.com/41YgXz1PLhL.jpg |
-| imageUrlMedium        | 文字列         | https://example.com/41YgXz1PLhL.jpg |
-| imageUrlSmall         | 文字列         | https://example.com/41YgXz1PLhL.jpg |
-| name                  | 文字列         | レジ袋 L 透明                       |
-| nickname              | 文字列         | 華麗なる勇者                        |
-| numberOfItems         | 数値           | 1                                   |
 
 ### triggerEvents コレクション
 

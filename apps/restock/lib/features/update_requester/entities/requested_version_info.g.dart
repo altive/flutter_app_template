@@ -10,31 +10,19 @@ part of 'requested_version_info.dart';
 
 _$RequestedVersionInfoImpl _$$RequestedVersionInfoImplFromJson(
   Map<String, dynamic> json,
-) => $checkedCreate(
-  r'_$RequestedVersionInfoImpl',
-  json,
-  ($checkedConvert) {
-    final val = _$RequestedVersionInfoImpl(
-      requiredVersion: $checkedConvert('required_version', (v) => v as String),
-      canCancel: $checkedConvert('can_cancel', (v) => v as bool? ?? false),
-      enabledAt: $checkedConvert(
-        'enabled_at',
-        (v) => DateTime.parse(v as String),
-      ),
-    );
-    return val;
-  },
-  fieldKeyMap: const {
-    'requiredVersion': 'required_version',
-    'canCancel': 'can_cancel',
-    'enabledAt': 'enabled_at',
-  },
-);
+) => $checkedCreate(r'_$RequestedVersionInfoImpl', json, ($checkedConvert) {
+  final val = _$RequestedVersionInfoImpl(
+    requiredVersion: $checkedConvert('requiredVersion', (v) => v as String),
+    canCancel: $checkedConvert('canCancel', (v) => v as bool? ?? false),
+    enabledAt: $checkedConvert('enabledAt', (v) => DateTime.parse(v as String)),
+  );
+  return val;
+});
 
 Map<String, dynamic> _$$RequestedVersionInfoImplToJson(
   _$RequestedVersionInfoImpl instance,
 ) => <String, dynamic>{
-  'required_version': instance.requiredVersion,
-  'can_cancel': instance.canCancel,
-  'enabled_at': instance.enabledAt.toIso8601String(),
+  'requiredVersion': instance.requiredVersion,
+  'canCancel': instance.canCancel,
+  'enabledAt': instance.enabledAt.toIso8601String(),
 };

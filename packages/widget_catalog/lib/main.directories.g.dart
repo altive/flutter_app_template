@@ -37,7 +37,7 @@ final directories = <_i1.WidgetbookNode>[
             ),
           ),
         ],
-      )
+      ),
     ],
   ),
   _i1.WidgetbookFolder(
@@ -46,16 +46,10 @@ final directories = <_i1.WidgetbookNode>[
       _i1.WidgetbookComponent(
         name: 'ShapeDecoration',
         useCases: [
-          _i1.WidgetbookUseCase(
-            name: 'Left',
-            builder: _i4.leftBubbleBorder,
-          ),
-          _i1.WidgetbookUseCase(
-            name: 'Right',
-            builder: _i4.rightBubbleBorder,
-          ),
+          _i1.WidgetbookUseCase(name: 'Left', builder: _i4.leftBubbleBorder),
+          _i1.WidgetbookUseCase(name: 'Right', builder: _i4.rightBubbleBorder),
         ],
-      )
+      ),
     ],
   ),
 ];

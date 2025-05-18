@@ -8,7 +8,7 @@ part of 'main_tab_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$mainTabStateHash() => r'70279c7d010c164867401f3187db6072c771c83e';
+String _$mainTabStateHash() => r'cf41f2158ecc2cc0dfd767b984c30ac1d89335d4';
 
 /// See also [MainTabState].
 @ProviderFor(MainTabState)
