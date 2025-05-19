@@ -13,13 +13,13 @@ dependencies:
   flutter:
     sdk: flutter
   themes: ^1.0.0
-  widgetbook: ^3.11.0
-  widgetbook_annotation: ^3.2.0
+  widgetbook: ^3.14.0
+  widgetbook_annotation: ^3.5.0
 
 dev_dependencies:
   altive_lints: ^1.19.1
   build_runner: ^2.4.13
-  custom_lint: ^0.7.0
+  custom_lint: ^0.7.5
   widgetbook_generator: ^3.9.0
 
 flutter:
