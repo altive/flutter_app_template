@@ -86,14 +86,18 @@
 		8DBCE70C2DD8CFB100FE361E /* Exceptions for "prod" folder in "Runner" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				ExportOptions.plist,
 				"GoogleService-Info.plist",
+				UploadOptions.plist,
 			);
 			target = 97C146ED1CF9000F007C117D /* Runner */;
 		};
 		8DBCE70D2DD8CFB100FE361E /* Exceptions for "stg" folder in "Runner" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				ExportOptions.plist,
 				"GoogleService-Info.plist",
+				UploadOptions.plist,
 			);
 			target = 97C146ED1CF9000F007C117D /* Runner */;
 		};

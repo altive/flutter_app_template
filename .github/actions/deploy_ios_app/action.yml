@@ -80,7 +80,7 @@ runs:
         xcodebuild -exportArchive \
         -archivePath ./build/ios/Runner.xcarchive \
         -exportPath ./build/ios/ipa \
-        -exportOptionsPlist ./ios/${{ inputs.flavor }}/ExportOptions.plist \
+        -exportOptionsPlist ./ios/Runner/${{ inputs.flavor }}/ExportOptions.plist \
         -allowProvisioningUpdates \
         -authenticationKeyIssuerID ${{ inputs.asc-issuer-id }} \
         -authenticationKeyID ${{ inputs.asc-key-id }} \

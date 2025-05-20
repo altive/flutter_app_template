@@ -160,7 +160,8 @@ adb shell setprop debug.firebase.analytics.app .none.
 Upload the IPA for the production app.
 
 ```shell
-flutter build ipa --flavor=prod --export-options-plist="ios/prod/ExportOptions.plist"
+# prod
+flutter build ipa --flavor=prod --export-options-plist="ios/Runner/prod/UploadOptions.plist"
 ```
 
 ### Android for local
