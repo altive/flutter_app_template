@@ -3,6 +3,7 @@ altool
 appbar
 appbundle
 APPL
+Bitcode
 Checkmark
 COCOAPODS
 codecov
