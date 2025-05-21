@@ -144,12 +144,12 @@ class _PackageCard extends StatelessWidget {
                           Expanded(child: Text(packageName)),
                           IconButton(
                             icon: const Icon(Icons.open_in_new),
-                            onPressed: () {
+                            onPressed: () async {
                               final url = Uri.https(
                                 'pub.dev',
                                 '/packages/$packageName',
                               );
-                              launchUrl(url);
+                              await launchUrl(url);
                             },
                           ),
                         ],

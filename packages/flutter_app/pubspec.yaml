@@ -40,7 +40,7 @@ dependencies:
   google_sign_in: ^6.3.0
   hooks_riverpod: ^2.6.1
   image_picker: ^1.1.2
-  intl: ^0.19.0
+  intl: ^0.20.2
   json_annotation: ^4.8.1
   linked_scroll_controller: ^0.2.0
   package_info_plus: ^8.3.0
