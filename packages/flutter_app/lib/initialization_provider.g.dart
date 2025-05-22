@@ -15,10 +15,9 @@ String _$initializationHash() => r'4c856a1b01533aad40e6acc6e3992ac78dd9c054';
 final initializationProvider = FutureProvider<void>.internal(
   initialization,
   name: r'initializationProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product')
-          ? null
-          : _$initializationHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$initializationHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );

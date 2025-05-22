@@ -72,16 +72,14 @@ class _$GetPackageDetailsResponseBodyCopyWithImpl<
   $Res call({Object? name = null, Object? latest = null}) {
     return _then(
       _value.copyWith(
-            name:
-                null == name
-                    ? _value.name
-                    : name // ignore: cast_nullable_to_non_nullable
-                        as String,
-            latest:
-                null == latest
-                    ? _value.latest
-                    : latest // ignore: cast_nullable_to_non_nullable
-                        as LatestPackageRelease,
+            name: null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                      as String,
+            latest: null == latest
+                ? _value.latest
+                : latest // ignore: cast_nullable_to_non_nullable
+                      as LatestPackageRelease,
           )
           as $Val,
     );
@@ -133,16 +131,14 @@ class __$$GetPackageDetailsResponseBodyImplCopyWithImpl<$Res>
   $Res call({Object? name = null, Object? latest = null}) {
     return _then(
       _$GetPackageDetailsResponseBodyImpl(
-        name:
-            null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                    as String,
-        latest:
-            null == latest
-                ? _value.latest
-                : latest // ignore: cast_nullable_to_non_nullable
-                    as LatestPackageRelease,
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String,
+        latest: null == latest
+            ? _value.latest
+            : latest // ignore: cast_nullable_to_non_nullable
+                  as LatestPackageRelease,
       ),
     );
   }
@@ -192,9 +188,10 @@ class _$GetPackageDetailsResponseBodyImpl
   _$$GetPackageDetailsResponseBodyImplCopyWith<
     _$GetPackageDetailsResponseBodyImpl
   >
-  get copyWith => __$$GetPackageDetailsResponseBodyImplCopyWithImpl<
-    _$GetPackageDetailsResponseBodyImpl
-  >(this, _$identity);
+  get copyWith =>
+      __$$GetPackageDetailsResponseBodyImplCopyWithImpl<
+        _$GetPackageDetailsResponseBodyImpl
+      >(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {

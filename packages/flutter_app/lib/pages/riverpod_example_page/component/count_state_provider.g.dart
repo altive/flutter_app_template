@@ -16,10 +16,9 @@ final countStateProvider =
     AutoDisposeNotifierProvider<CountState, int>.internal(
       CountState.new,
       name: r'countStateProvider',
-      debugGetCreateSourceHash:
-          const bool.fromEnvironment('dart.vm.product')
-              ? null
-              : _$countStateHash,
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$countStateHash,
       dependencies: null,
       allTransitiveDependencies: null,
     );

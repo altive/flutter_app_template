@@ -19,8 +19,9 @@ String _$flavorHash() => r'034afac5cb627981977cb9398af6b8329eb70c03';
 final flavorProvider = Provider<Flavor>.internal(
   flavor,
   name: r'flavorProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$flavorHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$flavorHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );

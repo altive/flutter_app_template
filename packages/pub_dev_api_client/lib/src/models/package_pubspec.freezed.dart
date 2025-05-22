@@ -66,21 +66,18 @@ class _$PackagePubspecCopyWithImpl<$Res, $Val extends PackagePubspec>
   }) {
     return _then(
       _value.copyWith(
-            name:
-                null == name
-                    ? _value.name
-                    : name // ignore: cast_nullable_to_non_nullable
-                        as String,
-            version:
-                null == version
-                    ? _value.version
-                    : version // ignore: cast_nullable_to_non_nullable
-                        as String,
-            description:
-                null == description
-                    ? _value.description
-                    : description // ignore: cast_nullable_to_non_nullable
-                        as String,
+            name: null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                      as String,
+            version: null == version
+                ? _value.version
+                : version // ignore: cast_nullable_to_non_nullable
+                      as String,
+            description: null == description
+                ? _value.description
+                : description // ignore: cast_nullable_to_non_nullable
+                      as String,
           )
           as $Val,
     );
@@ -119,21 +116,18 @@ class __$$PackagePubspecImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$PackagePubspecImpl(
-        name:
-            null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                    as String,
-        version:
-            null == version
-                ? _value.version
-                : version // ignore: cast_nullable_to_non_nullable
-                    as String,
-        description:
-            null == description
-                ? _value.description
-                : description // ignore: cast_nullable_to_non_nullable
-                    as String,
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String,
+        version: null == version
+            ? _value.version
+            : version // ignore: cast_nullable_to_non_nullable
+                  as String,
+        description: null == description
+            ? _value.description
+            : description // ignore: cast_nullable_to_non_nullable
+                  as String,
       ),
     );
   }

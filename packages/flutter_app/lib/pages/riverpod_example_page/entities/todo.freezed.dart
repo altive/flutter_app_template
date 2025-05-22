@@ -63,21 +63,18 @@ class _$TodoCopyWithImpl<$Res, $Val extends Todo>
   }) {
     return _then(
       _value.copyWith(
-            id:
-                null == id
-                    ? _value.id
-                    : id // ignore: cast_nullable_to_non_nullable
-                        as String,
-            title:
-                null == title
-                    ? _value.title
-                    : title // ignore: cast_nullable_to_non_nullable
-                        as String,
-            completed:
-                null == completed
-                    ? _value.completed
-                    : completed // ignore: cast_nullable_to_non_nullable
-                        as bool,
+            id: null == id
+                ? _value.id
+                : id // ignore: cast_nullable_to_non_nullable
+                      as String,
+            title: null == title
+                ? _value.title
+                : title // ignore: cast_nullable_to_non_nullable
+                      as String,
+            completed: null == completed
+                ? _value.completed
+                : completed // ignore: cast_nullable_to_non_nullable
+                      as bool,
           )
           as $Val,
     );
@@ -113,21 +110,18 @@ class __$$TodoImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$TodoImpl(
-        id:
-            null == id
-                ? _value.id
-                : id // ignore: cast_nullable_to_non_nullable
-                    as String,
-        title:
-            null == title
-                ? _value.title
-                : title // ignore: cast_nullable_to_non_nullable
-                    as String,
-        completed:
-            null == completed
-                ? _value.completed
-                : completed // ignore: cast_nullable_to_non_nullable
-                    as bool,
+        id: null == id
+            ? _value.id
+            : id // ignore: cast_nullable_to_non_nullable
+                  as String,
+        title: null == title
+            ? _value.title
+            : title // ignore: cast_nullable_to_non_nullable
+                  as String,
+        completed: null == completed
+            ? _value.completed
+            : completed // ignore: cast_nullable_to_non_nullable
+                  as bool,
       ),
     );
   }

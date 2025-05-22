@@ -75,16 +75,14 @@ class _$GetSearchedPackagesResponseBodyCopyWithImpl<
   $Res call({Object? packages = null, Object? nextPageUrl = freezed}) {
     return _then(
       _value.copyWith(
-            packages:
-                null == packages
-                    ? _value.packages
-                    : packages // ignore: cast_nullable_to_non_nullable
-                        as List<PackageName>,
-            nextPageUrl:
-                freezed == nextPageUrl
-                    ? _value.nextPageUrl
-                    : nextPageUrl // ignore: cast_nullable_to_non_nullable
-                        as String?,
+            packages: null == packages
+                ? _value.packages
+                : packages // ignore: cast_nullable_to_non_nullable
+                      as List<PackageName>,
+            nextPageUrl: freezed == nextPageUrl
+                ? _value.nextPageUrl
+                : nextPageUrl // ignore: cast_nullable_to_non_nullable
+                      as String?,
           )
           as $Val,
     );
@@ -126,16 +124,14 @@ class __$$GetSearchedPackagesResponseBodyImplCopyWithImpl<$Res>
   $Res call({Object? packages = null, Object? nextPageUrl = freezed}) {
     return _then(
       _$GetSearchedPackagesResponseBodyImpl(
-        packages:
-            null == packages
-                ? _value._packages
-                : packages // ignore: cast_nullable_to_non_nullable
-                    as List<PackageName>,
-        nextPageUrl:
-            freezed == nextPageUrl
-                ? _value.nextPageUrl
-                : nextPageUrl // ignore: cast_nullable_to_non_nullable
-                    as String?,
+        packages: null == packages
+            ? _value._packages
+            : packages // ignore: cast_nullable_to_non_nullable
+                  as List<PackageName>,
+        nextPageUrl: freezed == nextPageUrl
+            ? _value.nextPageUrl
+            : nextPageUrl // ignore: cast_nullable_to_non_nullable
+                  as String?,
       ),
     );
   }
@@ -199,9 +195,10 @@ class _$GetSearchedPackagesResponseBodyImpl
   _$$GetSearchedPackagesResponseBodyImplCopyWith<
     _$GetSearchedPackagesResponseBodyImpl
   >
-  get copyWith => __$$GetSearchedPackagesResponseBodyImplCopyWithImpl<
-    _$GetSearchedPackagesResponseBodyImpl
-  >(this, _$identity);
+  get copyWith =>
+      __$$GetSearchedPackagesResponseBodyImplCopyWithImpl<
+        _$GetSearchedPackagesResponseBodyImpl
+      >(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {

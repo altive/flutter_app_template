@@ -18,10 +18,9 @@ String _$packageInfoInitializingHash() =>
 final packageInfoInitializingProvider = FutureProvider<PackageInfo>.internal(
   packageInfoInitializing,
   name: r'packageInfoInitializingProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product')
-          ? null
-          : _$packageInfoInitializingHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$packageInfoInitializingHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
@@ -40,8 +39,9 @@ String _$packageInfoHash() => r'96addbd397773a31f7584c089d1540ad59e2f05f';
 final packageInfoProvider = Provider<PackageInfo>.internal(
   packageInfo,
   name: r'packageInfoProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$packageInfoHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$packageInfoHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );

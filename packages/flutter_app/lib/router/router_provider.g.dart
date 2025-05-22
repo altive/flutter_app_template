@@ -15,8 +15,9 @@ String _$routerHash() => r'49290ce66bc128bc0a2d2bd864b390e877df9735';
 final routerProvider = Provider<Raw<GoRouter>>.internal(
   router,
   name: r'routerProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$routerHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$routerHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );

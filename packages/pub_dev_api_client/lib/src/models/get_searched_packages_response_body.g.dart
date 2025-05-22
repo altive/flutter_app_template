@@ -9,10 +9,9 @@ part of 'get_searched_packages_response_body.dart';
 _$GetSearchedPackagesResponseBodyImpl
 _$$GetSearchedPackagesResponseBodyImplFromJson(Map<String, dynamic> json) =>
     _$GetSearchedPackagesResponseBodyImpl(
-      packages:
-          (json['packages'] as List<dynamic>)
-              .map((e) => PackageName.fromJson(e as Map<String, dynamic>))
-              .toList(),
+      packages: (json['packages'] as List<dynamic>)
+          .map((e) => PackageName.fromJson(e as Map<String, dynamic>))
+          .toList(),
       nextPageUrl: json['next'] as String?,
     );
 

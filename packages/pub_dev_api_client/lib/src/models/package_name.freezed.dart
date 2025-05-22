@@ -61,11 +61,10 @@ class _$PackageNameCopyWithImpl<$Res, $Val extends PackageName>
   $Res call({Object? name = null}) {
     return _then(
       _value.copyWith(
-            name:
-                null == name
-                    ? _value.name
-                    : name // ignore: cast_nullable_to_non_nullable
-                        as String,
+            name: null == name
+                ? _value.name
+                : name // ignore: cast_nullable_to_non_nullable
+                      as String,
           )
           as $Val,
     );
@@ -100,11 +99,10 @@ class __$$PackageNameImplCopyWithImpl<$Res>
   $Res call({Object? name = null}) {
     return _then(
       _$PackageNameImpl(
-        name:
-            null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                    as String,
+        name: null == name
+            ? _value.name
+            : name // ignore: cast_nullable_to_non_nullable
+                  as String,
       ),
     );
   }

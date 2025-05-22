@@ -15,8 +15,9 @@ String _$dioHash() => r'6098211ab8c657ba0a1c67c33fffe0ae8dc8bda2';
 final dioProvider = AutoDisposeProvider<FakeDio>.internal(
   dio,
   name: r'dioProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$dioHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$dioHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );

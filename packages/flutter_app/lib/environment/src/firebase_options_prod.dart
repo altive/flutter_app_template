@@ -72,5 +72,4 @@ class DefaultFirebaseOptions {
     storageBucket: 'altive-fat.firebasestorage.app',
     iosBundleId: 'jp.co.altive.fat',
   );
-
 }

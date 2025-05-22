@@ -65,11 +65,10 @@ class _$LatestPackageReleaseCopyWithImpl<
   $Res call({Object? pubspec = null}) {
     return _then(
       _value.copyWith(
-            pubspec:
-                null == pubspec
-                    ? _value.pubspec
-                    : pubspec // ignore: cast_nullable_to_non_nullable
-                        as PackagePubspec,
+            pubspec: null == pubspec
+                ? _value.pubspec
+                : pubspec // ignore: cast_nullable_to_non_nullable
+                      as PackagePubspec,
           )
           as $Val,
     );
@@ -117,11 +116,10 @@ class __$$LatestPackageReleaseImplCopyWithImpl<$Res>
   $Res call({Object? pubspec = null}) {
     return _then(
       _$LatestPackageReleaseImpl(
-        pubspec:
-            null == pubspec
-                ? _value.pubspec
-                : pubspec // ignore: cast_nullable_to_non_nullable
-                    as PackagePubspec,
+        pubspec: null == pubspec
+            ? _value.pubspec
+            : pubspec // ignore: cast_nullable_to_non_nullable
+                  as PackagePubspec,
       ),
     );
   }

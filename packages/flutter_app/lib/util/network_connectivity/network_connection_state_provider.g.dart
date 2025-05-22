@@ -15,19 +15,19 @@ String _$networkConnectionStateHash() =>
 ///
 /// Copied from [NetworkConnectionState].
 @ProviderFor(NetworkConnectionState)
-final networkConnectionStateProvider = AutoDisposeAsyncNotifierProvider<
-  NetworkConnectionState,
-  List<ConnectivityResult>
->.internal(
-  NetworkConnectionState.new,
-  name: r'networkConnectionStateProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product')
+final networkConnectionStateProvider =
+    AutoDisposeAsyncNotifierProvider<
+      NetworkConnectionState,
+      List<ConnectivityResult>
+    >.internal(
+      NetworkConnectionState.new,
+      name: r'networkConnectionStateProvider',
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
           ? null
           : _$networkConnectionStateHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
 
 typedef _$NetworkConnectionState =
     AutoDisposeAsyncNotifier<List<ConnectivityResult>>;

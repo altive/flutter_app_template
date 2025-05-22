@@ -74,21 +74,18 @@ class _$RequestedVersionInfoCopyWithImpl<
   }) {
     return _then(
       _value.copyWith(
-            requiredVersion:
-                null == requiredVersion
-                    ? _value.requiredVersion
-                    : requiredVersion // ignore: cast_nullable_to_non_nullable
-                        as String,
-            canCancel:
-                null == canCancel
-                    ? _value.canCancel
-                    : canCancel // ignore: cast_nullable_to_non_nullable
-                        as bool,
-            enabledAt:
-                null == enabledAt
-                    ? _value.enabledAt
-                    : enabledAt // ignore: cast_nullable_to_non_nullable
-                        as DateTime,
+            requiredVersion: null == requiredVersion
+                ? _value.requiredVersion
+                : requiredVersion // ignore: cast_nullable_to_non_nullable
+                      as String,
+            canCancel: null == canCancel
+                ? _value.canCancel
+                : canCancel // ignore: cast_nullable_to_non_nullable
+                      as bool,
+            enabledAt: null == enabledAt
+                ? _value.enabledAt
+                : enabledAt // ignore: cast_nullable_to_non_nullable
+                      as DateTime,
           )
           as $Val,
     );
@@ -127,21 +124,18 @@ class __$$RequestedVersionInfoImplCopyWithImpl<$Res>
   }) {
     return _then(
       _$RequestedVersionInfoImpl(
-        requiredVersion:
-            null == requiredVersion
-                ? _value.requiredVersion
-                : requiredVersion // ignore: cast_nullable_to_non_nullable
-                    as String,
-        canCancel:
-            null == canCancel
-                ? _value.canCancel
-                : canCancel // ignore: cast_nullable_to_non_nullable
-                    as bool,
-        enabledAt:
-            null == enabledAt
-                ? _value.enabledAt
-                : enabledAt // ignore: cast_nullable_to_non_nullable
-                    as DateTime,
+        requiredVersion: null == requiredVersion
+            ? _value.requiredVersion
+            : requiredVersion // ignore: cast_nullable_to_non_nullable
+                  as String,
+        canCancel: null == canCancel
+            ? _value.canCancel
+            : canCancel // ignore: cast_nullable_to_non_nullable
+                  as bool,
+        enabledAt: null == enabledAt
+            ? _value.enabledAt
+            : enabledAt // ignore: cast_nullable_to_non_nullable
+                  as DateTime,
       ),
     );
   }

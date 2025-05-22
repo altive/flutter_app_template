@@ -16,11 +16,10 @@ class ProviderLogger implements ProviderObserver {
       return;
     }
 
-    outputLogTypes =
-        providerLogPrint
-            .split(',')
-            .map((e) => _ProviderEvent.values.byName(e))
-            .toList();
+    outputLogTypes = providerLogPrint
+        .split(',')
+        .map((e) => _ProviderEvent.values.byName(e))
+        .toList();
   }
 
   @visibleForTesting
@@ -39,8 +38,9 @@ class ProviderLogger implements ProviderObserver {
     final eventName = providerEvent.name.toUpperCase();
     final providerName = provider.name ?? provider.runtimeType;
 
-    final result =
-        (value == null) ? '' : '- ${value.toString().trimAtMaxLength(100)}';
+    final result = (value == null)
+        ? ''
+        : '- ${value.toString().trimAtMaxLength(100)}';
 
     debugPrint('[$eventName] $providerName $result');
   }

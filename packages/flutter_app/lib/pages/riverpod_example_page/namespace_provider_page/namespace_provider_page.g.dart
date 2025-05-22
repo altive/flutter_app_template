@@ -16,8 +16,9 @@ final _nicknameProvider =
     AutoDisposeNotifierProvider<_Nickname, String>.internal(
       _Nickname.new,
       name: r'_nicknameProvider',
-      debugGetCreateSourceHash:
-          const bool.fromEnvironment('dart.vm.product') ? null : _$nicknameHash,
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$nicknameHash,
       dependencies: null,
       allTransitiveDependencies: null,
     );
@@ -31,8 +32,9 @@ final _birthdayProvider =
     AutoDisposeNotifierProvider<_Birthday, String>.internal(
       _Birthday.new,
       name: r'_birthdayProvider',
-      debugGetCreateSourceHash:
-          const bool.fromEnvironment('dart.vm.product') ? null : _$birthdayHash,
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$birthdayHash,
       dependencies: null,
       allTransitiveDependencies: null,
     );
@@ -46,10 +48,9 @@ final _livingPlaceProvider =
     AutoDisposeNotifierProvider<_LivingPlace, String>.internal(
       _LivingPlace.new,
       name: r'_livingPlaceProvider',
-      debugGetCreateSourceHash:
-          const bool.fromEnvironment('dart.vm.product')
-              ? null
-              : _$livingPlaceHash,
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$livingPlaceHash,
       dependencies: null,
       allTransitiveDependencies: null,
     );

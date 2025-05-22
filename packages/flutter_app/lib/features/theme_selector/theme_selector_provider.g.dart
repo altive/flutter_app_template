@@ -18,10 +18,9 @@ final themeSelectorProvider =
     AutoDisposeNotifierProvider<ThemeSelector, ThemeMode>.internal(
       ThemeSelector.new,
       name: r'themeSelectorProvider',
-      debugGetCreateSourceHash:
-          const bool.fromEnvironment('dart.vm.product')
-              ? null
-              : _$themeSelectorHash,
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$themeSelectorHash,
       dependencies: null,
       allTransitiveDependencies: null,
     );

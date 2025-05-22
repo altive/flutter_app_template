@@ -29,15 +29,9 @@ class MainApp extends StatelessWidget {
             WidgetbookTheme(name: 'Dark', data: darkThemeData),
           ],
         ),
-        TextScaleAddon(
-          min: 0.6,
-          max: 1.9,
-        ),
+        TextScaleAddon(min: 0.6, max: 1.9),
         LocalizationAddon(
-          locales: [
-            const Locale('en', 'US'),
-            const Locale('ja', 'JP'),
-          ],
+          locales: [const Locale('en', 'US'), const Locale('ja', 'JP')],
           localizationsDelegates: [
             DefaultWidgetsLocalizations.delegate,
             DefaultMaterialLocalizations.delegate,
@@ -47,18 +41,13 @@ class MainApp extends StatelessWidget {
         InspectorAddon(enabled: true),
         DeviceFrameAddon(
           initialDevice: Devices.ios.iPhoneSE,
-          devices: [
-            Devices.ios.iPhoneSE,
-            Devices.ios.iPhone13ProMax,
-          ],
+          devices: [Devices.ios.iPhoneSE, Devices.ios.iPhone13ProMax],
         ),
         GridAddon(44),
         AlignmentAddon(),
       ],
       appBuilder: (context, child) {
-        return Scaffold(
-          body: child,
-        );
+        return Scaffold(body: child);
       },
     );
   }

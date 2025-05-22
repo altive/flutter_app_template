@@ -22,8 +22,8 @@ class PubDevPackagesPage extends ConsumerWidget {
       child: Scaffold(
         appBar: AppBar(title: Text(t.pubDevPackagesPage.appBar.title)),
         body: asyncValue.when(
-          loading:
-              () => const Center(child: CircularProgressIndicator.adaptive()),
+          loading: () =>
+              const Center(child: CircularProgressIndicator.adaptive()),
           error: (error, stackTrace) => Center(child: Text('$error')),
           data: (packagesState) {
             final packages = packagesState.packages;
@@ -57,23 +57,17 @@ class PubDevPackagesPage extends ConsumerWidget {
                         hintText: t.pubDevPackagesPage.searchBar.hintText,
                         prefixIcon: const Icon(Icons.search),
                         suffixIcon: IconButton(
-                          onPressed:
-                              () =>
-                                  ref
-                                      .read(
-                                        pubDevPackageSearchWordStateProvider
-                                            .notifier,
-                                      )
-                                      .clear(),
-                          icon: const Icon(Icons.clear),
-                        ),
-                      ),
-                      onFieldSubmitted:
-                          ref
+                          onPressed: () => ref
                               .read(
                                 pubDevPackageSearchWordStateProvider.notifier,
                               )
-                              .update,
+                              .clear(),
+                          icon: const Icon(Icons.clear),
+                        ),
+                      ),
+                      onFieldSubmitted: ref
+                          .read(pubDevPackageSearchWordStateProvider.notifier)
+                          .update,
                     ),
                   ),
                   SliverList(
@@ -84,11 +78,11 @@ class PubDevPackagesPage extends ConsumerWidget {
                         if (index == packages.length) {
                           return asyncValue.isRefreshing
                               ? const Center(
-                                child: Padding(
-                                  padding: EdgeInsets.symmetric(vertical: 20),
-                                  child: CircularProgressIndicator.adaptive(),
-                                ),
-                              )
+                                  child: Padding(
+                                    padding: EdgeInsets.symmetric(vertical: 20),
+                                    child: CircularProgressIndicator.adaptive(),
+                                  ),
+                                )
                               : const Gap(40);
                         }
 
@@ -130,87 +124,81 @@ class _PackageCard extends StatelessWidget {
         onTap: () async {
           await showDialog<void>(
             context: context,
-            builder:
-                (_) => Consumer(
-                  builder: (context, ref, child) {
-                    final asyncValue = ref.watch(
-                      pubDevPackageDetailsProvider(packageName: packageName),
-                    );
+            builder: (_) => Consumer(
+              builder: (context, ref, child) {
+                final asyncValue = ref.watch(
+                  pubDevPackageDetailsProvider(packageName: packageName),
+                );
 
-                    return AlertDialog(
-                      scrollable: true,
-                      title: Row(
-                        children: [
-                          Expanded(child: Text(packageName)),
-                          IconButton(
-                            icon: const Icon(Icons.open_in_new),
-                            onPressed: () async {
-                              final url = Uri.https(
-                                'pub.dev',
-                                '/packages/$packageName',
-                              );
-                              await launchUrl(url);
-                            },
-                          ),
-                        ],
-                      ),
-                      content: asyncValue.when(
-                        loading:
-                            () => const Center(
-                              child: CircularProgressIndicator.adaptive(),
-                            ),
-                        error: (error, stackTrace) => Text('$error'),
-                        data: (packageDetails) {
-                          final latestDetail = packageDetails.latest;
-                          return Column(
-                            mainAxisSize: MainAxisSize.min,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Wrap(
-                                children: [
-                                  Text(
-                                    t.pubDevPackagesPage.dialog.content.version,
-                                    style: const TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  const SizedBox(width: 8),
-                                  Text(latestDetail.pubspec.version),
-                                ],
-                              ),
-                              const Gap(20),
-                              Wrap(
-                                children: [
-                                  Text(
-                                    t
-                                        .pubDevPackagesPage
-                                        .dialog
-                                        .content
-                                        .description,
-                                    style: const TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  const SizedBox(width: 8),
-                                  Text(latestDetail.pubspec.description),
-                                ],
-                              ),
-                            ],
+                return AlertDialog(
+                  scrollable: true,
+                  title: Row(
+                    children: [
+                      Expanded(child: Text(packageName)),
+                      IconButton(
+                        icon: const Icon(Icons.open_in_new),
+                        onPressed: () async {
+                          final url = Uri.https(
+                            'pub.dev',
+                            '/packages/$packageName',
                           );
+                          await launchUrl(url);
                         },
                       ),
-                      actionsAlignment: MainAxisAlignment.center,
-                      actions: [
-                        ElevatedButton(
-                          onPressed: Navigator.of(context).pop,
-                          child: Text(
-                            t.pubDevPackagesPage.dialog.button.close.label,
+                    ],
+                  ),
+                  content: asyncValue.when(
+                    loading: () => const Center(
+                      child: CircularProgressIndicator.adaptive(),
+                    ),
+                    error: (error, stackTrace) => Text('$error'),
+                    data: (packageDetails) {
+                      final latestDetail = packageDetails.latest;
+                      return Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Wrap(
+                            children: [
+                              Text(
+                                t.pubDevPackagesPage.dialog.content.version,
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              const SizedBox(width: 8),
+                              Text(latestDetail.pubspec.version),
+                            ],
                           ),
-                        ),
-                      ],
-                    );
-                  },
-                ),
+                          const Gap(20),
+                          Wrap(
+                            children: [
+                              Text(
+                                t.pubDevPackagesPage.dialog.content.description,
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              const SizedBox(width: 8),
+                              Text(latestDetail.pubspec.description),
+                            ],
+                          ),
+                        ],
+                      );
+                    },
+                  ),
+                  actionsAlignment: MainAxisAlignment.center,
+                  actions: [
+                    ElevatedButton(
+                      onPressed: Navigator.of(context).pop,
+                      child: Text(
+                        t.pubDevPackagesPage.dialog.button.close.label,
+                      ),
+                    ),
+                  ],
+                );
+              },
+            ),
           );
         },
       ),

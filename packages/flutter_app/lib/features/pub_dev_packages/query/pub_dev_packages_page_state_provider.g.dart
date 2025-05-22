@@ -19,10 +19,9 @@ final pubDevPackageSearchWordStateProvider =
     NotifierProvider<PubDevPackageSearchWordState, String>.internal(
       PubDevPackageSearchWordState.new,
       name: r'pubDevPackageSearchWordStateProvider',
-      debugGetCreateSourceHash:
-          const bool.fromEnvironment('dart.vm.product')
-              ? null
-              : _$pubDevPackageSearchWordStateHash,
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$pubDevPackageSearchWordStateHash,
       dependencies: null,
       allTransitiveDependencies: null,
     );
@@ -33,19 +32,19 @@ String _$pubDevPackagesPageStateHash() =>
 
 /// See also [PubDevPackagesPageState].
 @ProviderFor(PubDevPackagesPageState)
-final pubDevPackagesPageStateProvider = AsyncNotifierProvider<
-  PubDevPackagesPageState,
-  GetSearchedPackagesResponseBody
->.internal(
-  PubDevPackagesPageState.new,
-  name: r'pubDevPackagesPageStateProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product')
+final pubDevPackagesPageStateProvider =
+    AsyncNotifierProvider<
+      PubDevPackagesPageState,
+      GetSearchedPackagesResponseBody
+    >.internal(
+      PubDevPackagesPageState.new,
+      name: r'pubDevPackagesPageStateProvider',
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
           ? null
           : _$pubDevPackagesPageStateHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+      dependencies: null,
+      allTransitiveDependencies: null,
+    );
 
 typedef _$PubDevPackagesPageState =
     AsyncNotifier<GetSearchedPackagesResponseBody>;

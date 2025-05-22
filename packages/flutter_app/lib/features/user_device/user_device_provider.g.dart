@@ -18,10 +18,9 @@ String _$userDeviceInitializingHash() =>
 final userDeviceInitializingProvider = FutureProvider<UserDevice>.internal(
   userDeviceInitializing,
   name: r'userDeviceInitializingProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product')
-          ? null
-          : _$userDeviceInitializingHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$userDeviceInitializingHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
@@ -40,8 +39,9 @@ String _$userDeviceHash() => r'6a8bfaca921762b489dae3d6f9b6363bfcab16f2';
 final userDeviceProvider = Provider<UserDevice>.internal(
   userDevice,
   name: r'userDeviceProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$userDeviceHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$userDeviceHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
