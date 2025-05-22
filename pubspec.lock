@@ -61,10 +61,10 @@ packages:
     dependency: transitive
     description:
       name: altive_lints
-      sha256: "4abc90a0b2b3a342aa3be0b2374bd840839dc31d9b166a83721ca90356a557eb"
+      sha256: "6df846e9ede27d63197fcf4617ae6fee8a14577ddd90ae2583e0dc3ddf64e323"
       url: "https://pub.dev"
     source: hosted
-    version: "1.19.1"
+    version: "1.20.0"
   analyzer:
     dependency: transitive
     description:
@@ -2131,5 +2131,5 @@ packages:
     source: hosted
     version: "2.2.2"
 sdks:
-  dart: ">=3.7.0 <4.0.0"
+  dart: ">=3.8.0 <4.0.0"
   flutter: ">=3.27.0"
