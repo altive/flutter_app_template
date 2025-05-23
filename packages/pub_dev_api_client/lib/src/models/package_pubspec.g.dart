@@ -6,17 +6,16 @@ part of 'package_pubspec.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PackagePubspecImpl _$$PackagePubspecImplFromJson(Map<String, dynamic> json) =>
-    _$PackagePubspecImpl(
+_PackagePubspec _$PackagePubspecFromJson(Map<String, dynamic> json) =>
+    _PackagePubspec(
       name: json['name'] as String,
       version: json['version'] as String,
       description: json['description'] as String,
     );
 
-Map<String, dynamic> _$$PackagePubspecImplToJson(
-  _$PackagePubspecImpl instance,
-) => <String, dynamic>{
-  'name': instance.name,
-  'version': instance.version,
-  'description': instance.description,
-};
+Map<String, dynamic> _$PackagePubspecToJson(_PackagePubspec instance) =>
+    <String, dynamic>{
+      'name': instance.name,
+      'version': instance.version,
+      'description': instance.description,
+    };

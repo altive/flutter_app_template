@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,207 +10,145 @@ part of 'package_pubspec.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
-
-PackagePubspec _$PackagePubspecFromJson(Map<String, dynamic> json) {
-  return _PackagePubspec.fromJson(json);
-}
 
 /// @nodoc
 mixin _$PackagePubspec {
-  String get name => throw _privateConstructorUsedError;
-  String get version => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
+
+ String get name; String get version; String get description;
+/// Create a copy of PackagePubspec
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$PackagePubspecCopyWith<PackagePubspec> get copyWith => _$PackagePubspecCopyWithImpl<PackagePubspec>(this as PackagePubspec, _$identity);
 
   /// Serializes this PackagePubspec to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of PackagePubspec
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $PackagePubspecCopyWith<PackagePubspec> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PackagePubspec&&(identical(other.name, name) || other.name == name)&&(identical(other.version, version) || other.version == version)&&(identical(other.description, description) || other.description == description));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,name,version,description);
+
+@override
+String toString() {
+  return 'PackagePubspec(name: $name, version: $version, description: $description)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $PackagePubspecCopyWith<$Res> {
-  factory $PackagePubspecCopyWith(
-    PackagePubspec value,
-    $Res Function(PackagePubspec) then,
-  ) = _$PackagePubspecCopyWithImpl<$Res, PackagePubspec>;
-  @useResult
-  $Res call({String name, String version, String description});
-}
+abstract mixin class $PackagePubspecCopyWith<$Res>  {
+  factory $PackagePubspecCopyWith(PackagePubspec value, $Res Function(PackagePubspec) _then) = _$PackagePubspecCopyWithImpl;
+@useResult
+$Res call({
+ String name, String version, String description
+});
 
+
+
+
+}
 /// @nodoc
-class _$PackagePubspecCopyWithImpl<$Res, $Val extends PackagePubspec>
+class _$PackagePubspecCopyWithImpl<$Res>
     implements $PackagePubspecCopyWith<$Res> {
-  _$PackagePubspecCopyWithImpl(this._value, this._then);
+  _$PackagePubspecCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final PackagePubspec _self;
+  final $Res Function(PackagePubspec) _then;
 
-  /// Create a copy of PackagePubspec
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? version = null,
-    Object? description = null,
-  }) {
-    return _then(
-      _value.copyWith(
-            name: null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                      as String,
-            version: null == version
-                ? _value.version
-                : version // ignore: cast_nullable_to_non_nullable
-                      as String,
-            description: null == description
-                ? _value.description
-                : description // ignore: cast_nullable_to_non_nullable
-                      as String,
-          )
-          as $Val,
-    );
-  }
+/// Create a copy of PackagePubspec
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? version = null,Object? description = null,}) {
+  return _then(_self.copyWith(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,version: null == version ? _self.version : version // ignore: cast_nullable_to_non_nullable
+as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$PackagePubspecImplCopyWith<$Res>
-    implements $PackagePubspecCopyWith<$Res> {
-  factory _$$PackagePubspecImplCopyWith(
-    _$PackagePubspecImpl value,
-    $Res Function(_$PackagePubspecImpl) then,
-  ) = __$$PackagePubspecImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String name, String version, String description});
 }
 
-/// @nodoc
-class __$$PackagePubspecImplCopyWithImpl<$Res>
-    extends _$PackagePubspecCopyWithImpl<$Res, _$PackagePubspecImpl>
-    implements _$$PackagePubspecImplCopyWith<$Res> {
-  __$$PackagePubspecImplCopyWithImpl(
-    _$PackagePubspecImpl _value,
-    $Res Function(_$PackagePubspecImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of PackagePubspec
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? name = null,
-    Object? version = null,
-    Object? description = null,
-  }) {
-    return _then(
-      _$PackagePubspecImpl(
-        name: null == name
-            ? _value.name
-            : name // ignore: cast_nullable_to_non_nullable
-                  as String,
-        version: null == version
-            ? _value.version
-            : version // ignore: cast_nullable_to_non_nullable
-                  as String,
-        description: null == description
-            ? _value.description
-            : description // ignore: cast_nullable_to_non_nullable
-                  as String,
-      ),
-    );
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$PackagePubspecImpl implements _PackagePubspec {
-  const _$PackagePubspecImpl({
-    required this.name,
-    required this.version,
-    required this.description,
-  });
 
-  factory _$PackagePubspecImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PackagePubspecImplFromJson(json);
+class _PackagePubspec implements PackagePubspec {
+  const _PackagePubspec({required this.name, required this.version, required this.description});
+  factory _PackagePubspec.fromJson(Map<String, dynamic> json) => _$PackagePubspecFromJson(json);
 
-  @override
-  final String name;
-  @override
-  final String version;
-  @override
-  final String description;
+@override final  String name;
+@override final  String version;
+@override final  String description;
 
-  @override
-  String toString() {
-    return 'PackagePubspec(name: $name, version: $version, description: $description)';
-  }
+/// Create a copy of PackagePubspec
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$PackagePubspecCopyWith<_PackagePubspec> get copyWith => __$PackagePubspecCopyWithImpl<_PackagePubspec>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$PackagePubspecImpl &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.version, version) || other.version == version) &&
-            (identical(other.description, description) ||
-                other.description == description));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, name, version, description);
-
-  /// Create a copy of PackagePubspec
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$PackagePubspecImplCopyWith<_$PackagePubspecImpl> get copyWith =>
-      __$$PackagePubspecImplCopyWithImpl<_$PackagePubspecImpl>(
-        this,
-        _$identity,
-      );
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PackagePubspecImplToJson(this);
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$PackagePubspecToJson(this, );
 }
 
-abstract class _PackagePubspec implements PackagePubspec {
-  const factory _PackagePubspec({
-    required final String name,
-    required final String version,
-    required final String description,
-  }) = _$PackagePubspecImpl;
-
-  factory _PackagePubspec.fromJson(Map<String, dynamic> json) =
-      _$PackagePubspecImpl.fromJson;
-
-  @override
-  String get name;
-  @override
-  String get version;
-  @override
-  String get description;
-
-  /// Create a copy of PackagePubspec
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$PackagePubspecImplCopyWith<_$PackagePubspecImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _PackagePubspec&&(identical(other.name, name) || other.name == name)&&(identical(other.version, version) || other.version == version)&&(identical(other.description, description) || other.description == description));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,name,version,description);
+
+@override
+String toString() {
+  return 'PackagePubspec(name: $name, version: $version, description: $description)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$PackagePubspecCopyWith<$Res> implements $PackagePubspecCopyWith<$Res> {
+  factory _$PackagePubspecCopyWith(_PackagePubspec value, $Res Function(_PackagePubspec) _then) = __$PackagePubspecCopyWithImpl;
+@override @useResult
+$Res call({
+ String name, String version, String description
+});
+
+
+
+
+}
+/// @nodoc
+class __$PackagePubspecCopyWithImpl<$Res>
+    implements _$PackagePubspecCopyWith<$Res> {
+  __$PackagePubspecCopyWithImpl(this._self, this._then);
+
+  final _PackagePubspec _self;
+  final $Res Function(_PackagePubspec) _then;
+
+/// Create a copy of PackagePubspec
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? version = null,Object? description = null,}) {
+  return _then(_PackagePubspec(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,version: null == version ? _self.version : version // ignore: cast_nullable_to_non_nullable
+as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

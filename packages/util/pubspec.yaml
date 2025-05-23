@@ -13,7 +13,7 @@ resolution: workspace
 dependencies:
   flutter:
     sdk: flutter
-  json_annotation: ^4.8.1
+  json_annotation: ^4.9.0
   shared_preferences: ^2.5.2
 
 dev_dependencies:

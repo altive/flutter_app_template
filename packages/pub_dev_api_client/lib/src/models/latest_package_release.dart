@@ -7,7 +7,7 @@ part 'latest_package_release.g.dart';
 
 /// Package details for the latest release.
 @freezed
-class LatestPackageRelease with _$LatestPackageRelease {
+abstract class LatestPackageRelease with _$LatestPackageRelease {
   /// Default constructor.
   const factory LatestPackageRelease({required PackagePubspec pubspec}) =
       _LatestPackageRelease;

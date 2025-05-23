@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,217 +10,160 @@ part of 'get_package_details_response_body.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
-
-GetPackageDetailsResponseBody _$GetPackageDetailsResponseBodyFromJson(
-  Map<String, dynamic> json,
-) {
-  return _GetPackageDetailsResponseBody.fromJson(json);
-}
 
 /// @nodoc
 mixin _$GetPackageDetailsResponseBody {
-  String get name => throw _privateConstructorUsedError;
-  LatestPackageRelease get latest => throw _privateConstructorUsedError;
+
+ String get name; LatestPackageRelease get latest;
+/// Create a copy of GetPackageDetailsResponseBody
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$GetPackageDetailsResponseBodyCopyWith<GetPackageDetailsResponseBody> get copyWith => _$GetPackageDetailsResponseBodyCopyWithImpl<GetPackageDetailsResponseBody>(this as GetPackageDetailsResponseBody, _$identity);
 
   /// Serializes this GetPackageDetailsResponseBody to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of GetPackageDetailsResponseBody
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $GetPackageDetailsResponseBodyCopyWith<GetPackageDetailsResponseBody>
-  get copyWith => throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is GetPackageDetailsResponseBody&&(identical(other.name, name) || other.name == name)&&(identical(other.latest, latest) || other.latest == latest));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,name,latest);
+
+@override
+String toString() {
+  return 'GetPackageDetailsResponseBody(name: $name, latest: $latest)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $GetPackageDetailsResponseBodyCopyWith<$Res> {
-  factory $GetPackageDetailsResponseBodyCopyWith(
-    GetPackageDetailsResponseBody value,
-    $Res Function(GetPackageDetailsResponseBody) then,
-  ) =
-      _$GetPackageDetailsResponseBodyCopyWithImpl<
-        $Res,
-        GetPackageDetailsResponseBody
-      >;
-  @useResult
-  $Res call({String name, LatestPackageRelease latest});
+abstract mixin class $GetPackageDetailsResponseBodyCopyWith<$Res>  {
+  factory $GetPackageDetailsResponseBodyCopyWith(GetPackageDetailsResponseBody value, $Res Function(GetPackageDetailsResponseBody) _then) = _$GetPackageDetailsResponseBodyCopyWithImpl;
+@useResult
+$Res call({
+ String name, LatestPackageRelease latest
+});
 
-  $LatestPackageReleaseCopyWith<$Res> get latest;
+
+$LatestPackageReleaseCopyWith<$Res> get latest;
+
 }
-
 /// @nodoc
-class _$GetPackageDetailsResponseBodyCopyWithImpl<
-  $Res,
-  $Val extends GetPackageDetailsResponseBody
->
+class _$GetPackageDetailsResponseBodyCopyWithImpl<$Res>
     implements $GetPackageDetailsResponseBodyCopyWith<$Res> {
-  _$GetPackageDetailsResponseBodyCopyWithImpl(this._value, this._then);
+  _$GetPackageDetailsResponseBodyCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final GetPackageDetailsResponseBody _self;
+  final $Res Function(GetPackageDetailsResponseBody) _then;
 
-  /// Create a copy of GetPackageDetailsResponseBody
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? name = null, Object? latest = null}) {
-    return _then(
-      _value.copyWith(
-            name: null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                      as String,
-            latest: null == latest
-                ? _value.latest
-                : latest // ignore: cast_nullable_to_non_nullable
-                      as LatestPackageRelease,
-          )
-          as $Val,
-    );
-  }
-
-  /// Create a copy of GetPackageDetailsResponseBody
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $LatestPackageReleaseCopyWith<$Res> get latest {
-    return $LatestPackageReleaseCopyWith<$Res>(_value.latest, (value) {
-      return _then(_value.copyWith(latest: value) as $Val);
-    });
-  }
+/// Create a copy of GetPackageDetailsResponseBody
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? name = null,Object? latest = null,}) {
+  return _then(_self.copyWith(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,latest: null == latest ? _self.latest : latest // ignore: cast_nullable_to_non_nullable
+as LatestPackageRelease,
+  ));
+}
+/// Create a copy of GetPackageDetailsResponseBody
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LatestPackageReleaseCopyWith<$Res> get latest {
+  
+  return $LatestPackageReleaseCopyWith<$Res>(_self.latest, (value) {
+    return _then(_self.copyWith(latest: value));
+  });
+}
 }
 
-/// @nodoc
-abstract class _$$GetPackageDetailsResponseBodyImplCopyWith<$Res>
-    implements $GetPackageDetailsResponseBodyCopyWith<$Res> {
-  factory _$$GetPackageDetailsResponseBodyImplCopyWith(
-    _$GetPackageDetailsResponseBodyImpl value,
-    $Res Function(_$GetPackageDetailsResponseBodyImpl) then,
-  ) = __$$GetPackageDetailsResponseBodyImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String name, LatestPackageRelease latest});
-
-  @override
-  $LatestPackageReleaseCopyWith<$Res> get latest;
-}
-
-/// @nodoc
-class __$$GetPackageDetailsResponseBodyImplCopyWithImpl<$Res>
-    extends
-        _$GetPackageDetailsResponseBodyCopyWithImpl<
-          $Res,
-          _$GetPackageDetailsResponseBodyImpl
-        >
-    implements _$$GetPackageDetailsResponseBodyImplCopyWith<$Res> {
-  __$$GetPackageDetailsResponseBodyImplCopyWithImpl(
-    _$GetPackageDetailsResponseBodyImpl _value,
-    $Res Function(_$GetPackageDetailsResponseBodyImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of GetPackageDetailsResponseBody
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? name = null, Object? latest = null}) {
-    return _then(
-      _$GetPackageDetailsResponseBodyImpl(
-        name: null == name
-            ? _value.name
-            : name // ignore: cast_nullable_to_non_nullable
-                  as String,
-        latest: null == latest
-            ? _value.latest
-            : latest // ignore: cast_nullable_to_non_nullable
-                  as LatestPackageRelease,
-      ),
-    );
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$GetPackageDetailsResponseBodyImpl
-    implements _GetPackageDetailsResponseBody {
-  const _$GetPackageDetailsResponseBodyImpl({
-    required this.name,
-    required this.latest,
+
+class _GetPackageDetailsResponseBody implements GetPackageDetailsResponseBody {
+  const _GetPackageDetailsResponseBody({required this.name, required this.latest});
+  factory _GetPackageDetailsResponseBody.fromJson(Map<String, dynamic> json) => _$GetPackageDetailsResponseBodyFromJson(json);
+
+@override final  String name;
+@override final  LatestPackageRelease latest;
+
+/// Create a copy of GetPackageDetailsResponseBody
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$GetPackageDetailsResponseBodyCopyWith<_GetPackageDetailsResponseBody> get copyWith => __$GetPackageDetailsResponseBodyCopyWithImpl<_GetPackageDetailsResponseBody>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$GetPackageDetailsResponseBodyToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GetPackageDetailsResponseBody&&(identical(other.name, name) || other.name == name)&&(identical(other.latest, latest) || other.latest == latest));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,name,latest);
+
+@override
+String toString() {
+  return 'GetPackageDetailsResponseBody(name: $name, latest: $latest)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$GetPackageDetailsResponseBodyCopyWith<$Res> implements $GetPackageDetailsResponseBodyCopyWith<$Res> {
+  factory _$GetPackageDetailsResponseBodyCopyWith(_GetPackageDetailsResponseBody value, $Res Function(_GetPackageDetailsResponseBody) _then) = __$GetPackageDetailsResponseBodyCopyWithImpl;
+@override @useResult
+$Res call({
+ String name, LatestPackageRelease latest
+});
+
+
+@override $LatestPackageReleaseCopyWith<$Res> get latest;
+
+}
+/// @nodoc
+class __$GetPackageDetailsResponseBodyCopyWithImpl<$Res>
+    implements _$GetPackageDetailsResponseBodyCopyWith<$Res> {
+  __$GetPackageDetailsResponseBodyCopyWithImpl(this._self, this._then);
+
+  final _GetPackageDetailsResponseBody _self;
+  final $Res Function(_GetPackageDetailsResponseBody) _then;
+
+/// Create a copy of GetPackageDetailsResponseBody
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,Object? latest = null,}) {
+  return _then(_GetPackageDetailsResponseBody(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,latest: null == latest ? _self.latest : latest // ignore: cast_nullable_to_non_nullable
+as LatestPackageRelease,
+  ));
+}
+
+/// Create a copy of GetPackageDetailsResponseBody
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$LatestPackageReleaseCopyWith<$Res> get latest {
+  
+  return $LatestPackageReleaseCopyWith<$Res>(_self.latest, (value) {
+    return _then(_self.copyWith(latest: value));
   });
-
-  factory _$GetPackageDetailsResponseBodyImpl.fromJson(
-    Map<String, dynamic> json,
-  ) => _$$GetPackageDetailsResponseBodyImplFromJson(json);
-
-  @override
-  final String name;
-  @override
-  final LatestPackageRelease latest;
-
-  @override
-  String toString() {
-    return 'GetPackageDetailsResponseBody(name: $name, latest: $latest)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$GetPackageDetailsResponseBodyImpl &&
-            (identical(other.name, name) || other.name == name) &&
-            (identical(other.latest, latest) || other.latest == latest));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, name, latest);
-
-  /// Create a copy of GetPackageDetailsResponseBody
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$GetPackageDetailsResponseBodyImplCopyWith<
-    _$GetPackageDetailsResponseBodyImpl
-  >
-  get copyWith =>
-      __$$GetPackageDetailsResponseBodyImplCopyWithImpl<
-        _$GetPackageDetailsResponseBodyImpl
-      >(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$GetPackageDetailsResponseBodyImplToJson(this);
-  }
+}
 }
 
-abstract class _GetPackageDetailsResponseBody
-    implements GetPackageDetailsResponseBody {
-  const factory _GetPackageDetailsResponseBody({
-    required final String name,
-    required final LatestPackageRelease latest,
-  }) = _$GetPackageDetailsResponseBodyImpl;
-
-  factory _GetPackageDetailsResponseBody.fromJson(Map<String, dynamic> json) =
-      _$GetPackageDetailsResponseBodyImpl.fromJson;
-
-  @override
-  String get name;
-  @override
-  LatestPackageRelease get latest;
-
-  /// Create a copy of GetPackageDetailsResponseBody
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetPackageDetailsResponseBodyImplCopyWith<
-    _$GetPackageDetailsResponseBodyImpl
-  >
-  get copyWith => throw _privateConstructorUsedError;
-}
+// dart format on

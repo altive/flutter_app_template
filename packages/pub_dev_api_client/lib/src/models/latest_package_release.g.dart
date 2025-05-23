@@ -6,12 +6,12 @@ part of 'latest_package_release.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$LatestPackageReleaseImpl _$$LatestPackageReleaseImplFromJson(
+_LatestPackageRelease _$LatestPackageReleaseFromJson(
   Map<String, dynamic> json,
-) => _$LatestPackageReleaseImpl(
+) => _LatestPackageRelease(
   pubspec: PackagePubspec.fromJson(json['pubspec'] as Map<String, dynamic>),
 );
 
-Map<String, dynamic> _$$LatestPackageReleaseImplToJson(
-  _$LatestPackageReleaseImpl instance,
+Map<String, dynamic> _$LatestPackageReleaseToJson(
+  _LatestPackageRelease instance,
 ) => <String, dynamic>{'pubspec': instance.pubspec};

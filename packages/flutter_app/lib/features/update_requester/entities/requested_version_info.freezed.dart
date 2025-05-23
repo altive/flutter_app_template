@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,242 +10,163 @@ part of 'requested_version_info.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
 
-final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
-
-RequestedVersionInfo _$RequestedVersionInfoFromJson(Map<String, dynamic> json) {
-  return _RequestedVersionInfo.fromJson(json);
-}
-
 /// @nodoc
-mixin _$RequestedVersionInfo {
-  /// 要求バージョン e.g., '1.0.0'
-  String get requiredVersion => throw _privateConstructorUsedError;
+mixin _$RequestedVersionInfo implements DiagnosticableTreeMixin {
 
-  /// アップデートをキャンセルして利用可能にするかどうか
-  bool get canCancel => throw _privateConstructorUsedError;
-
-  /// アップデート要求を有強化する日時
-  DateTime get enabledAt => throw _privateConstructorUsedError;
+/// 要求バージョン e.g., '1.0.0'
+ String get requiredVersion;/// アップデートをキャンセルして利用可能にするかどうか
+ bool get canCancel;/// アップデート要求を有強化する日時
+ DateTime get enabledAt;
+/// Create a copy of RequestedVersionInfo
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$RequestedVersionInfoCopyWith<RequestedVersionInfo> get copyWith => _$RequestedVersionInfoCopyWithImpl<RequestedVersionInfo>(this as RequestedVersionInfo, _$identity);
 
   /// Serializes this RequestedVersionInfo to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of RequestedVersionInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $RequestedVersionInfoCopyWith<RequestedVersionInfo> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  properties
+    ..add(DiagnosticsProperty('type', 'RequestedVersionInfo'))
+    ..add(DiagnosticsProperty('requiredVersion', requiredVersion))..add(DiagnosticsProperty('canCancel', canCancel))..add(DiagnosticsProperty('enabledAt', enabledAt));
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is RequestedVersionInfo&&(identical(other.requiredVersion, requiredVersion) || other.requiredVersion == requiredVersion)&&(identical(other.canCancel, canCancel) || other.canCancel == canCancel)&&(identical(other.enabledAt, enabledAt) || other.enabledAt == enabledAt));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,requiredVersion,canCancel,enabledAt);
+
+@override
+String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
+  return 'RequestedVersionInfo(requiredVersion: $requiredVersion, canCancel: $canCancel, enabledAt: $enabledAt)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $RequestedVersionInfoCopyWith<$Res> {
-  factory $RequestedVersionInfoCopyWith(
-    RequestedVersionInfo value,
-    $Res Function(RequestedVersionInfo) then,
-  ) = _$RequestedVersionInfoCopyWithImpl<$Res, RequestedVersionInfo>;
-  @useResult
-  $Res call({String requiredVersion, bool canCancel, DateTime enabledAt});
-}
+abstract mixin class $RequestedVersionInfoCopyWith<$Res>  {
+  factory $RequestedVersionInfoCopyWith(RequestedVersionInfo value, $Res Function(RequestedVersionInfo) _then) = _$RequestedVersionInfoCopyWithImpl;
+@useResult
+$Res call({
+ String requiredVersion, bool canCancel, DateTime enabledAt
+});
 
+
+
+
+}
 /// @nodoc
-class _$RequestedVersionInfoCopyWithImpl<
-  $Res,
-  $Val extends RequestedVersionInfo
->
+class _$RequestedVersionInfoCopyWithImpl<$Res>
     implements $RequestedVersionInfoCopyWith<$Res> {
-  _$RequestedVersionInfoCopyWithImpl(this._value, this._then);
+  _$RequestedVersionInfoCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final RequestedVersionInfo _self;
+  final $Res Function(RequestedVersionInfo) _then;
 
-  /// Create a copy of RequestedVersionInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? requiredVersion = null,
-    Object? canCancel = null,
-    Object? enabledAt = null,
-  }) {
-    return _then(
-      _value.copyWith(
-            requiredVersion: null == requiredVersion
-                ? _value.requiredVersion
-                : requiredVersion // ignore: cast_nullable_to_non_nullable
-                      as String,
-            canCancel: null == canCancel
-                ? _value.canCancel
-                : canCancel // ignore: cast_nullable_to_non_nullable
-                      as bool,
-            enabledAt: null == enabledAt
-                ? _value.enabledAt
-                : enabledAt // ignore: cast_nullable_to_non_nullable
-                      as DateTime,
-          )
-          as $Val,
-    );
-  }
+/// Create a copy of RequestedVersionInfo
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? requiredVersion = null,Object? canCancel = null,Object? enabledAt = null,}) {
+  return _then(_self.copyWith(
+requiredVersion: null == requiredVersion ? _self.requiredVersion : requiredVersion // ignore: cast_nullable_to_non_nullable
+as String,canCancel: null == canCancel ? _self.canCancel : canCancel // ignore: cast_nullable_to_non_nullable
+as bool,enabledAt: null == enabledAt ? _self.enabledAt : enabledAt // ignore: cast_nullable_to_non_nullable
+as DateTime,
+  ));
 }
 
-/// @nodoc
-abstract class _$$RequestedVersionInfoImplCopyWith<$Res>
-    implements $RequestedVersionInfoCopyWith<$Res> {
-  factory _$$RequestedVersionInfoImplCopyWith(
-    _$RequestedVersionInfoImpl value,
-    $Res Function(_$RequestedVersionInfoImpl) then,
-  ) = __$$RequestedVersionInfoImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({String requiredVersion, bool canCancel, DateTime enabledAt});
 }
 
-/// @nodoc
-class __$$RequestedVersionInfoImplCopyWithImpl<$Res>
-    extends _$RequestedVersionInfoCopyWithImpl<$Res, _$RequestedVersionInfoImpl>
-    implements _$$RequestedVersionInfoImplCopyWith<$Res> {
-  __$$RequestedVersionInfoImplCopyWithImpl(
-    _$RequestedVersionInfoImpl _value,
-    $Res Function(_$RequestedVersionInfoImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of RequestedVersionInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? requiredVersion = null,
-    Object? canCancel = null,
-    Object? enabledAt = null,
-  }) {
-    return _then(
-      _$RequestedVersionInfoImpl(
-        requiredVersion: null == requiredVersion
-            ? _value.requiredVersion
-            : requiredVersion // ignore: cast_nullable_to_non_nullable
-                  as String,
-        canCancel: null == canCancel
-            ? _value.canCancel
-            : canCancel // ignore: cast_nullable_to_non_nullable
-                  as bool,
-        enabledAt: null == enabledAt
-            ? _value.enabledAt
-            : enabledAt // ignore: cast_nullable_to_non_nullable
-                  as DateTime,
-      ),
-    );
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$RequestedVersionInfoImpl
-    with DiagnosticableTreeMixin
-    implements _RequestedVersionInfo {
-  const _$RequestedVersionInfoImpl({
-    required this.requiredVersion,
-    this.canCancel = false,
-    required this.enabledAt,
-  });
 
-  factory _$RequestedVersionInfoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$RequestedVersionInfoImplFromJson(json);
+class _RequestedVersionInfo with DiagnosticableTreeMixin implements RequestedVersionInfo {
+  const _RequestedVersionInfo({required this.requiredVersion, this.canCancel = false, required this.enabledAt});
+  factory _RequestedVersionInfo.fromJson(Map<String, dynamic> json) => _$RequestedVersionInfoFromJson(json);
 
-  /// 要求バージョン e.g., '1.0.0'
-  @override
-  final String requiredVersion;
+/// 要求バージョン e.g., '1.0.0'
+@override final  String requiredVersion;
+/// アップデートをキャンセルして利用可能にするかどうか
+@override@JsonKey() final  bool canCancel;
+/// アップデート要求を有強化する日時
+@override final  DateTime enabledAt;
 
-  /// アップデートをキャンセルして利用可能にするかどうか
-  @override
-  @JsonKey()
-  final bool canCancel;
+/// Create a copy of RequestedVersionInfo
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$RequestedVersionInfoCopyWith<_RequestedVersionInfo> get copyWith => __$RequestedVersionInfoCopyWithImpl<_RequestedVersionInfo>(this, _$identity);
 
-  /// アップデート要求を有強化する日時
-  @override
-  final DateTime enabledAt;
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'RequestedVersionInfo(requiredVersion: $requiredVersion, canCancel: $canCancel, enabledAt: $enabledAt)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'RequestedVersionInfo'))
-      ..add(DiagnosticsProperty('requiredVersion', requiredVersion))
-      ..add(DiagnosticsProperty('canCancel', canCancel))
-      ..add(DiagnosticsProperty('enabledAt', enabledAt));
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$RequestedVersionInfoImpl &&
-            (identical(other.requiredVersion, requiredVersion) ||
-                other.requiredVersion == requiredVersion) &&
-            (identical(other.canCancel, canCancel) ||
-                other.canCancel == canCancel) &&
-            (identical(other.enabledAt, enabledAt) ||
-                other.enabledAt == enabledAt));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, requiredVersion, canCancel, enabledAt);
-
-  /// Create a copy of RequestedVersionInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$RequestedVersionInfoImplCopyWith<_$RequestedVersionInfoImpl>
-  get copyWith =>
-      __$$RequestedVersionInfoImplCopyWithImpl<_$RequestedVersionInfoImpl>(
-        this,
-        _$identity,
-      );
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$RequestedVersionInfoImplToJson(this);
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$RequestedVersionInfoToJson(this, );
+}
+@override
+void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+  properties
+    ..add(DiagnosticsProperty('type', 'RequestedVersionInfo'))
+    ..add(DiagnosticsProperty('requiredVersion', requiredVersion))..add(DiagnosticsProperty('canCancel', canCancel))..add(DiagnosticsProperty('enabledAt', enabledAt));
 }
 
-abstract class _RequestedVersionInfo implements RequestedVersionInfo {
-  const factory _RequestedVersionInfo({
-    required final String requiredVersion,
-    final bool canCancel,
-    required final DateTime enabledAt,
-  }) = _$RequestedVersionInfoImpl;
-
-  factory _RequestedVersionInfo.fromJson(Map<String, dynamic> json) =
-      _$RequestedVersionInfoImpl.fromJson;
-
-  /// 要求バージョン e.g., '1.0.0'
-  @override
-  String get requiredVersion;
-
-  /// アップデートをキャンセルして利用可能にするかどうか
-  @override
-  bool get canCancel;
-
-  /// アップデート要求を有強化する日時
-  @override
-  DateTime get enabledAt;
-
-  /// Create a copy of RequestedVersionInfo
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$RequestedVersionInfoImplCopyWith<_$RequestedVersionInfoImpl>
-  get copyWith => throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _RequestedVersionInfo&&(identical(other.requiredVersion, requiredVersion) || other.requiredVersion == requiredVersion)&&(identical(other.canCancel, canCancel) || other.canCancel == canCancel)&&(identical(other.enabledAt, enabledAt) || other.enabledAt == enabledAt));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,requiredVersion,canCancel,enabledAt);
+
+@override
+String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
+  return 'RequestedVersionInfo(requiredVersion: $requiredVersion, canCancel: $canCancel, enabledAt: $enabledAt)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$RequestedVersionInfoCopyWith<$Res> implements $RequestedVersionInfoCopyWith<$Res> {
+  factory _$RequestedVersionInfoCopyWith(_RequestedVersionInfo value, $Res Function(_RequestedVersionInfo) _then) = __$RequestedVersionInfoCopyWithImpl;
+@override @useResult
+$Res call({
+ String requiredVersion, bool canCancel, DateTime enabledAt
+});
+
+
+
+
+}
+/// @nodoc
+class __$RequestedVersionInfoCopyWithImpl<$Res>
+    implements _$RequestedVersionInfoCopyWith<$Res> {
+  __$RequestedVersionInfoCopyWithImpl(this._self, this._then);
+
+  final _RequestedVersionInfo _self;
+  final $Res Function(_RequestedVersionInfo) _then;
+
+/// Create a copy of RequestedVersionInfo
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? requiredVersion = null,Object? canCancel = null,Object? enabledAt = null,}) {
+  return _then(_RequestedVersionInfo(
+requiredVersion: null == requiredVersion ? _self.requiredVersion : requiredVersion // ignore: cast_nullable_to_non_nullable
+as String,canCancel: null == canCancel ? _self.canCancel : canCancel // ignore: cast_nullable_to_non_nullable
+as bool,enabledAt: null == enabledAt ? _self.enabledAt : enabledAt // ignore: cast_nullable_to_non_nullable
+as DateTime,
+  ));
+}
+
+
+}
+
+// dart format on
