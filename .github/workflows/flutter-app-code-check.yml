@@ -60,13 +60,10 @@ jobs:
       - name: Install Melos
         uses: bluefireteam/melos-action@v3
         with:
-          run-bootstrap: false
-
-      - name: Install Dependencies
-        run: dart pub get --enforce-lockfile
+          run-bootstrap: true
 
       - name: Analyze packages
-        run: melos run analyze --no-select
+        run: flutter analyze --fatal-infos
 
       - name: Run custom lint
         run: melos run custom_lint --no-select
@@ -94,10 +91,7 @@ jobs:
       - name: Install Melos
         uses: bluefireteam/melos-action@v3
         with:
-          run-bootstrap: false
-
-      - name: Install Dependencies
-        run: dart pub get --enforce-lockfile
+          run-bootstrap: true
 
       - name: Run package tests
         run: melos run test:ci --no-select
