@@ -26,11 +26,10 @@ Raw<GoRouter> router(Ref ref) {
       }
       return null;
     },
-    errorBuilder:
-        (context, state) => ErrorRoute(
-          location: state.uri.path,
-          exception: state.error!,
-        ).build(context, state),
+    errorBuilder: (context, state) => ErrorRoute(
+      location: state.uri.path,
+      exception: state.error!,
+    ).build(context, state),
     observers: [
       ...tracker.navigatorObservers(
         routeFilter: (route) {

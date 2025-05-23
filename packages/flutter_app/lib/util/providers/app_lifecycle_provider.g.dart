@@ -16,10 +16,9 @@ final appLifecycleProvider =
     AutoDisposeNotifierProvider<AppLifecycle, AppLifecycleState>.internal(
       AppLifecycle.new,
       name: r'appLifecycleProvider',
-      debugGetCreateSourceHash:
-          const bool.fromEnvironment('dart.vm.product')
-              ? null
-              : _$appLifecycleHash,
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$appLifecycleHash,
       dependencies: null,
       allTransitiveDependencies: null,
     );

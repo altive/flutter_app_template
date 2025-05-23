@@ -41,10 +41,9 @@ class ProviderPage extends ConsumerWidget {
               DisplayLargeText('$doubleCount'),
               ElevatedButton(
                 // counterProvider の値を+1する。
-                onPressed:
-                    () => ref
-                        .read(counterProvider.notifier)
-                        .update((state) => state + 1),
+                onPressed: () => ref
+                    .read(counterProvider.notifier)
+                    .update((state) => state + 1),
                 child: const Text('Increase Count'),
               ),
             ],

@@ -15,8 +15,9 @@ String _$validatorHash() => r'50b9c2bc2bd05f7f60ec3b9cb51c41bc18444f6f';
 final validatorProvider = Provider<Validator>.internal(
   validator,
   name: r'validatorProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$validatorHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$validatorHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );

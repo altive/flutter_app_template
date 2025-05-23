@@ -19,8 +19,9 @@ String _$trackerHash() => r'8b77cc11d593f46376606aaa14800a713c90d7c9';
 final trackerProvider = Provider<Tracker>.internal(
   tracker,
   name: r'trackerProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$trackerHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$trackerHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );

@@ -21,8 +21,9 @@ String _$configuratorHash() => r'9e492ffb951b15cbe24c846fb5bdcbb0fe71a690';
 final configuratorProvider = Provider<Configurator>.internal(
   configurator,
   name: r'configuratorProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$configuratorHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$configuratorHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );

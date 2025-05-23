@@ -17,10 +17,9 @@ final scaffoldMessengerKeyProvider =
     Provider<GlobalKey<ScaffoldMessengerState>>.internal(
       scaffoldMessengerKey,
       name: r'scaffoldMessengerKeyProvider',
-      debugGetCreateSourceHash:
-          const bool.fromEnvironment('dart.vm.product')
-              ? null
-              : _$scaffoldMessengerKeyHash,
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$scaffoldMessengerKeyHash,
       dependencies: null,
       allTransitiveDependencies: null,
     );

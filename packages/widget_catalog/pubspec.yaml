@@ -4,7 +4,7 @@ publish_to: "none"
 version: 1.0.0
 
 environment:
-  sdk: ^3.6.0
+  sdk: ^3.8.0
 
 resolution: workspace
 
@@ -17,7 +17,7 @@ dependencies:
   widgetbook_annotation: ^3.2.0
 
 dev_dependencies:
-  altive_lints: ^1.19.1
+  altive_lints: ^1.20.0
   build_runner: ^2.4.13
   custom_lint: ^0.7.0
   widgetbook_generator: ^3.9.0

@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,166 +10,139 @@ part of 'package_name.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
-
-PackageName _$PackageNameFromJson(Map<String, dynamic> json) {
-  return _PackageName.fromJson(json);
-}
 
 /// @nodoc
 mixin _$PackageName {
-  @JsonKey(name: 'package')
-  String get name => throw _privateConstructorUsedError;
+
+@JsonKey(name: 'package') String get name;
+/// Create a copy of PackageName
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$PackageNameCopyWith<PackageName> get copyWith => _$PackageNameCopyWithImpl<PackageName>(this as PackageName, _$identity);
 
   /// Serializes this PackageName to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of PackageName
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $PackageNameCopyWith<PackageName> get copyWith =>
-      throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is PackageName&&(identical(other.name, name) || other.name == name));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,name);
+
+@override
+String toString() {
+  return 'PackageName(name: $name)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $PackageNameCopyWith<$Res> {
-  factory $PackageNameCopyWith(
-    PackageName value,
-    $Res Function(PackageName) then,
-  ) = _$PackageNameCopyWithImpl<$Res, PackageName>;
-  @useResult
-  $Res call({@JsonKey(name: 'package') String name});
-}
+abstract mixin class $PackageNameCopyWith<$Res>  {
+  factory $PackageNameCopyWith(PackageName value, $Res Function(PackageName) _then) = _$PackageNameCopyWithImpl;
+@useResult
+$Res call({
+@JsonKey(name: 'package') String name
+});
 
+
+
+
+}
 /// @nodoc
-class _$PackageNameCopyWithImpl<$Res, $Val extends PackageName>
+class _$PackageNameCopyWithImpl<$Res>
     implements $PackageNameCopyWith<$Res> {
-  _$PackageNameCopyWithImpl(this._value, this._then);
+  _$PackageNameCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final PackageName _self;
+  final $Res Function(PackageName) _then;
 
-  /// Create a copy of PackageName
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? name = null}) {
-    return _then(
-      _value.copyWith(
-            name:
-                null == name
-                    ? _value.name
-                    : name // ignore: cast_nullable_to_non_nullable
-                        as String,
-          )
-          as $Val,
-    );
-  }
+/// Create a copy of PackageName
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? name = null,}) {
+  return _then(_self.copyWith(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$PackageNameImplCopyWith<$Res>
-    implements $PackageNameCopyWith<$Res> {
-  factory _$$PackageNameImplCopyWith(
-    _$PackageNameImpl value,
-    $Res Function(_$PackageNameImpl) then,
-  ) = __$$PackageNameImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({@JsonKey(name: 'package') String name});
 }
 
-/// @nodoc
-class __$$PackageNameImplCopyWithImpl<$Res>
-    extends _$PackageNameCopyWithImpl<$Res, _$PackageNameImpl>
-    implements _$$PackageNameImplCopyWith<$Res> {
-  __$$PackageNameImplCopyWithImpl(
-    _$PackageNameImpl _value,
-    $Res Function(_$PackageNameImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of PackageName
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? name = null}) {
-    return _then(
-      _$PackageNameImpl(
-        name:
-            null == name
-                ? _value.name
-                : name // ignore: cast_nullable_to_non_nullable
-                    as String,
-      ),
-    );
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$PackageNameImpl implements _PackageName {
-  const _$PackageNameImpl({@JsonKey(name: 'package') required this.name});
 
-  factory _$PackageNameImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PackageNameImplFromJson(json);
+class _PackageName implements PackageName {
+  const _PackageName({@JsonKey(name: 'package') required this.name});
+  factory _PackageName.fromJson(Map<String, dynamic> json) => _$PackageNameFromJson(json);
 
-  @override
-  @JsonKey(name: 'package')
-  final String name;
+@override@JsonKey(name: 'package') final  String name;
 
-  @override
-  String toString() {
-    return 'PackageName(name: $name)';
-  }
+/// Create a copy of PackageName
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$PackageNameCopyWith<_PackageName> get copyWith => __$PackageNameCopyWithImpl<_PackageName>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$PackageNameImpl &&
-            (identical(other.name, name) || other.name == name));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(runtimeType, name);
-
-  /// Create a copy of PackageName
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$PackageNameImplCopyWith<_$PackageNameImpl> get copyWith =>
-      __$$PackageNameImplCopyWithImpl<_$PackageNameImpl>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$PackageNameImplToJson(this);
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$PackageNameToJson(this, );
 }
 
-abstract class _PackageName implements PackageName {
-  const factory _PackageName({
-    @JsonKey(name: 'package') required final String name,
-  }) = _$PackageNameImpl;
-
-  factory _PackageName.fromJson(Map<String, dynamic> json) =
-      _$PackageNameImpl.fromJson;
-
-  @override
-  @JsonKey(name: 'package')
-  String get name;
-
-  /// Create a copy of PackageName
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$PackageNameImplCopyWith<_$PackageNameImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _PackageName&&(identical(other.name, name) || other.name == name));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,name);
+
+@override
+String toString() {
+  return 'PackageName(name: $name)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$PackageNameCopyWith<$Res> implements $PackageNameCopyWith<$Res> {
+  factory _$PackageNameCopyWith(_PackageName value, $Res Function(_PackageName) _then) = __$PackageNameCopyWithImpl;
+@override @useResult
+$Res call({
+@JsonKey(name: 'package') String name
+});
+
+
+
+
+}
+/// @nodoc
+class __$PackageNameCopyWithImpl<$Res>
+    implements _$PackageNameCopyWith<$Res> {
+  __$PackageNameCopyWithImpl(this._self, this._then);
+
+  final _PackageName _self;
+  final $Res Function(_PackageName) _then;
+
+/// Create a copy of PackageName
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? name = null,}) {
+  return _then(_PackageName(
+name: null == name ? _self.name : name // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on

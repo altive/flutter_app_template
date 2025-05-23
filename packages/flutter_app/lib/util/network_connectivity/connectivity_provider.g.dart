@@ -17,8 +17,9 @@ String _$connectivityHash() => r'6d67af0ea4110f6ee0246dd332f90f8901380eda';
 final connectivityProvider = AutoDisposeProvider<Connectivity>.internal(
   connectivity,
   name: r'connectivityProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$connectivityHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$connectivityHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );

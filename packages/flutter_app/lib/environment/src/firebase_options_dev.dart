@@ -72,5 +72,4 @@ class DefaultFirebaseOptions {
     storageBucket: 'flutter-app-template-dev.appspot.com',
     iosBundleId: 'jp.co.altive.fat.dev',
   );
-
 }

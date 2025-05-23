@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,229 +10,150 @@ part of 'get_searched_packages_response_body.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-  'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models',
-);
-
-GetSearchedPackagesResponseBody _$GetSearchedPackagesResponseBodyFromJson(
-  Map<String, dynamic> json,
-) {
-  return _GetSearchedPackagesResponseBody.fromJson(json);
-}
 
 /// @nodoc
 mixin _$GetSearchedPackagesResponseBody {
-  List<PackageName> get packages =>
-      throw _privateConstructorUsedError; // e.g. "https://pub.dev/api/search?page=2"
-  @JsonKey(name: 'next')
-  String? get nextPageUrl => throw _privateConstructorUsedError;
+
+ List<PackageName> get packages;// e.g. "https://pub.dev/api/search?page=2"
+@JsonKey(name: 'next') String? get nextPageUrl;
+/// Create a copy of GetSearchedPackagesResponseBody
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$GetSearchedPackagesResponseBodyCopyWith<GetSearchedPackagesResponseBody> get copyWith => _$GetSearchedPackagesResponseBodyCopyWithImpl<GetSearchedPackagesResponseBody>(this as GetSearchedPackagesResponseBody, _$identity);
 
   /// Serializes this GetSearchedPackagesResponseBody to a JSON map.
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  Map<String, dynamic> toJson();
 
-  /// Create a copy of GetSearchedPackagesResponseBody
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  $GetSearchedPackagesResponseBodyCopyWith<GetSearchedPackagesResponseBody>
-  get copyWith => throw _privateConstructorUsedError;
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is GetSearchedPackagesResponseBody&&const DeepCollectionEquality().equals(other.packages, packages)&&(identical(other.nextPageUrl, nextPageUrl) || other.nextPageUrl == nextPageUrl));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(packages),nextPageUrl);
+
+@override
+String toString() {
+  return 'GetSearchedPackagesResponseBody(packages: $packages, nextPageUrl: $nextPageUrl)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $GetSearchedPackagesResponseBodyCopyWith<$Res> {
-  factory $GetSearchedPackagesResponseBodyCopyWith(
-    GetSearchedPackagesResponseBody value,
-    $Res Function(GetSearchedPackagesResponseBody) then,
-  ) =
-      _$GetSearchedPackagesResponseBodyCopyWithImpl<
-        $Res,
-        GetSearchedPackagesResponseBody
-      >;
-  @useResult
-  $Res call({
-    List<PackageName> packages,
-    @JsonKey(name: 'next') String? nextPageUrl,
-  });
-}
+abstract mixin class $GetSearchedPackagesResponseBodyCopyWith<$Res>  {
+  factory $GetSearchedPackagesResponseBodyCopyWith(GetSearchedPackagesResponseBody value, $Res Function(GetSearchedPackagesResponseBody) _then) = _$GetSearchedPackagesResponseBodyCopyWithImpl;
+@useResult
+$Res call({
+ List<PackageName> packages,@JsonKey(name: 'next') String? nextPageUrl
+});
 
+
+
+
+}
 /// @nodoc
-class _$GetSearchedPackagesResponseBodyCopyWithImpl<
-  $Res,
-  $Val extends GetSearchedPackagesResponseBody
->
+class _$GetSearchedPackagesResponseBodyCopyWithImpl<$Res>
     implements $GetSearchedPackagesResponseBodyCopyWith<$Res> {
-  _$GetSearchedPackagesResponseBodyCopyWithImpl(this._value, this._then);
+  _$GetSearchedPackagesResponseBodyCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final GetSearchedPackagesResponseBody _self;
+  final $Res Function(GetSearchedPackagesResponseBody) _then;
 
-  /// Create a copy of GetSearchedPackagesResponseBody
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? packages = null, Object? nextPageUrl = freezed}) {
-    return _then(
-      _value.copyWith(
-            packages:
-                null == packages
-                    ? _value.packages
-                    : packages // ignore: cast_nullable_to_non_nullable
-                        as List<PackageName>,
-            nextPageUrl:
-                freezed == nextPageUrl
-                    ? _value.nextPageUrl
-                    : nextPageUrl // ignore: cast_nullable_to_non_nullable
-                        as String?,
-          )
-          as $Val,
-    );
-  }
+/// Create a copy of GetSearchedPackagesResponseBody
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? packages = null,Object? nextPageUrl = freezed,}) {
+  return _then(_self.copyWith(
+packages: null == packages ? _self.packages : packages // ignore: cast_nullable_to_non_nullable
+as List<PackageName>,nextPageUrl: freezed == nextPageUrl ? _self.nextPageUrl : nextPageUrl // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
 }
 
-/// @nodoc
-abstract class _$$GetSearchedPackagesResponseBodyImplCopyWith<$Res>
-    implements $GetSearchedPackagesResponseBodyCopyWith<$Res> {
-  factory _$$GetSearchedPackagesResponseBodyImplCopyWith(
-    _$GetSearchedPackagesResponseBodyImpl value,
-    $Res Function(_$GetSearchedPackagesResponseBodyImpl) then,
-  ) = __$$GetSearchedPackagesResponseBodyImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({
-    List<PackageName> packages,
-    @JsonKey(name: 'next') String? nextPageUrl,
-  });
 }
 
-/// @nodoc
-class __$$GetSearchedPackagesResponseBodyImplCopyWithImpl<$Res>
-    extends
-        _$GetSearchedPackagesResponseBodyCopyWithImpl<
-          $Res,
-          _$GetSearchedPackagesResponseBodyImpl
-        >
-    implements _$$GetSearchedPackagesResponseBodyImplCopyWith<$Res> {
-  __$$GetSearchedPackagesResponseBodyImplCopyWithImpl(
-    _$GetSearchedPackagesResponseBodyImpl _value,
-    $Res Function(_$GetSearchedPackagesResponseBodyImpl) _then,
-  ) : super(_value, _then);
-
-  /// Create a copy of GetSearchedPackagesResponseBody
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({Object? packages = null, Object? nextPageUrl = freezed}) {
-    return _then(
-      _$GetSearchedPackagesResponseBodyImpl(
-        packages:
-            null == packages
-                ? _value._packages
-                : packages // ignore: cast_nullable_to_non_nullable
-                    as List<PackageName>,
-        nextPageUrl:
-            freezed == nextPageUrl
-                ? _value.nextPageUrl
-                : nextPageUrl // ignore: cast_nullable_to_non_nullable
-                    as String?,
-      ),
-    );
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$GetSearchedPackagesResponseBodyImpl
-    extends _GetSearchedPackagesResponseBody {
-  const _$GetSearchedPackagesResponseBodyImpl({
-    required final List<PackageName> packages,
-    @JsonKey(name: 'next') this.nextPageUrl,
-  }) : _packages = packages,
-       super._();
 
-  factory _$GetSearchedPackagesResponseBodyImpl.fromJson(
-    Map<String, dynamic> json,
-  ) => _$$GetSearchedPackagesResponseBodyImplFromJson(json);
+class _GetSearchedPackagesResponseBody extends GetSearchedPackagesResponseBody {
+  const _GetSearchedPackagesResponseBody({required final  List<PackageName> packages, @JsonKey(name: 'next') this.nextPageUrl}): _packages = packages,super._();
+  factory _GetSearchedPackagesResponseBody.fromJson(Map<String, dynamic> json) => _$GetSearchedPackagesResponseBodyFromJson(json);
 
-  final List<PackageName> _packages;
-  @override
-  List<PackageName> get packages {
-    if (_packages is EqualUnmodifiableListView) return _packages;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_packages);
-  }
-
-  // e.g. "https://pub.dev/api/search?page=2"
-  @override
-  @JsonKey(name: 'next')
-  final String? nextPageUrl;
-
-  @override
-  String toString() {
-    return 'GetSearchedPackagesResponseBody(packages: $packages, nextPageUrl: $nextPageUrl)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$GetSearchedPackagesResponseBodyImpl &&
-            const DeepCollectionEquality().equals(other._packages, _packages) &&
-            (identical(other.nextPageUrl, nextPageUrl) ||
-                other.nextPageUrl == nextPageUrl));
-  }
-
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  int get hashCode => Object.hash(
-    runtimeType,
-    const DeepCollectionEquality().hash(_packages),
-    nextPageUrl,
-  );
-
-  /// Create a copy of GetSearchedPackagesResponseBody
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$GetSearchedPackagesResponseBodyImplCopyWith<
-    _$GetSearchedPackagesResponseBodyImpl
-  >
-  get copyWith => __$$GetSearchedPackagesResponseBodyImplCopyWithImpl<
-    _$GetSearchedPackagesResponseBodyImpl
-  >(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$GetSearchedPackagesResponseBodyImplToJson(this);
-  }
+ final  List<PackageName> _packages;
+@override List<PackageName> get packages {
+  if (_packages is EqualUnmodifiableListView) return _packages;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_packages);
 }
 
-abstract class _GetSearchedPackagesResponseBody
-    extends GetSearchedPackagesResponseBody {
-  const factory _GetSearchedPackagesResponseBody({
-    required final List<PackageName> packages,
-    @JsonKey(name: 'next') final String? nextPageUrl,
-  }) = _$GetSearchedPackagesResponseBodyImpl;
-  const _GetSearchedPackagesResponseBody._() : super._();
+// e.g. "https://pub.dev/api/search?page=2"
+@override@JsonKey(name: 'next') final  String? nextPageUrl;
 
-  factory _GetSearchedPackagesResponseBody.fromJson(Map<String, dynamic> json) =
-      _$GetSearchedPackagesResponseBodyImpl.fromJson;
+/// Create a copy of GetSearchedPackagesResponseBody
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$GetSearchedPackagesResponseBodyCopyWith<_GetSearchedPackagesResponseBody> get copyWith => __$GetSearchedPackagesResponseBodyCopyWithImpl<_GetSearchedPackagesResponseBody>(this, _$identity);
 
-  @override
-  List<PackageName> get packages; // e.g. "https://pub.dev/api/search?page=2"
-  @override
-  @JsonKey(name: 'next')
-  String? get nextPageUrl;
-
-  /// Create a copy of GetSearchedPackagesResponseBody
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$GetSearchedPackagesResponseBodyImplCopyWith<
-    _$GetSearchedPackagesResponseBodyImpl
-  >
-  get copyWith => throw _privateConstructorUsedError;
+@override
+Map<String, dynamic> toJson() {
+  return _$GetSearchedPackagesResponseBodyToJson(this, );
 }
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _GetSearchedPackagesResponseBody&&const DeepCollectionEquality().equals(other._packages, _packages)&&(identical(other.nextPageUrl, nextPageUrl) || other.nextPageUrl == nextPageUrl));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_packages),nextPageUrl);
+
+@override
+String toString() {
+  return 'GetSearchedPackagesResponseBody(packages: $packages, nextPageUrl: $nextPageUrl)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$GetSearchedPackagesResponseBodyCopyWith<$Res> implements $GetSearchedPackagesResponseBodyCopyWith<$Res> {
+  factory _$GetSearchedPackagesResponseBodyCopyWith(_GetSearchedPackagesResponseBody value, $Res Function(_GetSearchedPackagesResponseBody) _then) = __$GetSearchedPackagesResponseBodyCopyWithImpl;
+@override @useResult
+$Res call({
+ List<PackageName> packages,@JsonKey(name: 'next') String? nextPageUrl
+});
+
+
+
+
+}
+/// @nodoc
+class __$GetSearchedPackagesResponseBodyCopyWithImpl<$Res>
+    implements _$GetSearchedPackagesResponseBodyCopyWith<$Res> {
+  __$GetSearchedPackagesResponseBodyCopyWithImpl(this._self, this._then);
+
+  final _GetSearchedPackagesResponseBody _self;
+  final $Res Function(_GetSearchedPackagesResponseBody) _then;
+
+/// Create a copy of GetSearchedPackagesResponseBody
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? packages = null,Object? nextPageUrl = freezed,}) {
+  return _then(_GetSearchedPackagesResponseBody(
+packages: null == packages ? _self._packages : packages // ignore: cast_nullable_to_non_nullable
+as List<PackageName>,nextPageUrl: freezed == nextPageUrl ? _self.nextPageUrl : nextPageUrl // ignore: cast_nullable_to_non_nullable
+as String?,
+  ));
+}
+
+
+}
+
+// dart format on

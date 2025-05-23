@@ -49,11 +49,10 @@ class StreamProviderPage extends ConsumerWidget {
               // countProvider の値を表示
               asyncCount.when(
                 loading: () => const Center(child: CircularProgressIndicator()),
-                error:
-                    (error, stack) => OutlinedButton(
-                      onPressed: () => ref.invalidate(countProvider),
-                      child: const Text('Refresh'),
-                    ),
+                error: (error, stack) => OutlinedButton(
+                  onPressed: () => ref.invalidate(countProvider),
+                  child: const Text('Refresh'),
+                ),
                 data: (count) {
                   return DisplayLargeText('$count');
                 },

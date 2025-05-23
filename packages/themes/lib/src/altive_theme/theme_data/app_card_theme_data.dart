@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
 /// A [CardTheme] for the app.
-CardTheme get appCardThemeData {
-  return const CardTheme(elevation: 0);
+CardThemeData get appCardThemeData {
+  return const CardThemeData(elevation: 0);
 }

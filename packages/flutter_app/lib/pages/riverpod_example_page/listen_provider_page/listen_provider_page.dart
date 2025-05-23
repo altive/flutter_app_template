@@ -62,8 +62,8 @@ class ListenProviderPage extends HookConsumerWidget {
               DisplayLargeText('Count: ${ref.watch(countStateProvider)}'),
               const Gap(32),
               FilledButton(
-                onPressed:
-                    () => ref.read(countStateProvider.notifier).increment(),
+                onPressed: () =>
+                    ref.read(countStateProvider.notifier).increment(),
                 child: const Text('Increment'),
               ),
               const Gap(16),

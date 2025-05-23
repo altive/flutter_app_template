@@ -41,7 +41,10 @@ void main() {
 
   group('getSearchedPackages', () {
     const mockResponse = GetSearchedPackagesResponseBody(
-      packages: [PackageName(name: 'package1'), PackageName(name: 'package2')],
+      packages: [
+        PackageName(name: 'package1'),
+        PackageName(name: 'package2'),
+      ],
     );
 
     test('Verify that the request is sent to the correct endpoint'

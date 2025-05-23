@@ -15,8 +15,9 @@ String _$localesHash() => r'a1df380fa42af9a8b0e3e27eb48a8bda37d3464d';
 final localesProvider = NotifierProvider<Locales, List<Locale>?>.internal(
   Locales.new,
   name: r'localesProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$localesHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$localesHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );

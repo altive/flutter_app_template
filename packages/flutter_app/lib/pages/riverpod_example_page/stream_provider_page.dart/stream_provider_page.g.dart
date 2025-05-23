@@ -18,8 +18,9 @@ String _$countHash() => r'08a785d46b99176790eee753263e9e8dedc3e344';
 final countProvider = AutoDisposeStreamProvider<int>.internal(
   count,
   name: r'countProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$countHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$countHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );

@@ -21,11 +21,7 @@ class ThemeDescription extends ThemeExtension<ThemeDescription> {
   final Icon icon;
 
   @override
-  ThemeDescription copyWith({
-    String? title,
-    String? subtitle,
-    Icon? icon,
-  }) {
+  ThemeDescription copyWith({String? title, String? subtitle, Icon? icon}) {
     return ThemeDescription(
       title: title ?? this.title,
       subtitle: subtitle ?? this.subtitle,
@@ -34,10 +30,7 @@ class ThemeDescription extends ThemeExtension<ThemeDescription> {
   }
 
   @override
-  ThemeDescription lerp(
-    ThemeExtension<ThemeDescription>? other,
-    double t,
-  ) {
+  ThemeDescription lerp(ThemeExtension<ThemeDescription>? other, double t) {
     if (other is! ThemeDescription) {
       return this;
     }

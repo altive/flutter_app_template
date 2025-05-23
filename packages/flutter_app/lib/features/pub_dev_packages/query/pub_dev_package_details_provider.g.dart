@@ -93,10 +93,9 @@ class PubDevPackageDetailsProvider
         ),
         from: pubDevPackageDetailsProvider,
         name: r'pubDevPackageDetailsProvider',
-        debugGetCreateSourceHash:
-            const bool.fromEnvironment('dart.vm.product')
-                ? null
-                : _$pubDevPackageDetailsHash,
+        debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+            ? null
+            : _$pubDevPackageDetailsHash,
         dependencies: PubDevPackageDetailsFamily._dependencies,
         allTransitiveDependencies:
             PubDevPackageDetailsFamily._allTransitiveDependencies,

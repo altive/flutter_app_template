@@ -16,10 +16,9 @@ final asyncTodoListProvider =
     AutoDisposeAsyncNotifierProvider<AsyncTodoList, List<Todo>>.internal(
       AsyncTodoList.new,
       name: r'asyncTodoListProvider',
-      debugGetCreateSourceHash:
-          const bool.fromEnvironment('dart.vm.product')
-              ? null
-              : _$asyncTodoListHash,
+      debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+          ? null
+          : _$asyncTodoListHash,
       dependencies: null,
       allTransitiveDependencies: null,
     );

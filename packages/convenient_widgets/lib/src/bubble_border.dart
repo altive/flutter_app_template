@@ -30,31 +30,31 @@ class BubbleBorder extends ShapeBorder {
   final bool usePadding;
 
   Offset get _offset => () {
-        switch (destination) {
-          case Destination.left:
-            return const Offset(-12, 0);
-          case Destination.right:
-            return const Offset(12, 0);
-          case Destination.top:
-            return const Offset(0, -12);
-          case Destination.bottom:
-            return const Offset(0, 12);
-        }
-      }();
+    switch (destination) {
+      case Destination.left:
+        return const Offset(-12, 0);
+      case Destination.right:
+        return const Offset(12, 0);
+      case Destination.top:
+        return const Offset(0, -12);
+      case Destination.bottom:
+        return const Offset(0, 12);
+    }
+  }();
 
   @override
   EdgeInsetsGeometry get dimensions => () {
-        switch (destination) {
-          case Destination.left:
-            return EdgeInsets.only(left: usePadding ? 12 : 0);
-          case Destination.right:
-            return EdgeInsets.only(right: usePadding ? 12 : 0);
-          case Destination.top:
-            return EdgeInsets.only(top: usePadding ? 12 : 0);
-          case Destination.bottom:
-            return EdgeInsets.only(bottom: usePadding ? 12 : 0);
-        }
-      }();
+    switch (destination) {
+      case Destination.left:
+        return EdgeInsets.only(left: usePadding ? 12 : 0);
+      case Destination.right:
+        return EdgeInsets.only(right: usePadding ? 12 : 0);
+      case Destination.top:
+        return EdgeInsets.only(top: usePadding ? 12 : 0);
+      case Destination.bottom:
+        return EdgeInsets.only(bottom: usePadding ? 12 : 0);
+    }
+  }();
 
   @override
   Path getInnerPath(Rect rect, {TextDirection? textDirection}) {
@@ -63,10 +63,7 @@ class BubbleBorder extends ShapeBorder {
 
   @override
   Path getOuterPath(Rect rect, {TextDirection? textDirection}) {
-    final r = Rect.fromPoints(
-      rect.topRight,
-      rect.bottomLeft - _offset,
-    );
+    final r = Rect.fromPoints(rect.topRight, rect.bottomLeft - _offset);
     final path = Path();
     switch (destination) {
       case Destination.left:

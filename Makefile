@@ -11,7 +11,7 @@ melos:
 	dart pub global activate melos
 
 melos_bs:
-	dart pub get
+	melos bootstrap
 
 generate_code:
 	melos run gen --no-select

@@ -17,10 +17,9 @@ String _$authenticatorHash() => r'4b541e97a781f3526786ee807f2853d29ddc5074';
 final authenticatorProvider = Provider<Authenticator>.internal(
   authenticator,
   name: r'authenticatorProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product')
-          ? null
-          : _$authenticatorHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$authenticatorHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );
@@ -37,8 +36,9 @@ String _$userHash() => r'ae200174a4a30690eae71f9335e08989ccab99b2';
 final userProvider = AutoDisposeStreamProvider<User?>.internal(
   user,
   name: r'userProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$userHash,
+  debugGetCreateSourceHash: const bool.fromEnvironment('dart.vm.product')
+      ? null
+      : _$userHash,
   dependencies: null,
   allTransitiveDependencies: null,
 );

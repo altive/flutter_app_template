@@ -25,8 +25,9 @@ class DashboardPage extends HookWidget {
               },
               icon: CircleAvatar(
                 radius: 40,
-                foregroundImage:
-                    imageFile == null ? null : FileImage(File(imageFile.path)),
+                foregroundImage: imageFile == null
+                    ? null
+                    : FileImage(File(imageFile.path)),
                 child: const Icon(size: 40, Icons.person),
               ),
             ),

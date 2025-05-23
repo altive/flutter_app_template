@@ -1,7 +1,9 @@
 name: flutter_app_template_workspace
 
+publish_to: none
+
 environment:
-  sdk: ^3.6.0
+  sdk: ^3.8.0
 
 workspace:
   - packages/convenient_widgets
@@ -12,4 +14,125 @@ workspace:
   - packages/widget_catalog
 
 dev_dependencies:
-  melos: ^6.3.2
+  melos: ^7.0.0-dev.8
+
+melos:
+  name: flutter_app_template
+  repository: https://github.com/altive/flutter_app_template
+
+  packages:
+    - "packages/*"
+
+  command:
+    clean:
+      hooks:
+        post: |
+          melos exec --flutter -- "flutter clean"
+          melos exec --flutter --file-exists="ios/Podfile.lock" -- "cd ios && rm Podfile.lock"
+    version:
+      branch: main
+      releaseUrl: true
+
+  scripts:
+    custom_lint:
+      exec: dart run custom_lint
+      description: Run custom_lint.
+      packageFilters:
+        dirExists: lib
+        dependsOn: "custom_lint"
+
+    # Issue on file exclusion feature: https://github.com/dart-lang/dart_style/issues/864
+    # NOTE: Using the `exec:` format causes processing to stop
+    format:ci:
+      run: |
+        melos exec -- \
+          dart format --set-exit-if-changed $(find . -name "*.dart" -not \( -name "*.*freezed.dart" -o -name "*.*g.dart" -o -name "*.gen.dart" -o -wholename "./.dart_tool/*" \) )
+      description: Run format.
+      packageFilters:
+        flutter: true
+        dirExists: [lib, test]
+
+    fix:
+      exec: |
+        dart fix --apply lib
+        dart run custom_lint --fix
+      description: Run dart and custom_lint fixes.
+      packageFilters:
+        dirExists: lib
+
+    gen:
+      run: dart run build_runner build --delete-conflicting-outputs
+      exec:
+        concurrency: 1
+      description: Run generate code.
+      packageFilters:
+        dirExists: lib
+        dependsOn: "build_runner"
+
+    gen:watch:
+      run: dart run build_runner watch --delete-conflicting-outputs
+      exec:
+        concurrency: 99
+      description: Watch and run generate code.
+      packageFilters:
+        dirExists: lib
+        dependsOn: "build_runner"
+
+    gen:icons:
+      exec: dart run flutter_launcher_icons
+      description: Generate launcher icons.
+      packageFilters:
+        dirExists: lib
+        dependsOn: "flutter_launcher_icons"
+
+    slang:
+      run: dart run slang
+      exec:
+        concurrency: 1
+      description: Run generate translation code.
+      packageFilters:
+        dirExists: lib
+        dependsOn: slang
+
+    slang:watch:
+      exec: dart run slang watch
+      description: Run generate translation code.
+      packageFilters:
+        dirExists: lib
+        dependsOn: slang
+
+    test:
+      run: flutter test
+      exec:
+        failFast: true
+      description: Run flutter test.
+      packageFilters:
+        flutter: true
+        dirExists: test
+
+    test:ci:
+      run: flutter test --coverage
+      exec:
+        failFast: true
+      description: Run flutter test for CI.
+      packageFilters:
+        flutter: true
+        dirExists: test
+
+    flutterfire:update:
+      exec: flutterfire update
+      description: Run flutterfire update.
+      packageFilters:
+        flutter: true
+        dirExists: lib
+        dependsOn: "firebase_core"
+
+    pod:
+      exec: |
+        cd ios
+        rm -f Podfile.lock
+        pod install --repo-update
+      description: Run pod install on iOS.
+      packageFilters:
+        dirExists: [lib, ios]
+        fileExists: "ios/Podfile"

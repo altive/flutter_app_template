@@ -60,16 +60,13 @@ jobs:
       - name: Install Melos
         uses: bluefireteam/melos-action@v3
         with:
-          run-bootstrap: false
-
-      - name: Install Dependencies
-        run: dart pub get --enforce-lockfile
+          run-bootstrap: true
 
       - name: Analyze packages
-        run: melos analyze --fatal-infos
+        run: flutter analyze --fatal-infos
 
       - name: Run custom lint
-        run: melos run custom_lint
+        run: melos run custom_lint --no-select
 
       - name: Check for the existence of unformatted files
         # Cannot use `melos format` as it requires excluding files generated from the target file
@@ -94,10 +91,7 @@ jobs:
       - name: Install Melos
         uses: bluefireteam/melos-action@v3
         with:
-          run-bootstrap: false
-
-      - name: Install Dependencies
-        run: dart pub get --enforce-lockfile
+          run-bootstrap: true
 
       - name: Run package tests
         run: melos run test:ci --no-select
