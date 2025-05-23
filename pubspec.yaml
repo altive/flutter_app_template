@@ -52,6 +52,12 @@ melos:
         flutter: true
         dirExists: [lib, test]
 
+    analyze:
+      exec: dart analyze --fatal-infos .
+      description: Run dart analyze.
+      packageFilters:
+        dirExists: lib
+
     fix:
       exec: |
         dart fix --apply lib

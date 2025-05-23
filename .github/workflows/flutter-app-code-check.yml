@@ -66,10 +66,10 @@ jobs:
         run: dart pub get --enforce-lockfile
 
       - name: Analyze packages
-        run: melos analyze --fatal-infos
+        run: melos run analyze --no-select
 
       - name: Run custom lint
-        run: melos run custom_lint
+        run: melos run custom_lint --no-select
 
       - name: Check for the existence of unformatted files
         # Cannot use `melos format` as it requires excluding files generated from the target file
