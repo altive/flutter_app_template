@@ -42,6 +42,7 @@ riverpod
 Routemaster
 Schyler
 setprop
+SRCROOT
 temurin
 toggleable
 unawaited
@@ -53,5 +54,6 @@ wireframe
 xcarchive
 xcconfig
 xcodebuild
+xcodeproj
 xcrun
 xcworkspace
