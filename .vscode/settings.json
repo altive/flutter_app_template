@@ -32,6 +32,7 @@
     "*.gen.dart",
     "*.lock",
     "*.xcconfig",
+    "*.xcscheme",
     "**/fvm",
     "**/.pub-cache",
     ".git/objects",
