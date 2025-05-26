@@ -11,7 +11,7 @@ dependencies:
   dio: ^5.8.0+1
   freezed_annotation: ^3.0.0
   mock_web_server: ^5.0.0-nullsafety.1
-  mockito: ^5.4.4
+  mockito: ^5.4.6
   retrofit: ^4.4.1
 
 dev_dependencies:
