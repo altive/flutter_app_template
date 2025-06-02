@@ -11,10 +11,10 @@ environment:
 resolution: workspace
 
 dependencies:
-  altfire_authenticator: ^0.1.6
+  altfire_authenticator: ^1.0.0
   altfire_configurator: ^1.0.1
-  altfire_messenger: ^0.2.1
-  altfire_tracker: ^0.1.5
+  altfire_messenger: ^1.0.0
+  altfire_tracker: ^1.0.0
   awaitable_button: ^1.3.0
   cached_network_image: ^3.4.0
   clock: ^1.1.1
