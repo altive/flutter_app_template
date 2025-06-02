@@ -7,7 +7,12 @@ part of 'package_name.dart';
 // **************************************************************************
 
 _PackageName _$PackageNameFromJson(Map<String, dynamic> json) =>
-    _PackageName(name: json['package'] as String);
+    $checkedCreate('_PackageName', json, ($checkedConvert) {
+      final val = _PackageName(
+        name: $checkedConvert('package', (v) => v as String),
+      );
+      return val;
+    }, fieldKeyMap: const {'name': 'package'});
 
 Map<String, dynamic> _$PackageNameToJson(_PackageName instance) =>
     <String, dynamic>{'package': instance.name};

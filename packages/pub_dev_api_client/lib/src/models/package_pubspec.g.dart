@@ -7,11 +7,14 @@ part of 'package_pubspec.dart';
 // **************************************************************************
 
 _PackagePubspec _$PackagePubspecFromJson(Map<String, dynamic> json) =>
-    _PackagePubspec(
-      name: json['name'] as String,
-      version: json['version'] as String,
-      description: json['description'] as String,
-    );
+    $checkedCreate('_PackagePubspec', json, ($checkedConvert) {
+      final val = _PackagePubspec(
+        name: $checkedConvert('name', (v) => v as String),
+        version: $checkedConvert('version', (v) => v as String),
+        description: $checkedConvert('description', (v) => v as String),
+      );
+      return val;
+    });
 
 Map<String, dynamic> _$PackagePubspecToJson(_PackagePubspec instance) =>
     <String, dynamic>{

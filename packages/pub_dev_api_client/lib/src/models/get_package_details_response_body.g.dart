@@ -8,11 +8,20 @@ part of 'get_package_details_response_body.dart';
 
 _GetPackageDetailsResponseBody _$GetPackageDetailsResponseBodyFromJson(
   Map<String, dynamic> json,
-) => _GetPackageDetailsResponseBody(
-  name: json['name'] as String,
-  latest: LatestPackageRelease.fromJson(json['latest'] as Map<String, dynamic>),
-);
+) => $checkedCreate('_GetPackageDetailsResponseBody', json, ($checkedConvert) {
+  final val = _GetPackageDetailsResponseBody(
+    name: $checkedConvert('name', (v) => v as String),
+    latest: $checkedConvert(
+      'latest',
+      (v) => LatestPackageRelease.fromJson(v as Map<String, dynamic>),
+    ),
+  );
+  return val;
+});
 
 Map<String, dynamic> _$GetPackageDetailsResponseBodyToJson(
   _GetPackageDetailsResponseBody instance,
-) => <String, dynamic>{'name': instance.name, 'latest': instance.latest};
+) => <String, dynamic>{
+  'name': instance.name,
+  'latest': instance.latest.toJson(),
+};

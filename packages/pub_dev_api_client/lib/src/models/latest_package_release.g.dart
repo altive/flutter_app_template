@@ -8,10 +8,16 @@ part of 'latest_package_release.dart';
 
 _LatestPackageRelease _$LatestPackageReleaseFromJson(
   Map<String, dynamic> json,
-) => _LatestPackageRelease(
-  pubspec: PackagePubspec.fromJson(json['pubspec'] as Map<String, dynamic>),
-);
+) => $checkedCreate('_LatestPackageRelease', json, ($checkedConvert) {
+  final val = _LatestPackageRelease(
+    pubspec: $checkedConvert(
+      'pubspec',
+      (v) => PackagePubspec.fromJson(v as Map<String, dynamic>),
+    ),
+  );
+  return val;
+});
 
 Map<String, dynamic> _$LatestPackageReleaseToJson(
   _LatestPackageRelease instance,
-) => <String, dynamic>{'pubspec': instance.pubspec};
+) => <String, dynamic>{'pubspec': instance.pubspec.toJson()};

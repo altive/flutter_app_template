@@ -1,0 +1,24 @@
+targets:
+  $default:
+    sources:
+      include:
+        - $package$ # Package metadata.
+        - pubspec.yaml # Package configuration.
+        - lib/** # Dart source files.
+    builders:
+      freezed:
+        generate_for:
+          include:
+            - lib/**/models/*.dart
+      json_serializable:
+        generate_for:
+          include:
+            - lib/**/models/*.dart
+        options:
+          checked: true
+          explicit_to_json: true
+          field_rename: snake
+      retrofit_generator:
+        generate_for:
+          include:
+            - lib/**/*_client.dart 
