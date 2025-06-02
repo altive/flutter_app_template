@@ -53,13 +53,6 @@ flutter create -t package packages/{directory_name} --project-name {project_name
 flutter create --org jp.co.altive packages/{directory_name} --project-name {project_name}
 ```
 
-## Firebase SDK version for iOS and macOS
-
-[FirebaseSDKVersionTag.txt](FirebaseSDKVersionTag.txt) manages the SDK version you wish to specify.
-
-↓ For the latest version, click here.
-https://github.com/invertase/firestore-ios-sdk-frameworks/releases
-
 ## Addition of ISSUE_TEMPLATE
 
 If you do not have `.github/ISSUE_TEMPLATE` in a repository, you can use Issue templates placed in a special repository named `.github`.
