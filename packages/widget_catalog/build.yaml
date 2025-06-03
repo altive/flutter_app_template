@@ -1,5 +1,10 @@
 targets:
   $default:
+    sources:
+      include:
+        - $package$ # Package metadata.
+        - pubspec.yaml # Package configuration.
+        - lib/** # Dart source files.
     builders:
       widgetbook_generator:use_case_builder:
         generate_for:

@@ -26,8 +26,6 @@ flutter_gen:
   integrations:
     image: true
     flutter_svg: true
-    rive: false
-    lottie: false
 
 flutter:
   assets:

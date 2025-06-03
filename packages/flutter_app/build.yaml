@@ -1,6 +1,15 @@
 targets:
   $default:
+    sources:
+      include:
+        - $package$ # Package metadata.
+        - pubspec.yaml # FlutterGen and other builders configuration.
+        - lib/** # Dart source files.
+        - assets/** # Asset files for FlutterGen.
     builders:
+      flutter_gen_runner:
+        options:
+          output: lib/gen/
       source_gen|combining_builder:
         options:
           ignore_for_file:
