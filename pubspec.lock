@@ -61,10 +61,10 @@ packages:
     dependency: transitive
     description:
       name: altive_lints
-      sha256: "6df846e9ede27d63197fcf4617ae6fee8a14577ddd90ae2583e0dc3ddf64e323"
+      sha256: "161a277e7af71a296fe4f1f2021495368b6b2cbfc6d9e8dbf0d0683bd1f92112"
       url: "https://pub.dev"
     source: hosted
-    version: "1.20.0"
+    version: "1.21.0"
   analyzer:
     dependency: "direct overridden"
     description:
