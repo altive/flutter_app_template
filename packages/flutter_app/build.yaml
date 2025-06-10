@@ -34,9 +34,9 @@ targets:
             - lib/**/entities/*.dart
             - lib/**/model/*.dart
         options:
-          # 例外発生時にCheckedFromJsonExceptionをthrowする
+          # Throw a CheckedFromJsonException when an exception occurs.
           checked: true
-          # ネストされたリストに対してtoJson/fromJsonをメソッド生成する
+          # Generate toJson/fromJson methods for nested lists.
           explicit_to_json: true
           field_rename: snake
       riverpod_generator:

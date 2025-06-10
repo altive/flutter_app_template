@@ -5,6 +5,9 @@ analyzer:
   exclude:
     - "**/gen/*.dart"
     - "**/firebase_options_*.dart"
+  errors:
+    # for go_router 15.1.3 with go_router_builder 3.0.0.
+    override_on_non_overriding_member: ignore
 linter:
   rules:
     public_member_api_docs: false
