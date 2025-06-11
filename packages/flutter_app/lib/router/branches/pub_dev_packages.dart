@@ -1,13 +1,13 @@
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+part of '../app_routes.dart';
 
-import '../../features/pub_dev_packages/view/pub_dev_packages_page.dart';
-
+// Shell Branch Data Classes
 class PubDevPackagesShellBranchData extends StatefulShellBranchData {
   const PubDevPackagesShellBranchData();
 }
 
-class PubDevPackagesRouteData extends GoRouteData {
+// Route Data Classes
+class PubDevPackagesRouteData extends GoRouteData
+    with _$PubDevPackagesRouteData {
   const PubDevPackagesRouteData();
 
   static const name = '/pub_dev_packages';

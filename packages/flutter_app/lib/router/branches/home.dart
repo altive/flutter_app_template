@@ -1,22 +1,12 @@
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+part of '../app_routes.dart';
 
-import '../../pages/app_info_page/app_info_page.dart';
-import '../../pages/home_page/home_page.dart';
-import '../../pages/riverpod_example_page/async_notifier_provider_page/async_notifier_provider_page.dart';
-import '../../pages/riverpod_example_page/listen_provider_page/listen_provider_page.dart';
-import '../../pages/riverpod_example_page/notifier_provider_page/notifier_provider_page.dart';
-import '../../pages/riverpod_example_page/provider_page/provider_page.dart';
-import '../../pages/riverpod_example_page/riverpod_example_page.dart';
-import '../../pages/riverpod_example_page/state_notifier_provider_page/state_notifier_provider_page.dart';
-import '../../pages/riverpod_example_page/state_provider_page/state_provider_page.dart';
-import '../../pages/riverpod_example_page/stream_provider_page.dart/stream_provider_page.dart';
-
+// Shell Branch Data Classes
 class HomeShellBranchData extends StatefulShellBranchData {
   const HomeShellBranchData();
 }
 
-class HomeRouteData extends GoRouteData {
+// Route Data Classes with Mixins
+class HomeRouteData extends GoRouteData with _$HomeRouteData {
   const HomeRouteData();
 
   static const name = '/home';
@@ -28,7 +18,7 @@ class HomeRouteData extends GoRouteData {
   }
 }
 
-class AppInfoRouteData extends GoRouteData {
+class AppInfoRouteData extends GoRouteData with _$AppInfoRouteData {
   const AppInfoRouteData();
 
   static const name = '/app-info';
@@ -40,7 +30,8 @@ class AppInfoRouteData extends GoRouteData {
   }
 }
 
-class RiverpodExampleRouteData extends GoRouteData {
+class RiverpodExampleRouteData extends GoRouteData
+    with _$RiverpodExampleRouteData {
   const RiverpodExampleRouteData();
 
   static const name = '/riverpod';
@@ -52,7 +43,7 @@ class RiverpodExampleRouteData extends GoRouteData {
   }
 }
 
-class ProviderRouteData extends GoRouteData {
+class ProviderRouteData extends GoRouteData with _$ProviderRouteData {
   const ProviderRouteData();
 
   static const name = '/provider';
@@ -63,7 +54,7 @@ class ProviderRouteData extends GoRouteData {
       const ProviderPage();
 }
 
-class StateProviderRouteData extends GoRouteData {
+class StateProviderRouteData extends GoRouteData with _$StateProviderRouteData {
   const StateProviderRouteData();
 
   static const name = '/state-provider';
@@ -74,7 +65,8 @@ class StateProviderRouteData extends GoRouteData {
       const StateProviderPage();
 }
 
-class StreamProviderRouteData extends GoRouteData {
+class StreamProviderRouteData extends GoRouteData
+    with _$StreamProviderRouteData {
   const StreamProviderRouteData();
 
   static const name = '/stream-provider';
@@ -85,7 +77,8 @@ class StreamProviderRouteData extends GoRouteData {
       const StreamProviderPage();
 }
 
-class NotifierProviderRouteData extends GoRouteData {
+class NotifierProviderRouteData extends GoRouteData
+    with _$NotifierProviderRouteData {
   const NotifierProviderRouteData();
 
   static const name = '/notifier-provider';
@@ -96,7 +89,8 @@ class NotifierProviderRouteData extends GoRouteData {
       const NotifierProviderPage();
 }
 
-class AsyncNotifierProviderRouteData extends GoRouteData {
+class AsyncNotifierProviderRouteData extends GoRouteData
+    with _$AsyncNotifierProviderRouteData {
   const AsyncNotifierProviderRouteData();
 
   static const name = '/async-notifier-provider';
@@ -107,7 +101,8 @@ class AsyncNotifierProviderRouteData extends GoRouteData {
       const AsyncNotifierProviderPage();
 }
 
-class StateNotifierProviderRouteData extends GoRouteData {
+class StateNotifierProviderRouteData extends GoRouteData
+    with _$StateNotifierProviderRouteData {
   const StateNotifierProviderRouteData();
 
   static const name = '/state-notifier-provider';
@@ -118,7 +113,8 @@ class StateNotifierProviderRouteData extends GoRouteData {
       const StateNotifierProviderPage();
 }
 
-class ListenProviderRouteData extends GoRouteData {
+class ListenProviderRouteData extends GoRouteData
+    with _$ListenProviderRouteData {
   const ListenProviderRouteData();
 
   static const name = '/listen-provider';

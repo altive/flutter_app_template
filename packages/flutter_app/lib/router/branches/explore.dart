@@ -1,13 +1,12 @@
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+part of '../app_routes.dart';
 
-import '../../features/explore/view/explore_page.dart';
-
+// Shell Branch Data Classes
 class ExploreShellBranchData extends StatefulShellBranchData {
   const ExploreShellBranchData();
 }
 
-class ExploreRouteData extends GoRouteData {
+// Route Data Classes
+class ExploreRouteData extends GoRouteData with _$ExploreRouteData {
   const ExploreRouteData();
 
   static const name = '/explore';

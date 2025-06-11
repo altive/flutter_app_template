@@ -1,10 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../features/explore/view/explore_page.dart';
+import '../features/pub_dev_packages/view/pub_dev_packages_page.dart';
+import '../pages/account/account_page.dart';
+import '../pages/app_info_page/app_info_page.dart';
+import '../pages/dashboard/dashboard_page.dart';
+import '../pages/home_page/home_page.dart';
 import '../pages/main/main_page.dart';
-import 'branches/branches.dart';
+import '../pages/riverpod_example_page/async_notifier_provider_page/async_notifier_provider_page.dart';
+import '../pages/riverpod_example_page/listen_provider_page/listen_provider_page.dart';
+import '../pages/riverpod_example_page/notifier_provider_page/notifier_provider_page.dart';
+import '../pages/riverpod_example_page/provider_page/provider_page.dart';
+import '../pages/riverpod_example_page/riverpod_example_page.dart';
+import '../pages/riverpod_example_page/state_notifier_provider_page/state_notifier_provider_page.dart';
+import '../pages/riverpod_example_page/state_provider_page/state_provider_page.dart';
+import '../pages/riverpod_example_page/stream_provider_page.dart/stream_provider_page.dart';
+import '../pages/settings_page/settings_page.dart';
+import '../pages/theme_selection_page/theme_selection_page.dart';
 
 part 'app_routes.g.dart';
+part 'branches/dashboard.dart';
+part 'branches/explore.dart';
+part 'branches/home.dart';
+part 'branches/pub_dev_packages.dart';
+part 'branches/settings.dart';
 
 @TypedStatefulShellRoute<MainShellRouteData>(
   branches: [

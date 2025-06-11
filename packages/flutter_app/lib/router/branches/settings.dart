@@ -1,15 +1,12 @@
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+part of '../app_routes.dart';
 
-import '../../pages/account/account_page.dart';
-import '../../pages/settings_page/settings_page.dart';
-import '../../pages/theme_selection_page/theme_selection_page.dart';
-
+// Shell Branch Data Classes
 class SettingsShellBranchData extends StatefulShellBranchData {
   const SettingsShellBranchData();
 }
 
-class SettingsRouteData extends GoRouteData {
+// Route Data Classes
+class SettingsRouteData extends GoRouteData with _$SettingsRouteData {
   const SettingsRouteData();
 
   static const name = '/settings';
@@ -21,7 +18,8 @@ class SettingsRouteData extends GoRouteData {
   }
 }
 
-class ThemeSelectionRouteData extends GoRouteData {
+class ThemeSelectionRouteData extends GoRouteData
+    with _$ThemeSelectionRouteData {
   const ThemeSelectionRouteData();
 
   static const name = '/theme-selection';
@@ -33,7 +31,7 @@ class ThemeSelectionRouteData extends GoRouteData {
   }
 }
 
-class AccountRouteData extends GoRouteData {
+class AccountRouteData extends GoRouteData with _$AccountRouteData {
   const AccountRouteData();
 
   static const name = '/account';

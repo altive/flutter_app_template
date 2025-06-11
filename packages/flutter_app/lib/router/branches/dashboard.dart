@@ -1,13 +1,12 @@
-import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
+part of '../app_routes.dart';
 
-import '../../pages/dashboard/dashboard_page.dart';
-
+// Shell Branch Data Classes
 class DashboardShellBranchData extends StatefulShellBranchData {
   const DashboardShellBranchData();
 }
 
-class DashboardRouteData extends GoRouteData {
+// Route Data Classes
+class DashboardRouteData extends GoRouteData with _$DashboardRouteData {
   const DashboardRouteData();
 
   static const name = '/dashboard';
