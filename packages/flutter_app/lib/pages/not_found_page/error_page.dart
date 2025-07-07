@@ -13,6 +13,7 @@ class ErrorRoute extends GoRouteData {
   const ErrorRoute({required this.location, required this.exception});
 
   /// Location of the route.
+  @override
   final String location;
 
   /// Exception.
