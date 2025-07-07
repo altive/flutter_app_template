@@ -19,7 +19,7 @@ dev_dependencies:
   altive_lints: ^1.21.0
   build_runner: ^2.4.13
   custom_lint: ^0.7.5
-  freezed: ^3.0.6
+  freezed: ^3.1.0
   json_serializable: ^6.9.5
   retrofit_generator: ^9.1.5
   test: ^1.25.8
