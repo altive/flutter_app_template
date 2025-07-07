@@ -23,7 +23,7 @@ dependencies:
   connectivity_plus: ^6.1.4
   convenient_widgets: ^1.0.0
   cupertino_icons: ^1.0.8
-  device_info_plus: ^11.3.3
+  device_info_plus: ^11.5.0
   firebase_core: ^3.13.1
   firebase_dynamic_links: ^6.1.7
   firebase_performance: ^0.10.1+6
