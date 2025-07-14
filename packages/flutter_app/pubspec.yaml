@@ -53,7 +53,7 @@ dependencies:
   sort_key_generator: ^0.2.1
   themes: ^1.0.0
   tuple: ^2.0.0
-  url_launcher: ^6.3.1
+  url_launcher: ^6.3.2
   uuid: ^4.5.1
   version: ^3.0.2
 
