@@ -18,6 +18,6 @@ dependencies:
 
 dev_dependencies:
   altive_lints: ^1.21.0
-  custom_lint: ^0.7.5
+  custom_lint: ^0.7.6
   flutter_test:
     sdk: flutter
