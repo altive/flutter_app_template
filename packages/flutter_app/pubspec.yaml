@@ -20,17 +20,17 @@ dependencies:
   clock: ^1.1.1
   cloud_firestore: ^5.6.11
   collection: ^1.16.0
-  connectivity_plus: ^6.1.4
+  connectivity_plus: ^6.1.5
   convenient_widgets: ^1.0.0
   cupertino_icons: ^1.0.8
   device_info_plus: ^11.5.0
   firebase_core: ^3.13.1
-  firebase_dynamic_links: ^6.1.7
+  firebase_dynamic_links: ^6.1.10
   firebase_performance: ^0.10.1+6
   firebase_storage: ^12.4.7
   flutter:
     sdk: flutter
-  flutter_hooks: ^0.21.2
+  flutter_hooks: ^0.21.3
   flutter_localizations:
     sdk: flutter
   flutter_svg: ^2.2.0
@@ -43,7 +43,7 @@ dependencies:
   intl: ^0.20.2
   json_annotation: ^4.9.0
   linked_scroll_controller: ^0.2.0
-  package_info_plus: ^8.3.0
+  package_info_plus: ^8.3.1
   pub_dev_api_client: ^1.0.0
   riverpod_annotation: ^2.6.1
   shared_preferences: ^2.5.3
@@ -53,7 +53,7 @@ dependencies:
   sort_key_generator: ^0.2.1
   themes: ^1.0.0
   tuple: ^2.0.0
-  url_launcher: ^6.3.1
+  url_launcher: ^6.3.2
   uuid: ^4.5.1
   version: ^3.0.2
 
