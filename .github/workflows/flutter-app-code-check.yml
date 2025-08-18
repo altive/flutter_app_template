@@ -20,7 +20,7 @@ jobs:
       flutter: ${{ steps.filter.outputs.flutter }}
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Filter by paths
         uses: dorny/paths-filter@v3
@@ -48,7 +48,7 @@ jobs:
     timeout-minutes: 20
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Flutter with FVM
         id: setup-flutter
@@ -79,7 +79,7 @@ jobs:
     timeout-minutes: 20
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Flutter with FVM
         id: setup-flutter
