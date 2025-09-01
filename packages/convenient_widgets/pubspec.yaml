@@ -15,10 +15,10 @@ dependencies:
   simple_logger: ^1.8.0+1
 
 dev_dependencies:
-  altive_lints: ^1.21.0
-  build_runner: ^2.4.15
-  custom_lint: ^0.7.5
-  flutter_gen_runner: ^5.10.0
+  altive_lints: ^1.22.1
+  build_runner: ^2.7.0
+  custom_lint: ^0.8.0
+  flutter_gen_runner: ^5.11.0
   flutter_test:
     sdk: flutter
 
