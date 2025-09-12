@@ -134,13 +134,3 @@ melos:
         flutter: true
         dirExists: lib
         dependsOn: "firebase_core"
-
-    pod:
-      exec: |
-        cd ios
-        rm -f Podfile.lock
-        pod install --repo-update
-      description: Run pod install on iOS.
-      packageFilters:
-        dirExists: [lib, ios]
-        fileExists: "ios/Podfile"
