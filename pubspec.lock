@@ -5,10 +5,10 @@ packages:
     dependency: transitive
     description:
       name: _fe_analyzer_shared
-      sha256: dc27559385e905ad30838356c5f5d574014ba39872d732111cd07ac0beff4c57
+      sha256: da0d9209ca76bde579f2da330aeb9df62b6319c834fa7baae052021b0462401f
       url: "https://pub.dev"
     source: hosted
-    version: "80.0.0"
+    version: "85.0.0"
   _flutterfire_internals:
     dependency: transitive
     description:
@@ -66,21 +66,21 @@ packages:
     source: hosted
     version: "1.23.0"
   analyzer:
-    dependency: "direct overridden"
+    dependency: transitive
     description:
       name: analyzer
-      sha256: "192d1c5b944e7e53b24b5586db760db934b177d4147c42fbca8c8c5f1eb8d11e"
+      sha256: f4ad0fea5f102201015c9aae9d93bc02f75dd9491529a8c21f88d17a8523d44c
       url: "https://pub.dev"
     source: hosted
-    version: "7.3.0"
+    version: "7.6.0"
   analyzer_plugin:
-    dependency: "direct overridden"
+    dependency: transitive
     description:
       name: analyzer_plugin
-      sha256: "1d460d14e3c2ae36dc2b32cef847c4479198cf87704f63c3c3c8150ee50c3916"
+      sha256: a5ab7590c27b779f3d4de67f31c4109dbe13dd7339f86461a6f2a8ab2594d8ce
       url: "https://pub.dev"
     source: hosted
-    version: "0.12.0"
+    version: "0.13.4"
   ansi_styles:
     dependency: transitive
     description:
@@ -405,42 +405,42 @@ packages:
     dependency: transitive
     description:
       name: custom_lint
-      sha256: "751ee9440920f808266c3ec2553420dea56d3c7837dd2d62af76b11be3fcece5"
+      sha256: "78085fbe842de7c5bef92de811ca81536968dbcbbcdac5c316711add2d15e796"
       url: "https://pub.dev"
     source: hosted
-    version: "0.8.1"
+    version: "0.8.0"
   custom_lint_builder:
     dependency: transitive
     description:
       name: custom_lint_builder
-      sha256: "1128db6f58e71d43842f3b9be7465c83f0c47f4dd8918f878dd6ad3b72a32072"
+      sha256: cc5532d5733d4eccfccaaec6070a1926e9f21e613d93ad0927fad020b95c9e52
       url: "https://pub.dev"
     source: hosted
-    version: "0.8.1"
+    version: "0.8.0"
   custom_lint_core:
     dependency: transitive
     description:
       name: custom_lint_core
-      sha256: "85b339346154d5646952d44d682965dfe9e12cae5febd706f0db3aa5010d6423"
+      sha256: cc4684d22ca05bf0a4a51127e19a8aea576b42079ed2bc9e956f11aaebe35dd1
       url: "https://pub.dev"
     source: hosted
-    version: "0.8.1"
+    version: "0.8.0"
   custom_lint_visitor:
-    dependency: "direct overridden"
+    dependency: transitive
     description:
       name: custom_lint_visitor
-      sha256: "36282d85714af494ee2d7da8c8913630aa6694da99f104fb2ed4afcf8fc857d8"
+      sha256: "4a86a0d8415a91fbb8298d6ef03e9034dc8e323a599ddc4120a0e36c433983a2"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.0+7.3.0"
+    version: "1.0.0+7.7.0"
   dart_style:
     dependency: transitive
     description:
       name: dart_style
-      sha256: c87dfe3d56f183ffe9106a18aebc6db431fc7c98c31a54b952a77f3d54a85697
+      sha256: "8a0e5fba27e8ee025d2ffb4ee820b4e6e2cf5e4246a6b1a477eb66866947e0bb"
       url: "https://pub.dev"
     source: hosted
-    version: "3.1.2"
+    version: "3.1.1"
   dartx:
     dependency: transitive
     description:

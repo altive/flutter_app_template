@@ -17,10 +17,6 @@ dev_dependencies:
   melos: ^7.1.0
 
 dependency_overrides:
-  # https://github.com/dart-lang/sdk/issues/60784
-  analyzer: 7.3.0
-  analyzer_plugin: 0.12.0
-  custom_lint_visitor: 1.0.0+7.3.0
 
 melos:
   name: flutter_app_template
@@ -40,7 +36,6 @@ melos:
       hooks:
         post: |
           melos exec --flutter -- "flutter clean"
-          melos exec --flutter --file-exists="ios/Podfile.lock" -- "cd ios && rm Podfile.lock"
     version:
       branch: main
       releaseUrl: true
