@@ -1,13 +1,10 @@
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:pub_dev_api_client/pub_dev_api_client.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../package_adaptor/pub_dev_api_client_provider.dart';
 
-part 'pub_dev_packages_page_state_provider.g.dart';
-
 /// Provider for the search word of pub.dev packages.
-@Riverpod(keepAlive: true)
-class PubDevPackageSearchWordState extends _$PubDevPackageSearchWordState {
+class PubDevPackageSearchWordState extends Notifier<String> {
   @override
   String build() => '';
 
@@ -23,8 +20,13 @@ class PubDevPackageSearchWordState extends _$PubDevPackageSearchWordState {
   }
 }
 
-@Riverpod(keepAlive: true)
-class PubDevPackagesPageState extends _$PubDevPackagesPageState {
+final pubDevPackageSearchWordStateProvider =
+    NotifierProvider<PubDevPackageSearchWordState, String>(
+      PubDevPackageSearchWordState.new,
+    );
+
+class PubDevPackagesPageState
+    extends AsyncNotifier<GetSearchedPackagesResponseBody> {
   @override
   Future<GetSearchedPackagesResponseBody> build() async {
     final searchWord = ref.watch(pubDevPackageSearchWordStateProvider);
@@ -35,6 +37,8 @@ class PubDevPackagesPageState extends _$PubDevPackagesPageState {
 
   Future<void> loadNext(int nextPage) async {
     state = const AsyncLoading<GetSearchedPackagesResponseBody>()
+        // Note: This is a workaround to avoid the error.
+        // ignore: invalid_use_of_internal_member
         .copyWithPrevious(state);
 
     final searchWord = ref.read(pubDevPackageSearchWordStateProvider);
@@ -54,3 +58,9 @@ class PubDevPackagesPageState extends _$PubDevPackagesPageState {
     );
   }
 }
+
+final pubDevPackagesPageStateProvider =
+    AsyncNotifierProvider<
+      PubDevPackagesPageState,
+      GetSearchedPackagesResponseBody
+    >(PubDevPackagesPageState.new);

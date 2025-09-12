@@ -1,11 +1,13 @@
 import 'dart:async';
 
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter_app/util/network_connectivity/network_connectivity.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/mockito.dart';
+import 'package:mocktail/mocktail.dart';
 
 import '../provider/provider_container.dart';
-import 'connectivity_provider_test.mocks.dart';
+
+class MockConnectivity extends Mock implements Connectivity {}
 
 void main() {
   group('NetworkConnectionState', () {
@@ -21,7 +23,7 @@ void main() {
         addTearDown(streamController.close);
 
         when(
-          mockConnectivity.onConnectivityChanged,
+          () => mockConnectivity.onConnectivityChanged,
         ).thenAnswer((_) => streamController.stream);
 
         streamController.add([ConnectivityResult.none]);
@@ -45,7 +47,7 @@ void main() {
         addTearDown(streamController.close);
 
         when(
-          mockConnectivity.onConnectivityChanged,
+          () => mockConnectivity.onConnectivityChanged,
         ).thenAnswer((_) => streamController.stream);
 
         streamController.add([ConnectivityResult.wifi]);

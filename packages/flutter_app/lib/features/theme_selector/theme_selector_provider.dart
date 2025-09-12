@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../util/providers/shared_preferences_provider.dart';
 
-part 'theme_selector_provider.g.dart';
-
 /// Provider for selecting the theme.
-@riverpod
-class ThemeSelector extends _$ThemeSelector {
+final themeSelectorProvider = NotifierProvider<ThemeSelector, ThemeMode>(
+  ThemeSelector.new,
+);
+
+class ThemeSelector extends Notifier<ThemeMode> {
   SharedPreferences get _prefs => ref.read(sharedPreferencesProvider);
 
   /// Key for storing the selected theme.

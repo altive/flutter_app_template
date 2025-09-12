@@ -4,18 +4,17 @@ import 'package:flutter_app/pages/riverpod_example_page/util/dio_provider.dart';
 import 'package:flutter_app/pages/riverpod_example_page/util/fake_dio.dart';
 import 'package:flutter_app/pages/riverpod_example_page/util/util.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mockito/annotations.dart';
-import 'package:mockito/mockito.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:mocktail/mocktail.dart';
 
 import '../../../util/provider/listener.dart';
 import '../../../util/provider/provider_container.dart';
-import 'async_notifier_provider_page_test.mocks.dart';
 
 /// _State is Type of the Notifier state.
 typedef _State = List<Todo>;
 
-@GenerateNiceMocks([MockSpec<FakeDio>()])
+class MockFakeDio extends Mock implements FakeDio {}
+
 void main() {
   group('AsyncTodoList', () {
     group('build', () {
@@ -33,7 +32,7 @@ void main() {
         );
 
         when(
-          mockDio.get<List<Map<String, dynamic>>>(
+          () => mockDio.get<List<Map<String, Object?>>>(
             'https://example.com/api/todo',
           ),
         ).thenAnswer((_) async => Response(data: [result.toJson()]));
@@ -42,7 +41,7 @@ void main() {
 
         container.listen(sut, listener.call, fireImmediately: true);
 
-        verify(listener(null, const AsyncLoading<_State>()));
+        verify(() => listener(null, const AsyncLoading<_State>()));
 
         final got = await container.read(sut.future);
 

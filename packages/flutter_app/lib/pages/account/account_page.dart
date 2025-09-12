@@ -58,7 +58,7 @@ class _Body extends HookConsumerWidget {
       children: [
         ListTile(
           title: const Text('UID:'),
-          subtitle: Text(ref.watch(userProvider).valueOrNull?.uid ?? 'none'),
+          subtitle: Text(ref.watch(userProvider).value?.uid ?? 'none'),
         ),
         AwaitableTextButton<void>(
           onPressed: signOut,

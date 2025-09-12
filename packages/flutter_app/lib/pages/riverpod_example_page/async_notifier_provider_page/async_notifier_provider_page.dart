@@ -3,20 +3,20 @@ import 'dart:math';
 import 'package:clock/clock.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../entities/todo.dart';
 import '../util/util.dart';
 
-part 'async_notifier_provider_page.g.dart';
+final asyncTodoListProvider = AsyncNotifierProvider<AsyncTodoList, List<Todo>>(
+  AsyncTodoList.new,
+);
 
 // Provider example.
 // `@riverpod` アノテーションを付けて、 `_$クラス名` を継承することで、 `asyncTodoListProvider` が生成できる。
 // `ref.watch(asyncTodoListProvider)` で `state(List<Todo>)`が取得できる。
 // `ref.watch(asyncTodoListProvider.notifier)` で
 // `AsyncTodoList(Notifier)` が取得できる。
-@riverpod
-class AsyncTodoList extends _$AsyncTodoList {
+class AsyncTodoList extends AsyncNotifier<List<Todo>> {
   Future<List<Todo>> _fetchTodo() async {
     // Web API等を通じてTodoリストを取得する処理
     final r = await ref
@@ -36,7 +36,7 @@ class AsyncTodoList extends _$AsyncTodoList {
   /// 新しいTODOを追加するメソッド
   Future<void> add(Todo todo) async {
     // 新しいTODOを追加するメソッド
-    final todos = state.valueOrNull;
+    final todos = state.value;
     state = const AsyncValue.loading(); // 処理完了までの間はローディング状態にしたい場合
     // AsyncValue.guard: 例外発生時は AsyncErrorを返してくれる（try/catchの代替）
     state = await AsyncValue.guard(() async {

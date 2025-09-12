@@ -1,27 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../../../widgets/widgets.dart';
-
-part 'stream_provider_page.g.dart';
 
 // Provider example.
 
 /// 従来の記法
 /// 1秒ずつにカウントをインクリメントする。
-final AutoDisposeStreamProvider<int> countOldSyntaxProvider =
-    StreamProvider.autoDispose((ref) {
-      return Stream<int>.periodic(const Duration(seconds: 1), (count) => count);
-    });
-
-/// コード生成記法
-/// 1秒ずつにカウントをインクリメントする。
-@riverpod
-Stream<int> count(Ref ref) {
+final StreamProvider<int> countOldSyntaxProvider = StreamProvider.autoDispose((
+  ref,
+) {
   return Stream<int>.periodic(const Duration(seconds: 1), (count) => count);
-}
+});
+
+/// 1秒ずつにカウントをインクリメントする。
+final StreamProvider<int> countProvider = StreamProvider.autoDispose<int>((
+  ref,
+) {
+  return Stream<int>.periodic(const Duration(seconds: 1), (count) => count);
+});
 
 // Widget example.
 class StreamProviderPage extends ConsumerWidget {
