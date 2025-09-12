@@ -3,7 +3,7 @@ name: flutter_app_template_workspace
 publish_to: none
 
 environment:
-  sdk: ^3.8.0
+  sdk: ^3.9.2
 
 workspace:
   - packages/convenient_widgets
@@ -14,7 +14,7 @@ workspace:
   - packages/widget_catalog
 
 dev_dependencies:
-  melos: ^7.0.0-dev.8
+  melos: ^7.1.0
 
 dependency_overrides:
   # https://github.com/dart-lang/sdk/issues/60784
@@ -30,6 +30,12 @@ melos:
     - "packages/*"
 
   command:
+    bootstrap:
+      environment:
+        sdk: ^3.9.2
+      dev_dependencies:
+        altive_lints: ^1.23.0
+        custom_lint: ^0.8.0
     clean:
       hooks:
         post: |

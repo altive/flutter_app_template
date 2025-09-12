@@ -29,6 +29,7 @@ ltrb
 LTWH
 mockito
 mocktail
+nonobvious
 nullsafety
 pbcopy
 Podfile
