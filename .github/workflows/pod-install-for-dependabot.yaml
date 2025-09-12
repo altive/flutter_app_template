@@ -92,7 +92,7 @@ jobs:
 
       - name: Commnet to PR
         if: steps.commit.conclusion == 'success'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             github.rest.issues.createComment({
