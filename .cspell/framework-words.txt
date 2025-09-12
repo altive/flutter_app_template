@@ -28,12 +28,14 @@ lerp
 ltrb
 LTWH
 mockito
+mocktail
 nullsafety
 pbcopy
 Podfile
 podhelper
 postbootstrap
 postclean
+psql
 pubspec
 Reorderable
 revenuecat

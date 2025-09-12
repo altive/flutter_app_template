@@ -3,18 +3,18 @@ import 'dart:math';
 import 'package:clock/clock.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 import '../entities/todo.dart';
 
-part 'notifier_provider_page.g.dart';
+final todoListProvider = NotifierProvider<TodoList, List<Todo>>(
+  TodoList.new,
+);
 
 // Provider example.
 // `@riverpod` アノテーションを付けて、 `_$クラス名` を継承することで、 `todoListProvider` が生成できる。
 // `ref.watch(todoListProvider)` で `state (List<Todo>)`が取得できる。
 // `ref.watch(todoListProvider.notifier)` で `TodoList (Notifier)` が取得できる
-@riverpod
-class TodoList extends _$TodoList {
+class TodoList extends Notifier<List<Todo>> {
   @override
   List<Todo> build() {
     return const [

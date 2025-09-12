@@ -127,7 +127,7 @@ class _PackageCard extends StatelessWidget {
             builder: (_) => Consumer(
               builder: (context, ref, child) {
                 final asyncValue = ref.watch(
-                  pubDevPackageDetailsProvider(packageName: packageName),
+                  pubDevPackageDetailsProvider(packageName),
                 );
 
                 return AlertDialog(

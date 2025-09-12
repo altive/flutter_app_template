@@ -1,42 +1,47 @@
 // 例のため、一部の警告を無視しています。
-// ignore_for_file: invalid_use_of_internal_member
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
-
-part 'namespace_provider_page.g.dart';
+import 'package:hooks_riverpod/legacy.dart';
+// no code generation
 
 // -----------------------------------------------------------------------------
 // 「登録」関連のNotifierProviderをプライベートで定義してコード生成し、
 // `RegistrationProviders` クラスでまとめて公開する例
 // -----------------------------------------------------------------------------
-@riverpod
-class _Nickname extends _$Nickname {
+class _Nickname extends Notifier<String> {
   @override
   String build() => '';
 }
 
-@riverpod
-class _Birthday extends _$Birthday {
+class _Birthday extends Notifier<String> {
   @override
   String build() => '';
 }
 
-@riverpod
-class _LivingPlace extends _$LivingPlace {
+class _LivingPlace extends Notifier<String> {
   @override
   String build() => '';
 }
+
+final _nicknameProvider = NotifierProvider<_Nickname, String>(
+  _Nickname.new,
+);
+final _birthdayProvider = NotifierProvider<_Birthday, String>(
+  _Birthday.new,
+);
+final _livingPlaceProvider = NotifierProvider<_LivingPlace, String>(
+  _LivingPlace.new,
+);
 
 // This is example.
 // ignore: avoid_classes_with_only_static_members
 class Registration {
-  static final AutoDisposeNotifierProviderImpl<_Nickname, String>
-  nicknameProvider = _nicknameProvider;
-  static final AutoDisposeNotifierProviderImpl<_Birthday, String>
-  birthdayProvider = _birthdayProvider;
-  static final AutoDisposeNotifierProviderImpl<_LivingPlace, String>
-  livingPlaceProvider = _livingPlaceProvider;
+  static final NotifierProvider<_Nickname, String> nicknameProvider =
+      _nicknameProvider;
+  static final NotifierProvider<_Birthday, String> birthdayProvider =
+      _birthdayProvider;
+  static final NotifierProvider<_LivingPlace, String> livingPlaceProvider =
+      _livingPlaceProvider;
 }
 
 // -----------------------------------------------------------------------------

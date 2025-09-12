@@ -1,4 +1,4 @@
-import 'package:mockito/mockito.dart';
+import 'package:mocktail/mocktail.dart';
 
 /// Listener is a mock of the ProviderContainer.listen callback.
 class Listener<T> extends Mock {

@@ -1,12 +1,9 @@
 import 'dart:ui';
 
 import 'package:flutter/widgets.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-part 'locales_provider.g.dart';
-
-@Riverpod(keepAlive: true)
-class Locales extends _$Locales with WidgetsBindingObserver {
+class Locales extends Notifier<List<Locale>?> with WidgetsBindingObserver {
   @override
   List<Locale>? build() {
     final binding = WidgetsBinding.instance..addObserver(this);
@@ -20,3 +17,5 @@ class Locales extends _$Locales with WidgetsBindingObserver {
     super.didChangeLocales(locales);
   }
 }
+
+final localesProvider = NotifierProvider<Locales, List<Locale>?>(Locales.new);

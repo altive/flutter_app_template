@@ -1,15 +1,9 @@
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
-
-part 'flavor_provider.g.dart';
 
 /// Provide current Flavor.
 ///
 /// Need override in top-level ProviderScope.
-@Riverpod(keepAlive: true)
-Flavor flavor(Ref ref) {
-  throw UnimplementedError();
-}
+final flavorProvider = Provider<Flavor>((ref) => throw UnimplementedError());
 
 /// Flavor of the app.
 enum Flavor {

@@ -39,10 +39,3 @@ targets:
           # ネストされたリストに対してtoJson/fromJsonをメソッド生成する
           explicit_to_json: true
           field_rename: snake
-      riverpod_generator:
-        generate_for:
-          include:
-            - "**/*provider.dart"
-            - lib/**/riverpod_example_page/**/*.dart
-        options:
-          provider_name_suffix: "Provider" # (default)

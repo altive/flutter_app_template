@@ -1,9 +1,10 @@
-import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-part 'count_state_provider.g.dart';
+final countStateProvider = NotifierProvider<CountState, int>(
+  CountState.new,
+);
 
-@riverpod
-class CountState extends _$CountState {
+class CountState extends Notifier<int> {
   @override
   int build() {
     return 0;

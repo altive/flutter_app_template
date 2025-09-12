@@ -1,10 +1,8 @@
 import 'package:flutter/widgets.dart';
-import 'package:riverpod_annotation/riverpod_annotation.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-part 'app_lifecycle_provider.g.dart';
-
-@riverpod
-class AppLifecycle extends _$AppLifecycle with WidgetsBindingObserver {
+class AppLifecycle extends Notifier<AppLifecycleState>
+    with WidgetsBindingObserver {
   @override
   AppLifecycleState build() {
     final binding = WidgetsBinding.instance..addObserver(this);
@@ -18,6 +16,10 @@ class AppLifecycle extends _$AppLifecycle with WidgetsBindingObserver {
     super.didChangeAppLifecycleState(state);
   }
 }
+
+final appLifecycleProvider = NotifierProvider<AppLifecycle, AppLifecycleState>(
+  AppLifecycle.new,
+);
 
 extension AppLifecycleStateExtension on AppLifecycleState {
   bool get isResumed => this == AppLifecycleState.resumed;
