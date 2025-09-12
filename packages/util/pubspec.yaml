@@ -6,7 +6,7 @@ version: 1.0.0
 homepage: https://github.com/altive/flutter_app_template/tree/main/packages/util
 
 environment:
-  sdk: ^3.8.0
+  sdk: ^3.9.2
 
 resolution: workspace
 
@@ -17,7 +17,7 @@ dependencies:
   shared_preferences: ^2.5.3
 
 dev_dependencies:
-  altive_lints: ^1.21.0
-  custom_lint: ^0.7.5
+  altive_lints: ^1.23.0
+  custom_lint: ^0.8.0
   flutter_test:
     sdk: flutter

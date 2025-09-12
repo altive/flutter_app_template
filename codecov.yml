@@ -7,21 +7,21 @@ codecov:
 coverage:
   precision: 2
   round: down
-  range: "70...100"
+  range: "60...80"
 
   status:
     project:
       default:
         target: auto
         threshold: 0%
-        paths:
-          - "lib"
+        only_pulls: true
     patch: # for pull requests
       default:
         target: 80%
         threshold: 0%
+        only_pulls: true
         paths:
-          - "lib"
+          - "packages/**/lib/"
 
 parsers:
   gcov:
@@ -33,22 +33,24 @@ parsers:
 
 # excluding generated files and examples from the coverage report
 ignore:
-  - "**/gen"
-  - "**/stub"
-  - "**/*.g.dart"
+  - "**/gen/**"
+  - "**/stub/**"
   - "**/*.freezed.dart"
+  - "**/*.g.dart"
 
 comment: # See: https://docs.codecov.io/docs/pull-request-comments
-  layout: "reach, diff, flags, tree, header, footer"
+  layout: "header, diff, files, flags, components, footer"
   behavior: default
-  require_changes: false
+  require_changes: true
 
 component_management:
   default_rules:
     paths:
       - "packages/*/lib/**"
-      - "!**/*.g.dart"
+      - "!**/stub/**"
+      - "!**/gen/**"
       - "!**/*.freezed.dart"
+      - "!**/*.g.dart"
   individual_components:
     - component_id: flutter_app
       paths:

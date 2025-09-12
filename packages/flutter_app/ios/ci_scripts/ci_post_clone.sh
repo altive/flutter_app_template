@@ -25,12 +25,7 @@ flutter precache --ios
 # Install Flutter dependencies.
 flutter pub get
 
-# Install CocoaPods using Homebrew.
-HOMEBREW_NO_AUTO_UPDATE=1 # disable homebrew's automatic updates.
-brew install cocoapods
-
-# Install CocoaPods dependencies.
-cd ios && pod install # run `pod install` in the `ios` directory.
+# CocoaPods is not used; dependencies are managed via Swift Package Manager.
 
 # The flutterfire command is used in Xcode Build Phases and must be installed in advance.
 dart pub global activate flutterfire_cli
