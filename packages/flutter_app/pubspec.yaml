@@ -47,7 +47,7 @@ dependencies:
   pub_dev_api_client: ^1.0.0
   shared_preferences: ^2.5.3
   simple_logger: ^1.9.0+1
-  slang: ^4.6.0
+  slang: ^4.8.1
   slang_flutter: ^4.3.0
   sort_key_generator: ^0.2.1
   themes: ^1.0.0
