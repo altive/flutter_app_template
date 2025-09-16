@@ -3,7 +3,7 @@ description: Pub.dev API client package
 version: 1.0.0
 
 environment:
-  sdk: ^3.8.0
+  sdk: ^3.9.2
 
 resolution: workspace
 
@@ -16,9 +16,9 @@ dependencies:
   retrofit: ^4.6.0
 
 dev_dependencies:
-  altive_lints: ^1.21.0
+  altive_lints: ^1.23.0
   build_runner: ^2.4.13
-  custom_lint: ^0.7.5
+  custom_lint: ^0.8.0
   freezed: ^3.1.0
   json_serializable: ^6.9.5
   retrofit_generator: ^9.7.0

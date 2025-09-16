@@ -1,3 +1,2 @@
-#include? "Pods/Target Support Files/Pods-Runner/Pods-Runner.release-stg.xcconfig"
 #include "Release.xcconfig"
 #include "stg.xcconfig"

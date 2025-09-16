@@ -38,20 +38,22 @@ class _Body extends HookConsumerWidget {
     final themeSelector = ref.watch(themeSelectorProvider.notifier);
     final currentThemeMode = ref.watch(themeSelectorProvider);
     final t = Translations.of(context);
-    return ListView.builder(
-      padding: const EdgeInsets.symmetric(vertical: 16),
-      itemCount: ThemeMode.values.length,
-      itemBuilder: (_, index) {
-        final themeMode = ThemeMode.values[index];
-        return RadioListTile<ThemeMode>(
-          value: themeMode,
-          groupValue: currentThemeMode,
-          onChanged: (newTheme) async => themeSelector.changeAndSave(newTheme!),
-          title: Text(themeMode.title(t)),
-          subtitle: Text(themeMode.subtitle(t)),
-          secondary: Icon(themeMode.iconData),
-        );
-      },
+    return RadioGroup(
+      groupValue: currentThemeMode,
+      onChanged: (newTheme) async => themeSelector.changeAndSave(newTheme!),
+      child: ListView.builder(
+        padding: const EdgeInsets.symmetric(vertical: 16),
+        itemCount: ThemeMode.values.length,
+        itemBuilder: (_, index) {
+          final themeMode = ThemeMode.values[index];
+          return RadioListTile<ThemeMode>(
+            value: themeMode,
+            title: Text(themeMode.title(t)),
+            subtitle: Text(themeMode.subtitle(t)),
+            secondary: Icon(themeMode.iconData),
+          );
+        },
+      ),
     );
   }
 }

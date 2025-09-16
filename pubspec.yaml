@@ -3,7 +3,7 @@ name: flutter_app_template_workspace
 publish_to: none
 
 environment:
-  sdk: ^3.8.0
+  sdk: ^3.9.2
 
 workspace:
   - packages/convenient_widgets
@@ -14,13 +14,9 @@ workspace:
   - packages/widget_catalog
 
 dev_dependencies:
-  melos: ^7.0.0-dev.8
+  melos: ^7.1.0
 
 dependency_overrides:
-  # https://github.com/dart-lang/sdk/issues/60784
-  analyzer: 7.3.0
-  analyzer_plugin: 0.12.0
-  custom_lint_visitor: 1.0.0+7.3.0
 
 melos:
   name: flutter_app_template
@@ -30,11 +26,16 @@ melos:
     - "packages/*"
 
   command:
+    bootstrap:
+      environment:
+        sdk: ^3.9.2
+      dev_dependencies:
+        altive_lints: ^1.23.0
+        custom_lint: ^0.8.0
     clean:
       hooks:
         post: |
           melos exec --flutter -- "flutter clean"
-          melos exec --flutter --file-exists="ios/Podfile.lock" -- "cd ios && rm Podfile.lock"
     version:
       branch: main
       releaseUrl: true
@@ -133,13 +134,3 @@ melos:
         flutter: true
         dirExists: lib
         dependsOn: "firebase_core"
-
-    pod:
-      exec: |
-        cd ios
-        rm -f Podfile.lock
-        pod install --repo-update
-      description: Run pod install on iOS.
-      packageFilters:
-        dirExists: [lib, ios]
-        fileExists: "ios/Podfile"

@@ -39,9 +39,16 @@ class MainApp extends StatelessWidget {
           ],
         ),
         InspectorAddon(enabled: true),
-        DeviceFrameAddon(
-          initialDevice: Devices.ios.iPhoneSE,
-          devices: [Devices.ios.iPhoneSE, Devices.ios.iPhone13ProMax],
+        ViewportAddon(
+          [
+            const ViewportData(
+              name: 'Smartphone',
+              width: 375,
+              height: 812,
+              pixelRatio: 3,
+              platform: TargetPlatform.iOS,
+            ),
+          ],
         ),
         GridAddon(44),
         AlignmentAddon(),
