@@ -14,7 +14,7 @@ workspace:
   - packages/widget_catalog
 
 dev_dependencies:
-  melos: ^7.1.0
+  melos: ^7.1.1
 
 dependency_overrides:
 

@@ -13,7 +13,7 @@ dependencies:
   json_annotation: ^4.9.0
   mock_web_server: ^5.0.0-nullsafety.1
   mockito: ^5.4.6
-  retrofit: ^4.6.0
+  retrofit: ^4.7.3
 
 dev_dependencies:
   altive_lints: ^1.23.0
