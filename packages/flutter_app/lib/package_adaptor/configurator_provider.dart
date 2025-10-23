@@ -1,4 +1,4 @@
-import 'package:altfire_configurator/altfire_configurator.dart';
+import 'package:configurator/configurator.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 /// Provides a [Configurator] to retrieve parameters using "RemoteConfig".

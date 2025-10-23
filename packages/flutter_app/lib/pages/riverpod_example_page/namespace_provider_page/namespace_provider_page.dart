@@ -1,12 +1,12 @@
-// 例のため、一部の警告を無視しています。
+// For example purposes, some warnings are ignored.
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:hooks_riverpod/legacy.dart';
 // no code generation
 
 // -----------------------------------------------------------------------------
-// 「登録」関連のNotifierProviderをプライベートで定義してコード生成し、
-// `RegistrationProviders` クラスでまとめて公開する例
+// Example of defining registration-related NotifierProviders as private,
+// generating code, and exposing them together in the `Registration` class
 // -----------------------------------------------------------------------------
 class _Nickname extends Notifier<String> {
   @override
@@ -45,8 +45,8 @@ class Registration {
 }
 
 // -----------------------------------------------------------------------------
-// 「お問い合わせ」関連の `StateProvider` をクラス内で定義し、
-// `InquiryProviders` クラスでまとめて公開する例
+// Example of defining inquiry-related `StateProvider` within a class
+// and exposing them together in the `Inquiry` class
 // -----------------------------------------------------------------------------
 
 // This is example.
@@ -60,7 +60,7 @@ class Inquiry {
 }
 
 // -----------------------------------------------------------------------------
-// `Class名.プロバイダ名` で使用する
+// Use with `ClassName.providerName`
 // -----------------------------------------------------------------------------
 
 class NamespaceWidget extends ConsumerWidget {

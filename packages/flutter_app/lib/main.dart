@@ -1,12 +1,12 @@
 import 'dart:isolate';
 
-import 'package:altfire_tracker/altfire_tracker.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:tracker/tracker.dart';
 
 import 'environment/environment.dart';
 import 'gen/strings.g.dart';

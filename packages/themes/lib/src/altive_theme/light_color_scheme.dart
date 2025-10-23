@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 final lightColorScheme = ColorScheme.light(
   // Primary color of the app.
   primary: Colors.teal[900]!,
-  // primaryの上に配置されるコンテンツカラー
+  // Content color placed on top of primary
   onPrimary: Colors.teal[50]!,
-  // primaryよりも強調する必要のない要素に適用されるカラー
+  // Color applied to elements that don't need as much emphasis as primary
   primaryContainer: Colors.teal[400],
-  // primaryContainerの上に配置されるコンテンツカラー
+  // Content color placed on top of primaryContainer
   onPrimaryContainer: Colors.teal[900],
 );

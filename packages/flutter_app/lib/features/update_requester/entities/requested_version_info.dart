@@ -7,13 +7,13 @@ part 'requested_version_info.g.dart';
 @freezed
 abstract class RequestedVersionInfo with _$RequestedVersionInfo {
   const factory RequestedVersionInfo({
-    /// 要求バージョン e.g., '1.0.0'
+    /// Required version e.g., '1.0.0'
     required String requiredVersion,
 
-    /// アップデートをキャンセルして利用可能にするかどうか
+    /// Whether to allow canceling the update and continue using the app
     @Default(false) bool canCancel,
 
-    /// アップデート要求を有強化する日時
+    /// Date and time when the update request becomes effective
     required DateTime enabledAt,
   }) = _RequestedVersionInfo;
 

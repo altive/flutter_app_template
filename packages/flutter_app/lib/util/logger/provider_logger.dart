@@ -4,14 +4,15 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../extension/string_extension.dart';
 
-/// `Provider`イベントの種別
-/// `dart_defines`の`providerLogPrint`にて、このイベントを文字列で指定すると、対応するログが出力される。
+/// Type of `Provider` event.
+/// When this event is specified as a string in `providerLogPrint` of
+/// `dart_defines`, the corresponding log will be output.
 enum _ProviderEvent { add, update, dispose, error }
 
 final class ProviderLogger extends ProviderObserver {
   ProviderLogger() {
     const providerLogPrint = String.fromEnvironment('providerLogPrint');
-    // 空文字の場合は、空配列を設定しログを出力しない。
+    // If empty string, set empty array and do not output logs.
     if (providerLogPrint.isEmpty) {
       outputLogTypes = [];
       return;
@@ -31,7 +32,7 @@ final class ProviderLogger extends ProviderObserver {
     required ProviderObserverContext context,
     Object? value,
   }) {
-    // 指定したイベントのログではない場合は、何もしない。
+    // If it's not a log for the specified event, do nothing.
     if (!outputLogTypes.contains(providerEvent)) {
       return;
     }

@@ -1,0 +1,31 @@
+name: tracker
+description: |
+  Provides a wrapper class for FlutterFire Analytics and Crashlytics packages to simplify its usage.
+version: 1.0.0
+homepage: https://altive.dev
+publish_to: "none"
+
+false_secrets:
+  - example/**
+
+environment:
+  sdk: ^3.9.2
+
+resolution: workspace
+
+dependencies:
+  clock: ^1.1.1
+  collection: ^1.18.0
+  firebase_analytics: ^12.0.0
+  firebase_crashlytics: ^5.0.0
+  firebase_crashlytics_platform_interface: ^3.8.6
+  flutter:
+    sdk: flutter
+  simple_logger: ^1.10.0
+
+dev_dependencies:
+  altive_lints: ^1.23.0
+  custom_lint: ^0.8.0
+  flutter_test:
+    sdk: flutter
+  mocktail: ^1.0.4

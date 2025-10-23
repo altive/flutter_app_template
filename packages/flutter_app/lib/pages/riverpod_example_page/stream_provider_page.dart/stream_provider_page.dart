@@ -6,15 +6,15 @@ import '../../../widgets/widgets.dart';
 
 // Provider example.
 
-/// 従来の記法
-/// 1秒ずつにカウントをインクリメントする。
+/// Traditional syntax
+/// Increment the count every second.
 final StreamProvider<int> countOldSyntaxProvider = StreamProvider.autoDispose((
   ref,
 ) {
   return Stream<int>.periodic(const Duration(seconds: 1), (count) => count);
 });
 
-/// 1秒ずつにカウントをインクリメントする。
+/// Increment the count every second.
 final StreamProvider<int> countProvider = StreamProvider.autoDispose<int>((
   ref,
 ) {
@@ -29,8 +29,9 @@ class StreamProviderPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // doubleCounterProvider を読み取る。
-    // counterProvider の状態が更新されると doubleCounterProvider も変更され、再構築される。
+    // Read doubleCounterProvider.
+    // When the counterProvider state is updated, doubleCounterProvider is
+    // also changed and rebuilt.
     final asyncCount = ref.watch(countProvider);
 
     return Scaffold(
@@ -44,7 +45,7 @@ class StreamProviderPage extends ConsumerWidget {
             children: [
               const DisplaySmallText('Increment with stream:'),
               const Gap(16),
-              // countProvider の値を表示
+              // Display the value of countProvider
               asyncCount.when(
                 loading: () => const Center(child: CircularProgressIndicator()),
                 error: (error, stack) => OutlinedButton(

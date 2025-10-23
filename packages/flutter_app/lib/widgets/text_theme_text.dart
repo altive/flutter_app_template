@@ -2,23 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:themes/themes.dart';
 
 mixin TextThemeText implements Widget {
-  /// 表示する文字列。
+  /// The string to display.
   String get data;
 
-  /// 文字色。
+  /// The text color.
   Color? get color;
 
-  /// 字下げする空白数値。
+  /// The indentation amount in spaces.
   double? get indent;
 
-  /// 最大行数。nullなら無制限。
+  /// The maximum number of lines. Null means unlimited.
   int? get maxLines;
 
-  /// テキストの揃え方。
+  /// The text alignment.
   TextAlign? get textAlign;
 }
 
-/// [TextTheme.displayLarge] の [Text] ウィジェット。
+/// [Text] widget with [TextTheme.displayLarge].
 class DisplayLargeText extends StatelessWidget with TextThemeText {
   const DisplayLargeText(
     this.data, {
@@ -57,7 +57,7 @@ class DisplayLargeText extends StatelessWidget with TextThemeText {
   }
 }
 
-/// [TextTheme.displayMedium] の [Text] ウィジェット。
+/// [Text] widget with [TextTheme.displayMedium].
 class DisplayMediumText extends StatelessWidget with TextThemeText {
   const DisplayMediumText(
     this.data, {
@@ -96,7 +96,7 @@ class DisplayMediumText extends StatelessWidget with TextThemeText {
   }
 }
 
-/// [TextTheme.displaySmall] の [Text] ウィジェット。
+/// [Text] widget with [TextTheme.displaySmall].
 class DisplaySmallText extends StatelessWidget with TextThemeText {
   const DisplaySmallText(
     this.data, {
@@ -135,7 +135,7 @@ class DisplaySmallText extends StatelessWidget with TextThemeText {
   }
 }
 
-/// [TextTheme.headlineLarge] の [Text] ウィジェット。
+/// [Text] widget with [TextTheme.headlineLarge].
 class HeadlineLargeText extends StatelessWidget with TextThemeText {
   const HeadlineLargeText(
     this.data, {
@@ -174,7 +174,7 @@ class HeadlineLargeText extends StatelessWidget with TextThemeText {
   }
 }
 
-/// [TextTheme.headlineMedium] の [Text] ウィジェット。
+/// [Text] widget with [TextTheme.headlineMedium].
 class HeadlineMediumText extends StatelessWidget with TextThemeText {
   const HeadlineMediumText(
     this.data, {
@@ -213,7 +213,7 @@ class HeadlineMediumText extends StatelessWidget with TextThemeText {
   }
 }
 
-/// [TextTheme.headlineSmall] の [Text] ウィジェット。
+/// [Text] widget with [TextTheme.headlineSmall].
 class HeadlineSmallText extends StatelessWidget with TextThemeText {
   const HeadlineSmallText(
     this.data, {
@@ -252,7 +252,7 @@ class HeadlineSmallText extends StatelessWidget with TextThemeText {
   }
 }
 
-/// [TextTheme.titleLarge] の [Text] ウィジェット。
+/// [Text] widget with [TextTheme.titleLarge].
 class TitleLargeText extends StatelessWidget with TextThemeText {
   const TitleLargeText(
     this.data, {
@@ -291,7 +291,7 @@ class TitleLargeText extends StatelessWidget with TextThemeText {
   }
 }
 
-/// [TextTheme.titleMedium] の [Text] ウィジェット。
+/// [Text] widget with [TextTheme.titleMedium].
 class TitleMediumText extends StatelessWidget with TextThemeText {
   const TitleMediumText(
     this.data, {
@@ -330,7 +330,7 @@ class TitleMediumText extends StatelessWidget with TextThemeText {
   }
 }
 
-/// [TextTheme.titleSmall] の [Text] ウィジェット。
+/// [Text] widget with [TextTheme.titleSmall].
 class TitleSmallText extends StatelessWidget with TextThemeText {
   const TitleSmallText(
     this.data, {
@@ -369,7 +369,7 @@ class TitleSmallText extends StatelessWidget with TextThemeText {
   }
 }
 
-/// [TextTheme.bodyLarge] の [Text] ウィジェット。
+/// [Text] widget with [TextTheme.bodyLarge].
 class BodyLargeText extends StatelessWidget with TextThemeText {
   const BodyLargeText(
     this.data, {
@@ -408,7 +408,7 @@ class BodyLargeText extends StatelessWidget with TextThemeText {
   }
 }
 
-/// [TextTheme.bodyMedium] の [Text] ウィジェット。
+/// [Text] widget with [TextTheme.bodyMedium].
 class BodyMediumText extends StatelessWidget with TextThemeText {
   const BodyMediumText(
     this.data, {
@@ -447,7 +447,7 @@ class BodyMediumText extends StatelessWidget with TextThemeText {
   }
 }
 
-/// [TextTheme.bodySmall] の [Text] ウィジェット。
+/// [Text] widget with [TextTheme.bodySmall].
 class BodySmallText extends StatelessWidget with TextThemeText {
   const BodySmallText(
     this.data, {
@@ -486,7 +486,7 @@ class BodySmallText extends StatelessWidget with TextThemeText {
   }
 }
 
-/// [TextTheme.labelLarge] の [Text] ウィジェット。
+/// [Text] widget with [TextTheme.labelLarge].
 class LabelLargeText extends StatelessWidget with TextThemeText {
   const LabelLargeText(
     this.data, {
@@ -525,7 +525,7 @@ class LabelLargeText extends StatelessWidget with TextThemeText {
   }
 }
 
-/// [TextTheme.labelMedium] の [Text] ウィジェット。
+/// [Text] widget with [TextTheme.labelMedium].
 class LabelMediumText extends StatelessWidget with TextThemeText {
   const LabelMediumText(
     this.data, {
@@ -564,7 +564,7 @@ class LabelMediumText extends StatelessWidget with TextThemeText {
   }
 }
 
-/// [TextTheme.labelSmall] の [Text] ウィジェット。
+/// [Text] widget with [TextTheme.labelSmall].
 class LabelSmallText extends StatelessWidget with TextThemeText {
   const LabelSmallText(
     this.data, {

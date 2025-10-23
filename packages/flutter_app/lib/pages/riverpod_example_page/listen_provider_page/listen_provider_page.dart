@@ -17,12 +17,13 @@ class ListenProviderPage extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     useEffect(() {
-      // initStateやuseEffect等、build外から購読したい時は、listenManualを使う。
+      // Use listenManual when you want to subscribe from outside the
+      // build method, such as in initState or useEffect.
       ref.listenManual(
         countStateProvider,
         fireImmediately: true,
         (prev, next) {
-          // Widgetツリーが全体がビルドされた後にダイアログを表示する。
+          // Show the dialog after the entire widget tree has been built.
           WidgetsBinding.instance.addPostFrameCallback((_) async {
             await showDialog<void>(
               context: context,
@@ -34,7 +35,7 @@ class ListenProviderPage extends HookConsumerWidget {
             );
           });
         },
-        // エラーハンドリング（省略可能）
+        // Error handling (optional)
         onError: (error, stackTrace) => logger.warning(error),
       );
       return null;
@@ -42,9 +43,9 @@ class ListenProviderPage extends HookConsumerWidget {
 
     //
     //
-    // build内では、ref.listenを使う。
+    // Inside build, use ref.listen.
     ref.listen(countStateProvider, (previous, next) async {
-      // Counterの数値が偶数になったときにだけダイアログを表示する
+      // Show dialog only when the Counter value becomes even
       if (next.isEven) {
         return;
       }
@@ -58,7 +59,7 @@ class ListenProviderPage extends HookConsumerWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // countStateProviderの状態（カウント数）をTextで表示
+              // Display the state (count) of countStateProvider with Text
               DisplayLargeText('Count: ${ref.watch(countStateProvider)}'),
               const Gap(32),
               FilledButton(

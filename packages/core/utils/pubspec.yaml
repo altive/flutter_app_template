@@ -1,0 +1,27 @@
+name: utils
+description: "Utilities."
+publish_to: "none"
+version: 1.0.0
+homepage:
+
+environment:
+  sdk: ^3.9.2
+
+resolution: workspace
+
+dependencies:
+  clock: ^1.1.1
+  collection: ^1.18.0
+  flutter:
+    sdk: flutter
+  simple_logger: ^1.10.0
+  tracker:
+    path: ../tracker
+
+dev_dependencies:
+  altive_lints: ^1.23.0
+  custom_lint: ^0.8.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
