@@ -1,7 +1,9 @@
-import 'package:altfire_tracker/altfire_tracker.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:tracker/tracker.dart';
 
-/// `altfire_tracker` パッケージの [Tracker] クラスインスタンスを提供する。
+/// Provides an instance of the [Tracker] class
+/// from the `altfire_tracker` package.
 ///
-/// `main.dart` にて、Flutterフレームワークのエラーを記録したいので、ProviderScopeでのオーバーライド前提としている。
+/// Assumes override in ProviderScope to record Flutter framework errors
+/// in `main.dart`.
 final trackerProvider = Provider<Tracker>((ref) => throw UnimplementedError());

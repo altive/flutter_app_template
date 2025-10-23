@@ -1,4 +1,4 @@
-/// ユーザーの使用している実行デバイスの情報。
+/// Information about the user's execution device.
 ///
 /// ```dart
 /// UserDevice device;

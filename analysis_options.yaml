@@ -1,0 +1,18 @@
+include: package:altive_lints/altive_lints.yaml
+
+analyzer:
+  plugins:
+    - custom_lint
+  exclude:
+    - "**/gen/*.dart"
+    - "**/firebase_options_*.dart"
+    - "**/*.g.dart"
+    - "**/*.freezed.dart"
+
+linter:
+  rules:
+
+custom_lint:
+  rules:
+    - avoid_hardcoded_color: false
+    - avoid_hardcoded_japanese: false

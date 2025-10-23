@@ -3,32 +3,37 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 void main() {
-  // 日本時間を想定した日時
+  // Date assuming Japan time
   final date = DateTime(2018, 4, 4);
-  // 日本時間標準時を考慮した時差
+  // Time offset considering Japan Standard Time
   const jstOffset = Duration(hours: 9);
-  // JSTと実行環境によるTimeZoneを考慮し、UTCに変換
+  // Convert to UTC considering JST and execution environment's TimeZone
   final enabledAt = date.subtract(jstOffset).add(date.timeZoneOffset).toUtc();
 
   group('RequestedVersionInfo', () {
     group('fromJson', () {
-      test('同じ値を引数に与えた時、コンストラクタで生成したオブジェクトとfromJsonで生成したオブジェクトが同一', () {
-        final entity = RequestedVersionInfo(
-          requiredVersion: '1.1.0',
-          canCancel: true,
-          enabledAt: enabledAt,
-        );
-        final target = RequestedVersionInfo.fromJson(<String, Object?>{
-          'required_version': '1.1.0',
-          'can_cancel': true,
-          'enabled_at': enabledAt.toIso8601String(),
-        });
-        expect(target.enabledAt.timeZoneName, 'UTC');
-        expect(target, entity);
-      });
+      test(
+        'When given the same values, objects created by constructor and '
+        'fromJson are identical',
+        () {
+          final entity = RequestedVersionInfo(
+            requiredVersion: '1.1.0',
+            canCancel: true,
+            enabledAt: enabledAt,
+          );
+          final target = RequestedVersionInfo.fromJson(<String, Object?>{
+            'required_version': '1.1.0',
+            'can_cancel': true,
+            'enabled_at': enabledAt.toIso8601String(),
+          });
+          expect(target.enabledAt.timeZoneName, 'UTC');
+          expect(target, entity);
+        },
+      );
 
       test(
-        'JSTでenabled_atを指定しても、コンストラクタで生成したオブジェクトとfromJsonで生成したオブジェクトが同一',
+        'Even when enabled_at is specified in JST, objects created by '
+        'constructor and fromJson are identical',
         () {
           final entity = RequestedVersionInfo(
             requiredVersion: '123.999.195',
@@ -44,16 +49,19 @@ void main() {
         },
       );
 
-      test('DateTimeに変換不可能な日付文字列の場合は例外が発生する', () {
-        expect(
-          () => RequestedVersionInfo.fromJson(<String, Object?>{
-            'required_version': '1.0.0',
-            'can_cancel': true,
-            'enabled_at': '2018年4月4日',
-          }),
-          throwsA(isA<CheckedFromJsonException>()),
-        );
-      });
+      test(
+        'Exception is thrown when date string cannot be converted to DateTime',
+        () {
+          expect(
+            () => RequestedVersionInfo.fromJson(<String, Object?>{
+              'required_version': '1.0.0',
+              'can_cancel': true,
+              'enabled_at': '2018年4月4日',
+            }),
+            throwsA(isA<CheckedFromJsonException>()),
+          );
+        },
+      );
     });
   });
 }

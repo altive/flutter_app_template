@@ -17,8 +17,8 @@ class StateProviderPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // Providerを読み取る。 `.notifier` を付けると `StateController` が、
-    // 付けなければ、 `state` つまり int が取得できる。
+    // Read the Provider. With `.notifier` you get `StateController`,
+    // without it you get the `state` (int).
     final counter = ref.watch(counterProvider.notifier);
 
     return Scaffold(
@@ -28,13 +28,13 @@ class StateProviderPage extends ConsumerWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // counterProviderの状態（カウント数）をTextで表示
+              // Display the state (count) of counterProvider with Text
               DisplayLargeText('Count: ${ref.watch(counterProvider)}'),
               const Gap(32),
               ElevatedButton(
-                // ボタンタップでcounterProviderの状態をプラス１する
-                // ↓ `counter.state++` や、
-                // ↓ `counter.state = counter.state + 1` と書いても同じ。
+                // Increment the counterProvider state by 1 on button tap
+                // Same as writing `counter.state++` or
+                // `counter.state = counter.state + 1`.
                 onPressed: () => counter.update((state) => state + 1),
                 child: const Text('Increment'),
               ),

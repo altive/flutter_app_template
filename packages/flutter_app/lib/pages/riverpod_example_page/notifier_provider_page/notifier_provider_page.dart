@@ -11,14 +11,15 @@ final todoListProvider = NotifierProvider<TodoList, List<Todo>>(
 );
 
 // Provider example.
-// `@riverpod` アノテーションを付けて、 `_$クラス名` を継承することで、 `todoListProvider` が生成できる。
-// `ref.watch(todoListProvider)` で `state (List<Todo>)`が取得できる。
-// `ref.watch(todoListProvider.notifier)` で `TodoList (Notifier)` が取得できる
+// By adding the `@riverpod` annotation and extending `_$ClassName`,
+// `todoListProvider` can be generated.
+// `ref.watch(todoListProvider)` gets the `state (List<Todo>)`.
+// `ref.watch(todoListProvider.notifier)` gets the `TodoList (Notifier)`
 class TodoList extends Notifier<List<Todo>> {
   @override
   List<Todo> build() {
     return const [
-      // サンプルのTodoを挿入
+      // Insert sample Todos
       Todo(id: '1', title: 'Buy a coffee'),
       Todo(id: '2', title: 'Buy a milk'),
       Todo(id: '3', title: 'Eat sushi'),
@@ -27,12 +28,12 @@ class TodoList extends Notifier<List<Todo>> {
     ];
   }
 
-  /// 新しいTODOを追加するメソッド
+  /// Method to add a new TODO
   void add(Todo todo) {
     state = [...state, todo];
   }
 
-  /// IDを指定して、TODOを削除するメソッド
+  /// Method to remove a TODO by ID
   void remove(String todoId) {
     state = [
       for (final todo in state)
@@ -40,7 +41,7 @@ class TodoList extends Notifier<List<Todo>> {
     ];
   }
 
-  /// IDを指定して、TODOの完了状態を切り替えるメソッド
+  /// Method to toggle a TODO's completion state by ID
   void toggle(String todoId) {
     state = [
       for (final todo in state)
@@ -60,19 +61,21 @@ class NotifierProviderPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // NotifierProviderを読み取る。watchを使用しているので、
-    // state（状態）であるTODOリストが更新されると、buildメソッドが再実行されて画面が更新される
+    // Read NotifierProvider. Since we use watch,
+    // when the state (TODO list) is updated, the build method is
+    // re-executed and the screen is updated
     final todoList = ref.watch(todoListProvider);
-    // TodoList(Notifier) を使用する場合は `.notifier` を付けて取得する
+    // To use TodoList(Notifier), get it with `.notifier`
     final notifier = ref.watch(todoListProvider.notifier);
 
-    // 新しいTodoを追加する、メソッドを定義
+    // Define a method to add a new Todo
     void addTodo() {
       final newTodo = Todo(
         id: Random().nextDouble().toString(),
         title: clock.now().toIso8601String(),
       );
-      // TodoList(Notifier)に定義したメソッドを使用して、新しいTodoをstateに追加する
+      // Use the method defined in TodoList(Notifier) to add the new Todo to
+      // state.
       notifier.add(newTodo);
     }
 
@@ -80,7 +83,8 @@ class NotifierProviderPage extends ConsumerWidget {
       appBar: AppBar(
         title: const Text(title),
         actions: [
-          // ボタンを押して新しいTodoを追加できる（実際のアプリではTodoのタイトル等を入力できるようにする）
+          // Add a new Todo by pressing the button (in a real app, you
+          // would allow input of the Todo title, etc.)
           IconButton(onPressed: addTodo, icon: const Icon(Icons.add)),
         ],
       ),
@@ -103,7 +107,7 @@ class NotifierProviderPage extends ConsumerWidget {
                   onPressed: () => notifier.remove(todo.id),
                   child: const Text('Delete'),
                 ),
-                // タップでTODOの完了状態を切り替える
+                // Toggle TODO completion state on tap
                 onTap: () => notifier.toggle(todo.id),
               ),
             );

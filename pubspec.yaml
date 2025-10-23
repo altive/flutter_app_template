@@ -7,6 +7,11 @@ environment:
 
 workspace:
   - packages/convenient_widgets
+  - packages/core/authenticator
+  - packages/core/configurator
+  - packages/core/messenger
+  - packages/core/tracker
+  - packages/core/utils
   - packages/flutter_app
   - packages/pub_dev_api_client
   - packages/themes

@@ -9,13 +9,15 @@ void main() {
   late int randomNumber;
 
   setUp(() {
-    // テストごとにランダム値を書き換える
+    // Generate a new random value for each test
     randomNumber = random.nextInt(1000);
   });
 
   group('TimestampConverter', () {
     group('fromJson', () {
-      test('同じ値を引数に与えた時、TimestampからDateTimeへの変換が成功する', () {
+      test(
+        'Successfully converts from Timestamp to DateTime with same value',
+        () {
         final expectDate = DateTime.fromMillisecondsSinceEpoch(randomNumber);
 
         const target = TimestampConverter();
@@ -26,7 +28,9 @@ void main() {
         expect(targetDate, expectDate);
       });
 
-      test('異なる値を引数に与えた時、TimestampからDateTimeへの変換が失敗する', () {
+      test(
+        'Fails to convert from Timestamp to DateTime with different value',
+        () {
         final expectDate = DateTime.fromMillisecondsSinceEpoch(1000);
 
         const target = TimestampConverter();
@@ -39,7 +43,9 @@ void main() {
     });
 
     group('toJson', () {
-      test('同じ値を引数に与えた時、DateTimeからTimestampへの変換が成功する', () {
+      test(
+        'Successfully converts from DateTime to Timestamp with same value',
+        () {
         final expectTimestamp = Timestamp.fromMillisecondsSinceEpoch(
           randomNumber,
         );
@@ -52,7 +58,9 @@ void main() {
         expect(targetTimestamp, expectTimestamp);
       });
 
-      test('異なる値を引数に与えた時、DateTimeからTimestampへの変換が成功する', () {
+      test(
+        'Fails to convert from DateTime to Timestamp with different value',
+        () {
         final expectTimestamp = Timestamp.fromMillisecondsSinceEpoch(1000);
 
         const target = TimestampConverter();

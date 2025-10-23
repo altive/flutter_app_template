@@ -41,7 +41,7 @@ class ThemeDescription extends ThemeExtension<ThemeDescription> {
     );
   }
 
-  /// 中間テキストを生成する
+  /// Generates intermediate text.
   String _genInterimText({
     required String prev,
     required String next,
@@ -57,7 +57,7 @@ class ThemeDescription extends ThemeExtension<ThemeDescription> {
     return '$left$right';
   }
 
-  /// 中間アイコンを生成する
+  /// Generates intermediate icon.
   Icon _genInterimIcon({
     required Icon prev,
     required Icon next,

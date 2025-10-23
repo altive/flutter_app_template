@@ -1,14 +1,14 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-/// 変換対象のTimestampField文字列
+/// Timestamp field strings to be converted.
 class TimestampField {
   static const createdAt = 'created_at';
   static const updatedAt = 'updated_at';
 }
 
 extension MapExt on Map<String, Object?> {
-  /// `createdAt` が null なら `serverTimestamp` を挿入する
-  /// `updatedAt` に `serverTimestamp` を挿入する
+  /// Insert `serverTimestamp` if `createdAt` is null.
+  /// Insert `serverTimestamp` into `updatedAt`.
   Map<String, Object?> suppelementTimestamp() {
     return <String, Object?>{
       ...this,

@@ -11,28 +11,22 @@ environment:
 resolution: workspace
 
 dependencies:
-  altfire_authenticator: ^1.0.0
-  altfire_configurator: ^1.0.1
-  altfire_messenger: ^1.0.0
-  altfire_tracker: ^1.0.0
+  authenticator:
+    path: ../core/authenticator
   awaitable_button: ^1.3.0
   cached_network_image: ^3.4.0
   clock: ^1.1.1
-  cloud_firestore: ^5.6.0
-  collection: ^1.16.0
+  cloud_firestore: ^6.0.3
+  collection: ^1.18.0
+  configurator:
+    path: ../core/configurator
   connectivity_plus: ^6.1.5
   convenient_widgets: ^1.0.0
   cupertino_icons: ^1.0.8
   device_info_plus: ^11.5.0
-  firebase_analytics: ">=11.5.3 <12.0.0"
-  firebase_auth: ^5.6.2
-  firebase_core: ^3.15.0
-  firebase_crashlytics: ^4.3.10
-  firebase_in_app_messaging: ^0.8.1+10
-  firebase_messaging: ^15.2.9
-  firebase_performance: ^0.10.1+9
-  firebase_remote_config: ^5.4.7
-  firebase_storage: ^12.4.9
+  firebase_core: ^4.2.0
+  firebase_performance: ^0.11.1+1
+  firebase_storage: ^13.0.3
   flutter:
     sdk: flutter
   flutter_hooks: ^0.21.3
@@ -48,6 +42,8 @@ dependencies:
   intl: ^0.20.2
   json_annotation: ^4.9.0
   linked_scroll_controller: ^0.2.0
+  messenger:
+    path: ../core/messenger
   package_info_plus: ^8.3.1
   pub_dev_api_client: ^1.0.0
   shared_preferences: ^2.5.3
@@ -56,8 +52,12 @@ dependencies:
   slang_flutter: ^4.3.0
   sort_key_generator: ^0.2.1
   themes: ^1.0.0
+  tracker:
+    path: ../core/tracker
   tuple: ^2.0.0
   url_launcher: ^6.3.2
+  utils:
+    path: ../core/utils
   uuid: ^4.5.1
   version: ^3.0.2
 

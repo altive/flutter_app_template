@@ -12,13 +12,14 @@ final asyncTodoListProvider = AsyncNotifierProvider<AsyncTodoList, List<Todo>>(
 );
 
 // Provider example.
-// `@riverpod` アノテーションを付けて、 `_$クラス名` を継承することで、 `asyncTodoListProvider` が生成できる。
-// `ref.watch(asyncTodoListProvider)` で `state(List<Todo>)`が取得できる。
-// `ref.watch(asyncTodoListProvider.notifier)` で
-// `AsyncTodoList(Notifier)` が取得できる。
+// By adding the `@riverpod` annotation and extending `_$ClassName`,
+// `asyncTodoListProvider` can be generated.
+// `ref.watch(asyncTodoListProvider)` gets the `state(List<Todo>)`.
+// `ref.watch(asyncTodoListProvider.notifier)` gets the
+// `AsyncTodoList(Notifier)`.
 class AsyncTodoList extends AsyncNotifier<List<Todo>> {
   Future<List<Todo>> _fetchTodo() async {
-    // Web API等を通じてTodoリストを取得する処理
+    // Process to fetch Todo list through Web API, etc.
     final r = await ref
         .read(dioProvider)
         .get<List<Map<String, Object?>>>('https://example.com/api/todo');
@@ -33,12 +34,14 @@ class AsyncTodoList extends AsyncNotifier<List<Todo>> {
     return r.data.map(Todo.fromJson).toList();
   }
 
-  /// 新しいTODOを追加するメソッド
+  /// Method to add a new TODO
   Future<void> add(Todo todo) async {
-    // 新しいTODOを追加するメソッド
+    // Method to add a new TODO
     final todos = state.value;
-    state = const AsyncValue.loading(); // 処理完了までの間はローディング状態にしたい場合
-    // AsyncValue.guard: 例外発生時は AsyncErrorを返してくれる（try/catchの代替）
+    // Set to loading state until processing is complete
+    state = const AsyncValue.loading();
+    // AsyncValue.guard: Returns AsyncError if exception occurs
+    // (alternative to try/catch)
     state = await AsyncValue.guard(() async {
       final r = await ref
           .read(dioProvider)
@@ -51,7 +54,7 @@ class AsyncTodoList extends AsyncNotifier<List<Todo>> {
     });
   }
 
-  /// IDを指定して、TODOを削除するメソッド
+  /// Method to remove a TODO by ID
   Future<void> remove(String todoId) async {
     state = const AsyncValue.loading();
     state = await AsyncValue.guard(() async {
@@ -62,7 +65,7 @@ class AsyncTodoList extends AsyncNotifier<List<Todo>> {
     });
   }
 
-  /// IDを指定して、TODOの完了状態を切り替えるメソッド
+  /// Method to toggle a TODO's completion state by ID
   Future<void> toggle(String todoId) async {
     final todo = state.value!.firstWhere((todo) => todo.id == todoId);
     state = const AsyncValue.loading();
@@ -86,19 +89,21 @@ class AsyncNotifierProviderPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // AsyncNotifierProviderを読み取る。watchを使用しているので、
-    // state（状態）であるTODOリストが更新されると、buildメソッドが再実行されて画面が更新される
+    // Read AsyncNotifierProvider. Since we use watch,
+    // when the state (TODO list) is updated, the build method is
+    // re-executed and the screen is updated
     final asyncTodoList = ref.watch(asyncTodoListProvider);
-    // AsyncTodoList(Notifier) を使用する場合は `.notifier` を付けて取得する
+    // To use AsyncTodoList(Notifier), get it with `.notifier`
     final notifier = ref.watch(asyncTodoListProvider.notifier);
 
-    // 新しいTodoを追加する、メソッドを定義
+    // Define a method to add a new Todo
     Future<void> addTodo() async {
       final newTodo = Todo(
         id: Random().nextDouble().toString(),
         title: clock.now().toIso8601String(),
       );
-      // AsyncTodoList(Notifier)に定義したメソッドを使用して、新しいTodoをstateに追加する
+      // Use the method defined in AsyncTodoList(Notifier) to add the
+      // new Todo to state
       await notifier.add(newTodo);
     }
 
@@ -106,7 +111,8 @@ class AsyncNotifierProviderPage extends ConsumerWidget {
       appBar: AppBar(
         title: const Text(title),
         actions: [
-          // ボタンを押して新しいTodoを追加できる（実際のアプリではTodoのタイトル等を入力できるようにする）
+          // Add a new Todo by pressing the button (in a real app, you
+          // would allow input of the Todo title, etc.)
           IconButton(onPressed: addTodo, icon: const Icon(Icons.add)),
         ],
       ),
@@ -133,7 +139,7 @@ class AsyncNotifierProviderPage extends ConsumerWidget {
                       onPressed: () async => notifier.remove(todo.id),
                       child: const Text('Delete'),
                     ),
-                    // タップでTODOの完了状態を切り替える
+                    // Toggle TODO completion state on tap
                     onTap: () async => notifier.toggle(todo.id),
                   ),
                 );
