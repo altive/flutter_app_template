@@ -32,7 +32,7 @@ class HomePage extends StatelessWidget {
                 ),
               ),
               background: const AppCachedNetworkImage(
-                imageUrl: 'https://loremflickr.com/640/480/cats',
+                imageUrl: 'https://placehold.jp/450x450.jpg',
               ),
             ),
           ),

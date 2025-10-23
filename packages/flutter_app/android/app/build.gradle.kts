@@ -48,7 +48,7 @@ android {
     }
 
     defaultConfig {
-        minSdk = 23 // from flutter.minSdkVersion, for Firebase
+        minSdk = flutter.minSdkVersion // from flutter.minSdkVersion, for Firebase
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
         versionName = flutter.versionName
