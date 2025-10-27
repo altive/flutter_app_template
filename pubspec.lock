@@ -1998,18 +1998,18 @@ packages:
     dependency: transitive
     description:
       name: widgetbook
-      sha256: a9d58080174ba5666e8515311b4c952ba02ddcb5cc9d9db244d0aac447988052
+      sha256: "83a58c9b4556debc7b87209a860bd5ab3daaec0786a54189aa5a3fd54bdcb6fb"
       url: "https://pub.dev"
     source: hosted
-    version: "3.14.3"
+    version: "3.18.0"
   widgetbook_annotation:
     dependency: transitive
     description:
       name: widgetbook_annotation
-      sha256: "41662c48c2a0e82cac676a83727203d863621a5f6fb2505395287b8789afdf38"
+      sha256: d29eef40efac4beb51f5e9d3bb6dd800db986f7020822b06b60d27f0299dac49
       url: "https://pub.dev"
     source: hosted
-    version: "3.5.0"
+    version: "3.7.0"
   widgetbook_generator:
     dependency: transitive
     description:
