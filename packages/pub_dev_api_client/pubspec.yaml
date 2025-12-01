@@ -12,14 +12,14 @@ dependencies:
   freezed_annotation: ^3.0.0
   json_annotation: ^4.9.0
   mock_web_server: ^5.0.0-nullsafety.1
-  mockito: ^5.4.6
-  retrofit: ^4.6.0
+  mockito: ^5.6.1
+  retrofit: ^4.9.1
 
 dev_dependencies:
-  altive_lints: ^1.23.0
-  build_runner: ^2.4.13
-  custom_lint: ^0.8.0
-  freezed: ^3.1.0
-  json_serializable: ^6.9.5
-  retrofit_generator: ^9.7.0
-  test: ^1.25.8
+  altive_lints: ^1.25.0
+  build_runner: ^2.10.4
+  custom_lint: ^0.8.1
+  freezed: ^3.2.3
+  json_serializable: ^6.11.2
+  retrofit_generator: ^10.0.6
+  test: ^1.26.3
