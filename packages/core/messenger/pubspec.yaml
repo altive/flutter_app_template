@@ -26,8 +26,8 @@ dependencies:
     path: ../utils
 
 dev_dependencies:
-  altive_lints: ^1.23.0
-  custom_lint: ^0.8.0
+  altive_lints: ^1.25.0
+  custom_lint: ^0.8.1
   firebase_core: ^4.2.0
   firebase_core_platform_interface: ^6.0.0
   flutter_test:

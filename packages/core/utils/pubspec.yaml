@@ -19,8 +19,8 @@ dependencies:
     path: ../tracker
 
 dev_dependencies:
-  altive_lints: ^1.23.0
-  custom_lint: ^0.8.0
+  altive_lints: ^1.25.0
+  custom_lint: ^0.8.1
   flutter_test:
     sdk: flutter
 
