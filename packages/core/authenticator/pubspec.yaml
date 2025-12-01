@@ -15,7 +15,7 @@ dependencies:
   google_sign_in: ^6.3.0
 
 dev_dependencies:
-  altive_lints: ^1.23.0
-  custom_lint: ^0.8.0
+  altive_lints: ^1.25.0
+  custom_lint: ^0.8.1
   flutter_test:
     sdk: flutter
