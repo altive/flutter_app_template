@@ -3,7 +3,7 @@ name: flutter_app_template_workspace
 publish_to: none
 
 environment:
-  sdk: ^3.9.2
+  sdk: ^3.10.0
 
 workspace:
   - packages/convenient_widgets
@@ -19,9 +19,14 @@ workspace:
   - packages/widget_catalog
 
 dev_dependencies:
-  melos: ^7.1.0
+  altive_lints: ^2.0.0-dev.3
+  melos: ^7.3.0
 
 dependency_overrides:
+  # Workaround for retrofit_generator 10.2.0:
+  # https://github.com/trevorwang/retrofit.dart/issues/869
+  analyzer: 8.2.0
+  test_api: 0.7.8
 
 melos:
   name: flutter_app_template
@@ -33,26 +38,14 @@ melos:
   command:
     bootstrap:
       environment:
-        sdk: ^3.9.2
+        sdk: ^3.10.0
       dev_dependencies:
-        altive_lints: ^1.23.0
-        custom_lint: ^0.8.0
-    clean:
-      hooks:
-        post: |
-          melos exec --flutter -- "flutter clean"
+        altive_lints: ^2.0.0-dev.3
     version:
       branch: main
       releaseUrl: true
 
   scripts:
-    custom_lint:
-      exec: dart run custom_lint
-      description: Run custom_lint.
-      packageFilters:
-        dirExists: lib
-        dependsOn: "custom_lint"
-
     # Issue on file exclusion feature: https://github.com/dart-lang/dart_style/issues/864
     # NOTE: Using the `exec:` format causes processing to stop
     format:ci:
@@ -67,8 +60,7 @@ melos:
     fix:
       exec: |
         dart fix --apply lib
-        dart run custom_lint --fix
-      description: Run dart and custom_lint fixes.
+      description: Run dart fixes.
       packageFilters:
         dirExists: lib
 

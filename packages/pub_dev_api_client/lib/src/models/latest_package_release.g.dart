@@ -6,10 +6,10 @@ part of 'latest_package_release.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_LatestPackageRelease _$LatestPackageReleaseFromJson(
+LatestPackageRelease _$LatestPackageReleaseFromJson(
   Map<String, dynamic> json,
-) => $checkedCreate('_LatestPackageRelease', json, ($checkedConvert) {
-  final val = _LatestPackageRelease(
+) => $checkedCreate('LatestPackageRelease', json, ($checkedConvert) {
+  final val = LatestPackageRelease(
     pubspec: $checkedConvert(
       'pubspec',
       (v) => PackagePubspec.fromJson(v as Map<String, dynamic>),
@@ -19,5 +19,5 @@ _LatestPackageRelease _$LatestPackageReleaseFromJson(
 });
 
 Map<String, dynamic> _$LatestPackageReleaseToJson(
-  _LatestPackageRelease instance,
+  LatestPackageRelease instance,
 ) => <String, dynamic>{'pubspec': instance.pubspec.toJson()};

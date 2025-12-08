@@ -12,7 +12,7 @@ class ColorConverter implements JsonConverter<Color, int> {
 
   @override
   // Since it is a Converter, a Color constructor is required.
-  // ignore: avoid_hardcoded_color
+  // ignore: altive_lints/avoid_hardcoded_color
   Color fromJson(int json) => Color(json);
 
   @override

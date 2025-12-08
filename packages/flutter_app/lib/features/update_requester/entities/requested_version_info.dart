@@ -1,22 +1,44 @@
-import 'package:flutter/foundation.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
 
-part 'requested_version_info.freezed.dart';
 part 'requested_version_info.g.dart';
 
-@freezed
-abstract class RequestedVersionInfo with _$RequestedVersionInfo {
-  const factory RequestedVersionInfo({
-    /// Required version e.g., '1.0.0'
-    required String requiredVersion,
-
-    /// Whether to allow canceling the update and continue using the app
-    @Default(false) bool canCancel,
-
-    /// Date and time when the update request becomes effective
-    required DateTime enabledAt,
-  }) = _RequestedVersionInfo;
+@JsonSerializable()
+class RequestedVersionInfo extends Equatable {
+  const RequestedVersionInfo({
+    required this.requiredVersion,
+    this.canCancel = false,
+    required this.enabledAt,
+  });
 
   factory RequestedVersionInfo.fromJson(Map<String, dynamic> json) =>
       _$RequestedVersionInfoFromJson(json);
+
+  /// Required version e.g., '1.0.0'
+  final String requiredVersion;
+
+  /// Whether to allow canceling the update and continue using the app
+  final bool canCancel;
+
+  /// Date and time when the update request becomes effective
+  final DateTime enabledAt;
+
+  /// Convert to JSON.
+  Map<String, dynamic> toJson() => _$RequestedVersionInfoToJson(this);
+
+  /// Create a copy of this instance with the given values.
+  RequestedVersionInfo copyWith({
+    String? requiredVersion,
+    bool? canCancel,
+    DateTime? enabledAt,
+  }) {
+    return RequestedVersionInfo(
+      requiredVersion: requiredVersion ?? this.requiredVersion,
+      canCancel: canCancel ?? this.canCancel,
+      enabledAt: enabledAt ?? this.enabledAt,
+    );
+  }
+
+  @override
+  List<Object?> get props => [requiredVersion, canCancel, enabledAt];
 }
