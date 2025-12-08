@@ -8,7 +8,6 @@ import '../package_adaptor/tracker_provider.dart';
 import '../pages/not_found_page/error_page.dart';
 import '../util/logger.dart';
 import 'app_routes.dart';
-import 'branches/branches.dart';
 
 final routerProvider = Provider<GoRouter>((ref) {
   final tracker = ref.watch(trackerProvider);
@@ -23,7 +22,6 @@ final routerProvider = Provider<GoRouter>((ref) {
       return null;
     },
     errorBuilder: (context, state) => ErrorRoute(
-      location: state.uri.path,
       exception: state.error!,
     ).build(context, state),
     observers: [

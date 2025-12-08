@@ -1,27 +1,30 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
 
 import 'package_name.dart';
 
-part 'get_searched_packages_response_body.freezed.dart';
 part 'get_searched_packages_response_body.g.dart';
 
 /// Response body for the search API.
-@freezed
-abstract class GetSearchedPackagesResponseBody
-    with _$GetSearchedPackagesResponseBody {
+@JsonSerializable()
+class GetSearchedPackagesResponseBody extends Equatable {
   /// Default constructor.
-  const factory GetSearchedPackagesResponseBody({
-    required List<PackageName> packages,
-
-    // e.g. "https://pub.dev/api/search?page=2"
-    @JsonKey(name: 'next') String? nextPageUrl,
-  }) = _GetSearchedPackagesResponseBody;
-
-  const GetSearchedPackagesResponseBody._();
+  const GetSearchedPackagesResponseBody({
+    required this.packages,
+    this.nextPageUrl,
+  });
 
   /// Create an instance from JSON.
   factory GetSearchedPackagesResponseBody.fromJson(Map<String, dynamic> json) =>
       _$GetSearchedPackagesResponseBodyFromJson(json);
+
+  /// List of packages found.
+  final List<PackageName> packages;
+
+  /// URL for the next page of results.
+  // e.g. "https://pub.dev/api/search?page=2"
+  @JsonKey(name: 'next')
+  final String? nextPageUrl;
 
   /// Get the next page number.
   int? get nextPage {
@@ -38,4 +41,22 @@ abstract class GetSearchedPackagesResponseBody
 
     return int.tryParse(page);
   }
+
+  /// Convert to JSON.
+  Map<String, dynamic> toJson() =>
+      _$GetSearchedPackagesResponseBodyToJson(this);
+
+  /// Create a copy of this instance with the given values.
+  GetSearchedPackagesResponseBody copyWith({
+    List<PackageName>? packages,
+    String? nextPageUrl,
+  }) {
+    return GetSearchedPackagesResponseBody(
+      packages: packages ?? this.packages,
+      nextPageUrl: nextPageUrl ?? this.nextPageUrl,
+    );
+  }
+
+  @override
+  List<Object?> get props => [packages, nextPageUrl];
 }

@@ -9,7 +9,8 @@ enum SigningMethod {
   google,
 
   /// Phone number authentication.
-  phone;
+  phone,
+  ;
 
   /// Returns the provider ID corresponding to the authentication method.
   String get providerId {

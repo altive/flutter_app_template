@@ -6,10 +6,6 @@ targets:
         - pubspec.yaml # Package configuration.
         - lib/** # Dart source files.
     builders:
-      freezed:
-        generate_for:
-          include:
-            - lib/**/models/*.dart
       json_serializable:
         generate_for:
           include:
@@ -21,4 +17,4 @@ targets:
       retrofit_generator:
         generate_for:
           include:
-            - lib/**/*_client.dart 
+            - lib/**/*_client.dart

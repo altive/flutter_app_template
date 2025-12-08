@@ -40,7 +40,7 @@ void main() {
             canCancel: true,
             enabledAt: enabledAt,
           );
-          final target = RequestedVersionInfo.fromJson(<String, Object?>{
+          final target = RequestedVersionInfo.fromJson(const <String, Object?>{
             'required_version': '123.999.195',
             'can_cancel': true,
             'enabled_at': '2018-04-04T00:00+09:00',
@@ -53,7 +53,7 @@ void main() {
         'Exception is thrown when date string cannot be converted to DateTime',
         () {
           expect(
-            () => RequestedVersionInfo.fromJson(<String, Object?>{
+            () => RequestedVersionInfo.fromJson(const <String, Object?>{
               'required_version': '1.0.0',
               'can_cancel': true,
               'enabled_at': '2018年4月4日',
@@ -62,6 +62,60 @@ void main() {
           );
         },
       );
+    });
+
+    group('toJson / copyWith', () {
+      test('toJson outputs snake_case keys with ISO date string', () {
+        final entity = RequestedVersionInfo(
+          requiredVersion: '2.0.0',
+          enabledAt: enabledAt,
+        );
+
+        expect(entity.toJson(), {
+          'required_version': '2.0.0',
+          'can_cancel': false,
+          'enabled_at': enabledAt.toIso8601String(),
+        });
+      });
+
+      test('copyWith updates only provided values', () {
+        final entity = RequestedVersionInfo(
+          requiredVersion: '1.0.0',
+          enabledAt: enabledAt,
+        );
+
+        final copied = entity.copyWith(
+          requiredVersion: '1.2.3',
+          canCancel: true,
+        );
+
+        expect(copied.requiredVersion, '1.2.3');
+        expect(copied.canCancel, isTrue);
+        expect(copied.enabledAt, enabledAt);
+      });
+    });
+
+    group('equatable', () {
+      test('props determine equality and inequality', () {
+        final base = RequestedVersionInfo(
+          requiredVersion: '3.0.0',
+          enabledAt: enabledAt,
+        );
+
+        final same = RequestedVersionInfo(
+          requiredVersion: '3.0.0',
+          enabledAt: enabledAt,
+        );
+
+        final different = RequestedVersionInfo(
+          requiredVersion: '3.0.0',
+          canCancel: true,
+          enabledAt: enabledAt,
+        );
+
+        expect(base, equals(same));
+        expect(base == different, isFalse);
+      });
     });
   });
 }

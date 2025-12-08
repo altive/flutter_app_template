@@ -6,10 +6,10 @@ part of 'get_package_details_response_body.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_GetPackageDetailsResponseBody _$GetPackageDetailsResponseBodyFromJson(
+GetPackageDetailsResponseBody _$GetPackageDetailsResponseBodyFromJson(
   Map<String, dynamic> json,
-) => $checkedCreate('_GetPackageDetailsResponseBody', json, ($checkedConvert) {
-  final val = _GetPackageDetailsResponseBody(
+) => $checkedCreate('GetPackageDetailsResponseBody', json, ($checkedConvert) {
+  final val = GetPackageDetailsResponseBody(
     name: $checkedConvert('name', (v) => v as String),
     latest: $checkedConvert(
       'latest',
@@ -20,7 +20,7 @@ _GetPackageDetailsResponseBody _$GetPackageDetailsResponseBodyFromJson(
 });
 
 Map<String, dynamic> _$GetPackageDetailsResponseBodyToJson(
-  _GetPackageDetailsResponseBody instance,
+  GetPackageDetailsResponseBody instance,
 ) => <String, dynamic>{
   'name': instance.name,
   'latest': instance.latest.toJson(),

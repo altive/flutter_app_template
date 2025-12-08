@@ -1,16 +1,30 @@
-import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
 
-part 'package_name.freezed.dart';
 part 'package_name.g.dart';
 
 /// Package name.
-@freezed
-abstract class PackageName with _$PackageName {
+@JsonSerializable()
+class PackageName extends Equatable {
   /// Default constructor.
-  const factory PackageName({@JsonKey(name: 'package') required String name}) =
-      _PackageName;
+  const PackageName({@JsonKey(name: 'package') required this.name});
 
   /// Create an instance from JSON.
   factory PackageName.fromJson(Map<String, dynamic> json) =>
       _$PackageNameFromJson(json);
+
+  /// Package name.
+  @JsonKey(name: 'package')
+  final String name;
+
+  /// Convert to JSON.
+  Map<String, dynamic> toJson() => _$PackageNameToJson(this);
+
+  /// Create a copy of this instance with the given values.
+  PackageName copyWith({String? name}) {
+    return PackageName(name: name ?? this.name);
+  }
+
+  @override
+  List<Object?> get props => [name];
 }

@@ -19,11 +19,6 @@ targets:
             - implicit_dynamic_type
             - implicit_dynamic_method
             - strict_raw_type
-      freezed:
-        generate_for:
-          include:
-            - lib/**/entities/*.dart
-            - lib/**/model/*.dart
       go_router_builder:
         generate_for:
           include:

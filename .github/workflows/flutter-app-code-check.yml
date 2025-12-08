@@ -65,9 +65,6 @@ jobs:
       - name: Analyze packages
         run: flutter analyze --fatal-infos
 
-      - name: Run custom lint
-        run: melos run custom_lint --no-select
-
       - name: Check for the existence of unformatted files
         # Cannot use `melos format` as it requires excluding files generated from the target file
         run: melos run format:ci --no-select

@@ -18,62 +18,52 @@ RouteBase get $mainShellRouteData => StatefulShellRouteData.$route(
         GoRouteData.$route(
           path: '/home',
           name: '/home',
-
-          factory: $HomeRouteDataExtension._fromState,
+          factory: $HomeRouteData._fromState,
           routes: [
             GoRouteData.$route(
               path: 'app-info',
               name: '/app-info',
-
-              factory: $AppInfoRouteDataExtension._fromState,
+              factory: $AppInfoRouteData._fromState,
             ),
             GoRouteData.$route(
               path: 'riverpod',
               name: '/riverpod',
-
-              factory: $RiverpodExampleRouteDataExtension._fromState,
+              factory: $RiverpodExampleRouteData._fromState,
               routes: [
                 GoRouteData.$route(
                   path: 'provider',
                   name: '/provider',
-
-                  factory: $ProviderRouteDataExtension._fromState,
+                  factory: $ProviderRouteData._fromState,
                 ),
                 GoRouteData.$route(
                   path: 'state-provider',
                   name: '/state-provider',
-
-                  factory: $StateProviderRouteDataExtension._fromState,
+                  factory: $StateProviderRouteData._fromState,
                 ),
                 GoRouteData.$route(
                   path: 'stream-provider',
                   name: '/stream-provider',
-
-                  factory: $StreamProviderRouteDataExtension._fromState,
+                  factory: $StreamProviderRouteData._fromState,
                 ),
                 GoRouteData.$route(
                   path: 'notifier-provider',
                   name: '/notifier-provider',
-
-                  factory: $NotifierProviderRouteDataExtension._fromState,
+                  factory: $NotifierProviderRouteData._fromState,
                 ),
                 GoRouteData.$route(
                   path: 'async-notifier-provider',
                   name: '/async-notifier-provider',
-
-                  factory: $AsyncNotifierProviderRouteDataExtension._fromState,
+                  factory: $AsyncNotifierProviderRouteData._fromState,
                 ),
                 GoRouteData.$route(
                   path: 'state-notifier-provider',
                   name: '/state-notifier-provider',
-
-                  factory: $StateNotifierProviderRouteDataExtension._fromState,
+                  factory: $StateNotifierProviderRouteData._fromState,
                 ),
                 GoRouteData.$route(
                   path: 'listen-provider',
                   name: '/listen-provider',
-
-                  factory: $ListenProviderRouteDataExtension._fromState,
+                  factory: $ListenProviderRouteData._fromState,
                 ),
               ],
             ),
@@ -86,8 +76,7 @@ RouteBase get $mainShellRouteData => StatefulShellRouteData.$route(
         GoRouteData.$route(
           path: '/explore',
           name: '/explore',
-
-          factory: $ExploreRouteDataExtension._fromState,
+          factory: $ExploreRouteData._fromState,
         ),
       ],
     ),
@@ -96,8 +85,7 @@ RouteBase get $mainShellRouteData => StatefulShellRouteData.$route(
         GoRouteData.$route(
           path: '/pub_dev_packages',
           name: '/pub_dev_packages',
-
-          factory: $PubDevPackagesRouteDataExtension._fromState,
+          factory: $PubDevPackagesRouteData._fromState,
         ),
       ],
     ),
@@ -106,8 +94,7 @@ RouteBase get $mainShellRouteData => StatefulShellRouteData.$route(
         GoRouteData.$route(
           path: '/dashboard',
           name: '/dashboard',
-
-          factory: $DashboardRouteDataExtension._fromState,
+          factory: $DashboardRouteData._fromState,
         ),
       ],
     ),
@@ -116,20 +103,17 @@ RouteBase get $mainShellRouteData => StatefulShellRouteData.$route(
         GoRouteData.$route(
           path: '/settings',
           name: '/settings',
-
-          factory: $SettingsRouteDataExtension._fromState,
+          factory: $SettingsRouteData._fromState,
           routes: [
             GoRouteData.$route(
               path: 'theme-selection',
               name: '/theme-selection',
-
-              factory: $ThemeSelectionRouteDataExtension._fromState,
+              factory: $ThemeSelectionRouteData._fromState,
             ),
             GoRouteData.$route(
               path: 'account',
               name: '/account',
-
-              factory: $AccountRouteDataExtension._fromState,
+              factory: $AccountRouteData._fromState,
             ),
           ],
         ),
@@ -143,264 +127,342 @@ extension $MainShellRouteDataExtension on MainShellRouteData {
       const MainShellRouteData();
 }
 
-extension $HomeRouteDataExtension on HomeRouteData {
+mixin $HomeRouteData on GoRouteData {
   static HomeRouteData _fromState(GoRouterState state) => const HomeRouteData();
 
+  @override
   String get location => GoRouteData.$location('/home');
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $AppInfoRouteDataExtension on AppInfoRouteData {
+mixin $AppInfoRouteData on GoRouteData {
   static AppInfoRouteData _fromState(GoRouterState state) =>
       const AppInfoRouteData();
 
+  @override
   String get location => GoRouteData.$location('/home/app-info');
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $RiverpodExampleRouteDataExtension on RiverpodExampleRouteData {
+mixin $RiverpodExampleRouteData on GoRouteData {
   static RiverpodExampleRouteData _fromState(GoRouterState state) =>
       const RiverpodExampleRouteData();
 
+  @override
   String get location => GoRouteData.$location('/home/riverpod');
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $ProviderRouteDataExtension on ProviderRouteData {
+mixin $ProviderRouteData on GoRouteData {
   static ProviderRouteData _fromState(GoRouterState state) =>
       const ProviderRouteData();
 
+  @override
   String get location => GoRouteData.$location('/home/riverpod/provider');
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $StateProviderRouteDataExtension on StateProviderRouteData {
+mixin $StateProviderRouteData on GoRouteData {
   static StateProviderRouteData _fromState(GoRouterState state) =>
       const StateProviderRouteData();
 
+  @override
   String get location => GoRouteData.$location('/home/riverpod/state-provider');
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $StreamProviderRouteDataExtension on StreamProviderRouteData {
+mixin $StreamProviderRouteData on GoRouteData {
   static StreamProviderRouteData _fromState(GoRouterState state) =>
       const StreamProviderRouteData();
 
+  @override
   String get location =>
       GoRouteData.$location('/home/riverpod/stream-provider');
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $NotifierProviderRouteDataExtension on NotifierProviderRouteData {
+mixin $NotifierProviderRouteData on GoRouteData {
   static NotifierProviderRouteData _fromState(GoRouterState state) =>
       const NotifierProviderRouteData();
 
+  @override
   String get location =>
       GoRouteData.$location('/home/riverpod/notifier-provider');
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $AsyncNotifierProviderRouteDataExtension
-    on AsyncNotifierProviderRouteData {
+mixin $AsyncNotifierProviderRouteData on GoRouteData {
   static AsyncNotifierProviderRouteData _fromState(GoRouterState state) =>
       const AsyncNotifierProviderRouteData();
 
+  @override
   String get location =>
       GoRouteData.$location('/home/riverpod/async-notifier-provider');
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $StateNotifierProviderRouteDataExtension
-    on StateNotifierProviderRouteData {
+mixin $StateNotifierProviderRouteData on GoRouteData {
   static StateNotifierProviderRouteData _fromState(GoRouterState state) =>
       const StateNotifierProviderRouteData();
 
+  @override
   String get location =>
       GoRouteData.$location('/home/riverpod/state-notifier-provider');
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $ListenProviderRouteDataExtension on ListenProviderRouteData {
+mixin $ListenProviderRouteData on GoRouteData {
   static ListenProviderRouteData _fromState(GoRouterState state) =>
       const ListenProviderRouteData();
 
+  @override
   String get location =>
       GoRouteData.$location('/home/riverpod/listen-provider');
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $ExploreRouteDataExtension on ExploreRouteData {
+mixin $ExploreRouteData on GoRouteData {
   static ExploreRouteData _fromState(GoRouterState state) =>
       const ExploreRouteData();
 
+  @override
   String get location => GoRouteData.$location('/explore');
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $PubDevPackagesRouteDataExtension on PubDevPackagesRouteData {
+mixin $PubDevPackagesRouteData on GoRouteData {
   static PubDevPackagesRouteData _fromState(GoRouterState state) =>
       const PubDevPackagesRouteData();
 
+  @override
   String get location => GoRouteData.$location('/pub_dev_packages');
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $DashboardRouteDataExtension on DashboardRouteData {
+mixin $DashboardRouteData on GoRouteData {
   static DashboardRouteData _fromState(GoRouterState state) =>
       const DashboardRouteData();
 
+  @override
   String get location => GoRouteData.$location('/dashboard');
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $SettingsRouteDataExtension on SettingsRouteData {
+mixin $SettingsRouteData on GoRouteData {
   static SettingsRouteData _fromState(GoRouterState state) =>
       const SettingsRouteData();
 
+  @override
   String get location => GoRouteData.$location('/settings');
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $ThemeSelectionRouteDataExtension on ThemeSelectionRouteData {
+mixin $ThemeSelectionRouteData on GoRouteData {
   static ThemeSelectionRouteData _fromState(GoRouterState state) =>
       const ThemeSelectionRouteData();
 
+  @override
   String get location => GoRouteData.$location('/settings/theme-selection');
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
 
-extension $AccountRouteDataExtension on AccountRouteData {
+mixin $AccountRouteData on GoRouteData {
   static AccountRouteData _fromState(GoRouterState state) =>
       const AccountRouteData();
 
+  @override
   String get location => GoRouteData.$location('/settings/account');
 
+  @override
   void go(BuildContext context) => context.go(location);
 
+  @override
   Future<T?> push<T>(BuildContext context) => context.push<T>(location);
 
+  @override
   void pushReplacement(BuildContext context) =>
       context.pushReplacement(location);
 
+  @override
   void replace(BuildContext context) => context.replace(location);
 }
