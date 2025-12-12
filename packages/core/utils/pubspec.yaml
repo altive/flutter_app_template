@@ -5,7 +5,7 @@ version: 1.0.0
 homepage:
 
 environment:
-  sdk: ^3.10.0
+  sdk: ^3.10.3
 
 resolution: workspace
 
@@ -19,7 +19,7 @@ dependencies:
     path: ../tracker
 
 dev_dependencies:
-  altive_lints: ^2.0.0-dev.3
+  altive_lints: ^2.0.0
   flutter_test:
     sdk: flutter
 

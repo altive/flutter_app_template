@@ -9,7 +9,7 @@ false_secrets:
   - example/**
 
 environment:
-  sdk: ^3.10.0
+  sdk: ^3.10.3
 
 resolution: workspace
 
@@ -26,7 +26,7 @@ dependencies:
     path: ../utils
 
 dev_dependencies:
-  altive_lints: ^2.0.0-dev.3
+  altive_lints: ^2.0.0
   firebase_core: ^4.2.0
   firebase_core_platform_interface: ^6.0.0
   flutter_test:
