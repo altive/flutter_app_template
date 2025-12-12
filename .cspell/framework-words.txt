@@ -27,7 +27,6 @@ leoafarias
 lerp
 ltrb
 LTWH
-mockito
 mocktail
 nonobvious
 nullsafety
