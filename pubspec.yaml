@@ -22,12 +22,6 @@ dev_dependencies:
   melos: ^7.3.0
 
 dependency_overrides:
-  # Workaround for retrofit_generator 10.2.0:
-  # https://github.com/trevorwang/retrofit.dart/issues/869
-  analyzer: 8.2.0
-  # There's a problem with 10.2.1.
-  # https://github.com/trevorwang/retrofit.dart/issues/876
-  retrofit_generator: 10.2.0
   test_api: 0.7.8
 
 melos:
@@ -112,9 +106,8 @@ melos:
       run: flutter test
       exec:
         failFast: true
-      description: Run flutter test.
+      description: Run test packages.
       packageFilters:
-        flutter: true
         dirExists: test
 
     test:ci:
@@ -123,7 +116,6 @@ melos:
         failFast: true
       description: Run flutter test for CI.
       packageFilters:
-        flutter: true
         dirExists: test
 
     flutterfire:update:
