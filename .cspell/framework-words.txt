@@ -13,6 +13,7 @@ cupertino
 dorny
 dotenv
 draggable
+endtemplate
 fastlane
 firestore
 flutterfire

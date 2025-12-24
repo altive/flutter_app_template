@@ -14,7 +14,3 @@ targets:
           checked: true
           explicit_to_json: true
           field_rename: snake
-      retrofit_generator:
-        generate_for:
-          include:
-            - lib/**/*_client.dart

@@ -7,7 +7,7 @@ import 'package:test/test.dart';
 
 void main() {
   PubDevApiClient createClient({required String baseUrl}) {
-    final client = PubDevApiClient.fromParameters(
+    final client = PubDevApiClient(
       baseUrl: baseUrl,
       timeoutDuration: const Duration(milliseconds: 30000),
     );
@@ -27,10 +27,10 @@ void main() {
     return server;
   }
 
-  group('fromParameters', () {
-    test('Ensure that RestApiClient can be instantiated '
-        'using the fromParameters constructor', () {
-      final client = PubDevApiClient.fromParameters(
+  group('PubDevApiClient constructor', () {
+    test('Ensure that PubDevApiClient can be instantiated '
+        'using the default constructor', () {
+      final client = PubDevApiClient(
         baseUrl: 'https://example.com/api-base-url',
         timeoutDuration: const Duration(seconds: 30),
       );
