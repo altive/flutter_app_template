@@ -3,7 +3,7 @@ name: flutter_app_template_workspace
 publish_to: none
 
 environment:
-  sdk: ^3.10.3
+  sdk: ^3.10.4
 
 workspace:
   - packages/convenient_widgets
@@ -19,13 +19,15 @@ workspace:
   - packages/widget_catalog
 
 dev_dependencies:
-  altive_lints: ^2.0.0
   melos: ^7.3.0
 
 dependency_overrides:
   # Workaround for retrofit_generator 10.2.0:
   # https://github.com/trevorwang/retrofit.dart/issues/869
   analyzer: 8.2.0
+  # There's a problem with 10.2.1.
+  # https://github.com/trevorwang/retrofit.dart/issues/876
+  retrofit_generator: 10.2.0
   test_api: 0.7.8
 
 melos:
