@@ -27,9 +27,9 @@ void main() {
     return server;
   }
 
-  group('fromParameters', () {
-    test('Ensure that RestApiClient can be instantiated '
-        'using the fromParameters constructor', () {
+  group('PubDevApiClient constructor', () {
+    test('Ensure that PubDevApiClient can be instantiated '
+        'using the default constructor', () {
       final client = PubDevApiClient(
         baseUrl: 'https://example.com/api-base-url',
         timeoutDuration: const Duration(seconds: 30),

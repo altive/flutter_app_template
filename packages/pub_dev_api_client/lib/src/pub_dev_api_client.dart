@@ -32,14 +32,14 @@ class PubDevApiClient {
       'q': searchWord,
       'sort': sort,
       'page': page,
-    }..removeWhere((_, value) => value == null);
+    };
     final response = await _dio.get<Map<String, dynamic>>(
       '/search',
       queryParameters: queryParameters,
     );
     final data = response.data;
     if (data == null) {
-      throw StateError('Response data is null.');
+      throw StateError('Response data for GET /search is null.');
     }
     return GetSearchedPackagesResponseBody.fromJson(data);
   }
@@ -53,7 +53,7 @@ class PubDevApiClient {
     );
     final data = response.data;
     if (data == null) {
-      throw StateError('Response data is null.');
+      throw StateError('Response data for GET /packages/$packageName is null.');
     }
     return GetPackageDetailsResponseBody.fromJson(data);
   }
