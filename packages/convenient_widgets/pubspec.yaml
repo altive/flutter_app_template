@@ -4,7 +4,7 @@ publish_to: "none"
 version: 1.0.0
 
 environment:
-  sdk: ^3.10.3
+  sdk: ^3.10.4
 
 resolution: workspace
 
@@ -15,7 +15,7 @@ dependencies:
   simple_logger: ^1.8.0+1
 
 dev_dependencies:
-  altive_lints: ^2.0.0
+  altive_lints: ^2.1.0
   build_runner: ^2.4.15
   flutter_gen_runner: ^5.10.0
   flutter_test:

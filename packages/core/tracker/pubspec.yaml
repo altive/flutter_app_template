@@ -9,7 +9,7 @@ false_secrets:
   - example/**
 
 environment:
-  sdk: ^3.10.3
+  sdk: ^3.10.4
 
 resolution: workspace
 
@@ -24,7 +24,7 @@ dependencies:
   simple_logger: ^1.10.0
 
 dev_dependencies:
-  altive_lints: ^2.0.0
+  altive_lints: ^2.1.0
   flutter_test:
     sdk: flutter
   mocktail: ^1.0.4
