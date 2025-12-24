@@ -6,7 +6,7 @@ publish_to: "none"
 version: 1.0.0+32
 
 environment:
-  sdk: ^3.10.3
+  sdk: ^3.10.4
 
 resolution: workspace
 
@@ -62,7 +62,7 @@ dependencies:
   version: ^3.0.2
 
 dev_dependencies:
-  altive_lints: ^2.0.0
+  altive_lints: ^2.1.0
   build_runner: ^2.4.13
   flutter_gen_runner: ^5.10.0
   flutter_launcher_icons: ^0.14.4

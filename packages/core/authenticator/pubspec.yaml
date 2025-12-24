@@ -4,7 +4,7 @@ version: 1.0.0
 resolution: workspace
 
 environment:
-  sdk: ^3.10.3
+  sdk: ^3.10.4
 
 dependencies:
   collection: ^1.18.0
@@ -15,6 +15,6 @@ dependencies:
   google_sign_in: ^6.3.0
 
 dev_dependencies:
-  altive_lints: ^2.0.0
+  altive_lints: ^2.1.0
   flutter_test:
     sdk: flutter
