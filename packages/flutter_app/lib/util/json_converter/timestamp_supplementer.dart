@@ -9,7 +9,7 @@ class TimestampField {
 extension MapExt on Map<String, Object?> {
   /// Insert `serverTimestamp` if `createdAt` is null.
   /// Insert `serverTimestamp` into `updatedAt`.
-  Map<String, Object?> suppelementTimestamp() {
+  Map<String, Object?> supplementTimestamp() {
     return <String, Object?>{
       ...this,
       if (this[TimestampField.createdAt] == null)
