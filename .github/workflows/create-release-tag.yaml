@@ -17,7 +17,7 @@ jobs:
     outputs:
       version: ${{ steps.extract-version.outputs.version }}
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       # Extract the version number from the source branch.
       - name: Extract version
@@ -36,7 +36,7 @@ jobs:
     # Execute when the version extraction job is completed.
     needs: extract-version
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
 
       # Check if the release tag for the version already exists.
       - name: Check if tag exists

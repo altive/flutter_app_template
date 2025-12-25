@@ -319,8 +319,6 @@ void main() {
         channelName: 'Test Channel',
         channelDescription: 'Test Description',
         icon: 'test_icon',
-        // For testing purposes, we use a hardcoded color.
-        // ignore: avoid_hardcoded_color
         color: const Color(0xFF000000),
         id: 1,
         title: 'Test Title',

@@ -1,4 +1,6 @@
 include: ../../analysis_options.yaml
-custom_lint:
-  rules:
-    - avoid_hardcoded_color: false
+plugins:
+  altive_lints:
+    version: ^2.0.0
+    diagnostics:
+      avoid_hardcoded_color: false

@@ -13,6 +13,7 @@ cupertino
 dorny
 dotenv
 draggable
+endtemplate
 fastlane
 firestore
 flutterfire
@@ -27,7 +28,6 @@ leoafarias
 lerp
 ltrb
 LTWH
-mockito
 mocktail
 nonobvious
 nullsafety

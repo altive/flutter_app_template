@@ -8,9 +8,9 @@ part of 'todo.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_Todo _$TodoFromJson(Map<String, dynamic> json) =>
-    $checkedCreate('_Todo', json, ($checkedConvert) {
-      final val = _Todo(
+Todo _$TodoFromJson(Map<String, dynamic> json) =>
+    $checkedCreate('Todo', json, ($checkedConvert) {
+      final val = Todo(
         id: $checkedConvert('id', (v) => v as String),
         title: $checkedConvert('title', (v) => v as String),
         completed: $checkedConvert('completed', (v) => v as bool? ?? false),
@@ -18,7 +18,7 @@ _Todo _$TodoFromJson(Map<String, dynamic> json) =>
       return val;
     });
 
-Map<String, dynamic> _$TodoToJson(_Todo instance) => <String, dynamic>{
+Map<String, dynamic> _$TodoToJson(Todo instance) => <String, dynamic>{
   'id': instance.id,
   'title': instance.title,
   'completed': instance.completed,

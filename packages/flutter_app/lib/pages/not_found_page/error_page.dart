@@ -10,10 +10,7 @@ import '../../widgets/widgets.dart';
 /// A route for error.
 class ErrorRoute extends GoRouteData {
   /// Creates a new instance of [ErrorRoute].
-  const ErrorRoute({required this.location, required this.exception});
-
-  /// Location of the route.
-  final String location;
+  const ErrorRoute({required this.exception});
 
   /// Exception.
   final Exception exception;

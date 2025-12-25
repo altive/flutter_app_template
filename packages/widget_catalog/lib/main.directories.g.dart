@@ -10,44 +10,59 @@
 // **************************************************************************
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:widget_catalog/widgets/apple_auth_button.dart' as _i2;
-import 'package:widget_catalog/widgets/bubble_border.dart' as _i4;
-import 'package:widget_catalog/widgets/google_auth_button.dart' as _i3;
-import 'package:widgetbook/widgetbook.dart' as _i1;
+import 'package:widget_catalog/widgets/apple_auth_button.dart'
+    as _widget_catalog_widgets_apple_auth_button;
+import 'package:widget_catalog/widgets/bubble_border.dart'
+    as _widget_catalog_widgets_bubble_border;
+import 'package:widget_catalog/widgets/google_auth_button.dart'
+    as _widget_catalog_widgets_google_auth_button;
+import 'package:widgetbook/widgetbook.dart' as _widgetbook;
 
-final directories = <_i1.WidgetbookNode>[
-  _i1.WidgetbookCategory(
+final directories = <_widgetbook.WidgetbookNode>[
+  _widgetbook.WidgetbookCategory(
     name: 'Interactions',
     children: [
-      _i1.WidgetbookFolder(
+      _widgetbook.WidgetbookFolder(
         name: 'buttons',
         children: [
-          _i1.WidgetbookLeafComponent(
+          _widgetbook.WidgetbookComponent(
             name: 'AppleAuthButton',
-            useCase: _i1.WidgetbookUseCase(
-              name: 'Default',
-              builder: _i2.appleAuthButton,
-            ),
+            useCases: [
+              _widgetbook.WidgetbookUseCase(
+                name: 'Default',
+                builder:
+                    _widget_catalog_widgets_apple_auth_button.appleAuthButton,
+              ),
+            ],
           ),
-          _i1.WidgetbookLeafComponent(
+          _widgetbook.WidgetbookComponent(
             name: 'GoogleAuthButton',
-            useCase: _i1.WidgetbookUseCase(
-              name: 'Default',
-              builder: _i3.googleAuthButton,
-            ),
+            useCases: [
+              _widgetbook.WidgetbookUseCase(
+                name: 'Default',
+                builder:
+                    _widget_catalog_widgets_google_auth_button.googleAuthButton,
+              ),
+            ],
           ),
         ],
       ),
     ],
   ),
-  _i1.WidgetbookFolder(
+  _widgetbook.WidgetbookFolder(
     name: 'painting',
     children: [
-      _i1.WidgetbookComponent(
+      _widgetbook.WidgetbookComponent(
         name: 'ShapeDecoration',
         useCases: [
-          _i1.WidgetbookUseCase(name: 'Left', builder: _i4.leftBubbleBorder),
-          _i1.WidgetbookUseCase(name: 'Right', builder: _i4.rightBubbleBorder),
+          _widgetbook.WidgetbookUseCase(
+            name: 'Left',
+            builder: _widget_catalog_widgets_bubble_border.leftBubbleBorder,
+          ),
+          _widgetbook.WidgetbookUseCase(
+            name: 'Right',
+            builder: _widget_catalog_widgets_bubble_border.rightBubbleBorder,
+          ),
         ],
       ),
     ],

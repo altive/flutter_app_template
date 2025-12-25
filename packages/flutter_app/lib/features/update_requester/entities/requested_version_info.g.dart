@@ -8,13 +8,13 @@ part of 'requested_version_info.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_RequestedVersionInfo _$RequestedVersionInfoFromJson(
+RequestedVersionInfo _$RequestedVersionInfoFromJson(
   Map<String, dynamic> json,
 ) => $checkedCreate(
-  '_RequestedVersionInfo',
+  'RequestedVersionInfo',
   json,
   ($checkedConvert) {
-    final val = _RequestedVersionInfo(
+    final val = RequestedVersionInfo(
       requiredVersion: $checkedConvert('required_version', (v) => v as String),
       canCancel: $checkedConvert('can_cancel', (v) => v as bool? ?? false),
       enabledAt: $checkedConvert(
@@ -32,7 +32,7 @@ _RequestedVersionInfo _$RequestedVersionInfoFromJson(
 );
 
 Map<String, dynamic> _$RequestedVersionInfoToJson(
-  _RequestedVersionInfo instance,
+  RequestedVersionInfo instance,
 ) => <String, dynamic>{
   'required_version': instance.requiredVersion,
   'can_cancel': instance.canCancel,

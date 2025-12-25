@@ -18,58 +18,62 @@ void main() {
       test(
         'Successfully converts from Timestamp to DateTime with same value',
         () {
-        final expectDate = DateTime.fromMillisecondsSinceEpoch(randomNumber);
+          final expectDate = DateTime.fromMillisecondsSinceEpoch(randomNumber);
 
-        const target = TimestampConverter();
-        final targetDate = target.fromJson(
-          Timestamp.fromMillisecondsSinceEpoch(randomNumber),
-        );
+          const target = TimestampConverter();
+          final targetDate = target.fromJson(
+            Timestamp.fromMillisecondsSinceEpoch(randomNumber),
+          );
 
-        expect(targetDate, expectDate);
-      });
+          expect(targetDate, expectDate);
+        },
+      );
 
       test(
         'Fails to convert from Timestamp to DateTime with different value',
         () {
-        final expectDate = DateTime.fromMillisecondsSinceEpoch(1000);
+          final expectDate = DateTime.fromMillisecondsSinceEpoch(1000);
 
-        const target = TimestampConverter();
-        final targetDate = target.fromJson(
-          Timestamp.fromMillisecondsSinceEpoch(999),
-        );
+          const target = TimestampConverter();
+          final targetDate = target.fromJson(
+            Timestamp.fromMillisecondsSinceEpoch(999),
+          );
 
-        expect(targetDate, isNot(expectDate));
-      });
+          expect(targetDate, isNot(expectDate));
+        },
+      );
     });
 
     group('toJson', () {
       test(
         'Successfully converts from DateTime to Timestamp with same value',
         () {
-        final expectTimestamp = Timestamp.fromMillisecondsSinceEpoch(
-          randomNumber,
-        );
+          final expectTimestamp = Timestamp.fromMillisecondsSinceEpoch(
+            randomNumber,
+          );
 
-        const target = TimestampConverter();
-        final targetTimestamp = target.toJson(
-          DateTime.fromMillisecondsSinceEpoch(randomNumber),
-        );
+          const target = TimestampConverter();
+          final targetTimestamp = target.toJson(
+            DateTime.fromMillisecondsSinceEpoch(randomNumber),
+          );
 
-        expect(targetTimestamp, expectTimestamp);
-      });
+          expect(targetTimestamp, expectTimestamp);
+        },
+      );
 
       test(
         'Fails to convert from DateTime to Timestamp with different value',
         () {
-        final expectTimestamp = Timestamp.fromMillisecondsSinceEpoch(1000);
+          final expectTimestamp = Timestamp.fromMillisecondsSinceEpoch(1000);
 
-        const target = TimestampConverter();
-        final targetTimestamp = target.toJson(
-          DateTime.fromMillisecondsSinceEpoch(999),
-        );
+          const target = TimestampConverter();
+          final targetTimestamp = target.toJson(
+            DateTime.fromMillisecondsSinceEpoch(999),
+          );
 
-        expect(targetTimestamp, isNot(expectTimestamp));
-      });
+          expect(targetTimestamp, isNot(expectTimestamp));
+        },
+      );
     });
   });
 }

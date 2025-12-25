@@ -6,13 +6,13 @@ part of 'package_name.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_PackageName _$PackageNameFromJson(Map<String, dynamic> json) =>
-    $checkedCreate('_PackageName', json, ($checkedConvert) {
-      final val = _PackageName(
+PackageName _$PackageNameFromJson(Map<String, dynamic> json) =>
+    $checkedCreate('PackageName', json, ($checkedConvert) {
+      final val = PackageName(
         name: $checkedConvert('package', (v) => v as String),
       );
       return val;
     }, fieldKeyMap: const {'name': 'package'});
 
-Map<String, dynamic> _$PackageNameToJson(_PackageName instance) =>
+Map<String, dynamic> _$PackageNameToJson(PackageName instance) =>
     <String, dynamic>{'package': instance.name};
