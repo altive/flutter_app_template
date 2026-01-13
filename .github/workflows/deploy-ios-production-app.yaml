@@ -9,8 +9,7 @@ on:
 
 jobs:
   deploy:
-    # macos-latest Specify macos-13 because an error occurs during archiving if it is macos-latest.
-    runs-on: macos-13
+    runs-on: macos-26
     timeout-minutes: 40
     if: github.event_name == 'workflow_dispatch' || (github.event.pull_request.merged == true && contains(github.head_ref, 'release/'))
     env:
