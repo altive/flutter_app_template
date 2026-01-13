@@ -1,4 +1,7 @@
 {
+  "cSpell.ignorePaths": [
+    "**/.pub-cache"
+  ],
   "[dart]": {
     "editor.selectionHighlight": false,
     "editor.suggest.snippetsPreventQuickSuggestions": false,
