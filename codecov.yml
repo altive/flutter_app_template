@@ -35,7 +35,6 @@ parsers:
 ignore:
   - "**/gen/**"
   - "**/stub/**"
-  - "**/*.freezed.dart"
   - "**/*.g.dart"
 
 comment: # See: https://docs.codecov.io/docs/pull-request-comments
@@ -49,7 +48,6 @@ component_management:
       - "packages/*/lib/**"
       - "!**/stub/**"
       - "!**/gen/**"
-      - "!**/*.freezed.dart"
       - "!**/*.g.dart"
   individual_components:
     - component_id: flutter_app

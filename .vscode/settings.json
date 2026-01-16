@@ -16,7 +16,7 @@
     }
   },
   "dart.flutterGenerateLocalizationsOnSave": "all",
-  "dart.flutterSdkPath": ".fvm/versions/3.38.5",
+  "dart.flutterSdkPath": ".fvm/versions/3.38.7",
   "dart.debugExternalPackageLibraries": false,
   "dart.debugSdkLibraries": false,
   "dart.experimentalRefactors": true,
@@ -44,7 +44,7 @@
     ".env.sample": ".env*",
     ".gitignore": ".gitattributes, .gitmodules, .gitmessage, .mailmap, .git-blame*",
     "readme.*": "authors, backers.md, changelog*, citation*, code_of_conduct.md, codeowners, contributing.md, contributors, copying, credits, governance.md, history.md, license*, maintainers, readme*, security.md, sponsors.md",
-    "*.dart": "$(capture).g.dart, $(capture).freezed.dart, $(capture).mocks.dart"
+    "*.dart": "$(capture).g.dart, $(capture).mocks.dart"
   },
   "files.associations": {
     "*.apns": "json"
@@ -57,7 +57,6 @@
   "git.enableSmartCommit": true,
   "search.exclude": {
     "**/*.dart_tool": true,
-    "**/*.freezed.dart": true,
     "**/*.g.dart": true,
     "**/*.log": true,
     "**/*.symlinks": true,
