@@ -3,7 +3,7 @@ name: flutter_app_template_workspace
 publish_to: none
 
 environment:
-  sdk: ^3.10.4
+  sdk: ^3.10.7
 
 workspace:
   - packages/convenient_widgets
@@ -34,7 +34,7 @@ melos:
   command:
     bootstrap:
       environment:
-        sdk: ^3.10.4
+        sdk: ^3.10.7
       dev_dependencies:
         altive_lints: ^2.1.0
     version:
@@ -47,7 +47,7 @@ melos:
     format:ci:
       run: |
         melos exec -- \
-          dart format --set-exit-if-changed $(find . -name "*.dart" -not \( -name "*.*freezed.dart" -o -name "*.*g.dart" -o -name "*.gen.dart" -o -wholename "./.dart_tool/*" \) )
+          dart format --set-exit-if-changed $(find . -name "*.dart" -not \( -name "*.*g.dart" -o -name "*.gen.dart" -o -wholename "./.dart_tool/*" \) )
       description: Run format.
       packageFilters:
         flutter: true

@@ -3,7 +3,7 @@ description: Pub.dev API client package
 version: 1.0.0
 
 environment:
-  sdk: ^3.10.4
+  sdk: ^3.10.7
 
 resolution: workspace
 

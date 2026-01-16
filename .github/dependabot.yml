@@ -18,13 +18,6 @@ updates:
       riverpod-dependencies:
         patterns:
           - "*riverpod*"
-          - "build_runner"
-      freezed-dependencies:
-        patterns:
-          - "build_runner"
-          - "freezed*"
-          - "json_annotation"
-          - "json_serializable"
       slang-dependencies:
         patterns:
           - "build_runner"

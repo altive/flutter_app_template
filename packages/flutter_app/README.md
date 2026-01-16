@@ -26,7 +26,7 @@
 - [Riverpod](https://riverpod.dev/)
 
 ### Code Generation
-- [freezed](https://pub.dev/packages/freezed)
+- [build_runner](https://pub.dev/packages/build_runner)
 - [json_serializable](https://pub.dev/packages/json_serializable)
 
 ### Hooks
