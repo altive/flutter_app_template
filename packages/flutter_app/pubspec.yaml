@@ -24,21 +24,21 @@ dependencies:
   convenient_widgets: ^1.0.0
   cupertino_icons: ^1.0.8
   device_info_plus: ^11.5.0
-  equatable: ^2.0.7
+  equatable: ^2.0.8
   firebase_core: ^4.2.0
   firebase_performance: ^0.11.1+1
-  firebase_storage: ^13.0.3
+  firebase_storage: ^13.0.6
   flutter:
     sdk: flutter
   flutter_hooks: ^0.21.3
   flutter_localizations:
     sdk: flutter
-  flutter_svg: ^2.2.1
+  flutter_svg: ^2.2.3
   gap: ^3.0.1
   go_router: ^17.0.0
   google_sign_in: ^6.3.0
   hooks_riverpod: ^3.0.0
-  image_picker: ^1.2.0
+  image_picker: ^1.2.1
   intl: ^0.20.2
   json_annotation: ^4.9.0
   linked_scroll_controller: ^0.2.0
@@ -46,7 +46,7 @@ dependencies:
     path: ../core/messenger
   package_info_plus: ^8.3.1
   pub_dev_api_client: ^1.0.0
-  shared_preferences: ^2.5.3
+  shared_preferences: ^2.5.4
   simple_logger: ^1.9.0+1
   slang: ^4.11.1
   slang_flutter: ^4.11.0
@@ -58,7 +58,7 @@ dependencies:
   url_launcher: ^6.3.2
   utils:
     path: ../core/utils
-  uuid: ^4.5.1
+  uuid: ^4.5.2
   version: ^3.0.2
 
 dev_dependencies:

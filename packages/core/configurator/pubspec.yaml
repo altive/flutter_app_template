@@ -15,7 +15,7 @@ resolution: workspace
 dependencies:
   clock: ^1.1.1
   collection: ^1.18.0
-  firebase_remote_config: ^6.1.0
+  firebase_remote_config: ^6.1.4
   flutter:
     sdk: flutter
   meta: ^1.12.0

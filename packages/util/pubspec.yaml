@@ -14,7 +14,7 @@ dependencies:
   flutter:
     sdk: flutter
   json_annotation: ^4.9.0
-  shared_preferences: ^2.5.3
+  shared_preferences: ^2.5.4
 
 dev_dependencies:
   altive_lints: ^2.1.0
