@@ -48,7 +48,7 @@ dependencies:
   pub_dev_api_client: ^1.0.0
   shared_preferences: ^2.5.3
   simple_logger: ^1.9.0+1
-  slang: ^4.11.1
+  slang: ^4.12.1
   slang_flutter: ^4.11.0
   sort_key_generator: ^0.2.1
   themes: ^1.0.0
@@ -63,7 +63,7 @@ dependencies:
 
 dev_dependencies:
   altive_lints: ^2.1.0
-  build_runner: ^2.4.13
+  build_runner: ^2.11.1
   flutter_gen_runner: ^5.10.0
   flutter_launcher_icons: ^0.14.4
   flutter_test:
