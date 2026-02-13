@@ -2,10 +2,9 @@ name: utils
 description: "Utilities."
 publish_to: "none"
 version: 1.0.0
-homepage:
 
 environment:
-  sdk: ^3.10.7
+  sdk: ^3.11.0
 
 resolution: workspace
 
@@ -22,5 +21,3 @@ dev_dependencies:
   altive_lints: ^2.1.0
   flutter_test:
     sdk: flutter
-
-flutter:
