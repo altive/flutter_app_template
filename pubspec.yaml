@@ -3,23 +3,16 @@ name: flutter_app_template_workspace
 publish_to: none
 
 environment:
-  sdk: ^3.10.7
+  sdk: ^3.11.0
 
 workspace:
-  - packages/convenient_widgets
-  - packages/core/authenticator
-  - packages/core/configurator
-  - packages/core/messenger
-  - packages/core/tracker
-  - packages/core/utils
-  - packages/flutter_app
-  - packages/pub_dev_api_client
-  - packages/themes
-  - packages/util
-  - packages/widget_catalog
+  # ignore: path_does_not_exist
+  - packages/*
+  # ignore: path_does_not_exist
+  - packages/core/*
 
 dev_dependencies:
-  melos: ^7.3.0
+  melos: ^7.4.0
 
 dependency_overrides:
   test_api: 0.7.8
@@ -30,16 +23,6 @@ melos:
 
   packages:
     - "packages/*"
-
-  command:
-    bootstrap:
-      environment:
-        sdk: ^3.10.7
-      dev_dependencies:
-        altive_lints: ^2.1.0
-    version:
-      branch: main
-      releaseUrl: true
 
   scripts:
     # Issue on file exclusion feature: https://github.com/dart-lang/dart_style/issues/864

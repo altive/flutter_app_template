@@ -68,13 +68,13 @@ final class Failure<T> extends Result<T> {
 extension ResultExtension<T> on Result<T> {
   /// Get the data when successful (null when failed)
   T? get dataOrNull => switch (this) {
-    Success(data: final data) => data,
+    Success(:final data) => data,
     _ => null,
   };
 
   /// Get the error (null when successful)
   AppError? get errorOrNull => switch (this) {
-    Failure(appError: final appError) => appError,
+    Failure(:final appError) => appError,
     _ => null,
   };
 
@@ -86,15 +86,17 @@ extension ResultExtension<T> on Result<T> {
 
   /// Get the data when successful (throw exception when failed)
   T get requireData => switch (this) {
-    Success(data: final data) => data,
-    Failure(appError: final appError, stackTrace: final stackTrace) =>
-      Error.throwWithStackTrace(appError, stackTrace ?? StackTrace.current),
+    Success(:final data) => data,
+    Failure(:final appError, :final stackTrace) => Error.throwWithStackTrace(
+      appError,
+      stackTrace ?? StackTrace.current,
+    ),
   };
 
   /// Execute the success callback
   Result<U> map<U>(U Function(T data) mapper) => switch (this) {
-    Success(data: final data) => Success(mapper(data)),
-    Failure(appError: final appError, stackTrace: final stackTrace) => Failure(
+    Success(:final data) => Success(mapper(data)),
+    Failure(:final appError, :final stackTrace) => Failure(
       appError,
       stackTrace,
     ),
@@ -104,8 +106,8 @@ extension ResultExtension<T> on Result<T> {
   Future<Result<U>> mapAsync<U>(
     Future<U> Function(T data) mapper,
   ) async => switch (this) {
-    Success(data: final data) => Success(await mapper(data)),
-    Failure(appError: final appError, stackTrace: final stackTrace) => Failure(
+    Success(:final data) => Success(await mapper(data)),
+    Failure(:final appError, :final stackTrace) => Failure(
       appError,
       stackTrace,
     ),
@@ -114,7 +116,7 @@ extension ResultExtension<T> on Result<T> {
   /// Execute the failure callback
   Result<T> catchError(T Function(AppError appError) handler) => switch (this) {
     Success() => this,
-    Failure(appError: final appError) => Success(handler(appError)),
+    Failure(:final appError) => Success(handler(appError)),
   };
 
   /// Implementation of when for pattern matching
@@ -122,8 +124,8 @@ extension ResultExtension<T> on Result<T> {
     required U Function(T data) success,
     required U Function(AppError appError, StackTrace? stackTrace) failure,
   }) => switch (this) {
-    Success(data: final data) => success(data),
-    Failure(appError: final appError, stackTrace: final stackTrace) => failure(
+    Success(:final data) => success(data),
+    Failure(:final appError, :final stackTrace) => failure(
       appError,
       stackTrace,
     ),
@@ -135,8 +137,8 @@ extension ResultExtension<T> on Result<T> {
     U Function(AppError appError, StackTrace? stackTrace)? failure,
     required U Function() orElse,
   }) => switch (this) {
-    Success(data: final data) => success?.call(data) ?? orElse(),
-    Failure(appError: final appError, stackTrace: final stackTrace) =>
+    Success(:final data) => success?.call(data) ?? orElse(),
+    Failure(:final appError, :final stackTrace) =>
       failure?.call(appError, stackTrace) ?? orElse(),
   };
 }
