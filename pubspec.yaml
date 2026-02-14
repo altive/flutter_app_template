@@ -6,7 +6,9 @@ environment:
   sdk: ^3.11.0
 
 workspace:
+  # ignore: path_does_not_exist
   - packages/*
+  # ignore: path_does_not_exist
   - packages/core/*
 
 dev_dependencies:
